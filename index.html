@@ -24,7 +24,7 @@
 
             <!-- Skill -->
             <div class="setup-section">
-                <h3>Skill</h3>
+                <h3>Skill — Craft &amp; Structure</h3>
                 <label>
                     <input type="checkbox" name="skill" value="Words in Context" checked>
                     <span>Words in Context</span>
@@ -39,6 +39,20 @@
                     <input type="checkbox" name="skill" value="Cross-Text Connections">
                     <span>Cross-Text Connections</span>
                     <span class="q-count" id="count-ctx">—</span>
+                </label>
+            </div>
+
+            <div class="setup-section">
+                <h3>Skill — Expression of Ideas</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Rhetorical Synthesis">
+                    <span>Rhetorical Synthesis</span>
+                    <span class="q-count" id="count-rhs">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Transitions">
+                    <span>Transitions</span>
+                    <span class="q-count" id="count-trans">—</span>
                 </label>
             </div>
 
@@ -106,15 +120,77 @@
                         data-diffs="Easy"
                         data-limit="0">Cross-Text · Easy</button>
                     <button class="preset-btn"
-                        data-skills="Words in Context,Text Structure and Purpose,Cross-Text Connections"
+                        data-skills="Rhetorical Synthesis"
+                        data-diffs="Easy"
+                        data-limit="0">RS · Easy</button>
+                    <button class="preset-btn"
+                        data-skills="Rhetorical Synthesis"
+                        data-diffs="Easy,Medium"
+                        data-limit="0">RS · E + M</button>
+                    <button class="preset-btn"
+                        data-skills="Transitions"
+                        data-diffs="Easy"
+                        data-limit="0">Trans · Easy</button>
+                    <button class="preset-btn"
+                        data-skills="Transitions"
+                        data-diffs="Easy,Medium"
+                        data-limit="0">Trans · E + M</button>
+                    <button class="preset-btn"
+                        data-skills="Rhetorical Synthesis,Transitions"
                         data-diffs="Easy,Medium,Hard"
-                        data-limit="27">Full Module</button>
+                        data-limit="15">Phase 2 Mix</button>
+                    <button class="preset-btn"
+                        data-skills="Words in Context,Text Structure and Purpose,Cross-Text Connections,Rhetorical Synthesis,Transitions"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="54">Full Module (54)</button>
+                </div>
+            </div>
+
+            <!-- Resume Banner -->
+            <div id="resumeBanner" class="resume-banner" style="display:none">
+                <span id="resumeInfo" class="resume-info"></span>
+                <div class="resume-actions">
+                    <button id="resumeBtn" class="btn btn-primary">Resume</button>
+                    <button id="discardBtn" class="btn">Discard</button>
                 </div>
             </div>
 
             <div class="session-summary" id="sessionSummary">Select skills and difficulty to begin.</div>
 
             <button id="startSessionBtn" class="btn btn-primary setup-start-btn" disabled>Start Session</button>
+
+            <!-- Session History -->
+            <div class="history-section">
+                <div class="history-header" id="historyToggle">
+                    Recent Sessions <span id="historyChevron">▸</span>
+                </div>
+                <div id="historyList" style="display:none"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Completion Screen ─────────────────────────────────────── -->
+    <div id="completionScreen" style="display:none" class="completion-screen">
+        <div class="completion-card">
+            <div class="completion-header">
+                <h2>Session Complete</h2>
+                <div class="completion-score-row">
+                    <span class="completion-big-score" id="completionBigScore">0 / 0</span>
+                    <span class="completion-pct" id="completionPct">—</span>
+                </div>
+            </div>
+
+            <div id="skillBreakdown" class="skill-breakdown"></div>
+
+            <h3 id="missedHeading" class="missed-heading">Missed (0)</h3>
+            <div id="missedList" class="missed-list"></div>
+
+            <div class="completion-actions">
+                <button id="reviewMissedBtn" class="btn btn-primary completion-action-btn" style="display:none">
+                    Review Missed (<span id="missedCount">0</span>)
+                </button>
+                <button id="newSessionBtn" class="btn completion-action-btn">New Session</button>
+            </div>
         </div>
     </div>
 
@@ -139,6 +215,7 @@
                 </select>
                 <div id="timerDisplay" class="timer hidden">00:00</div>
                 <div id="questionCounter" class="question-counter">Q — / —</div>
+                <span id="reviewLabel" class="badge badge-red" style="display:none; font-size:0.7rem;">Review Mode</span>
                 <div class="score-display">Score: <span id="currentScore">0</span></div>
             </div>
         </header>
@@ -153,6 +230,9 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Resize handle -->
+            <div id="resizeHandle" class="resize-handle"></div>
 
             <!-- Right: Question & Options -->
             <section class="panel question-panel">
@@ -189,7 +269,8 @@
         </main>
     </div>
 
-    <script src="data.js"></script>
+    <script src="data-craft-structure.js"></script>
+    <script src="data-expression-of-ideas.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
