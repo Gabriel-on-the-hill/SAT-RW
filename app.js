@@ -127,6 +127,11 @@ function applyPreset(btn) {
     updateSetupUI();
 }
 
+function enterPractice() {
+    document.getElementById('hubScreen').style.display = 'none';
+    showSetup();
+}
+
 function showSetup() {
     stopTimer();
     document.getElementById('timerDisplay').classList.add('hidden');
@@ -788,8 +793,6 @@ function init() {
     // Features
     initResizablePanel();
     initKeyboardShortcuts();
-
-    showSetup();
 }
 
 init();
