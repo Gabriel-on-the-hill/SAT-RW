@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wayne's SAT Homework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Launch screen ──────────────────────────────────────────── */
+    #launchScreen {
+      position: fixed; inset: 0;
+      background: var(--background);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem 1rem; overflow-y: auto;
+    }
+    .hw-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 1.25rem; padding: 2rem 2.25rem 2.25rem;
+      width: 100%; max-width: 520px; box-shadow: var(--shadow-lg);
+    }
+    .hw-logo {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.88rem; font-weight: 700; color: var(--primary);
+      margin-bottom: 1.75rem; opacity: 0.8;
+    }
+    .hw-title { margin-bottom: 1.25rem; }
+    .hw-title h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .hw-title p  { color: var(--text-muted); font-size: 0.95rem; }
+    .hw-stats {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.75rem;
+    }
+    .hw-stat {
+      background: #f1f5f9; border: 1px solid var(--border);
+      border-radius: 9999px; padding: 0.25rem 0.75rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--text-muted);
+    }
+    .hw-mode-label {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .hw-mode-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem; margin-bottom: 1.5rem;
+    }
+    .hw-mode-card {
+      border: 2px solid var(--border); border-radius: 1rem;
+      padding: 1.1rem 1rem; cursor: pointer;
+      transition: border-color 0.18s, background 0.18s, box-shadow 0.18s, transform 0.15s;
+      user-select: none;
+    }
+    .hw-mode-card:hover {
+      border-color: var(--primary-light); background: #f8fafc;
+      transform: translateY(-2px); box-shadow: var(--shadow);
+    }
+    .hw-mode-card.selected {
+      border-color: var(--primary); background: #eff6ff;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+    .hw-mode-icon { font-size: 1.4rem; margin-bottom: 0.5rem; line-height: 1; }
+    .hw-mode-name { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .hw-mode-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.4; }
+    .hw-mode-seq  { margin-top: 0.65rem; display: flex; flex-direction: column; gap: 0.2rem; }
+    .hw-mode-seq span {
+      font-size: 0.72rem; color: var(--primary); font-weight: 600;
+    }
+
+    /* ── Resume banner ──────────────────────────────────────────── */
+    .hw-resume {
+      background: #eff6ff; border: 1px solid #bfdbfe;
+      border-radius: 0.6rem; padding: 0.65rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem; margin-bottom: 1rem; font-size: 0.87rem;
+    }
+    .hw-resume-info { font-weight: 600; color: var(--primary); flex: 1; }
+    .hw-resume-btns { display: flex; gap: 0.4rem; }
+
+    /* ── Question screen ────────────────────────────────────────── */
+    #questionScreen { display: flex; flex-direction: column; height: 100vh; }
+
+    .hw-header {
+      background: var(--surface); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem; height: 3rem;
+      display: flex; align-items: center; gap: 1rem;
+      flex-shrink: 0; box-shadow: var(--shadow);
+    }
+    .hw-header-logo {
+      font-size: 0.85rem; font-weight: 700; color: var(--primary); white-space: nowrap;
+    }
+    .hw-dots {
+      display: flex; gap: 3px; flex: 1; justify-content: center; align-items: center;
+    }
+    .hw-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #e2e8f0; border: 1.5px solid #cbd5e1;
+      flex-shrink: 0; cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    }
+    .hw-dot:hover { transform: scale(1.25); border-color: var(--primary-light); }
+    .hw-dot.hw-dot-answered { background: var(--primary-light); border-color: var(--primary-light); }
+    .hw-dot.hw-dot-current  { background: var(--primary); border-color: var(--primary); transform: scale(1.35); }
+    .hw-counter { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+
+    .hw-progress-strip  { height: 3px; background: #e2e8f0; flex-shrink: 0; }
+    .hw-progress-fill   { height: 100%; background: var(--primary); transition: width 0.3s ease; width: 0%; }
+
+    .hw-section-label {
+      background: #eff6ff; border-bottom: 1px solid #bfdbfe;
+      padding: 0.35rem 1.5rem;
+      font-size: 0.78rem; font-weight: 700; color: var(--primary);
+      letter-spacing: 0.02em; flex-shrink: 0;
+    }
+
+    /* Nav bar inside question panel */
+    .hw-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem; padding: 1rem 0; margin-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .hw-nav-btn {
+      padding: 0.6rem 1.25rem; border-radius: 0.6rem;
+      font-size: 0.9rem; font-weight: 600; font-family: inherit;
+      border: 1px solid var(--border); background: #fff;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .hw-nav-btn:hover:not(:disabled) { background: #f8fafc; border-color: var(--primary-light); }
+    .hw-nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .hw-nav-btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .hw-nav-btn.primary:hover:not(:disabled) { background: #1d4ed8; }
+    .hw-nav-btn.submit  { background: #16a34a; color: #fff; border-color: #16a34a; }
+    .hw-nav-btn.submit:hover:not(:disabled)  { background: #15803d; }
+
+    /* ── Section transition overlay ─────────────────────────────── */
+    #sectionTransition {
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.65); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 300; padding: 1.5rem;
+    }
+    .hw-sec-card {
+      background: #fff; border-radius: 1.25rem;
+      padding: 2.25rem 2.5rem; width: 100%; max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2); text-align: center;
+    }
+    .hw-sec-num {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1rem;
+    }
+    .hw-sec-skill   { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hw-sec-strategy {
+      margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);
+    }
+    .hw-sec-strategy strong { color: var(--text); }
+
+    /* ── Results screen ─────────────────────────────────────────── */
+    #resultsScreen {
+      min-height: 100vh; background: var(--background);
+      display: flex; flex-direction: column; align-items: center;
+      padding: 2rem 1rem 4rem;
+    }
+    .hw-results-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 1.25rem; padding: 2rem 2.25rem;
+      width: 100%; max-width: 640px; box-shadow: var(--shadow-lg);
+    }
+
+    /* Per-question review accordion */
+    .rq-item {
+      border: 1px solid var(--border); border-radius: 0.6rem;
+      margin-bottom: 0.4rem; overflow: hidden;
+    }
+    .rq-item.rq-correct { border-color: #bbf7d0; }
+    .rq-item.rq-wrong   { border-color: #fecaca; }
+    .rq-summary {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.65rem 0.9rem; cursor: pointer; list-style: none;
+      font-size: 0.88rem;
+    }
+    .rq-summary::-webkit-details-marker { display: none; }
+    .rq-item.rq-correct .rq-summary { background: #f0fdf4; }
+    .rq-item.rq-wrong   .rq-summary { background: #fef2f2; }
+    .rq-item.rq-correct .rq-summary:hover { background: #dcfce7; }
+    .rq-item.rq-wrong   .rq-summary:hover { background: #fee2e2; }
+    .rq-num  { font-weight: 700; color: var(--text-muted); font-size: 0.78rem; flex-shrink: 0; }
+    .rq-icon { font-weight: 700; flex-shrink: 0; }
+    .rq-item.rq-correct .rq-icon { color: #16a34a; }
+    .rq-item.rq-wrong   .rq-icon { color: #dc2626; }
+    .rq-q   { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .rq-body {
+      padding: 0.85rem 0.9rem; border-top: 1px solid var(--border); font-size: 0.85rem;
+    }
+    .rq-wrong-ans { color: #dc2626; font-weight: 600; margin-bottom: 0.3rem; }
+    .rq-right-ans { color: #16a34a; font-weight: 600; margin-bottom: 0.75rem; }
+    .rq-explanation {
+      color: var(--text-muted); line-height: 1.55; white-space: pre-line; font-size: 0.82rem;
+    }
+
+    /* ── Fix: .hidden class has lower specificity than ID/class rules above.
+          Force display:none when .hidden is present on these elements. ── */
+    #sectionTransition.hidden,
+    #questionScreen.hidden,
+    #resultsScreen.hidden { display: none !important; }
+    .hw-resume.hidden     { display: none !important; }
+
+    /* Selected option in homework (no-feedback) mode */
+    .option-btn.hw-selected {
+      border-color: var(--primary); background: #eff6ff;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.18);
+    }
+    .option-btn.hw-selected:hover { background: #dbeafe; }
+
+    /* Underlined passage text */
+    .passage-text u { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── Strategy review panel ─────────────────────────────────── */
+    .hw-review {
+      background: #f8fafc; border: 1px solid var(--border);
+      border-radius: 0.875rem; padding: 0.875rem 1rem;
+      margin-bottom: 1.5rem; list-style: none;
+    }
+    .hw-review summary {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--text-muted);
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: space-between; user-select: none;
+    }
+    .hw-review summary::-webkit-details-marker { display: none; }
+    .hw-review-chevron { font-size: 0.75rem; transition: transform 0.2s; }
+    .hw-review[open] .hw-review-chevron { transform: rotate(180deg); }
+    .hw-review-body {
+      margin-top: 0.875rem; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .hw-skill-head {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 700; margin-bottom: 0.55rem;
+    }
+    .hw-skill-steps {
+      display: flex; flex-direction: column; gap: 0.3rem;
+      font-size: 0.79rem; color: var(--text); line-height: 1.45;
+      margin-bottom: 0.55rem;
+    }
+    .hw-skill-step { display: flex; gap: 0.4rem; align-items: flex-start; }
+    .hw-step-num   { color: var(--primary); font-weight: 700; flex-shrink: 0; }
+    .hw-traps {
+      font-size: 0.71rem; color: var(--text-muted); line-height: 1.45;
+      border-top: 1px solid var(--border); padding-top: 0.4rem;
+    }
+    .hw-traps b { color: #b91c1c; }
+    .hw-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 1.25rem 0 1.1rem;
+    }
+
+    /* ── Mobile ─────────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .hw-mode-grid { grid-template-columns: 1fr; }
+      .hw-card { padding: 1.5rem 1.25rem 1.75rem; }
+      #questionScreen { height: auto; min-height: 100svh; }
+      .hw-header { padding: 0 1rem; }
+      .hw-dot { width: 7px; height: 7px; }
+      .hw-dots { gap: 2px; }
+      .hw-sec-card { padding: 1.75rem 1.5rem; }
+      .hw-section-label { padding: 0.35rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     LAUNCH SCREEN
+     ════════════════════════════════════════════════════════════════ -->
+<div id="launchScreen">
+  <div class="hw-card">
+
+    <div class="hw-logo">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+      </svg>
+      SAT Mastery
+    </div>
+
+    <div class="hw-title">
+      <h1>Homework</h1>
+      <p>Craft &amp; Structure &middot; Medium &amp; Hard</p>
+    </div>
+
+    <div class="hw-stats">
+      <span class="hw-stat">20 questions</span>
+      <span class="hw-stat">WiC &amp; TSP</span>
+      <span class="hw-stat">Medium &amp; Hard</span>
+    </div>
+
+    <div class="hw-mode-label">How would you like to practice?</div>
+
+    <div class="hw-mode-grid">
+      <div class="hw-mode-card" data-mode="structured" onclick="selectMode('structured')">
+        <div class="hw-mode-icon">▤</div>
+        <div class="hw-mode-name">Structured</div>
+        <div class="hw-mode-desc">4 sections in order — master each strategy before switching.</div>
+        <div class="hw-mode-seq">
+          <span>① WiC Medium &rarr; WiC Hard</span>
+          <span>② TSP Medium &rarr; TSP Hard</span>
+        </div>
+      </div>
+      <div class="hw-mode-card" data-mode="mixed" onclick="selectMode('mixed')">
+        <div class="hw-mode-icon">⇄</div>
+        <div class="hw-mode-name">Mixed</div>
+        <div class="hw-mode-desc">All 20 in random order — switch strategies on the fly, just like test day.</div>
+      </div>
+    </div>
+
+    <div id="resumeBanner" class="hw-resume hidden">
+      <span class="hw-resume-info">In progress &mdash; <span id="resumeInfo"></span></span>
+      <div class="hw-resume-btns">
+        <button class="btn" onclick="discardAndReset()">New</button>
+        <button class="btn btn-primary" onclick="startHomework(true)">Resume</button>
+      </div>
+    </div>
+
+    <button id="startBtn" class="reveal-btn" disabled onclick="startHomework(false)">
+      Start Homework
+    </button>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECTION TRANSITION (structured mode only)
+     ════════════════════════════════════════════════════════════════ -->
+<div id="sectionTransition" class="hidden">
+  <div class="hw-sec-card">
+    <div class="hw-sec-num" id="secNum">Section 1 of 4</div>
+    <div class="hw-sec-skill" id="secSkill">Words in Context</div>
+    <span class="badge badge-orange" id="secDiff">Medium</span>
+    <div class="hw-sec-strategy">
+      Strategy: <strong id="secStrategy">Two-Filter Method</strong>
+    </div>
+    <button class="reveal-btn" style="margin-top:1.75rem" id="beginSectionBtn">
+      Begin Section &rarr;
+    </button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     QUESTION SCREEN
+     ════════════════════════════════════════════════════════════════ -->
+<div id="questionScreen" class="hidden">
+
+  <div class="hw-header">
+    <span class="hw-header-logo">SAT Mastery</span>
+    <div class="hw-dots" id="hwDots"></div>
+    <span class="hw-counter" id="qCounter">1 / 20</span>
+  </div>
+
+  <div class="hw-progress-strip">
+    <div class="hw-progress-fill" id="progressBar"></div>
+  </div>
+
+  <div class="hw-section-label hidden" id="sectionLabel"></div>
+
+  <div class="main-content" style="flex:1;overflow:hidden">
+
+    <!-- Passage -->
+    <div class="panel passage-panel">
+      <div class="card">
+        <p class="passage-text" id="hwPassage"></p>
+      </div>
+    </div>
+
+    <div class="resize-handle" title="Drag to resize · Double-click to reset 50/50" aria-hidden="true"></div>
+
+    <!-- Question -->
+    <div class="panel question-panel">
+      <div class="card">
+
+        <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;align-items:center">
+          <span class="badge badge-blue"   id="hwSkillBadge">WiC</span>
+          <span class="badge badge-orange" id="hwDiffBadge">Medium</span>
+        </div>
+
+        <p id="hwQuestion" style="font-size:1rem;font-weight:600;line-height:1.5;margin-bottom:0"></p>
+
+        <div class="options-list" id="hwOptions"></div>
+
+        <div class="hw-nav">
+          <button class="hw-nav-btn" id="prevBtn" onclick="navigate(-1)" disabled aria-label="Previous question">
+            &larr; Prev
+          </button>
+          <button class="hw-nav-btn submit hidden" id="submitBtn" onclick="confirmSubmit()" aria-label="Submit homework">
+            Submit Homework
+          </button>
+          <button class="hw-nav-btn primary" id="nextBtn" onclick="navigate(1)" aria-label="Next question">
+            Next &rarr;
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     RESULTS SCREEN
+     ════════════════════════════════════════════════════════════════ -->
+<div id="resultsScreen" class="hidden">
+  <div class="hw-results-card">
+
+    <div class="completion-header">
+      <h2>Homework Complete</h2>
+      <div class="completion-score-row">
+        <span class="completion-big-score" id="rBigScore">— / 20</span>
+        <span class="completion-pct" id="rPct">—%</span>
+      </div>
+    </div>
+
+    <div class="skill-breakdown" id="rBreakdown" style="margin-bottom:1.5rem"></div>
+
+    <div class="missed-heading">Question Review</div>
+    <div id="rReview" style="margin-bottom:1.5rem"></div>
+
+    <div class="completion-actions">
+      <button class="btn completion-action-btn" onclick="location.reload()">
+        New Session
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script src="data-craft-structure.js"></script>
+<script src="homework.js"></script>
+</body>
+</html>

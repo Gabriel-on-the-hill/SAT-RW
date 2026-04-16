@@ -359,7 +359,7 @@ const questionBank_CS = [
   {
     "id": "cf57c1d5",
     "skill": "Text Structure and Purpose",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "In 1973, poet Miguel Algarín started inviting other writers who, like him, were Nuyorican—a term for New Yorkers of Puerto Rican heritage—to gather in his apartment to present their work. The gatherings were so well attended that Algarín soon had to rent space in a cafe to accommodate them. Thus, the Nuyorican Poets Cafe was born. Moving to a permanent location in 1981, the Nuyorican Poets Cafe expanded its original scope beyond the written word, hosting art exhibitions and musical performances as well. Half a century since its inception, it continues to foster emerging Nuyorican talent.",
     "question": "Which choice best describes the overall purpose of the text?",
     "options": [
@@ -563,7 +563,7 @@ const questionBank_CS = [
   {
     "id": "2c46da8b",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Mohsin Hamid’s 2017 novel Exit West. Saeed lives with his mother and father. On cloudless nights after a daytime rain, Saeed’s father would sometimes bring out the telescope, and the family would sip green tea on their balcony, enjoying a breeze, and take turns to look up at objects whose light, often, had been emitted before any of these three viewers had been born—light from other centuries, only now reaching Earth. ©2017 by Mohsin Hamid",
     "question": "As used in the text, what does the word “reaching” most nearly mean?",
     "options": [
@@ -648,7 +648,7 @@ const questionBank_CS = [
   {
     "id": "6f82b732",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "In 2008 a complete set of ancient pessoi (glass game pieces) was uncovered from beneath a paving stone in modern-day Israel. Due to their small size, pessoi were easily misplaced, making a whole set a rare find. This has led some experts to suggest that the set may have been buried intentionally; however, without clear evidence, archaeologists are left to ______ what happened.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -954,7 +954,7 @@ const questionBank_CS = [
   {
     "id": "0534fba8",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "Following the principles of community-based participatory research, tribal nations and research institutions are equal partners in health studies conducted on reservations. A collaboration between the Crow Tribe and Montana State University ­______ this model: tribal citizens worked alongside scientists to design the methodology and continue to assist in data collection.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1090,7 +1090,7 @@ const questionBank_CS = [
   {
     "id": "601b8d64",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "In the mid-nineteenth century, some abolitionist newspapers ______ westward migration in the United States; by printing a letter that described the easy fortunes and high salaries miners could make in California during the Gold Rush, Frederick Douglass’s newspaper North Star was one such publication that inspired readers to relocate.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1175,7 +1175,7 @@ const questionBank_CS = [
   {
     "id": "e5c826be",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "As a young photographer in the 1950s, William Klein ______ the conventions of photography by creating images that were high contrast and included blurred and distorted elements—features generally seen as flaws. So unorthodox was Klein’s work that he had difficulty finding a publisher for his now-iconic 1956 photo book Life is Good & Good for You in New York.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1617,7 +1617,7 @@ const questionBank_CS = [
   {
     "id": "9cbf5f49",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Mary Seacole’s 1857 autobiography Wonderful Adventures of Mrs. Seacole in Many Lands. That journey across the Isthmus [of Panama], insignificant in distance as it was, was by no means an easy one. It seemed as if nature had determined to throw every conceivable obstacle in the way of those who should seek to join the two great oceans of the world.",
     "question": "As used in the text, what does the word “conceivable” most nearly mean?",
     "options": [
@@ -1753,7 +1753,7 @@ const questionBank_CS = [
   {
     "id": "71db08c3",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "According to statistician Nassim Nicholas Taleb, the best way to predict the amount of time a nonperishable entity (such as a building or a technology) will continue to exist is to examine how long it has survived so far. In this view, an item’s age is the strongest ______ how much longer it will last.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1906,7 +1906,7 @@ const questionBank_CS = [
   {
     "id": "f88c3808",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Nathaniel Hawthorne’s 1844 short story “Drowne’s Wooden Image.” Drowne, a young man, is carving a wooden figure to decorate the front of a ship.\n\nDay by day, the work assumed greater precision, and settled its irregular and misty outline into distincter grace and beauty. The general design was now obvious to the common eye.",
     "question": "As used in the text, what does the word “assumed” most nearly mean?",
     "options": [
@@ -1940,7 +1940,7 @@ const questionBank_CS = [
   {
     "id": "e52added",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The equipment from the Apollo Moon landings (1969–1972), such as radiation detectors and temperature probes, remains there to this day, but the data from these missions were mostly inaccessible until a recent data-transfer project made them ______. This project has allowed researcher Seiichi Nagihara to make use of the information in investigating temperature changes on the Moon.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -2110,7 +2110,7 @@ const questionBank_CS = [
   {
     "id": "8ee4627c",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "",
     "question": "In recommending Bao Phi’s collection Sông I Sing, a librarian noted that pieces by the spoken-word poet don’t lose their ______ nature when printed: the language has the same pleasant musical quality on the page as it does when performed by Phi. Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -2297,7 +2297,7 @@ const questionBank_CS = [
   {
     "id": "340b33cd",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Stephen Hannock’s luminous landscape paintings are appealing to viewers but have elicited little commentary from contemporary critics, a phenomenon that may be due to the very fact that the paintings seem so ______. Many critics focus their attention on art that is cryptic or overtly challenging.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
