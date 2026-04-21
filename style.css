@@ -1043,3 +1043,394 @@ h1, h2, h3 {
         justify-content: flex-end;
     }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   PASSAGE ENHANCEMENTS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Skill + domain badges above the passage */
+.passage-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.passage-meta .badge {
+    margin-bottom: 0;
+}
+
+/* Grey domain badge */
+.badge-grey { background: #f1f5f9; color: #475569; }
+
+/* WIC — target word highlight */
+.wic-highlight {
+    background: #fde68a;
+    border-bottom: 2px solid #f59e0b;
+    border-radius: 2px;
+    padding: 0 0.1rem;
+}
+
+/* Boundaries / FSS fill-in-the-blank */
+.q-blank {
+    background: #e0f2fe;
+    border-bottom: 2px solid #38bdf8;
+    font-weight: 700;
+    padding: 0 0.15rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+}
+
+/* Cross-Text Connections labels */
+.cross-text-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    background: #dbeafe;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    margin-top: 0.1rem;
+}
+
+.cross-text-label-2 {
+    margin-top: 1rem;
+}
+
+.cross-text-body {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #334155;
+    margin-bottom: 0.25rem;
+}
+
+/* CoE-Q data block */
+.data-block {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.data-block-label {
+    background: #f1f5f9;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.88rem;
+    white-space: pre;
+    overflow-x: auto;
+    padding: 0.75rem;
+    margin: 0;
+    line-height: 1.5;
+    color: #334155;
+    background: #fff;
+}
+
+.data-table-html {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.data-table-html th {
+    background: #f8fafc;
+    font-weight: 700;
+    padding: 0.45rem 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    color: var(--text);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.data-table-html td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: #334155;
+}
+
+.data-table-html tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table-html tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+/* Note shown when there is no separate passage */
+.no-passage-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PREDICTION HINT BOX
+   ══════════════════════════════════════════════════════════════════ */
+
+.prediction-hint {
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #78350f;
+    margin-bottom: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   OPTION LETTER SPAN
+   ══════════════════════════════════════════════════════════════════ */
+
+.opt-letter {
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 1.4rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   EXAM COUNTDOWN (setup logo)
+   ══════════════════════════════════════════════════════════════════ */
+
+.exam-countdown {
+    margin-left: auto;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: #dbeafe;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   COMPLETION TIME
+   ══════════════════════════════════════════════════════════════════ */
+
+.completion-time {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LIFETIME SKILL STATS
+   ══════════════════════════════════════════════════════════════════ */
+
+#lifetimeStats {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.lifetime-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.4rem;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+}
+
+.lifetime-skill {
+    font-weight: 700;
+    width: 3.5rem;
+    flex-shrink: 0;
+    color: var(--text-muted);
+}
+
+.lifetime-bar {
+    font-family: monospace;
+    font-size: 0.75rem;
+    letter-spacing: -0.02em;
+    color: var(--primary-light);
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.lifetime-score {
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.lt-pass { background: #dcfce7; color: #166534; }
+.lt-warn { background: #ffedd5; color: #9a3412; }
+.lt-fail { background: #fee2e2; color: #991b1b; }
+
+/* ══════════════════════════════════════════════════════════════════
+   HISTORY — per-question timing
+   ══════════════════════════════════════════════════════════════════ */
+
+.hist-time {
+    font-weight: 400;
+    opacity: 0.75;
+    font-size: 0.75rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   EXPORT / IMPORT
+   ══════════════════════════════════════════════════════════════════ */
+
+.export-import-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+}
+
+.export-btn {
+    flex: 1;
+    font-size: 0.82rem;
+    padding: 0.45rem 0.75rem;
+    color: var(--text-muted);
+    background: #f8fafc;
+}
+
+.export-btn:hover {
+    background: #eff6ff;
+    border-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Export/Import modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+    padding: 1.5rem;
+}
+
+.modal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.75rem 2rem;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.modal-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 220px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.82rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    resize: vertical;
+    background: #f8fafc;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PRESET BUTTON VARIANTS
+   ══════════════════════════════════════════════════════════════════ */
+
+.preset-priority {
+    border-color: #fca5a5;
+    background: #fff5f5;
+    color: #991b1b;
+}
+
+.preset-priority:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+    color: #7f1d1d;
+}
+
+.preset-exam {
+    border-color: #93c5fd;
+    background: #eff6ff;
+    color: #1e40af;
+}
+
+.preset-exam:hover {
+    background: #dbeafe;
+    border-color: var(--primary);
+    color: #1e3a8a;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PRESET TOOLTIPS
+   ══════════════════════════════════════════════════════════════════ */
+
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: #f8fafc;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: normal;
+    max-width: 220px;
+    min-width: 140px;
+    text-align: center;
+    padding: 0.45rem 0.65rem;
+    border-radius: 0.4rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s;
+    z-index: 400;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+}

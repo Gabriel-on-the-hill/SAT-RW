@@ -224,8 +224,8 @@ const questionBank_EOI = [
     "id": "49ecf985",
     "skill": "Transitions",
     "difficulty": "Easy",
-    "passage": "",
-    "question": "On March 3, 1991, Switzerland’s government lowered the minimum voting age for its citizens from 20 to 18 years old. ______ many people in Switzerland gained a new opportunity to participate in their country’s political process. Which choice completes the text with the most logical transition?",
+    "passage": "On March 3, 1991, Switzerland’s government lowered the minimum voting age for its citizens from 20 to 18 years old. ______ many people in Switzerland gained a new opportunity to participate in their country’s political process.",
+    "question": "Which choice completes the text with the most logical transition?",
     "options": [
       "A. Nevertheless,",
       "B. As a result,",
@@ -1533,8 +1533,8 @@ const questionBank_EOI = [
     "id": "b5972710",
     "skill": "Transitions",
     "difficulty": "Easy",
-    "passage": "",
-    "question": "Niger ratified the Outer Space Treaty, an international agreement with over 100 signing nations that acts as the foundation for the laws of space, on February 1, 1967. Jordan, ______ has yet to officially ratify the treaty; it only signed it. Which choice completes the text with the most logical transition?",
+    "passage": "Niger ratified the Outer Space Treaty, an international agreement with over 100 signing nations that acts as the foundation for the laws of space, on February 1, 1967. Jordan, ______ has yet to officially ratify the treaty; it only signed it.",
+    "question": "Which choice completes the text with the most logical transition?",
     "options": [
       "A. in contrast,",
       "B. specifically,",
@@ -1567,8 +1567,8 @@ const questionBank_EOI = [
     "id": "56336696",
     "skill": "Transitions",
     "difficulty": "Easy",
-    "passage": "",
-    "question": "When using sumac for dyeing cloth, textile artists first soak it in water to release its color. Then, they add the cloth to the dyebath and simmer it for hours, perhaps even days. ______ they will remove the cloth, at which point it will have turned a vibrant red color. Which choice completes the text with the most logical transition?",
+    "passage": "When using sumac for dyeing cloth, textile artists first soak it in water to release its color. Then, they add the cloth to the dyebath and simmer it for hours, perhaps even days. ______ they will remove the cloth, at which point it will have turned a vibrant red color.",
+    "question": "Which choice completes the text with the most logical transition?",
     "options": [
       "A. Nevertheless,",
       "B. Likewise,",
@@ -1754,8 +1754,8 @@ const questionBank_EOI = [
     "id": "11df9b99",
     "skill": "Transitions",
     "difficulty": "Medium",
-    "passage": "",
-    "question": "Because an achiral molecule is symmetrical, flipping it yields a structurally identical molecule. A flipped chiral molecule, ______ can be compared to a glove that has been turned inside out: it produces a structurally inverted molecule rather than an identical one. Which choice completes the text with the most logical transition?",
+    "passage": "Because an achiral molecule is symmetrical, flipping it yields a structurally identical molecule. A flipped chiral molecule, ______ can be compared to a glove that has been turned inside out: it produces a structurally inverted molecule rather than an identical one.",
+    "question": "Which choice completes the text with the most logical transition?",
     "options": [
       "A. in other words,",
       "B. by contrast,",
@@ -1953,5 +1953,69 @@ const questionBank_EOI = [
     "explanation": "Strategy: Direction Check\nLogical relationship: Addition. Identify this BEFORE reading the options.\nCorrect category: Furthermore / Moreover / In addition / Also.\nTrap: Wrong Direction — eliminate any option pointing a different logical direction, even if it sounds formal or academic.\n────────────────────────────────────────\nChoice B is the best answer. “Nonetheless” is a transition that indicates disagreement. The first sentence describes the unlikelihood of finding much for critical analysis in Ashbery’s poem (“barren terrain”), while the second sentence describes how Berlant did in fact find much to analyze in Ashbery’s poem (“fertile ground”), so the transition “nonetheless” fits perfectly.\n\nChoice A is incorrect. This choice uses a transition that indicates the addition of a new but similar idea, which doesn’t make sense here. The idea in this sentence directly contradicts the idea in the previous sentence. Choice C is incorrect. This choice uses a cause-and-effect transition, which doesn’t make sense in this context—a poem seemingly having little opportunity for critical analysis would not cause someone to write an extensive critical analysis (in fact, we might expect the opposite). Choice D is incorrect. This choice uses a transition that indicates a restatement of the same idea in other words. But the text isn’t restating the first idea here. Instead, it’s offering a contradiction to the idea expressed in the first sentence.",
     "strategy": "Direction Check",
     "trapName": "Wrong Direction · Formal Without Logic · Sequence vs. Contrast"
+  },
+  {
+    "id": "6351062d",
+    "skill": "Rhetorical Synthesis",
+    "difficulty": "Medium",
+    "passage": "While researching a topic, a student has taken the following notes:\n In the late 1890s, over 14,000 unique varieties of apples were grown in the US.\n The rise of industrial agriculture in the mid-1900s narrowed the range of commercially grown crops.\n Thousands of apple varieties considered less suitable for commercial growth were lost.\n Today, only 15 apple varieties dominate the market, making up 90% of apples purchased in the US.\n The Lost Apple Project, based in Washington State, attempts to find and grow lost apple varieties.",
+    "question": "The student wants to emphasize the decline in unique apple varieties in the US and specify why this decline occurred. Which\nchoice most effectively uses relevant information from the notes to accomplish these goals?",
+    "options": [
+      "A. The Lost Apple Project is dedicated to finding some of the apple varieties lost following a shift in agricultural practices in the",
+      "B. While over 14,000 apple varieties were grown in the US in the late 1890s, only 15 unique varieties make up most of the apples sold today.",
+      "C. Since the rise of industrial agriculture, US farmers have mainly grown the same few unique apple varieties, resulting in the loss of thousands of varieties less suitable for commercial growth.",
+      "D. As industrial agriculture rose to prominence in the mid-1900s, the number of crops selected for cultivation decreased dramatically."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer. The sentence emphasizes the decline in unique apple varieties in the US and specifies why this\ndecline occurred, noting that thousands of apple varieties were lost because US farmers started mainly growing the same few\nunique varieties.\n\nChoice A is incorrect. The sentence introduces the Lost Apple Project; it doesn't emphasize the decline in unique apple varieties in\nthe US and specify why this decline occurred. Choice B is incorrect. While the sentence emphasizes the decline in unique apple\nvarieties in the US, it doesn't explain why this decline occurred. Choice D is incorrect. The sentence emphasizes the general decline\nof crop varieties in the mid-1900s; it doesn't emphasize the specific decline in unique apple varieties in the US.",
+    "strategy": "Goal-First Filter"
+  },
+  {
+    "id": "a1ca7ec4",
+    "skill": "Rhetorical Synthesis",
+    "difficulty": "Medium",
+    "passage": "While researching a topic, a student has taken the following notes:\n Cecilia Vicuña is a multidisciplinary artist.\n In 1971, her first solo art exhibition, Pinturas, poemas y explicaciones, was shown at the Museo Nacional de Bellas Artes in\n Santiago, Chile.\n Her poetry collection Precario/Precarious was published in 1983 by Tanam Press.\n Her poetry collection Instan was published in 2002 by Kelsey St. Press.\n She lives part time in Chile, where she was born, and part time in New York.\n\nThe student wants to introduce the artist's 1983 poetry collection.",
+    "question": "Which choice most effectively uses relevant information from\nthe notes to accomplish this goal?",
+    "options": [
+      "A. Before she published the books Precario/Precarious (1983) and Instan (2002), Cecilia Vicuña exhibited visual art at the Museo",
+      "B. Cecilia Vicuña is a true multidisciplinary artist whose works include numerous poetry collections and visual art exhibitions.",
+      "C. Published in 1983 by Tanam Press, Precario/Precarious is a collection of poetry by the multidisciplinary artist Cecilia Vicuña.",
+      "D. In 1971, Cecilia Vicuña exhibited her first solo art exhibition, Pinturas, poemas y explicaciones, in Chile, her country of birth."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer. The sentence effectively introduces the poetry collection Precario/Precarious, noting that it is a\ncollection by Vicuña that was published in 1983 by Tanam Press.\n\nChoice A is incorrect. While the sentence mentions the 1983 poetry collection Precario/Precarious, it focuses mainly on Vicuña's\nvisual art. Choice B is incorrect. The sentence doesn't introduce the 1983 poetry collection Precario/Precarious; instead, it\nintroduces Vicuña. Choice D is incorrect. The sentence emphasizes the location of Vicuña's 1971 exhibition Pinturas, poemas y\nexplicaciones; it doesn't introduce the 1983 poetry collection Precario/Precarious.",
+    "strategy": "Goal-First Filter"
+  },
+  {
+    "id": "2b89bfe5",
+    "skill": "Rhetorical Synthesis",
+    "difficulty": "Medium",
+    "passage": "While researching a topic, a student has taken the following notes:\n In 1999, astronomer Todd Henry studied the differences in surface temperature between the Sun and nearby stars.\n His team mapped all stars within 10 parsecs (approximately 200 trillion miles) of the Sun.\n The surface temperature of the Sun is around 9,800°F, which classifies it as a G star.\n 327 of the 357 stars in the study were classified as K or M stars, with surface temperatures under 8,900°F (cooler than the\n Sun).\n 11 of the 357 stars in the study were classified as A or F stars, with surface temperatures greater than 10,300°F (hotter\n than the Sun).\n\nThe student wants to emphasize how hot the Sun is relative to nearby stars.",
+    "question": "Which choice most effectively uses relevant\ninformation from the notes to accomplish this goal?",
+    "options": [
+      "A. At around 9,800°F, which classifies it as a G star, the Sun is hotter than most but not all of the stars within 10 parsecs of it.",
+      "B. Astronomer Todd Henry determined that the Sun, at around 9,800°F, is a G star, and several other stars within a 10-parsec range are A or F stars.",
+      "C. Of the 357 stars within ten parsecs of the Sun, 327 are classified as K or M stars, with surface temperatures under 8,900°F.",
+      "D. While most of the stars within 10 parsecs of the Sun are classified as K, M, A, or F stars, the Sun is classified as a G star due to its surface temperature of 9,800°F."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer. Noting that the Sun (9,800°F) is hotter than most stars within 10 parsecs of it, the sentence\nemphasizes how hot the Sun is relative to nearby stars.\n\nChoice B is incorrect. The sentence explains that astronomer Todd Henry determined the classifications for the Sun and several\nother stars nearby; it doesn't emphasize how hot the Sun is relative to nearby stars. Choice C is incorrect. The sentence explains\nthat the majority of stars near the Sun are classified as K or M stars; it doesn't indicate the Sun's temperature or emphasize how\nhot it is relative to nearby stars. Choice D is incorrect. While the sentence indicates that the Sun is classified differently than most\nnearby stars due to its surface temperature, it doesn't emphasize how hot the Sun is relative to nearby stars.",
+    "strategy": "Goal-First Filter"
+  },
+  {
+    "id": "58281fc4",
+    "skill": "Rhetorical Synthesis",
+    "difficulty": "Medium",
+    "passage": "While researching a topic, a student has taken the following notes:\n Soo Sunny Park is a Korean American artist who uses light as her primary medium of expression.\n She created her work Unwoven Light in 2013.\n Unwoven Light featured a chain-link fence fitted with iridescent plexiglass tiles.\n When light passed through the fence, colorful prisms formed.\n\nThe student wants to describe Unwoven Light to an audience unfamiliar with Soo Sunny Park.",
+    "question": "Which choice most effectively uses\nrelevant information from the notes to accomplish this goal?",
+    "options": [
+      "A. Park's 2013 installation Unwoven Light, which included a chain-link fence and iridescent tiles made from plexiglass, featured",
+      "B. Korean American light artist Soo Sunny Park created Unwoven Light in 2013.",
+      "C. The chain-link fence in Soo Sunny Park's Unwoven Light was fitted with tiles made from iridescent plexiglass.",
+      "D. In Unwoven Light, a 2013 work by Korean American artist Soo Sunny Park, light formed colorful prisms as it passed through a fence Park had fitted with iridescent tiles."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer. The sentence effectively describes Unwoven Light to an audience unfamiliar with Park, noting that\nSoo Sunny Park is a Korean American artist and that the 2013 work consists of colorful prisms formed by light passing through\niridescent tiles.\n\nChoice A is incorrect. The sentence describes aspects of Unwoven Light but doesn't mention who Park is; it thus doesn't\neffectively describe the work to an audience unfamiliar with Park. Choice B is incorrect. Although the sentence indicates when the\nwork was created and who Park is, it lacks descriptive details and thus doesn't effectively describe Unwoven Light. Choice C is\nincorrect. The sentence mentions Park and describes an aspect of Unwoven Light—the chain-link fence—but doesn't effectively\ndescribe the overall work to an audience unfamiliar with the artist.",
+    "strategy": "Goal-First Filter"
   }
 ];

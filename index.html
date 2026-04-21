@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wayne's SAT R&W Mastery App</title>
+    <title>Wayne's SAT R&amp;W Mastery App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <!-- ── Hub Screen ───────────────────────────────────────────── -->
+    <!-- ── Hub Screen ───────────────────────────────────────────────── -->
     <div id="hubScreen" style="
         position:fixed;inset:0;background:var(--background);
         display:flex;align-items:center;justify-content:center;
@@ -60,20 +60,47 @@
       </div>
     </div>
 
-    <!-- ── Session Setup Screen ─────────────────────────────────── -->
+    <!-- ── Session Setup Screen ─────────────────────────────────────── -->
     <div id="setupScreen">
         <div class="setup-card">
+
             <div class="setup-logo">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
                 </svg>
                 SAT Mastery — Session Setup
+                <span id="examCountdown" class="exam-countdown"></span>
             </div>
 
-            <!-- Skill -->
+            <!-- Domain: Information and Ideas -->
             <div class="setup-section">
-                <h3>Skill — Craft &amp; Structure</h3>
+                <h3>Information and Ideas</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Central Ideas and Details">
+                    <span>Central Ideas and Details</span>
+                    <span class="q-count" id="count-cid">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Command of Evidence — Textual">
+                    <span>Command of Evidence — Textual</span>
+                    <span class="q-count" id="count-coe-t">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Command of Evidence — Quantitative">
+                    <span>Command of Evidence — Quantitative</span>
+                    <span class="q-count" id="count-coe-q">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Inferences">
+                    <span>Inferences</span>
+                    <span class="q-count" id="count-inf">—</span>
+                </label>
+            </div>
+
+            <!-- Domain: Craft and Structure -->
+            <div class="setup-section">
+                <h3>Craft and Structure</h3>
                 <label>
                     <input type="checkbox" name="skill" value="Words in Context" checked>
                     <span>Words in Context</span>
@@ -87,21 +114,37 @@
                 <label>
                     <input type="checkbox" name="skill" value="Cross-Text Connections">
                     <span>Cross-Text Connections</span>
-                    <span class="q-count" id="count-ctx">—</span>
+                    <span class="q-count" id="count-ctc">—</span>
                 </label>
             </div>
 
+            <!-- Domain: Expression of Ideas -->
             <div class="setup-section">
-                <h3>Skill — Expression of Ideas</h3>
+                <h3>Expression of Ideas</h3>
                 <label>
                     <input type="checkbox" name="skill" value="Rhetorical Synthesis">
                     <span>Rhetorical Synthesis</span>
-                    <span class="q-count" id="count-rhs">—</span>
+                    <span class="q-count" id="count-rs">—</span>
                 </label>
                 <label>
                     <input type="checkbox" name="skill" value="Transitions">
                     <span>Transitions</span>
                     <span class="q-count" id="count-trans">—</span>
+                </label>
+            </div>
+
+            <!-- Domain: Standard English Conventions -->
+            <div class="setup-section">
+                <h3>Standard English Conventions</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Boundaries">
+                    <span>Boundaries</span>
+                    <span class="q-count" id="count-bdry">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Form, Structure, and Sense">
+                    <span>Form, Structure, and Sense</span>
+                    <span class="q-count" id="count-fss">—</span>
                 </label>
             </div>
 
@@ -131,7 +174,7 @@
                 <select id="limitSelect">
                     <option value="0">All matching questions</option>
                     <option value="10">10 — Mastery drill</option>
-                    <option value="15">15 — Checkpoint 1</option>
+                    <option value="15">15 — Checkpoint</option>
                     <option value="27">27 — Full module</option>
                 </select>
             </div>
@@ -140,58 +183,71 @@
             <div class="setup-section">
                 <h3>Quick Presets</h3>
                 <div class="preset-grid">
-                    <button class="preset-btn"
-                        data-skills="Words in Context"
-                        data-diffs="Easy"
-                        data-limit="0">WIC · Easy</button>
+                    <!-- Craft & Structure -->
                     <button class="preset-btn"
                         data-skills="Words in Context"
                         data-diffs="Easy,Medium"
-                        data-limit="0">WIC · E + M</button>
+                        data-limit="0"
+                        data-tooltip="Vocabulary in context · Easy and Medium · all questions">WIC · E+M</button>
                     <button class="preset-btn"
-                        data-skills="Text Structure and Purpose"
-                        data-diffs="Easy"
-                        data-limit="0">TSP · Easy</button>
-                    <button class="preset-btn"
-                        data-skills="Text Structure and Purpose"
+                        data-skills="Words in Context,Text Structure and Purpose"
                         data-diffs="Easy,Medium"
-                        data-limit="0">TSP · E + M</button>
-                    <button class="preset-btn"
-                        data-skills="Words in Context,Text Structure and Purpose"
-                        data-diffs="Easy"
-                        data-limit="0">Mixed · Easy</button>
-                    <button class="preset-btn"
-                        data-skills="Words in Context,Text Structure and Purpose"
-                        data-diffs="Easy,Medium,Hard"
-                        data-limit="15">Checkpoint 1</button>
+                        data-limit="0"
+                        data-tooltip="Vocabulary and author purpose · Easy and Medium">Vocab &amp; Purpose</button>
                     <button class="preset-btn"
                         data-skills="Cross-Text Connections"
-                        data-diffs="Easy"
-                        data-limit="0">Cross-Text · Easy</button>
-                    <button class="preset-btn"
-                        data-skills="Rhetorical Synthesis"
-                        data-diffs="Easy"
-                        data-limit="0">RS · Easy</button>
-                    <button class="preset-btn"
-                        data-skills="Rhetorical Synthesis"
                         data-diffs="Easy,Medium"
-                        data-limit="0">RS · E + M</button>
+                        data-limit="0"
+                        data-tooltip="Compare two texts · Easy and Medium">Cross-Text · E+M</button>
                     <button class="preset-btn"
-                        data-skills="Transitions"
-                        data-diffs="Easy"
-                        data-limit="0">Trans · Easy</button>
+                        data-skills="Words in Context,Text Structure and Purpose,Cross-Text Connections"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="0"
+                        data-tooltip="All Craft &amp; Structure skills · all difficulty levels">Craft &amp; Structure · All</button>
+                    <!-- Expression of Ideas -->
                     <button class="preset-btn"
-                        data-skills="Transitions"
+                        data-skills="Rhetorical Synthesis,Transitions"
                         data-diffs="Easy,Medium"
-                        data-limit="0">Trans · E + M</button>
+                        data-limit="0"
+                        data-tooltip="Writing goal + sentence flow · Easy and Medium">RS &amp; Transitions · E+M</button>
                     <button class="preset-btn"
                         data-skills="Rhetorical Synthesis,Transitions"
                         data-diffs="Easy,Medium,Hard"
-                        data-limit="15">Phase 2 Mix</button>
-                    <button class="preset-btn"
-                        data-skills="Words in Context,Text Structure and Purpose,Cross-Text Connections,Rhetorical Synthesis,Transitions"
+                        data-limit="0"
+                        data-tooltip="Writing goal + sentence flow · all difficulty levels">RS &amp; Transitions · All</button>
+                    <!-- Information & Ideas -->
+                    <button class="preset-btn preset-priority"
+                        data-skills="Command of Evidence — Textual,Inferences"
+                        data-diffs="Medium,Hard"
+                        data-limit="10"
+                        data-tooltip="Find evidence + make inferences · Medium &amp; Hard · 10 questions — priority drill">Evidence &amp; Inference · 10</button>
+                    <button class="preset-btn preset-priority"
+                        data-skills="Central Ideas and Details,Command of Evidence — Textual,Inferences"
                         data-diffs="Easy,Medium,Hard"
-                        data-limit="54">Full Module (54)</button>
+                        data-limit="0"
+                        data-tooltip="Reading comprehension core skills · all difficulty levels">Reading Core · All</button>
+                    <button class="preset-btn"
+                        data-skills="Command of Evidence — Quantitative"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="0"
+                        data-tooltip="Questions with tables, graphs, or data — practise reading and interpreting data">Tables &amp; Graphs</button>
+                    <!-- Conventions -->
+                    <button class="preset-btn"
+                        data-skills="Boundaries,Form, Structure, and Sense"
+                        data-diffs="Easy,Medium"
+                        data-limit="0"
+                        data-tooltip="Punctuation and grammar conventions · Easy and Medium">Grammar · E+M</button>
+                    <!-- Full modules -->
+                    <button class="preset-btn preset-exam"
+                        data-skills="Central Ideas and Details,Command of Evidence — Textual,Command of Evidence — Quantitative,Inferences,Words in Context,Text Structure and Purpose,Cross-Text Connections,Rhetorical Synthesis,Transitions,Boundaries,Form, Structure, and Sense"
+                        data-diffs="Easy"
+                        data-limit="0"
+                        data-tooltip="All 11 skills · Easy only — good confidence-building warm-up">Warm-up · All Skills</button>
+                    <button class="preset-btn preset-exam"
+                        data-skills="Central Ideas and Details,Command of Evidence — Textual,Command of Evidence — Quantitative,Inferences,Words in Context,Text Structure and Purpose,Cross-Text Connections,Rhetorical Synthesis,Transitions,Boundaries,Form, Structure, and Sense"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="27"
+                        data-tooltip="All 11 skills · all difficulty levels · 27 questions — closest to the real test">Full Test Module</button>
                 </div>
             </div>
 
@@ -211,14 +267,42 @@
             <!-- Session History -->
             <div class="history-section">
                 <div class="history-header" id="historyToggle">
-                    Recent Sessions <span id="historyChevron">▸</span>
+                    Recent Sessions <span id="historyChevron">&#9656;</span>
                 </div>
                 <div id="historyList" style="display:none"></div>
+            </div>
+
+            <!-- Lifetime Stats -->
+            <div class="history-section" id="lifetimeSection" style="display:none">
+                <div class="history-header" id="lifetimeToggle">
+                    Lifetime Skill Accuracy <span id="lifetimeChevron">&#9656;</span>
+                </div>
+                <div id="lifetimeStats" style="display:none"></div>
+            </div>
+
+            <!-- Export / Import -->
+            <div class="export-import-row">
+                <button class="btn export-btn" id="exportBtn">&#8593; Export Data</button>
+                <button class="btn export-btn" id="importBtn">&#8595; Import Data</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Export/Import Modal -->
+    <div id="dataModal" class="modal-overlay" style="display:none">
+        <div class="modal-card">
+            <h3 id="modalTitle">Export Session Data</h3>
+            <p id="modalDesc" class="modal-desc"></p>
+            <textarea id="modalTextarea" class="modal-textarea" spellcheck="false"></textarea>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="modalActionBtn"></button>
+                <button class="btn" id="modalCloseBtn">Close</button>
             </div>
         </div>
     </div>
 
-    <!-- ── Completion Screen ─────────────────────────────────────── -->
+    <!-- ── Completion Screen ──────────────────────────────────────────── -->
     <div id="completionScreen" style="display:none" class="completion-screen">
         <div class="completion-card">
             <div class="completion-header">
@@ -227,6 +311,7 @@
                     <span class="completion-big-score" id="completionBigScore">0 / 0</span>
                     <span class="completion-pct" id="completionPct">—</span>
                 </div>
+                <div id="completionTime" class="completion-time" style="display:none"></div>
             </div>
 
             <div id="skillBreakdown" class="skill-breakdown"></div>
@@ -243,38 +328,41 @@
         </div>
     </div>
 
-    <!-- ── Main App ──────────────────────────────────────────────── -->
+    <!-- ── Main App ───────────────────────────────────────────────────── -->
     <div id="app" style="display:none">
         <header>
             <div class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
                     <path d="M2 2l7.5 1.5"></path>
                     <path d="M7 11l5-5"></path>
                 </svg>
-                SAT Mastery | Module 1
+                SAT Mastery
             </div>
             <div class="controls">
                 <button id="changeSessionBtn" class="btn">&#8592; Session</button>
                 <select id="modeSelect" class="btn">
-                    <option value="assisted">Assisted Mode</option>
-                    <option value="standard">Standard Mode</option>
-                    <option value="exam">Exam Mode</option>
+                    <option value="assisted">Assisted</option>
+                    <option value="standard">Standard</option>
+                    <option value="exam">Exam</option>
                 </select>
                 <div id="timerDisplay" class="timer hidden">00:00</div>
                 <div id="questionCounter" class="question-counter">Q — / —</div>
-                <span id="reviewLabel" class="badge badge-red" style="display:none; font-size:0.7rem;">Review Mode</span>
+                <span id="reviewLabel" class="badge badge-red" style="display:none; font-size:0.7rem;">Review</span>
                 <div class="score-display">Score: <span id="currentScore">0</span></div>
                 <a href="homework.html" class="btn" style="text-decoration:none">Homework &#8594;</a>
             </div>
         </header>
 
         <main class="main-content">
-            <!-- Left: Passage -->
+            <!-- Left: Passage / Stem -->
             <section class="panel passage-panel">
                 <div id="passageContainer">
-                    <span class="badge badge-blue" id="skillBadge">—</span>
+                    <div class="passage-meta">
+                        <span class="badge badge-blue" id="skillBadge">—</span>
+                        <span class="badge badge-grey" id="domainBadge">—</span>
+                    </div>
                     <div id="passageContent" class="passage-text">
                         Configure a session to begin.
                     </div>
@@ -284,26 +372,20 @@
             <!-- Resize handle -->
             <div id="resizeHandle" class="resize-handle" title="Drag to resize · Double-click to reset 50/50" aria-hidden="true"></div>
 
-            <!-- Right: Question & Options -->
+            <!-- Right: Question and Options -->
             <section class="panel question-panel">
                 <div class="card">
                     <div id="questionMeta">
                         <span class="badge badge-orange" id="difficultyBadge">—</span>
                     </div>
-                    <div id="questionText" style="font-weight: 600; font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        —
-                    </div>
+                    <div id="questionText" style="font-weight:600; font-size:1.05rem; margin-bottom:1.5rem;">—</div>
 
                     <div id="predictionStep" class="hidden">
-                        <p id="predictionHint" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
-                            &#128161; Predict your answer before revealing the options.
-                        </p>
+                        <div id="predictionHint" class="prediction-hint"></div>
                         <button class="reveal-btn" id="revealChoicesBtn">I have a prediction — Reveal Choices</button>
                     </div>
 
-                    <div id="optionsContainer" class="options-list hidden">
-                        <!-- Options injected by JS -->
-                    </div>
+                    <div id="optionsContainer" class="options-list hidden"></div>
 
                     <div id="feedbackContainer" class="feedback-section">
                         <h3 id="feedbackTitle">Correct!</h3>
@@ -312,7 +394,7 @@
                             <strong>Strategy:</strong> <span id="strategyName"></span><br>
                             <strong>Watch for:</strong> <span id="trapName"></span>
                         </div>
-                        <button class="btn btn-primary" id="nextBtn" style="margin-top: 1rem;">Next Question</button>
+                        <button class="btn btn-primary" id="nextBtn" style="margin-top:1rem;">Next Question</button>
                     </div>
                 </div>
             </section>
@@ -321,6 +403,8 @@
 
     <script src="data-craft-structure.js"></script>
     <script src="data-expression-of-ideas.js"></script>
+    <script src="data-info-ideas.js"></script>
+    <script src="data-conventions.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
