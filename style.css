@@ -407,6 +407,12 @@ h1, h2, h3 {
     color: var(--error);
 }
 
+.session-summary.session-summary-mastered {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #15803d;
+}
+
 .setup-start-btn {
     width: 100%;
     padding: 0.85rem;

@@ -213,6 +213,14 @@
     }
     .option-btn.hw-selected:hover { background: #dbeafe; }
 
+    /* Review accordion option rows */
+    .rq-opt {
+      font-size: 0.83rem; padding: 0.3rem 0.5rem;
+      border-radius: 0.35rem; line-height: 1.4;
+    }
+    .rq-opt-correct { background: #dcfce7; color: #15803d; font-weight: 600; }
+    .rq-opt-wrong   { background: #fee2e2; color: #b91c1c; font-weight: 600; text-decoration: line-through; }
+
     /* Underlined passage text */
     .passage-text u { text-decoration: underline; text-underline-offset: 3px; }
 
@@ -427,8 +435,14 @@
     <div id="rReview" style="margin-bottom:1.5rem"></div>
 
     <div class="completion-actions">
+      <a href="index.html" class="btn completion-action-btn" style="text-decoration:none">
+        &#8592; Home
+      </a>
+      <button id="hwRetryBtn" class="btn completion-action-btn btn-primary" onclick="hwRetryMissed()" style="display:none">
+        Retry Missed
+      </button>
       <button class="btn completion-action-btn" onclick="location.reload()">
-        New Session
+        New Homework
       </button>
     </div>
 
@@ -436,6 +450,7 @@
 </div>
 
 <script src="data-craft-structure.js"></script>
+<script src="progress.js"></script>
 <script src="homework.js"></script>
 </body>
 </html>

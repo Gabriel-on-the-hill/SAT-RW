@@ -6,10 +6,8 @@
 const HW_BANK = typeof questionBank_CS !== 'undefined' ? questionBank_CS : [];
 
 const HW_SECTIONS = [
-    { skill: 'Words in Context',           difficulty: 'Medium', strategy: 'Two-Filter Method' },
-    { skill: 'Words in Context',           difficulty: 'Hard',   strategy: 'Two-Filter Method' },
-    { skill: 'Text Structure and Purpose', difficulty: 'Medium', strategy: 'Function Map'       },
-    { skill: 'Text Structure and Purpose', difficulty: 'Hard',   strategy: 'Function Map'       },
+    { skill: 'Words in Context',           difficulty: 'Hard', strategy: 'Two-Filter Method' },
+    { skill: 'Text Structure and Purpose', difficulty: 'Hard', strategy: 'Function Map'       },
 ];
 
 const HW_SKILL_ABBR = {
@@ -17,7 +15,7 @@ const HW_SKILL_ABBR = {
     'Text Structure and Purpose': 'TSP',
 };
 const HW_STORAGE  = 'wayne_hw_state';
-const QS_PER_SEC  = 5;
+const QS_PER_SEC  = 10;
 
 // ── State ─────────────────────────────────────────────────────────
 let hwMode           = null;  // 'structured' | 'mixed'
@@ -25,6 +23,7 @@ let hwQuestions      = [];    // question objects, each with .sectionIdx
 let hwIndex          = 0;     // current question index
 let hwAnswers        = {};    // { [questionIndex]: 'A'|'B'|'C'|'D' }
 let visitedSections  = new Set();
+let hwMissed         = [];
 
 // ── Helpers ───────────────────────────────────────────────────────
 function hwShuffle(arr) {
@@ -68,9 +67,8 @@ function selectMode(mode) {
 function buildHwQuestions(mode) {
     const list = [];
     HW_SECTIONS.forEach((sec, si) => {
-        const pool = hwShuffle(
-            HW_BANK.filter(q => q.skill === sec.skill && q.difficulty === sec.difficulty)
-        ).slice(0, QS_PER_SEC);
+        const all  = HW_BANK.filter(q => q.skill === sec.skill && q.difficulty === sec.difficulty);
+        const pool = prioritizePool(all).slice(0, QS_PER_SEC);
         pool.forEach(q => list.push({ ...q, sectionIdx: si }));
     });
     return mode === 'mixed' ? hwShuffle(list) : list;
@@ -330,6 +328,12 @@ function showHwResults() {
     document.getElementById('questionScreen').classList.add('hidden');
     document.getElementById('resultsScreen').classList.remove('hidden');
 
+    // Record answers into the shared progress ledger before rendering results
+    hwQuestions.forEach((q, i) => {
+        if (hwAnswers[i] !== undefined) recordAnswer(q.id, hwAnswers[i] === q.answer, 'homework');
+    });
+    hwMissed = hwQuestions.filter((q, i) => hwAnswers[i] !== q.answer);
+
     const total   = hwQuestions.length;
     let   correct = 0;
     hwQuestions.forEach((q, i) => { if (hwAnswers[i] === q.answer) correct++; });
@@ -364,43 +368,69 @@ function showHwResults() {
             </div>`;
         }).join('');
 
-    // Per-question accordion
+    // Per-question accordion — wrong answers open by default
     document.getElementById('rReview').innerHTML =
         hwQuestions.map((q, i) => {
             const selected  = hwAnswers[i];
             const isCorrect = selected === q.answer;
             const shortQ    = q.question.length > 90
-                ? q.question.slice(0, 90) + '\u2026'
+                ? q.question.slice(0, 90) + '…'
                 : q.question;
-            const wrongOpt  = selected
-                ? (q.options.find(o => o.trim().startsWith(selected + '.')) || '')
-                : '';
-            const rightOpt  = q.options.find(o => o.trim().startsWith(q.answer + '.')) || '';
 
-            let answerLines = '';
-            if (!selected) {
-                answerLines = `<div class="rq-wrong-ans">— Not answered</div>
-                               <div class="rq-right-ans">\u2713 Correct: ${hwEsc(rightOpt)}</div>`;
-            } else if (isCorrect) {
-                answerLines = `<div class="rq-right-ans">\u2713 Your answer: ${hwEsc(rightOpt)}</div>`;
-            } else {
-                answerLines = `<div class="rq-wrong-ans">\u2717 Your answer: ${hwEsc(wrongOpt)}</div>
-                               <div class="rq-right-ans">\u2713 Correct: ${hwEsc(rightOpt)}</div>`;
-            }
+            // All four options with correct/wrong markers
+            const optionsHtml = q.options.map(opt => {
+                const letter   = opt.trim()[0];
+                const isRight  = letter === q.answer;
+                const isChosen = letter === selected;
+                let cls = 'rq-opt';
+                let marker = '';
+                if (isRight)              { cls += ' rq-opt-correct'; marker = ' ✓'; }
+                if (isChosen && !isRight) { cls += ' rq-opt-wrong';   marker = ' ✗'; }
+                return `<div class="${cls}">${hwEsc(opt)}${marker}</div>`;
+            }).join('');
+
+            const skippedLine = !selected
+                ? `<div class="rq-wrong-ans" style="margin-bottom:0.6rem">— Not answered</div>` : '';
 
             return `
-            <details class="rq-item ${isCorrect ? 'rq-correct' : 'rq-wrong'}">
+            <details class="rq-item ${isCorrect ? 'rq-correct' : 'rq-wrong'}" ${isCorrect ? '' : 'open'}>
               <summary class="rq-summary">
                 <span class="rq-num">Q${i + 1}</span>
-                <span class="rq-icon">${isCorrect ? '\u2713' : '\u2717'}</span>
+                <span class="rq-icon">${isCorrect ? '✓' : '✗'}</span>
                 <span class="rq-q">${hwEsc(shortQ)}</span>
               </summary>
               <div class="rq-body">
-                ${answerLines}
+                <div style="font-size:0.85rem;font-weight:600;line-height:1.5;margin-bottom:0.75rem;color:var(--text)">${hwEsc(q.question)}</div>
+                ${skippedLine}
+                <div style="display:flex;flex-direction:column;gap:0.3rem;margin-bottom:0.75rem">${optionsHtml}</div>
                 <div class="rq-explanation">${hwEsc(q.explanation)}</div>
               </div>
             </details>`;
         }).join('');
+
+    const retryBtn = document.getElementById('hwRetryBtn');
+    if (retryBtn) {
+        if (hwMissed.length > 0) {
+            retryBtn.textContent  = `Retry ${hwMissed.length} Missed`;
+            retryBtn.style.display = '';
+        } else {
+            retryBtn.style.display = 'none';
+        }
+    }
+}
+
+// ── Retry missed questions ────────────────────────────────────────
+function hwRetryMissed() {
+    hwQuestions     = hwMissed.slice();
+    hwAnswers       = {};
+    hwIndex         = 0;
+    visitedSections = new Set();
+    hwMode          = 'mixed';
+    clearHwState();
+
+    document.getElementById('resultsScreen').classList.add('hidden');
+    document.getElementById('questionScreen').classList.remove('hidden');
+    renderQuestion(0);
 }
 
 // ── Resizable panels ──────────────────────────────────────────────
