@@ -6,8 +6,14 @@
 const HW_BANK = typeof questionBank_CS !== 'undefined' ? questionBank_CS : [];
 
 const HW_SECTIONS = [
-    { skill: 'Words in Context',           difficulty: 'Hard', strategy: 'Two-Filter Method' },
-    { skill: 'Text Structure and Purpose', difficulty: 'Hard', strategy: 'Function Map'       },
+    {
+        skill: 'Words in Context', difficulty: 'Hard', strategy: 'Two-Filter Method',
+        ids: ['697dcd7e','2a6209ef','55c05ddf','0094f813','4531fbbf','16e2ce52','ecbd6424','e65f9b81','64af9749','7b434da9'],
+    },
+    {
+        skill: 'Text Structure and Purpose', difficulty: 'Hard', strategy: 'Function Map',
+        ids: ['cc76d23a','733d2605','9492c926','d60bc86d','fb16e2c2','493479db','8ece0047','3cd6524f','8a991dc8','19217740'],
+    },
 ];
 
 const HW_SKILL_ABBR = {
@@ -67,8 +73,14 @@ function selectMode(mode) {
 function buildHwQuestions(mode) {
     const list = [];
     HW_SECTIONS.forEach((sec, si) => {
-        const all  = HW_BANK.filter(q => q.skill === sec.skill && q.difficulty === sec.difficulty);
-        const pool = prioritizePool(all).slice(0, QS_PER_SEC);
+        let pool;
+        if (sec.ids && sec.ids.length) {
+            const idMap = Object.fromEntries(HW_BANK.map(q => [q.id, q]));
+            pool = sec.ids.map(id => idMap[id]).filter(Boolean);
+        } else {
+            const all = HW_BANK.filter(q => q.skill === sec.skill && q.difficulty === sec.difficulty);
+            pool = prioritizePool(all).slice(0, QS_PER_SEC);
+        }
         pool.forEach(q => list.push({ ...q, sectionIdx: si }));
     });
     return mode === 'mixed' ? hwShuffle(list) : list;
