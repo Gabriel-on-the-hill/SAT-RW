@@ -8,11 +8,11 @@ const HW_BANK = typeof questionBank_CS !== 'undefined' ? questionBank_CS : [];
 const HW_SECTIONS = [
     {
         skill: 'Words in Context', difficulty: 'Hard', strategy: 'Two-Filter Method',
-        ids: ['697dcd7e','2a6209ef','55c05ddf','0094f813','4531fbbf','16e2ce52','ecbd6424','e65f9b81','64af9749','7b434da9'],
+        ids: ['2a6209ef','0094f813','16e2ce52','ecbd6424','e65f9b81','df9f6fc6','9c0c8da4','0252e6a1','5888a6f4','8f0cc7a7'],
     },
     {
         skill: 'Text Structure and Purpose', difficulty: 'Hard', strategy: 'Function Map',
-        ids: ['cc76d23a','733d2605','9492c926','d60bc86d','fb16e2c2','493479db','8ece0047','3cd6524f','8a991dc8','19217740'],
+        ids: ['cc76d23a','733d2605','4259636f','d60bc86d','fb16e2c2','493479db','8ece0047','c8b920ee','0c61d9c0','19217740'],
     },
 ];
 
@@ -53,6 +53,7 @@ function hwFormatPassage(text, skill) {
     }
     let html = String(text).replace(/\ufb01/g, 'fi').replace(/\ufb02/g, 'fl');
     html = hwEsc(html);
+    html = html.replace(/&lt;u&gt;/g, '<u>').replace(/&lt;\/u&gt;/g, '</u>');
     if (skill === 'Transitions') {
         html = html.replace(/_{4,}/g,
             '<span style="background:#dbeafe;padding:0 2px;border-radius:3px;font-weight:700">______</span>');
