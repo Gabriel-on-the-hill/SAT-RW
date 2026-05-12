@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wayne's SAT R&amp;W Mastery App</title>
+    <title>SAT R&amp;W Mastery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -68,12 +68,24 @@
             <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">335 DSAT words · flip cards, daily 5, and progress tracking.</div>
           </a>
 
+          <a href="transitions.html" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              text-decoration:none;color:inherit;display:block;"
+              onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#8644;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Transitions</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">5 logical relationships · within-category tiebreakers · trap awareness.</div>
+          </a>
+
         </div>
 
         <div style="text-align:center;margin-top:1.5rem">
           <a href="#" onclick="showProgressPanel();return false;"
              style="font-size:0.78rem;color:var(--text-muted);text-decoration:none;opacity:0.7">
-            &#128202; View Wayne's progress
+            &#128202; View progress
           </a>
         </div>
 
@@ -306,8 +318,8 @@
                 <button class="btn export-btn" id="importBtn">&#8595; Import Data</button>
             </div>
             <div class="export-import-row" style="margin-top:0.5rem">
-                <button class="btn export-btn" id="exportProgressBtn" title="Back up Wayne's mastery progress">&#8593; Export Progress</button>
-                <button class="btn export-btn" id="importProgressBtn" title="Restore Wayne's mastery progress">&#8595; Import Progress</button>
+                <button class="btn export-btn" id="exportProgressBtn" title="Back up mastery progress">&#8593; Export Progress</button>
+                <button class="btn export-btn" id="importProgressBtn" title="Restore mastery progress">&#8595; Import Progress</button>
             </div>
 
         </div>
@@ -377,6 +389,7 @@
                 <div class="score-display">Score: <span id="currentScore">0</span></div>
                 <a href="homework.html" class="btn" style="text-decoration:none">Homework &#8594;</a>
                 <a href="vocab.html" class="btn" style="text-decoration:none">Vocab &#8594;</a>
+                <a href="transitions.html" class="btn" style="text-decoration:none">Transitions &#8594;</a>
             </div>
         </header>
 
@@ -435,7 +448,7 @@
       <div style="max-width:560px;margin:0 auto;background:var(--surface);border-radius:1.25rem;padding:2rem;box-shadow:0 20px 40px rgba(0,0,0,0.25)">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
           <div>
-            <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:0.1rem">Wayne's Progress</h2>
+            <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:0.1rem">Mastery Progress</h2>
             <p style="font-size:0.78rem;color:var(--text-muted)">Tutor view &mdash; Ctrl+Shift+P to toggle</p>
           </div>
           <button onclick="closeProgressPanel()" class="btn">Close</button>

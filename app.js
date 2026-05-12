@@ -1080,7 +1080,7 @@ function openExportProgressModal() {
     const actionBtn = document.getElementById('modalActionBtn');
 
     title.textContent     = 'Export Progress';
-    desc.textContent      = "Copy this JSON to back up Wayne's mastery progress.";
+    desc.textContent      = "Copy this JSON to back up mastery progress.";
     desc.style.color      = '';
     textarea.value        = JSON.stringify({ progress: getProgress() }, null, 2);
     textarea.readOnly     = true;
