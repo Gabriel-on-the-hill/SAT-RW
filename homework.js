@@ -1,24 +1,23 @@
 // ─────────────────────────────────────────────────────────────────
-// homework.js  —  Wayne's SAT Homework (Craft & Structure)
+// homework.js  —  Wayne's SAT Homework (Transitions)
 // ─────────────────────────────────────────────────────────────────
 
 // ── Data ──────────────────────────────────────────────────────────
-const HW_BANK = typeof questionBank_CS !== 'undefined' ? questionBank_CS : [];
+const HW_BANK = typeof questionBank_EOI !== 'undefined' ? questionBank_EOI : [];
 
 const HW_SECTIONS = [
     {
-        skill: 'Words in Context', difficulty: 'Hard', strategy: 'Two-Filter Method',
-        ids: ['2a6209ef','0094f813','16e2ce52','ecbd6424','e65f9b81','df9f6fc6','9c0c8da4','0252e6a1','5888a6f4','8f0cc7a7'],
+        skill: 'Transitions', difficulty: 'Medium', strategy: '4 Logical Relationships',
+        ids: ['39d1a519','221ecf0f','30438650','388b45aa','3fd0ab63','f8c4591b','17e49403','0c13dea9'],
     },
     {
-        skill: 'Text Structure and Purpose', difficulty: 'Hard', strategy: 'Function Map',
-        ids: ['cc76d23a','733d2605','4259636f','d60bc86d','fb16e2c2','493479db','8ece0047','c8b920ee','0c61d9c0','19217740'],
+        skill: 'Transitions', difficulty: 'Hard', strategy: '4 Logical Relationships',
+        ids: ['2df7b582','c071eca2','ecb31049','00221c00','f5959727','176edca6','974b5a8c','6e0c60da','9f1a0d91','edf30612','47e238be','e3edc138'],
     },
 ];
 
 const HW_SKILL_ABBR = {
-    'Words in Context':           'WiC',
-    'Text Structure and Purpose': 'TSP',
+    'Transitions': 'Trans',
 };
 const HW_STORAGE  = 'wayne_hw_state';
 const QS_PER_SEC  = 10;
@@ -30,6 +29,7 @@ let hwIndex          = 0;     // current question index
 let hwAnswers        = {};    // { [questionIndex]: 'A'|'B'|'C'|'D' }
 let visitedSections  = new Set();
 let hwMissed         = [];
+let hwReviewCount    = 0;     // # of picks that were previously-missed questions
 
 // ── Helpers ───────────────────────────────────────────────────────
 function hwShuffle(arr) {
@@ -71,20 +71,76 @@ function selectMode(mode) {
 }
 
 // ── Build question list ───────────────────────────────────────────
+// Tier-aware fill per section: curated ids first, then same-difficulty
+// backfill from the wider bank, then other-difficulty spillover. Within
+// each pool, prioritizePool orders wrong → unseen → mastered, so missed
+// questions get preferred over mastered ones when the curated set runs short.
 function buildHwQuestions(mode) {
-    const list = [];
+    const idMap   = Object.fromEntries(HW_BANK.map(q => [q.id, q]));
+    const ledger  = getProgress();
+    const used    = new Set();
+    const list    = [];
+    let   reviewN = 0;
+
+    const tierOf = (q) => {
+        const r = ledger[q.id];
+        if (!r) return 'unseen';
+        if (_isMastered(r)) return 'mastered';
+        return 'wrong';
+    };
+
     HW_SECTIONS.forEach((sec, si) => {
-        let pool;
-        if (sec.ids && sec.ids.length) {
-            const idMap = Object.fromEntries(HW_BANK.map(q => [q.id, q]));
-            pool = sec.ids.map(id => idMap[id]).filter(Boolean);
-        } else {
-            const all = HW_BANK.filter(q => q.skill === sec.skill && q.difficulty === sec.difficulty);
-            pool = prioritizePool(all).slice(0, QS_PER_SEC);
-        }
-        pool.forEach(q => list.push({ ...q, sectionIdx: si }));
+        const quota      = (sec.ids && sec.ids.length) || QS_PER_SEC;
+        const curatedSet = new Set(sec.ids || []);
+        const curated    = (sec.ids || []).map(id => idMap[id]).filter(Boolean);
+        const sameDiff   = HW_BANK.filter(q =>
+            q.skill === sec.skill && q.difficulty === sec.difficulty && !curatedSet.has(q.id)
+        );
+        const otherDiff  = HW_BANK.filter(q =>
+            q.skill === sec.skill && q.difficulty !== sec.difficulty && !curatedSet.has(q.id)
+        );
+
+        const picked = [];
+        const drain  = (pool) => {
+            const ordered = prioritizePool(pool.filter(q => !used.has(q.id)));
+            for (const q of ordered) {
+                if (picked.length >= quota) break;
+                picked.push(q);
+                used.add(q.id);
+            }
+        };
+        drain(curated);
+        if (picked.length < quota) drain(sameDiff);
+        if (picked.length < quota) drain(otherDiff);
+
+        picked.forEach(q => {
+            if (tierOf(q) === 'wrong') reviewN++;
+            list.push({ ...q, sectionIdx: si });
+        });
     });
+
+    hwReviewCount = reviewN;
     return mode === 'mixed' ? hwShuffle(list) : list;
+}
+
+// Lightweight preview for the launch screen — does NOT commit picks.
+// Returns { fresh, review, mastered, total } counts based on the curated ids.
+function analyzeHwTiers() {
+    const idMap  = Object.fromEntries(HW_BANK.map(q => [q.id, q]));
+    const ledger = getProgress();
+    let fresh = 0, review = 0, mastered = 0, total = 0;
+    HW_SECTIONS.forEach(sec => {
+        (sec.ids || []).forEach(id => {
+            const q = idMap[id];
+            if (!q) return;
+            total++;
+            const r = ledger[q.id];
+            if (!r) fresh++;
+            else if (_isMastered(r)) mastered++;
+            else review++;
+        });
+    });
+    return { fresh, review, mastered, total };
 }
 
 // ── Persistence ───────────────────────────────────────────────────
@@ -116,27 +172,47 @@ function clearHwState() { localStorage.removeItem(HW_STORAGE); }
 function discardAndReset() {
     clearHwState();
     document.getElementById('resumeBanner').classList.add('hidden');
+    renderLaunchInfo();
 }
 
 // ── Check for saved session on page load ──────────────────────────
 function checkResume() {
     try {
         const state = loadHwState();
-        if (!state || !Array.isArray(state.ids)) return;
-        const idMap = Object.fromEntries(HW_BANK.map(q => [q.id, q]));
-        const valid = state.ids.filter(id => idMap[id]).length;
-        if (valid === 0) { clearHwState(); return; }
-
-        const answered  = Object.keys(state.answers || {}).length;
-        const remaining = valid - answered;
-        document.getElementById('resumeInfo').textContent =
-            `Q${(state.index || 0) + 1}/${valid} · ${answered} answered · ${remaining} remaining`;
-        document.getElementById('resumeBanner').classList.remove('hidden');
-
-        if (state.mode) selectMode(state.mode);
+        if (state && Array.isArray(state.ids)) {
+            const idMap = Object.fromEntries(HW_BANK.map(q => [q.id, q]));
+            const valid = state.ids.filter(id => idMap[id]).length;
+            if (valid > 0) {
+                const answered  = Object.keys(state.answers || {}).length;
+                const remaining = valid - answered;
+                document.getElementById('resumeInfo').textContent =
+                    `Q${(state.index || 0) + 1}/${valid} · ${answered} answered · ${remaining} remaining`;
+                document.getElementById('resumeBanner').classList.remove('hidden');
+                if (state.mode) selectMode(state.mode);
+                return;
+            }
+            clearHwState();
+        }
     } catch(e) {
         clearHwState();
     }
+    renderLaunchInfo();
+}
+
+// Show a one-line breakdown of how many curated questions are fresh /
+// review (got wrong before) / mastered, so Wayne knows what he's getting.
+function renderLaunchInfo() {
+    const el = document.getElementById('launchInfo');
+    if (!el) return;
+    const { fresh, review, mastered, total } = analyzeHwTiers();
+    if (!total || fresh === total) { el.classList.add('hidden'); return; }
+
+    const parts = [];
+    if (review > 0)   parts.push(`<b>${review}</b> review (missed before)`);
+    if (mastered > 0) parts.push(`<b>${mastered}</b> already mastered`);
+    if (fresh > 0)    parts.push(`<b>${fresh}</b> new`);
+    el.innerHTML = parts.join(' · ');
+    el.classList.remove('hidden');
 }
 
 // ── Start / resume homework ───────────────────────────────────────

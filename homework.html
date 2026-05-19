@@ -68,6 +68,16 @@
       font-size: 0.72rem; color: var(--primary); font-weight: 600;
     }
 
+    /* ── Launch breakdown line ──────────────────────────────────── */
+    .hw-launch-info {
+      background: #fffbeb; border: 1px solid #fde68a;
+      color: #92400e; border-radius: 0.6rem;
+      padding: 0.55rem 0.85rem; margin-bottom: 1rem;
+      font-size: 0.82rem; line-height: 1.4;
+    }
+    .hw-launch-info b { color: #78350f; font-weight: 700; }
+    .hw-launch-info.hidden { display: none !important; }
+
     /* ── Resume banner ──────────────────────────────────────────── */
     .hw-resume {
       background: #eff6ff; border: 1px solid #bfdbfe;
@@ -296,14 +306,16 @@
 
     <div class="hw-title">
       <h1>Homework</h1>
-      <p>Craft &amp; Structure &middot; Medium &amp; Hard</p>
+      <p>Transitions &middot; Medium &amp; Hard</p>
     </div>
 
     <div class="hw-stats">
       <span class="hw-stat">20 questions</span>
-      <span class="hw-stat">WiC &amp; TSP</span>
-      <span class="hw-stat">Medium &amp; Hard</span>
+      <span class="hw-stat">Transitions</span>
+      <span class="hw-stat">8 Medium &middot; 12 Hard</span>
     </div>
+
+    <div id="launchInfo" class="hw-launch-info hidden"></div>
 
     <div class="hw-mode-label">How would you like to practice?</div>
 
@@ -311,10 +323,10 @@
       <div class="hw-mode-card" data-mode="structured" onclick="selectMode('structured')">
         <div class="hw-mode-icon">▤</div>
         <div class="hw-mode-name">Structured</div>
-        <div class="hw-mode-desc">4 sections in order — master each strategy before switching.</div>
+        <div class="hw-mode-desc">Warm up on Medium, then push through Hard with the same framework.</div>
         <div class="hw-mode-seq">
-          <span>① WiC Medium &rarr; WiC Hard</span>
-          <span>② TSP Medium &rarr; TSP Hard</span>
+          <span>① Transitions Medium (8)</span>
+          <span>② Transitions Hard (12)</span>
         </div>
       </div>
       <div class="hw-mode-card" data-mode="mixed" onclick="selectMode('mixed')">
@@ -344,11 +356,11 @@
      ════════════════════════════════════════════════════════════════ -->
 <div id="sectionTransition" class="hidden">
   <div class="hw-sec-card">
-    <div class="hw-sec-num" id="secNum">Section 1 of 4</div>
-    <div class="hw-sec-skill" id="secSkill">Words in Context</div>
+    <div class="hw-sec-num" id="secNum">Section 1 of 2</div>
+    <div class="hw-sec-skill" id="secSkill">Transitions</div>
     <span class="badge badge-orange" id="secDiff">Medium</span>
     <div class="hw-sec-strategy">
-      Strategy: <strong id="secStrategy">Two-Filter Method</strong>
+      Strategy: <strong id="secStrategy">4 Logical Relationships</strong>
     </div>
     <button class="reveal-btn" style="margin-top:1.75rem" id="beginSectionBtn">
       Begin Section &rarr;
@@ -389,7 +401,7 @@
       <div class="card">
 
         <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;align-items:center">
-          <span class="badge badge-blue"   id="hwSkillBadge">WiC</span>
+          <span class="badge badge-blue"   id="hwSkillBadge">Trans</span>
           <span class="badge badge-orange" id="hwDiffBadge">Medium</span>
         </div>
 
@@ -449,7 +461,7 @@
   </div>
 </div>
 
-<script src="data-craft-structure.js"></script>
+<script src="data-expression-of-ideas.js"></script>
 <script src="progress.js"></script>
 <script src="homework.js"></script>
 </body>
