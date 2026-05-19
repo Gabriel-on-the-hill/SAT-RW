@@ -48,7 +48,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize the size of Tecozautla.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. The sentence emphasizes the size of Tecozautla, noting that it covers an area of roughly 535 km².\n\nChoice B is incorrect. The sentence gives an example of a public service that municipalities provide; it doesn’t emphasize the size of Tecozautla. Choice C is incorrect. While the sentence provides information about Tecozautla, it doesn’t emphasize Tecozautla’s size. Choice D is incorrect. While the sentence provides information about Tecozautla, it doesn’t emphasize Tecozautla’s size.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "bce57278",
@@ -65,7 +66,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “explain the goal of Brook Farm using a quotation from George Ripley.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. This choice explains the goal of Brook Farm—to provide mental freedom to all by engaging individuals in labor suited to their interests—using a quotation from George Ripley.\n\nChoice A is incorrect. This choice only mentions part of Ripley’s goal, and it doesn’t mention Brook Farm at all. Choice B is incorrect. This choice defines what a utopia is but doesn’t use Ripley’s words to describe his vision for Brook Farm. Choice C is incorrect. This choice provides some background information about Brook Farm, but it doesn’t explain its goals or include Ripley’s words.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "fc5e83cc",
@@ -99,7 +101,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize Wu’s most well-known achievement.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice C is the best answer. This describes the achievement for which Wu is best known.\n\nChoice A is incorrect. This choice doesn’t emphasize Wu’s most well-known achievement. It mentions some of her general achievements, but not the one for which she is “best known.” Choice B is incorrect. This choice doesn’t emphasize Wu’s most well- known achievement—it describes several of her achievements equally. Choice D is incorrect. This choice doesn’t emphasize Wu’s most well-known achievement. It describes a piece of music featured in her most well-known achievement.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "2b5e0731",
@@ -133,7 +136,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “make and support a generalization about exoplanets.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence makes and supports a generalization about exoplanets, noting that the names of exoplanets have diverse origins and supporting this with the examples of the origins of \"Phobetor\" and \"Mastika.\"\n\nChoice A is incorrect. The sentence misrepresents information from the notes, implying that there are multiple exoplanets with the same names. Additionally, the sentence provides no support for its generalization. Choice B is incorrect. The sentence contrasts the masses of two specific exoplanets; it doesn’t make and support a generalization about exoplanets. Choice C is incorrect. The sentence makes and supports a generalization about stars, not exoplanets.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Generalize"
   },
   {
     "id": "622a351d",
@@ -150,7 +154,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “make and support a generalization about the Alta conflict.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice D is the best answer. It makes a generalization—the conflict had a lasting impact—and then supports it with evidence—the attention and protections were results of the conflict.\n\nChoice A is incorrect. This choice doesn’t make a generalization about the conflict. It describes a specific event from the conflict. Choice B is incorrect. This choice makes a generalization about the Alta conflict, but doesn’t support it. Choice C is incorrect. This choice makes a statement about the aftermath of the conflict, but doesn’t support it. The statement is also a little too specific to be a generalization.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Generalize"
   },
   {
     "id": "5fa51c86",
@@ -167,7 +172,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize the relative sizes of the two capitals’ populations.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. The sentence emphasizes the relative sizes of the capital cities’ populations, noting that even though Hanoi has more people overall, Ulaanbaatar accounts for a larger percentage of the people in its country.\n\nChoice A is incorrect. While the sentence indicates the population size of each capital, it fails to emphasize their sizes relative to each other or to their countries’ overall population sizes. Choice B is incorrect. The sentence emphasizes the population sizes of the two countries; it fails to mention the capitals. Choice D is incorrect. While the sentence indicates the population size of each capital, it fails to emphasize their sizes relative to each other or to their countries’ overall population sizes.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "b7571c0a",
@@ -286,7 +292,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a similarity between the two specimens.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice C is the best answer. The sentence emphasizes a similarity between the two specimens, noting that Sue and Big Mike are members of the same genus: Tyrannosaurus.\n\nChoice A is incorrect. The sentence only provides information about where one of the specimens (Sue) can be found; it doesn’t emphasize a similarity between the two specimens. Choice B is incorrect. The sentence only provides information about one specimen (Big Mike); it doesn’t emphasize a similarity between the two specimens. Choice D is incorrect. The sentence contrasts the locations of Sue and Big Mike; it doesn’t emphasize a similarity between the two specimens.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "5d3177aa",
@@ -303,7 +310,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the significance of the Hart-Celler Act to an audience unfamiliar with the history of US immigration.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice D is the best answer. The sentence presents the significance of the Hart-Celler Act to an audience unfamiliar with the history of US immigration, noting that the 1965 act abolished the national-origins quota system and explaining why that mattered, historically: because the old quota system had favored immigrants from northern Europe.\n\nChoice A is incorrect. The sentence describes an aspect of immigration policy at the time the Hart-Celler Act was proposed; it doesn’t present the significance of the Hart-Celler Act to an audience unfamiliar with the history of US immigration. Choice B is incorrect. The sentence describes an aspect of immigration policy before the Hart-Celler Act; it doesn’t describe or present the significance of the act to an audience unfamiliar with the history of US immigration. Choice C is incorrect. While the sentence indicates that the Hart-Celler Act abolished the old quota system, it doesn’t explain the act or the quota system to an audience unfamiliar with the history of US immigration.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "fdd9a360",
@@ -320,7 +328,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “use a quotation to emphasize a potential problem with the wood-wide web theory.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice C is the best answer. This choice uses a quotation to convey the authors’ criticism and challenge to the wood-wide web theory due to an absence of evidence.\n\nChoice A is incorrect. This choice doesn’t emphasize a potential problem with the wood-wide web theory. It uses a quotation to introduce the theory and its originator. It doesn’t mention any criticism or challenge to the theory. Choice B is incorrect. This choice uses a quotation, but it doesn’t emphasize a potential problem with the wood-wide web theory. It uses a quotation to describe the appeal and interest of the theory, but it doesn’t indicate why the authors are concerned or what evidence they have. Choice D is incorrect. This choice doesn’t use a quotation at all. It paraphrases the main idea of the 2022 study, but it doesn’t include any specific words or phrases from the notes. It also doesn’t emphasize a potential problem with the theory, but rather its popularity.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "a3204ab0",
@@ -337,7 +346,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “specify the number of gray wolves in Yellowstone.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. This choice uses relevant information from the third bullet point to state the approximate number of gray wolves in Yellowstone.\n\nChoice A is incorrect. This choice mentions the year gray wolves in Yellowstone were reintroduced but not how many there are currently. Choice B is incorrect. This choice mentions the year gray wolves in Yellowstone were reintroduced but not how many there are currently. Choice C is incorrect. This choice defines the term carrying capacity but doesn’t connect it to the specific number of gray wolves currently living in Yellowstone.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "39d1a519",
@@ -371,7 +381,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “provide a historical overview of the two theories.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. The sentence provides a historical overview of the two theories, noting that scholars were divided between them before Ibn al-Haytham’s experiments supporting intromission largely settled the debate in the eleventh century.\n\nChoice B is incorrect. While the sentence identifies the two theories and the scholars that supported them, it doesn’t provide a historical overview of the theories. Choice C is incorrect. While the sentence indicates Aristotle supported intromission theory centuries before Ibn al-Haytham settled the debate, it doesn’t mention extramission theory or provide a historical overview of both theories. Choice D is incorrect. The sentence provides information about intromission theory but doesn’t mention extramission theory or provide a historical overview of both theories.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Overview-Introduce"
   },
   {
     "id": "34e1124f",
@@ -388,7 +399,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “provide an explanation and an example of Aeolian landforms.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice B is the best answer. The sentence provides an explanation and an example of Aeolian landforms, explaining that they are landforms created by wind and offering the mushroom rock as an example.\n\nChoice A is incorrect. The sentence explains that Aeolian landforms are created by wind but does not provide an example of any specific Aeolian landforms. Rather, the example it provides is of a wind-based process. Choice C is incorrect. While the sentence provides a partial explanation of Aeolian landforms, noting that they are created by the wind, it does not effectively provide an example. The sentence seems to indicate that mushroom rocks, rather than being an example of Aeolian landforms, are distinct from them. Choice D is incorrect. While the sentence provides an explanation of a mushroom rock, which is a specific example of an Aeolian landform, it doesn’t provide an explanation of Aeolian landforms in general.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "ecb31049",
@@ -422,7 +434,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the findings of the study.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. The sentence presents both findings from the study, noting that FTWs using marigolds both removed phosphorus from the water and yielded market-quality blooms.\n\nChoice A is incorrect. While the sentence presents a finding from the study, the presentation is incomplete; the study found that marigolds cultivated on FTWs both removed phosphorus from the water and yielded market-quality blooms. Choice B is incorrect. The sentence misrepresents information in the notes. The figure of 52% refers to the amount of phosphorus removed by FTWs using marigolds when compared to the control; the marigolds’ bloom yield was 65 market-quality blooms per square meter, and it was not compared to the control. Choice D is incorrect. The sentence misrepresents information in the notes. The FTWs using marigolds removed 52% more phosphorus from the water than did the control, not 52% of the total phosphorus. Additionally, the bloom figure is incomplete; the figure is 65 market-quality flower blooms per square meter.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "00460c13",
@@ -439,7 +452,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “identify the setting of Cather’s novel My Ántonia.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. This choice directly identifies the setting of Cather’s novel My Ántonia as Nebraska.\n\nChoice B is incorrect. This choice mentions that Cather wrote about immigrants, but it doesn’t indicate where they lived. Choice C is incorrect. This choice mentions that My Ántonia is one of Cather’s best-known novels but doesn’t state where it takes place. Choice D is incorrect. This choice mentions that some of Cather’s novels are set in Nebraska, but it doesn’t specify which ones, so we can’t be certain that My Ántonia is one of them. It also includes irrelevant information about Cather’s education.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "54227b8e",
@@ -456,7 +470,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “define the term “Lazarus species” and provide an example of one.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. The sentence defines the term \"Lazarus species\" and provides an example of one, explaining that a Lazarus species is a living organism that was once believed to be extinct and providing the mountain pygmy possum as an example.\n\nChoice B is incorrect. While the sentence provides an example of a Lazarus species, it doesn’t define the term \"Lazarus species.\" Choice C is incorrect. The sentence provides information about the mountain pygmy possum; it doesn’t define the term \"Lazarus species\" or explicitly identify the mountain pygmy possum as a Lazarus species. Choice D is incorrect. While the sentence describes the concept of a Lazarus species, it doesn’t define the term or provide an example of a Lazarus species.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "87d34a39",
@@ -473,7 +488,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “identify an accomplishment of the NCAI.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. The sentence directly identifies an accomplishment of the NCAI: that its advocacy was key to the passing of Public Law 96-638, which formally acknowledged Indigenous tribes’ right to self-governance.\n\nChoice A is incorrect. The sentence provides information about the NCAI’s founding and its first president, but it doesn’t identify an accomplishment of the organization. Choice B is incorrect. The sentence describes the NCAI’s founding, but it doesn’t identify an accomplishment of the organization. Choice D is incorrect. The sentence misrepresents the information in the notes: the US Congress, not the NCAI, passed the Indian Self-Determination and Education Assistance Act.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "00221c00",
@@ -507,7 +523,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “specify the fanner basket’s name in Choctaw.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. The sentence specifies the fanner basket’s name in Choctaw, noting that it’s called ufko tapushik.\n\nChoice A is incorrect. While the sentence mentions the fanner basket, it doesn’t specify its name in Choctaw. Choice C is incorrect. While the sentence mentions the fanner basket, it doesn’t specify its name in Choctaw. Choice D is incorrect. The sentence doesn’t mention the fanner basket or specify its name in Choctaw.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "3dcc7140",
@@ -524,7 +541,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “make and support a generalization about nissologists’ definition of an island.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence makes a generalization about nissologists’ definition of an island—specifically, that the use of one definition rather than another can result in huge disparities in the number of islands counted—and supports that generalization by citing Sweden as an example.\n\nChoice A is incorrect. The sentence introduces one definition of an island to an audience unfamiliar with nissologists; it doesn’t make a generalization about nissologists’ definition of an island. Choice B is incorrect. While the sentence synthesizes information from the notes about counts of Sweden’s islands, it doesn’t make and support a generalization about nissologists’ definition of an island. Choice C is incorrect. The sentence makes an inference about islands in Sweden; it doesn’t mention nissologists’ definition of an island or make a generalization about it.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Generalize"
   },
   {
     "id": "1b94a80a",
@@ -541,7 +559,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize how Romney wool differs from Merino and Rambouillet wool.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice C is the best answer. This choice most effectively emphasizes how Romney wool differs from Merino and Rambouillet wool. It describes the difference in thickness and the difference in what they’re used for.\n\nChoice A is incorrect. This choice doesn’t emphasize how Romney wool differs from Merino and Rambouillet wool. It doesn’t mention Merino or Rambouillet wool at all. Choice B is incorrect. This choice doesn’t emphasize how Romney wool differs from Merino and Rambouillet wool. It doesn’t mention Merino or Rambouillet wool at all. Choice D is incorrect. This choice doesn’t emphasize how Romney wool differs from Merino and Rambouillet wool. It doesn’t mention Romney, Merino or Rambouillet wool at all.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "221ecf0f",
@@ -592,7 +611,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “specify who may have first populated the Azores, according to the 2015 study.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. This choice effectively specifies who may have first populated the Azores, according to the 2015 study: the Vikings.\n\nChoice A is incorrect. This choice doesn’t effectively specify who may have first populated the Azores, according to the 2015 study. It only mentions the historical belief that the Portuguese were first. The 2015 study drew a different conclusion. Choice B is incorrect. This choice casts doubt on the Portuguese claim but doesn’t name the group of people who may have arrived before the Portuguese. Choice C is incorrect. This choice mentions the evidence that the researchers found but not the conclusion they drew from it. It doesn’t name the possible group of people who may have arrived before the Portuguese.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "388b45aa",
@@ -626,7 +646,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a difference between the two muslins.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. The difference between the two different kinds of muslin is emphasized.\n\nChoice B is incorrect. This choice lists two kinds of muslins, but does not say how they are different from one another. Choice C is incorrect. This choice does not emphasize a difference between the two muslins. Choice D is incorrect. This choice does not emphasize a difference between the two muslins. It only describes sheeting muslin.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "420dea42",
@@ -677,7 +698,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “explain what a quenched galaxy is.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. This choice defines a quenched galaxy as “one that no longer forms stars.”\n\nChoice A is incorrect. This choice only describes what happens before quenching. Choice B is incorrect. This choice only describes what happens after quenching. Choice D is incorrect. This choice only describes what causes quenching.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "afec1a70",
@@ -694,7 +716,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the primary aim of the research study.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. It describes the reason Bhosale’s team wanted to study the structures of bird nests—that is to say, the study’s primary aim.\n\nChoice B is incorrect. This choice doesn’t present the primary aim of the research study. It describes how the study worked, but not why it was done. Choice C is incorrect. This choice doesn’t present the primary aim of the research study. It describes a result of the experiment, but not why it was carried out. Choice D is incorrect. This choice doesn’t present the primary aim of the research study.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "176edca6",
@@ -745,7 +768,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize Claude McKay’s accomplishments before moving to Harlem.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice B is the best answer. This choice contrasts McKay’s fame as a Harlem Renaissance writer with his earlier achievements as a Jamaican poet, and it names the two collections he published before moving to Harlem.\n\nChoice A is incorrect. This choice doesn’t emphasize McKay’s accomplishments before moving to Harlem. It lists some of his works but doesn’t distinguish between those he wrote in Jamaica and those he wrote in Harlem. Choice C is incorrect. This choice doesn’t emphasize McKay’s accomplishments before moving to Harlem. It only mentions the year he moved and what he would become known for afterwards. Choice D is incorrect. This choice doesn’t emphasize McKay’s accomplishments before moving to Harlem. It mentions that he lived in Jamaica, but it doesn’t name any of the works he published there.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "974b5a8c",
@@ -847,7 +871,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a difference between the two books.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. This choice emphasizes a difference between the two books by using relevant information from the notes to contrast their genres.\n\nChoice B is incorrect. This choice mentions a difference between the books (their different topics), but it emphasizes a similarity between the books (their influence on readers). Choice C is incorrect. This choice provides information about the books that reflects both a similarity (both resulted in new laws) and a difference (the specific laws that resulted), without emphasizing either. Choice D is incorrect. This choice doesn’t emphasize a difference between the two books. Instead, it emphasizes a similarity.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "20733eac",
@@ -881,7 +906,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present LIGO’s aim and methodology.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence effectively presents the LIGO study’s aim, noting that it is designed to detect and analyze gravitational waves, and its methodology (it uses two interferometers to detect the waves).\n\nChoice A is incorrect. The sentence describes a finding from the LIGO study; it doesn’t effectively present the study’s aim or its methodology. Choice B is incorrect. The sentence provides background information about the LIGO study’s timeline; it doesn’t effectively present the study’s aim or its methodology. Choice C is incorrect. The sentence touches on LIGO’s methodology, noting that it uses two interferometers, but doesn’t indicate what the study’s aims are.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "25755def",
@@ -898,7 +924,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “contrast the two samples.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence contrasts the two samples, noting that the SEBS rubber sample, at 4 millimeters thick, was thicker than the TPU sample, which was 3 millimeters thick.\n\nChoice A is incorrect because the sentence mentions a similarity between the TPU fiber and the SEBS rubber; it doesn’t contrast the two samples. Choice B is incorrect because the sentence indicates that both the SEBS rubber and TPU samples were part of the 2019 study; it doesn’t contrast the two samples. Choice C is incorrect because the sentence describes the process of torsional heating; it doesn’t contrast the two samples.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "5b8b69a2",
@@ -915,7 +942,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “summarize the kelp highway hypothesis.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. This choice summarizes the main idea of the kelp highway hypothesis, providing a high-level overview of how the hypothesis explains human migration to the Americas.\n\nChoice A is incorrect. This choice describes one aspect of the proposed scenario but doesn’t discuss human migration, which is the main focus of the kelp highway hypothesis. Choice B is incorrect. This choice introduces the kelp highway hypothesis but doesn’t explain what it entails. Choice D is incorrect. This choice describes one element of the proposed scenario but doesn’t discuss human migration, which is the main focus of the kelp highway hypothesis.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "b07a7634",
@@ -932,7 +960,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “describe how DLS cures 3D objects.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. The sentence describes how DLS cures 3D objects, noting that UV light is projected into resin to cure the object in layers, after which the object is baked to complete the curing process.\n\nChoice A is incorrect. While the sentence does describe some elements of the curing process, the description misrepresents information in the notes; this sentence suggests that the UV light, rather than the 3D object, is baked in an oven. Choice B is incorrect. While the sentence does describe some elements of the curing process, the description misrepresents information in the notes: the UV light, not DLS, passes through the dead zone. Choice D is incorrect. While the sentence does describe some elements of the curing process, the description misrepresents information in the notes. This sentence suggests that curing is complete when the already-solidified resin passes through the dead zone; rather, liquid resin passes through the dead zone and is solidified in layers, after which curing is completed in the oven.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "6e0c60da",
@@ -966,7 +995,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “begin a narrative about Wong’s award-nominated web series.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. This choice introduces Wong and VGHS in an active and specific way, as if to an audience unfamiliar with the series. It also sets up the time and genre of the web series, which are useful ways to introduce the series of events in a narrative.\n\nChoice B is incorrect. This choice isn’t suited for beginning a narrative. A narrative is a story that follows a sequence of events and creates interest and suspense for the reader. This choice jumps to the end, explaining the success of VGHS without explaining what it is. Choice C is incorrect. This choice isn’t suited for beginning a narrative. It doesn’t actually introduce the web series by name. It just jumps to later in the story without sufficient explanation. Choice D is incorrect. This choice is not very effective for beginning a narrative. It doesn’t explain what VGHS is, and it doesn’t mention Wong.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Overview-Introduce"
   },
   {
     "id": "aa7e10d0",
@@ -983,7 +1013,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the study and its findings.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. This choice most effectively presents the study and its findings. It opens with the study and names its lead researcher, then tells us its finding: that they identified 74 Orchidaceae species in the temperate forests of Oaxaca, Mexico.\n\nChoice B is incorrect. This choice doesn’t include the study’s findings, so it fails to achieve the goal. It doesn’t mention that there was a study at all. Choice C is incorrect. This choice doesn’t present the study, so it fails to achieve the goal. It doesn’t mention that there was a study at all. Choice D is incorrect. This choice doesn’t include the study’s findings, so it fails to achieve the goal.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "17e49403",
@@ -1051,7 +1082,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a difference between the behavior of jellyfish and that of black dragonfish.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice D is the best answer. The sentence emphasizes a difference between the behavior of jellyfish and that of black dragonfish, noting that jellyfish and black dragonfish emit light as part of different behaviors (protection and predation, respectively).\n\nChoice A is incorrect. The sentence emphasizes a similarity between jellyfish and black dragonfish; it doesn’t emphasize a difference between the behavior of the two animals. Choice B is incorrect. The sentence emphasizes the type of bioluminescence exhibited by black dragonfish, noting that it’s used in predation; it doesn’t emphasize a difference between the behavior of the two animals. Choice C is incorrect. The sentence defines bioluminescence and explains how it works; the sentence doesn’t mention either animal or emphasize a difference between them.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "47e238be",
@@ -1085,7 +1117,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “introduce Kahlo to an audience unfamiliar with the artist.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice D is the best answer. By identifying Kahlo as an influential artist from Mexico, and by describing the work she’s best known for, this choice provides the background information necessary to introduce Kahlo to an unfamiliar audience.\n\nChoice A is incorrect. This choice doesn’t effectively introduce Kahlo. It doesn’t include any background information about who Kahlo is or where she’s from. It simply identifies one of her paintings. Choice B is incorrect. This choice doesn’t effectively introduce Kahlo. It doesn’t include any background information about who Kahlo is or where she’s from. It simply identifies one of her paintings. Choice C is incorrect. This choice doesn’t effectively introduce Kahlo. It doesn’t include any background information about who Kahlo is or where she’s from. Instead, it describes one of her paintings in detail.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "3c925481",
@@ -1102,7 +1135,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “provide an example of a fruit that contains vitamin C.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. The sentence provides an example of a fruit that contains vitamin C, noting that vitamin C (also known as ascorbic acid) can be found in pineapple as well as other fruits.\n\nChoice A is incorrect. While the sentence does explain that humans can get vitamin C from fruits, it doesn’t provide an example of a specific fruit that contains vitamin C. Choice C is incorrect. The sentence explains why humans must get vitamin C from foods; it doesn’t provide an example of a fruit that contains vitamin C. Choice D is incorrect. The sentence compares vitamin C production in animals with vitamin C production in humans; it doesn’t provide an example of a fruit that contains vitamin C.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "ed80971c",
@@ -1119,7 +1153,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize how long the museum has existed.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice B is the best answer. This choice effectively uses information from the notes to emphasize how long the museum has existed. It says that the museum has existed since 1992.\n\nChoice A is incorrect. This choice doesn’t emphasize how long the museum has existed. It doesn’t say when the museum was founded. Choice C is incorrect. This choice doesn’t emphasize how long the museum has existed. It doesn’t say the exact date of the museum’s founding. Rather, it emphasizes the museum’s mission. Choice D is incorrect. This choice doesn’t emphasize how long the museum has existed. It doesn’t say when the museum was founded.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "e3edc138",
@@ -1153,7 +1188,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “describe Adnan’s December from My Window to an audience already familiar with leporellos.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. This choice describes Adnan’s December from My Window in a way that assumes the audience is already familiar with leporellos and focuses on the specific features of the work—its content and medium.\n\nChoice A is incorrect. This choice isn’t suited for an audience already familiar with leporellos. A familiar audience wouldn’t need to have the term defined or explained. Choice C is incorrect. This choice doesn’t describe Adnan’s December from My Window. It mentions the year and the type of work but not the content or the medium. In addition, it provides a simple definition of leporellos, making this an inappropriate choice for an audience already familiar with leporellos. Choice D is incorrect. This choice isn’t suited for an audience already familiar with leporellos. A familiar audience wouldn’t need to have the term defined.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "a6155e60",
@@ -1221,7 +1257,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “describe the rocking chair to an audience unfamiliar with Sam Maloof.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. The sentence effectively describes the rocking chair to an audience unfamiliar with Sam Maloof, noting its sleek, contoured armrests and seat and explaining that Sam Maloof (the walnut chair’s creator) was an American woodworker.\n\nChoice B is incorrect. While the sentence explains who Sam Maloof was and mentions a chair, it doesn’t describe the chair. Choice C is incorrect. While the sentence explains who Sam Maloof was, it doesn’t describe the rocking chair. Choice D is incorrect. While the sentence describes the rocking chair, it doesn’t explain who Sam Maloof was.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "c34d6bff",
@@ -1238,7 +1275,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “compare the two women’s contributions to the March on Washington.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. The sentence compares the two women’s contributions to the march: Hedgeman worked behind the scenes to make sure a woman speaker was included, whereas Bates actually spoke at the event.\n\nChoice A is incorrect. While it acknowledges that the two women both contributed to the march, it doesn’t indicate what Hedgeman did, so no comparison is made. Choice B is incorrect. While the sentence provides information about the two women, it doesn’t mention anything about Bates’s contribution to the march. Choice D is incorrect. While the sentence indicates that the two women both fought for civil rights, it doesn’t compare their individual contributions to the march.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "eea351c4",
@@ -1272,7 +1310,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “explain how the House of Wisdom preserved the world’s knowledge.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence explains how the House of Wisdom preserved the world’s knowledge, noting that the library collected, translated, and printed writings from different countries.\n\nChoice A is incorrect. While the sentence indicates that the House of Wisdom was known for bringing together knowledge from around the world, it doesn’t explain how the library preserved this knowledge. Choice B is incorrect. The sentence makes a generalization about the scholars who were employed by the House of Wisdom; it doesn’t explain how the library preserved the world’s knowledge. Choice C is incorrect. The sentence identifies two authors whose writings were preserved at the House of Wisdom; it doesn’t explain how the library preserved the world’s knowledge.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "f4b63a04",
@@ -1289,7 +1328,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “explain the origin of the species’ name.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. It explains where the dinosaur’s name came from.\n\nChoice A is incorrect. This choice does not explain the origin of the dinosaur’s name. Choice B is incorrect. This choice does not explain the origin of the dinosaur’s name. Choice C is incorrect. This choice does not explain the origin of the dinosaur’s name.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "00e0170f",
@@ -1323,7 +1363,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “describe how fabric is used in Assertion of Will.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. This choice directly describes how fabric is used in Assertion of Will, by explaining that the fabric pieces are part of the painting itself.\n\nChoice B is incorrect. This choice provides contextual information about the exhibition, but it doesn’t mention anything about the painting or the fabric. Choice C is incorrect. This choice mentions that the figures are clothed, but it doesn’t explain how the fabric is integrated into the painting. Choice D is incorrect. This choice provides contextual information about the painting, but it doesn’t mention anything about the fabric or how it is used.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "8432a140",
@@ -1340,7 +1381,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “introduce the scientist and her field of study to a new audience.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. We’re asked to select the sentence that \"introduce[s] the scientist and her field of study.\" This choice introduces scientist Camille Jazmin Gaynus as a marine biologist and explains what marine life she studies.\n\nChoice A is incorrect. This choice doesn’t mention Camille Jazmin Gaynus, so it fails to \"introduce the scientist.\" Choice C is incorrect. This choice doesn’t mention Camille Jazmin Gaynus, so it fails to \"introduce the scientist.\" Choice D is incorrect. This choice mentions Camille Jazmin Gaynus, but it doesn’t identify her as a marine biologist. It says she \"knows well\" about coral reefs, but doesn’t identify her expertise as a \"field of study.\"",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "63c73b50",
@@ -1391,7 +1433,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the study to an audience already familiar with environmental DNA.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. This choice presents the study in a way that assumes the audience is already familiar with eDNA.\n\nChoice B is incorrect. This choice doesn’t present the study. It only states a general fact about eDNA analysis. Choice C is incorrect. This choice isn’t suited for an audience already familiar with eDNA. A familiar audience wouldn’t need to have the term defined or explained. Choice D is incorrect. This choice isn’t suited for an audience already familiar with eDNA. A familiar audience wouldn’t need to have the term defined or explained. It also doesn’t present the study.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "84e108cf",
@@ -1408,7 +1451,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “explain an advantage of the new platinum catalyst developed by Jianbo Tang and his colleagues.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence explains an advantage of Tang and his colleagues’ platinum catalyst, noting that it requires far less platinum (which is rare and expensive) than other platinum catalysts do.\n\nChoice A is incorrect. The sentence describes the platinum catalyst that Tang and his colleagues created; it doesn’t explain an advantage of their platinum catalyst. Choice B is incorrect. The sentence emphasizes a similarity between the new platinum catalyst and other platinum catalysts; it doesn’t explain an advantage of the new platinum catalyst. Choice C is incorrect. The sentence connects the metal platinum to the functioning of platinum catalysts, noting that large amounts of platinum are typically required for platinum catalysts to be effective; it doesn’t explain an advantage of Tang and his colleagues’ platinum catalyst.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "97e2e364",
@@ -1442,7 +1486,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “describe the wok’s shape.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. It summarizes the information that describes the wok’s shape from the second and third bullet points.\n\nChoice A is incorrect. This choice doesn’t describe the shape of a wok. Choice B is incorrect. This choice doesn’t describe the shape of a wok, just some of its features. Choice D is incorrect. This choice doesn’t describe the shape of a wok, only some of its benefits or functions.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "f07570bb",
@@ -1476,7 +1521,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “explain a disadvantage of relying on audio features to predict a song’s popularity.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. This choice uses relevant information from the notes to explain a disadvantage of relying on audio features to predict a song’s popularity—namely, that it may misidentify features of certain songs. It also contrasts audio features with descriptive tags, which are more reliable predictors.\n\nChoice A is incorrect. This choice only states a fact about the algorithms without evaluating their reliability or accuracy. Choice C is incorrect. This choice only describes the difference between audio features and descriptive tags without indicating why this difference matters for predicting popularity. Choice D is incorrect. This choice only mentions descriptive tags, which are not the focus of the student’s rhetorical goal.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "5222ffab",
@@ -1493,7 +1539,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “summarize the study’s findings.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence effectively summarizes the study’s findings, explaining what Padmanabhan and Chen found: that the brain can toggle between one method of processing smells (capturing information at a given moment) and another (tracking changes in information over time).\n\nChoice A is incorrect. While the sentence mentions findings, it mainly focuses on Padmanabhan and Chen’s methodology. It doesn’t effectively summarize the study’s findings. Choice B is incorrect. The sentence notes a fact about the olfactory system— that the perception of odor forms in the piriform cortex—but doesn’t summarize the findings of Padmanabhan and Chen’s study. Choice C is incorrect. The sentence presents the goal of Padmanabhan and Chen’s study; it doesn’t summarize the study’s findings.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "81315093",
@@ -1510,7 +1557,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “make a generalization about ultramarathons.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice C is the best answer. This is the only choice that makes a generalization about ultramarathons.\n\nChoice A is incorrect. This choice gives specific examples of ultramarathons but doesn’t say anything about them as a category. Choice B is incorrect. This choice compares marathons in general to one specific ultramarathon but doesn’t say anything about ultramarathons as a category. Choice D is incorrect. This choice contrasts two specific ultramarathons but doesn’t say anything about them as a category.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Generalize"
   },
   {
     "id": "92dec236",
@@ -1527,7 +1575,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a similarity between the two works.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. This choice most effectively emphasizes \"a similarity\" by identifying a trait the works share: \"both Erasure and Home Grown include discarded objects.\"\n\nChoice A is incorrect. This choice doesn’t \"emphasize a similarity.\" Instead, this choice shows how the materials used in the two works are different. Notice the use of the contrast word \"however.\" Choice B is incorrect. This choice doesn’t \"emphasize a similarity between the two works.\" While it says that Tubbs’s work \"often features discarded objects,\" it doesn’t provide details about the two works in question. Choice D is incorrect. This choice doesn’t \"emphasize a similarity.\" Instead, this choice shows how the works were produced at different times.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "b5972710",
@@ -1561,7 +1610,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a similarity between Uros Island and Fortuna.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice D is the best answer. The sentence emphasizes a similarity between the sculptures, noting that both Uros Island and Fortuna are LED light sculptures created by Grimanesa Amoros.\n\nChoice A is incorrect. Noting that Uros Island’s smooth LED domes contrast with Fortuna’s tangled LED tubes, the sentence emphasizes a difference between the two sculptures rather than a similarity. Choice B is incorrect. Contrasting the respective sizes of Uros Island and Fortuna, the sentence emphasizes a difference between the two sculptures rather than a similarity. Choice C is incorrect. While the sentence describes Uros Island, it doesn’t mention Fortuna or emphasize any similarity between the two sculptures.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "56336696",
@@ -1595,7 +1645,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize the uniqueness of Taylor’s accomplishment.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice D is the best answer. By indicating that Taylor’s book was the only Civil War memoir published by a Black woman, this sentence emphasizes the uniqueness, or one-of-a-kind nature, of Taylor’s accomplishment.\n\nChoice A is incorrect. While the sentence describes some of Taylor’s accomplishments, it doesn’t emphasize the uniqueness of them. Choice B is incorrect. While the sentence describes some of Taylor’s accomplishments, it doesn’t emphasize that they were unique. Choice C is incorrect. While the sentence provides information about Taylor’s book, it doesn’t emphasize what made the book unique.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "25a197dd",
@@ -1612,7 +1663,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “identify which of the three foods has the highest magnesium content.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. The sentence identifies chia seeds as having the highest magnesium content of the three foods, noting that they contain 150 mg/oz, which is more than both peanuts and almonds.\n\nChoice A is incorrect. The sentence compares the magnesium content of almonds and peanuts; it doesn’t identify which of the three foods has the highest magnesium content. Choice C is incorrect. The sentence merely mentions the three foods; it doesn’t identify which one has the highest magnesium content. Choice D is incorrect. The sentence identifies the magnesium content of peanuts; it doesn’t identify which of the three foods has the highest magnesium content.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "cf11282b",
@@ -1646,7 +1698,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize the thoroughness of Ida Tarbell’s investigation of the Standard Oil Company.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice A is the best answer. It describes Tarbell’s investigation and the lengths she went to complete it.\n\nChoice B is incorrect. This choice doesn’t describe how thorough Tarbell was. Instead, it gives a biographical sketch. Choice C is incorrect. This choice doesn’t describe how thorough Tarbell was. Tarbell didn’t only conduct interviews—she also “examined thousands of pages of the company’s internal communications.” Choice D is incorrect. This choice doesn’t describe how thorough Tarbell was. It describes her book but doesn’t include anything about her investigation.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "fbffb352",
@@ -1663,7 +1716,8 @@ const questionBank_EOI = [
     "answer": "D",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a similarity between the Laas Geel paintings and the Dhagah Nabi Galay paintings.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice D is the best answer. This choice compares the Laas Geel paintings and the Dhagah Nabi Galay paintings to one another and emphasizes what they have in common: they are both ancient rock art found in the same region.\n\nChoice A is incorrect. This choice only mentions the Dhagah Nabi Galay paintings. It doesn’t compare them to the Laas Geel paintings. Choice B is incorrect. This choice doesn’t emphasize a similarity between the two paintings. Instead, it emphasizes a difference: the type of content they depict. Choice C is incorrect. This choice only mentions the Laas Geel paintings. It doesn’t compare them to the Dhagah Nabi Galay paintings.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "85c0c0f0",
@@ -1680,7 +1734,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present historical analysis to an audience unfamiliar with the concept.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice C is the best answer. The sentence presents historical analysis to an audience unfamiliar with the concept by defining it as an approach to art criticism that considers the historical context in which a work was created.\n\nChoice A is incorrect because it provides an example of texture analysis; it doesn’t present historical analysis to an audience unfamiliar with the concept. Choice B is incorrect. The sentence explains a difference between texture analysis and historical analysis; it doesn’t present historical analysis to an audience unfamiliar with the concept. Choice D is incorrect. It provides an example of historical analysis; it doesn’t present historical analysis to an audience unfamiliar with the concept.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "7f2781fd",
@@ -1697,7 +1752,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “compare the extinction risk faced by C.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. The sentence compares the extinction risks of the two species, noting that C. olivacea has a higher risk of becoming extinct in the near future than C. furcatus.\n\nChoice B is incorrect. While the sentence does compare the extinction risks of the two species, it misrepresents information from the notes; C. olivacea faces a higher risk of becoming extinct in the near future than C. furcatus, not the other way around. Choice C is incorrect. While the sentence mentions that conservation organizations have evaluated both species for extinction risk, it doesn’t compare the extinction risks of the two species. Choice D is incorrect. While the sentence states that C. olivacea faces a high risk of extinction, it doesn’t mention C. furcatus or compare the extinction risks of the two species.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "64e88c58",
@@ -1714,7 +1770,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “provide an explanation and an example of Oliveros’s Sonic Meditations.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. It describes what a “Sonic Meditation” is, and then gives an example in the form of Meditation XVIII.\n\nChoice B is incorrect. This choice describes what a “Sonic Meditation” is, but doesn’t give an example of one. Choice C is incorrect. This choice gives an example of a “Sonic Meditation,” but doesn’t explain what the meditations are. Choice D is incorrect. This choice doesn’t describe what a “Sonic Meditation” is.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "61c0f7b3",
@@ -1731,7 +1788,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nRead the writing goal BEFORE the notes. Every answer must accomplish that exact goal.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice B is the best answer. The sentence emphasizes a difference between the eggs of the two species, directly contrasting the shorter average length of Gygis alba eggs (4.46 cm) with the longer average length of Gavia stellata eggs (7.22 cm).\n\nChoice A is incorrect. While the sentence mentions both bird species, it doesn’t emphasize a difference between their eggs. Choice C is incorrect. While the sentence provides information about the two bird species, it doesn’t emphasize a difference between their eggs. Choice D is incorrect. While the sentence provides the average lengths of both species’ eggs, it doesn’t explicitly emphasize the difference between them.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "10cd0327",
@@ -1748,7 +1806,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the study’s findings to an audience already familiar with thermal inversions.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice C is the best answer. It describes the study’s findings in a way that assumes the audience is already familiar with thermal inversions.\n\nChoice A is incorrect. This choice doesn’t fully describe the findings of the study, because it doesn’t include anything about thermal inversions. Choice B is incorrect. This choice doesn’t describe the study’s findings. Choice D is incorrect. This choice isn’t suited for an audience already familiar with thermal inversion. A familiar audience wouldn’t need to have the term defined.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Audience-Aware"
   },
   {
     "id": "11df9b99",
@@ -1782,7 +1841,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize a similarity between Beard’s invention and Jones’s invention.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice A is the best answer. It compares Beard’s and Jones’s inventions to one another, and emphasizes what they have in common.\n\nChoice B is incorrect. This choice doesn’t emphasize a similarity. It only mentions Beard’s invention. It doesn’t compare it to Jones’s invention. Choice C is incorrect. This choice doesn’t emphasize a similarity between the two inventions. Instead, it emphasizes a difference. Choice D is incorrect. This choice doesn’t emphasize a similarity. It only mentions Jones’s invention. It doesn’t compare it to Beard’s invention.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "146233fc",
@@ -1799,7 +1859,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize the order in which the two lighthouse keepers began their careers.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Wrong Goal — wrong answers use the notes accurately but accomplish a different writing purpose.\n────────────────────────────────────────\nChoice C is the best answer. The sentence emphasizes the order in which the two lighthouse keepers began their careers, noting that McNeil, who became the keeper at Bridgeport Breakwater Light in 1904, began her career years after Younghans, who became the keeper at Biloxi Light in 1867.\n\nChoice A is incorrect because it makes a generalization about the effects of McNeil’s and Younghans’s work; it doesn’t emphasize the order in which the two keepers began their careers. In addition, the sentence misrepresents information from the notes; McNeil was the keeper at a lighthouse in Connecticut from 1904 to 1920, not at a lighthouse in Mississippi from 1867 to 1918. Choice B is incorrect. The sentence claims that Younghans and McNeil were crucial to ensuring the safety of watercraft before lighthouses became automated; it doesn’t emphasize the order in which the two keepers began their careers. Choice D is incorrect. The sentence emphasizes when the lighthouse keepers’ respective careers ended; it doesn’t emphasize the order in which the two keepers began their careers.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Compare"
   },
   {
     "id": "0778b4ac",
@@ -1816,7 +1877,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “specify how many chromosomes the pineapple has.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. The sentence directly specifies how many chromosomes the pineapple has, as indicated in the notes: fifty.\n\nChoice A is incorrect. While the sentence mentions the pineapple’s chromosomes, it doesn’t specify how many it has. Choice C is incorrect. The sentence indicates that the pineapple has more chromosomes than the melon; it doesn’t specify the exact number of chromosomes the pineapple has. Choice D is incorrect. The sentence specifies how many chromosomes the melon has, not how many the pineapple has.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Specify"
   },
   {
     "id": "7c3f0145",
@@ -1867,7 +1929,8 @@ const questionBank_EOI = [
     "answer": "C",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “describe how the bicycles in Double Phantom/EntroP.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice C is the best answer. The sentence correctly describes how the bicycles in the sculpture are fused together: they share the same rear wheel while facing opposite directions.\n\nChoice A is incorrect. The sentence states that the bicycles are fused together but doesn’t describe how they are fused. Choice B is incorrect. The sentence states that there are two bicycles in the sculpture without indicating that they are fused together or describing how they are fused. Choice D is incorrect. It identifies the artist who created the sculpture but doesn’t describe how the bicycles are fused together.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Define-Explain"
   },
   {
     "id": "3fa48bf3",
@@ -1884,7 +1947,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “emphasize the significance of the 1990 discovery to Plot’s reputation.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Accurate But Off-Task — wrong answers may be factually correct but don’t serve the stated goal.\n────────────────────────────────────────\nChoice B is the best answer. Noting that the evidence suggests Indigenous peoples may have found dinosaur remains in 1100 CE, the sentence emphasizes how the 1990 discovery challenged Plot’s reputation as the first person to discover dinosaur remains.\n\nChoice A is incorrect. While the sentence does emphasize that Benoit challenged Plot’s reputation, it misrepresents information in the notes; Plot was reputed to be the first person to discover dinosaur remains in general, not the first person to discover M. carinatus remains specifically. Choice C is incorrect. The sentence only partially explains the significance of the 1990 discovery, noting that it suggests Indigenous people brought dinosaur remains to the cave in 1100 CE; it doesn’t explain the discovery’s significance to Plot’s reputation. Choice D is incorrect. While the sentence does emphasize that the discovery challenged Plot’s reputation, it misrepresents information in the notes. The notes don’t indicate that the 1990 discovery cast any doubt on Plot’s claims to have found fossilized dinosaur bones; rather, the discovery challenged Plot’s reputation for being the first to discover dinosaur bones.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "326017ce",
@@ -1918,7 +1982,8 @@ const questionBank_EOI = [
     "answer": "A",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “present the study’s results.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice A is the best answer. This choice presents the study’s results from the last two bullet points.\n\nChoice B is incorrect. This choice describes the background and motivation of the study but not the outcome or findings. Choice C is incorrect. This choice describes the research question or hypothesis of the study but not the evidence or conclusion. Choice D is incorrect. This choice describes the method or design of the study but not the actual results.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Present-Study"
   },
   {
     "id": "064c8999",
@@ -1935,7 +2000,8 @@ const questionBank_EOI = [
     "answer": "B",
     "explanation": "Strategy: Goal-First Filter\nWriting goal: “provide an overview of the Haber-Bosch process.” Read this goal BEFORE the notes. Every answer must accomplish exactly this — nothing more, nothing less.\nTrap: Over-Inclusive — a wrong answer may include too much information, diluting the specific goal.\n────────────────────────────────────────\nChoice B is the best answer. The sentence provides an overview of the Haber-Bosch process, explaining that it uses an iron catalyst, high temperatures, and high pressures to manufacture ammonia from nitrogen and hydrogen.\n\nChoice A is incorrect. While the sentence identifies some of the process’s required components (nitrogen, hydrogen, and an iron catalyst), the overview is incomplete; it doesn’t explain what the process does (produces ammonia) or mention the conditions needed for it to function (high temperatures and pressures). Choice C is incorrect. While the sentence indicates who invented the process (Fritz Haber and Carl Bosch) and that it produces ammonia, the overview is incomplete; it doesn’t mention any of the necessary ingredients or conditions. Choice D is incorrect. While the sentence mentions the inventors of the process along with the required conditions (high temperatures and pressures), it doesn’t explain that the process produces ammonia or indicate what components are needed.",
     "strategy": "Goal-First Filter",
-    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive"
+    "trapName": "Wrong Goal · Accurate But Off-Task · Over-Inclusive",
+    "goalType": "Overview-Introduce"
   },
   {
     "id": "ad729337",
@@ -1968,7 +2034,8 @@ const questionBank_EOI = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The sentence emphasizes the decline in unique apple varieties in the US and specifies why this\ndecline occurred, noting that thousands of apple varieties were lost because US farmers started mainly growing the same few\nunique varieties.\n\nChoice A is incorrect. The sentence introduces the Lost Apple Project; it doesn't emphasize the decline in unique apple varieties in\nthe US and specify why this decline occurred. Choice B is incorrect. While the sentence emphasizes the decline in unique apple\nvarieties in the US, it doesn't explain why this decline occurred. Choice D is incorrect. The sentence emphasizes the general decline\nof crop varieties in the mid-1900s; it doesn't emphasize the specific decline in unique apple varieties in the US.",
-    "strategy": "Goal-First Filter"
+    "strategy": "Goal-First Filter",
+    "goalType": "Emphasize-Trait"
   },
   {
     "id": "a1ca7ec4",
@@ -1984,7 +2051,8 @@ const questionBank_EOI = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The sentence effectively introduces the poetry collection Precario/Precarious, noting that it is a\ncollection by Vicuña that was published in 1983 by Tanam Press.\n\nChoice A is incorrect. While the sentence mentions the 1983 poetry collection Precario/Precarious, it focuses mainly on Vicuña's\nvisual art. Choice B is incorrect. The sentence doesn't introduce the 1983 poetry collection Precario/Precarious; instead, it\nintroduces Vicuña. Choice D is incorrect. The sentence emphasizes the location of Vicuña's 1971 exhibition Pinturas, poemas y\nexplicaciones; it doesn't introduce the 1983 poetry collection Precario/Precarious.",
-    "strategy": "Goal-First Filter"
+    "strategy": "Goal-First Filter",
+    "goalType": "Overview-Introduce"
   },
   {
     "id": "2b89bfe5",
@@ -2000,7 +2068,8 @@ const questionBank_EOI = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. Noting that the Sun (9,800°F) is hotter than most stars within 10 parsecs of it, the sentence\nemphasizes how hot the Sun is relative to nearby stars.\n\nChoice B is incorrect. The sentence explains that astronomer Todd Henry determined the classifications for the Sun and several\nother stars nearby; it doesn't emphasize how hot the Sun is relative to nearby stars. Choice C is incorrect. The sentence explains\nthat the majority of stars near the Sun are classified as K or M stars; it doesn't indicate the Sun's temperature or emphasize how\nhot it is relative to nearby stars. Choice D is incorrect. While the sentence indicates that the Sun is classified differently than most\nnearby stars due to its surface temperature, it doesn't emphasize how hot the Sun is relative to nearby stars.",
-    "strategy": "Goal-First Filter"
+    "strategy": "Goal-First Filter",
+    "goalType": "Compare"
   },
   {
     "id": "58281fc4",
@@ -2016,6 +2085,7 @@ const questionBank_EOI = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The sentence effectively describes Unwoven Light to an audience unfamiliar with Park, noting that\nSoo Sunny Park is a Korean American artist and that the 2013 work consists of colorful prisms formed by light passing through\niridescent tiles.\n\nChoice A is incorrect. The sentence describes aspects of Unwoven Light but doesn't mention who Park is; it thus doesn't\neffectively describe the work to an audience unfamiliar with Park. Choice B is incorrect. Although the sentence indicates when the\nwork was created and who Park is, it lacks descriptive details and thus doesn't effectively describe Unwoven Light. Choice C is\nincorrect. The sentence mentions Park and describes an aspect of Unwoven Light—the chain-link fence—but doesn't effectively\ndescribe the overall work to an audience unfamiliar with the artist.",
-    "strategy": "Goal-First Filter"
+    "strategy": "Goal-First Filter",
+    "goalType": "Audience-Aware"
   }
 ];

@@ -49,6 +49,19 @@ const SKILL_ABBR = {
     'Form, Structure, and Sense':             'FSS',
 };
 
+// Rhetorical Synthesis goal-type labels (derived from the practice bank).
+// Goal type is set per-question in data-expression-of-ideas.js as `goalType`.
+const GOAL_TYPE_LABEL = {
+    'Specify':            'Specify',
+    'Emphasize-Trait':    'Emphasize Trait',
+    'Compare':            'Compare',
+    'Define-Explain':     'Define/Explain',
+    'Generalize':         'Generalize',
+    'Present-Study':      'Present Study',
+    'Audience-Aware':     'Audience-Aware',
+    'Overview-Introduce': 'Overview / Introduce',
+};
+
 const SKILL_DOMAIN = {
     'Words in Context':                       'Craft & Structure',
     'Text Structure and Purpose':             'Craft & Structure',
@@ -262,6 +275,38 @@ function showCompletion() {
                 <span class="breakdown-score ${cls}">${s.correct}/${s.total} (${p}%)</span>
             </div>`;
         }).join('');
+
+    // Goal-type breakdown for Rhetorical Synthesis (only when RS in this session)
+    const goalEl = document.getElementById('goalTypeBreakdown');
+    if (goalEl) {
+        const goalStats = {};
+        sessionResults.forEach(r => {
+            if (r.q.skill !== 'Rhetorical Synthesis' || !r.q.goalType) return;
+            if (!goalStats[r.q.goalType]) goalStats[r.q.goalType] = { correct: 0, total: 0 };
+            goalStats[r.q.goalType].total++;
+            if (r.isCorrect) goalStats[r.q.goalType].correct++;
+        });
+
+        if (Object.keys(goalStats).length === 0) {
+            goalEl.innerHTML = '';
+            goalEl.style.display = 'none';
+        } else {
+            goalEl.style.display = '';
+            goalEl.innerHTML =
+                '<div class="breakdown-subhead">RS Goal Types</div>' +
+                Object.entries(goalStats).map(([gt, s]) => {
+                    const p   = Math.round(s.correct / s.total * 100);
+                    const cls = p >= 80 ? 'bd-pass' : p >= 60 ? 'bd-warn' : 'bd-fail';
+                    const bar = Math.round(p / 5);
+                    return `
+                    <div class="breakdown-row">
+                        <span class="breakdown-skill">${GOAL_TYPE_LABEL[gt] || gt}</span>
+                        <span class="breakdown-bar">${'█'.repeat(bar)}${'░'.repeat(20 - bar)}</span>
+                        <span class="breakdown-score ${cls}">${s.correct}/${s.total} (${p}%)</span>
+                    </div>`;
+                }).join('');
+        }
+    }
 
     const missedListEl  = document.getElementById('missedList');
     const reviewBtn     = document.getElementById('reviewMissedBtn');

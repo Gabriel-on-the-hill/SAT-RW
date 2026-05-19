@@ -685,6 +685,22 @@ h1, h2, h3 {
     color: var(--text-muted);
 }
 
+.breakdown-subhead {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 0.15rem;
+    opacity: 0.75;
+}
+
+/* RS goal types have longer labels — widen the column when in goalType breakdown */
+#goalTypeBreakdown .breakdown-skill {
+    width: 8rem;
+}
+
 .breakdown-bar {
     font-family: monospace;
     font-size: 0.75rem;
