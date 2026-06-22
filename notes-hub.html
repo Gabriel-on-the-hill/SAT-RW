@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SAT Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #f1f5f9;
+    --surface:     #ffffff;
+    --surface2:    #f8fafc;
+    --border:      #e2e8f0;
+    --text:        #0f172a;
+    --text-muted:  #64748b;
+    --primary:     #7c3aed;
+    --primary-light: #a78bfa;
+    --shadow:      0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --shadow-lg:   0 10px 30px rgba(0,0,0,.08);
+    --radius:      0.85rem;
+    --radius-sm:   0.5rem;
+  }
+
+  [data-theme="dark"] {
+    --bg:          #0f172a;
+    --surface:     #1e293b;
+    --surface2:    #162032;
+    --border:      #334155;
+    --text:        #e2e8f0;
+    --text-muted:  #94a3b8;
+    --shadow:      0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+    --shadow-lg:   0 10px 30px rgba(0,0,0,.5);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.55; font-size: 15px;
+    min-height: 100vh; min-height: 100dvh;
+  }
+
+  /* ── Header ──────────────────────────────────────────────────── */
+  .site-header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .header-row {
+    max-width: 760px; margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .site-logo {
+    font-weight: 800; font-size: 1rem;
+    color: var(--primary); white-space: nowrap;
+    display: flex; align-items: center; gap: 0.45rem;
+  }
+  .site-logo-tag {
+    flex: 1; font-size: 0.8rem; font-weight: 600;
+    color: var(--text-muted); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .header-btns { display: flex; gap: 0.4rem; }
+  .icon-btn {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.4rem 0.55rem;
+    cursor: pointer; font-size: 0.9rem; color: var(--text);
+  }
+  .icon-btn:hover { background: var(--bg); }
+  .back-link {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.4rem 0.7rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--text);
+    text-decoration: none; white-space: nowrap;
+    display: inline-flex; align-items: center;
+  }
+  .back-link:hover { background: var(--bg); }
+
+  /* ── Main ────────────────────────────────────────────────────── */
+  main {
+    max-width: 760px; margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+    display: flex; flex-direction: column; gap: 1.1rem;
+  }
+  .intro { font-size: 0.95rem; color: var(--text-muted); line-height: 1.55; }
+
+  .domain-label {
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted);
+    margin: 0.5rem 0 -0.2rem 0.15rem;
+  }
+
+  /* ── Note cards ──────────────────────────────────────────────── */
+  .note-grid { display: flex; flex-direction: column; gap: 0.85rem; }
+  .note-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem 1rem;
+    box-shadow: var(--shadow);
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.15s, transform 0.12s, box-shadow 0.12s;
+    cursor: pointer;
+    border-left: 4px solid var(--accent, var(--border));
+  }
+  .note-card:hover {
+    border-color: var(--primary-light);
+    border-left-color: var(--accent, var(--primary-light));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  .note-card-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+  .note-card-meta { flex: 1; min-width: 0; }
+  .note-card-title { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .note-card-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
+  .note-card-cta { font-size: 0.82rem; font-weight: 700; color: var(--primary); align-self: center; white-space: nowrap; flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    .header-row { padding: 0.6rem 0.85rem; gap: 0.55rem; }
+    main { padding: 1rem 0.85rem 3rem; gap: 0.9rem; }
+    .note-card { padding: 0.95rem 1rem; }
+    .note-card-icon { font-size: 1.15rem; }
+    .note-card-title { font-size: 0.98rem; }
+    .note-card-cta { display: none; }
+  }
+  </style>
+  <script src="gate.js?v=20260616"></script>
+  <script src="anti-cheat.js?v=20260616"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <span class="site-logo">&#128214; SAT Notes</span>
+    <span class="site-logo-tag" id="notesTag">— reference cards</span>
+    <div class="header-btns">
+      <button class="icon-btn" id="themeBtn" title="Toggle dark mode">&#127769;</button>
+      <a href="index.html" class="back-link">&larr; Hub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <p class="intro">Reference cards for each Reading &amp; Writing skill. Keep the card for the skill you're practicing open while you work.</p>
+
+  <div class="domain-label">Craft &amp; Structure &middot; 28%</div>
+  <div class="note-grid">
+    <a class="note-card" href="cs.html" style="--accent:#7c3aed">
+      <div class="note-card-icon">&#10022;</div>
+      <div class="note-card-meta">
+        <div class="note-card-title">Craft &amp; Structure</div>
+        <div class="note-card-desc">A method for each type: Words in Context, Text Structure, and Cross-Text.</div>
+      </div>
+      <span class="note-card-cta">Open &rarr;</span>
+    </a>
+    <a class="note-card" href="vocab.html" style="--accent:#7c3aed">
+      <div class="note-card-icon">&#128218;</div>
+      <div class="note-card-meta">
+        <div class="note-card-title">Vocabulary</div>
+        <div class="note-card-desc">335 DSAT words &middot; flip cards, daily 5, and progress tracking.</div>
+      </div>
+      <span class="note-card-cta">Open &rarr;</span>
+    </a>
+  </div>
+
+  <div class="domain-label">Expression of Ideas &middot; 20%</div>
+  <div class="note-grid">
+    <a class="note-card" href="transitions.html" style="--accent:#0d9488">
+      <div class="note-card-icon">&#8644;</div>
+      <div class="note-card-meta">
+        <div class="note-card-title">Transitions</div>
+        <div class="note-card-desc">5 logical relationships &middot; the Two-Sentence Protocol &middot; the Big Five traps.</div>
+      </div>
+      <span class="note-card-cta">Open &rarr;</span>
+    </a>
+    <a class="note-card" href="rs.html" style="--accent:#0d9488">
+      <div class="note-card-icon">&#9874;</div>
+      <div class="note-card-meta">
+        <div class="note-card-title">Rhetorical Synthesis</div>
+        <div class="note-card-desc">8 goal types &middot; Goal-First Protocol &middot; the Accurate But Off-Task trap.</div>
+      </div>
+      <span class="note-card-cta">Open &rarr;</span>
+    </a>
+  </div>
+
+  <div class="domain-label">Standard English Conventions &middot; 26%</div>
+  <div class="note-grid">
+    <a class="note-card" href="sec.html" style="--accent:#2563eb">
+      <div class="note-card-icon">&#9998;</div>
+      <div class="note-card-meta">
+        <div class="note-card-title">English Conventions</div>
+        <div class="note-card-desc">11 rules, built on clause basics, with a decision flowchart for punctuation.</div>
+      </div>
+      <span class="note-card-cta">Open &rarr;</span>
+    </a>
+  </div>
+
+  <div class="domain-label">Information &amp; Ideas &middot; 26%</div>
+  <div class="note-grid">
+    <a class="note-card" href="ii.html" style="--accent:#ea580c">
+      <div class="note-card-icon">&#128161;</div>
+      <div class="note-card-meta">
+        <div class="note-card-title">Information &amp; Ideas</div>
+        <div class="note-card-desc">4 sub-skills &middot; R/S/D + G/B/C frameworks &middot; Coverage Test &middot; 12 named traps.</div>
+      </div>
+      <span class="note-card-cta">Open &rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script>
+const TK = 'wayne_theme_v1';
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeBtn').innerHTML = t === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+  try { localStorage.setItem(TK, t); } catch(e) {}
+}
+(function initTheme(){
+  const saved = localStorage.getItem(TK);
+  if (saved) applyTheme(saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+})();
+document.getElementById('themeBtn').addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+document.getElementById('notesTag').textContent = '6 reference cards';
+</script>
+<script src="nav.js?v=20260616" defer></script>
+</body>
+</html>

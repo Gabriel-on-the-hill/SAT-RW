@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SAT Information &amp; Ideas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #f1f5f9;
+    --surface:     #ffffff;
+    --surface2:    #f8fafc;
+    --border:      #e2e8f0;
+    --text:        #0f172a;
+    --text-muted:  #64748b;
+    --shadow:      0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --radius:      0.75rem;
+    --radius-sm:   0.5rem;
+
+    /* Four sub-skill clusters */
+    --ci-hue:     #7c3aed; --ci-bg:     #f5f3ff; --ci-bdr:     #ddd6fe;  /* Central Ideas — purple */
+    --et-hue:     #2563eb; --et-bg:     #eff6ff; --et-bdr:     #bfdbfe;  /* Evidence Textual — blue */
+    --eq-hue:     #0891b2; --eq-bg:     #ecfeff; --eq-bdr:     #a5f3fc;  /* Evidence Quantitative — cyan */
+    --in-hue:     #ea580c; --in-bg:     #fff7ed; --in-bdr:     #fed7aa;  /* Inferences — orange */
+
+    --trap-hue:    #dc2626; --trap-bg:    #fef2f2; --trap-bdr:    #fecaca;
+    --ok-hue:      #16a34a; --ok-bg:      #f0fdf4; --ok-bdr:      #bbf7d0;
+    --tip-hue:     #0f766e; --tip-bg:     #f0fdfa; --tip-bdr:     #99f6e4;
+  }
+
+  [data-theme="dark"] {
+    --bg:          #0f172a;
+    --surface:     #1e293b;
+    --surface2:    #162032;
+    --border:      #334155;
+    --text:        #e2e8f0;
+    --text-muted:  #94a3b8;
+    --shadow:      0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+
+    --ci-bg:      #2e1065; --ci-bdr:      #5b21b6;
+    --et-bg:      #172554; --et-bdr:      #1e40af;
+    --eq-bg:      #083344; --eq-bdr:      #0e7490;
+    --in-bg:      #431407; --in-bdr:      #9a3412;
+
+    --trap-bg:   #450a0a; --trap-bdr:   #991b1b;
+    --ok-bg:     #052e16; --ok-bdr:     #166534;
+    --tip-bg:    #042f2e; --tip-bdr:    #115e59;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.55; font-size: 15px;
+    min-height: 100vh; min-height: 100dvh;
+  }
+
+  /* ── Header ──────────────────────────────────────────────────── */
+  .site-header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: sticky; top: 0; z-index: 20;
+  }
+  .header-row {
+    max-width: 920px; margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .site-logo {
+    font-weight: 800; font-size: 1rem;
+    background: linear-gradient(90deg, var(--ci-hue), var(--in-hue));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    white-space: nowrap;
+  }
+  .header-tag {
+    font-size: 0.72rem; font-weight: 600; color: var(--text-muted);
+    background: var(--surface2); border: 1px solid var(--border);
+    padding: 0.2rem 0.55rem; border-radius: 999px;
+    flex: 1; text-align: center; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .header-btns { display: flex; gap: 0.4rem; }
+  .icon-btn {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.4rem 0.55rem;
+    cursor: pointer; font-size: 0.9rem; color: var(--text);
+  }
+  .icon-btn:hover { background: var(--bg); }
+  .back-link {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.4rem 0.7rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--text);
+    text-decoration: none; white-space: nowrap;
+    display: inline-flex; align-items: center;
+  }
+  .back-link:hover { background: var(--bg); }
+
+  /* ── Sub-skill tab strip ──────────────────────────────────────── */
+  .tab-strip {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 53px; z-index: 18;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-strip::-webkit-scrollbar { height: 0; display: none; }
+  .tab-strip { scrollbar-width: none; }
+  .tab-inner {
+    max-width: 920px; margin: 0 auto;
+    display: flex; gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    min-width: max-content;
+  }
+  .tab-btn {
+    appearance: none; border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: inherit; font-size: 0.85rem; font-weight: 700;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer; white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+  }
+  .tab-btn:hover { background: var(--surface2); color: var(--text); }
+  .tab-btn .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    display: inline-block;
+  }
+  .tab-btn[data-tab="ci"]   .dot { background: var(--ci-hue); }
+  .tab-btn[data-tab="et"]   .dot { background: var(--et-hue); }
+  .tab-btn[data-tab="eq"]   .dot { background: var(--eq-hue); }
+  .tab-btn[data-tab="in"]   .dot { background: var(--in-hue); }
+  .tab-btn[data-tab="overview"] .dot,
+  .tab-btn[data-tab="traps"]    .dot,
+  .tab-btn[data-tab="stems"]    .dot { display: none; }
+
+  .tab-btn.active {
+    background: var(--surface2);
+    color: var(--text);
+    box-shadow: inset 0 0 0 1px var(--border);
+  }
+  .tab-btn[data-tab="ci"].active   { background: var(--ci-bg); color: var(--ci-hue); box-shadow: inset 0 0 0 1px var(--ci-bdr); }
+  .tab-btn[data-tab="et"].active   { background: var(--et-bg); color: var(--et-hue); box-shadow: inset 0 0 0 1px var(--et-bdr); }
+  .tab-btn[data-tab="eq"].active   { background: var(--eq-bg); color: var(--eq-hue); box-shadow: inset 0 0 0 1px var(--eq-bdr); }
+  .tab-btn[data-tab="in"].active   { background: var(--in-bg); color: var(--in-hue); box-shadow: inset 0 0 0 1px var(--in-bdr); }
+
+  /* ── Main ────────────────────────────────────────────────────── */
+  main {
+    max-width: 920px; margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+  .section { display: none; }
+  .section.active { display: flex; flex-direction: column; gap: 1.15rem; }
+
+  /* ── Section heading (top of each tab) ───────────────────────── */
+  .section-head {
+    display: flex; align-items: center; gap: 0.85rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+  .section-head .pill {
+    font-size: 0.7rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.25rem 0.65rem; border-radius: 999px;
+    color: #fff;
+  }
+  .section-head h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; }
+  .section-head .tag {
+    font-size: 0.72rem; font-weight: 600; color: var(--text-muted);
+    margin-left: auto;
+  }
+  .pill.ci { background: var(--ci-hue); }
+  .pill.et { background: var(--et-hue); }
+  .pill.eq { background: var(--eq-hue); }
+  .pill.in { background: var(--in-hue); }
+
+  /* ── Info panel ──────────────────────────────────────────────── */
+  .panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .panel-head {
+    padding: 0.7rem 1rem;
+    font-size: 0.75rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .panel-body { padding: 0.95rem 1.1rem; font-size: 0.92rem; line-height: 1.55; }
+  .panel-body p + p,
+  .panel-body p + ul,
+  .panel-body p + ol,
+  .panel-body ul + p,
+  .panel-body ol + p { margin-top: 0.55rem; }
+  .panel-body ul, .panel-body ol { padding-left: 1.25rem; }
+  .panel-body ul li, .panel-body ol li { margin-bottom: 0.3rem; }
+  .panel-body code {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.85em; padding: 0.05rem 0.3rem;
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .panel.tinted-ci  { background: var(--ci-bg); border-color: var(--ci-bdr); }
+  .panel.tinted-et  { background: var(--et-bg); border-color: var(--et-bdr); }
+  .panel.tinted-eq  { background: var(--eq-bg); border-color: var(--eq-bdr); }
+  .panel.tinted-in  { background: var(--in-bg); border-color: var(--in-bdr); }
+  .panel.tinted-tip { background: var(--tip-bg); border-color: var(--tip-bdr); }
+  .panel.tinted-ci  .panel-head { color: var(--ci-hue); }
+  .panel.tinted-et  .panel-head { color: var(--et-hue); }
+  .panel.tinted-eq  .panel-head { color: var(--eq-hue); }
+  .panel.tinted-in  .panel-head { color: var(--in-hue); }
+  .panel.tinted-tip .panel-head { color: var(--tip-hue); }
+
+  /* ── Question-stem block ─────────────────────────────────────── */
+  .stem-block {
+    background: var(--surface2); border-left: 3px solid var(--text-muted);
+    border-radius: 6px;
+    padding: 0.7rem 0.9rem;
+    margin: 0.5rem 0;
+  }
+  .stem-block.ci { border-color: var(--ci-hue); }
+  .stem-block.et { border-color: var(--et-hue); }
+  .stem-block.eq { border-color: var(--eq-hue); }
+  .stem-block.in { border-color: var(--in-hue); }
+  .stem-block ul { padding-left: 1.1rem; }
+  .stem-block li { font-style: italic; color: var(--text); font-size: 0.88rem; margin-bottom: 0.2rem; }
+
+  /* ── Diagram (claim hierarchy / decision tree) ───────────────── */
+  .diagram {
+    background: var(--surface2); border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.82rem; line-height: 1.55;
+    white-space: pre-wrap; word-break: break-word;
+    overflow-x: auto;
+  }
+
+  /* ── Criteria cards ──────────────────────────────────────────── */
+  .crit-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.7rem;
+  }
+  .crit-card {
+    background: var(--surface); border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 0.9rem;
+  }
+  .crit-card-letter {
+    width: 2rem; height: 2rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.95rem; color: #fff;
+    margin-bottom: 0.45rem;
+  }
+  .crit-card-name {
+    font-size: 0.95rem; font-weight: 800; margin-bottom: 0.25rem;
+  }
+  .crit-card-q {
+    font-size: 0.83rem; color: var(--text-muted);
+    font-style: italic; line-height: 1.45;
+  }
+  .crit-card.et { border-color: var(--et-bdr); }
+  .crit-card.et .crit-card-letter { background: var(--et-hue); }
+  .crit-card.eq { border-color: var(--eq-bdr); }
+  .crit-card.eq .crit-card-letter { background: var(--eq-hue); }
+  .crit-card.in { border-color: var(--in-bdr); }
+  .crit-card.in .crit-card-letter { background: var(--in-hue); }
+  .crit-card.ci { border-color: var(--ci-bdr); }
+  .crit-card.ci .crit-card-letter { background: var(--ci-hue); }
+
+  /* ── Trap row ────────────────────────────────────────────────── */
+  .trap-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .trap {
+    background: var(--surface);
+    border-left: 4px solid var(--trap-hue);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.9rem;
+    box-shadow: var(--shadow);
+  }
+  .trap-name {
+    font-size: 0.88rem; font-weight: 800;
+    color: var(--trap-hue); margin-bottom: 0.35rem;
+    display: flex; align-items: center; gap: 0.45rem;
+  }
+  .trap-fail {
+    font-size: 0.85rem; line-height: 1.5; color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .trap-counter {
+    background: var(--ok-bg); border-left: 3px solid var(--ok-hue);
+    border-radius: 5px; padding: 0.45rem 0.65rem;
+    font-size: 0.83rem; line-height: 1.5; color: var(--text);
+  }
+  .trap-counter strong { color: var(--ok-hue); }
+
+  /* ── Time targets table ──────────────────────────────────────── */
+  table.time-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+  table.time-table th, table.time-table td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+  table.time-table tr:last-child td { border-bottom: none; }
+  table.time-table th {
+    background: var(--surface2); color: var(--text-muted);
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  td.diff-easy   { color: var(--ok-hue); font-weight: 700; }
+  td.diff-medium { color: var(--in-hue); font-weight: 700; }
+  td.diff-hard   { color: var(--trap-hue); font-weight: 700; }
+
+  /* ── Big traps catalog table (Traps tab) ─────────────────────── */
+  .traps-table-wrap { overflow-x: auto; }
+  table.traps-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  table.traps-table th, table.traps-table td {
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  table.traps-table tr:last-child td { border-bottom: none; }
+  table.traps-table th {
+    background: var(--surface2); color: var(--text-muted);
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  td.skill-tag {
+    font-size: 0.7rem; font-weight: 700; white-space: nowrap;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  td.skill-tag.ci { color: var(--ci-hue); }
+  td.skill-tag.et { color: var(--et-hue); }
+  td.skill-tag.eq { color: var(--eq-hue); }
+  td.skill-tag.in { color: var(--in-hue); }
+  td.trap-name-cell { font-weight: 700; }
+
+  /* ── Stem recognition table (Traps tab) ──────────────────────── */
+  .stem-table-wrap { overflow-x: auto; }
+  table.stem-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  table.stem-table th, table.stem-table td {
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  table.stem-table tr:last-child td { border-bottom: none; }
+  table.stem-table th {
+    background: var(--surface2); color: var(--text-muted);
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  table.stem-table td.skill { font-weight: 700; white-space: nowrap; font-size: 0.78rem; }
+  table.stem-table td.skill.ci { color: var(--ci-hue); }
+  table.stem-table td.skill.et { color: var(--et-hue); }
+  table.stem-table td.skill.eq { color: var(--eq-hue); }
+  table.stem-table td.skill.in { color: var(--in-hue); }
+  table.stem-table td em { color: var(--text-muted); }
+
+  /* ── Overview cards (4 sub-skills at a glance) ───────────────── */
+  .overview-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+    text-align: left;
+    font-family: inherit;
+  }
+  .overview-card:hover {
+    transform: translateY(-2px); box-shadow: var(--shadow);
+  }
+  .overview-card.ci { border-color: var(--ci-bdr); }
+  .overview-card.et { border-color: var(--et-bdr); }
+  .overview-card.eq { border-color: var(--eq-bdr); }
+  .overview-card.in { border-color: var(--in-bdr); }
+  .ov-pill {
+    display: inline-block;
+    font-size: 0.65rem; font-weight: 800;
+    padding: 0.15rem 0.55rem; border-radius: 999px;
+    color: #fff; text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .overview-card.ci .ov-pill { background: var(--ci-hue); }
+  .overview-card.et .ov-pill { background: var(--et-hue); }
+  .overview-card.eq .ov-pill { background: var(--eq-hue); }
+  .overview-card.in .ov-pill { background: var(--in-hue); }
+  .ov-name { font-size: 1rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .ov-tech { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.45rem; }
+  .ov-crit {
+    font-size: 0.95rem; font-weight: 700;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    letter-spacing: 0.04em;
+  }
+  .overview-card.ci .ov-crit { color: var(--ci-hue); }
+  .overview-card.et .ov-crit { color: var(--et-hue); }
+  .overview-card.eq .ov-crit { color: var(--eq-hue); }
+  .overview-card.in .ov-crit { color: var(--in-hue); }
+
+  /* ── Cheat sheet list ────────────────────────────────────────── */
+  .cheat-list { display: flex; flex-direction: column; gap: 0.55rem; }
+  .cheat-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--tip-hue);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem; line-height: 1.5;
+  }
+  .cheat-row strong { color: var(--tip-hue); }
+
+  /* ── Mobile ──────────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .header-row { padding: 0.6rem 0.85rem; gap: 0.55rem; }
+    .header-tag { display: none; }
+    main { padding: 1rem 0.85rem 3rem; }
+    .site-logo { font-size: 0.9rem; }
+    .tab-inner { padding: 0.45rem 0.75rem; }
+    .tab-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .section-head h2 { font-size: 1rem; }
+    .crit-grid { grid-template-columns: 1fr; }
+    .overview-grid { grid-template-columns: 1fr; }
+    table.traps-table, table.stem-table { font-size: 0.78rem; }
+    table.traps-table th, table.traps-table td,
+    table.stem-table th, table.stem-table td { padding: 0.4rem 0.5rem; }
+  }
+  </style>
+  <script src="gate.js?v=20260609"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <span class="site-logo">&#128161; SAT Information &amp; Ideas</span>
+    <span class="header-tag">4 sub-skills &middot; 2 shared frameworks &middot; ~18&ndash;26 Qs/test</span>
+    <div class="header-btns">
+      <button class="icon-btn" id="themeBtn" title="Toggle dark mode">&#127769;</button>
+      <a href="index.html" class="back-link">&#8592; Hub</a>
+    </div>
+  </div>
+</header>
+
+<nav class="tab-strip" id="tabStrip">
+  <div class="tab-inner">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="ci"><span class="dot"></span>Central Ideas</button>
+    <button class="tab-btn" data-tab="et"><span class="dot"></span>Evidence &middot; Text</button>
+    <button class="tab-btn" data-tab="eq"><span class="dot"></span>Evidence &middot; Quant</button>
+    <button class="tab-btn" data-tab="in"><span class="dot"></span>Inferences</button>
+    <button class="tab-btn" data-tab="traps">Traps &amp; Cheat Sheet</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       OVERVIEW
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section active" data-section="overview">
+
+    <div class="panel tinted-tip">
+      <div class="panel-head">&#128161; How to use this page</div>
+      <div class="panel-body">
+        <p>Information &amp; Ideas looks like four separate skills. It is really <strong>two habits</strong> — the <strong>Coverage Test</strong> and <strong>R/S/D&nbsp;/&nbsp;G/B/C</strong> — applied to four question formats.</p>
+        <p><strong>The first move on every question:</strong> read the stem &rarr; name the sub-skill &rarr; apply that technique. If you start reading the passage without knowing which sub-skill you are in, you will read it wrong.</p>
+        <p>Tap a card or a tab above to jump straight to the sub-skill.</p>
+      </div>
+    </div>
+
+    <div class="overview-grid">
+      <button class="overview-card ci" data-jump="ci" type="button">
+        <span class="ov-pill">2.1 &middot; Central Ideas</span>
+        <div class="ov-name">What is the passage <em>saying</em>?</div>
+        <div class="ov-tech">Technique: The Claim Hierarchy</div>
+        <div class="ov-crit">Coverage Test</div>
+      </button>
+
+      <button class="overview-card et" data-jump="et" type="button">
+        <span class="ov-pill">2.2 &middot; Evidence &middot; Text</span>
+        <div class="ov-name">Which <em>quote</em> supports the claim?</div>
+        <div class="ov-tech">Technique: Evidence Eval Protocol</div>
+        <div class="ov-crit">R &middot; S &middot; D</div>
+      </button>
+
+      <button class="overview-card eq" data-jump="eq" type="button">
+        <span class="ov-pill">2.3 &middot; Evidence &middot; Quant</span>
+        <div class="ov-name">Which <em>data point</em> supports the claim?</div>
+        <div class="ov-tech">Data Read + Evidence Eval</div>
+        <div class="ov-crit">R &middot; S &middot; D + units</div>
+      </button>
+
+      <button class="overview-card in" data-jump="in" type="button">
+        <span class="ov-pill">2.4 &middot; Inferences</span>
+        <div class="ov-name">What is <em>implied</em> but not stated?</div>
+        <div class="ov-tech">Technique: Inference Validity Test</div>
+        <div class="ov-crit">G &middot; B &middot; C</div>
+      </button>
+    </div>
+
+    <div class="panel tinted-tip">
+      <div class="panel-head">&#128161; The hidden connection</div>
+      <div class="panel-body">
+        <p>Three of the four sub-skills are the same instinct in a different form:</p>
+        <ul>
+          <li><strong>Coverage Test</strong> on Central Ideas &rarr; <strong>Sufficiency</strong> on Evidence &rarr; <strong>Bounded + Complete</strong> on Inferences. All three ask: <em>does this answer cover everything the passage gives me — no more, no less?</em></li>
+          <li><strong>R/S/D</strong> works identically whether the evidence is a quote (Textual) or a data point (Quantitative). Learn it once, apply it twice.</li>
+        </ul>
+        <p>Get comfortable with the Coverage Test and R/S/D, and you've covered most of Information &amp; Ideas already.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       CENTRAL IDEAS
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section" data-section="ci">
+
+    <div class="section-head">
+      <span class="pill ci">2.1</span>
+      <h2>Central Ideas &mdash; The Claim Hierarchy</h2>
+      <span class="tag">Coverage Test &middot; ~8&ndash;10 Qs/test</span>
+    </div>
+
+    <div class="panel tinted-ci">
+      <div class="panel-head">&#128269; Trigger &mdash; recognize the stem</div>
+      <div class="panel-body">
+        <div class="stem-block ci">
+          <ul>
+            <li>"Which choice best states the main idea of the text?"</li>
+            <li>"According to the text, what is true about [topic]?"</li>
+            <li>"The text's central claim is that&hellip;"</li>
+            <li>"Based on the text, what does the researcher conclude?"</li>
+          </ul>
+        </div>
+        <p><strong>Key distinction from Part 1 (Text Structure):</strong> you are not being asked what the passage <em>does</em> (argues, explains, challenges). You are being asked what the passage <em>says</em>.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128208; Technique &mdash; The Claim Hierarchy</div>
+      <div class="panel-body">
+        <p>Every passage has a three-level hierarchy. Wrong answers come from the middle and bottom — they are true, just too narrow.</p>
+        <div class="diagram">        CENTRAL CLAIM             &larr; broadest assertion, covers all details
+              &darr;
+       SUPPORTING DETAILS         &larr; sub-points, evidence categories
+              &darr;
+       EXAMPLES / EVIDENCE        &larr; names, dates, specific studies</div>
+        <p style="margin-top: 0.7rem;"><strong>The Coverage Test</strong> &mdash; the most important move:</p>
+        <div class="panel tinted-tip" style="margin-top: 0.5rem;">
+          <div class="panel-body" style="font-size: 0.95rem; font-weight: 600;">
+            "Does this cover EVERYTHING the passage discusses?"
+          </div>
+        </div>
+        <p style="margin-top: 0.7rem;">If the passage discusses health <em>and</em> environment <em>and</em> social benefits, an answer about only health is too narrow — even though it is true.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#127919; Decision tree</div>
+      <div class="panel-body">
+        <div class="diagram">Read answer choice
+    &darr;
+Q1: Is this stated in the passage?    NO &rarr; eliminate
+    &darr; YES
+Q2: Does it cover EVERYTHING?         NO &rarr; too narrow
+    &darr; YES
+Q3: Is it the BROADEST accurate statement?   NO &rarr; keep looking
+    &darr; YES
+SELECT</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9888;&#65039; The three traps</div>
+      <div class="panel-body">
+        <div class="trap-list">
+          <div class="trap">
+            <div class="trap-name">Trap 1 &mdash; Detail-Pick</div>
+            <div class="trap-fail">Picking a supporting detail that's true but only covers one part of the passage. Student reads about urban green spaces, sees one paragraph on health, picks "Green spaces improve health" — ignoring environmental and social paragraphs.</div>
+            <div class="trap-counter"><strong>Counter:</strong> apply the Coverage Test. The central claim must encompass <em>every</em> point the passage made.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 2 &mdash; Topic &ne; Claim</div>
+            <div class="trap-fail">Picking "The text is about photosynthesis." That's the topic, not the claim. A claim asserts something <em>about</em> the topic.</div>
+            <div class="trap-counter"><strong>Counter:</strong> the claim must contain an action verb (<em>is / does / shows / suggests / demonstrates</em>). "Photosynthesis" is a topic; "Photosynthesis is more efficient in shade plants" is a claim.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 3 &mdash; Overgeneralization</div>
+            <div class="trap-fail">Stretching beyond what the passage actually says. Passage discusses three cities — answer says "all cities worldwide."</div>
+            <div class="trap-counter"><strong>Counter:</strong> watch for <em>all / every / always / never</em>. If passage shows <em>some</em>, answer must say <em>some</em>.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9201;&#65039; Time targets</div>
+      <div class="panel-body">
+        <table class="time-table">
+          <thead><tr><th>Difficulty</th><th>Time</th><th>Accuracy goal</th></tr></thead>
+          <tbody>
+            <tr><td class="diff-easy">Easy</td>     <td>40&ndash;50 s</td> <td>90%+</td></tr>
+            <tr><td class="diff-medium">Medium</td> <td>50&ndash;60 s</td> <td>80&ndash;85%</td></tr>
+            <tr><td class="diff-hard">Hard</td>     <td>60&ndash;70 s</td> <td>75&ndash;80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       EVIDENCE — TEXTUAL
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section" data-section="et">
+
+    <div class="section-head">
+      <span class="pill et">2.2</span>
+      <h2>Command of Evidence &mdash; Textual</h2>
+      <span class="tag">R/S/D &middot; ~6&ndash;8 Qs/test</span>
+    </div>
+
+    <div class="panel tinted-et">
+      <div class="panel-head">&#128269; Trigger &mdash; recognize the stem</div>
+      <div class="panel-body">
+        <div class="stem-block et">
+          <ul>
+            <li>"Which quotation from the text best supports the claim that [X]?"</li>
+            <li>"Which finding from the study, if true, would most directly support the researcher's claim?"</li>
+            <li>"Which statement from the passage provides the best evidence for [claim]?"</li>
+            <li>"The author claims that [X]. Which choice best illustrates this claim?"</li>
+          </ul>
+        </div>
+        <p><strong>Key distinction from Central Ideas:</strong> in 2.1 you <em>identified</em> the claim. In 2.2 the claim is given to you — your job is to <em>evaluate evidence</em> for it.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128208; Technique &mdash; R/S/D</div>
+      <div class="panel-body">
+        <p>Three criteria, in order. Every quote must pass all three.</p>
+        <div class="crit-grid" style="margin-top: 0.6rem;">
+          <div class="crit-card et">
+            <div class="crit-card-letter">R</div>
+            <div class="crit-card-name">Relevance</div>
+            <div class="crit-card-q">Does the evidence address the specific claim?</div>
+          </div>
+          <div class="crit-card et">
+            <div class="crit-card-letter">S</div>
+            <div class="crit-card-name">Sufficiency</div>
+            <div class="crit-card-q">Does it cover ALL parts of the claim?</div>
+          </div>
+          <div class="crit-card et">
+            <div class="crit-card-letter">D</div>
+            <div class="crit-card-name">Directness</div>
+            <div class="crit-card-q">Does it explicitly support — not just relate to — the claim?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#127919; Decision framework</div>
+      <div class="panel-body">
+        <div class="diagram">Break the claim into components
+    &darr;
+For each quote:
+Q1: RELEVANT to the claim?           NO &rarr; eliminate
+    &darr; YES
+Q2: SUFFICIENT (covers all parts)?   NO &rarr; partial support, eliminate
+    &darr; YES
+Q3: DIRECT (explicit, not related)?  NO &rarr; topical only, eliminate
+    &darr; YES
+SELECT</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9888;&#65039; The three traps</div>
+      <div class="panel-body">
+        <div class="trap-list">
+          <div class="trap">
+            <div class="trap-name">Trap 1 &mdash; Partial Support</div>
+            <div class="trap-fail">Claim says "X improves <em>both</em> efficiency <em>and</em> accuracy." Evidence shows only efficiency — accurate but incomplete.</div>
+            <div class="trap-counter"><strong>Counter:</strong> split multi-part claims into components. Every component must be addressed.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 2 &mdash; Topically Related, Not Direct</div>
+            <div class="trap-fail">Claim: "Solar is cost-competitive with fossil fuels." Quote: "Solar panel efficiency has improved significantly." Same topic, doesn't prove cost.</div>
+            <div class="trap-counter"><strong>Counter:</strong> ask "does this <em>prove</em> the claim, or just discuss the same topic?" Topical relevance &ne; evidential support.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 3 &mdash; Methodology Instead of Finding</div>
+            <div class="trap-fail">Claim: "The study found meditation reduces stress." Quote: "Researchers recruited 200 participants." That's how, not what was found.</div>
+            <div class="trap-counter"><strong>Counter:</strong> if the claim describes a finding, the evidence must <em>state</em> the finding — not the methodology or context.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9201;&#65039; Time targets</div>
+      <div class="panel-body">
+        <table class="time-table">
+          <thead><tr><th>Difficulty</th><th>Time</th><th>Accuracy goal</th></tr></thead>
+          <tbody>
+            <tr><td class="diff-easy">Easy</td>     <td>50&ndash;60 s</td> <td>90%+</td></tr>
+            <tr><td class="diff-medium">Medium</td> <td>60&ndash;70 s</td> <td>80&ndash;85%</td></tr>
+            <tr><td class="diff-hard">Hard</td>     <td>70&ndash;75 s</td> <td>75&ndash;80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       EVIDENCE — QUANTITATIVE
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section" data-section="eq">
+
+    <div class="section-head">
+      <span class="pill eq">2.3</span>
+      <h2>Command of Evidence &mdash; Quantitative</h2>
+      <span class="tag">Data Read + R/S/D &middot; ~4&ndash;6 Qs/test</span>
+    </div>
+
+    <div class="panel tinted-eq">
+      <div class="panel-head">&#128269; Trigger &mdash; recognize the stem</div>
+      <div class="panel-body">
+        <div class="stem-block eq">
+          <ul>
+            <li>"Which choice most effectively uses data from the graph to support the claim?"</li>
+            <li>"Which statement from the table best illustrates the researcher's conclusion that [X]?"</li>
+            <li>"The text claims [X]. Which data point from the chart provides the strongest support?"</li>
+            <li>"Based on the figure, which statement about [topic] is most accurate?"</li>
+          </ul>
+        </div>
+        <p><strong>Key distinction from Evidence-Textual:</strong> the evidence is now a graph or table instead of a quote. R/S/D is identical — but you must <em>read the visual correctly</em> before applying it.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128208; Step 1 &mdash; Read the visual systematically</div>
+      <div class="panel-body">
+        <p>Do this <em>before</em> looking at the answer choices.</p>
+        <table class="time-table" style="margin-top: 0.5rem;">
+          <thead><tr><th>Element</th><th>What to check</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Title</strong></td><td>What is this graph/table showing?</td></tr>
+            <tr><td><strong>Axes / Headers</strong></td><td>What does each axis or column represent?</td></tr>
+            <tr><td><strong>Units</strong></td><td>Thousands? Millions? Percentages? Raw numbers? <strong>Highlight this.</strong></td></tr>
+            <tr><td><strong>Scale</strong></td><td>Does the y-axis start at zero? Are intervals regular?</td></tr>
+            <tr><td><strong>Data Points</strong></td><td>Identify specific values, trends, patterns relevant to the claim</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-muted);"><em>Reading "250" on an axis labeled <strong>Population (in thousands)</strong> and writing "250 people" is a 1000&times; magnitude error. Always: <strong>Read value &rarr; Apply unit &rarr; State complete number.</strong></em></p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128208; Step 2 &mdash; Apply R/S/D</div>
+      <div class="panel-body">
+        <p>Identical to Evidence-Textual — every data point must pass all three.</p>
+        <div class="crit-grid" style="margin-top: 0.5rem;">
+          <div class="crit-card eq">
+            <div class="crit-card-letter">R</div>
+            <div class="crit-card-name">Relevance</div>
+            <div class="crit-card-q">Does this data address the specific claim?</div>
+          </div>
+          <div class="crit-card eq">
+            <div class="crit-card-letter">S</div>
+            <div class="crit-card-name">Sufficiency</div>
+            <div class="crit-card-q">Does it cover all components — including correct time period and category?</div>
+          </div>
+          <div class="crit-card eq">
+            <div class="crit-card-letter">D</div>
+            <div class="crit-card-name">Directness</div>
+            <div class="crit-card-q">Does the data EXPLICITLY show what the claim asserts?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9888;&#65039; The three traps</div>
+      <div class="panel-body">
+        <div class="trap-list">
+          <div class="trap">
+            <div class="trap-name">Trap 1 &mdash; Unit / Scale Misread</div>
+            <div class="trap-fail">Reading "250" on a thousands-labeled axis as "250 people" instead of 250,000. A 1000&times; magnitude error.</div>
+            <div class="trap-counter"><strong>Counter:</strong> circle units immediately after reading axes. <em>Read &rarr; Apply unit &rarr; State complete number.</em></div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 2 &mdash; Correlation &ne; Causation</div>
+            <div class="trap-fail">Two trends rise together (ice cream sales, drownings) &mdash; answer says "X causes Y." Both are actually caused by a third factor (warm weather).</div>
+            <div class="trap-counter"><strong>Counter:</strong> data shows <em>correlation / association / trend</em> &mdash; not <em>causes / leads to / results in</em> unless the study explicitly tested causation.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 3 &mdash; Wrong Time / Wrong Category</div>
+            <div class="trap-fail">Claim: "between 2015 and 2020" &mdash; data shows 2010&ndash;2015. Or claim is about "teenagers" &mdash; data is about "young adults."</div>
+            <div class="trap-counter"><strong>Counter:</strong> circle time range and population in <em>both</em> the claim and the answer. Scope must match precisely.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9201;&#65039; Time targets</div>
+      <div class="panel-body">
+        <table class="time-table">
+          <thead><tr><th>Difficulty</th><th>Time</th><th>Accuracy goal</th></tr></thead>
+          <tbody>
+            <tr><td class="diff-easy">Easy</td>     <td>60&ndash;70 s</td> <td>90%+</td></tr>
+            <tr><td class="diff-medium">Medium</td> <td>70&ndash;80 s</td> <td>80&ndash;85%</td></tr>
+            <tr><td class="diff-hard">Hard</td>     <td>80&ndash;90 s</td> <td>75&ndash;80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       INFERENCES
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section" data-section="in">
+
+    <div class="section-head">
+      <span class="pill in">2.4</span>
+      <h2>Inferences &mdash; The Validity Test</h2>
+      <span class="tag">G/B/C &middot; ~6&ndash;8 Qs/test</span>
+    </div>
+
+    <div class="panel tinted-in">
+      <div class="panel-head">&#128269; Trigger &mdash; recognize the stem</div>
+      <div class="panel-body">
+        <div class="stem-block in">
+          <ul>
+            <li>"Based on the text, which statement about [topic] is most likely true?"</li>
+            <li>"Which conclusion about [X] is best supported by the passage?"</li>
+            <li>"The text most strongly suggests that&hellip;"</li>
+            <li>"It can reasonably be inferred from the passage that&hellip;"</li>
+            <li>"Which statement best describes what the passage implies about [topic]?"</li>
+          </ul>
+        </div>
+        <p><strong>Key distinction:</strong> the correct answer is <em>not stated explicitly</em> but is logically supported by what is stated. You are drawing a conclusion, not identifying one.</p>
+      </div>
+    </div>
+
+    <div class="panel tinted-tip">
+      <div class="panel-head">&#128161; The Pre-Check (do this first)</div>
+      <div class="panel-body">
+        <p>Before applying G/B/C, run a fast filter on every choice:</p>
+        <div class="panel" style="margin-top: 0.4rem;">
+          <div class="panel-body" style="font-size: 0.95rem; font-weight: 600;">
+            "Is this choice directly stated in the passage?"<br>
+            If YES &rarr; almost always wrong on inference questions.
+          </div>
+        </div>
+        <p style="margin-top: 0.5rem;">You were asked to infer, not to identify. This pre-check alone eliminates 25&ndash;40% of wrong answers on Inference Hard.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128208; Technique &mdash; The Inference Validity Test</div>
+      <div class="panel-body">
+        <div class="crit-grid">
+          <div class="crit-card in">
+            <div class="crit-card-letter">G</div>
+            <div class="crit-card-name">Grounded</div>
+            <div class="crit-card-q">Does this rest on actual passage content (not outside knowledge)?</div>
+          </div>
+          <div class="crit-card in">
+            <div class="crit-card-letter">B</div>
+            <div class="crit-card-name">Bounded</div>
+            <div class="crit-card-q">Does this stay within reasonable limits (not overgeneral, not too specific)?</div>
+          </div>
+          <div class="crit-card in">
+            <div class="crit-card-letter">C</div>
+            <div class="crit-card-name">Complete</div>
+            <div class="crit-card-q">Does this account for ALL relevant info (not cherry-picking)?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#127919; Decision framework</div>
+      <div class="panel-body">
+        <div class="diagram">Read passage. Note key facts, claims, evidence.
+    &darr;
+For each answer choice:
+Q1: Is this STATED in the passage?       YES &rarr; probably wrong
+    &darr; NO
+Q2: GROUNDED (based on passage content)? NO &rarr; outside knowledge, eliminate
+    &darr; YES
+Q3: BOUNDED (reasonable scope)?          NO &rarr; too extreme or trivial
+    &darr; YES
+Q4: COMPLETE (considers all relevant info)?  NO &rarr; ignores contradictions
+    &darr; YES
+SELECT</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9888;&#65039; The three traps</div>
+      <div class="panel-body">
+        <div class="trap-list">
+          <div class="trap">
+            <div class="trap-name">Trap 1 &mdash; True But Ungrounded</div>
+            <div class="trap-fail">Choice sounds reasonable and may be factually true &mdash; but the passage didn't say it. "Endangered species have complex breeding requirements" when passage discussed only habitat loss.</div>
+            <div class="trap-counter"><strong>Counter:</strong> for every inference, point to specific passage text that supports it. If you can't, eliminate &mdash; even if it's true in general.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 2 &mdash; Overgeneralization</div>
+            <div class="trap-fail">"200 college students showed X" &rarr; answer says "All students show X." Leaps beyond what the evidence supports.</div>
+            <div class="trap-counter"><strong>Counter:</strong> circle limiting words (<em>200 / college / correlated</em>). Does the answer respect those limits? <em>Some college students</em> &mdash; valid. <em>All students</em> &mdash; overgeneralizes.</div>
+          </div>
+          <div class="trap">
+            <div class="trap-name">Trap 3 &mdash; Cherry-Picked</div>
+            <div class="trap-fail">Passage shows a method succeeded in wealthy schools but struggled in under-resourced ones. Answer: "The method is highly effective" &mdash; ignores the struggle.</div>
+            <div class="trap-counter"><strong>Counter:</strong> ask "does the passage present any contradictions, limitations, or nuances?" A complete inference must acknowledge them.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9201;&#65039; Time targets</div>
+      <div class="panel-body">
+        <table class="time-table">
+          <thead><tr><th>Difficulty</th><th>Time</th><th>Accuracy goal</th></tr></thead>
+          <tbody>
+            <tr><td class="diff-easy">Easy</td>     <td>50&ndash;60 s</td> <td>90%+</td></tr>
+            <tr><td class="diff-medium">Medium</td> <td>60&ndash;70 s</td> <td>80&ndash;85%</td></tr>
+            <tr><td class="diff-hard">Hard</td>     <td>70&ndash;80 s</td> <td>75&ndash;80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════
+       TRAPS & CHEAT SHEET
+       ═════════════════════════════════════════════════════════════ -->
+  <section class="section" data-section="traps">
+
+    <div class="section-head">
+      <h2>Traps Catalog, Stem Recognition &amp; Cheat Sheet</h2>
+      <span class="tag">cross-skill</span>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128269; Question-stem recognition (triage table)</div>
+      <div class="panel-body">
+        <p>The first move on every Information &amp; Ideas question. Read the stem &rarr; identify the sub-skill &rarr; apply that technique.</p>
+        <div class="stem-table-wrap" style="margin-top: 0.6rem;">
+          <table class="stem-table">
+            <thead><tr><th>If the stem contains&hellip;</th><th>Sub-skill</th><th>Technique</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><em>main idea &middot; central claim &middot; primarily about &middot; according to the text</em></td>
+                <td class="skill ci">Central Ideas</td>
+                <td>Claim Hierarchy + Coverage Test</td>
+              </tr>
+              <tr>
+                <td><em>which quotation &hellip; supports &middot; provides evidence &middot; best illustrates this claim</em></td>
+                <td class="skill et">Evidence &middot; Text</td>
+                <td>R/S/D</td>
+              </tr>
+              <tr>
+                <td><em>data from the graph &middot; from the table &middot; from the chart &middot; based on the figure</em></td>
+                <td class="skill eq">Evidence &middot; Quant</td>
+                <td>Data Read + R/S/D</td>
+              </tr>
+              <tr>
+                <td><em>can be inferred &middot; most strongly suggests &middot; implies &middot; most likely true</em></td>
+                <td class="skill in">Inferences</td>
+                <td>Pre-check + G/B/C</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 0.7rem; font-size: 0.85rem;"><strong>Cross-checks:</strong> <em>"supports the claim"</em> with a graph attached &rarr; Quant, not Textual. <em>"most strongly suggests / implies"</em> &rarr; Inference, always.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9888;&#65039; The 12 traps in one table</div>
+      <div class="panel-body">
+        <p>When an answer feels wrong but you can't say why, scan this table. Naming the trap is half the fight.</p>
+        <div class="traps-table-wrap" style="margin-top: 0.6rem;">
+          <table class="traps-table">
+            <thead><tr><th>#</th><th>Trap</th><th>Skill</th><th>One-line counter</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="trap-name-cell">Detail-Pick</td><td class="skill-tag ci">Central Ideas</td><td>Coverage Test &mdash; must encompass <em>every</em> point</td></tr>
+              <tr><td>2</td><td class="trap-name-cell">Topic &ne; Claim</td><td class="skill-tag ci">Central Ideas</td><td>Claim must contain action verb (is/does/shows/suggests)</td></tr>
+              <tr><td>3</td><td class="trap-name-cell">Overgeneralization (CI)</td><td class="skill-tag ci">Central Ideas</td><td>Watch <em>all/every/always/never</em>; if some &rarr; some</td></tr>
+              <tr><td>4</td><td class="trap-name-cell">Partial Support</td><td class="skill-tag et">Evidence &middot; Text</td><td>Split claim into components &mdash; address every one</td></tr>
+              <tr><td>5</td><td class="trap-name-cell">Topically Related, Not Direct</td><td class="skill-tag et">Evidence &middot; Text</td><td>Topical relevance &ne; evidential support</td></tr>
+              <tr><td>6</td><td class="trap-name-cell">Methodology Instead of Finding</td><td class="skill-tag et">Evidence &middot; Text</td><td>If claim is a finding, evidence must state the finding</td></tr>
+              <tr><td>7</td><td class="trap-name-cell">Unit / Scale Misread</td><td class="skill-tag eq">Evidence &middot; Quant</td><td>Circle units; <em>Read &rarr; Apply unit &rarr; State number</em></td></tr>
+              <tr><td>8</td><td class="trap-name-cell">Correlation &ne; Causation</td><td class="skill-tag eq">Evidence &middot; Quant</td><td><em>Associated with</em> &ne; <em>causes</em>. Reserve causal verbs for causal studies</td></tr>
+              <tr><td>9</td><td class="trap-name-cell">Wrong Time / Wrong Category</td><td class="skill-tag eq">Evidence &middot; Quant</td><td>Scope words must match precisely &mdash; circle them in both</td></tr>
+              <tr><td>10</td><td class="trap-name-cell">True But Ungrounded</td><td class="skill-tag in">Inferences</td><td>Point to specific passage text; if you can't, eliminate</td></tr>
+              <tr><td>11</td><td class="trap-name-cell">Overgeneralization (Inf)</td><td class="skill-tag in">Inferences</td><td>Respect every limiting word in the passage</td></tr>
+              <tr><td>12</td><td class="trap-name-cell">Cherry-Picked</td><td class="skill-tag in">Inferences</td><td>Inference must acknowledge nuances and limitations</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#9201;&#65039; Time-pressure decision rules</div>
+      <div class="panel-body">
+        <p>When you have less than the target time on a question:</p>
+        <ul>
+          <li><strong>Central Ideas (&le;30 s left):</strong> read first + last sentences only. Pick the broader if they conflict. Eliminate anything with a <em>limiting</em> phrase the passage didn't use.</li>
+          <li><strong>Evidence &middot; Text (&le;30 s left):</strong> run only the <strong>D</strong> check. Pick the quote that most <em>explicitly</em> contains a phrase from the claim.</li>
+          <li><strong>Evidence &middot; Quant (&le;45 s left):</strong> trust the <em>units</em> check above all. Eliminate any answer whose magnitude is impossible given the visual's scale.</li>
+          <li><strong>Inferences (&le;30 s left):</strong> apply only Pre-check + <strong>B</strong>ounded. Eliminate anything stated in the passage; eliminate anything containing <em>all / every / always / never / proves</em>.</li>
+          <li><strong>If you must guess:</strong> on CI / Inf, prefer the <em>least extreme</em> answer. On Evidence, prefer the choice whose noun phrases most overlap with the claim's.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">&#128218; Micro-glossary &mdash; easily-confused stem words</div>
+      <div class="panel-body">
+        <p>These words appear in question stems and answer choices. Misreading them costs accuracy on the hardest questions.</p>
+        <div class="traps-table-wrap" style="margin-top: 0.5rem;">
+          <table class="traps-table">
+            <thead><tr><th>Word</th><th>What it means</th><th>Trap it creates</th></tr></thead>
+            <tbody>
+              <tr><td class="trap-name-cell">Suggests / Implies</td><td>An <em>inference</em> invitation. Answer is NOT stated.</td><td>Picking an answer that <em>is</em> stated &mdash; that's identification, not inference</td></tr>
+              <tr><td class="trap-name-cell">Illustrates</td><td>Provides a concrete <em>example</em> of an already-stated claim</td><td>Picking an answer that makes a claim instead of exemplifying one</td></tr>
+              <tr><td class="trap-name-cell">Demonstrates</td><td>Shows/proves a claim through evidence</td><td>Picking an answer that merely <em>mentions</em> the topic</td></tr>
+              <tr><td class="trap-name-cell">Supports</td><td>Provides evidence for</td><td>Picking an answer that <em>describes</em> or <em>defines</em> without proof</td></tr>
+              <tr><td class="trap-name-cell">Indicates</td><td>Points toward &mdash; weaker than <em>proves</em></td><td>Picking an answer that overstates (uses <em>proves / establishes</em>)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 0.55rem; font-size: 0.85rem;"><strong>Tip:</strong> if the stem says <em>suggests</em> or <em>implies</em>, treat it as an Inference question even if it doesn't say "infer."</p>
+      </div>
+    </div>
+
+    <div class="panel tinted-tip">
+      <div class="panel-head">&#129351; One-screen cheat sheet</div>
+      <div class="panel-body">
+        <div class="cheat-list">
+          <div class="cheat-row"><strong>1.</strong> Read the stem first. It tells you which of the 4 sub-skills you are in.</div>
+          <div class="cheat-row"><strong>2.</strong> Central Ideas = Claim Hierarchy + Coverage Test. Pick the <em>broadest</em> answer still in the passage.</div>
+          <div class="cheat-row"><strong>3.</strong> Evidence (Text or Graph) = <strong>R/S/D</strong>. Relevant. Sufficient. Direct. In that order.</div>
+          <div class="cheat-row"><strong>4.</strong> Quantitative = read units FIRST. Then R/S/D, with extra attention to time and category.</div>
+          <div class="cheat-row"><strong>5.</strong> Inference = pre-check then <strong>G/B/C</strong>. Stated &rarr; wrong. Unground &rarr; wrong. Too broad &rarr; wrong. Cherry-picks &rarr; wrong.</div>
+          <div class="cheat-row"><strong>6.</strong> Watch <em>all / every / always / never / proves / causes</em>. Almost always traps.</div>
+          <div class="cheat-row"><strong>7.</strong> The criteria are the answer. The quote / data / inference is just confirmation.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+(function () {
+  const VALID = new Set(['overview','ci','et','eq','in','traps']);
+  const tabs     = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('.section');
+
+  function show(name, pushHistory) {
+    if (!VALID.has(name)) name = 'overview';
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    sections.forEach(s => s.classList.toggle('active', s.dataset.section === name));
+    if (pushHistory) {
+      if (location.hash.slice(1) !== name) {
+        history.pushState({ ii: name }, '', '#' + name);
+      }
+    }
+    // Scroll to top of main when switching
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  tabs.forEach(t => {
+    t.addEventListener('click', () => show(t.dataset.tab, true));
+  });
+
+  document.querySelectorAll('[data-jump]').forEach(btn => {
+    btn.addEventListener('click', () => show(btn.dataset.jump, true));
+  });
+
+  window.addEventListener('popstate', e => {
+    const name = (e.state && e.state.ii) || location.hash.slice(1) || 'overview';
+    show(name, false);
+  });
+
+  // Dark mode toggle (matches the convention used by sec.html / rs.html)
+  const themeBtn = document.getElementById('themeBtn');
+  const STORE = 'ii-theme';
+  const stored = localStorage.getItem(STORE);
+  if (stored === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  themeBtn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem(STORE, next);
+  });
+
+  // Initial state from URL hash
+  const initial = location.hash.slice(1);
+  if (VALID.has(initial)) show(initial, false);
+})();
+</script>
+<script src="nav.js?v=20260609" defer></script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SAT Mastery — Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #f1f5f9;
+    --surface:    #ffffff;
+    --surface2:   #f8fafc;
+    --border:     #e2e8f0;
+    --text:       #0f172a;
+    --text-muted: #64748b;
+    --primary:    #2563eb;
+    --primary-light: #60a5fa;
+    --shadow:     0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --shadow-lg:  0 10px 30px rgba(0,0,0,.08);
+    --radius:     0.85rem;
+    --radius-sm:  0.5rem;
+
+    --pass-hue:   #16a34a; --pass-bg:   #f0fdf4; --pass-bdr:   #bbf7d0;
+    --warn-hue:   #b45309; --warn-bg:   #fffbeb; --warn-bdr:   #fde68a;
+    --fail-hue:   #dc2626; --fail-bg:   #fef2f2; --fail-bdr:   #fecaca;
+
+    --tag-practice-bg:  #eff6ff; --tag-practice-hue:  #2563eb;
+    --tag-homework-bg:  #f5f3ff; --tag-homework-hue:  #7c3aed;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.55; font-size: 15px;
+    min-height: 100vh; min-height: 100dvh;
+  }
+
+  /* ── Header ──────────────────────────────────────────────────── */
+  .site-header {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .header-row {
+    max-width: 880px; margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .site-logo {
+    font-weight: 800; font-size: 1rem;
+    color: var(--primary); white-space: nowrap;
+    display: flex; align-items: center; gap: 0.45rem;
+  }
+  .site-logo-tag {
+    flex: 1; font-size: 0.8rem; font-weight: 600;
+    color: var(--text-muted); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .back-link {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.4rem 0.7rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--text);
+    text-decoration: none; white-space: nowrap;
+    display: inline-flex; align-items: center;
+  }
+  .back-link:hover { background: var(--bg); }
+
+  /* ── Main ────────────────────────────────────────────────────── */
+  main {
+    max-width: 880px; margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+  .summary-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.65rem;
+  }
+  .summary-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+  }
+  .summary-label {
+    font-size: 0.7rem; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.07em; margin-bottom: 0.3rem;
+  }
+  .summary-value {
+    font-size: 1.55rem; font-weight: 800; color: var(--text);
+    font-variant-numeric: tabular-nums; line-height: 1.1;
+  }
+  .summary-sub {
+    font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;
+  }
+
+  /* ── Section panels ─────────────────────────────────────────── */
+  details.section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  details.section > summary {
+    cursor: pointer; user-select: none;
+    padding: 0.95rem 1.1rem;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--text); list-style: none;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::after {
+    content: '▾'; margin-left: auto; transition: transform 0.18s;
+    color: var(--text-muted);
+  }
+  details.section[open] > summary::after { transform: rotate(180deg); }
+  .section-body { padding: 0 1.1rem 1.1rem; }
+
+  /* ── Filters ─────────────────────────────────────────────────── */
+  .filters {
+    display: flex; gap: 0.4rem; flex-wrap: wrap;
+    margin-bottom: 0.75rem; padding-top: 0.25rem;
+  }
+  .filter-btn {
+    background: transparent; border: 1.5px solid var(--border);
+    border-radius: 999px; padding: 0.3rem 0.75rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--text-muted);
+    cursor: pointer; font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--primary-light); color: var(--text); }
+  .filter-btn.active {
+    background: var(--primary); border-color: var(--primary); color: #fff;
+  }
+
+  /* ── Sessions table ──────────────────────────────────────────── */
+  .table-wrap { overflow-x: auto; }
+  table.sessions {
+    width: 100%; border-collapse: collapse; font-size: 0.86rem;
+  }
+  table.sessions th, table.sessions td {
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left; vertical-align: middle;
+  }
+  table.sessions tr:last-child td { border-bottom: none; }
+  table.sessions th {
+    background: var(--surface2); color: var(--text-muted);
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  td.col-date { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--text-muted); }
+  td.col-label { font-weight: 600; }
+  td.col-score, td.col-pct, td.col-time {
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+    text-align: right;
+  }
+  td.col-pct.pct-pass { color: var(--pass-hue); font-weight: 700; }
+  td.col-pct.pct-warn { color: var(--warn-hue); font-weight: 700; }
+  td.col-pct.pct-fail { color: var(--fail-hue); font-weight: 700; }
+  .tag {
+    display: inline-block;
+    font-size: 0.66rem; font-weight: 800;
+    padding: 0.18rem 0.55rem; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .tag.practice { background: var(--tag-practice-bg); color: var(--tag-practice-hue); }
+  .tag.homework { background: var(--tag-homework-bg); color: var(--tag-homework-hue); }
+
+  /* Empty state */
+  .empty {
+    padding: 1.5rem 1rem; text-align: center;
+    color: var(--text-muted); font-size: 0.92rem;
+  }
+  .empty b { color: var(--text); }
+
+  /* ── Per-skill accuracy ──────────────────────────────────────── */
+  .skill-list { display: flex; flex-direction: column; gap: 0.45rem; padding-top: 0.4rem; }
+  .skill-row {
+    display: grid; grid-template-columns: minmax(0,1fr) 60px 80px;
+    gap: 0.75rem; align-items: center;
+    font-size: 0.86rem;
+  }
+  .skill-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .skill-bar-bg {
+    height: 8px; background: var(--border); border-radius: 999px;
+    overflow: hidden; position: relative;
+  }
+  .skill-bar-fill {
+    height: 100%; border-radius: 999px;
+  }
+  .skill-bar-fill.pass { background: var(--pass-hue); }
+  .skill-bar-fill.warn { background: var(--warn-hue); }
+  .skill-bar-fill.fail { background: var(--fail-hue); }
+  .skill-stat {
+    font-size: 0.78rem; color: var(--text-muted);
+    font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap;
+  }
+
+  /* ── Per-assignment mastery ──────────────────────────────────── */
+  .mastery-grid {
+    display: flex; flex-direction: column; gap: 0.55rem;
+    padding-top: 0.4rem;
+  }
+  .mastery-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.9rem;
+  }
+  .mastery-card-title {
+    font-size: 0.92rem; font-weight: 700; margin-bottom: 0.3rem;
+  }
+  .mastery-bar {
+    height: 8px; background: var(--border);
+    border-radius: 999px; overflow: hidden; display: flex;
+    margin-bottom: 0.35rem;
+  }
+  .mastery-bar-mastered { background: var(--pass-hue); }
+  .mastery-bar-struggling { background: var(--warn-hue); }
+  .mastery-card-stats {
+    font-size: 0.78rem; color: var(--text-muted);
+    display: flex; flex-wrap: wrap; gap: 0.85rem;
+  }
+  .mastery-card-stats b { color: var(--text); }
+  .mastery-tier-mastered b { color: var(--pass-hue); }
+  .mastery-tier-struggling b { color: var(--warn-hue); }
+  .mastery-tier-unseen b { color: var(--text-muted); }
+
+  /* ── Footer actions ──────────────────────────────────────────── */
+  .actions {
+    display: flex; flex-wrap: wrap; gap: 0.55rem;
+    padding-top: 0.5rem;
+  }
+  .btn-act {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 0.55rem 1rem;
+    font-size: 0.85rem; font-weight: 600; color: var(--text);
+    cursor: pointer; font-family: inherit;
+  }
+  .btn-act:hover { background: var(--bg); }
+  .btn-act.danger { color: var(--fail-hue); border-color: var(--fail-bdr); background: var(--fail-bg); }
+  .btn-act.danger:hover { background: #fee2e2; }
+
+  @media (max-width: 600px) {
+    .header-row { padding: 0.6rem 0.85rem; gap: 0.55rem; }
+    main { padding: 1rem 0.85rem 3rem; gap: 1rem; }
+    .summary-value { font-size: 1.25rem; }
+    table.sessions { font-size: 0.78rem; }
+    table.sessions th, table.sessions td { padding: 0.45rem 0.5rem; }
+    .skill-row { grid-template-columns: minmax(0,1fr) 50px 70px; gap: 0.45rem; }
+  }
+  </style>
+  <script src="gate.js?v=20260609"></script>
+  <script src="anti-cheat.js?v=20260609"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <span class="site-logo">&#128200; Progress</span>
+    <span class="site-logo-tag" id="progTag">— sessions</span>
+    <a href="index.html" class="back-link">&larr; Hub</a>
+  </div>
+</header>
+
+<main>
+
+  <div class="summary-row" id="summaryRow"></div>
+
+  <details class="section" open>
+    <summary>&#128221; Recent Sessions</summary>
+    <div class="section-body">
+      <div class="filters" id="sourceFilters">
+        <button class="filter-btn active" data-source="all">All</button>
+        <button class="filter-btn" data-source="practice">Practice</button>
+        <button class="filter-btn" data-source="homework">Homework</button>
+      </div>
+      <div class="table-wrap">
+        <table class="sessions">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>What</th>
+              <th style="text-align:right">Score</th>
+              <th style="text-align:right">%</th>
+              <th style="text-align:right">Avg / Q</th>
+            </tr>
+          </thead>
+          <tbody id="sessionsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>&#127919; Per-Skill Accuracy</summary>
+    <div class="section-body">
+      <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:0.5rem">
+        Aggregated across every session, sorted by weakest first. Use this to pick your next focus.
+      </p>
+      <div class="skill-list" id="skillList"></div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>&#128218; Homework Mastery</summary>
+    <div class="section-body">
+      <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:0.5rem">
+        For each assignment, how many questions you've mastered. Mastery decays after 21 days without seeing the question.
+      </p>
+      <div class="mastery-grid" id="masteryGrid"></div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>&#128190; Data</summary>
+    <div class="section-body">
+      <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:0.6rem">
+        Back up or clear your history. The per-question mastery ledger is separate and is preserved unless you clear it explicitly.
+      </p>
+      <div class="actions">
+        <button class="btn-act" id="exportBtn">&#8595; Export Sessions</button>
+        <button class="btn-act danger" id="clearHistoryBtn">Clear Session History</button>
+      </div>
+    </div>
+  </details>
+
+</main>
+
+<!-- Need the question banks so we can compute mastery against each pool -->
+<script src="data-conventions.js?v=20260609"></script>
+<script src="data-craft-structure.js?v=20260615b"></script>
+<script src="data-expression-of-ideas.js?v=20260615"></script>
+<script src="data-info-ideas.js?v=20260615b"></script>
+<script src="progress.js?v=20260609"></script>
+<script src="homework/assignments.js?v=20260611"></script>
+<script>
+(function () {
+  const HIST_KEY = 'wayne_sat_history';
+
+  // ── Helpers ─────────────────────────────────────────────────────
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function readHistory() {
+    try { return JSON.parse(localStorage.getItem(HIST_KEY)) || []; }
+    catch (e) { return []; }
+  }
+  function fmtDate(iso) {
+    try {
+      const d = new Date(iso);
+      const dayPart  = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+      const timePart = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+      return `${dayPart} ${timePart}`;
+    } catch (e) { return iso; }
+  }
+  function pctClass(p) { return p >= 80 ? 'pct-pass' : p >= 60 ? 'pct-warn' : 'pct-fail'; }
+  function barClass(p) { return p >= 80 ? 'pass'     : p >= 60 ? 'warn'     : 'fail'; }
+  function fmtSecs(s) {
+    if (!s) return '—';
+    if (s < 60) return `${s}s`;
+    return `${Math.floor(s/60)}m ${s%60}s`;
+  }
+
+  // ── Build the pool for an assignment (for mastery counts) ──────
+  function buildAssignmentPool(assignment) {
+    const bank = HW_BANK_LOOKUP[assignment.bank] ? HW_BANK_LOOKUP[assignment.bank]() : [];
+    const seen = new Set();
+    const pool = [];
+    assignment.sections.forEach(sec => {
+      // Curated ids: use them as the pool
+      if (sec.ids && sec.ids.length) {
+        const idMap = Object.fromEntries(bank.map(q => [q.id, q]));
+        sec.ids.forEach(id => {
+          if (!seen.has(id) && idMap[id]) {
+            seen.add(id); pool.push(idMap[id]);
+          }
+        });
+        return;
+      }
+      // Otherwise, all questions matching skill + difficulty (and ruleType if listed)
+      let candidates = bank.filter(q =>
+        q.skill === sec.skill && q.difficulty === sec.difficulty
+      );
+      if (sec.ruleWeights) {
+        const allowed = new Set(Object.keys(sec.ruleWeights));
+        candidates = candidates.filter(q => allowed.has(q.ruleType));
+      }
+      candidates.forEach(q => {
+        if (!seen.has(q.id)) { seen.add(q.id); pool.push(q); }
+      });
+    });
+    return pool;
+  }
+
+  // ── Render: summary cells ──────────────────────────────────────
+  function renderSummary(history) {
+    const totalSessions = history.length;
+    const totalQs       = history.reduce((s, r) => s + (r.total || 0), 0);
+    const totalCorrect  = history.reduce((s, r) => s + (r.score || 0), 0);
+    const avgPct        = totalQs > 0 ? Math.round((totalCorrect / totalQs) * 100) : 0;
+    const last          = history[0];
+    const lastSummary   = last ? `${last.score}/${last.total} (${last.pct}%)` : '—';
+
+    const cells = [
+      { label: 'Sessions logged',  value: totalSessions, sub: '' },
+      { label: 'Questions seen',   value: totalQs.toLocaleString(), sub: '' },
+      { label: 'Overall accuracy', value: totalQs > 0 ? `${avgPct}%` : '—', sub: `${totalCorrect.toLocaleString()} correct` },
+      { label: 'Most recent',      value: lastSummary, sub: last ? fmtDate(last.date) : '' },
+    ];
+    document.getElementById('summaryRow').innerHTML = cells.map(c => `
+      <div class="summary-cell">
+        <div class="summary-label">${c.label}</div>
+        <div class="summary-value">${c.value}</div>
+        ${c.sub ? `<div class="summary-sub">${escapeHtml(c.sub)}</div>` : ''}
+      </div>
+    `).join('');
+
+    document.getElementById('progTag').textContent =
+      totalSessions > 0 ? `${totalSessions} session${totalSessions === 1 ? '' : 's'} · ${totalQs} question${totalQs === 1 ? '' : 's'}`
+                        : 'no sessions yet';
+  }
+
+  // ── Render: sessions table (filtered) ──────────────────────────
+  let activeSource = 'all';
+
+  function renderSessions(history) {
+    const tbody = document.getElementById('sessionsBody');
+    const filtered = history.filter(r => {
+      if (activeSource === 'all') return true;
+      const source = r.source || 'practice';
+      return source === activeSource;
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6"><div class="empty">${
+        history.length === 0
+          ? '<b>No sessions yet.</b> Complete a Practice session or a Homework drill to see it here.'
+          : 'No sessions match this filter.'
+      }</div></td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = filtered.slice(0, 100).map(r => {
+      const source = r.source || 'practice';
+      const tagCls = source === 'homework' ? 'homework' : 'practice';
+      const tagLbl = source === 'homework' ? 'Homework' : 'Practice';
+      let label;
+      if (source === 'homework' && r.assignmentTitle) {
+        label = r.assignmentTitle;
+      } else if (r.skills && r.skills.length) {
+        label = r.skills.slice(0, 3).join(', ') + (r.skills.length > 3 ? `, +${r.skills.length - 3}` : '');
+      } else {
+        label = '—';
+      }
+      return `
+        <tr>
+          <td class="col-date">${fmtDate(r.date)}</td>
+          <td><span class="tag ${tagCls}">${tagLbl}</span></td>
+          <td class="col-label">${escapeHtml(label)}</td>
+          <td class="col-score">${r.score}/${r.total}</td>
+          <td class="col-pct ${pctClass(r.pct)}">${r.pct}%</td>
+          <td class="col-time">${fmtSecs(r.avgSecs)}</td>
+        </tr>`;
+    }).join('');
+  }
+
+  // ── Render: per-skill accuracy ─────────────────────────────────
+  function renderSkillAccuracy(history) {
+    const agg = {};
+    history.forEach(r => {
+      if (!r.skillStats) return;
+      Object.entries(r.skillStats).forEach(([skill, s]) => {
+        if (!agg[skill]) agg[skill] = { correct: 0, total: 0 };
+        agg[skill].correct += s.correct || 0;
+        agg[skill].total   += s.total   || 0;
+      });
+    });
+    const rows = Object.entries(agg)
+      .filter(([, s]) => s.total > 0)
+      .map(([skill, s]) => ({
+        skill,
+        correct: s.correct,
+        total:   s.total,
+        pct:     Math.round((s.correct / s.total) * 100),
+      }))
+      .sort((a, b) => a.pct - b.pct);
+
+    const container = document.getElementById('skillList');
+    if (rows.length === 0) {
+      container.innerHTML = '<div class="empty">No per-skill data yet — complete a session first.</div>';
+      return;
+    }
+    container.innerHTML = rows.map(r => `
+      <div class="skill-row">
+        <span class="skill-name">${escapeHtml(r.skill)}</span>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill ${barClass(r.pct)}" style="width:${r.pct}%"></div>
+        </div>
+        <span class="skill-stat">${r.correct}/${r.total} · ${r.pct}%</span>
+      </div>
+    `).join('');
+  }
+
+  // ── Render: per-assignment mastery ─────────────────────────────
+  function renderMastery() {
+    const container = document.getElementById('masteryGrid');
+    container.innerHTML = HW_ASSIGNMENTS.map(a => {
+      const pool = buildAssignmentPool(a);
+      if (pool.length === 0) {
+        return `
+        <div class="mastery-card">
+          <div class="mastery-card-title">${escapeHtml(a.title)}</div>
+          <div class="mastery-card-stats"><span>Pool not available yet.</span></div>
+        </div>`;
+      }
+      const summary = getPoolSummary(pool);
+      const total = summary.total || 1;
+      const masteredPct   = (summary.mastered   / total) * 100;
+      const strugglingPct = (summary.struggling / total) * 100;
+      return `
+      <div class="mastery-card">
+        <div class="mastery-card-title">${escapeHtml(a.title)}</div>
+        <div class="mastery-bar">
+          <div class="mastery-bar-mastered" style="width:${masteredPct}%"></div>
+          <div class="mastery-bar-struggling" style="width:${strugglingPct}%"></div>
+        </div>
+        <div class="mastery-card-stats">
+          <span class="mastery-tier-mastered"><b>${summary.mastered}</b> mastered</span>
+          <span class="mastery-tier-struggling"><b>${summary.struggling}</b> needs review</span>
+          <span class="mastery-tier-unseen"><b>${summary.unseen}</b> unseen</span>
+          <span>of ${summary.total} total</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Filter buttons ─────────────────────────────────────────────
+  document.querySelectorAll('#sourceFilters .filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeSource = btn.dataset.source;
+      document.querySelectorAll('#sourceFilters .filter-btn').forEach(b =>
+        b.classList.toggle('active', b === btn));
+      renderSessions(readHistory());
+    });
+  });
+
+  // ── Actions ────────────────────────────────────────────────────
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    const history = readHistory();
+    const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), history }, null, 2)],
+                          { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `sat-sessions-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 100);
+  });
+  document.getElementById('clearHistoryBtn').addEventListener('click', () => {
+    if (!confirm('Clear all session history? Your per-question mastery progress will be kept. This cannot be undone.')) return;
+    localStorage.removeItem(HIST_KEY);
+    renderAll();
+  });
+
+  // ── Initial render ─────────────────────────────────────────────
+  function renderAll() {
+    const history = readHistory();
+    renderSummary(history);
+    renderSessions(history);
+    renderSkillAccuracy(history);
+    renderMastery();
+  }
+  renderAll();
+})();
+</script>
+<script src="nav.js?v=20260609" defer></script>
+</body>
+</html>

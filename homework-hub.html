@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework — SAT Mastery</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#f5f7fa;--surface:#fff;--surface2:#f1f5f9;--border:#e2e8f0;--text:#1a2233;--muted:#5b6678;
+    --accent:#2563eb;--accent-soft:#eaf1fe;--good:#15803d;--good-soft:#eef8f0;--lock:#94a3b8;--radius:14px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:16px}
+  .wrap{max-width:680px;margin:0 auto;padding:1.4rem 1.15rem 4rem}
+  header.bar{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+  .bar .mark{display:flex;align-items:center;gap:.5rem;font-weight:800;color:var(--accent)}
+  .bar .tag{flex:1;color:var(--muted);font-size:.85rem;font-weight:600}
+  .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
+  h1{font-size:1.5rem;font-weight:800;margin-bottom:.2rem}
+  .who{color:var(--muted);font-size:.95rem;margin-bottom:1.2rem}
+  .day{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.8rem;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .day.locked{opacity:.6}
+  .day .top{display:flex;align-items:center;gap:.7rem;margin-bottom:.35rem}
+  .day .num{flex:none;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .day.locked .num{background:var(--lock)}
+  .day.done .num{background:var(--good)}
+  .day .focus{font-weight:700;flex:1}
+  .day .state{font-size:.74rem;font-weight:800;padding:.2rem .55rem;border-radius:99px;white-space:nowrap}
+  .state.open{background:var(--accent-soft);color:var(--accent)}
+  .state.done{background:var(--good-soft);color:var(--good)}
+  .state.lock{background:var(--surface2);color:var(--lock)}
+  .day .meta{font-size:.85rem;color:var(--muted);margin:.1rem 0 .5rem 2.6rem}
+  .day .tip{font-size:.88rem;color:var(--text);background:var(--accent-soft);border-radius:9px;padding:.5rem .7rem;margin:0 0 .6rem 2.6rem}
+  .day .go{margin-left:2.6rem}
+  .btn{display:inline-block;border:none;background:var(--accent);color:#fff;border-radius:9px;padding:.5rem 1rem;font-weight:700;font-size:.88rem;text-decoration:none;cursor:pointer}
+  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .empty{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;color:var(--muted)}
+  .note{color:var(--muted);font-size:.88rem;margin-top:1.3rem}
+</style>
+<script src="gate.js?v=20260622"></script>
+<script src="sheet-sync.js?v=20260622"></script>
+<script src="homework/assignments.js?v=20260622"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg> Homework</span>
+    <span class="tag">Your weekly plan</span>
+    <a class="back" href="index.html">Back</a>
+  </header>
+  <h1 id="title">Homework</h1>
+  <p class="who" id="who"></p>
+  <div id="list"></div>
+  <p class="note">A new day opens each day. You can always go back to earlier days you missed. Do each day's set in the order shown, and read the explanation for anything you get wrong.</p>
+</div>
+<script>
+(function(){
+  var student = (function(){ try { return sessionStorage.getItem('mastery_user'); } catch(e){ return null; } })();
+  var list = document.getElementById('list');
+  if (!student) { document.getElementById('who').textContent=''; list.innerHTML='<div class="empty">Please sign in from the hub first.</div>'; return; }
+  document.getElementById('who').textContent = 'For ' + student;
+  list.innerHTML = '<div class="empty">Loading your homework…</div>';
+  hwLoadPlan(student, function(plan, source){
+  document.getElementById('who').textContent = 'For ' + student + (source==='sheet' ? ' · from your sheet' : '');
+  if (!plan) { list.innerHTML='<div class="empty">No homework is assigned for '+student+' yet.</div>'; return; }
+  document.getElementById('title').textContent = plan.title || 'Homework';
+  var avail = hwDaysAvailable(plan.start);
+  function fmtDate(start, offset){ var d=hwParseDate(start); if(!d) return 'soon'; d.setDate(d.getDate()+offset); return d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); }
+  function done(n){ try { return localStorage.getItem('wayne_hw_'+student+'_'+plan.start+'_'+n)==='1'; } catch(e){ return false; } }
+  var html='';
+  plan.days.forEach(function(day){
+    var open = day.n <= avail;
+    var isDone = done(day.n);
+    var cls = 'day' + (isDone?' done':(open?'':' locked'));
+    var state = isDone? '<span class="state done">Done</span>' : (open? '<span class="state open">Available</span>' : '<span class="state lock">Opens '+fmtDate(plan.start, day.n-1)+'</span>');
+    html += '<div class="'+cls+'">'
+      + '<div class="top"><span class="num">'+day.n+'</span><span class="focus">'+day.focus+'</span>'+state+'</div>'
+      + '<div class="meta">'+(day.diffs?day.diffs.join(' + ')+' &middot; ':'')+(day.sections?day.sections.reduce(function(s,x){return s+(x.count||0);},0):day.count)+' questions'+(day.minutes? ' &middot; '+day.minutes+' min':'')+'</div>'
+      + (open? '<div class="tip">'+day.tip+'</div>' : '')
+      + (open? '<div class="go"><a class="btn'+(isDone?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':'Start day '+day.n)+'</a></div>' : '')
+      + '</div>';
+  });
+  list.innerHTML = html;
+  });
+})();
+</script>
+</body>
+</html>

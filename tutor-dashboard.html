@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAT Mastery — Tutor Dashboard</title>
+<script src="gate.js?v=20260609"></script>
+<style>
+  :root{
+    --bg:#f1f5f9; --surface:#fff; --surface2:#f8fafc; --border:#e2e8f0;
+    --text:#0f172a; --muted:#64748b; --primary:#2563eb;
+    --pass:#16a34a; --warn:#b45309; --fail:#dc2626;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:1.5rem 1rem 4rem}
+  .wrap{max-width:1000px;margin:0 auto}
+  h1{font-size:1.4rem;font-weight:800;color:var(--primary);margin-bottom:0.25rem}
+  .sub{color:var(--muted);font-size:0.9rem;margin-bottom:1.5rem}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:0.85rem;padding:1rem 1.15rem;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:1.25rem}
+  label{font-size:0.8rem;font-weight:700;color:var(--muted);display:block;margin-bottom:0.35rem}
+  input[type=url]{width:100%;padding:0.55rem 0.7rem;border:1px solid var(--border);border-radius:0.5rem;font-size:0.9rem;font-family:inherit}
+  .row{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin-top:0.6rem}
+  button{padding:0.5rem 0.95rem;border-radius:0.5rem;border:1px solid var(--border);background:#fff;font-weight:600;font-size:0.85rem;cursor:pointer;font-family:inherit}
+  button.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .hint{font-size:0.76rem;color:var(--muted);margin-top:0.5rem;line-height:1.5}
+  .hint a{color:var(--primary)}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.75rem}
+  .stat{background:var(--surface2);border:1px solid var(--border);border-radius:0.6rem;padding:0.7rem;text-align:center}
+  .stat .n{font-size:1.5rem;font-weight:800}
+  .stat .l{font-size:0.72rem;color:var(--muted);font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:0.82rem}
+  th,td{text-align:left;padding:0.45rem 0.55rem;border-bottom:1px solid var(--border);white-space:nowrap}
+  th{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--muted);cursor:pointer;user-select:none}
+  tbody tr:hover{background:var(--surface2)}
+  .pill{display:inline-block;padding:0.1rem 0.5rem;border-radius:9999px;font-size:0.72rem;font-weight:700}
+  .pass{color:var(--pass);background:#f0fdf4}.warn{color:var(--warn);background:#fffbeb}.fail{color:var(--fail);background:#fef2f2}
+  .tag-practice{color:var(--primary);background:#eff6ff}.tag-homework{color:#7c3aed;background:#f5f3ff}.tag-other{color:var(--muted);background:var(--surface2)}
+  .flag{color:var(--fail);font-weight:800}
+  .student-head{font-weight:800;font-size:0.95rem;margin:0.25rem 0 0.5rem}
+  .weak{font-size:0.78rem;color:var(--muted)}
+  .err{color:var(--fail);font-size:0.85rem;font-weight:600}
+  .empty{color:var(--muted);font-size:0.88rem;padding:1rem 0;text-align:center}
+  details summary{cursor:pointer;font-size:0.8rem;color:var(--primary);font-weight:600;margin-top:0.5rem}
+  code{background:var(--surface2);padding:0.1rem 0.3rem;border-radius:0.3rem;font-size:0.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Tutor Dashboard</h1>
+  <p class="sub">Live view of every student's sessions, pulled from your published Google Sheet.</p>
+
+  <div class="card">
+    <label for="csvUrl">Published Sheet CSV URL</label>
+    <input id="csvUrl" type="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
+    <div class="row">
+      <button class="primary" id="loadBtn">Load data</button>
+      <button id="saveBtn">Save URL</button>
+      <span id="status" class="hint"></span>
+    </div>
+    <details>
+      <summary>How do I get this URL?</summary>
+      <div class="hint">
+        In your Google Sheet: <b>File → Share → Publish to web</b> → choose the responses sheet →
+        format <b>Comma-separated values (.csv)</b> → <b>Publish</b> → copy the link and paste it above.
+        The dashboard reads it directly (Google serves published CSVs with CORS, so no Apps Script change is needed).
+        It maps columns by header name — it expects headers like
+        <code>date, student, type, score, total, pct, avgSecs, blurCount, skillStats</code>,
+        and shows whatever it finds.
+      </div>
+    </details>
+  </div>
+
+  <div id="output"></div>
+</div>
+
+<script>
+const URL_KEY = 'wayne_dash_csv_url';
+const $ = id => document.getElementById(id);
+
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem(URL_KEY);
+  if (saved) { $('csvUrl').value = saved; load(saved); }
+  $('saveBtn').onclick = () => { localStorage.setItem(URL_KEY, $('csvUrl').value.trim()); setStatus('Saved.'); };
+  $('loadBtn').onclick = () => { const u = $('csvUrl').value.trim(); if (u){ localStorage.setItem(URL_KEY,u); load(u);} };
+});
+
+function setStatus(msg, isErr){ const s=$('status'); s.textContent=msg; s.className = isErr ? 'err' : 'hint'; }
+
+async function load(url){
+  setStatus('Loading…');
+  try{
+    const res = await fetch(url, { cache:'no-store' });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const text = await res.text();
+    const rows = parseCSV(text);
+    if(!rows.length){ $('output').innerHTML = '<div class="card empty">No rows found in that sheet.</div>'; setStatus(''); return; }
+    render(rows);
+    setStatus('Loaded '+rows.length+' sessions · '+new Date().toLocaleString());
+  }catch(e){
+    setStatus('Could not load: '+e.message+'. Check the URL is a published CSV.', true);
+    $('output').innerHTML='';
+  }
+}
+
+// ── Robust CSV parser (handles quotes, escaped quotes, newlines in cells) ──
+function parseCSV(text){
+  const rows=[]; let row=[], cell='', i=0, inQ=false;
+  text = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+  while(i<text.length){
+    const c=text[i];
+    if(inQ){
+      if(c==='"'){ if(text[i+1]==='"'){cell+='"';i+=2;continue;} inQ=false;i++;continue; }
+      cell+=c;i++;continue;
+    }
+    if(c==='"'){inQ=true;i++;continue;}
+    if(c===','){row.push(cell);cell='';i++;continue;}
+    if(c==='\n'){row.push(cell);rows.push(row);row=[];cell='';i++;continue;}
+    cell+=c;i++;
+  }
+  if(cell.length||row.length){row.push(cell);rows.push(row);}
+  if(!rows.length) return [];
+  const header = rows[0].map(h=>h.trim());
+  return rows.slice(1).filter(r=>r.some(c=>c.trim()!=='')).map(r=>{
+    const o={}; header.forEach((h,idx)=>o[h]=(r[idx]??'').trim()); return o;
+  });
+}
+
+// Case-insensitive column getter
+function col(obj,name){
+  const k=Object.keys(obj).find(k=>k.toLowerCase()===name.toLowerCase());
+  return k?obj[k]:'';
+}
+
+function pctClass(p){ p=+p; return p>=80?'pass':p>=60?'warn':'fail'; }
+function typeClass(t){ t=(t||'').toLowerCase(); return t==='practice'?'tag-practice':t==='homework'?'tag-homework':'tag-other'; }
+
+function render(rows){
+  // Sort newest first by date when available
+  rows.sort((a,b)=> new Date(col(b,'date')) - new Date(col(a,'date')) );
+
+  // ── Per-student aggregates ──
+  const students={};
+  rows.forEach(r=>{
+    const name=col(r,'student')||'(unknown)';
+    if(!students[name]) students[name]={n:0,pctSum:0,blur:0,skill:{}};
+    const s=students[name]; s.n++;
+    const p=parseFloat(col(r,'pct')); if(!isNaN(p)) s.pctSum+=p;
+    const b=parseInt(col(r,'blurCount'),10); if(!isNaN(b)) s.blur+=b;
+    // skillStats may be JSON: {"Skill":{"correct":x,"total":y}}
+    const raw=col(r,'skillStats');
+    if(raw){ try{ const js=JSON.parse(raw);
+      Object.entries(js).forEach(([sk,v])=>{ if(!s.skill[sk])s.skill[sk]={c:0,t:0}; s.skill[sk].c+=(v.correct||0); s.skill[sk].t+=(v.total||0); });
+    }catch(e){} }
+  });
+
+  const totalSessions=rows.length;
+  const totalStudents=Object.keys(students).length;
+  const totalBlur=Object.values(students).reduce((n,s)=>n+s.blur,0);
+
+  let html = `<div class="card"><div class="stat-grid">
+    <div class="stat"><div class="n">${totalStudents}</div><div class="l">Students</div></div>
+    <div class="stat"><div class="n">${totalSessions}</div><div class="l">Sessions</div></div>
+    <div class="stat"><div class="n">${totalBlur}</div><div class="l">Tab-switches</div></div>
+  </div></div>`;
+
+  // ── Per-student cards ──
+  html += '<div class="card"><div class="student-head">By student</div>';
+  Object.entries(students).sort((a,b)=>b[1].n-a[1].n).forEach(([name,s])=>{
+    const avg=s.n?Math.round(s.pctSum/s.n):0;
+    const weak=Object.entries(s.skill).filter(([,v])=>v.t>=3)
+      .map(([sk,v])=>({sk,rate:v.c/v.t,c:v.c,t:v.t}))
+      .sort((a,b)=>a.rate-b.rate).slice(0,3)
+      .map(w=>`${w.sk} ${Math.round(w.rate*100)}%`).join(' · ');
+    html+=`<div style="padding:0.5rem 0;border-bottom:1px solid var(--border)">
+      <b>${esc(name)}</b>
+      <span class="pill ${pctClass(avg)}" style="margin-left:0.4rem">${avg}% avg</span>
+      <span class="weak" style="margin-left:0.4rem">${s.n} sessions</span>
+      ${s.blur>0?`<span class="flag" style="margin-left:0.4rem">⚑ ${s.blur} tab-switch${s.blur!==1?'es':''}</span>`:''}
+      ${weak?`<div class="weak" style="margin-top:0.2rem">Weakest: ${esc(weak)}</div>`:''}
+    </div>`;
+  });
+  html+='</div>';
+
+  // ── Sessions table ──
+  html += '<div class="card"><div class="student-head">Recent sessions</div><div style="overflow-x:auto"><table><thead><tr>'
+    + ['Date','Student','Type','Score','%','Avg/q','Tab-switches','Detail'].map(h=>`<th>${h}</th>`).join('')
+    + '</tr></thead><tbody>';
+  rows.slice(0,150).forEach(r=>{
+    const d=col(r,'date'); const dd=d?new Date(d):null;
+    const dateStr= dd&&!isNaN(dd)? dd.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' '+dd.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) : esc(d);
+    const type=col(r,'type'); const pct=col(r,'pct'); const blur=parseInt(col(r,'blurCount'),10)||0;
+    const detail = col(r,'assignmentTitle') || (col(r,'skills')||'').slice(0,40);
+    html+=`<tr>
+      <td>${dateStr}</td>
+      <td>${esc(col(r,'student')||'—')}</td>
+      <td><span class="pill ${typeClass(type)}">${esc(type||'—')}</span></td>
+      <td>${esc(col(r,'score'))}/${esc(col(r,'total'))}</td>
+      <td><span class="pill ${pctClass(pct)}">${esc(pct)}%</span></td>
+      <td>${esc(col(r,'avgSecs'))}s</td>
+      <td>${blur>0?`<span class="flag">${blur}</span>`:'0'}</td>
+      <td>${esc(detail)}</td>
+    </tr>`;
+  });
+  html+='</tbody></table></div></div>';
+
+  $('output').innerHTML=html;
+}
+
+function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+</script>
+</body>
+</html>

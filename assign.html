@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment Builder — SAT Mastery (tutor)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#f5f7fa;--surface:#fff;--surface2:#f1f5f9;--border:#e2e8f0;--text:#1a2233;--muted:#5b6678;--accent:#2563eb;--accent-soft:#eaf1fe;--good:#15803d;--radius:12px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px}
+  .wrap{max-width:760px;margin:0 auto;padding:1.4rem 1.15rem 4rem}
+  h1{font-size:1.45rem;font-weight:800;margin-bottom:.2rem}
+  .lede{color:var(--muted);margin-bottom:1.2rem;font-size:.95rem}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.9rem}
+  label{display:block;font-weight:700;font-size:.8rem;margin:.5rem 0 .2rem}
+  input[type=text],input[type=number],input[type=date],textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:.5rem .6rem;font-family:inherit;font-size:.92rem}
+  .row{display:flex;gap:.8rem;flex-wrap:wrap}
+  .row > div{flex:1;min-width:130px}
+  .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.2rem}
+  .chip{border:1px solid var(--border);border-radius:99px;padding:.28rem .6rem;font-size:.8rem;cursor:pointer;user-select:none;background:var(--surface)}
+  .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .day{border-left:4px solid var(--accent)}
+  .day .dhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem}
+  .day .dnum{font-weight:800}
+  .btn{border:none;background:var(--accent);color:#fff;border-radius:9px;padding:.55rem 1rem;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit}
+  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .btn.sm{padding:.3rem .7rem;font-size:.8rem}
+  .out{margin-top:1.2rem}
+  .out h3{font-size:.95rem;margin:.8rem 0 .3rem}
+  textarea{min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;white-space:pre}
+  .hint{font-size:.82rem;color:var(--muted);margin-top:.2rem}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+  .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div></div><a class="back" href="index.html">Back to app</a></div>
+  <h1>Assignment Builder</h1>
+  <p class="lede">A tutor tool. Fill in the week, pick skills and difficulty from the buttons, and it writes out the rows for you — paste them into your Plans sheet, or the code block into <code>assignments.js</code>. No typing skill names, no syntax to get wrong.</p>
+
+  <div class="card">
+    <div class="row">
+      <div><label>Student (must match their password name)</label><input type="text" id="student" placeholder="e.g. Jeffrey"></div>
+      <div><label>Start date (Day 1 opens)</label><input type="date" id="start"></div>
+    </div>
+    <label>Title (shown at top of their homework)</label><input type="text" id="title" placeholder="e.g. This week — Boundaries & Transitions">
+  </div>
+
+  <div id="days"></div>
+  <button class="btn sec sm" id="addDay" type="button">+ Add another day</button>
+
+  <div style="margin-top:1.2rem"><button class="btn" id="gen" type="button">Generate assignment</button></div>
+
+  <div class="out" id="output" style="display:none">
+    <h3>1. Sheet rows — paste into the "Plans" tab</h3>
+    <p class="hint">Click in the box, select all, copy, then click the first empty cell under your headers in the Plans tab and paste.</p>
+    <textarea id="tsv" readonly></textarea>
+    <button class="btn sec sm" type="button" onclick="copyBox('tsv')">Copy sheet rows</button>
+    <h3>2. Or — code block for assignments.js</h3>
+    <p class="hint">Paste inside the <code>HOMEWORK = { … }</code> object in <code>homework/assignments.js</code>.</p>
+    <textarea id="js" readonly></textarea>
+    <button class="btn sec sm" type="button" onclick="copyBox('js')">Copy code block</button>
+  </div>
+</div>
+
+<script>
+var SKILLS=["Words in Context","Text Structure and Purpose","Cross-Text Connections","Central Ideas and Details","Command of Evidence — Textual","Command of Evidence — Quantitative","Inferences","Rhetorical Synthesis","Transitions","Boundaries","Form, Structure, and Sense"];
+var DIFFS=["Easy","Medium","Hard"];
+var daysEl=document.getElementById('days'); var n=0;
+function addDay(){
+  n++; var d=document.createElement('div'); d.className='card day'; d.dataset.n=n;
+  d.innerHTML='<div class="dhead"><span class="dnum">Day '+n+'</span><button class="btn sec sm" type="button" onclick="this.closest(\'.day\').remove()">Remove</button></div>'
+    +'<label>Focus (short label the student sees)</label><input type="text" class="focus" placeholder="e.g. Words in Context">'
+    +'<label>Skills (tap to include)</label><div class="chips skills">'+SKILLS.map(function(s){return '<span class="chip" data-v="'+s+'">'+s+'</span>';}).join('')+'</div>'
+    +'<label>Difficulty</label><div class="chips diffs">'+DIFFS.map(function(s){return '<span class="chip" data-v="'+s+'">'+s+'</span>';}).join('')+'</div>'
+    +'<div class="row"><div><label>How many questions</label><input type="number" class="count" value="6" min="1" max="40"></div>'
+    +'<div><label>Time limit in minutes (0 = untimed)</label><input type="number" class="minutes" value="0" min="0" max="120"></div></div>'
+    +'<label>Tip (one line of advice)</label><input type="text" class="tip" placeholder="e.g. Predict the word, then check the tone.">';
+  daysEl.appendChild(d);
+  d.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('on');};});
+}
+document.getElementById('addDay').onclick=addDay;
+addDay();
+
+function collect(){
+  var student=val('student'), start=val('start'), title=val('title');
+  var days=[];
+  document.querySelectorAll('.day').forEach(function(d,i){
+    var skills=[].map.call(d.querySelectorAll('.skills .chip.on'),function(c){return c.dataset.v;});
+    var diffs=[].map.call(d.querySelectorAll('.diffs .chip.on'),function(c){return c.dataset.v;});
+    days.push({n:i+1, focus:d.querySelector('.focus').value.trim()||skills.join(', '),
+      skills:skills, diffs:diffs, count:+d.querySelector('.count').value||6,
+      minutes:+d.querySelector('.minutes').value||0, tip:d.querySelector('.tip').value.trim()});
+  });
+  return {student:student,start:start,title:title,days:days};
+}
+function val(id){return document.getElementById(id).value.trim();}
+
+document.getElementById('gen').onclick=function(){
+  var a=collect();
+  if(!a.student||!a.start){ alert('Please fill in the student name and start date.'); return; }
+  if(a.days.some(function(d){return !d.skills.length||!d.diffs.length;})){ alert('Each day needs at least one skill and one difficulty selected.'); return; }
+  var head=['Student','Start','Title','Day','Focus','Skills','Difficulties','Count','Minutes','Tip'].join('\t');
+  var rows=a.days.map(function(d,i){return [a.student,a.start,(i===0?a.title:''),d.n,d.focus,d.skills.join(', '),d.diffs.join(', '),d.count,d.minutes,d.tip].join('\t');});
+  document.getElementById('tsv').value=[head].concat(rows).join('\n');
+  var js='  "'+a.student+'": {\n    title:'+JSON.stringify(a.title)+', start:'+JSON.stringify(a.start)+', unlock:"cumulative",\n    days:[\n'
+    + a.days.map(function(d){return '      { n:'+d.n+', focus:'+JSON.stringify(d.focus)+', skills:'+JSON.stringify(d.skills)+', diffs:'+JSON.stringify(d.diffs)+', count:'+d.count+(d.minutes?', minutes:'+d.minutes:'')+', tip:'+JSON.stringify(d.tip)+' },';}).join('\n')
+    + '\n    ]\n  },';
+  document.getElementById('js').value=js;
+  document.getElementById('output').style.display='block';
+  document.getElementById('output').scrollIntoView({behavior:'smooth'});
+};
+function copyBox(id){var t=document.getElementById(id);t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}}
+</script>
+</body>
+</html>

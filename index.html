@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>SAT R&amp;W Mastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260611b">
+    <script src="gate.js?v=20260609"></script>
+    <script src="anti-cheat.js?v=20260609"></script>
+</head>
+<body>
+
+    <!-- ── Hub Screen ───────────────────────────────────────────────── -->
+    <div id="hubScreen" style="
+        position:fixed;inset:0;background:var(--background);
+        display:flex;align-items:flex-start;justify-content:center;
+        padding:1.5rem 1rem;z-index:500;overflow-y:auto;
+        padding-top:max(1.5rem, env(safe-area-inset-top));
+        padding-bottom:max(1.5rem, env(safe-area-inset-bottom));">
+      <div style="width:100%;max-width:480px">
+
+        <div style="display:flex;align-items:center;gap:0.5rem;
+             font-size:0.88rem;font-weight:700;color:var(--primary);
+             margin-bottom:2rem;opacity:0.85;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+          </svg>
+          SAT Mastery
+        </div>
+
+        <h1 style="font-size:1.7rem;font-weight:700;margin-bottom:0.35rem">What are we doing today?</h1>
+        <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:1.25rem">Choose your session type to get started.</p>
+
+        <!-- Due-today review nudge (populated by renderDueToday) -->
+        <div id="dueToday" class="due-today" style="display:none"></div>
+
+        <!-- Quick actions: self-serve drill + full mock exam -->
+        <div class="hub-quick">
+          <button type="button" class="hub-quick-btn" onclick="startWeakAreaDrill()">
+            <span class="hub-quick-icon">&#127919;</span>
+            <span class="hub-quick-title">Drill Weak Areas</span>
+            <span class="hub-quick-sub">Coached set of your misses + weakest skills &mdash; no setup</span>
+          </button>
+          <button type="button" class="hub-quick-btn hub-quick-exam" onclick="startMockExam()">
+            <span class="hub-quick-icon">&#128221;</span>
+            <span class="hub-quick-title">Mock SAT R&amp;W</span>
+            <span class="hub-quick-sub">Real R&amp;W module &middot; 27 Q &middot; 32 min &middot; timed &middot; estimated score</span>
+          </button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;grid-template-rows:auto auto">
+
+          <button onclick="enterPractice()" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              font-family:inherit;" onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#127942;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Practice</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">Full session with coached hints, skill filters, and instant feedback.</div>
+          </button>
+
+          <a href="homework-hub.html" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              text-decoration:none;color:inherit;display:block;"
+              onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#128221;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Homework</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">All assigned homework in one place: Transitions, SEC, and Information &amp; Ideas drills.</div>
+          </a>
+
+          <a href="progress.html" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              text-decoration:none;color:inherit;display:block;"
+              onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#128200;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Progress</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">Recent session scores, per-skill accuracy, and mastery counts across all homework.</div>
+          </a>
+
+          <a href="notes-hub.html" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              text-decoration:none;color:inherit;display:block;"
+              onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#128214;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Notes</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">Reference cards for every Reading &amp; Writing skill: Vocab, Craft &amp; Structure, Transitions, RS, SEC, and Information &amp; Ideas.</div>
+          </a>
+
+        </div>
+
+        <div style="text-align:center;margin-top:1.5rem;display:flex;justify-content:center;gap:1.25rem">
+          <a href="#" onclick="showProgressPanel();return false;"
+             style="font-size:0.78rem;color:var(--text-muted);text-decoration:none;opacity:0.7">
+            &#128202; View progress
+          </a>
+          <a href="#" onclick="lockMastery();return false;"
+             style="font-size:0.78rem;color:var(--text-muted);text-decoration:none;opacity:0.7"
+             title="End session and require password again">
+            &#128274; Lock
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Session Setup Screen ─────────────────────────────────────── -->
+    <div id="setupScreen">
+        <div class="setup-card">
+
+            <div class="setup-logo">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                </svg>
+                SAT Mastery — Session Setup
+                <span id="examCountdown" class="exam-countdown"></span>
+                <button type="button" onclick="goToHub()" title="Back to Hub"
+                    style="margin-left:auto;font-size:0.78rem;font-weight:600;color:var(--text-muted);
+                        text-decoration:none;padding:0.3rem 0.65rem;border:1px solid var(--border);
+                        border-radius:0.4rem;background:#f8fafc;cursor:pointer;font-family:inherit;
+                        white-space:nowrap;">&#8592; Hub</button>
+            </div>
+
+            <!-- Domain: Information and Ideas -->
+            <div class="setup-section">
+                <h3>Information and Ideas</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Central Ideas and Details">
+                    <span>Central Ideas and Details</span>
+                    <span class="q-count" id="count-cid">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Command of Evidence — Textual">
+                    <span>Command of Evidence — Textual</span>
+                    <span class="q-count" id="count-coe-t">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Command of Evidence — Quantitative">
+                    <span>Command of Evidence — Quantitative</span>
+                    <span class="q-count" id="count-coe-q">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Inferences">
+                    <span>Inferences</span>
+                    <span class="q-count" id="count-inf">—</span>
+                </label>
+            </div>
+
+            <!-- Domain: Craft and Structure -->
+            <div class="setup-section">
+                <h3>Craft and Structure</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Words in Context" checked>
+                    <span>Words in Context</span>
+                    <span class="q-count" id="count-wic">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Text Structure and Purpose">
+                    <span>Text Structure and Purpose</span>
+                    <span class="q-count" id="count-tsp">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Cross-Text Connections">
+                    <span>Cross-Text Connections</span>
+                    <span class="q-count" id="count-ctc">—</span>
+                </label>
+            </div>
+
+            <!-- Domain: Expression of Ideas -->
+            <div class="setup-section">
+                <h3>Expression of Ideas</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Rhetorical Synthesis">
+                    <span>Rhetorical Synthesis</span>
+                    <span class="q-count" id="count-rs">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Transitions">
+                    <span>Transitions</span>
+                    <span class="q-count" id="count-trans">—</span>
+                </label>
+            </div>
+
+            <!-- Domain: Standard English Conventions -->
+            <div class="setup-section">
+                <h3>Standard English Conventions</h3>
+                <label>
+                    <input type="checkbox" name="skill" value="Boundaries">
+                    <span>Boundaries</span>
+                    <span class="q-count" id="count-bdry">—</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="skill" value="Form, Structure, and Sense">
+                    <span>Form, Structure, and Sense</span>
+                    <span class="q-count" id="count-fss">—</span>
+                </label>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="setup-section">
+                <h3>Difficulty</h3>
+                <label>
+                    <input type="checkbox" name="diff" value="Easy" checked>
+                    <span class="diff-dot diff-easy"></span>
+                    <span>Easy</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="diff" value="Medium">
+                    <span class="diff-dot diff-medium"></span>
+                    <span>Medium</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="diff" value="Hard">
+                    <span class="diff-dot diff-hard"></span>
+                    <span>Hard</span>
+                </label>
+            </div>
+
+            <!-- Question Limit -->
+            <div class="setup-section">
+                <h3>Question Limit</h3>
+                <select id="limitSelect">
+                    <option value="0">All matching questions</option>
+                    <option value="5">5 — Light practice</option>
+                    <option value="7">7 — Quick drill</option>
+                    <option value="10">10 — Mastery drill</option>
+                    <option value="15">15 — Checkpoint</option>
+                    <option value="27">27 — Full module</option>
+                </select>
+            </div>
+
+            <!-- Mode -->
+            <div class="setup-section">
+                <h3>Mode</h3>
+                <select id="setupModeSelect">
+                    <option value="assisted">Assisted — strategy hints + predict before choices</option>
+                    <option value="standard">Standard — straight to the choices</option>
+                    <option value="exam">Exam — no hints or feedback; score &amp; review at the end</option>
+                </select>
+            </div>
+
+            <!-- Timer -->
+            <div class="setup-section">
+                <h3>Timer</h3>
+                <select id="timerModeSelect">
+                    <option value="off">Off — no timer</option>
+                    <option value="stopwatch">Stopwatch — count up</option>
+                    <option value="countdown">Countdown — set a time limit</option>
+                </select>
+                <select id="timerDurationSelect" style="display:none;margin-top:0.5rem">
+                    <option value="300">5 minutes</option>
+                    <option value="600" selected>10 minutes</option>
+                    <option value="900">15 minutes</option>
+                    <option value="1200">20 minutes</option>
+                    <option value="1800">30 minutes</option>
+                    <option value="2700">45 minutes</option>
+                </select>
+                <p id="timerHint" class="timer-hint" style="display:none"></p>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="setup-section">
+                <h3>Quick Presets</h3>
+                <div class="preset-grid">
+                    <!-- Craft & Structure -->
+                    <button class="preset-btn"
+                        data-skills="Words in Context"
+                        data-diffs="Easy,Medium"
+                        data-limit="0"
+                        data-tooltip="Vocabulary in context · Easy and Medium · all questions">WIC · E+M</button>
+                    <button class="preset-btn"
+                        data-skills="Words in Context,Text Structure and Purpose"
+                        data-diffs="Easy,Medium"
+                        data-limit="0"
+                        data-tooltip="Vocabulary and author purpose · Easy and Medium">Vocab &amp; Purpose</button>
+                    <button class="preset-btn"
+                        data-skills="Cross-Text Connections"
+                        data-diffs="Easy,Medium"
+                        data-limit="0"
+                        data-tooltip="Compare two texts · Easy and Medium">Cross-Text · E+M</button>
+                    <button class="preset-btn"
+                        data-skills="Words in Context,Text Structure and Purpose,Cross-Text Connections"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="0"
+                        data-tooltip="All Craft &amp; Structure skills · all difficulty levels">Craft &amp; Structure · All</button>
+                    <!-- Expression of Ideas -->
+                    <button class="preset-btn"
+                        data-skills="Rhetorical Synthesis,Transitions"
+                        data-diffs="Easy,Medium"
+                        data-limit="0"
+                        data-tooltip="Writing goal + sentence flow · Easy and Medium">RS &amp; Transitions · E+M</button>
+                    <button class="preset-btn"
+                        data-skills="Rhetorical Synthesis,Transitions"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="0"
+                        data-tooltip="Writing goal + sentence flow · all difficulty levels">RS &amp; Transitions · All</button>
+                    <!-- Information & Ideas -->
+                    <button class="preset-btn preset-priority"
+                        data-skills="Command of Evidence — Textual,Inferences"
+                        data-diffs="Medium,Hard"
+                        data-limit="10"
+                        data-tooltip="Find evidence + make inferences · Medium &amp; Hard · 10 questions — priority drill">Evidence &amp; Inference · 10</button>
+                    <button class="preset-btn preset-priority"
+                        data-skills="Central Ideas and Details,Command of Evidence — Textual,Inferences"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="0"
+                        data-tooltip="Reading comprehension core skills · all difficulty levels">Reading Core · All</button>
+                    <button class="preset-btn"
+                        data-skills="Command of Evidence — Quantitative"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="0"
+                        data-tooltip="Questions with tables, graphs, or data — practise reading and interpreting data">Tables &amp; Graphs</button>
+                    <!-- Conventions -->
+                    <button class="preset-btn"
+                        data-skills="Boundaries,Form, Structure, and Sense"
+                        data-diffs="Easy,Medium"
+                        data-limit="0"
+                        data-tooltip="Punctuation and grammar conventions · Easy and Medium">Grammar · E+M</button>
+                    <!-- Full modules -->
+                    <button class="preset-btn preset-exam"
+                        data-skills="Central Ideas and Details,Command of Evidence — Textual,Command of Evidence — Quantitative,Inferences,Words in Context,Text Structure and Purpose,Cross-Text Connections,Rhetorical Synthesis,Transitions,Boundaries,Form, Structure, and Sense"
+                        data-diffs="Easy"
+                        data-limit="0"
+                        data-tooltip="All 11 skills · Easy only — good confidence-building warm-up">Warm-up · All Skills</button>
+                    <button class="preset-btn preset-exam"
+                        data-skills="Central Ideas and Details,Command of Evidence — Textual,Command of Evidence — Quantitative,Inferences,Words in Context,Text Structure and Purpose,Cross-Text Connections,Rhetorical Synthesis,Transitions,Boundaries,Form, Structure, and Sense"
+                        data-diffs="Easy,Medium,Hard"
+                        data-limit="27"
+                        data-tooltip="All 11 skills · all difficulty levels · 27 questions — closest to the real test">Full Test Module</button>
+                </div>
+            </div>
+
+            <!-- Backup Reminder -->
+            <div id="backupReminder" class="backup-reminder" style="display:none">
+                <span class="backup-reminder-text"></span>
+                <button type="button" class="btn btn-primary" onclick="openBackupAllModal()">Back up now</button>
+            </div>
+
+            <!-- Resume Banner -->
+            <div id="resumeBanner" class="resume-banner" style="display:none">
+                <span id="resumeInfo" class="resume-info"></span>
+                <div class="resume-actions">
+                    <button id="resumeBtn" class="btn btn-primary">Resume</button>
+                    <button id="discardBtn" class="btn">Discard</button>
+                </div>
+            </div>
+
+            <div class="session-summary" id="sessionSummary">Select skills and difficulty to begin.</div>
+
+            <button id="startSessionBtn" class="btn btn-primary setup-start-btn" disabled>Start Session</button>
+
+            <!-- Session History -->
+            <div class="history-section">
+                <div class="history-header" id="historyToggle">
+                    Recent Sessions <span id="historyChevron">&#9656;</span>
+                </div>
+                <div id="historyList" style="display:none"></div>
+            </div>
+
+            <!-- Lifetime Stats -->
+            <div class="history-section" id="lifetimeSection" style="display:none">
+                <div class="history-header" id="lifetimeToggle">
+                    Lifetime Skill Accuracy <span id="lifetimeChevron">&#9656;</span>
+                </div>
+                <div id="lifetimeStats" style="display:none"></div>
+            </div>
+
+            <!-- Top Traps -->
+            <div class="history-section" id="topTrapsSection" style="display:none">
+                <div class="history-header" id="topTrapsToggle">
+                    Most-Fallen-For Traps <span id="topTrapsChevron">&#9656;</span>
+                </div>
+                <div id="topTrapsList" style="display:none"></div>
+            </div>
+
+            <!-- Backup (history + progress in one file) -->
+            <div class="export-import-row">
+                <button class="btn btn-primary export-btn" id="backupAllBtn" title="Save history and progress together">&#128190; Back Up Everything</button>
+                <button class="btn export-btn" id="restoreAllBtn" title="Restore history and progress from a backup file">&#8595; Restore Backup</button>
+            </div>
+
+            <!-- Advanced: separate export / import -->
+            <details class="export-import-advanced">
+                <summary>Advanced: export each part separately</summary>
+                <div class="export-import-row" style="margin-top:0.5rem">
+                    <button class="btn export-btn" id="exportBtn">&#8593; Export Data</button>
+                    <button class="btn export-btn" id="importBtn">&#8595; Import Data</button>
+                </div>
+                <div class="export-import-row" style="margin-top:0.5rem">
+                    <button class="btn export-btn" id="exportProgressBtn" title="Back up mastery progress">&#8593; Export Progress</button>
+                    <button class="btn export-btn" id="importProgressBtn" title="Restore mastery progress">&#8595; Import Progress</button>
+                </div>
+            </details>
+
+        </div>
+    </div>
+
+    <!-- Export/Import Modal -->
+    <div id="dataModal" class="modal-overlay" style="display:none">
+        <div class="modal-card">
+            <h3 id="modalTitle">Export Session Data</h3>
+            <p id="modalDesc" class="modal-desc"></p>
+            <textarea id="modalTextarea" class="modal-textarea" spellcheck="false"></textarea>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="modalActionBtn"></button>
+                <button class="btn" id="modalCloseBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Completion Screen ──────────────────────────────────────────── -->
+    <div id="completionScreen" style="display:none" class="completion-screen">
+        <div class="completion-card">
+            <div class="completion-header">
+                <h2>Session Complete</h2>
+                <div class="completion-score-row">
+                    <span class="completion-big-score" id="completionBigScore">0 / 0</span>
+                    <span class="completion-pct" id="completionPct">—</span>
+                </div>
+                <div id="completionTime" class="completion-time" style="display:none"></div>
+                <div id="mockScore" class="mock-score" style="display:none"></div>
+            </div>
+
+            <div id="skillBreakdown" class="skill-breakdown"></div>
+            <div id="goalTypeBreakdown" class="skill-breakdown" style="display:none"></div>
+            <div id="ruleTypeBreakdown" class="skill-breakdown" style="display:none"></div>
+
+            <h3 id="missedHeading" class="missed-heading">Missed (0)</h3>
+            <div id="missedList" class="missed-list"></div>
+
+            <div class="completion-actions">
+                <button id="reviewMissedBtn" class="btn btn-primary completion-action-btn" style="display:none">
+                    Review Missed (<span id="missedCount">0</span>)
+                </button>
+                <button id="newSessionBtn" class="btn completion-action-btn">New Session</button>
+                <button type="button" class="btn completion-action-btn" onclick="goToHub()">&#8592; Hub</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Main App ───────────────────────────────────────────────────── -->
+    <div id="app" style="display:none">
+        <header>
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.5 1.5"></path>
+                    <path d="M7 11l5-5"></path>
+                </svg>
+                SAT Mastery
+            </div>
+            <div class="controls">
+                <button id="changeSessionBtn" class="btn">&#8592; Session</button>
+                <select id="modeSelect" class="btn">
+                    <option value="assisted">Assisted</option>
+                    <option value="standard">Standard</option>
+                    <option value="exam">Exam</option>
+                </select>
+                <div id="timerDisplay" class="timer hidden">00:00</div>
+                <div id="questionCounter" class="question-counter">Q — / —</div>
+                <span id="reviewLabel" class="badge badge-red" style="display:none; font-size:0.7rem;">Review</span>
+                <div class="score-display">Score: <span id="currentScore">0</span></div>
+                <a href="homework-hub.html" class="btn" style="text-decoration:none">Homework &#8594;</a>
+                <a href="notes-hub.html" class="btn" style="text-decoration:none">Notes &#8594;</a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Left: Passage / Stem -->
+            <section class="panel passage-panel">
+                <div id="passageContainer">
+                    <div class="passage-meta">
+                        <span class="badge badge-blue" id="skillBadge">—</span>
+                        <span class="badge badge-grey" id="domainBadge">—</span>
+                    </div>
+                    <div id="passageContent" class="passage-text">
+                        Configure a session to begin.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resize handle -->
+            <div id="resizeHandle" class="resize-handle" title="Drag to resize · Double-click to reset 50/50" aria-hidden="true"></div>
+
+            <!-- Right: Question and Options -->
+            <section class="panel question-panel">
+                <div class="card">
+                    <div id="questionMeta">
+                        <span class="badge badge-orange" id="difficultyBadge">—</span>
+                    </div>
+                    <div id="questionText" style="font-weight:600; font-size:1.05rem; margin-bottom:1.5rem;">—</div>
+
+                    <div id="predictionStep" class="hidden">
+                        <div id="predictionHint" class="prediction-hint"></div>
+                        <button class="reveal-btn" id="revealChoicesBtn">I have a prediction — Reveal Choices</button>
+                    </div>
+
+                    <div id="optionsContainer" class="options-list hidden"></div>
+
+                    <div id="feedbackContainer" class="feedback-section">
+                        <h3 id="feedbackTitle">Correct!</h3>
+                        <p id="feedbackText"></p>
+                        <div class="strategy-box" id="strategyInfo">
+                            <strong>Strategy:</strong> <span id="strategyName"></span><br>
+                            <strong>Watch for:</strong> <span id="trapName"></span>
+                        </div>
+                        <button class="btn btn-primary" id="nextBtn" style="margin-top:1rem;">Next Question</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="data-craft-structure.js?v=20260615b"></script>
+    <script src="data-expression-of-ideas.js?v=20260615"></script>
+    <script src="data-info-ideas.js?v=20260615b"></script>
+    <script src="data-conventions.js?v=20260609"></script>
+    <!-- Progress Panel (Ctrl+Shift+P · tutor view) -->
+    <div id="progressPanel" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:600;overflow-y:auto;padding:2rem 1rem" onclick="if(event.target===this)closeProgressPanel()">
+      <div style="max-width:560px;margin:0 auto;background:var(--surface);border-radius:1.25rem;padding:2rem;box-shadow:0 20px 40px rgba(0,0,0,0.25)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+          <div>
+            <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:0.1rem">Mastery Progress</h2>
+            <p style="font-size:0.78rem;color:var(--text-muted)">Tutor view &mdash; Ctrl+Shift+P to toggle</p>
+          </div>
+          <button onclick="closeProgressPanel()" class="btn">Close</button>
+        </div>
+        <div id="progressBody"></div>
+      </div>
+    </div>
+
+    <script src="config.js?v=20260609"></script>
+    <script src="progress.js?v=20260609"></script>
+    <script src="sheet-sync.js?v=20260609"></script>
+    <script src="storage.js?v=20260609"></script>
+    <script src="timer.js?v=20260611b"></script>
+    <script src="history.js?v=20260609"></script>
+    <script src="app.js?v=20260615"></script>
+</body>
+</html>

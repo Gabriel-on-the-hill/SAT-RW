@@ -1,0 +1,8 @@
+# editor / OS cruft
+.DS_Store
+Thumbs.db
+*~
+*.bak
+*.orig
+# sandbox write-test artifacts (cannot be unlinked from this environment)
+.__wtest*.tmp

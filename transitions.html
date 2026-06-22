@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SAT Transitions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #f1f5f9;
+    --surface:     #ffffff;
+    --surface2:    #f8fafc;
+    --border:      #e2e8f0;
+    --text:        #0f172a;
+    --text-muted:  #64748b;
+    --shadow:      0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --radius:      0.75rem;
+    --radius-sm:   0.5rem;
+
+    --contrast-hue:  #2563eb;
+    --contrast-bg:   #eff6ff;
+    --contrast-bdr:  #bfdbfe;
+    --cont-hue:      #059669;
+    --cont-bg:       #ecfdf5;
+    --cont-bdr:      #a7f3d0;
+    --ce-hue:        #7c3aed;
+    --ce-bg:         #f5f3ff;
+    --ce-bdr:        #ddd6fe;
+    --ex-hue:        #d97706;
+    --ex-bg:         #fffbeb;
+    --ex-bdr:        #fde68a;
+    --seq-hue:       #0891b2;
+    --seq-bg:        #ecfeff;
+    --seq-bdr:       #a5f3fc;
+    --trap-hue:      #dc2626;
+    --trap-bg:       #fef2f2;
+    --trap-bdr:      #fecaca;
+    --ok-hue:        #16a34a;
+    --ok-bg:         #f0fdf4;
+    --ok-bdr:        #bbf7d0;
+  }
+
+  [data-theme="dark"] {
+    --bg:          #0f172a;
+    --surface:     #1e293b;
+    --surface2:    #162032;
+    --border:      #334155;
+    --text:        #f1f5f9;
+    --text-muted:  #94a3b8;
+    --shadow:      0 1px 3px rgba(0,0,0,.35);
+    --contrast-bg: #0c1a3d;  --contrast-bdr: #1e3a8a;
+    --cont-bg:     #052e1c;  --cont-bdr:     #064e3b;
+    --ce-bg:       #1a0f3d;  --ce-bdr:       #4c1d95;
+    --ex-bg:       #1c1107;  --ex-bdr:       #78350f;
+    --seq-bg:      #062630;  --seq-bdr:      #164e63;
+    --trap-bg:     #1f0707;  --trap-bdr:     #7f1d1d;
+    --ok-bg:       #052e1c;  --ok-bdr:       #166534;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ──────────────────────────────────────────────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 0.65rem 1.5rem;
+  }
+  .header-row { display: flex; align-items: center; gap: 0.875rem; }
+  .site-logo {
+    font-size: 0.78rem; font-weight: 800;
+    color: var(--contrast-hue); letter-spacing: 0.06em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .progress-wrap { flex: 1; display: flex; align-items: center; gap: 0.65rem; }
+  .prog-bg {
+    flex: 1; height: 6px; background: var(--border);
+    border-radius: 9999px; overflow: hidden;
+  }
+  .prog-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--contrast-hue), var(--ok-hue));
+    border-radius: 9999px; width: 0%;
+    transition: width 0.4s ease;
+  }
+  .prog-label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
+  .header-btns { display: flex; gap: 0.4rem; align-items: center; }
+  .icon-btn {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface2);
+    color: var(--text-muted); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; transition: all 0.15s;
+  }
+  .icon-btn:hover { background: var(--border); color: var(--text); }
+  .back-link {
+    font-size: 0.78rem; font-weight: 600; color: var(--text-muted);
+    text-decoration: none; padding: 0.25rem 0.6rem;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    background: var(--surface2); transition: all 0.15s; white-space: nowrap;
+  }
+  .back-link:hover { background: var(--border); color: var(--text); }
+
+  /* ── MAIN ────────────────────────────────────────────────── */
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.25rem 5rem; }
+
+  /* ── COLLAPSIBLE INFO PANELS ─────────────────────────────── */
+  details.info-panel {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 1rem; margin-bottom: 1rem; font-size: 0.85rem;
+  }
+  details.info-panel.tip-panel    { border-left: 3px solid var(--contrast-hue); }
+  details.info-panel.proto-panel  { border-left: 3px solid var(--ce-hue); }
+  details.info-panel summary {
+    font-size: 0.82rem; font-weight: 700;
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  details.info-panel.tip-panel   summary { color: var(--contrast-hue); }
+  details.info-panel.proto-panel summary { color: var(--ce-hue); }
+  details.info-panel summary::-webkit-details-marker { display: none; }
+  .panel-body { margin-top: 0.7rem; color: var(--text-muted); line-height: 1.65; }
+  .panel-body ol, .panel-body ul { padding-left: 1.2rem; }
+  .panel-body li { margin-bottom: 0.35rem; }
+
+  /* ── CATEGORY PANEL ──────────────────────────────────────── */
+  .cat-panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem; box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .cat-panel.understood { border-color: var(--ok-hue); }
+  .cat-header {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding: 1.15rem 1.5rem 0.8rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .cat-num {
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 800; color: white; flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .cat-meta { flex: 1; min-width: 0; }
+  .cat-title { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.02em; }
+  .cat-def   { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
+  .understood-btn {
+    background: var(--surface2); border: 1.5px solid var(--border);
+    color: var(--text-muted); border-radius: 9999px;
+    font-family: inherit; font-size: 0.72rem; font-weight: 700;
+    padding: 0.3rem 0.7rem; cursor: pointer; white-space: nowrap;
+    transition: all 0.15s; align-self: flex-start;
+  }
+  .understood-btn:hover { border-color: var(--ok-hue); color: var(--ok-hue); }
+  .cat-panel.understood .understood-btn {
+    background: var(--ok-bg); border-color: var(--ok-hue); color: var(--ok-hue);
+  }
+
+  /* ── CONTENT BLOCKS ──────────────────────────────────────── */
+  .cat-body { padding: 1rem 1.5rem 1.25rem; }
+  .block-label {
+    font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted);
+    margin-top: 1rem; margin-bottom: 0.5rem;
+  }
+  .block-label:first-child { margin-top: 0; }
+
+  /* Example block */
+  .example-box {
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem; font-size: 0.92rem; line-height: 1.6;
+    font-style: italic;
+  }
+  .example-blank {
+    display: inline-block; min-width: 2.5rem;
+    border-bottom: 2px solid currentColor;
+    margin: 0 0.2rem; opacity: 0.5; font-weight: 700;
+  }
+  .example-tag { display: block; font-size: 0.7rem; font-style: normal; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.7; margin-top: 0.45rem; }
+
+  /* Comparison list */
+  .comp-list { display: flex; flex-direction: column; gap: 0; }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    column-gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-word {
+    font-weight: 700; font-size: 0.92rem;
+  }
+  .comp-signal { font-size: 0.85rem; color: var(--text); line-height: 1.45; }
+  .comp-tag {
+    display: inline-block; font-size: 0.62rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    border-radius: 9999px; padding: 0.1rem 0.5rem;
+    margin-left: 0.4rem; vertical-align: middle;
+  }
+
+  /* Tiebreaker block */
+  .tiebreaker {
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.55;
+  }
+  .tiebreaker ul { padding-left: 1.15rem; margin-top: 0.4rem; }
+  .tiebreaker li { margin-bottom: 0.3rem; }
+  .tiebreaker strong { font-weight: 700; }
+
+  /* ── TRAP PANEL ──────────────────────────────────────────── */
+  .trap-panel {
+    background: var(--trap-bg); border: 1px solid var(--trap-bdr);
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .trap-header { padding: 1.15rem 1.5rem 0.8rem; border-bottom: 1px solid var(--trap-bdr); }
+  .trap-header-row { display: flex; align-items: flex-start; gap: 0.8rem; }
+  .trap-num {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--trap-hue); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.95rem; flex-shrink: 0; margin-top: 0.1rem;
+  }
+  .trap-title { font-size: 1.05rem; font-weight: 800; color: var(--trap-hue); letter-spacing: 0.02em; }
+  .trap-framing { font-size: 0.85rem; color: var(--text); line-height: 1.55; margin-top: 0.3rem; }
+  .trap-framing strong { color: var(--trap-hue); }
+  .trap-body { padding: 1rem 1.5rem 1.25rem; }
+  .big-five-list { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+  .big-five-list li {
+    padding: 0.55rem 0; border-bottom: 1px solid var(--trap-bdr);
+    font-size: 0.88rem; line-height: 1.5;
+    display: grid; grid-template-columns: 9rem 1fr; column-gap: 0.75rem;
+    align-items: baseline;
+  }
+  .big-five-list li:last-child { border-bottom: none; }
+  .bf-word {
+    font-weight: 800; color: var(--trap-hue); font-size: 0.92rem;
+  }
+  .bf-freq {
+    display: inline-block; font-size: 0.65rem; font-weight: 800;
+    color: white; background: var(--trap-hue);
+    border-radius: 9999px; padding: 0.1rem 0.5rem;
+    margin-left: 0.4rem; vertical-align: middle;
+  }
+  .other-traps-table {
+    width: 100%; border-collapse: collapse; margin-top: 0.5rem;
+    font-size: 0.83rem;
+  }
+  .other-traps-table th {
+    text-align: left; font-size: 0.65rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--text-muted); padding: 0.4rem 0.65rem 0.5rem;
+    border-bottom: 2px solid var(--trap-bdr);
+  }
+  .other-traps-table td {
+    padding: 0.4rem 0.65rem; border-bottom: 1px solid var(--trap-bdr);
+    vertical-align: top;
+  }
+  .other-traps-table tr:last-child td { border-bottom: none; }
+  .ot-word { font-weight: 700; color: var(--trap-hue); white-space: nowrap; }
+  .ot-freq { font-weight: 700; color: var(--trap-hue); white-space: nowrap; font-size: 0.78rem; }
+  .ot-reason { color: var(--text); line-height: 1.5; }
+
+  /* ── RESET ───────────────────────────────────────────────── */
+  .reset-wrap { text-align: center; margin-top: 1.5rem; }
+  .reset-btn {
+    background: none; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.38rem 1rem; font-family: inherit; font-size: 0.78rem;
+    color: var(--text-muted); cursor: pointer; transition: all 0.14s;
+  }
+  .reset-btn:hover { border-color: #ef4444; color: #ef4444; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .site-header { padding: 0.55rem 1rem; }
+    main { padding: 1rem 1rem 4rem; }
+    .cat-header, .cat-body, .trap-header, .trap-body { padding-left: 1rem; padding-right: 1rem; }
+    .comp-row { grid-template-columns: 7rem 1fr; column-gap: 0.6rem; }
+    .big-five-list li { grid-template-columns: 7rem 1fr; column-gap: 0.6rem; }
+  }
+  </style>
+  <script src="gate.js?v=20260609"></script>
+  <script src="anti-cheat.js?v=20260609"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <span class="site-logo">&#8644; SAT Transitions</span>
+    <div class="progress-wrap">
+      <div class="prog-bg"><div class="prog-fill" id="progFill"></div></div>
+      <span class="prog-label" id="progLabel">0 / 5 categories understood</span>
+    </div>
+    <div class="header-btns">
+      <button class="icon-btn" id="themeBtn" title="Toggle dark mode">&#127769;</button>
+      <a href="index.html" class="back-link">&#8592; Hub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOW TO USE -->
+  <details class="info-panel tip-panel">
+    <summary>&#128161; How to use this page</summary>
+    <div class="panel-body">
+      <ol>
+        <li><strong>Read the relationship, not the word.</strong> The SAT tests <em>category &rarr; word</em>. You see two sentences, name the relationship, then pick the transition that signals it.</li>
+        <li><strong>One category at a time.</strong> For each panel below, read the definition, study the example, scan the comparison list, then read the Hard-question tiebreaker. Once you've got it, mark it understood.</li>
+        <li><strong>Don't memorise traps.</strong> Section 6 lists transitions that are never correct. The skill is recognising them as misdirections during the protocol, not adding them to a study deck.</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- PROTOCOL -->
+  <details class="info-panel proto-panel" open>
+    <summary>&#128203; The Two-Sentence Protocol &mdash; every transitions question</summary>
+    <div class="panel-body">
+      <ol>
+        <li>Read sentence 1 completely. Understand what it claims.</li>
+        <li>Read sentence 2 completely. Understand what it claims.</li>
+        <li>Ask: <em>"What is the actual relationship?"</em> &mdash; do not match keywords; analyse the logic.</li>
+        <li>Name which of the 5 relationships this is (out loud or sub-vocally).</li>
+        <li>Eliminate every option that signals the wrong relationship.</li>
+        <li>Among the remaining options, choose the most precise match using the within-category tiebreakers.</li>
+      </ol>
+    </div>
+  </details>
+
+  <div id="categoriesRoot"></div>
+
+  <!-- TRAP PANEL -->
+  <section class="trap-panel">
+    <div class="trap-header">
+      <div class="trap-header-row">
+        <div class="trap-num">&#9888;</div>
+        <div style="flex:1">
+          <div class="trap-title">TRAP DISTRACTORS</div>
+          <div class="trap-framing">
+            These transitions are <strong>never the correct answer</strong> in the 49-question SAT practice bank. <strong>Don't memorise them as a vocabulary list.</strong> When one appears in the answer choices, treat it as a signal to slow down and re-verify the relationship &mdash; not as a category to study.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trap-body">
+      <div class="block-label">The Big Five &mdash; ~40% of all wrong-answer slots</div>
+      <ul class="big-five-list" id="bigFiveList"></ul>
+
+      <div class="block-label">Other named traps</div>
+      <table class="other-traps-table">
+        <thead><tr><th>Transition</th><th>Wrong</th><th>Why it fails</th></tr></thead>
+        <tbody id="otherTrapsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="reset-wrap">
+    <button class="reset-btn" id="resetBtn">Reset progress</button>
+  </div>
+
+</main>
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+// DATA — sourced from 49 SAT practice questions
+// ─────────────────────────────────────────────────────────────────
+
+const CATEGORIES = [
+  {
+    key: 'contrast',
+    num: 1,
+    title: 'CONTRAST',
+    def: 'Second idea opposes, qualifies, or complicates the first &mdash; includes concession (acknowledging an objection before moving past it).',
+    hue: 'var(--contrast-hue)', bg: 'var(--contrast-bg)', bdr: 'var(--contrast-bdr)',
+    example: 'The new policy reduced costs by 20 percent. <span class="example-blank">_____</span>, implementation challenges delayed the rollout.',
+    items: [
+      { word: 'however',     signal: 'Neutral, versatile contrast &mdash; the safe default.',                        tag: 'Core · E M H' },
+      { word: 'by contrast', signal: 'Direct side-by-side opposition. Use when two things are explicitly compared.', tag: 'Core · E M H' },
+      { word: 'though',      signal: 'Partial or internal contradiction. Often mid-sentence.',                       tag: 'Core · M H'   },
+      { word: 'in contrast', signal: 'Direct opposition between two different things.',                              tag: 'Core · E M'   },
+      { word: 'nonetheless', signal: 'Contrast after a prior concession has been made.',                             tag: 'Core · H'     },
+      { word: 'of course',   signal: 'Concession. Acknowledges an obvious limitation before pivoting.',              tag: 'Concession · H' },
+      { word: 'that said',   signal: 'Concession. Signals a contradiction is about to follow.',                      tag: 'Concession · H' },
+      { word: 'granted',     signal: 'Concession. "This is true, but here is the qualifying catch."',                tag: 'Concession · M H' },
+    ],
+    tiebreaker: [
+      '<strong>Two things being explicitly compared?</strong> &rarr; <em>by contrast</em>',
+      '<strong>A point was just conceded and you\'re pivoting back?</strong> &rarr; <em>nonetheless</em>',
+      '<strong>S2 is an obvious objection you\'re acknowledging before moving on?</strong> &rarr; <em>of course / granted / that said</em>',
+      '<strong>None of the above &mdash; just a general contradiction?</strong> &rarr; <em>however</em>',
+    ]
+  },
+  {
+    key: 'continuation',
+    num: 2,
+    title: 'CONTINUATION',
+    def: 'Second idea adds to, extends, supports, or draws a parallel with the first.',
+    hue: 'var(--cont-hue)', bg: 'var(--cont-bg)', bdr: 'var(--cont-bdr)',
+    example: 'The fossil record shows rapid climate shifts during the Pleistocene. <span class="example-blank">_____</span>, recent ice core data provides additional evidence of temperature variability.',
+    items: [
+      { word: 'moreover',      signal: 'Another equally weighted point.',                              tag: 'Core · M H' },
+      { word: 'additionally',  signal: 'Plain addition &mdash; neutral.',                              tag: 'Core · M H' },
+      { word: "what's more",   signal: 'Emphatic addition &mdash; the new point strengthens.',         tag: 'Emphatic · H' },
+      { word: 'in fact',       signal: 'Sharpens or intensifies the prior claim &mdash; makes it more specifically true.', tag: 'Emphatic · E H' },
+      { word: 'indeed',        signal: 'Emphatic confirmation of what was just said.',                 tag: 'Emphatic · H' },
+      { word: 'likewise',      signal: 'Adds a parallel example (X does A; likewise, Y also does A).', tag: 'Similarity · M' },
+      { word: 'by comparison', signal: 'Comparison addition &mdash; two examples set side-by-side.',   tag: 'Similarity · E' },
+      { word: 'in many cases', signal: 'Supporting generalisation &mdash; prior claim confirmed in multiple instances.', tag: 'Support · M' },
+    ],
+    tiebreaker: [
+      '<strong>S2 makes S1 more true / drives the point home?</strong> &rarr; <em>in fact / indeed</em>',
+      '<strong>S2 is a parallel case (X did A; Y also did A)?</strong> &rarr; <em>likewise / by comparison</em>',
+      '<strong>S2 is another point at the same level?</strong> &rarr; <em>moreover / additionally</em>',
+      'Beware: <em>similarly</em> and <em>furthermore</em> sound right but are <strong>never correct</strong> in the practice bank (see Section 6).',
+    ]
+  },
+  {
+    key: 'causeEffect',
+    num: 3,
+    title: 'CAUSE – EFFECT',
+    def: 'Second idea results from, follows from, or is the fitting consequence of the first.',
+    hue: 'var(--ce-hue)', bg: 'var(--ce-bg)', bdr: 'var(--ce-bdr)',
+    example: 'The experiment confirmed the hypothesis. <span class="example-blank">_____</span>, the research team published their findings.',
+    items: [
+      { word: 'as a result',     signal: 'Neutral cause&ndash;effect &mdash; safe default.',           tag: 'Core · E M' },
+      { word: 'for this reason', signal: 'Explicit causal signal.',                                    tag: 'Core · E' },
+      { word: 'consequently',    signal: 'The result followed directly from the cause.',               tag: 'Core · E H' },
+      { word: 'therefore',       signal: 'Neutral logical conclusion.',                                tag: 'Core · E M H' },
+      { word: 'thus',            signal: 'Formal &mdash; often summarises reasoning.',                 tag: 'Core · E H' },
+      { word: 'hence',           signal: 'Formal, slightly archaic. Same logic as therefore.',         tag: 'Core · M' },
+      { word: 'accordingly',     signal: 'Action taken in keeping with the prior fact.',               tag: 'Fitting · M H' },
+      { word: 'fittingly',       signal: 'The result is not just logical but also particularly apt.',  tag: 'Fitting · M' },
+      { word: 'eventually',      signal: 'Final result reached in time &mdash; cause leads here.',     tag: 'Temporal · E' },
+    ],
+    tiebreaker: [
+      '<strong>S2 is a deliberate response to S1 (an action taken)?</strong> &rarr; <em>accordingly</em>',
+      '<strong>S2 is the result and also particularly appropriate?</strong> &rarr; <em>fittingly</em>',
+      '<strong>S2 is the final outcome reached over time?</strong> &rarr; <em>eventually</em>',
+      '<strong>S2 is just a logical conclusion?</strong> &rarr; <em>as a result / therefore</em> (most flexible)',
+    ]
+  },
+  {
+    key: 'example',
+    num: 4,
+    title: 'EXAMPLE / SPECIFICATION',
+    def: 'Second idea illustrates, narrows, or restates the first as a specific case or clarification.',
+    hue: 'var(--ex-hue)', bg: 'var(--ex-bg)', bdr: 'var(--ex-bdr)',
+    example: 'Many Renaissance artists studied human anatomy to improve their work. <span class="example-blank">_____</span>, Leonardo da Vinci dissected over 30 cadavers to understand muscle structure.',
+    items: [
+      { word: 'for example',    signal: 'General claim &rarr; specific instance. Most frequently correct transition overall.',  tag: 'Core · E M H' },
+      { word: 'specifically',   signal: 'Narrows to a precise detail within the prior broader claim.',                         tag: 'Core · E H' },
+      { word: 'in other words', signal: 'Restatement &mdash; same idea in clearer or simpler terms.',                          tag: 'Restate · H' },
+      { word: 'that is',        signal: 'Clarification &mdash; defines or unpacks a term just used.',                          tag: 'Restate · M H' },
+    ],
+    tiebreaker: [
+      '<strong>S2 names one specific instance of a general claim?</strong> &rarr; <em>for example</em>',
+      '<strong>S2 narrows the broader claim to a finer detail?</strong> &rarr; <em>specifically</em>',
+      '<strong>S2 says the same thing in different words?</strong> &rarr; <em>in other words</em>',
+      '<strong>S2 defines or unpacks a term S1 just used?</strong> &rarr; <em>that is</em>',
+    ]
+  },
+  {
+    key: 'sequence',
+    num: 5,
+    title: 'SEQUENCE',
+    def: 'Second idea occurs before, after, or as the eventual outcome of the first.',
+    hue: 'var(--seq-hue)', bg: 'var(--seq-bg)', bdr: 'var(--seq-bdr)',
+    example: 'When one looks at the dark vistas in Fugo\'s photo series, one\'s mind wanders to faraway planets. <span class="example-blank">_____</span>, it is the title that brings the viewer back to Earth.',
+    items: [
+      { word: 'earlier',    signal: 'Refers to a time prior to the current moment.',                   tag: 'Time · E' },
+      { word: 'later',      signal: 'Refers to a time after the current moment.',                      tag: 'Time · E' },
+      { word: 'then',       signal: 'Sequential next step.',                                            tag: 'Time · E' },
+      { word: 'ultimately', signal: '"Eventually" or "in the final analysis." Context decides which.', tag: 'Outcome · H' },
+    ],
+    tiebreaker: [
+      '<strong>S2 happened before S1?</strong> &rarr; <em>earlier</em>',
+      '<strong>S2 happened after S1?</strong> &rarr; <em>later / then</em>',
+      '<strong>S2 is the eventual outcome or the deeper point?</strong> &rarr; <em>ultimately</em>',
+      'Sequence is the rarest relationship on the SAT &mdash; if you find yourself reaching for it, double-check that one of the other four isn\'t a better fit.',
+    ]
+  },
+];
+
+const BIG_FIVE = [
+  { word: 'similarly',    freq: 12, reason: 'Sounds like continuation. Wrong whenever the relationship is contrast, example, or cause&ndash;effect. Most dangerous distractor in the bank &mdash; appears at every difficulty level.' },
+  { word: 'nevertheless', freq: 11, reason: 'Sounds authoritative and "SAT-like." Wrong whenever the relationship is NOT contrast. Students pick it because it feels emphatic, not because the logic calls for it.' },
+  { word: 'regardless',   freq:  5, reason: 'Implies dismissing the prior claim ("no matter what"). Wrong when S2 logically depends on or flows from S1.' },
+  { word: 'furthermore',  freq:  3, reason: 'Core continuation word that sounds sophisticated. Never correct in this practice bank &mdash; prefer <em>moreover</em> or <em>additionally</em>.' },
+  { word: 'in addition',  freq:  3, reason: 'Plain addition that sounds safe. Wrong when the relationship is not simple continuation.' },
+];
+
+const OTHER_TRAPS = [
+  { word: 'for instance',       freq: 3, reason: 'Sounds like example. Never correct here &mdash; <em>for example</em> is preferred.' },
+  { word: 'in conclusion',      freq: 3, reason: 'Summary. Rarely correct mid-passage.' },
+  { word: 'meanwhile',          freq: 3, reason: 'Parallel simultaneous action. Wrong when the relationship is not two things at the same time.' },
+  { word: 'conversely',         freq: 3, reason: 'Direct reversal contrast. Wrong when the contrast is not a direct reversal.' },
+  { word: 'on the contrary',    freq: 2, reason: 'Strong contrast. Wrong when a softer contrast or different category is needed.' },
+  { word: 'instead',            freq: 2, reason: 'Substitution contrast. Wrong when no substitution is implied.' },
+  { word: 'next',               freq: 2, reason: 'Literal sequence. Wrong when the relationship is not step-by-step temporal.' },
+  { word: 'admittedly',         freq: 1, reason: 'Concession. Wrong when a stronger contrast is needed.' },
+  { word: 'as such',            freq: 1, reason: 'Loose cause&ndash;effect. Wrong when the causal link is too indirect.' },
+  { word: 'alternatively',      freq: 1, reason: 'Presents a different option. Wrong when S2 is not an alternative.' },
+  { word: 'to that end',        freq: 1, reason: 'Purpose-driven cause&ndash;effect. Wrong when S2 is not a deliberate action toward a goal.' },
+  { word: 'in turn',            freq: 1, reason: 'Sequential cause&ndash;effect. Wrong when not part of a chain.' },
+  { word: 'subsequently',       freq: 1, reason: 'Temporal sequence. Wrong when the relationship is not after-in-time.' },
+  { word: 'on the other hand',  freq: 1, reason: 'Balanced comparison. Wrong when not comparing two sides.' },
+  { word: 'all the same',       freq: 1, reason: 'Concessive contrast. Wrong when contrast is direct rather than concessive.' },
+  { word: 'secondly',           freq: 1, reason: 'Enumeration. Wrong when not part of an explicit list.' },
+  { word: 'firstly',            freq: 1, reason: 'Enumeration. Wrong when not part of an explicit list.' },
+  { word: 'in the second place',freq: 1, reason: 'Enumeration. Wrong when not part of an explicit list.' },
+  { word: 'in sum',             freq: 1, reason: 'Summary. Rarely correct mid-passage.' },
+  { word: 'in particular',      freq: 1, reason: 'Specification. Wrong when the relationship is broader than a single narrowing.' },
+  { word: 'in comparison',      freq: 1, reason: 'Comparison. Wrong direction for its context.' },
+  { word: 'in any case',        freq: 1, reason: 'Dismissive. Wrong when S2 connects logically to S1.' },
+  { word: 'nowadays',           freq: 1, reason: 'Time marker (present day). Wrong when the relationship is logical, not temporal.' },
+];
+
+// ─────────────────────────────────────────────────────────────────
+// PERSISTENCE
+// ─────────────────────────────────────────────────────────────────
+const SK = 'wayne_trans_cats_v1';
+const TK = 'wayne_theme_v1';
+
+function loadSet(key) {
+  try { return new Set(JSON.parse(localStorage.getItem(key)) || []); }
+  catch(e) { return new Set(); }
+}
+function saveSet(key, set) {
+  try { localStorage.setItem(key, JSON.stringify([...set])); } catch(e) {}
+}
+
+let understood = loadSet(SK);
+
+// ─────────────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────────────
+function updateProgress() {
+  const n = understood.size;
+  const total = CATEGORIES.length;
+  const pct = Math.round((n / total) * 100);
+  document.getElementById('progFill').style.width  = pct + '%';
+  document.getElementById('progLabel').textContent = `${n} / ${total} categories understood`;
+}
+
+function renderCategory(cat) {
+  const isU = understood.has(cat.key);
+  const tintStyle = `background:${cat.bg};border:1px solid ${cat.bdr}`;
+
+  const itemsHtml = cat.items.map(it => `
+    <div class="comp-row">
+      <div class="comp-word" style="color:${cat.hue}">${it.word}</div>
+      <div class="comp-signal">${it.signal}<span class="comp-tag" style="background:${cat.bg};color:${cat.hue};border:1px solid ${cat.bdr}">${it.tag}</span></div>
+    </div>
+  `).join('');
+
+  const tiebreakerHtml = cat.tiebreaker.map(t => `<li>${t}</li>`).join('');
+
+  return `
+    <section class="cat-panel${isU ? ' understood' : ''}" data-key="${cat.key}">
+      <div class="cat-header">
+        <div class="cat-num" style="background:${cat.hue}">${cat.num}</div>
+        <div class="cat-meta">
+          <div class="cat-title" style="color:${cat.hue}">${cat.title}</div>
+          <div class="cat-def">${cat.def}</div>
+        </div>
+        <button class="understood-btn" data-key="${cat.key}">
+          ${isU ? '&#10003; Understood' : 'Mark understood'}
+        </button>
+      </div>
+      <div class="cat-body">
+        <div class="block-label">Worked example</div>
+        <div class="example-box" style="${tintStyle};color:${cat.hue}">
+          ${cat.example}
+          <span class="example-tag">Relationship: ${cat.title}</span>
+        </div>
+
+        <div class="block-label">All ${cat.items.length} transitions in this category</div>
+        <div class="comp-list">${itemsHtml}</div>
+
+        <div class="block-label">Hard-question tiebreaker</div>
+        <div class="tiebreaker" style="${tintStyle}">
+          When two options from this category appear, ask:
+          <ul>${tiebreakerHtml}</ul>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function buildCategories() {
+  const root = document.getElementById('categoriesRoot');
+  root.innerHTML = CATEGORIES.map(renderCategory).join('');
+  root.querySelectorAll('.understood-btn').forEach(btn => {
+    btn.addEventListener('click', () => toggleUnderstood(btn.dataset.key));
+  });
+}
+
+function toggleUnderstood(key) {
+  if (understood.has(key)) understood.delete(key);
+  else understood.add(key);
+  saveSet(SK, understood);
+  buildCategories();
+  updateProgress();
+}
+
+function buildBigFive() {
+  const ul = document.getElementById('bigFiveList');
+  ul.innerHTML = BIG_FIVE.map(t => `
+    <li>
+      <div>
+        <span class="bf-word">${t.word}</span>
+        <span class="bf-freq">&#10005; ${t.freq}&times; wrong</span>
+      </div>
+      <div>${t.reason}</div>
+    </li>
+  `).join('');
+}
+
+function buildOtherTraps() {
+  const tbody = document.getElementById('otherTrapsBody');
+  tbody.innerHTML = OTHER_TRAPS.map(t => `
+    <tr>
+      <td><span class="ot-word">${t.word}</span></td>
+      <td class="ot-freq">&#10005; ${t.freq}&times;</td>
+      <td class="ot-reason">${t.reason}</td>
+    </tr>
+  `).join('');
+}
+
+// ─────────────────────────────────────────────────────────────────
+// THEME
+// ─────────────────────────────────────────────────────────────────
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeBtn').innerHTML = t === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+  try { localStorage.setItem(TK, t); } catch(e) {}
+}
+function initTheme() {
+  const saved = localStorage.getItem(TK);
+  if (saved) applyTheme(saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+}
+
+// ─────────────────────────────────────────────────────────────────
+// RESET
+// ─────────────────────────────────────────────────────────────────
+function resetAll() {
+  if (!confirm('Reset all transitions progress? This cannot be undone.')) return;
+  understood.clear();
+  saveSet(SK, understood);
+  buildCategories();
+  updateProgress();
+}
+
+// ─────────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────────
+initTheme();
+buildCategories();
+buildBigFive();
+buildOtherTraps();
+updateProgress();
+
+document.getElementById('themeBtn').addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+document.getElementById('resetBtn').addEventListener('click', resetAll);
+</script>
+<script src="nav.js?v=20260609" defer></script>
+</body>
+</html>

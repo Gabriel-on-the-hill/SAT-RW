@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework — SAT Mastery</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#f5f7fa;--surface:#fff;--surface2:#f1f5f9;--border:#e2e8f0;--text:#1a2233;--muted:#5b6678;
+    --accent:#2563eb;--accent-soft:#eaf1fe;--good:#15803d;--good-soft:#eef8f0;--bad:#b91c1c;--bad-soft:#fdeced;--radius:14px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+  .wrap{max-width:680px;margin:0 auto;padding:1.3rem 1.15rem 4rem}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+  .topbar .t{font-weight:700;color:var(--muted);font-size:.9rem}
+  .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
+  .tip{background:var(--accent-soft);border:1px solid #cfe0fb;border-radius:10px;padding:.7rem .85rem;font-size:.92rem;margin-bottom:1rem}
+  .passage{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.2rem;margin-bottom:.9rem;white-space:pre-line}
+  .passage img{max-width:100%;height:auto;border-radius:8px}
+  .qtext{font-weight:700;margin-bottom:.8rem}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--border);background:var(--surface);border-radius:10px;padding:.7rem .85rem;margin-bottom:.55rem;cursor:pointer;font-family:inherit;font-size:.95rem}
+  .opt:hover{border-color:var(--accent)}
+  .opt.correct{border-color:var(--good);background:var(--good-soft)}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .fb{display:none;border-radius:10px;padding:.8rem .9rem;margin-top:.4rem}
+  .fb.show{display:block}
+  .fb.ok{background:var(--good-soft)} .fb.no{background:var(--bad-soft)}
+  .fb .h{font-weight:800;margin-bottom:.3rem}
+  .fb.ok .h{color:var(--good)} .fb.no .h{color:var(--bad)}
+  .fb p{font-size:.92rem}
+  .nav{display:flex;justify-content:flex-end;margin-top:.7rem}
+  .btn{border:none;background:var(--accent);color:#fff;border-radius:10px;padding:.6rem 1.2rem;font-weight:700;font-size:.92rem;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block}
+  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .big{font-size:2.2rem;font-weight:800}
+  .sub{color:var(--muted)}
+  .done-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;text-align:center;margin-bottom:1rem}
+  .hidden{display:none}
+</style>
+<script src="gate.js?v=20260622"></script>
+<script src="data-craft-structure.js?v=20260622"></script>
+<script src="data-expression-of-ideas.js?v=20260622"></script>
+<script src="data-info-ideas.js?v=20260622"></script>
+<script src="data-conventions.js?v=20260622"></script>
+<script src="progress.js?v=20260622"></script>
+<script src="sheet-sync.js?v=20260622"></script>
+<script src="homework/assignments.js?v=20260622"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><span class="t" id="hdr">Homework</span><span style="display:flex;gap:.6rem;align-items:center"><span id="timer" style="display:none;font-weight:800;font-variant-numeric:tabular-nums;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.3rem .6rem">--:--</span><a class="back" href="homework-hub.html">All days</a></span></div>
+  <div id="tip" class="tip"></div>
+  <div id="run"></div>
+  <div id="finish" class="hidden"></div>
+</div>
+<script>
+(function(){
+  function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');}
+  var p=new URLSearchParams(location.search);
+  var student=p.get('student'), dayN=parseInt(p.get('day'),10);
+  var run=document.getElementById('run');
+  hwLoadPlan(student, function(plan){
+  if(!plan||!dayN||!plan.days[dayN-1]){ run.innerHTML='<div class="done-card">This homework day was not found. <a href="homework-hub.html">Back to homework</a></div>'; document.getElementById('tip').style.display='none'; return; }
+  var spec=plan.days[dayN-1];
+  var hwTimer=null;
+  document.getElementById('hdr').textContent='Day '+dayN+' · '+spec.focus;
+  document.getElementById('tip').textContent=spec.tip;
+  var QB=[].concat(
+    typeof questionBank_CS!=='undefined'?questionBank_CS:[],
+    typeof questionBank_EOI!=='undefined'?questionBank_EOI:[],
+    typeof questionBank_II!=='undefined'?questionBank_II:[],
+    typeof questionBank_CON!=='undefined'?questionBank_CON:[]);
+  function _pick(pool,n){ var ordered=(typeof prioritizePool==='function')?prioritizePool(pool):pool.slice().sort(function(){return Math.random()-0.5;}); return ordered.slice(0, n); }
+  // Section-aware build: each section draws an exact count from its own
+  // filtered pool (skill + difficulty + optional ruleType), no repeats across
+  // sections. Days without `sections` fall back to the simple skills/diffs/count.
+  var set=[];
+  if(spec.sections && spec.sections.length){
+    var _used={};
+    spec.sections.forEach(function(sec){
+      var pool=QB.filter(function(q){
+        if(_used[q.id]) return false;
+        if(sec.skills && sec.skills.length && sec.skills.indexOf(q.skill)<0) return false;
+        if(sec.diffs && sec.diffs.length && sec.diffs.indexOf(q.difficulty)<0) return false;
+        if(sec.ruleType && q.ruleType!==sec.ruleType) return false;
+        return true;
+      });
+      var picked=_pick(pool, sec.count||0);
+      picked.forEach(function(q){_used[q.id]=true;});
+      set=set.concat(picked);
+    });
+  } else {
+    var pool=QB.filter(function(q){return spec.skills.indexOf(q.skill)>=0 && spec.diffs.indexOf(q.difficulty)>=0;});
+    set=_pick(pool, spec.count);
+  }
+  if(!set.length){ run.innerHTML='<div class="done-card">No questions available for this day. <a href="homework-hub.html">Back</a></div>'; return; }
+  var idx=0, correct=0, started=Date.now(), answered=false, missed=[], isRedo=false;
+  function render(){
+    answered=false;
+    var q=set[idx];
+    var media = q.image ? '<div class="passage"><img src="'+q.image+'" alt="'+(q.alt||'figure').replace(/"/g,'&quot;')+'"></div>' : (q.passage?'<div class="passage">'+esc(q.passage)+'</div>':'');
+    var opts=q.options.map(function(o){var L=o.trim()[0];return '<button class="opt" data-l="'+L+'">'+esc(o)+'</button>';}).join('');
+    run.innerHTML='<div class="t" style="margin-bottom:.5rem">Question '+(idx+1)+' of '+set.length+'</div>'
+      +media+'<div class="qtext">'+esc(q.question)+'</div><div id="opts">'+opts+'</div>'
+      +'<div class="fb" id="fb"><div class="h" id="fbh"></div><p id="fbt"></p></div>'
+      +'<div class="nav"><button class="btn hidden" id="next">'+(idx===set.length-1?'Finish':'Next')+'</button></div>';
+    Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){b.onclick=function(){choose(b,q);};});
+    document.getElementById('next').onclick=function(){ idx++; if(idx>=set.length) finish(); else render(); };
+  }
+  function choose(btn,q){
+    if(answered) return; answered=true;
+    var L=btn.dataset.l, ok=L===q.answer;
+    if(ok) correct++; else missed.push(q);
+    if(typeof recordAnswer==='function') recordAnswer(q.id, ok, 'practice');
+    Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){
+      b.disabled=true; var bl=b.dataset.l;
+      if(bl===q.answer) b.classList.add('correct');
+      if(b===btn && !ok) b.classList.add('wrong');
+    });
+    var fb=document.getElementById('fb'); fb.className='fb show '+(ok?'ok':'no');
+    document.getElementById('fbh').textContent = ok ? "Nice — that's right." : "Not quite — here's why.";
+    document.getElementById('fbt').textContent = q.explanation;
+    document.getElementById('next').classList.remove('hidden');
+  }
+  function finish(){
+    if(hwTimer) clearInterval(hwTimer); hwTimer=null;
+    var secs=Math.round((Date.now()-started)/1000);
+    if(!isRedo){ try{ localStorage.setItem('wayne_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){} postLog(secs); }
+    document.getElementById('tip').style.display='none';
+    run.classList.add('hidden');
+    var f=document.getElementById('finish'); f.classList.remove('hidden');
+    var pct=Math.round(correct/set.length*100);
+    var msg = pct>=80?'Strong work on today’s set.':(pct>=60?'Good effort — review the ones you missed.':'Nice try — look back over the explanations; that’s where it clicks.');
+    var missedNow=missed.slice();
+    var redoBtn = (missedNow.length && !isRedo) ? '<div class="nav" style="justify-content:center;margin-top:.2rem"><button class="btn" id="redo">Redo the '+missedNow.length+' you missed — untimed</button></div>' : '';
+    f.innerHTML='<div class="done-card"><div class="big">'+correct+' / '+set.length+'</div><div class="sub">'+(isRedo?'Redo complete':'Day '+dayN+' complete')+' · '+pct+'%</div>'
+      +'<p style="margin-top:.6rem;color:var(--muted)">'+msg+'</p></div>'
+      + redoBtn
+      +'<div class="nav" style="justify-content:space-between"><a class="btn sec" href="homework-hub.html">All days</a><a class="btn" href="index.html">Home</a></div>';
+    var rb=document.getElementById('redo');
+    if(rb) rb.onclick=function(){ isRedo=true; set=missedNow.slice(); missed=[]; idx=0; correct=0; started=Date.now();
+      f.classList.add('hidden'); f.innerHTML=''; run.classList.remove('hidden'); render(); };
+    window.scrollTo(0,0);
+  }
+  function postLog(secs){
+    try{
+      if(typeof SHEET_SYNC_ENDPOINT==='string' && SHEET_SYNC_ENDPOINT){
+        fetch(SHEET_SYNC_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
+          body:JSON.stringify({type:'homework',student:student,day:dayN,focus:spec.focus,score:correct,total:set.length,seconds:secs,at:new Date().toISOString()})});
+      }
+    }catch(e){}
+  }
+  render();
+  if (spec.minutes > 0) {
+    var remain = spec.minutes * 60, te = document.getElementById('timer'); te.style.display = 'inline-block';
+    function tick(){ var m = Math.floor(remain/60), x = remain%60; te.textContent = m + ':' + String(x).padStart(2,'0'); if (remain <= 0) { clearInterval(hwTimer); finish(); } remain--; }
+    tick(); hwTimer = setInterval(tick, 1000);
+  }
+  });
+})();
+</script>
+</body>
+</html>
