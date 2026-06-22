@@ -129,9 +129,9 @@
     run.classList.add('hidden');
     var f=document.getElementById('finish'); f.classList.remove('hidden');
     var pct=Math.round(correct/set.length*100);
-    var msg = pct>=80?'Strong work on today’s set.':(pct>=60?'Good effort — review the ones you missed.':'Nice try — look back over the explanations; that’s where it clicks.');
+    var msg = pct>=80?'Good work today.':(pct>=60?'Solid. Go back over the ones you missed.':'Read back through the explanations for the ones you missed.');
     var missedNow=missed.slice();
-    var redoBtn = (missedNow.length && !isRedo) ? '<div class="nav" style="justify-content:center;margin-top:.2rem"><button class="btn" id="redo">Redo the '+missedNow.length+' you missed — untimed</button></div>' : '';
+    var redoBtn = (missedNow.length && !isRedo) ? '<div class="nav" style="justify-content:center;margin-top:.2rem"><button class="btn" id="redo">Redo the '+missedNow.length+' you missed (untimed)</button></div>' : '';
     f.innerHTML='<div class="done-card"><div class="big">'+correct+' / '+set.length+'</div><div class="sub">'+(isRedo?'Redo complete':'Day '+dayN+' complete')+' · '+pct+'%</div>'
       +'<p style="margin-top:.6rem;color:var(--muted)">'+msg+'</p></div>'
       + redoBtn

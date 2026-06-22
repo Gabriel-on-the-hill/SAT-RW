@@ -258,25 +258,25 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey — Info & Ideas core building to a timed dress rehearsal. No Easy items.
+  // Jeffrey: Information & Ideas focus, ending with a full timed set. No Easy items.
   "Jeffrey": {
-    title: "This week — Info & Ideas core, building to a timed rehearsal",
+    title: "Information & Ideas this week",
     start: "2026-06-22",
     unlock: "cumulative",
     days: [
-      { n:1, focus:"Information & Ideas — method day", minutes:0,
-        tip:"Slow and deliberate. Name the question type, then run the method before you look at the choices.",
+      { n:1, focus:"Information & Ideas", minutes:0,
+        tip:"Take your time. Work out what the question is asking, then answer it before you read the choices.",
         sections:[
           { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:5 }
         ] },
-      { n:2, focus:"Info & Ideas + Words in Context", minutes:0,
-        tip:"Same method as yesterday for Info & Ideas. For Words in Context, predict your own word before checking the choices.",
+      { n:2, focus:"Information & Ideas and Words in Context", minutes:0,
+        tip:"Same approach as yesterday for the reading questions. For Words in Context, think of your own word for the blank before you look at the choices.",
         sections:[
           { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:5 },
           { skills:["Words in Context"], diffs:["Medium"], count:3 }
         ] },
-      { n:3, focus:"Timed mix — Info & Ideas, structure, a transition and a semicolon", minutes:10,
-        tip:"Pace the whole set, not each question. Semicolon and transition items take about 30 seconds — bank that time and spend it on the hard Info & Ideas one. Don\u2019t force every question into the same clock.",
+      { n:3, focus:"Timed set: Information & Ideas, structure, and grammar", minutes:10,
+        tip:"Pace the whole set, not each question. The semicolon and transition questions are quick, about 30 seconds each, so save your time for the hard Information & Ideas one. You do not need to spend the same amount of time on every question.",
         sections:[
           { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Hard"], count:1 },
           { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:3 },
@@ -284,8 +284,8 @@ const HOMEWORK = {
           { skills:["Transitions"], diffs:["Medium"], count:1 },
           { skills:["Boundaries"], ruleType:"Semi", diffs:["Medium","Hard"], count:1 }
         ] },
-      { n:4, focus:"Dress rehearsal — full timed mix", minutes:12,
-        tip:"Treat it like the real thing: one pass. Move fast on the quick items (semicolon, pronoun, transition) and give the hard Info & Ideas questions the time they need. Coach the total, not each question.",
+      { n:4, focus:"Full timed set", minutes:12,
+        tip:"Work through it once, the way you would on the real test. Move quickly on the short questions (semicolon, pronoun, transition) and give the hard Information & Ideas questions the time they need. Watch your total time, not each question.",
         sections:[
           { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Hard"], count:2 },
           { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:2 },
