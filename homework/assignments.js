@@ -297,6 +297,45 @@ const HOMEWORK = {
           { skills:["Form, Structure, and Sense"], ruleType:"Pron", diffs:["Medium","Hard"], count:1 }
         ] }
     ]
+  },
+
+  // Segun (Joshua): three-day reading warm-up into Friday's Blue Book.
+  // Day 1 rebuilds method untimed, Day 2 works his weak skills at pace,
+  // Day 3 is a mixed timed dress rehearsal. Inference difficulty climbs
+  // slowly because it is both his weakest skill and the deepest Hard pool.
+  "Segun": {
+    title: "This week: reading warm-up before Friday's practice test",
+    start: "2026-06-23",
+    unlock: "cumulative",
+    days: [
+      { n:1, focus:"Main idea and evidence (take your time)", minutes:0,
+        tip:"Find the main idea first, then pick the choice that matches it. For evidence, choose the quote that supports the whole claim. For vocabulary, think of your own word before reading the options.",
+        sections:[
+          { skills:["Words in Context"],                 diffs:["Easy","Medium"], count:3 },
+          { skills:["Central Ideas and Details"],         diffs:["Easy","Medium"], count:3 },
+          { skills:["Command of Evidence — Textual"],     diffs:["Easy","Medium"], count:3 }
+        ] },
+      { n:2, focus:"Inferences and data questions, at test pace", minutes:13,
+        tip:"For inferences, pick the choice the text directly supports, and reject any that goes beyond it. For data questions, read the claim before the figure.",
+        sections:[
+          { skills:["Words in Context"],                  diffs:["Medium"],        count:2 },
+          { skills:["Inferences"],                        diffs:["Medium"],        count:4 },
+          { skills:["Inferences"],                        diffs:["Hard"],          count:1 },
+          { skills:["Command of Evidence — Quantitative"],diffs:["Easy","Medium"], count:3 },
+          { skills:["Central Ideas and Details"],         diffs:["Medium"],        count:1 }
+        ] },
+      { n:3, focus:"Mixed timed set", minutes:15,
+        tip:"Watch your total time, not each question. Move fast through the vocabulary to save time for the hard inference questions.",
+        sections:[
+          { skills:["Words in Context"],                  diffs:["Medium"],        count:2 },
+          { skills:["Words in Context"],                  diffs:["Hard"],          count:1 },
+          { skills:["Central Ideas and Details"],         diffs:["Medium"],        count:2 },
+          { skills:["Command of Evidence — Textual"],     diffs:["Medium","Hard"], count:3 },
+          { skills:["Command of Evidence — Quantitative"],diffs:["Medium"],        count:2 },
+          { skills:["Inferences"],                        diffs:["Medium"],        count:2 },
+          { skills:["Inferences"],                        diffs:["Hard"],          count:1 }
+        ] }
+    ]
   }
 };
 
