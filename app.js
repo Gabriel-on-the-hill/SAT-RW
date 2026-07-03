@@ -173,9 +173,7 @@ function splitPoolByFreshness(pool) {
     const ledger = getProgress();
     const fresh = [], parked = [];
     pool.forEach(q => {
-        const r = ledger[q.id];
-        const answeredRight = r && (r.wrong || 0) === 0 && (r.correct || 0) > 0;
-        (answeredRight ? parked : fresh).push(q);
+        (_isResting(ledger[q.id]) ? parked : fresh).push(q);
     });
     return { fresh, parked };
 }
@@ -188,11 +186,34 @@ function buildActiveQuestions() {
     if (limit > 0) {
         if (orderedFresh.length >= limit) return orderedFresh.slice(0, limit);
         // Not enough fresh questions — backfill with already-correct ones.
-        return orderedFresh.concat(prioritizePool(parked)).slice(0, limit);
+        const ledger = (typeof getProgress === 'function') ? getProgress() : {};
+        const topUp  = parked.slice().sort((a, b) =>
+            ((ledger[a.id] && ledger[a.id].lastSeen) || 0) -
+            ((ledger[b.id] && ledger[b.id].lastSeen) || 0));
+        return orderedFresh.concat(topUp).slice(0, limit);
     }
-    // "All matching questions": fresh only; fall back to parked once everything
-    // fresh is done, so practice is never empty.
-    return orderedFresh.length ? orderedFresh : prioritizePool(parked);
+    // "All matching questions": serve only what's genuinely due. When nothing is
+    // due (everything answered recently or mastered) this is empty, and the setup
+    // screen shows a "caught up" state instead of re-serving what you just answered.
+    return orderedFresh;
+}
+
+// Launch a session over the whole filtered pool, ignoring the review cooldown.
+// Used by the "practice anyway" link when everything is resting.
+function startPracticeAnyway() {
+    const setupModeEl = document.getElementById('setupModeSelect');
+    const mode  = setupModeEl ? setupModeEl.value : 'assisted';
+    const tModeEl = document.getElementById('timerModeSelect');
+    const tmode = tModeEl ? tModeEl.value : 'off';
+    let total = 600;
+    if (tmode === 'countdown') {
+        const durEl = document.getElementById('timerDurationSelect');
+        total = durEl ? parseInt(durEl.value, 10) || 600 : 600;
+    }
+    const limit = getLimit();
+    let qs = prioritizePool(getFilteredPool());
+    if (limit > 0) qs = qs.slice(0, limit);
+    launchSession(qs, mode, { mode: tmode, total });
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -370,14 +391,23 @@ function updateSetupUI() {
                 `<a href="#" onclick="resetLedger();updateSetupUI();return false;" ` +
                 `style="color:var(--primary);font-weight:700">reset progress</a>`;
             summaryEl.className = 'session-summary session-summary-mastered';
+            startBtn.disabled   = false;
+        } else if (total === 0) {
+            summaryEl.innerHTML =
+                `All caught up &mdash; you&rsquo;ve practised these recently. ` +
+                `They reopen for review over the next day. ` +
+                `<a href="#" onclick="startPracticeAnyway();return false;" ` +
+                `style="color:var(--primary);font-weight:700">practice anyway</a>`;
+            summaryEl.className = 'session-summary';
+            startBtn.disabled   = true;
         } else {
             const note = excluded > 0
                 ? ` \xb7 ${excluded} already correct (hidden)` : '';
             summaryEl.textContent =
                 `${total} question${total !== 1 ? 's' : ''} — ${labels.join(' + ')} — ${diffs.join(' \xb7 ')}${note}`;
             summaryEl.className = 'session-summary';
+            startBtn.disabled   = false;
         }
-        startBtn.disabled = false;
     }
 }
 

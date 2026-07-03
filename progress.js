@@ -26,6 +26,12 @@ function _hwUser() {
 }
 const MASTERY_THRESHOLD = 2;
 const MASTERY_DECAY_MS  = 21 * 86_400_000; // 21 days
+// After any answer, a question "rests" for this long before it can resurface in
+// a new practice set — so answering a question sends it to the back of the queue
+// instead of bringing it straight back in the next set. Long enough to clear a
+// single sitting, short enough that a not-yet-mastered item returns the next day
+// for reinforcement.
+const REVIEW_COOLDOWN_MS = 20 * 3_600_000;  // 20 hours
 
 function getProgress() {
     try { return JSON.parse(localStorage.getItem('wayne_progress_' + _hwUser())) || {}; }
@@ -43,6 +49,7 @@ function recordAnswer(id, isCorrect, source) {
     if (!ledger[id]) ledger[id] = { correct: 0, wrong: 0, lastSeen: 0 };
     ledger[id].lastSeen   = Date.now();
     ledger[id].lastSource = source || 'practice';
+    ledger[id].lastResult = isCorrect ? 'correct' : 'wrong';
     if (isCorrect) {
         ledger[id].correct += (source === 'exam') ? 2 : 1;
     } else {
@@ -57,6 +64,22 @@ function _isMastered(record) {
     // Mastery expires after MASTERY_DECAY_MS of not seeing the question
     if (record.lastSeen && Date.now() - record.lastSeen > MASTERY_DECAY_MS) return false;
     return record.correct >= MASTERY_THRESHOLD;
+}
+
+// True when a question should be held back from a NEW practice set for now, so
+// it doesn't reappear immediately after being answered — it goes to the back of
+// the queue instead:
+//   • mastered → rest (until 21-day decay re-opens it, handled by _isMastered);
+//   • answered (right OR wrong) within the cooldown → rest;
+//   • cooldown elapsed on a not-yet-mastered item → due again, so misses come
+//     back for review and single corrects come back to confirm mastery.
+// Unseen questions (no record) are never resting. Same-session review of a miss
+// is still available on demand via the "Review missed" and weak-area buttons.
+function _isResting(record) {
+    if (!record) return false;
+    if (_isMastered(record)) return true;
+    if (record.lastSeen && (Date.now() - record.lastSeen) < REVIEW_COOLDOWN_MS) return true;
+    return false;
 }
 
 // Reorder pool with FOUR tiers:
