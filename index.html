@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260611b">
-    <script src="gate.js?v=20260609"></script>
-    <script src="anti-cheat.js?v=20260609"></script>
+    <link rel="stylesheet" href="style.css?v=20260703">
+    <script src="gate.js?v=20260703"></script>
+    <script src="anti-cheat.js?v=20260703"></script>
 </head>
 <body>
 
@@ -265,14 +265,12 @@
                     <option value="stopwatch">Stopwatch — count up</option>
                     <option value="countdown">Countdown — set a time limit</option>
                 </select>
-                <select id="timerDurationSelect" style="display:none;margin-top:0.5rem">
-                    <option value="300">5 minutes</option>
-                    <option value="600" selected>10 minutes</option>
-                    <option value="900">15 minutes</option>
-                    <option value="1200">20 minutes</option>
-                    <option value="1800">30 minutes</option>
-                    <option value="2700">45 minutes</option>
-                </select>
+                <span id="timerDurationWrap" style="display:none;margin-top:0.5rem">
+                    <input id="timerDurationSelect" type="number" min="1" max="180" step="1" value="10"
+                           inputmode="numeric" aria-label="Countdown length in minutes"
+                           style="width:5rem;padding:0.4rem 0.55rem;border:1.5px solid var(--border);border-radius:0.5rem;font-family:inherit;font-size:0.95rem">
+                    <span style="margin-left:0.45rem;color:var(--muted,#64748b);font-size:0.9rem">minutes</span>
+                </span>
                 <p id="timerHint" class="timer-hint" style="display:none"></p>
             </div>
 
@@ -530,10 +528,10 @@
         </main>
     </div>
 
-    <script src="data-craft-structure.js?v=20260615b"></script>
-    <script src="data-expression-of-ideas.js?v=20260615"></script>
-    <script src="data-info-ideas.js?v=20260615b"></script>
-    <script src="data-conventions.js?v=20260609"></script>
+    <script src="data-craft-structure.js?v=20260703"></script>
+    <script src="data-expression-of-ideas.js?v=20260703"></script>
+    <script src="data-info-ideas.js?v=20260703"></script>
+    <script src="data-conventions.js?v=20260703"></script>
     <!-- Progress Panel (Ctrl+Shift+P · tutor view) -->
     <div id="progressPanel" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:600;overflow-y:auto;padding:2rem 1rem" onclick="if(event.target===this)closeProgressPanel()">
       <div style="max-width:560px;margin:0 auto;background:var(--surface);border-radius:1.25rem;padding:2rem;box-shadow:0 20px 40px rgba(0,0,0,0.25)">
@@ -548,12 +546,12 @@
       </div>
     </div>
 
-    <script src="config.js?v=20260609"></script>
-    <script src="progress.js?v=20260609"></script>
-    <script src="sheet-sync.js?v=20260609"></script>
-    <script src="storage.js?v=20260609"></script>
-    <script src="timer.js?v=20260611b"></script>
-    <script src="history.js?v=20260609"></script>
-    <script src="app.js?v=20260615"></script>
+    <script src="config.js?v=20260703"></script>
+    <script src="progress.js?v=20260703"></script>
+    <script src="sheet-sync.js?v=20260703"></script>
+    <script src="storage.js?v=20260703"></script>
+    <script src="timer.js?v=20260703"></script>
+    <script src="history.js?v=20260703"></script>
+    <script src="app.js?v=20260703"></script>
 </body>
 </html>

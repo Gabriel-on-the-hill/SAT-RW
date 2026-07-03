@@ -208,7 +208,7 @@ function startPracticeAnyway() {
     let total = 600;
     if (tmode === 'countdown') {
         const durEl = document.getElementById('timerDurationSelect');
-        total = durEl ? parseInt(durEl.value, 10) || 600 : 600;
+        total = durEl ? Math.max(60, Math.min(10800, (parseInt(durEl.value, 10) || 10) * 60)) : 600;
     }
     const limit = getLimit();
     let qs = prioritizePool(getFilteredPool());
@@ -1347,7 +1347,7 @@ function init() {
 
     const timerModeSelect = document.getElementById('timerModeSelect');
     if (timerModeSelect) {
-        const durEl  = document.getElementById('timerDurationSelect');
+        const durEl  = document.getElementById('timerDurationWrap');
         const hintEl = document.getElementById('timerHint');
         const syncTimerSetup = () => {
             const isCountdown = timerModeSelect.value === 'countdown';
@@ -1378,7 +1378,7 @@ function init() {
         let total = 600;
         if (tmode === 'countdown') {
             const durEl = document.getElementById('timerDurationSelect');
-            total = durEl ? parseInt(durEl.value, 10) || 600 : 600;
+            total = durEl ? Math.max(60, Math.min(10800, (parseInt(durEl.value, 10) || 10) * 60)) : 600;
         }
         launchSession(buildActiveQuestions(), mode, { mode: tmode, total });
     });
