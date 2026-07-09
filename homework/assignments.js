@@ -295,6 +295,18 @@ const HOMEWORK = {
           { skills:["Cross-Text Connections"], diffs:["Medium","Hard"], count:1 },
           { skills:["Boundaries"], ruleType:"Semi", diffs:["Medium","Hard"], count:1 },
           { skills:["Form, Structure, and Sense"], ruleType:"Pron", diffs:["Medium","Hard"], count:1 }
+        ] },
+      { n:5, focus:"Practice 8 R&W Challenge", minutes:20,
+        tip:"This set targets the exact skills you missed on Practice Test 8. Take your time, these are all Hard difficulty.",
+        sections:[
+          { skills:["Words in Context"], diffs:["Hard"], count:2 },
+          { skills:["Text Structure and Purpose"], diffs:["Hard"], count:1 },
+          { skills:["Cross-Text Connections"], diffs:["Hard"], count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:2 },
+          { skills:["Inferences"], diffs:["Hard"], count:3 },
+          { skills:["Rhetorical Synthesis"], diffs:["Hard"], count:1 },
+          { skills:["Boundaries"], diffs:["Hard"], count:3 },
+          { skills:["Form, Structure, and Sense"], diffs:["Hard"], count:3 }
         ] }
     ]
   },
