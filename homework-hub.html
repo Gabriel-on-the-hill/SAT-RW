@@ -35,10 +35,25 @@
   .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
   .empty{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;color:var(--muted)}
   .note{color:var(--muted);font-size:.88rem;margin-top:1.3rem}
+  .day .num.ch{background:#7c3aed;font-size:1rem}
+  .cbar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin:.15rem 0 .55rem 2.6rem}
+  .cbar i{display:block;height:100%;background:#7c3aed}
+  .cchips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .65rem 2.6rem}
+  .cchip{font-size:.72rem;font-weight:600;padding:.15rem .5rem;border-radius:99px;background:var(--surface2);color:var(--muted)}
+  .cchip.w{background:#fdeced;color:#b91c1c}
+  .cchip.c{background:#fef3c7;color:#92400e}
+  .cchip.m{background:var(--good-soft);color:var(--good)}
 </style>
 <script src="gate.js?v=20260703"></script>
 <script src="sheet-sync.js?v=20260703"></script>
 <script src="homework/assignments.js?v=20260710"></script>
+<!-- Challenge card. progress.js supplies the ledger, challenge-core the segments.
+     No question banks are loaded: segmentOf() reads only q.id, so "Mastered N of M"
+     is computable from the frozen ids alone. sets.js tolerates a missing
+     CHALLENGE_P8 — the debrief payload is not needed on this page. -->
+<script src="progress.js?v=20260703"></script>
+<script src="challenge/sets.js?v=20260710"></script>
+<script src="challenge/challenge-core.js?v=20260710"></script>
 </head>
 <body>
 <div class="wrap">
@@ -50,12 +65,67 @@
   <h1 id="title">Homework</h1>
   <p class="who" id="who"></p>
   <div id="list"></div>
-  <p class="note">A new day opens each day. You can always go back to earlier days you missed. Do each day's set in the order shown, and read the explanation for anything you get wrong.</p>
+  <p class="note" id="note">A new day opens each day. You can always go back to earlier days you missed. Do each day's set in the order shown, and read the explanation for anything you get wrong.</p>
 </div>
 <script>
 (function(){
   var student = (function(){ try { return sessionStorage.getItem('mastery_user'); } catch(e){ return null; } })();
   var list = document.getElementById('list');
+
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  // The challenge card. No "Done" badge and no day gate: a challenge is not
+  // finished after one pass. Each question needs two clean correct answers, and
+  // mastery lapses after 21 days — so the ledger, not this page, owns the state.
+  function renderChallengeCard(plan){
+    var note = document.getElementById('note');
+    if (typeof ChallengeCore === 'undefined' || !window.CHALLENGE_SETS) {
+      list.innerHTML = '<div class="empty">Your challenge is not available on this device.</div>'; return;
+    }
+    var sets = ChallengeCore.setsFor(student, window.CHALLENGE_SETS);
+    var set  = sets.filter(function(s){ return s.setId === plan.challenge; })[0];
+    if (!set || !set.ids.length) {
+      list.innerHTML = '<div class="empty">Your challenge set is not ready yet.</div>'; return;
+    }
+    // segmentOf() only ever reads q.id, so the tally needs the ids and the ledger.
+    var stubs = set.ids.map(function(id){ return { id: id }; });
+    var c     = ChallengeCore.counts(stubs, getProgress());
+    var gate  = ChallengeCore.gate(c);
+    var pct   = c.total ? Math.round(c.mastered / c.total * 100) : 0;
+
+    var tip = gate === 'done'
+      ? 'Every question is mastered. Well done — reattempt any time to keep it fresh.'
+      : gate === 'confirm'
+        ? 'Nothing is left unattempted or wrong. Answer the ' + c.correctOnce +
+          ' you have only got right once a second time to master them.'
+        : 'Mastered ' + c.mastered + ' of ' + c.total + '. This is not finished until all ' + c.total +
+          ' are mastered, and each one needs two clean correct answers.';
+
+    list.innerHTML =
+      '<div class="day' + (gate === 'done' ? ' done' : '') + '">' +
+        '<div class="top">' +
+          '<span class="num ch">&#9876;</span>' +
+          '<span class="focus">' + esc(set.title) + '</span>' +
+          (gate === 'done' ? '<span class="state done">Mastered</span>'
+                           : '<span class="state open">' + pct + '%</span>') +
+        '</div>' +
+        '<div class="meta">' + c.total + ' questions &middot; built from the questions you actually missed on ' +
+          esc(set.source) + '</div>' +
+        '<div class="cbar"><i style="width:' + pct + '%"></i></div>' +
+        '<div class="cchips">' +
+          '<span class="cchip m">mastered ' + c.mastered + '</span>' +
+          '<span class="cchip w">to fix ' + c.wrong + '</span>' +
+          '<span class="cchip c">correct once ' + c.correctOnce + '</span>' +
+          '<span class="cchip">not attempted ' + c.notAttempted + '</span>' +
+        '</div>' +
+        '<div class="tip">' + tip + '</div>' +
+        '<div class="go"><a class="btn" href="index.html?challenge=1">Open the Challenge &rarr;</a></div>' +
+      '</div>';
+
+    if (note) note.textContent = 'There are no daily sets this week. Work through the challenge whenever you like, ' +
+      'as often as you like. It is done when every question is mastered — not when you have been through it once.';
+  }
+
   if (!student) { document.getElementById('who').textContent=''; list.innerHTML='<div class="empty">Please sign in from the hub first.</div>'; return; }
   document.getElementById('who').textContent = 'For ' + student;
   list.innerHTML = '<div class="empty">Loading your homework…</div>';
@@ -63,6 +133,11 @@
   document.getElementById('who').textContent = 'For ' + student + (source==='sheet' ? ' · from your sheet' : '');
   if (!plan) { list.innerHTML='<div class="empty">No homework is assigned for '+student+' yet.</div>'; return; }
   document.getElementById('title').textContent = plan.title || 'Homework';
+
+  // A plan with a `challenge` key has no days. Completion is mastery, not a tick,
+  // so this card defers to the ledger instead of tracking "done" itself.
+  if (plan.challenge) { renderChallengeCard(plan); return; }
+
   var avail = hwDaysAvailable(plan.start);
   function fmtDate(start, offset){ var d=hwParseDate(start); if(!d) return 'soon'; d.setDate(d.getDate()+offset); return d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); }
   function done(n){ try { return localStorage.getItem('wayne_hw_'+student+'_'+plan.start+'_'+n)==='1'; } catch(e){ return false; } }

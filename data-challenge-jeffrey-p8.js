@@ -1,9 +1,41 @@
 // ─────────────────────────────────────────────────────────────────
 // data-challenge-jeffrey-p8.js
 //
-// Jeffrey's incorrect questions from SAT Practice 8 (July 4, 2026).
-// 16 R&W + 2 Math = 18 questions total.
-// Used exclusively by challenge-jeffrey-p8.html.
+// Jeffrey's incorrect R&W questions from SAT Practice 8 (4 July 2026),
+// transcribed from the Bluebook export in
+// "Jeffrey Ejike/Bluebook Incorrect answers for June SAT 8".
+//
+// This is LAYER 1 of the Challenge module: the debrief. It is UNSCORED —
+// these ids exist in no question bank, so they are never part of the
+// "Mastered N of M" denominator. Referenced from challenge/sets.js as the
+// optional `review` payload of Jeffrey's `p8-rw` set.
+//
+// ── What is here, and what is not ────────────────────────────────
+//
+//  • 16 questions. The score report records 23 R&W incorrect answers, so
+//    the export is incomplete. The 7 absent misses are almost certainly
+//    Information & Ideas — its Knowledge-and-Skills bar reads 2/7 while
+//    Standard English Conventions, at 5/7, accounts for 6 of the 16 here.
+//    The challenge set's domain quotas are sized from those bars rather
+//    than from these counts, so the gap does not skew the drill.
+//
+//  • No `difficulty` field. The Bluebook export does not carry difficulty.
+//    Earlier revisions of this file guessed it from question position and
+//    stated it as fact. Those guesses are removed rather than frozen: the
+//    generator never seeds on difficulty, and nothing should.
+//
+//  • No Math. Q21 and Q22 (Problem-Solving and Data Analysis) were dropped.
+//    This app has no math bank, and their skill has no entry in SKILL_DOMAIN
+//    or SKILL_ABBR. They are already covered next door: Michael SAT's
+//    Challenge_App seeds Jeffrey on mean / median / histogram.
+//
+// ── Corrections, 10 July 2026 ────────────────────────────────────
+// Three items were mis-keyed on transcription and are fixed here. Each was
+// verified against the original screenshot. See the shortlist for details.
+//   Q17  answer D → C ("emerged:").   ruleType Commas → Colon.
+//   Q20  answer C → A ("varied:").    ruleType Commas → Colon.
+//   Q19b answer A → C ("works,").     skill Form/Structure/Sense → Boundaries,
+//        ruleType VTense → Commas. The sentence already has its main verb.
 // ─────────────────────────────────────────────────────────────────
 
 const CHALLENGE_P8 = [
@@ -14,7 +46,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q03',
     source: 'Practice 8 · R&W Q3',
     skill: 'Words in Context',
-    difficulty: 'Medium',
     passage: 'The author\'s claim about the relationship between Neanderthals and Homo sapiens is ______, as it fails to account for several recent archaeological discoveries. To be convincing, his argument would need to address recent finds of additional hominid fossils, such as the latest Denisovan specimens and Homo longi.',
     question: 'Which choice completes the text with the most logical and precise word or phrase?',
     options: [
@@ -32,7 +63,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q04',
     source: 'Practice 8 · R&W Q4',
     skill: 'Words in Context',
-    difficulty: 'Medium',
     passage: 'Diego Velázquez was the leading artist in the court of King Philip IV of Spain during the seventeenth century, but his influence was hardly ______ Spain: realist and impressionist painters around the world employed his techniques and echoed elements of his style.',
     question: 'Which choice completes the text with the most logical and precise word or phrase?',
     options: [
@@ -52,7 +82,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q05',
     source: 'Practice 8 · R&W Q5',
     skill: 'Text Structure and Purpose',
-    difficulty: 'Medium',
     passage: 'The following text is adapted from Zora Neale Hurston\'s 1921 short story "John Redding Goes to Sea." John is a child who lives in a town in the woods.\n\n    Perhaps ten-year-old John was puzzling to the folk there in the Florida woods for he was an imaginative child and fond of day-dreams. The St. John River flowed a scarce three hundred feet from his back door. On its banks at this point grow numerous palms, luxuriant magnolias and bay trees. On the bosom of the stream float millions of delicately colored hyacinths. [John Redding] loved to wander down to the water\'s edge, and, casting in dry twigs, watch them sail away down stream to Jacksonville, the sea, the wide world and [he] wanted to follow them.',
     question: 'Which choice best describes the function of the underlined sentence in the text as a whole?',
     options: [
@@ -72,7 +101,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_ctc',
     source: 'Practice 8 · R&W (Cross-Text)',
     skill: 'Cross-Text Connections',
-    difficulty: 'Hard',
     passage: 'Text 1\n\nWhen companies in the same industry propose merging with one another, they often claim that the merger will benefit consumers by increasing efficiency and therefore lowering prices. Economist Ying Fan investigated this notion in the context of the United States newspaper market. She modeled a hypothetical merger of Minneapolis-area newspapers and found that subscription prices would rise following a merger.\n\nText 2\n\nEconomists Dario Focarelli and Fabio Panetta have argued that research on the effect of mergers on prices has focused excessively on short-term effects, which tend to be adverse for consumers. Using the case of consumer banking in Italy, they show that over the long term (several years, in their study), the efficiency gains realized by merged companies do result in economic benefits for consumers.',
     question: 'Based on the texts, how would Focarelli and Panetta (Text 2) most likely respond to Fan\'s findings (Text 1)?',
     options: [
@@ -92,7 +120,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q11',
     source: 'Practice 8 · R&W Q11',
     skill: 'Command of Evidence — Textual',
-    difficulty: 'Hard',
     passage: 'In a research paper, a student criticizes some historians of modern African politics, claiming that they have evaluated Patrice Lumumba, the first prime minister of what is now the Democratic Republic of the Congo, primarily as a symbol rather than in terms of his actions.',
     question: 'Which quotation from a work by a historian would best illustrate the student\'s claim?',
     options: [
@@ -110,7 +137,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q12',
     source: 'Practice 8 · R&W Q12',
     skill: 'Command of Evidence — Textual',
-    difficulty: 'Hard',
     passage: 'Researchers hypothesized that a decline in the population of dusky sharks near the mid-Atlantic coast of North America led to a decline in the population of eastern oysters in the region. Dusky sharks do not typically consume eastern oysters but do consume cownose rays, which are the main predators of the oysters.',
     question: 'Which finding, if true, would most directly support the researchers\' hypothesis?',
     options: [
@@ -130,7 +156,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q13',
     source: 'Practice 8 · R&W Q13',
     skill: 'Inferences',
-    difficulty: 'Medium',
     passage: 'The musical Hadestown was produced off-Broadway in New York in 2016. A revised version of the musical premiered on Broadway in 2019, in a larger production. In a review of the Broadway production, theater critic Jesse Green enthusiastically praised the musical\'s storytelling. However, Green also explained that he had seen the earlier version of Hadestown in 2016 and had found the storytelling to be very confusing. This suggests that in Green\'s view, ______',
     question: 'Which choice most logically completes the text?',
     options: [
@@ -148,7 +173,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q14',
     source: 'Practice 8 · R&W Q14',
     skill: 'Inferences',
-    difficulty: 'Hard',
     passage: 'If some artifacts recovered from excavations of the settlement of Kuulo Kataa, in modern Ghana, date from the thirteenth century CE, that may lend credence to claims that the settlement was founded before or around that time. There is other evidence, however, strongly supporting a fourteenth century CE founding date for Kuulo Kataa. If both the artifact dates and the fourteenth century CE founding date are correct, that would imply that ______',
     question: 'Which choice most logically completes the text?',
     options: [
@@ -166,7 +190,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q15',
     source: 'Practice 8 · R&W Q15',
     skill: 'Inferences',
-    difficulty: 'Hard',
     passage: 'Birds of many species ingest foods containing carotenoids, pigmented molecules that are converted into feather coloration. Coloration tends to be especially saturated in male birds\' feathers, and because carotenoids also confer health benefits, the deeply saturated colors generally serve to communicate what is known as an honest signal of a bird\'s overall fitness to potential mates. However, ornithologist Allison J. Shultz and others have found that males in several species of the tanager genus Ramphocelus use microstructures in their feathers to manipulate light, creating the appearance of deeper saturation without the birds necessarily having to maintain a carotenoid-rich diet. These findings suggest that ______',
     question: 'Which choice most logically completes the text?',
     options: [
@@ -186,7 +209,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q25',
     source: 'Practice 8 · R&W Q25',
     skill: 'Rhetorical Synthesis',
-    difficulty: 'Hard',
     passage: 'While researching a topic, a student has taken the following notes:\n• Malapportionment is the over- or underrepresentation (relative to population size) of electoral districts in a governing body.\n• It is a common feature of representative governments.\n• There are 169 seats in Norway\'s supreme legislature (the Storting).\n• Seats are distributed by a formula that awards 1 point per resident and 1.8 points per unit of land.\n• Less populated rural districts with large tracts of land receive a disproportionate number of seats compared to smaller but more populated urban districts.\n\nThe student wants to refute a claim that malapportionment in the Storting favors small urban districts.',
     question: 'Which choice most effectively uses relevant information from the notes to accomplish this goal?',
     options: [
@@ -206,7 +228,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q17',
     source: 'Practice 8 · R&W Q17',
     skill: 'Boundaries',
-    difficulty: 'Hard',
     passage: 'As cheesemaking practices spread throughout Europe and Asia during and after the Neolithic, divergent strategies for preserving milk ______ whereas rennet-coagulated cheesemaking became key to milk preservation in Europe and Southwest Asia, acid-heat coagulation methods became common among nomadic herding populations of the northeastern Eurasian steppe.',
     question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
     options: [
@@ -215,17 +236,16 @@ const CHALLENGE_P8 = [
       'C. emerged:',
       'D. emerged,',
     ],
-    answer: 'D',
-    explanation: 'Choice D is correct. The word "whereas" introduces a contrasting subordinate clause. Standard English requires a comma before "whereas" when it connects two contrasting independent clauses or introduces a contrast ("whereas rennet-coagulated cheesemaking... acid-heat methods..."). Choice A is wrong — "emerged whereas" with no comma creates a run-on. Choice B is wrong — "and whereas" is redundant; "whereas" alone already signals the contrast without "and." Choice C is wrong — a colon after "emerged" would signal that what follows is a list or direct explanation of "emerged," but "whereas" introduces a contrast, not a specification.',
-    strategy: 'Run-On Radar',
-    ruleType: 'Commas',
+    answer: 'C',
+    explanation: 'Choice C is correct. Split the sentence at the blank and test each side. Before it: "As cheesemaking practices spread throughout Europe and Asia during and after the Neolithic, divergent strategies for preserving milk emerged" — a complete sentence. After it: "whereas rennet-coagulated cheesemaking became key to milk preservation in Europe and Southwest Asia, acid-heat coagulation methods became common among nomadic herding populations of the northeastern Eurasian steppe" — also a complete sentence, in which the "whereas" clause attaches to "acid-heat coagulation methods became common." A colon is the mark that follows a complete sentence and introduces a second one that explains or specifies it, and that is exactly the relationship here: the second half spells out what the divergent strategies were.\n\nChoice D is the trap, and it is the one worth understanding. "Whereas" usually takes a comma in front of it, so "emerged, whereas" looks right. But the "whereas" clause belongs to the sentence that follows, not to "strategies emerged." Read the whole thing through: "strategies emerged, whereas A became key..., B became common..." leaves "acid-heat coagulation methods became common" as a second complete sentence joined to the first by nothing but a comma. That is a comma splice.\n\nChoice A runs the two halves together with no punctuation at all. Choice B stacks the coordinating conjunction "and" on top of the subordinating "whereas."\n\nWatch for: picking the punctuation from the word that follows it ("whereas takes a comma") instead of from what sits on either side of the blank. Test both sides first.',
+    strategy: 'The Decision Flowchart',
+    ruleType: 'Colon',
   },
 
   {
     id: 'p8_rw_q19a',
     source: 'Practice 8 · R&W Q19 (Gil Scott-Heron)',
     skill: 'Boundaries',
-    difficulty: 'Hard',
     passage: 'Journalists have dubbed Gil Scott-Heron the "godfather of rap," a title that has appeared in hundreds of articles about him since the 1990s. Scott-Heron himself resisted the godfather ______ feeling that it didn\'t encapsulate his devotion to the broader African American blues music tradition as well as "bluesologist," the moniker he preferred.',
     question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
     options: [
@@ -244,7 +264,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q20',
     source: 'Practice 8 · R&W Q20',
     skill: 'Boundaries',
-    difficulty: 'Hard',
     passage: 'Over twenty years ago, in a landmark experiment in the psychology of choice, professor Sheena Iyengar set up a jam-tasting booth at a grocery store. The number of jams available for tasting ______ some shoppers had twenty-four different options, others only six. Interestingly, the shoppers with fewer jams to choose from purchased more jam.',
     question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
     options: [
@@ -253,9 +272,27 @@ const CHALLENGE_P8 = [
       'C. varied, while',
       'D. varied while',
     ],
+    answer: 'A',
+    explanation: 'Choice A is correct. Test each side of the blank. Before it: "The number of jams available for tasting varied" — a complete sentence. After it: "some shoppers had twenty-four different options, others only six" — an explanation of how it varied. A colon follows a complete sentence and introduces the explanation of it. Note that "others only six" is elliptical: the verb is understood ("others [had] only six"). That is standard, and it is not a comma splice.\n\nChoice C is the trap. "While" signals contrast, and the two groups of shoppers do differ, so "varied, while some shoppers had twenty-four different options" reads plausibly — right up until "others only six," which is then stranded with nothing to attach to. The sentence is elaborating, not contrasting: it tells you what "varied" means.\n\nChoice B joins a complete sentence to its own explanation with a comma alone, which is a comma splice. Choice D is Choice C without the comma, and strands the ending the same way.\n\nWatch for: reading the relationship as contrast when it is specification. Name the relationship before you choose the mark.',
+    strategy: 'The Decision Flowchart',
+    ruleType: 'Colon',
+  },
+
+  {
+    id: 'p8_rw_q19b',
+    source: 'Practice 8 · R&W Q19 (John Donne)',
+    skill: 'Boundaries',
+    passage: 'English poet and Shakespeare contemporary John Donne\'s ______ much admired during his lifetime (1572–1631) and in the decades that followed, had, at the time of their enthusiastic rediscovery by the early twentieth-century modernists, been essentially gathering dust for the intervening 250 years.',
+    question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
+    options: [
+      'A. works were',
+      'B. works, were',
+      'C. works,',
+      'D. works had been',
+    ],
     answer: 'C',
-    explanation: 'Choice C is correct. The sentence needs to connect "The number of jams varied" with the explanation "some shoppers had 24 options, others only six." The subordinating conjunction "while" introduces the contrasting clause that shows HOW the number varied, and a comma before it is required when setting off a dependent clause that follows the main clause. Choice A is wrong — a colon after "varied" would introduce a direct explanation, but then "some shoppers had 24 options, others only six" contains a comma splice (two independent clauses joined only by a comma). Choice B is wrong — "varied," alone creates a comma splice with what follows. Choice D is wrong — "varied while" without a comma can imply simultaneity rather than contrast, and standard English convention requires a comma before "while" in this role.',
-    strategy: 'Run-On Radar',
+    explanation: 'Choice C is correct, and the first move is to notice that this is a punctuation question, not a verb question. The sentence already has its main verb: "had ... been essentially gathering dust." Its subject can only be "works" — note the plural "their ... rediscovery" further along. So the blank must not supply a second verb. It has to open a supplement.\n\nThe decisive clue is a comma the sentence already prints for you, just after "followed": "... and in the decades that followed, had, at the time of ...". A nonessential description is fenced by a comma on each side. The closing comma is there on the page; the blank supplies the opening one. Lift the supplement out and the skeleton stands on its own: "John Donne\'s works ... had ... been essentially gathering dust for the intervening 250 years."\n\nChoice A is the trap. "Works were much admired" is a perfectly good clause, so it feels right — but it leaves "were much admired" and "had been gathering dust" as two finite verbs with no conjunction between them. Choice D does the same thing with "had been ... had ... been." Choice B drops a comma between the subject and its verb.\n\nWatch for: supplying a verb where the sentence already has one. Find the main verb first, then decide what the blank is actually for.',
+    strategy: 'Supplement Punctuation',
     ruleType: 'Commas',
   },
 
@@ -265,7 +302,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q16',
     source: 'Practice 8 · R&W Q16',
     skill: 'Form, Structure, and Sense',
-    difficulty: 'Medium',
     passage: 'Formed in 1967 to foster political and economic stability within the Asia-Pacific region, the Association of Southeast Asian Nations was originally made up of five members: Thailand, the Philippines, Singapore, Malaysia, and Indonesia. By the end of the 1990s, the organization ______ its initial membership.',
     question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
     options: [
@@ -284,7 +320,6 @@ const CHALLENGE_P8 = [
     id: 'p8_rw_q18',
     source: 'Practice 8 · R&W Q18',
     skill: 'Form, Structure, and Sense',
-    difficulty: 'Hard',
     passage: 'Walt Whitman\'s Leaves of Grass first appeared in 1855 as a slim collection of twelve poems, but Whitman would revise and expand it substantially over the next four decades. These extensive ______ the addition of hundreds of new poems, the removal of some existing ones, and the insertion of prefatory material, reflected the poet\'s evolving literary perspective and experience of the US Civil War.',
     question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
     options: [
@@ -297,63 +332,6 @@ const CHALLENGE_P8 = [
     explanation: 'Choice A is correct. The sentence needs a subject ("changes") and a main verb ("reflected"). "Including the addition of...the removal of...and the insertion of..." is a participial phrase that lists examples of the changes, set off by commas on both sides. The full structure is: "These extensive changes, including [list], reflected the poet\'s evolving perspective." Choice B is wrong — "changes would include... reflected" gives two finite verbs without a conjunction, creating a grammatical conflict. Choice C is wrong — "changes included [list], reflected" also gives two finite verbs ("included" and "reflected") without a coordinating conjunction; this creates a run-on. Choice D is wrong — "changes, include" creates a comma splice, using a comma alone to join two clauses.',
     strategy: 'Agreement Check',
     ruleType: 'VForm',
-  },
-
-  {
-    id: 'p8_rw_q19b',
-    source: 'Practice 8 · R&W Q19 (John Donne)',
-    skill: 'Form, Structure, and Sense',
-    difficulty: 'Hard',
-    passage: 'English poet and Shakespeare contemporary John Donne\'s ______ much admired during his lifetime (1572–1631) and in the decades that followed, had, at the time of their enthusiastic rediscovery by the early twentieth-century modernists, been essentially gathering dust for the intervening 250 years.',
-    question: 'Which choice completes the text so that it conforms to the conventions of Standard English?',
-    options: [
-      'A. works were',
-      'B. works, were',
-      'C. works,',
-      'D. works had been',
-    ],
-    answer: 'A',
-    explanation: 'Choice A is correct. The sentence has a compound predicate: Donne\'s works (1) "were much admired during his lifetime and in the decades that followed" and (2) "had... been essentially gathering dust for the intervening 250 years" — that is, after being admired, the works fell into obscurity for 250 years before the modernists rediscovered them. The two predicates share the subject "works" and are separated by a comma before the second predicate "had." Choice A provides the subject-verb pair "works were" that initiates the first predicate correctly. Choice B is wrong — "works, were" inserts an unnecessary comma between the subject and verb. Choice C is wrong — "works," with just a comma provides no verb for the first predicate. Choice D is wrong — "works had been much admired... had... been gathering dust" uses "had been" twice in contradictory ways.',
-    strategy: 'Tense Logic',
-    ruleType: 'VTense',
-  },
-
-  // ── MATH ────────────────────────────────────────────────────────
-
-  {
-    id: 'p8_math_q21',
-    source: 'Practice 8 · Math Q21',
-    skill: 'Problem Solving and Data Analysis',
-    difficulty: 'Hard',
-    image: 'assets/p8_math_q21.png',
-    question: 'Two data sets of 23 integers each are summarized in the histograms shown. For each of the histograms, the first interval represents the frequency of integers greater than or equal to 10, but less than 20. The second interval represents the frequency of integers greater than or equal to 20, but less than 30, and so on. What is the smallest possible difference between the mean of data set A and the mean of data set B?',
-    options: [
-      'A. 0',
-      'B. 1',
-      'C. 10',
-      'D. 23',
-    ],
-    answer: 'B',
-    explanation: 'The key insight: the two histograms show the same number of values (23 each) but their bar heights differ in the [30,40) and [40,50) intervals — the bars are swapped. Data Set A has fewer values in [30,40) and more in [40,50); Data Set B has more in [30,40) and fewer in [40,50). Since [40,50) integers are always larger than [30,40) integers, mean A will always be larger than mean B. To minimize the difference, choose the largest possible integers for A\'s [30,40) values and smallest for A\'s [40,50) values, and vice versa for B. Even with optimal integer choices within each interval, the structural difference in how values are distributed ensures the minimum achievable difference is exactly 1. Answer: B.',
-    strategy: 'Histogram Means',
-  },
-
-  {
-    id: 'p8_math_q22',
-    source: 'Practice 8 · Math Q22',
-    skill: 'Problem Solving and Data Analysis',
-    difficulty: 'Medium',
-    image: 'assets/p8_math_q22.png',
-    question: 'The table shows the results of a poll. A total of 803 voters selected at random were asked which candidate they would vote for in the upcoming election. According to the poll, if 6,424 people vote in the election, by how many votes would Angel Cruz be expected to win?',
-    options: [
-      'A. 163',
-      'B. 1,304',
-      'C. 3,864',
-      'D. 5,621',
-    ],
-    answer: 'B',
-    explanation: 'Step 1: Find Cruz\'s expected share of the 6,424 total votes.\n  Cruz proportion: 483 ÷ 803 ≈ 0.6015\n  Cruz votes: 0.6015 × 6,424 ≈ 3,864\n\nStep 2: Find Smith\'s expected votes.\n  Smith proportion: 320 ÷ 803 ≈ 0.3985\n  Smith votes: 0.3985 × 6,424 ≈ 2,560\n\nStep 3: Find the margin (how many votes Cruz wins by).\n  3,864 − 2,560 = 1,304\n\nAnswer: B. 1,304\n\nCommon mistake: Choice C (3,864) is Cruz\'s total votes, not the winning margin.',
-    strategy: 'Proportional Reasoning',
   },
 
 ];

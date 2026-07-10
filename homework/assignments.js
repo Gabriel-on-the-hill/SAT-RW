@@ -258,25 +258,26 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey: Practice 8 Review
+  // Jeffrey: no day-by-day plan this week. His work IS the Challenge module.
+  //
+  // A `challenge` key means: the hub renders a challenge card instead of a day
+  // list, and defers completion to the mastery ledger. There is deliberately no
+  // "Done" tick — a challenge is not finished after one pass. Mastery is two
+  // clean corrects per question and it lapses after 21 days, so "Mastered N of
+  // 28" is the only honest scoreboard, and only the ledger knows it.
+  //
+  // This replaces a Day 1 that sampled random Hard questions by skill. That day
+  // was wrong three ways: it served all-Hard when six of his sixteen captured
+  // misses were not; it drilled `Commas` when his real Boundaries gap is
+  // `Colon`; and its tip asserted "these are all Hard difficulty", which was
+  // false about his own test. Git history has it if it is ever wanted back.
+  //
+  // The set itself is frozen in challenge/sets.js. His Practice 8 MATH misses
+  // are a separate set in a separate app (Michael SAT's Challenge_App).
   "Jeffrey": {
-    title: "Practice 8 R&W Challenge",
-    start: "2026-07-09",
-    unlock: "cumulative",
-    days: [
-      { n:1, focus:"Practice 8 R&W Challenge", minutes:20,
-        tip:"This set targets the exact skills you missed on Practice Test 8. Take your time, these are all Hard difficulty.",
-        sections:[
-          { skills:["Words in Context"], diffs:["Hard"], count:2 },
-          { skills:["Text Structure and Purpose"], diffs:["Hard"], count:1 },
-          { skills:["Cross-Text Connections"], diffs:["Hard"], count:1 },
-          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:2 },
-          { skills:["Inferences"], diffs:["Hard"], count:3 },
-          { skills:["Rhetorical Synthesis"], diffs:["Hard"], count:1 },
-          { skills:["Boundaries"], diffs:["Hard"], count:3 },
-          { skills:["Form, Structure, and Sense"], diffs:["Hard"], count:3 }
-        ] }
-    ]
+    title: "This week: your Practice 8 Challenge",
+    challenge: "p8-rw",
+    days: []
   },
 
   // Segun (Joshua): three days on Expression of Ideas, into Monday's session.

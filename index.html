@@ -554,5 +554,14 @@
     <script src="timer.js?v=20260703"></script>
     <script src="history.js?v=20260703"></script>
     <script src="app.js?v=20260703"></script>
+
+    <!-- Challenge module. Order matters: the debrief payload declares
+         CHALLENGE_P8, which sets.js reads; challenge.js wraps app.js and so
+         must load last. It injects its own hub tile and its own screen —
+         no markup above this line is touched. -->
+    <script src="data-challenge-jeffrey-p8.js?v=20260710"></script>
+    <script src="challenge/sets.js?v=20260710"></script>
+    <script src="challenge/challenge-core.js?v=20260710"></script>
+    <script src="challenge/challenge.js?v=20260710"></script>
 </body>
 </html>
