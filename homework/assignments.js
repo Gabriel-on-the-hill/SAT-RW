@@ -258,45 +258,13 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey: Information & Ideas focus, ending with a full timed set. No Easy items.
+  // Jeffrey: Practice 8 Review
   "Jeffrey": {
-    title: "Information & Ideas this week",
-    start: "2026-06-22",
+    title: "Practice 8 R&W Challenge",
+    start: "2026-07-09",
     unlock: "cumulative",
     days: [
-      { n:1, focus:"Information & Ideas", minutes:0,
-        tip:"Take your time. Work out what the question is asking, then answer it before you read the choices.",
-        sections:[
-          { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:5 }
-        ] },
-      { n:2, focus:"Information & Ideas and Words in Context", minutes:0,
-        tip:"Same approach as yesterday for the reading questions. For Words in Context, think of your own word for the blank before you look at the choices.",
-        sections:[
-          { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:5 },
-          { skills:["Words in Context"], diffs:["Medium"], count:3 }
-        ] },
-      { n:3, focus:"Timed set: Information & Ideas, structure, and grammar", minutes:10,
-        tip:"Pace the whole set, not each question. The semicolon and transition questions are quick, about 30 seconds each, so save your time for the hard Information & Ideas one. You do not need to spend the same amount of time on every question.",
-        sections:[
-          { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Hard"], count:1 },
-          { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:3 },
-          { skills:["Text Structure and Purpose"], diffs:["Medium"], count:2 },
-          { skills:["Transitions"], diffs:["Medium"], count:1 },
-          { skills:["Boundaries"], ruleType:"Semi", diffs:["Medium","Hard"], count:1 }
-        ] },
-      { n:4, focus:"Full timed set", minutes:12,
-        tip:"Work through it once, the way you would on the real test. Move quickly on the short questions (semicolon, pronoun, transition) and give the hard Information & Ideas questions the time they need. Watch your total time, not each question.",
-        sections:[
-          { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Hard"], count:2 },
-          { skills:["Central Ideas and Details","Inferences","Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:2 },
-          { skills:["Words in Context"], diffs:["Medium","Hard"], count:1 },
-          { skills:["Text Structure and Purpose"], diffs:["Medium","Hard"], count:1 },
-          { skills:["Transitions"], diffs:["Medium","Hard"], count:1 },
-          { skills:["Cross-Text Connections"], diffs:["Medium","Hard"], count:1 },
-          { skills:["Boundaries"], ruleType:"Semi", diffs:["Medium","Hard"], count:1 },
-          { skills:["Form, Structure, and Sense"], ruleType:"Pron", diffs:["Medium","Hard"], count:1 }
-        ] },
-      { n:5, focus:"Practice 8 R&W Challenge", minutes:20,
+      { n:1, focus:"Practice 8 R&W Challenge", minutes:20,
         tip:"This set targets the exact skills you missed on Practice Test 8. Take your time, these are all Hard difficulty.",
         sections:[
           { skills:["Words in Context"], diffs:["Hard"], count:2 },
@@ -311,41 +279,45 @@ const HOMEWORK = {
     ]
   },
 
-  // Segun (Joshua): three-day reading warm-up into Friday's Blue Book.
-  // Day 1 rebuilds method untimed, Day 2 works his weak skills at pace,
-  // Day 3 is a mixed timed dress rehearsal. Inference difficulty climbs
-  // slowly because it is both his weakest skill and the deepest Hard pool.
+  // Segun (Joshua): three days on Expression of Ideas, into Monday's session.
+  // He went 0/6 on Q22–27 of Practice 6 (all Expression of Ideas) — but he sat
+  // that test on Jun 28, before transitions (Jun 29) or rhetorical synthesis
+  // (Jul 6) had been taught, so the domain is untouched rather than broken.
+  //
+  // Day 1 encodes rhetorical synthesis untimed, notes open — the taxonomy is
+  // two days old. Day 2 is transitions as spaced retrieval, deliberately at
+  // 66s/q (under the 71s test average) because transitions should run fast and
+  // bank time for the synthesis questions that follow them at the module tail.
+  // Day 3 repeats Day 1's skill at Medium under a clock: if Day 1 is strong and
+  // Day 3 collapses, the problem is pacing, not synthesis. That is the question
+  // Monday should open with.
+  //
+  // Craft & Structure is deliberately absent. Bluebook rates it his strongest
+  // domain (Hard, 4/4 on Practice 6); the words-in-context gap from the baseline
+  // has closed. Pool check: RS = 18 Easy / 31 Medium / 21 Hard, Transitions =
+  // 20 / 14 / 15, so no day repeats a question and Day 3 stays unseen-first.
   "Segun": {
-    title: "This week: reading warm-up before Friday's practice test",
-    start: "2026-06-23",
+    title: "This week: transitions and rhetorical synthesis, before Monday",
+    start: "2026-07-10",
     unlock: "cumulative",
     days: [
-      { n:1, focus:"Main idea and evidence (take your time)", minutes:0,
-        tip:"Find the main idea first, then pick the choice that matches it. For evidence, choose the quote that supports the whole claim. For vocabulary, think of your own word before reading the options.",
+      { n:1, focus:"Rhetorical synthesis (take your time, notes open)", minutes:0,
+        tip:"Before you read the choices, say what the question is asking you to do: define, describe, explain, emphasize, or present a finding. Then keep only the choices that actually do that job and use the notes.",
         sections:[
-          { skills:["Words in Context"],                 diffs:["Easy","Medium"], count:3 },
-          { skills:["Central Ideas and Details"],         diffs:["Easy","Medium"], count:3 },
-          { skills:["Command of Evidence — Textual"],     diffs:["Easy","Medium"], count:3 }
+          { skills:["Rhetorical Synthesis"],              diffs:["Easy"],          count:4 },
+          { skills:["Rhetorical Synthesis"],              diffs:["Medium"],        count:6 }
         ] },
-      { n:2, focus:"Inferences and data questions, at test pace", minutes:13,
-        tip:"For inferences, pick the choice the text directly supports, and reject any that goes beyond it. For data questions, read the claim before the figure.",
+      { n:2, focus:"Transitions, at pace", minutes:11,
+        tip:"Name the relationship between the two sentences before you look at the choices — contrast, continuation, cause and effect, or sequence. These should be quick; the time you save here is time you spend on synthesis.",
         sections:[
-          { skills:["Words in Context"],                  diffs:["Medium"],        count:2 },
-          { skills:["Inferences"],                        diffs:["Medium"],        count:4 },
-          { skills:["Inferences"],                        diffs:["Hard"],          count:1 },
-          { skills:["Command of Evidence — Quantitative"],diffs:["Easy","Medium"], count:3 },
-          { skills:["Central Ideas and Details"],         diffs:["Medium"],        count:1 }
+          { skills:["Transitions"],                       diffs:["Easy"],          count:2 },
+          { skills:["Transitions"],                       diffs:["Medium"],        count:5 },
+          { skills:["Transitions"],                       diffs:["Hard"],          count:3 }
         ] },
-      { n:3, focus:"Mixed timed set", minutes:15,
-        tip:"Watch your total time, not each question. Move fast through the vocabulary to save time for the hard inference questions.",
+      { n:3, focus:"Rhetorical synthesis, timed (no notes)", minutes:12,
+        tip:"Same questions as Day 1, now on the clock and without notes. Watch your total time, not each question. If a choice is close but leaves something out, it is wrong — move on rather than reread.",
         sections:[
-          { skills:["Words in Context"],                  diffs:["Medium"],        count:2 },
-          { skills:["Words in Context"],                  diffs:["Hard"],          count:1 },
-          { skills:["Central Ideas and Details"],         diffs:["Medium"],        count:2 },
-          { skills:["Command of Evidence — Textual"],     diffs:["Medium","Hard"], count:3 },
-          { skills:["Command of Evidence — Quantitative"],diffs:["Medium"],        count:2 },
-          { skills:["Inferences"],                        diffs:["Medium"],        count:2 },
-          { skills:["Inferences"],                        diffs:["Hard"],          count:1 }
+          { skills:["Rhetorical Synthesis"],              diffs:["Medium"],        count:10 }
         ] }
     ]
   }
