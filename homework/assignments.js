@@ -302,20 +302,20 @@ const HOMEWORK = {
     unlock: "cumulative",
     days: [
       { n:1, focus:"Rhetorical synthesis (take your time, notes open)", minutes:0,
-        tip:"Before you read the choices, say what the question is asking you to do: define, describe, explain, emphasize, or present a finding. Then keep only the choices that actually do that job and use the notes.",
+        tip:"Find the 'The student wants to…' sentence first and name the goal type — compare, define/explain, emphasize a trait, audience-aware, specify, present a study, generalize, or overview. Say what the correct answer must do before you read a single choice. Remember the master trap: a choice can be perfectly true and still be off-task.",
         sections:[
           { skills:["Rhetorical Synthesis"],              diffs:["Easy"],          count:4 },
           { skills:["Rhetorical Synthesis"],              diffs:["Medium"],        count:6 }
         ] },
       { n:2, focus:"Transitions, at pace", minutes:11,
-        tip:"Name the relationship between the two sentences before you look at the choices — contrast, continuation, cause and effect, or sequence. These should be quick; the time you save here is time you spend on synthesis.",
+        tip:"Name the relationship between the two sentences before you look at the choices — contrast, continuation, cause–effect, example/specification, or sequence. Analyse the logic, don't match keywords. These should be quick; the time you save here is time you spend on synthesis.",
         sections:[
           { skills:["Transitions"],                       diffs:["Easy"],          count:2 },
           { skills:["Transitions"],                       diffs:["Medium"],        count:5 },
           { skills:["Transitions"],                       diffs:["Hard"],          count:3 }
         ] },
       { n:3, focus:"Rhetorical synthesis, timed (no notes)", minutes:12,
-        tip:"Same questions as Day 1, now on the clock and without notes. Watch your total time, not each question. If a choice is close but leaves something out, it is wrong — move on rather than reread.",
+        tip:"New questions, same skill as Day 1 — now on the clock and without notes. Run the same protocol: name the goal, say what the answer must do, then read the choices. Watch your total time, not each question. If a choice is close but leaves something out, it is wrong — move on rather than reread.",
         sections:[
           { skills:["Rhetorical Synthesis"],              diffs:["Medium"],        count:10 }
         ] }
