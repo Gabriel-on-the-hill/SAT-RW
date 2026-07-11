@@ -51,7 +51,7 @@ const questionBank_II = [
   {
     "id": "a9040290",
     "image": "assets/fig_a9040290.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Electricity (in thousands of MWh) Amount of Additional Electricity Wind\n Turbines Could Generate When\n\n Winds Were Stronger Than Forecast\n\n 200\n 175\n 150\n 125\n 100\n 75\n 50\n 25\n\n 0\n  \n\n West Midwest\n\nElectric companies that use wind turbines rely on weather forecasts to predict the maximum amount of power, in megawatt-hours\n(MWh), they can generate using wind so that they can determine how much they'll need to generate from other sources. When\nwinds are stronger than they were forecast to be, however, the predicted maximum amount of electricity wind turbines could\ngenerate will be too low. For example, the graph shows that for the West region, the winds were ______",
     "question": "Which choice most effectively uses data from the graph to complete the example?",
@@ -295,7 +295,7 @@ const questionBank_II = [
   {
     "id": "a9ac31e4",
     "image": "assets/fig_a9ac31e4.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Area (square km) Area of Three Glaciers in the\n 2016 Swiss Glacier Inventory\n 50\n 40\n 30\n 20\n 10\n 0\n\n Glacier\n\n Gorner\n Fiescher\n Unteraar\n\nTo monitor changes to glaciers in Switzerland, the government periodically measures them for features like total area of ice and\nmean ice thickness, which are then reported in the Swiss Glacier Inventory. These measurements can be used to compare the\nglaciers. For example, the Gorner glacier had ______",
     "question": "Which choice most effectively uses data from the graph to complete the example?",
@@ -408,7 +408,7 @@ const questionBank_II = [
   {
     "id": "25b70215",
     "image": "assets/fig_25b70215.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Effect of Neighboring Species on Pollinator Visits to Target\n Species\n\nNeighboring species Target species Effect value\n\nVirginia spring beauty star chickweed 0.4853\n\nHimalayan balsam marsh woundwort 0.7905\n\ncommon dandelion cat's ear −0.6254\n\nResearchers Carolina Laura Morales and Anna Traveset gathered data about flowering plants growing alongside each other in\nvarious locations. In each case, the researchers identified one plant as a \"target species\" and a nearby plant as a \"neighboring\nspecies.\" The researchers then calculated a positive or negative value to show how the neighboring species affected pollinator\nvisits to the target species. One example of a neighboring species with a negative effect value is the ______",
     "question": "Which choice most effectively uses data from the table to complete the example?",
@@ -634,7 +634,7 @@ const questionBank_II = [
   {
     "id": "89f71526",
     "image": "assets/fig_89f71526.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Deformation rate Deformation Rate of Five Volcanoes\n (centimeters per month) 3.5\n 3.0\n 2.5\n 2.0\n 1.5\n 1.0\n 0.5\n\n 0\n Alcedo MauFleernandina PacSaiyerara Negra\n\n volcano\n\nWhen magma moves underneath a volcano, it causes the surface of the volcano to change. This is known as deformation.\nResearchers recently calculated the amount of deformation occurring each month for five volcanoes in Latin America. Although\nSierra Negra experienced a lot of deformation, its deformation rate was still lower than that of ______",
     "question": "Which choice most effectively uses data from the graph to complete the statement?",
@@ -716,7 +716,7 @@ const questionBank_II = [
   {
     "id": "ede3f942",
     "image": "assets/fig_ede3f942.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Total Areas of Five Tribal Nations in California\n\n Tribal nation Location Area (square miles)\n\nHoopa Valley Tribe Northern California 141.68\n\nLa Jolla Band of Luiseño Indians Southern California 13.50\n\nPauma Band of Luiseño Mission Indians Southern California 9.36\n\nAgua Caliente Band of Cahuilla Indians Northern California 53.68\n\nLos Coyotes Band of Cahuilla and Cupeño Indians Southern California 39.21\n\nIn what is now the state of California, there are over 100 tribal nations. One of the largest, the Hoopa Valley Tribe, covers 141.68\nsquare miles in the northern part of the state. However, most tribal nations in California are less than 50 square miles in total area.\nFor example, the total area of the Los Coyotes Band of Cahuilla and Cupeño Indians in Southern California is ______",
     "question": "Which choice most effectively uses data from the table to support the statement?",
@@ -894,7 +894,7 @@ const questionBank_II = [
   {
     "id": "0014477f",
     "image": "assets/fig_0014477f.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Total Areas of Five Pueblo Nations in New Mexico\n\n Tribal nation Area (square miles)\n\nPueblo de San Ildefonso 47.3\n\nSanta Clara Pueblo 77.1\n\nTaos Pueblo 156.2\n\nNambé Pueblo 32.4\n\nPueblo of Acoma 595.7\n\nThere are nineteen Pueblo tribal nations in New Mexico. A student in a geography class is a citizen of Taos Pueblo in the northern\npart of the state. The student wants to compare the total area covered by Taos Pueblo with the total areas of various other Pueblo\nnations in the state. Looking at the table, the student finds that the total area of Taos Pueblo is 156.2 square miles, while the total\narea of Nambé Pueblo is ______",
     "question": "Which choice most effectively uses data from the table to complete the comparison?",
@@ -977,7 +977,7 @@ const questionBank_II = [
   {
     "id": "faaf484f",
     "image": "assets/fig_faaf484f.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Easy",
     "passage": "Percent of Residents of City Areas in Favor of Adding More Bike Paths\n\nCity Area Percent of area's residents in favor of adding more bike paths\n\nNorth East 12%\n\nNorth Central 26%\n\nNorth West 46%\n\nSouth West 88%\n\nSouth Central 33%\n\nA city's Parks and Recreation department is interested in providing residents with more opportunities for bicycling in their\nneighborhoods. They're considering adding more bike paths and conducted a survey to understand where demand for more bike\npaths is highest. The survey indicated the highest level of demand, with 88 percent of the residents interested in adding more bike\npaths, is in the city's ______",
     "question": "Which choice most effectively uses data from the table to complete the statement?",
@@ -1186,7 +1186,7 @@ const questionBank_II = [
   {
     "id": "1db1a9a6",
     "image": "assets/fig_1db1a9a6.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Medium",
     "passage": "Cantaloupe Yield\n\nYield (pounds per acre) 45\n\n 40\n\n 35\n\n 30\n\n 25\n\n 20\n\n 15\n\n 10\n\n 5\n\n 0 2017 2018 2019\n\n Year\n\n control nitrogen fertilizer\n\nTo test the effects of a nitrogen fertilizer on cantaloupe production, researchers grew cantaloupe plants and harvested their fruit\nover three years. In each year, half the plants were grown using a nitrogen fertilizer, and the other half were grown using a control\nfertilizer that contained no nitrogen. The researchers concluded that the nitrogen fertilizer increases cantaloupe yield.",
     "question": "Which choice best describes data in the graph that support the researchers' conclusion?",
@@ -1606,7 +1606,7 @@ const questionBank_II = [
   {
     "id": "7edfb2c5",
     "image": "assets/fig_7edfb2c5.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Medium",
     "passage": "Temperature (°C) Estimated Temperatures to which\n Evron Quarry Artifacts Were Exposed\n\n 700\n 600\n 500\n 400\n 300\n 200\n 100\n\n 0\n L5_239 K5_106 K3_18 K3_9\n\n artifact\n\nFlint artifacts dating to 800,000 to 1,000,000 years ago have been recovered from the Evron Quarry in Israel. Likely created by the\nhominin Homo erectus, the artifacts have no visual features suggesting that they were exposed to fire, leading some scholars to\nconclude that these hominins had not acquired control of fire. But Zane Stepka and colleagues recently used a new method to\ndetermine whether these artifacts had been exposed to temperatures above 400°C (the typical temperature campfires reach) and\nconcluded that the hominins who inhabited the site may have had control of fire.",
     "question": "Which choice best describes data in the graph that support the team's conclusion?",
@@ -1879,7 +1879,7 @@ const questionBank_II = [
   {
     "id": "040583a5",
     "image": "assets/fig_040583a5.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Hard",
     "passage": "Time (days) Banana Ripening Time at Different\n Temperatures with and without\n Ethylene Treatment\n\n 12\n 11\n 10\n 9\n 8\n 7\n 6\n 5\n 4\n 3\n 2\n 1\n 0\n\n 14°C 16°C 18°C 20°C\n\n Temperature (degrees Celsius)\n\n ethylene no ethylene\n\nA student is conducting an experiment to test the effect of temperature and ethylene treatment on the ripening speed of bananas.\nThe student treated some bananas with ethylene while leaving others untreated, then allowed both types of bananas to ripen at\none of four different temperatures. Comparing the data for bananas with and without ethylene, the student concluded that ______",
     "question": "Which choice most effectively uses data from the graph to complete the student's conclusion?",
@@ -2618,7 +2618,7 @@ const questionBank_II = [
   {
     "id": "35ec767c",
     "image": "assets/fig_35ec767c.png",
-    "skill": "Command of Evidence — Textual",
+    "skill": "Command of Evidence — Quantitative",
     "difficulty": "Hard",
     "passage": "Corn-Related Vocabulary in Various Southeastern Languages\n\nLanguage Word (language) English Proposed origin in vocabulary of\n family translation the Totozoquean language family\n\nMuskogean tanchi' (Chickasaw); tanchi (Choctaw); corn no\n\n vce (Muscogee, pronounced \"uh-chi\")\n\nIroquoian se-lu (Cherokee) corn no\n\nCaddoan -k'as- (Caddo) dried corn yes\n\nChitimacha k'asma (Chitimacha) corn yes\n\nIn Caddo, a language from what is now the US Southeast, vocabulary pertaining to corn cultivation resembles equivalent\nvocabulary in the Totozoquean language family in Mexico. This resemblance is perhaps attributable to cultural contact: such\nwords could have entered Caddo through the intermediary of the neighboring but unrelated Chitimacha language, concurrent with\nthe dissemination of corn itself from Mexico into the Southeast after 700 CE. That the vocabulary pertaining to domestic crops\naccompanies them as they diffuse into new regions is an established phenomenon globally. Crops may also be decoupled from\nvocabulary altogether: corn cultivation became ubiquitous among the Southeastern tribes, yet ______",
     "question": "Which choice most effectively uses data from the table to complete the statement?",

@@ -141,6 +141,9 @@
   var avail = hwDaysAvailable(plan.start);
   function fmtDate(start, offset){ var d=hwParseDate(start); if(!d) return 'soon'; d.setDate(d.getDate()+offset); return d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); }
   function done(n){ try { return localStorage.getItem('wayne_hw_'+student+'_'+plan.start+'_'+n)==='1'; } catch(e){ return false; } }
+  // A finished day keeps its questions, answers and explanations, so it can be
+  // reopened for review — that is where the misses get worked, not in the run.
+  function reviewable(n){ try { return !!localStorage.getItem('wayne_hwrec_'+student+'_'+plan.start+'_'+n); } catch(e){ return false; } }
   var html='';
   plan.days.forEach(function(day){
     var open = day.n <= avail;
@@ -151,7 +154,10 @@
       + '<div class="top"><span class="num">'+day.n+'</span><span class="focus">'+day.focus+'</span>'+state+'</div>'
       + '<div class="meta">'+(day.diffs?day.diffs.join(' + ')+' &middot; ':'')+(day.sections?day.sections.reduce(function(s,x){return s+(x.count||0);},0):day.count)+' questions'+(day.minutes? ' &middot; '+day.minutes+' min':'')+'</div>'
       + (open? '<div class="tip">'+day.tip+'</div>' : '')
-      + (open? '<div class="go"><a class="btn'+(isDone?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':'Start day '+day.n)+'</a></div>' : '')
+      + (open? '<div class="go" style="display:flex;gap:.5rem;flex-wrap:wrap">'
+          + (reviewable(day.n)? '<a class="btn" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'&mode=review">Review your misses</a>' : '')
+          + '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':'Start day '+day.n)+'</a>'
+          + '</div>' : '')
       + '</div>';
   });
   list.innerHTML = html;

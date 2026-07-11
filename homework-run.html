@@ -35,6 +35,49 @@
   .sub{color:var(--muted)}
   .done-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;text-align:center;margin-bottom:1rem}
   .hidden{display:none}
+
+  /* ── Predict-first step ─────────────────────────────────────────── */
+  .predict{background:var(--surface);border:1.5px solid #cfe0fb;border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.7rem}
+  .predict .ph{font-weight:800;font-size:.95rem;margin-bottom:.15rem}
+  .predict .psub{color:var(--muted);font-size:.85rem;margin-bottom:.7rem}
+  .predict textarea{width:100%;min-height:64px;resize:vertical;font-family:inherit;font-size:.95rem;line-height:1.5;
+    border:1.5px solid var(--border);border-radius:10px;padding:.6rem .7rem;background:var(--surface2);color:var(--text)}
+  .predict textarea:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+  .predict .err{color:var(--bad);font-size:.85rem;font-weight:600;margin-top:.4rem;display:none}
+  .predict .err.show{display:block}
+  .predict .row{display:flex;justify-content:flex-end;margin-top:.6rem}
+  .yourpred{background:var(--surface2);border-left:3px solid var(--accent);border-radius:8px;padding:.5rem .7rem;margin-bottom:.7rem;font-size:.9rem}
+  .yourpred b{color:var(--muted);font-weight:700;font-size:.8rem;display:block;text-transform:uppercase;letter-spacing:.03em}
+
+  /* ── Review screen ──────────────────────────────────────────────── */
+  .rv-sec{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:1.4rem 0 .6rem}
+  .rv{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.8rem}
+  .rv.miss{border-left-color:var(--bad)} .rv.ok{border-left-color:var(--good)} .rv.skip{border-left-color:#94a3b8}
+  .rv .rvh{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;margin-bottom:.5rem}
+  .rv .rvn{font-weight:800;font-size:.85rem;color:var(--muted)}
+  .rv .rvm{font-size:.78rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  .rv .rvq{font-weight:700;margin:.5rem 0 .6rem}
+  .rv .rvp{background:var(--surface2);border-radius:8px;padding:.7rem .8rem;margin-bottom:.6rem;white-space:pre-line;font-size:.92rem;max-height:190px;overflow:auto}
+  .rv .rvp img{max-width:100%;height:auto;border-radius:8px}
+  .rv .ans{font-size:.92rem;margin-bottom:.25rem}
+  .rv .ans .lab{display:inline-block;min-width:5.6rem;color:var(--muted);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
+  .rv .ans.bad b{color:var(--bad)} .rv .ans.good b{color:var(--good)}
+  .rv .fixed{display:inline-block;background:var(--good-soft);color:var(--good);font-weight:800;font-size:.75rem;
+    border-radius:999px;padding:.15rem .55rem;margin-top:.35rem}
+  .rv .exp{background:var(--accent-soft);border-radius:8px;padding:.7rem .8rem;margin-top:.6rem;font-size:.92rem}
+  .rv .exp b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:.2rem}
+  .rv details{margin-top:.6rem}
+  .rv summary{cursor:pointer;font-size:.85rem;font-weight:700;color:var(--accent)}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.55rem}
+  .tag{border:1.5px solid var(--border);background:var(--surface);border-radius:999px;padding:.3rem .7rem;font-size:.82rem;
+    font-family:inherit;color:var(--text);cursor:pointer;line-height:1.35}
+  .tag:hover{border-color:var(--accent)}
+  .tag.on{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+  .fix{width:100%;min-height:52px;resize:vertical;font-family:inherit;font-size:.92rem;line-height:1.5;margin-top:.5rem;
+    border:1.5px solid var(--border);border-radius:10px;padding:.55rem .7rem;background:var(--surface2);color:var(--text)}
+  .fix:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+  .lbl{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-top:.7rem}
+  .saved{font-size:.78rem;color:var(--good);font-weight:700;margin-top:.25rem;height:1rem}
 </style>
 <script src="gate.js?v=20260703"></script>
 <script src="data-craft-structure.js?v=20260703"></script>
@@ -55,8 +98,23 @@
 <script>
 (function(){
   function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');}
+  function attr(s){return (s||'').replace(/"/g,'&quot;');}
+
+  // Why she missed it. Short on purpose, and named after the mistakes that
+  // actually show up in session: reading the options before the text, taking a
+  // word's familiar meaning, overreaching, or picking something true but off-goal.
+  var MISS_TAGS = [
+    "I didn't read the whole text",
+    "I took the word's familiar meaning",
+    "My answer was too strong / too broad",
+    "True, but off-topic",
+    "I ran out of time",
+    "I guessed"
+  ];
+
   var p=new URLSearchParams(location.search);
   var student=p.get('student'), dayN=parseInt(p.get('day'),10);
+  var reviewOnly = p.get('mode')==='review';
   var run=document.getElementById('run');
   hwLoadPlan(student, function(plan){
   if(!plan||!dayN||!plan.days[dayN-1]){ run.innerHTML='<div class="done-card">This homework day was not found. <a href="homework-hub.html">Back to homework</a></div>'; document.getElementById('tip').style.display='none'; return; }
@@ -69,7 +127,27 @@
     typeof questionBank_EOI!=='undefined'?questionBank_EOI:[],
     typeof questionBank_II!=='undefined'?questionBank_II:[],
     typeof questionBank_CON!=='undefined'?questionBank_CON:[]);
+  function byId(id){ for(var i=0;i<QB.length;i++) if(QB[i].id===id) return QB[i]; return null; }
   function _pick(pool,n){ var ordered=(typeof prioritizePool==='function')?prioritizePool(pool):pool.slice().sort(function(){return Math.random()-0.5;}); return ordered.slice(0, n); }
+
+  // What she actually did, kept question by question. Without this the run held
+  // only a running score, so clicking Next destroyed the question, her answer and
+  // the explanation — while the finish screen told her to go review them.
+  // We store ids and rehydrate from the bank, so the record stays small.
+  var RECS_KEY = 'wayne_hwrec_'+student+'_'+plan.start+'_'+dayN;
+  var records = [];
+  function saveRecs(){ try{ localStorage.setItem(RECS_KEY, JSON.stringify({at:Date.now(), recs:records})); }catch(e){} }
+  function loadRecs(){ try{ var o=JSON.parse(localStorage.getItem(RECS_KEY)); return (o&&o.recs&&o.recs.length)?o.recs:null; }catch(e){ return null; } }
+
+  // Reopened from the hub's "Review your misses" link.
+  if (reviewOnly) {
+    var saved = loadRecs();
+    document.getElementById('tip').style.display='none';
+    if (!saved) { run.innerHTML='<div class="done-card">No saved work for this day yet. <a href="homework-run.html?student='+encodeURIComponent(student)+'&day='+dayN+'">Do the set first</a></div>'; return; }
+    records = saved;
+    showReview(true, false);
+    return;
+  }
   // Section-aware build: each section draws an exact count from its own
   // filtered pool (skill + difficulty + optional ruleType), no repeats across
   // sections. Days without `sections` fall back to the simple skills/diffs/count.
@@ -93,24 +171,97 @@
     set=_pick(pool, spec.count);
   }
   if(!set.length){ run.innerHTML='<div class="done-card">No questions available for this day. <a href="homework-hub.html">Back</a></div>'; return; }
-  var idx=0, correct=0, started=Date.now(), answered=false, missed=[], isRedo=false;
+
+  var daySet=set.slice();   // the canonical set; `set` becomes the redo list later
+  records=new Array(daySet.length);
+
+  // Timed sets get a one-click commit gate; untimed sets ask her to TYPE the
+  // prediction. Same predict-first habit either way — but she can't type on test
+  // day, and typing under a clock would corrupt the timing. So: still learning it
+  // → type; on the clock → commit. The redo is untimed, so it goes back to typing.
+  function predictMode(){ return (!isRedo && spec.minutes > 0) ? 'commit' : 'type'; }
+
+  var idx=0, started=Date.now(), answered=false, isRedo=false;
+  var qStart=null, revealTs=null, prediction='';
+
   function render(){
-    answered=false;
+    answered=false; revealTs=null; prediction='';
     var q=set[idx];
-    var media = q.image ? '<div class="passage"><img src="'+q.image+'" alt="'+(q.alt||'figure').replace(/"/g,'&quot;')+'"></div>' : (q.passage?'<div class="passage">'+esc(q.passage)+'</div>':'');
+    qStart=Date.now();
+    var mode=predictMode();
+
+    var media = q.image ? '<div class="passage"><img src="'+attr(q.image)+'" alt="'+attr(q.alt||'figure')+'"></div>' : (q.passage?'<div class="passage">'+esc(q.passage)+'</div>':'');
+
+    var predictBox = (mode==='type')
+      ? '<div class="predict" id="predict">'
+        + '<div class="ph">Predict first</div>'
+        + '<div class="psub">In your own words, what should the answer say? Write it before you see the choices.</div>'
+        + '<textarea id="predText" placeholder="My prediction is…"></textarea>'
+        + '<div class="err" id="predErr">Write your prediction first — that’s the whole method.</div>'
+        + '<div class="row"><button class="btn" id="predGo">Show the choices</button></div>'
+        + '</div>'
+      : '<div class="predict" id="predict">'
+        + '<div class="ph">Predict first</div>'
+        + '<div class="psub">Read the text and answer it in your head. Only then look at the choices.</div>'
+        + '<div class="row"><button class="btn" id="predGo">I have my prediction — show the choices</button></div>'
+        + '</div>';
+
     var opts=q.options.map(function(o){var L=o.trim()[0];return '<button class="opt" data-l="'+L+'">'+esc(o)+'</button>';}).join('');
-    run.innerHTML='<div class="t" style="margin-bottom:.5rem">Question '+(idx+1)+' of '+set.length+'</div>'
-      +media+'<div class="qtext">'+esc(q.question)+'</div><div id="opts">'+opts+'</div>'
+    run.innerHTML='<div class="t" style="margin-bottom:.5rem">Question '+(idx+1)+' of '+set.length+(isRedo?' · redo':'')+'</div>'
+      +media+'<div class="qtext">'+esc(q.question)+'</div>'
+      +predictBox
+      +'<div id="yourpred"></div>'
+      +'<div id="opts" class="hidden">'+opts+'</div>'
       +'<div class="fb" id="fb"><div class="h" id="fbh"></div><p id="fbt"></p></div>'
       +'<div class="nav"><button class="btn hidden" id="next">'+(idx===set.length-1?'Finish':'Next')+'</button></div>';
+
+    document.getElementById('predGo').onclick=function(){ commit(); };
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){b.onclick=function(){choose(b,q);};});
-    document.getElementById('next').onclick=function(){ idx++; if(idx>=set.length) finish(); else render(); };
+    document.getElementById('next').onclick=function(){ idx++; if(idx>=set.length) finish(false); else render(); };
   }
+
+  // Reveal the options. The time before this click is time-on-text — the honest
+  // measure of whether she read the passage or jumped straight to the choices.
+  function commit(){
+    if (predictMode()==='type') {
+      var ta=document.getElementById('predText');
+      var val=(ta.value||'').trim();
+      if (val.length < 3) { document.getElementById('predErr').classList.add('show'); ta.focus(); return; }
+      prediction=val;
+      document.getElementById('yourpred').innerHTML='<div class="yourpred"><b>Your prediction</b>'+esc(prediction)+'</div>';
+    }
+    revealTs=Date.now();
+    document.getElementById('predict').remove();
+    document.getElementById('opts').classList.remove('hidden');
+  }
+
+  function recOf(id){ for(var i=0;i<records.length;i++) if(records[i] && records[i].id===id) return records[i]; return null; }
+
   function choose(btn,q){
-    if(answered) return; answered=true;
-    var L=btn.dataset.l, ok=L===q.answer;
-    if(ok) correct++; else missed.push(q);
+    if(answered || !revealTs) return;
+    answered=true;
+    var L=btn.dataset.l, ok=L===q.answer, now=Date.now();
+
+    if (isRedo) {
+      // The first attempt stays the honest record. A redo just notes that she
+      // came back and got it — it never rewrites what she did under the clock.
+      var r=recOf(q.id);
+      if (r) { r.redoOk=ok; r.redoAt=now; }
+    } else {
+      records[idx]={
+        id:q.id, skill:q.skill, difficulty:q.difficulty,
+        chosen:L, answer:q.answer, ok:ok,
+        prediction:prediction,
+        onText:Math.round((revealTs-qStart)/1000),   // seconds before the choices appeared
+        onOpts:Math.round((now-revealTs)/1000),      // seconds among the choices
+        secs:Math.round((now-qStart)/1000),
+        tag:null, fix:''
+      };
+    }
+    saveRecs();
+
     if(typeof recordAnswer==='function') recordAnswer(q.id, ok, 'practice');
+
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){
       b.disabled=true; var bl=b.dataset.l;
       if(bl===q.answer) b.classList.add('correct');
@@ -121,38 +272,169 @@
     document.getElementById('fbt').textContent = q.explanation;
     document.getElementById('next').classList.remove('hidden');
   }
-  function finish(){
-    if(hwTimer) clearInterval(hwTimer); hwTimer=null;
-    var secs=Math.round((Date.now()-started)/1000);
-    if(!isRedo){ try{ localStorage.setItem('wayne_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){} postLog(secs); }
+
+  // Running out of time must not cost her the set. Whatever she answered is kept,
+  // the rest are marked not-reached, and she still lands on the review screen.
+  function finish(expired){
+    if(hwTimer) { clearInterval(hwTimer); hwTimer=null; }
+    if(!isRedo){
+      for (var j=0;j<daySet.length;j++){
+        if (!records[j]) records[j]={
+          id:daySet[j].id, skill:daySet[j].skill, difficulty:daySet[j].difficulty,
+          chosen:null, answer:daySet[j].answer, ok:false, prediction:'',
+          onText:null, onOpts:null, secs:null, tag:(expired?"I ran out of time":null), fix:''
+        };
+      }
+      saveRecs();
+      try{ localStorage.setItem('wayne_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){}
+      postLog(Math.round((Date.now()-started)/1000));
+    } else {
+      saveRecs();
+    }
+    showReview(false, expired);
+  }
+
+  // ── The review screen. Misses first, because that is what she is here for.
+  // Every question is re-readable — passage, her answer, the right answer, why.
+  // Then she names the mistake and writes the prediction she should have made,
+  // which is where the learning actually lands.
+  function showReview(reopened, expired){
     document.getElementById('tip').style.display='none';
     run.classList.add('hidden');
     var f=document.getElementById('finish'); f.classList.remove('hidden');
-    var pct=Math.round(correct/set.length*100);
-    var msg = pct>=80?'Good work today.':(pct>=60?'Solid. Go back over the ones you missed.':'Read back through the explanations for the ones you missed.');
-    var missedNow=missed.slice();
-    var redoBtn = (missedNow.length && !isRedo) ? '<div class="nav" style="justify-content:center;margin-top:.2rem"><button class="btn" id="redo">Redo the '+missedNow.length+' you missed (untimed)</button></div>' : '';
-    f.innerHTML='<div class="done-card"><div class="big">'+correct+' / '+set.length+'</div><div class="sub">'+(isRedo?'Redo complete':'Day '+dayN+' complete')+' · '+pct+'%</div>'
-      +'<p style="margin-top:.6rem;color:var(--muted)">'+msg+'</p></div>'
-      + redoBtn
-      +'<div class="nav" style="justify-content:space-between"><a class="btn sec" href="homework-hub.html">All days</a><a class="btn" href="index.html">Home</a></div>';
+
+    var attempted=records.filter(function(r){return r.chosen;});
+    var got=records.filter(function(r){return r.ok;}).length;
+    var pct=records.length?Math.round(got/records.length*100):0;
+
+    var msg;
+    if (expired) msg='Time ran out — you answered '+attempted.length+' of '+records.length+'. Everything you did is saved below.';
+    else if (pct>=80) msg='Good work. Still read the misses below — that is where the next points are.';
+    else if (pct>=60) msg='Solid. Work through every miss below before your next set.';
+    else msg='This is the useful part. Go through each miss below and name what went wrong.';
+
+    var head='<div class="done-card"><div class="big">'+got+' / '+records.length+'</div>'
+      +'<div class="sub">Day '+dayN+(reopened?' · review':' complete')+' · '+pct+'%</div>'
+      +'<p style="margin-top:.6rem;color:var(--muted)">'+esc(msg)+'</p></div>';
+
+    var misses=[], skipped=[], rights=[];
+    records.forEach(function(r,i){
+      r._n=i+1;
+      if(!r.chosen) skipped.push(r); else if(r.ok) rights.push(r); else misses.push(r);
+    });
+
+    // Anything she hasn't yet put right on a redo is still worth redoing.
+    var toRedo=misses.concat(skipped).filter(function(r){ return !r.redoOk; });
+    var redoBtn = toRedo.length
+      ? '<div class="nav" style="justify-content:center;margin:.2rem 0 .4rem"><button class="btn" id="redo">Redo the '+toRedo.length+' you missed (untimed)</button></div>'
+      : '';
+
+    var html=head+redoBtn;
+    if(misses.length){ html+='<div class="rv-sec">Review these '+misses.length+'</div>'+misses.map(card).join(''); }
+    if(skipped.length){ html+='<div class="rv-sec">Not reached ('+skipped.length+')</div>'+skipped.map(card).join(''); }
+    if(rights.length){ html+='<div class="rv-sec">Correct ('+rights.length+')</div>'+rights.map(card).join(''); }
+    html+='<div class="nav" style="justify-content:space-between;margin-top:1.4rem"><a class="btn sec" href="homework-hub.html">All days</a><a class="btn" href="index.html">Home</a></div>';
+
+    f.innerHTML=html;
+
     var rb=document.getElementById('redo');
-    if(rb) rb.onclick=function(){ isRedo=true; set=missedNow.slice(); missed=[]; idx=0; correct=0; started=Date.now();
-      f.classList.add('hidden'); f.innerHTML=''; run.classList.remove('hidden'); render(); };
+    if(rb) rb.onclick=function(){
+      isRedo=true;
+      set=toRedo.map(function(r){ return byId(r.id); }).filter(Boolean);
+      idx=0; answered=false;
+      f.classList.add('hidden'); f.innerHTML=''; run.classList.remove('hidden');
+      render(); window.scrollTo(0,0);
+    };
+
+    wireReview();
     window.scrollTo(0,0);
   }
+
+  function card(r){
+    var q=byId(r.id); if(!q) return '';
+    var cls = !r.chosen ? 'skip' : (r.ok ? 'ok' : 'miss');
+    var media = q.image ? '<img src="'+attr(q.image)+'" alt="'+attr(q.alt||'figure')+'">' : esc(q.passage||'');
+    var timing = (r.secs==null) ? 'not reached'
+      : (r.onText!=null ? r.onText+'s on the text · '+r.onOpts+'s on the choices' : r.secs+'s');
+
+    var yours = r.chosen
+      ? '<div class="ans '+(r.ok?'good':'bad')+'"><span class="lab">You chose</span><b>'+esc(r.chosen)+'</b></div>'
+      : '<div class="ans"><span class="lab">You chose</span><b>—</b></div>';
+    var right = '<div class="ans good"><span class="lab">Correct</span><b>'+esc(r.answer)+'</b></div>';
+    var pred  = r.prediction ? '<div class="yourpred" style="margin-top:.5rem"><b>What you predicted</b>'+esc(r.prediction)+'</div>' : '';
+    var fixed = r.redoOk ? '<div class="fixed">Put right on the redo</div>' : '';
+
+    // Only the misses get the work. Making her tag a question she nailed teaches
+    // nothing and trains her to click through it.
+    var work='';
+    if (cls!=='ok') {
+      var chips=MISS_TAGS.map(function(t){
+        return '<button class="tag'+(r.tag===t?' on':'')+'" data-id="'+attr(r.id)+'" data-tag="'+attr(t)+'">'+esc(t)+'</button>';
+      }).join('');
+      work='<div class="lbl">What went wrong?</div><div class="tags">'+chips+'</div>'
+        +'<div class="lbl">What you should have predicted</div>'
+        +'<textarea class="fix" data-id="'+attr(r.id)+'" placeholder="Now that you’ve read the explanation, write the prediction that would have got you there…">'+esc(r.fix||'')+'</textarea>'
+        +'<div class="saved" data-saved="'+attr(r.id)+'"></div>';
+    }
+
+    return '<div class="rv '+cls+'">'
+      + '<div class="rvh"><span class="rvn">Q'+r._n+' · '+esc(q.skill)+' · '+esc(q.difficulty)+'</span><span class="rvm">'+esc(timing)+'</span></div>'
+      + '<details><summary>Show the text</summary><div class="rvp">'+media+'</div></details>'
+      + '<div class="rvq">'+esc(q.question)+'</div>'
+      + yours + right + fixed + pred
+      + '<div class="exp"><b>Why</b>'+esc(q.explanation)+'</div>'
+      + work
+      + '</div>';
+  }
+
+  function wireReview(){
+    Array.prototype.forEach.call(document.querySelectorAll('.tag'),function(b){
+      b.onclick=function(){
+        var r=recOf(b.dataset.id); if(!r) return;
+        r.tag = (r.tag===b.dataset.tag) ? null : b.dataset.tag;   // click again to clear
+        saveRecs();
+        Array.prototype.forEach.call(document.querySelectorAll('.tag[data-id="'+b.dataset.id.replace(/"/g,'\\"')+'"]'),function(o){
+          o.classList.toggle('on', o.dataset.tag===r.tag);
+        });
+      };
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.fix'),function(t){
+      var note=document.querySelector('.saved[data-saved="'+t.dataset.id.replace(/"/g,'\\"')+'"]');
+      var to=null;
+      t.oninput=function(){
+        var r=recOf(t.dataset.id); if(!r) return;
+        r.fix=t.value;
+        clearTimeout(to);
+        to=setTimeout(function(){ saveRecs(); if(note){ note.textContent='Saved'; setTimeout(function(){ note.textContent=''; },1400); } },600);
+      };
+    });
+  }
+
+  // The tutor needs the per-question detail, not just a final score: what she
+  // missed, how long she sat on the text, and what she predicted.
   function postLog(secs){
     try{
       if(typeof SHEET_SYNC_ENDPOINT==='string' && SHEET_SYNC_ENDPOINT){
+        var got=records.filter(function(r){return r.ok;}).length;
         fetch(SHEET_SYNC_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
-          body:JSON.stringify({type:'homework',student:student,day:dayN,focus:spec.focus,score:correct,total:set.length,seconds:secs,at:new Date().toISOString()})});
+          body:JSON.stringify({type:'homework',student:student,day:dayN,focus:spec.focus,score:got,total:records.length,seconds:secs,at:new Date().toISOString(),
+            sessionId:'hw_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8),
+            detail:records.map(function(r){
+              return {id:r.id, skill:r.skill, diff:r.difficulty, chose:r.chosen, ans:r.answer,
+                      ok:r.ok, onText:r.onText, onOpts:r.onOpts, pred:r.prediction};
+            })})});
       }
     }catch(e){}
   }
   render();
   if (spec.minutes > 0) {
     var remain = spec.minutes * 60, te = document.getElementById('timer'); te.style.display = 'inline-block';
-    function tick(){ var m = Math.floor(remain/60), x = remain%60; te.textContent = m + ':' + String(x).padStart(2,'0'); if (remain <= 0) { clearInterval(hwTimer); finish(); } remain--; }
+    function tick(){
+      var m = Math.floor(remain/60), x = remain%60;
+      te.textContent = m + ':' + String(x).padStart(2,'0');
+      if (remain <= 0) { clearInterval(hwTimer); hwTimer=null; finish(true); return; }
+      remain--;
+    }
     tick(); hwTimer = setInterval(tick, 1000);
   }
   });

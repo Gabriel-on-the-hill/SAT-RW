@@ -1,0 +1,312 @@
+{
+  "_note": "Captured from the running apps by capture-fixtures.js. Do not hand-edit.",
+  "capturedAt": "2026-07-10T15:42:12.663Z",
+  "rw_challenge": {
+    "date": "2026-07-10T15:42:12.239Z",
+    "student": "Jeffrey",
+    "sessionId": "rw_mrf3tb7z_693g7y",
+    "type": "challenge",
+    "assignmentId": "p8-rw",
+    "assignmentTitle": "Practice 8 misses",
+    "score": 3,
+    "total": 3,
+    "pct": 100,
+    "skills": [
+      "Text Structure and Purpose",
+      "Boundaries"
+    ],
+    "diffs": [
+      "Hard"
+    ],
+    "mode": "assisted",
+    "duration": 0,
+    "avgSecs": 0,
+    "skillStats": {
+      "Text Structure and Purpose": {
+        "correct": 1,
+        "total": 1
+      },
+      "Boundaries": {
+        "correct": 2,
+        "total": 2
+      }
+    },
+    "blurCount": 0,
+    "questions": [
+      {
+        "id": "0c61d9c0",
+        "skill": "Text Structure and Purpose",
+        "difficulty": "Hard",
+        "chosen": "B",
+        "correct": "B",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
+      },
+      {
+        "id": "2bb7416a",
+        "skill": "Boundaries",
+        "difficulty": "Hard",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": ""
+      },
+      {
+        "id": "c468db1c",
+        "skill": "Boundaries",
+        "difficulty": "Hard",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": ""
+      }
+    ]
+  },
+  "rw_practice": {
+    "date": "2026-07-10T15:42:12.590Z",
+    "student": "Jeffrey",
+    "sessionId": "rw_mrf3tbhq_hvrvhm",
+    "type": "practice",
+    "assignmentId": "",
+    "assignmentTitle": "",
+    "score": 15,
+    "total": 15,
+    "pct": 100,
+    "skills": [
+      "Text Structure and Purpose",
+      "Words in Context",
+      "Cross-Text Connections"
+    ],
+    "diffs": [
+      "Hard",
+      "Easy",
+      "Medium"
+    ],
+    "mode": "assisted",
+    "duration": 0,
+    "avgSecs": 0,
+    "skillStats": {
+      "Text Structure and Purpose": {
+        "correct": 5,
+        "total": 5
+      },
+      "Words in Context": {
+        "correct": 7,
+        "total": 7
+      },
+      "Cross-Text Connections": {
+        "correct": 3,
+        "total": 3
+      }
+    },
+    "blurCount": 0,
+    "questions": [
+      {
+        "id": "d60bc86d",
+        "skill": "Text Structure and Purpose",
+        "difficulty": "Hard",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
+      },
+      {
+        "id": "d105cd4a",
+        "skill": "Text Structure and Purpose",
+        "difficulty": "Hard",
+        "chosen": "C",
+        "correct": "C",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
+      },
+      {
+        "id": "5873ade0",
+        "skill": "Words in Context",
+        "difficulty": "Easy",
+        "chosen": "C",
+        "correct": "C",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "bed303b9",
+        "skill": "Words in Context",
+        "difficulty": "Easy",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "3f9c1be4",
+        "skill": "Words in Context",
+        "difficulty": "Hard",
+        "chosen": "C",
+        "correct": "C",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "d377baf4",
+        "skill": "Text Structure and Purpose",
+        "difficulty": "Medium",
+        "chosen": "A",
+        "correct": "A",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
+      },
+      {
+        "id": "29b5b9c2",
+        "skill": "Cross-Text Connections",
+        "difficulty": "Easy",
+        "chosen": "A",
+        "correct": "A",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement"
+      },
+      {
+        "id": "561f41db",
+        "skill": "Text Structure and Purpose",
+        "difficulty": "Easy",
+        "chosen": "C",
+        "correct": "C",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
+      },
+      {
+        "id": "92fc161a",
+        "skill": "Words in Context",
+        "difficulty": "Hard",
+        "chosen": "B",
+        "correct": "B",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "cf959e6c",
+        "skill": "Words in Context",
+        "difficulty": "Medium",
+        "chosen": "A",
+        "correct": "A",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "ac2a3e8e",
+        "skill": "Cross-Text Connections",
+        "difficulty": "Easy",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement"
+      },
+      {
+        "id": "f1be2bd1",
+        "skill": "Words in Context",
+        "difficulty": "Hard",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "128b7cff",
+        "skill": "Text Structure and Purpose",
+        "difficulty": "Medium",
+        "chosen": "A",
+        "correct": "A",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
+      },
+      {
+        "id": "bac45e57",
+        "skill": "Cross-Text Connections",
+        "difficulty": "Hard",
+        "chosen": "A",
+        "correct": "A",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement"
+      },
+      {
+        "id": "d326f965",
+        "skill": "Words in Context",
+        "difficulty": "Easy",
+        "chosen": "C",
+        "correct": "C",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      }
+    ]
+  },
+  "rw_homework": {
+    "type": "homework",
+    "student": "Segun",
+    "day": 2,
+    "focus": "Transitions, at pace",
+    "score": 7,
+    "total": 10,
+    "seconds": 431,
+    "at": "2026-07-10T15:42:12.663Z",
+    "sessionId": "hw_test_abc123"
+  },
+  "math_challenge": {
+    "key": "edutrack-math-v1",
+    "type": "session",
+    "payload": {
+      "v": 1,
+      "sessionId": "challenge_1752163200000",
+      "appId": "Challenge_App",
+      "appName": "Challenge Set",
+      "module": "challenge",
+      "variant": "drill",
+      "topicTitle": "Challenge Set",
+      "score": 8,
+      "gradable": 10,
+      "ungraded": 0,
+      "missed": 2,
+      "durationMs": 412000,
+      "startedAt": 1752162788000,
+      "completedAt": 1752163200000,
+      "studentName": "Jeffrey",
+      "smartMode": false,
+      "isExamMode": false,
+      "domainBreakdown": "Algebra 5/6; Problem-Solving and Data Analysis 3/4 · mastered 4/28",
+      "detail": [
+        {
+          "id": "hard_0121a235",
+          "app": "Algebra_App",
+          "domain": "Algebra",
+          "difficulty": "hard",
+          "answered": true,
+          "correct": true
+        },
+        {
+          "id": "hard_9d935bd8",
+          "app": "PSDA_App",
+          "domain": "Problem-Solving and Data Analysis",
+          "difficulty": "hard",
+          "answered": true,
+          "correct": false
+        }
+      ]
+    }
+  }
+}

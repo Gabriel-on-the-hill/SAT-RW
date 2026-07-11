@@ -33,6 +33,10 @@ function logSession(skills, diffs, sessionScore, total) {
 
     const record = {
         date: new Date().toISOString(),
+        // Idempotency key. The tutor's Apps Script skips a Session ID it has
+        // already stored, which makes a re-POST harmless and lets the per-question
+        // rows in the Questions tab join back to this session.
+        sessionId: 'rw_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8),
         skills, diffs,
         score:  sessionScore,
         total,

@@ -29,6 +29,10 @@ function syncSessionToSheet(record) {
     const payload = {
         date:            record.date || new Date().toISOString(),
         student,
+        // Idempotency key. The Apps Script skips a Session ID it has already
+        // stored, so a re-POST is harmless, and the per-question rows in the
+        // Questions tab join back to this session on it.
+        sessionId:       record.sessionId || '',
         type:            record.source || 'practice',
         assignmentId:    record.assignmentId    || '',
         assignmentTitle: record.assignmentTitle || '',

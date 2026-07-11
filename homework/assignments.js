@@ -249,11 +249,28 @@ const HOMEWORK = {
         tip:"Decide whether each part is a complete sentence, then walk the punctuation flowchart." },
       { n:3, focus:"Words in Context",   skills:["Words in Context"], diffs:["Easy","Medium"], count:6, minutes:0,
         tip:"Cover the blank, predict your own word, then match it to a choice." },
-      { n:4, focus:"Information & Ideas", skills:["Central Ideas and Details","Inferences"], diffs:["Medium"], count:8, minutes:0,
+      // Days 4-6 name more than one skill, so they MUST use sections. A plain
+      // skills/diffs/count day draws from one ordered pool and takes the top N, which
+      // clusters — day 6 was serving six questions of a single skill, not a mix.
+      // Same skills, same difficulties, same totals; sections just make the mix real.
+      { n:4, focus:"Information & Ideas", minutes:0,
+        sections:[
+          { skills:["Central Ideas and Details"], diffs:["Medium"], count:4 },
+          { skills:["Inferences"],                diffs:["Medium"], count:4 },
+        ],
         tip:"For the main idea, cover the whole text. For inferences, stay close to what the text says." },
-      { n:5, focus:"Command of Evidence",skills:["Command of Evidence — Textual","Command of Evidence — Quantitative"], diffs:["Medium"], count:8, minutes:0,
+      { n:5, focus:"Command of Evidence", minutes:0,
+        sections:[
+          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:4 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:4 },
+        ],
         tip:"Match the evidence to the whole claim. Read the figure before the choices." },
-      { n:6, focus:"Mixed review",       skills:["Transitions","Boundaries","Words in Context"], diffs:["Easy","Medium","Hard"], count:6, minutes:0,
+      { n:6, focus:"Mixed review", minutes:0,
+        sections:[
+          { skills:["Transitions"],      diffs:["Easy","Medium","Hard"], count:2 },
+          { skills:["Boundaries"],       diffs:["Easy","Medium","Hard"], count:2 },
+          { skills:["Words in Context"], diffs:["Easy","Medium","Hard"], count:2 },
+        ],
         tip:"A short mix before our session." },
     ]
   },
