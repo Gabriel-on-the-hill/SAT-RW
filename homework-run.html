@@ -15,6 +15,9 @@
   .topbar .t{font-weight:700;color:var(--muted);font-size:.9rem}
   .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
   .tip{background:var(--accent-soft);border:1px solid #cfe0fb;border-radius:10px;padding:.7rem .85rem;font-size:.92rem;margin-bottom:1rem}
+  /* The reveal is locked until she has been on the text long enough to have read
+     it. Dimmed, but still clickable — clicking tells her why. */
+  .btn.locked{opacity:.55}
   .passage{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.2rem;margin-bottom:.9rem;white-space:pre-line}
   .passage img{max-width:100%;height:auto;border-radius:8px}
   .qtext{font-weight:700;margin-bottom:.8rem}
@@ -86,7 +89,7 @@
 <script src="data-conventions.js?v=20260703"></script>
 <script src="progress.js?v=20260703"></script>
 <script src="sheet-sync.js?v=20260703"></script>
-<script src="homework/assignments.js?v=20260710"></script>
+<script src="homework/assignments.js?v=20260714"></script>
 </head>
 <body>
 <div class="wrap">
@@ -182,7 +185,57 @@
   function predictMode(){ return (!isRedo && spec.minutes > 0) ? 'commit' : 'type'; }
 
   var idx=0, started=Date.now(), answered=false, isRedo=false;
-  var qStart=null, revealTs=null, prediction='';
+  var qStart=null, revealTs=null, prediction='', readTimer=null;
+
+  // ── What "predict first" actually asks, per skill ──────────────────────────
+  //
+  // The app used to ask one question for all eleven skills: "In your own words,
+  // what should the answer say?" That is right for the paraphrase family — Words
+  // in Context, Central Ideas, Inferences, Text Structure, Cross-Text, Evidence —
+  // and it is WRONG twice over:
+  //
+  //   • BOUNDARIES: all four choices are the SAME WORDS and differ only in
+  //     punctuation. "What should the answer say?" has no meaning. The real
+  //     prediction is a verdict — does each side stand alone, and which mark does
+  //     that force? Ask that instead.
+  //   • RHETORICAL SYNTHESIS: the answer is a sentence assembled from notes, and a
+  //     dozen phrasings are valid. Taken literally the old prompt invites the
+  //     student to compose it, which is impossible; the honest prediction is what
+  //     the answer must DO. A student who attempts the literal task, fails, and
+  //     finds the box accepts three characters types "abc".
+  //
+  // The prediction is never graded — the app cannot judge free text and should not
+  // try. Its whole job is to make him COMMIT before the choices can anchor him.
+  var PREDICT_PROMPTS = {
+    'Words in Context':                   { q:'Cover the choices. What word would you put in the blank?',
+                                            ph:'One word, in your own language…' },
+    'Central Ideas and Details':          { q:'In one sentence, what is this text mainly saying?',
+                                            ph:'The text is mainly about…' },
+    'Inferences':                         { q:'Finish the thought. What must be true, based only on the text?',
+                                            ph:'The text forces the conclusion that…' },
+    'Text Structure and Purpose':         { q:'What job does this part do in the text? Say the function, not the topic.',
+                                            ph:'Its function is to…' },
+    'Cross-Text Connections':             { q:'How would the second author respond to the first? Name the relationship.',
+                                            ph:'Author 2 would agree / disagree / qualify, because…' },
+    'Command of Evidence — Textual':      { q:'What would the right evidence have to show? Describe it before you look.',
+                                            ph:'The evidence must show that…' },
+    'Command of Evidence — Quantitative': { q:'Read the figure first. Which data supports the claim, and what does it show?',
+                                            ph:'The data must show that…' },
+    'Transitions':                        { q:'What is the relationship between the two sentences? Name it before you look.',
+                                            ph:'Contrast, continuation, cause–effect, example or sequence — and why…' },
+    'Rhetorical Synthesis':               { q:'What must the correct answer DO? Name the goal — do not try to write the sentence.',
+                                            ph:'It must compare / define / emphasise / introduce / present findings…' },
+    'Boundaries':                         { q:'Does each side stand alone as a sentence? Then say which mark that forces.',
+                                            ph:'e.g. “Both complete → semicolon or period”, or “second half is not complete → no mark”' },
+    'Form, Structure, and Sense':         { q:'What form does the sentence require? Say the rule, not the choice.',
+                                            ph:'e.g. “plural verb — the subject is ‘studies’”' },
+  };
+  function predictPrompt(q){
+    return (q && PREDICT_PROMPTS[q.skill]) || {
+      q:'In your own words, what should the answer say? Write it before you see the choices.',
+      ph:'My prediction is…'
+    };
+  }
 
   function render(){
     answered=false; revealTs=null; prediction='';
@@ -192,17 +245,19 @@
 
     var media = q.image ? '<div class="passage"><img src="'+attr(q.image)+'" alt="'+attr(q.alt||'figure')+'"></div>' : (q.passage?'<div class="passage">'+esc(q.passage)+'</div>':'');
 
+    var pp = predictPrompt(q);
     var predictBox = (mode==='type')
       ? '<div class="predict" id="predict">'
         + '<div class="ph">Predict first</div>'
-        + '<div class="psub">In your own words, what should the answer say? Write it before you see the choices.</div>'
-        + '<textarea id="predText" placeholder="My prediction is…"></textarea>'
+        + '<div class="psub">'+esc(pp.q)+'</div>'
+        + '<textarea id="predText" placeholder="'+attr(pp.ph)+'"></textarea>'
         + '<div class="err" id="predErr">Write your prediction first — that’s the whole method.</div>'
+        + '<div class="err" id="readErr">Read the text first. The choices are still locked.</div>'
         + '<div class="row"><button class="btn" id="predGo">Show the choices</button></div>'
         + '</div>'
       : '<div class="predict" id="predict">'
         + '<div class="ph">Predict first</div>'
-        + '<div class="psub">Read the text and answer it in your head. Only then look at the choices.</div>'
+        + '<div class="psub">'+esc(pp.q)+' Answer it in your head — only then look at the choices.</div>'
         + '<div class="row"><button class="btn" id="predGo">I have my prediction — show the choices</button></div>'
         + '</div>';
 
@@ -218,11 +273,56 @@
     document.getElementById('predGo').onclick=function(){ commit(); };
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){b.onclick=function(){choose(b,q);};});
     document.getElementById('next').onclick=function(){ idx++; if(idx>=set.length) finish(false); else render(); };
+
+    // Count the lock down in the button itself, so the wait is visible and not a
+    // dead control she has to guess at.
+    if(readTimer){ clearInterval(readTimer); readTimer=null; }
+    var need=minReadSecs(q);
+    if(need>0){
+      var go=document.getElementById('predGo'), label=go.textContent;
+      var tick=function(){
+        var left=need-Math.floor((Date.now()-qStart)/1000);
+        if(left>0){ go.textContent='Read the text — '+left+'s'; go.classList.add('locked'); }
+        else { clearInterval(readTimer); readTimer=null; go.textContent=label; go.classList.remove('locked'); }
+      };
+      tick();
+      readTimer=setInterval(tick,250);
+    }
+  }
+
+  // How long she must stay on the text before the choices unlock.
+  //
+  // The predict box used to ask only that she type SOMETHING — three characters
+  // cleared it, so "abc" ten times submitted a whole set in four seconds. Length
+  // is the wrong gate: a correct prediction here is often one word ("semicolon",
+  // "contrast"), so tightening it would punish the students who are doing it right.
+  // Reading, on the other hand, takes time no matter how briefly you can express
+  // the result. So time is the gate.
+  //
+  // Scaled to the passage at ~360 wpm — comfortably faster than anyone actually
+  // reads, so it never delays a genuine attempt; it only catches not-reading.
+  // Never applied under a clock: the timed set's pressure IS the clock, and a
+  // locked reveal could cost her the last question — "running out of time must
+  // not destroy the set". Redos are exempt; she has already read the passage once.
+  function minReadSecs(q){
+    if (isRedo || predictMode()!=='type') return 0;
+    var words=String(q.passage||'').trim().split(/\s+/).filter(Boolean).length;
+    if (q.image) words=Math.max(words,40);          // a figure has to be read too
+    return Math.min(45, Math.max(8, Math.round(words/6)));
   }
 
   // Reveal the options. The time before this click is time-on-text — the honest
   // measure of whether she read the passage or jumped straight to the choices.
   function commit(){
+    var q=set[idx];
+    // Enforce on the click, not by disabling the button: a disabled control tells
+    // her nothing, and this way she is told what is missing.
+    var need=minReadSecs(q), left=need-Math.floor((Date.now()-qStart)/1000);
+    if (left>0) {
+      var re=document.getElementById('readErr');
+      if(re){ re.textContent='Read the text first. The choices unlock in '+left+'s.'; re.classList.add('show'); }
+      return;
+    }
     if (predictMode()==='type') {
       var ta=document.getElementById('predText');
       var val=(ta.value||'').trim();
@@ -230,6 +330,7 @@
       prediction=val;
       document.getElementById('yourpred').innerHTML='<div class="yourpred"><b>Your prediction</b>'+esc(prediction)+'</div>';
     }
+    if(readTimer){ clearInterval(readTimer); readTimer=null; }
     revealTs=Date.now();
     document.getElementById('predict').remove();
     document.getElementById('opts').classList.remove('hidden');
@@ -277,6 +378,7 @@
   // the rest are marked not-reached, and she still lands on the review screen.
   function finish(expired){
     if(hwTimer) { clearInterval(hwTimer); hwTimer=null; }
+    if(readTimer) { clearInterval(readTimer); readTimer=null; }
     if(!isRedo){
       for (var j=0;j<daySet.length;j++){
         if (!records[j]) records[j]={
@@ -412,6 +514,15 @@
 
   // The tutor needs the per-question detail, not just a final score: what she
   // missed, how long she sat on the text, and what she predicted.
+  //
+  // This used to post the array under `detail`, with its own field names — and the
+  // Apps Script reads `body.questions` with the names sheet-sync.js uses. Wrong key,
+  // so the whole array was dropped server-side and NO homework question row was ever
+  // written: every homework row in the sheet came back with its per-question columns
+  // blank while practice rows were full. The predictions are the reasoning the class
+  // reviews together, and they were going nowhere. Key and names now match the
+  // contract in tutor-sheet/rw-apps-script.gs — change them together or this silently
+  // breaks again.
   function postLog(secs){
     try{
       if(typeof SHEET_SYNC_ENDPOINT==='string' && SHEET_SYNC_ENDPOINT){
@@ -419,9 +530,10 @@
         fetch(SHEET_SYNC_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
           body:JSON.stringify({type:'homework',student:student,day:dayN,focus:spec.focus,score:got,total:records.length,seconds:secs,at:new Date().toISOString(),
             sessionId:'hw_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8),
-            detail:records.map(function(r){
-              return {id:r.id, skill:r.skill, diff:r.difficulty, chose:r.chosen, ans:r.answer,
-                      ok:r.ok, onText:r.onText, onOpts:r.onOpts, pred:r.prediction};
+            questions:records.map(function(r){
+              return {id:r.id, skill:r.skill, difficulty:r.difficulty,
+                      chosen:r.chosen, correct:r.answer, isCorrect:r.ok,
+                      secs:r.secs, onText:r.onText, onOpts:r.onOpts, prediction:r.prediction};
             })})});
       }
     }catch(e){}

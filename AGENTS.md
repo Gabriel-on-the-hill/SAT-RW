@@ -2,6 +2,10 @@
 
 A no-build static site. Open the HTML, edit it, reload. No bundler, no package.json.
 
+Known gaps and the backend question — auth, the sheet secret, per-student plan isolation, and why
+none of it substitutes for reviewing the work with the student — are in [BACKLOG.md](BACKLOG.md).
+Read it before proposing an architecture.
+
 **Sister app:** `PSAT 8-9/app` (PSAT 8/9 R&W). It runs the **same homework engine from separate
 files**. There is no shared module — a fix to `homework-run.html` here is *not* a fix there.
 **Change one, change both, and run both test suites.**
@@ -24,6 +28,27 @@ broken and nothing failed. Read a test's header before you change what it guards
 **Edit `homework/assignments.js`. That is the only file.** The runner, the hub and the
 progress engine are generic and read the plan from there. A brand-new student also needs a
 one-time password entry in `gate.js`, but that is setup, not assignment.
+
+### The student can read assignments.js. Write it accordingly.
+
+`homework-hub.html`, `homework-run.html` and `progress.html` all `<script src>` it, so the
+student's browser downloads the entire file — **comments included, and every student's plan,
+not just their own.**
+
+So it holds no assessment of anyone: not what they failed to do, not what they cannot yet do,
+not what we think is really going on. "He does not do the work" is a true and useful sentence,
+and it does not belong in a file we hand him. **That reasoning goes in `homework/PLAN-NOTES.md`,
+which nothing loads and which is `.gitignore`d.** Comments in `assignments.js` are for the next
+editor and stay impersonal — shapes, pools, guardrails.
+
+**And this repo is PUBLIC, with GitHub Pages on.** Committing a note about a student does not
+just show it to that student, it publishes it to the internet at a stable URL, indexed, about a
+named minor. `PLAN-NOTES.md` is ignored for exactly that reason. If you ever need those notes
+shared or backed up, put them in a **private** repo — never this one.
+
+The student sees exactly three strings: `title`, `day.focus`, `day.tip`. Write them as
+instruction **to** him, never as assessment **of** him. "Rhetorical synthesis (notes open)" —
+not "the set you owe".
 
 ### A day naming more than one skill MUST use `sections`
 

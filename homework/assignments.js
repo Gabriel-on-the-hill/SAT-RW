@@ -1,6 +1,18 @@
 // ─────────────────────────────────────────────────────────────────
 // homework/assignments.js — catalog of all homework assignments.
 //
+// ⚠ THE STUDENT CAN READ THIS FILE. homework-hub.html, homework-run.html and
+// progress.html all load it, so his browser downloads the whole thing —
+// comments included, and every student's plan, not just his own.
+//
+// Nothing in here may assess a student: not what they failed to do, not what
+// they cannot yet do, not what we think is really going on. That reasoning
+// lives in homework/PLAN-NOTES.md, which the app never loads. Comments here
+// are for whoever edits the file next, and they stay impersonal.
+//
+// The three strings a student actually sees are `title`, `day.focus` and
+// `day.tip`. Write them as instruction TO him, never as assessment OF him.
+//
 // Each entry defines ONE homework drill. The homework-run.html page
 // reads `?assignment=<id>` from its URL and uses the matching entry
 // to drive the entire session.
@@ -275,68 +287,60 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey: no day-by-day plan this week. His work IS the Challenge module.
-  //
-  // A `challenge` key means: the hub renders a challenge card instead of a day
-  // list, and defers completion to the mastery ledger. There is deliberately no
-  // "Done" tick — a challenge is not finished after one pass. Mastery is two
-  // clean corrects per question and it lapses after 21 days, so "Mastered N of
-  // 28" is the only honest scoreboard, and only the ledger knows it.
-  //
-  // This replaces a Day 1 that sampled random Hard questions by skill. That day
-  // was wrong three ways: it served all-Hard when six of his sixteen captured
-  // misses were not; it drilled `Commas` when his real Boundaries gap is
-  // `Colon`; and its tip asserted "these are all Hard difficulty", which was
-  // false about his own test. Git history has it if it is ever wanted back.
-  //
-  // The set itself is frozen in challenge/sets.js. His Practice 8 MATH misses
-  // are a separate set in a separate app (Michael SAT's Challenge_App).
+  // Jeffrey: no day-by-day plan this week — a `challenge` key makes the hub
+  // render a challenge card instead of a day list and defer completion to the
+  // mastery ledger, so there is deliberately no "Done" tick. The set itself is
+  // frozen in challenge/sets.js. Rationale: homework/PLAN-NOTES.md.
   "Jeffrey": {
     title: "This week: your Practice 8 Challenge",
     challenge: "p8-rw",
     days: []
   },
 
-  // Segun (Joshua): three days on Expression of Ideas, into Monday's session.
-  // He went 0/6 on Q22–27 of Practice 6 (all Expression of Ideas) — but he sat
-  // that test on Jun 28, before transitions (Jun 29) or rhetorical synthesis
-  // (Jul 6) had been taught, so the domain is untouched rather than broken.
+  // Segun — week of 14 Jul. Four sets, Tue–Fri; Sat/Sun intentionally empty.
+  // Every day untimed (minutes:0), so the runner asks him to TYPE the decision
+  // rather than click a commit button — that written decision is the point of
+  // the week.
   //
-  // Day 1 encodes rhetorical synthesis untimed, notes open — the taxonomy is
-  // two days old. Day 2 is transitions as spaced retrieval, deliberately at
-  // 66s/q (under the 71s test average) because transitions should run fast and
-  // bank time for the synthesis questions that follow them at the module tail.
-  // Day 3 repeats Day 1's skill at Medium under a clock: if Day 1 is strong and
-  // Day 3 collapses, the problem is pacing, not synthesis. That is the question
-  // Monday should open with.
+  // Days 2 and 4 split Boundaries by ruleType because the bank is lopsided
+  // (Commas 33, NoPunct 12, Semi 6, Colon 4, Dash 6): an unfiltered draw is a
+  // comma drill. assignments.test.js checks pool depth by skill+difficulty and
+  // IGNORES ruleType, so it will NOT catch a thin ruleType draw. Day 4 was
+  // tallied by hand — Semi M1+H4=5, Colon M1+H2=3, Dash M3+H3=6, each ≥ its
+  // count of 2. Do not raise those counts without re-tallying.
   //
-  // Craft & Structure is deliberately absent. Bluebook rates it his strongest
-  // domain (Hard, 4/4 on Practice 6); the words-in-context gap from the baseline
-  // has closed. Pool check: RS = 18 Easy / 31 Medium / 21 Hard, Transitions =
-  // 20 / 14 / 15, so no day repeats a question and Day 3 stays unseen-first.
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser. Keep it free of assessment of him.
   "Segun": {
-    title: "This week: transitions and rhetorical synthesis, before Monday",
-    start: "2026-07-10",
+    title: "This week: boundaries and rhetorical synthesis",
+    start: "2026-07-14",
     unlock: "cumulative",
     days: [
-      { n:1, focus:"Rhetorical synthesis (take your time, notes open)", minutes:0,
-        tip:"Find the 'The student wants to…' sentence first and name the goal type — compare, define/explain, emphasize a trait, audience-aware, specify, present a study, generalize, or overview. Say what the correct answer must do before you read a single choice. Remember the master trap: a choice can be perfectly true and still be off-task.",
+      { n:1, focus:"Boundaries (take your time, notes open)", minutes:0,
+        tip:"Two questions, in this order, before you look at the choices: is each side a complete sentence, and do the two sides belong in one sentence? Two complete sentences can only be joined by a period, a semicolon, or a comma + FANBOYS. Notes open — you are building the flowchart this week, not racing it.",
         sections:[
-          { skills:["Rhetorical Synthesis"],              diffs:["Easy"],          count:4 },
-          { skills:["Rhetorical Synthesis"],              diffs:["Medium"],        count:6 }
+          { skills:["Boundaries"],          diffs:["Easy"],            count:2 },
+          { skills:["Boundaries"],          diffs:["Medium"],          count:4 }
         ] },
-      { n:2, focus:"Transitions, at pace", minutes:11,
-        tip:"Name the relationship between the two sentences before you look at the choices — contrast, continuation, cause–effect, example/specification, or sequence. Analyse the logic, don't match keywords. These should be quick; the time you save here is time you spend on synthesis.",
+      { n:2, focus:"Boundaries: comma, or nothing at all (notes open)", minutes:0,
+        tip:"Most boundaries questions reduce to one decision: does anything belong here at all? Read the sentence with no punctuation in it first. If neither side stands alone, a semicolon and a period are both wrong before you even compare them. Write that decision out before you look at the choices.",
         sections:[
-          { skills:["Transitions"],                       diffs:["Easy"],          count:2 },
-          { skills:["Transitions"],                       diffs:["Medium"],        count:5 },
-          { skills:["Transitions"],                       diffs:["Hard"],          count:3 }
+          { skills:["Boundaries"], diffs:["Easy","Medium"], ruleType:"Commas",  count:4 },
+          { skills:["Boundaries"], diffs:["Easy","Medium"], ruleType:"NoPunct", count:2 }
         ] },
-      { n:3, focus:"Rhetorical synthesis, timed (no notes)", minutes:12,
-        tip:"New questions, same skill as Day 1 — now on the clock and without notes. Run the same protocol: name the goal, say what the answer must do, then read the choices. Watch your total time, not each question. If a choice is close but leaves something out, it is wrong — move on rather than reread.",
+      { n:3, focus:"Rhetorical synthesis (take your time, notes open)", minutes:0,
+        tip:"Find the 'The student wants to…' sentence and name the goal before you read a single choice: compare, define/explain, emphasize a trait, address an audience, specify, present a study, generalize, or overview. Say what the correct answer must do, then read the choices. The trap this skill is built on: a choice can be entirely true and still be off-task.",
         sections:[
-          { skills:["Rhetorical Synthesis"],              diffs:["Medium"],        count:10 }
-        ] }
+          { skills:["Rhetorical Synthesis"], diffs:["Easy"],           count:2 },
+          { skills:["Rhetorical Synthesis"], diffs:["Medium"],         count:4 }
+        ] },
+      { n:4, focus:"Boundaries: when the answer is not a comma (notes open)", minutes:0,
+        tip:"The three marks you said you find hardest. Semicolon: two complete sentences, closely related. Colon: the first part sets something up, the second part delivers it — an explanation, a list, a definition. Dash: the colon's job, or a matched pair fencing off non-essential information. Name the job the mark has to do, then pick the mark.",
+        sections:[
+          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Semi",  count:2 },
+          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Colon", count:2 },
+          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Dash",  count:2 }
+        ] },
     ]
   }
 };

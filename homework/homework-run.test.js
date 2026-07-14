@@ -93,7 +93,14 @@ function build(day) {
         runScripts: 'dangerously',
         url: `http://localhost/homework-run.html?student=__TEST__&day=${day}`,
         beforeParse(w) {
-            w.fetch = () => Promise.resolve({ ok: true });
+            // Capture, don't discard: §10 asserts the shape of what we post. The
+            // homework logger posted its questions under the wrong key for months
+            // and nothing failed, because nothing looked.
+            w.__posts = [];
+            w.fetch = (url, opt) => {
+                try { w.__posts.push(JSON.parse((opt && opt.body) || '{}')); } catch (e) {}
+                return Promise.resolve({ ok: true });
+            };
             w.scrollTo = () => {};
             w.alert = () => {};
         },
@@ -111,6 +118,7 @@ function build(day) {
     w.document.body.appendChild(probe);
     w.HOMEWORK['__TEST__'] = JSON.parse(JSON.stringify(PLAN));
     freezeDraw(w);
+    installClock(w);
     const s = w.document.createElement('script');
     s.textContent = INLINE;
     w.document.body.appendChild(s);
@@ -147,6 +155,7 @@ function reopen(day, store, mode) {
     w.document.body.appendChild(probe);
     w.HOMEWORK['__TEST__'] = JSON.parse(JSON.stringify(PLAN));
     freezeDraw(w);
+    installClock(w);
     const s = w.document.createElement('script');
     s.textContent = INLINE;
     w.document.body.appendChild(s);
@@ -175,8 +184,21 @@ const dump = w => {
     return o;
 };
 
+// The choices are locked until she has been on the text long enough to have read
+// it (minReadSecs). A test cannot sit through that, so it advances a virtual clock
+// instead — every helper that reveals the choices first jumps far enough forward
+// that the read-gate is satisfied. See "the read-gate" section for the tests that
+// deliberately do NOT skip, and assert the lock holds.
+let CLOCK_SKEW = 0;
+function installClock(w) {
+    const real = w.Date.now.bind(w.Date);
+    w.Date.now = () => real() + CLOCK_SKEW;
+}
+function waitOutReadGate() { CLOCK_SKEW += 60000; }   // 60s > the 45s cap
+
 function commit(w, text) {
     if ($(w, 'predText')) $(w, 'predText').value = text || 'my prediction';
+    waitOutReadGate();
     $(w, 'predGo').click();
 }
 
@@ -227,7 +249,18 @@ section('1 · The options are hidden until she has predicted');
     ok('untimed → she must TYPE the prediction', !!$(w, 'predText'));
     ok('untimed → no clock', $(w, 'timer').style.display !== 'inline-block');
 
-    $(w, 'predGo').click();                       // empty
+    // ── the read-gate ──────────────────────────────────────────────────────────
+    // The predict box used to ask only that she type SOMETHING: three characters
+    // cleared it, so "abc" ten times submitted a full set in FOUR SECONDS. Length
+    // is the wrong gate — a correct prediction here is often one word ("semicolon")
+    // — so the gate is TIME on the text. These two assertions are that gate.
+    $(w, 'predGo').click();                       // instantly, without reading
+    ok('the choices stay LOCKED if she has not been on the text', !shown($(w, 'opts')));
+    ok('and she is told why, not just left with a dead button',
+        $(w, 'readErr').classList.contains('show'));
+
+    waitOutReadGate();
+    $(w, 'predGo').click();                       // read the text, but predicted nothing
     ok('an empty prediction is refused', $(w, 'predErr').classList.contains('show'));
     ok('the options are STILL hidden', !shown($(w, 'opts')));
 
@@ -247,6 +280,11 @@ section('2 · A timed set gates the options WITHOUT making her type');
     ok('timed → the clock is running', $(w, 'timer').style.display === 'inline-block');
     $(w, 'predGo').click();
     ok('one click reveals the options', shown($(w, 'opts')));
+    // NOT read-gated, deliberately. Under a clock the pressure IS the clock, and a
+    // locked reveal could cost her the last question — "running out of time must
+    // not destroy the set". The gate belongs on the untimed sets, where she is
+    // learning the method and there is nothing else stopping her clicking through.
+    ok('a timed set is NOT read-gated — the reveal is instant', shown($(w, 'opts')));
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -392,6 +430,46 @@ function finish() {
         const harder = QB.filter(q => q.skill === 'Inferences' && q.difficulty === 'Hard');
         ok('a Medium miss cannot return in a Hard-only pool',
             !real(harder).some(q => q.id === pool[pool.length - 1].id));
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    section('10 · The tutor actually receives the prediction');
+    {
+        // This is the bug that hid for months. postLog() posted its per-question array
+        // under `detail`, with its own field names; the Apps Script reads `questions`
+        // with sheet-sync.js's names. Wrong key → the array was dropped server-side and
+        // NOT ONE homework question row was ever written. The score still arrived, so
+        // the sheet looked fine. The predictions — the reasoning the class reviews
+        // together — went nowhere.
+        //
+        // These assertions pin the wire contract. If you rename a field here, rename it
+        // in tutor-sheet/rw-apps-script.gs in the same commit.
+        const w = build(1);                         // day 1 is a 3-question set
+        setAnswersFor(w, 0);
+        commit(w, 'the author is conceding a point');
+        pickRight(w);
+        $(w, 'next').click();
+        commit(w, 'a contrast is coming');
+        pickWrong(w);
+        $(w, 'next').click();
+        commit(w, 'the study failed to replicate');
+        pickRight(w);
+        $(w, 'next').click();                       // last question → finish() → postLog()
+
+        const post = (w.__posts || []).find(p => p.type === 'homework');
+        ok('a homework session is posted at all', !!post);
+        ok('the per-question array is under `questions` (NOT `detail`)',
+            Array.isArray(post && post.questions), 'got keys: ' + Object.keys(post || {}));
+
+        const q0 = (post && post.questions && post.questions[0]) || {};
+        ok('the prediction she typed is in the payload',
+            /conceding/.test(q0.prediction || ''), 'got ' + JSON.stringify(q0.prediction));
+        ok('time-on-text is sent separately, not averaged away', typeof q0.onText === 'number');
+        ok('and time-on-options with it', typeof q0.onOpts === 'number');
+
+        // The names the Apps Script destructures. A typo here writes blank columns.
+        for (const f of ['id', 'skill', 'difficulty', 'chosen', 'correct', 'isCorrect', 'secs'])
+            ok('the field the Apps Script reads is present: ' + f, f in q0);
     }
 
     console.log('\n' + '─'.repeat(64));

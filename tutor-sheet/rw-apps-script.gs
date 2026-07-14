@@ -28,9 +28,21 @@ var SESSION_COLUMNS = [
 ];
 var EXTRA_COLUMNS = ['Skills', 'Difficulties'];   // R&W only
 
+// 'Prediction', 'On text' and 'On options' are appended LAST on purpose: new
+// headers are added to the right, so existing rows keep their data.
+//
+// Prediction is the one that matters. The homework runner makes the student write
+// what the answer must be BEFORE the choices appear, and that sentence is the
+// reasoning the class reviews together — a right answer reached by bad reasoning
+// is as much a target as a wrong one, and the score alone never shows it.
+//
+// On text is the integrity signal: a Hard passage committed in four seconds was
+// not read. Do not average it into a single per-question time — that is exactly
+// what hides it.
 var QUESTION_COLUMNS = [
   'Timestamp', 'Student', 'Subject', 'Session ID', '#', 'Question ID',
-  'Skill', 'Difficulty', 'Chosen', 'Correct', 'Right', 'Seconds', 'Trap'
+  'Skill', 'Difficulty', 'Chosen', 'Correct', 'Right', 'Seconds', 'Trap',
+  'Prediction', 'On text', 'On options'
 ];
 
 // Old header → new header. Applied in place, so existing rows keep their data.
@@ -92,11 +104,15 @@ function normalise_(b) {
   };
 
   // sheet-sync.js sends: { id, skill, difficulty, chosen, correct, isCorrect, secs, trap }
+  // homework-run.html adds:            { prediction, onText, onOpts }
+  // Practice sends no prediction; those cells stay blank, which is correct — only
+  // homework asks for one.
   row.__questions = (Array.isArray(b.questions) ? b.questions : []).map(function (q) {
     return {
       id: q.id, skill: q.skill, difficulty: q.difficulty,
       chosen: q.chosen, correct: q.correct, right: q.isCorrect,
-      secs: q.secs, trap: q.trap
+      secs: q.secs, trap: q.trap,
+      prediction: q.prediction, onText: q.onText, onOpts: q.onOpts
     };
   });
   return row;
@@ -207,7 +223,10 @@ function appendQuestions_(norm, qs) {
       'Correct':     q.correct || '',
       'Right':       q.right === undefined || q.right === null ? '' : !!q.right,
       'Seconds':     present_(q.secs),
-      'Trap':        q.trap || ''
+      'Trap':        q.trap || '',
+      'Prediction':  q.prediction || '',
+      'On text':     present_(q.onText),
+      'On options':  present_(q.onOpts)
     });
   });
   sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, headers.length).setValues(rows);

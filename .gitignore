@@ -1,3 +1,11 @@
+# ── NEVER COMMIT: notes that assess a named student ──────────────
+# This repo is PUBLIC and serves GitHub Pages. Anything committed here is
+# world-readable at a stable URL, forever, and indexed. Tutor notes about a
+# student — scores, effort, "what is really going on" — must not be published.
+# Keep them local, or in a PRIVATE repo. See AGENTS.md.
+homework/PLAN-NOTES.md
+**/PLAN-NOTES.md
+
 # editor / OS cruft
 .DS_Store
 Thumbs.db
