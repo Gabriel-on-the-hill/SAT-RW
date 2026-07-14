@@ -13,6 +13,31 @@
 // The three strings a student actually sees are `title`, `day.focus` and
 // `day.tip`. Write them as instruction TO him, never as assessment OF him.
 //
+// ── SPACED REVIEW: read this before you write the next plan ────────
+//
+// Every day now serves up to 2 REVIEW questions on top of its own draw, pulled by
+// dueForReview() from the WHOLE bank — across skills and across difficulties. It is
+// the only draw that can do that. A day narrows the bank to (say) "Words in Context
+// / Hard" before prioritizePool() ever sees the pool, so a due Text Structure
+// question, or a Medium miss on a Hard-only day, cannot surface there at any sort
+// order. Without this, nothing taught a month ago ever came back. It didn't.
+//
+// It only ever returns questions that have ALREADY been attempted and that the
+// ladder in progress.js says are genuinely overdue. It never serves an unseen
+// question, so it cannot hand anyone an untaught skill cold.
+//
+// THE DOSE resolves day → plan → 2 (the default).
+//   • Write a new plan and do nothing: it gets review. That is deliberate. Spacing
+//     should be what happens when the tutor forgets, not a thing to remember.
+//   • `review: 0` on a DAY whose job is to teach one brand-new skill and needs the
+//     full dose on it.
+//   • `review: 0` on a PLAN freezes it entirely — which is why the plans below carry
+//     it. They were already running when the ladder landed, and no set should grow by
+//     two questions overnight. **Drop the line when you next re-assign.**
+//
+// AUTHOR THE COUNTS AROUND IT. A six-question day is now 4 new + 2 review, not 6 + 2.
+// Short sets that get finished still beat long sets that get abandoned.
+//
 // Each entry defines ONE homework drill. The homework-run.html page
 // reads `?assignment=<id>` from its URL and uses the matching entry
 // to drive the entire session.
@@ -254,6 +279,7 @@ const HOMEWORK = {
     title: "This week — mixed Reading & Writing review",
     start: "2026-06-22",      // YYYY-MM-DD: the day Day 1 becomes available
     unlock: "cumulative",     // missed days stay open
+    review: 0,                // ← FROZEN (predates the ladder). Drop this line when you re-assign.
     days: [
       { n:1, focus:"Transitions",        skills:["Transitions"], diffs:["Easy","Medium"], count:6, minutes:0,
         tip:"Name the connection between the two sentences before you look at the choices." },
@@ -315,6 +341,8 @@ const HOMEWORK = {
     title: "This week: boundaries and rhetorical synthesis",
     start: "2026-07-14",
     unlock: "cumulative",
+    review: 0,                // ← FROZEN. This week was authored before the ladder landed;
+                              //   the counts assume no review draw. Drop the line next week.
     days: [
       { n:1, focus:"Boundaries (take your time, notes open)", minutes:0,
         tip:"Two questions, in this order, before you look at the choices: is each side a complete sentence, and do the two sides belong in one sentence? Two complete sentences can only be joined by a period, a semicolon, or a comma + FANBOYS. Notes open — you are building the flowchart this week, not racing it.",

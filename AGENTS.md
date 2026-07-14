@@ -81,10 +81,43 @@ matching the set's skill **and** difficulty. So a Medium miss will never reappea
 Hard-only set. If you want this week's misses to come back before the next class, the later
 days must keep Medium in scope alongside Hard.
 
+### `review: N` — the one draw that crosses the filter
+
+Every day also serves up to **2 review questions by default**, drawn by `dueForReview()` in
+`progress.js` from the **whole bank**, and mixed into the set at random positions. Set
+`review: 0` on a day whose job is to teach one brand-new skill and needs the full dose on it.
+Set `review: 4` to lean harder on maintenance.
+
+This exists because reordering a pool **cannot** bring back a question the day's filter already
+removed — which is the limitation above, and it is structural. A due Text Structure question
+cannot appear in a Words-in-Context pool at any sort order. Review has to be drawn against the
+whole bank or it does not happen.
+
+It is self-limiting. It only returns questions the student has **already attempted** and that the
+review ladder says are genuinely **overdue**, so early in a plan it adds nothing and the set is
+exactly as authored. It never serves an unseen question — a "review" block that hands a student an
+untaught skill cold is not review.
+
+**The ladder** (`progress.js`): a correct answer does not finish a question, it *schedules* it.
+1 day → 3 days → 1 week → 3 weeks → 6 weeks, climbing one rung per consecutive correct. A miss
+drops it to the bottom. `homework/review-ladder.test.js` guards it, and its header explains the bug
+it exists to prevent: for months, a question the student had *learned* was demoted into a tier that
+sat behind `unseen`, and with hundreds of questions in the bank and 6 to a set, **it was never
+drawn again.** Nothing taught in April came back in May. Not because anyone decided that — because
+a tier was in the wrong place and no test looked.
+
 ## The homework runner is a learning loop, not a quiz
 
 Guarded by `homework/homework-run.test.js`. Do not remove these without a reason better than
 "it's simpler":
+
+**These are not UI preferences. They are the house pedagogy, and the house rules are in the root
+[AGENTS.md](../../../AGENTS.md).** Each rule below has a name and a body of evidence behind it — the
+prediction gate is retrieval practice (`PS-4`), untimed-before-timed is `AS-5`, `sections` is
+interleaving (`MR-4`), misses coming back is spaced retrieval (`MR-1`). Look one up in
+[Pedagogical-Design-Handbook.md](../../../Pedagogical-Design-Handbook.md) before you decide it is
+overhead. Every one of them makes the app feel *harder* than the obvious alternative. That is the
+mechanism, not a bug in it.
 
 - **The options stay hidden until the student commits a prediction.** This is the technique
   every student here is taught, and homework is the one place they can silently skip it.

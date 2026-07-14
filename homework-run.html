@@ -87,7 +87,7 @@
 <script src="data-expression-of-ideas.js?v=20260703"></script>
 <script src="data-info-ideas.js?v=20260703"></script>
 <script src="data-conventions.js?v=20260703"></script>
-<script src="progress.js?v=20260703"></script>
+<script src="progress.js?v=20260714"></script>
 <script src="sheet-sync.js?v=20260703"></script>
 <script src="homework/assignments.js?v=20260714"></script>
 </head>
@@ -173,6 +173,35 @@
     var pool=QB.filter(function(q){return spec.skills.indexOf(q.skill)>=0 && spec.diffs.indexOf(q.difficulty)>=0;});
     set=_pick(pool, spec.count);
   }
+
+  // ── Spaced review ──────────────────────────────────────────────────────────
+  // Up to `review` questions the ladder says are DUE, drawn from the WHOLE bank
+  // and mixed into the day's set. Default 2. Set `review:0` on a day whose whole
+  // job is to teach one brand-new skill and needs the full dose on it.
+  //
+  // This is the ONLY draw that crosses the day's skill/difficulty filter, and it
+  // has to be. The day narrows the bank to (say) Words in Context / Hard before
+  // prioritizePool() ever sees the pool, so a Text Structure question that is due
+  // — or a Medium miss, when the day is Hard-only — cannot possibly surface there.
+  // Reordering a pool cannot bring back something the filter already removed.
+  // Without this draw, nothing taught in April ever comes back at all.
+  //
+  // It is self-limiting: it only returns questions he has ALREADY attempted and
+  // that are genuinely overdue, so early in a plan it adds nothing and the set is
+  // exactly as authored. They are spliced in at random positions rather than
+  // appended, so the set stays mixed instead of ending in a review block.
+  //
+  // The dose resolves day → plan → 2. A plan-level `review: 0` freezes a plan that
+  // was already running when the ladder landed, so nobody's homework grew by two
+  // questions overnight. New plans simply omit it and get review for free — which is
+  // the point: spacing should be what happens when the tutor does nothing.
+  var reviewN  = (typeof spec.review === 'number') ? spec.review
+               : (plan && typeof plan.review === 'number') ? plan.review
+               : 2;
+  var _inSet   = {}; set.forEach(function(q){ _inSet[q.id] = true; });
+  var reviewQs = (typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet) : [];
+  reviewQs.forEach(function(q){ set.splice(Math.floor(Math.random() * (set.length + 1)), 0, q); });
+
   if(!set.length){ run.innerHTML='<div class="done-card">No questions available for this day. <a href="homework-hub.html">Back</a></div>'; return; }
 
   var daySet=set.slice();   // the canonical set; `set` becomes the redo list later

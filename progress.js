@@ -33,6 +33,27 @@ const MASTERY_DECAY_MS  = 21 * 86_400_000; // 21 days
 // for reinforcement.
 const REVIEW_COOLDOWN_MS = 20 * 3_600_000;  // 20 hours
 
+// ── The review ladder ─────────────────────────────────────────────
+// A correct answer does not FINISH a question. It SCHEDULES it. Each consecutive
+// correct pushes the next sighting further out; a miss drops it to the bottom rung.
+//
+//   1st correct → back in 1 day    4th → back in 3 weeks
+//   2nd         → 3 days           5th+ → back in 6 weeks, then it is maintenance
+//   3rd         → 1 week
+//
+// This exists because the ledger had no way to bring a learned question BACK.
+// Two corrects made a question "mastered" (bottom tier of the draw). At 21 days
+// _isMastered() went false and — because `wrong` was still 0 — the question fell
+// into softMastered, a tier that sits BEHIND `unseen`. The bank holds hundreds of
+// questions and a set takes six, so `unseen` never ran out and the question was
+// never drawn again. The 21-day decay only ever changed a label on the progress
+// screen. A topic taught in April was gone by May and nothing brought it back.
+//
+// Spacing is the largest, most replicated effect in the learning literature
+// (`MR-1`, `MR-3` in the root handbook). We had none of it. This is it.
+const REVIEW_LADDER_DAYS = [1, 3, 7, 21, 42];
+const DAY_MS = 86_400_000;
+
 function getProgress() {
     try { return JSON.parse(localStorage.getItem('wayne_progress_' + _hwUser())) || {}; }
     catch(e) { return {}; }
@@ -47,16 +68,82 @@ function _saveProgress(ledger) {
 function recordAnswer(id, isCorrect, source) {
     const ledger = getProgress();
     if (!ledger[id]) ledger[id] = { correct: 0, wrong: 0, lastSeen: 0 };
+    // Read the rung BEFORE touching anything. _streak() falls back to `correct` for
+    // ledgers written before the ladder, so computing it after correct++ would count
+    // a single right answer as two rungs and double-space the question.
+    const rung = _streak(ledger[id]);
     ledger[id].lastSeen   = Date.now();
     ledger[id].lastSource = source || 'practice';
     ledger[id].lastResult = isCorrect ? 'correct' : 'wrong';
     if (isCorrect) {
         ledger[id].correct += (source === 'exam') ? 2 : 1;
+        ledger[id].streak   = rung + 1;                  // climb a rung
     } else {
         ledger[id].wrong++;
+        ledger[id].streak = 0;                            // back to the bottom
         if (ledger[id].correct > 0) ledger[id].correct--;
     }
     _saveProgress(ledger);
+}
+
+// ── The ladder ────────────────────────────────────────────────────
+// Consecutive corrects. Ledgers written before the ladder existed carry no
+// `streak`, so infer one rather than resetting real students to zero: a record
+// whose last answer was wrong sits at the bottom; otherwise credit the corrects
+// it already banked.
+function _streak(record) {
+    if (!record) return 0;
+    if (typeof record.streak === 'number') return record.streak;
+    return record.lastResult === 'wrong' ? 0 : (record.correct || 0);
+}
+
+// When this question should next be put in front of the student.
+function _dueAt(record) {
+    if (!record || !record.lastSeen) return 0;
+    const s = _streak(record);
+    // A miss is not on the ladder — it comes back as soon as the cooldown clears,
+    // which is what makes "misses come back" true.
+    if (s <= 0) return record.lastSeen + REVIEW_COOLDOWN_MS;
+    const rung = REVIEW_LADDER_DAYS[Math.min(s, REVIEW_LADDER_DAYS.length) - 1];
+    return record.lastSeen + rung * DAY_MS;
+}
+
+function _isDue(record) {
+    if (!record || !record.lastSeen) return false;
+    return Date.now() >= _dueAt(record);
+}
+
+// How long overdue, in ms. Negative means not due yet. Used to sort the review
+// queue so the most-forgotten thing comes back first.
+function _overdueBy(record) {
+    if (!record || !record.lastSeen) return -Infinity;
+    return Date.now() - _dueAt(record);
+}
+
+// ── The review draw ───────────────────────────────────────────────
+// Up to `n` questions that are DUE, most overdue first.
+//
+// This is the one draw that is allowed to ignore the day's skill and difficulty
+// filter, and it is the whole point of it. A homework day narrows the bank to
+// (say) Words in Context / Hard before prioritizePool() ever sees it, so a
+// Text Structure question due for review — or a Medium miss, when the day is
+// Hard-only — CANNOT surface there, no matter how the pool is ordered. Review
+// has to be drawn against the whole bank or it does not happen at all.
+//
+// It never returns an unseen question. A review block may only bring back
+// something the student has actually been taught and has actually attempted;
+// handing them a cold skill under the banner of "review" is the fastest way to
+// lose them (`CD-2` — never assign what has not been taught).
+function dueForReview(bank, n, excludeIds) {
+    if (!bank || !bank.length || !n) return [];
+    const ledger = getProgress();
+    const skip   = excludeIds || {};
+    return bank
+        .filter(q => !skip[q.id] && ledger[q.id] && _isDue(ledger[q.id]))
+        .map(q => ({ q, over: _overdueBy(ledger[q.id]) }))
+        .sort((a, b) => b.over - a.over)
+        .slice(0, n)
+        .map(x => x.q);
 }
 
 function _isMastered(record) {
@@ -82,42 +169,44 @@ function _isResting(record) {
     return false;
 }
 
-// Reorder pool with FOUR tiers:
-//   1. needsWork    — seen, has had at least one wrong answer, not yet mastered.
-//                     Surfaces FIRST so the student practises their misses.
-//   2. unseen       — never answered.
-//   3. softMastered — answered correctly at least once with NO wrongs ever,
-//                     but hasn't hit MASTERY_THRESHOLD yet. Parked toward the
-//                     back so a single correct answer doesn't bounce the same
-//                     question right back in the next session. A second
-//                     correct in a future session promotes it to mastered.
-//   4. mastered     — correct >= MASTERY_THRESHOLD and not decayed.
-// Each tier is shuffled independently so order within a tier is random.
+// Reorder pool with THREE tiers:
+//   1. needsWork — seen, has had at least one wrong answer, not yet mastered.
+//                  Surfaces FIRST so the student practises their misses.
+//   2. unseen    — never answered.
+//   3. resting   — answered correctly at some point. Sorted by how OVERDUE it is
+//                  (see the review ladder), not shuffled: when a narrow pool runs
+//                  out of unseen questions, the thing the student is closest to
+//                  forgetting is the thing that should come back.
+// The first two tiers are shuffled so order within them is random.
+//
+// `unseen` deliberately stays AHEAD of `resting`. Review does not get to crowd out
+// new material inside a normal draw — a day set to teach a new skill must still
+// teach it. Review gets its own dose instead, drawn against the whole bank by
+// dueForReview(), because that is the only draw that can reach a due question the
+// day's skill/difficulty filter has already excluded.
 function prioritizePool(pool) {
-    const ledger       = getProgress();
-    const needsWork    = [];
-    const unseen       = [];
-    const softMastered = [];
-    const mastered     = [];
+    const ledger    = getProgress();
+    const needsWork = [];
+    const unseen    = [];
+    const resting   = [];
 
     pool.forEach(q => {
         const r = ledger[q.id];
         if (!r) {
             unseen.push(q);
-        } else if (_isMastered(r)) {
-            mastered.push(q);
-        } else if ((r.wrong || 0) > 0) {
+        } else if ((r.wrong || 0) > 0 && !_isMastered(r)) {
             needsWork.push(q); // has had at least one miss
         } else {
-            softMastered.push(q); // correct >= 1, never wrong, not yet at threshold
+            resting.push(q);   // previously correct — the ladder decides when it returns
         }
     });
+
+    resting.sort((a, b) => _overdueBy(ledger[b.id]) - _overdueBy(ledger[a.id]));
 
     return [
         ..._fyShuffle(needsWork),
         ..._fyShuffle(unseen),
-        ..._fyShuffle(softMastered),
-        ..._fyShuffle(mastered),
+        ...resting,
     ];
 }
 
