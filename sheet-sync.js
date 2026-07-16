@@ -4,7 +4,7 @@
 //
 // Behaviour:
 //   • Never blocks the UI. The student doesn't wait for the network.
-//   • Local history (wayne_sat_history) keeps working regardless.
+//   • Local history (satrw_sat_history) keeps working regardless.
 //   • Failures are logged to console only — no user-visible error.
 //   • Includes the student's name from the gate (sessionStorage.mastery_user).
 //

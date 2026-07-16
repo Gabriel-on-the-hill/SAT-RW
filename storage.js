@@ -12,7 +12,7 @@
 // Computed getters mean every existing STORAGE.HISTORY/SESSION/BACKUP call site
 // resolves to the current student's key with no other changes needed.
 //
-// Migration: the app previously used un-suffixed keys (e.g. 'wayne_sat_history').
+// Migration: the app previously used un-suffixed keys (e.g. 'satrw_sat_history').
 // The first time a signed-in student's namespaced key is read and found empty,
 // any legacy value is copied across (non-destructively) so existing progress
 // carries over instead of disappearing.
@@ -22,9 +22,9 @@ function _migrateLegacy(user) {
     _satMigrated[user] = true;
     try {
         var pairs = [
-            ['wayne_sat_history',     'wayne_sat_history_' + user],
-            ['wayne_sat_session',     'wayne_sat_session_' + user],
-            ['wayne_sat_last_backup', 'wayne_sat_backup_'  + user],
+            ['satrw_sat_history',     'satrw_sat_history_' + user],
+            ['satrw_sat_session',     'satrw_sat_session_' + user],
+            ['satrw_sat_last_backup', 'satrw_sat_backup_'  + user],
         ];
         for (var i = 0; i < pairs.length; i++) {
             var legacy = localStorage.getItem(pairs[i][0]);
@@ -41,10 +41,10 @@ function _storeUser() {
     return u;
 }
 const STORAGE = {
-    get HISTORY() { return 'wayne_sat_history_' + _storeUser(); },
-    get SESSION() { return 'wayne_sat_session_' + _storeUser(); },
-    get BACKUP()  { return 'wayne_sat_backup_'  + _storeUser(); },
-    SPLIT: 'wayne_sat_split',   // panel-size preference is cosmetic; shared is fine
+    get HISTORY() { return 'satrw_sat_history_' + _storeUser(); },
+    get SESSION() { return 'satrw_sat_session_' + _storeUser(); },
+    get BACKUP()  { return 'satrw_sat_backup_'  + _storeUser(); },
+    SPLIT: 'satrw_sat_split',   // panel-size preference is cosmetic; shared is fine
 };
 
 // ── Safe wrappers (localStorage can throw: private mode, quota, etc.) ──
@@ -268,7 +268,7 @@ function openImportProgressModal() {
 
 function buildFullBackup() {
     return {
-        type:       'wayne-sat-backup',
+        type:       'satrw-backup',
         version:    1,
         exportedAt: new Date().toISOString(),
         history:    safeGetJSON(STORAGE.HISTORY, []),
@@ -313,7 +313,7 @@ function openBackupAllModal() {
     dl.className   = 'btn modal-extra';
     dl.textContent = '↓ Download .json';
     dl.onclick = () => {
-        const name = `wayne-sat-backup-${new Date().toISOString().slice(0, 10)}.json`;
+        const name = `satrw-backup-${new Date().toISOString().slice(0, 10)}.json`;
         if (downloadJSONFile(name, buildFullBackup())) markBackupDone();
     };
     const actions = modal.querySelector('.modal-actions');

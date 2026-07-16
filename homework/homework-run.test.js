@@ -40,8 +40,8 @@ catch (e) { console.log('SKIP — jsdom not installed (see header).'); process.e
 // ── The only lines that differ between this app and the PSAT 8/9 app. ──────────
 const CFG = {
     userKey: 'mastery_user',     // gate.js
-    hwPrefix: 'wayne_hw_',       // "day done" flag
-    recPrefix: 'wayne_hwrec_',   // the per-question record
+    hwPrefix: 'satrw_hw_',       // "day done" flag
+    recPrefix: 'satrw_hwrec_',   // the per-question record
 };
 
 const APP = path.join(__dirname, '..');
@@ -443,7 +443,7 @@ function finish() {
         // together — went nowhere.
         //
         // These assertions pin the wire contract. If you rename a field here, rename it
-        // in tutor-sheet/rw-apps-script.gs in the same commit.
+        // in tutor-sheet/rw-apps-script.md in the same commit.
         const w = build(1);                         // day 1 is a 3-question set
         setAnswersFor(w, 0);
         commit(w, 'the author is conceding a point');
@@ -483,7 +483,7 @@ function finish() {
         //
         // Day 3's sections list diffs ["Medium","Hard"] — a range, i.e. the tutor
         // saying either end is fine. Day 1 pins ["Medium"] — a decision, not a range.
-        const TRAP = 'wayne_trap_stats___TEST__';
+        const TRAP = 'satrw_trap_stats___TEST__';
         const traps = pct => JSON.stringify({
             'Inferences — general': { skill: 'Inferences', total: 20, wrong: Math.round(20 * (1 - pct)) },
         });

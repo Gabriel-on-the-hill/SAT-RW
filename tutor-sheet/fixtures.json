@@ -1,10 +1,10 @@
 {
   "_note": "Captured from the running apps by capture-fixtures.js. Do not hand-edit.",
-  "capturedAt": "2026-07-10T15:42:12.663Z",
+  "capturedAt": "2026-07-16T20:32:32.644Z",
   "rw_challenge": {
-    "date": "2026-07-10T15:42:12.239Z",
+    "date": "2026-07-16T20:32:32.270Z",
     "student": "Jeffrey",
-    "sessionId": "rw_mrf3tb7z_693g7y",
+    "sessionId": "rw_mrnytslq_3ww54f",
     "type": "challenge",
     "assignmentId": "p8-rw",
     "assignmentTitle": "Practice 8 misses",
@@ -12,51 +12,56 @@
     "total": 3,
     "pct": 100,
     "skills": [
-      "Text Structure and Purpose",
-      "Boundaries"
+      "Command of Evidence — Textual",
+      "Words in Context",
+      "Inferences"
     ],
     "diffs": [
-      "Hard"
+      "Medium"
     ],
     "mode": "assisted",
     "duration": 0,
     "avgSecs": 0,
     "skillStats": {
-      "Text Structure and Purpose": {
+      "Command of Evidence — Textual": {
         "correct": 1,
         "total": 1
       },
-      "Boundaries": {
-        "correct": 2,
-        "total": 2
+      "Words in Context": {
+        "correct": 1,
+        "total": 1
+      },
+      "Inferences": {
+        "correct": 1,
+        "total": 1
       }
     },
     "blurCount": 0,
     "questions": [
       {
-        "id": "0c61d9c0",
-        "skill": "Text Structure and Purpose",
-        "difficulty": "Hard",
-        "chosen": "B",
-        "correct": "B",
-        "isCorrect": true,
-        "secs": 0,
-        "trap": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch"
-      },
-      {
-        "id": "2bb7416a",
-        "skill": "Boundaries",
-        "difficulty": "Hard",
-        "chosen": "D",
-        "correct": "D",
+        "id": "1d08c7ee",
+        "skill": "Command of Evidence — Textual",
+        "difficulty": "Medium",
+        "chosen": "A",
+        "correct": "A",
         "isCorrect": true,
         "secs": 0,
         "trap": ""
       },
       {
-        "id": "c468db1c",
-        "skill": "Boundaries",
-        "difficulty": "Hard",
+        "id": "084e8a77",
+        "skill": "Words in Context",
+        "difficulty": "Medium",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 0,
+        "trap": "Familiar Definition · Fancy Synonym · Connotation Mismatch"
+      },
+      {
+        "id": "350e2336",
+        "skill": "Inferences",
+        "difficulty": "Medium",
         "chosen": "D",
         "correct": "D",
         "isCorrect": true,
@@ -66,9 +71,9 @@
     ]
   },
   "rw_practice": {
-    "date": "2026-07-10T15:42:12.590Z",
+    "date": "2026-07-16T20:32:32.557Z",
     "student": "Jeffrey",
-    "sessionId": "rw_mrf3tbhq_hvrvhm",
+    "sessionId": "rw_mrnytstp_psu95y",
     "type": "practice",
     "assignmentId": "",
     "assignmentTitle": "",
@@ -264,8 +269,52 @@
     "score": 7,
     "total": 10,
     "seconds": 431,
-    "at": "2026-07-10T15:42:12.663Z",
-    "sessionId": "hw_test_abc123"
+    "at": "2026-07-16T20:32:32.644Z",
+    "sessionId": "hw_test_abc123",
+    "retention": {
+      "Inferences": {
+        "correct": 1,
+        "total": 2
+      }
+    },
+    "questions": [
+      {
+        "id": "inf-h-01",
+        "skill": "Inferences",
+        "difficulty": "Hard",
+        "chosen": "B",
+        "correct": "B",
+        "isCorrect": true,
+        "secs": 74,
+        "onText": 41,
+        "onOpts": 33,
+        "prediction": "the author is about to concede a point"
+      },
+      {
+        "id": "inf-m-04",
+        "skill": "Inferences",
+        "difficulty": "Medium",
+        "chosen": "A",
+        "correct": "C",
+        "isCorrect": false,
+        "secs": 52,
+        "onText": 30,
+        "onOpts": 22,
+        "prediction": "a contrast is coming"
+      },
+      {
+        "id": "tra-m-09",
+        "skill": "Transitions",
+        "difficulty": "Medium",
+        "chosen": "D",
+        "correct": "D",
+        "isCorrect": true,
+        "secs": 38,
+        "onText": 19,
+        "onOpts": 19,
+        "prediction": "the second sentence gives the result"
+      }
+    ]
   },
   "math_challenge": {
     "key": "edutrack-math-v1",

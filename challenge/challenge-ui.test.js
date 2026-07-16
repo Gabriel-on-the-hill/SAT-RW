@@ -82,7 +82,7 @@ function eq(name, a, b) { ok(name, a === b, 'got ' + JSON.stringify(a) + ', want
 function section(t) { console.log('\n' + t); }
 const $ = (w, id) => w.document.getElementById(id);
 const txt = el => (el ? el.textContent.replace(/\s+/g, ' ').trim() : '');
-const ledger = w => JSON.parse(w.localStorage.getItem('wayne_progress_Jeffrey') || 'null');
+const ledger = w => JSON.parse(w.localStorage.getItem('satrw_progress_Jeffrey') || 'null');
 
 async function main() {
 // ═════════════════════════════════════════════════════════════════
@@ -116,14 +116,14 @@ section('2 · The start screen and its gates');
     const ids = w.CHALLENGE_SETS.Jeffrey[0].ids;
     const led = {};
     ids.forEach(id => { led[id] = { correct: 1, wrong: 0, lastSeen: Date.now() }; });
-    w.localStorage.setItem('wayne_progress_Jeffrey', JSON.stringify(led));
+    w.localStorage.setItem('satrw_progress_Jeffrey', JSON.stringify(led));
     w.openChallenge();
     ok('confirm gate: no Begin button', !$(w, 'cBeginBtn'));
     ok('confirm gate: offers the confirm pass', /Confirm the 28 you only got right once/.test(txt($(w, 'challengeScreen'))));
 
     // …and to "all mastered" → done gate.
     ids.forEach(id => { led[id] = { correct: 2, wrong: 0, lastSeen: Date.now() }; });
-    w.localStorage.setItem('wayne_progress_Jeffrey', JSON.stringify(led));
+    w.localStorage.setItem('satrw_progress_Jeffrey', JSON.stringify(led));
     w.openChallenge();
     ok('done gate: declares mastery', /Every question in this set is mastered/.test(txt($(w, 'challengeScreen'))));
     ok('done gate: offers reattempt-all', !!$(w, 'cReattemptBtn'));
@@ -139,11 +139,11 @@ section('3 · Layer 1 (debrief) never touches the mastery ledger');
     ok('debrief opens on the first miss', /Review 1 of 16/.test(txt(scr)));
     ok('debrief is labelled unscored', /Nothing on this screen counts toward mastery/.test(txt(scr)));
 
-    const before = w.localStorage.getItem('wayne_progress_Jeffrey');
+    const before = w.localStorage.getItem('satrw_progress_Jeffrey');
     w.document.querySelector('#cOpts .copt').click();      // answer it
     ok('explanation revealed', /Choice/.test(txt($(w, 'cReveal'))));
     ok('correct choice highlighted', !!w.document.querySelector('#cOpts .copt.right'));
-    eq('ledger untouched', w.localStorage.getItem('wayne_progress_Jeffrey'), before);
+    eq('ledger untouched', w.localStorage.getItem('satrw_progress_Jeffrey'), before);
     eq('ledger is still empty', ledger(w), null);
 }
 
@@ -157,7 +157,7 @@ section('4 · The exam-mode guard  (the reason this test exists)');
     w.recordAnswer('probe', true, 'exam');
     eq('exam credit is double', ledger(w).probe.correct, 2);
     ok('…which alone clears the mastery threshold', w._isMastered(ledger(w).probe) === true);
-    w.localStorage.removeItem('wayne_progress_Jeffrey');
+    w.localStorage.removeItem('satrw_progress_Jeffrey');
 
     // Now start a challenge session and try to switch into Exam mode.
     w.openChallenge();

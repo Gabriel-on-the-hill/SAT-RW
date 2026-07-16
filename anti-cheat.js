@@ -224,7 +224,7 @@
     // this file has no dependency on config.js load order. Watermark + focus
     // logging stay on regardless, so the tutor keeps their integrity signal.
     function isRelaxed() {
-        try { return localStorage.getItem('wayne_cfg_relax') === '1'; }
+        try { return localStorage.getItem('satrw_cfg_relax') === '1'; }
         catch (e) { return false; }
     }
 

@@ -342,6 +342,8 @@
     .cat-body { padding: 0.85rem; gap: 0.7rem; }
   }
   </style>
+  <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+  <script src="ns-migrate.js?v=20260716"></script>
   <script src="gate.js?v=20260703"></script>
   <script src="anti-cheat.js?v=20260703"></script>
 </head>
@@ -664,8 +666,8 @@ const DIFF_PATTERNS = [
 // ─────────────────────────────────────────────────────────────────
 // PERSISTENCE
 // ─────────────────────────────────────────────────────────────────
-const SK = 'wayne_rs_goals_v1';
-const TK = 'wayne_theme_v1';
+const SK = 'satrw_rs_goals_v1';
+const TK = 'satrw_theme_v1';
 
 function loadSet(key) {
   try { return new Set(JSON.parse(localStorage.getItem(key)) || []); }

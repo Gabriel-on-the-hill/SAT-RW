@@ -103,29 +103,50 @@ exact count survives calibration even when the leaning end is thin. `homework/ho
 
 ---
 
-## 3 · Retention on the tutor dashboard — `AN-4` · **needs an Apps Script redeploy; not built**
+## 3 · Retention on the tutor dashboard — `AN-4` · **SHIPPED 16 Jul 2026 · ONE MANUAL STEP LEFT**
 
-This backlog said to surface retention on `tutor-dashboard.html`. **That was written on a wrong
-assumption and the item moved.** The dashboard does not load `progress.js` and never has: it reads a
-published Google Sheet CSV, and the retention counter lives in the student's `localStorage`, on the
-student's device. A retention readout added there would render `—` forever, or — worse — quietly show
-whoever's browser the tutor happened to open it in. So it went on `progress.html` instead, which does
-load the ledger and is the screen the student's `LEDGER.md` already sends the tutor to.
+> ### ⚠️ The tutor must redeploy the Apps Script, or none of this reaches the sheet
+> `tutor-sheet/README.md` → **Deploy**: open the Sheet → Extensions → Apps Script → delete what is
+> there → paste the `javascript` block from **`tutor-sheet/rw-apps-script.md`** → Deploy → Manage
+> deployments → edit the existing web app → **New version → Deploy**. Keep the same URL.
+> `ensureHeaders_` only ever appends headers to the right and never clears a cell, so this is safe on
+> the live sheet with all its history. **Until it is redeployed the `Retention` column is never
+> written, and the dashboard shows `kept —` for everyone.**
 
-**That is the right surface for reviewing work with a student. It is not enough for the monthly
-report**, which is written away from the student's device and is exactly where an unbacked retention
-claim would do the most damage.
+The retention pair now reaches the tutor without the student's device:
 
-To close it properly, in one commit, all three of:
-1. `homework-run.html` `postLog()` — add `review: !!_isReviewQ[r.id]` to each row of `questions`.
-2. `tutor-sheet/rw-apps-script.gs` — add `'Review'` to `QUESTION_COLUMNS` and read `q.review` in
-   `appendQuestions_`. `ensureHeaders_` adds new headers on the right and never clears a cell, so
-   this is safe on the live sheet — **but the tutor must redeploy the Web App**, which is why this is
-   not shipped: half of it (posting a field nothing reads) is precisely the bug the comment above
-   `postLog()` exists to warn about, and it would fail silently.
-3. `tutor-dashboard.html` — aggregate retention per student from the Questions tab.
+- `homework-run.html` — `sessionRetention()` tallies the session's delayed retrievals per skill and
+  posts them as `retention`. Same rules as the ledger's own counter, because two numbers for one
+  thing that disagree are worse than one: only questions the ladder chose, and **only ones actually
+  reached** — `finish()` backfills not-reached questions as `ok:false` so the review screen can show
+  them, and counting those would report a student as forgetting work they never saw.
+- `tutor-sheet/rw-apps-script.md` — a `Retention` column, R&W-only, appended last.
+- `tutor-dashboard.html` — acquisition and retention side by side per student, plus an overall tile.
 
-Until then the honest answer to "is it staying learned?" is on the student's own progress screen.
+**Blank is not zero, and the UI says so.** No review due means "we don't know yet". A `review: 0`
+plan never generates any.
+
+### What this uncovered — three live bugs, all silent
+
+1. **The dashboard could not read its own sheet.** It asked for the *payload's* field names (`pct`,
+   `date`, `blurCount`, `skillStats`); the script writes the *sheet's* headers (`Percent`,
+   `Timestamp`, `Focus Losses`, `Breakdown`). A missing column returns `''` rather than throwing, so
+   dates, percentages, tab-switches and the whole "Weakest" line rendered blank — indistinguishable
+   from a tutor with no data. Fixed with a `COL` map (current name first, legacy names after) and a
+   `Percent` reader that understands the fraction the script actually stores.
+2. **The predictions never reached the sheet — and still had not, after the fix.** `rw-apps-script.gs`
+   carried `Prediction` / `On text` / `On options`; **`rw-apps-script.md` did not, and the `.md` is
+   what the README tells you to paste.** The fix for "homework logging" landed in a file nothing
+   deploys and nothing tests. The reasoning the class reviews together has been dropped server-side
+   this whole time. Both `.gs` files are now **deleted** — a second copy that is neither deployed nor
+   tested is what caused this — and the `.md` carries the fix.
+3. **Two guards were rotten.** `apps-script.test.js` asserted the two subjects' Questions columns were
+   *exactly* equal, which is what made bug 2 unfixable in the right file; it now asserts a shared core
+   with R&W's extras appended to the right, which is what the code always said it wanted. And the
+   fixture guard flattened nested keys, so it went permanently red the day `questions` was added — a
+   guard that can never pass is a guard nobody reads. Both fixed, plus a new §7 that posts a real
+   payload and asserts every column the dashboard asks for resolves against the header row that
+   actually comes out.
 
 ---
 
@@ -162,16 +183,30 @@ ships — this is the handbook's §19 checklist, scoped to here:
 
 ## Definition of 100% aligned
 
-Items 1 and 2 are shipped and green in both sister apps, and acquisition and retention now sit side
-by side on `progress.html`, so "is it staying learned?" is answerable at a glance with the student in
-front of you.
+**Reached, in code, on 16 Jul 2026.** Items 1, 2 and 3 are shipped and green; acquisition and
+retention sit side by side both on `progress.html` (with the student) and on `tutor-dashboard.html`
+(when writing the report). Every handbook category above is ● except mastery-gating, which is ◐ **by
+choice** and documented in §4.
 
-**What remains is §3** — carrying that same pair to the tutor dashboard, so the claim in a monthly
-report is backed by a number the tutor can see without the student's device. It needs an Apps Script
-redeploy and is therefore a decision, not a task an assistant should take alone.
+**One manual step stands between "aligned in code" and "aligned in fact": the Apps Script redeploy in
+§3.** Until that is done the `Retention` column is never written and the tutor dashboard shows
+`kept —` for everyone — and, more urgently, the per-question **predictions have never reached the
+sheet at all** (§3, bug 2). That is not a new regression; it is a fix that landed in the wrong file
+months ago and has been silently dropped ever since. The redeploy is what finally lands it.
 
-At that point every handbook category above is ● except mastery-gating, which is ◐ **by choice**,
-documented in §4.
+## A note on the storage namespace (16 Jul 2026)
+
+Every key was prefixed `wayne_`, because the folder this app happens to live in is named after a
+student. It is the shared SAT R&W Mastery app — Gabe, Jeffrey and Segun are in `assignments.js`, not
+Wayne — so the prefix is now `satrw_`, pairing with the sister app's `psat89_`.
+
+**The rename is not the risky part; the data is.** The old keys are in the students' browsers,
+holding their ledger, history, retention and notes. `ns-migrate.js` copies `wayne_*` → `satrw_*` once,
+first, on every page that reads storage — before `progress.js`/`storage.js`/`config.js` read anything,
+because they read at load time. It is generic rather than a list (a list is a thing you forget to
+update, and the key you forget is someone's work), idempotent, never clobbers a newer value, and
+leaves the originals in place as the undo. `ns-migrate.test.js` holds all of it, including that every
+storage page loads it **first**.
 
 ## What this leaves for the tutor to notice
 

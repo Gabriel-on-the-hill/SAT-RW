@@ -266,6 +266,8 @@
     .skill-row { grid-template-columns: minmax(0,1fr) 50px 70px; gap: 0.45rem; }
   }
   </style>
+  <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+  <script src="ns-migrate.js?v=20260716"></script>
   <script src="gate.js?v=20260703"></script>
   <script src="anti-cheat.js?v=20260703"></script>
 </head>
@@ -356,7 +358,7 @@
 <script src="homework/assignments.js?v=20260714"></script>
 <script>
 (function () {
-  const HIST_KEY = 'wayne_sat_history';
+  const HIST_KEY = 'satrw_sat_history';
 
   // ── Helpers ─────────────────────────────────────────────────────
   function escapeHtml(s) {

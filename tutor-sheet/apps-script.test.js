@@ -137,7 +137,26 @@ sec('1 · The two sheets share one schema');
 {
     const a = makeCtx(RW), b = makeCtx(MA);
     eq('same 16 canonical columns', JSON.stringify(a.SESSION_COLUMNS), JSON.stringify(b.SESSION_COLUMNS));
-    eq('same Questions columns', JSON.stringify(a.QUESTION_COLUMNS), JSON.stringify(b.QUESTION_COLUMNS));
+
+    // The Questions schema is a shared CORE plus subject-specific extras appended to
+    // the right — not an exact match. It used to assert exact equality, and that is
+    // why R&W's `Prediction` / `On text` / `On options` never reached the deployed
+    // script: adding them here would have failed this line, so they were added to
+    // rw-apps-script.gs instead — a file nothing deploys and nothing tests. The
+    // predictions the class reviews together went nowhere for months as a result.
+    //
+    // ensureHeaders_ only ever appends to the right, so extras are safe. What must
+    // hold is that the shared core stays identical and in the same order, which is
+    // what lets one student's week be read across both subjects.
+    const core = b.QUESTION_COLUMNS;
+    eq('the shared Questions core is identical, in order',
+        JSON.stringify(a.QUESTION_COLUMNS.slice(0, core.length)), JSON.stringify(core));
+    ok('R&W may add columns, but only to the right of it',
+        a.QUESTION_COLUMNS.length >= core.length);
+    for (const extra of ['Prediction', 'On text', 'On options'])
+        ok('R&W carries "' + extra + '" in the script that actually deploys',
+            a.QUESTION_COLUMNS.indexOf(extra) >= core.length,
+            'the deploy artifact is the .md — see README');
     ok('Session ID is in the schema', a.SESSION_COLUMNS.indexOf('Session ID') >= 0);
     ok('Focus Losses is in the schema', a.SESSION_COLUMNS.indexOf('Focus Losses') >= 0);
 }
@@ -196,11 +215,31 @@ sec('3 · R&W: a re-POST is a no-op, not a duplicate');
 sec('4 · R&W: the homework runner posts a different shape and still lands');
 {
     // Guard: the fixture must still match what homework-run.html actually sends.
+    //
+    // This guard was itself broken for months, which is how the fixture drifted. It
+    // scraped every `key:` in the posted literal into one flat list and looked them
+    // all up on the session object — so the moment the runner started nesting a
+    // `questions` array, `id`/`skill`/`prediction` were checked against the session
+    // body, found missing, and the assertion went permanently red. A guard that can
+    // never pass is a guard nobody reads.
+    //
+    // So: split the literal at `questions:` and check each level against its own
+    // object. The nested keys are the wire contract the Apps Script destructures —
+    // they are the half that matters most, and they were the half going unchecked.
     const src = fs.readFileSync(path.join(HERE, '..', 'homework-run.html'), 'utf8');
-    const lit = src.match(/body:JSON\.stringify\(\{type:'homework'[\s\S]*?\)\}\)/);
-    const keys = [...lit[0].matchAll(/([a-zA-Z]+)\s*:/g)].map(m => m[1])
-        .filter(k => !['body', 'JSON', 'stringify', 'toISOString', 'toString', 'slice', 'now', 'random'].includes(k));
-    ok('fixture keys match homework-run.html', keys.every(k => k in FIX.rw_homework), keys.join(','));
+    const lit = src.match(/body:JSON\.stringify\(\{type:'homework'[\s\S]*?\)\}\)/)[0];
+    const NOISE = ['body', 'JSON', 'stringify', 'toISOString', 'toString', 'slice', 'now',
+                   'random', 'map', 'function', 'return', 'filter', 'Date', 'Math'];
+    const keysIn = s => [...s.matchAll(/([a-zA-Z]+)\s*:/g)].map(m => m[1]).filter(k => !NOISE.includes(k));
+    const cut     = lit.indexOf('questions:');
+    const topKeys = keysIn(lit.slice(0, cut));
+    const qKeys   = keysIn(lit.slice(cut)).filter(k => k !== 'questions');
+
+    ok('every session field the runner posts is in the fixture',
+        topKeys.every(k => k in FIX.rw_homework), topKeys.join(','));
+    ok('the runner still posts a per-question array', cut > 0 && qKeys.length > 0);
+    ok('every per-question field the runner posts is in the fixture',
+        qKeys.every(k => k in (FIX.rw_homework.questions || [])[0]), qKeys.join(','));
 
     const c = makeCtx(RW);
     const res = c.__post(FIX.rw_homework);
@@ -213,7 +252,18 @@ sec('4 · R&W: the homework runner posts a different shape and still lands');
     eq('seconds become Duration', row['Duration (sec)'], 431);
     eq('Avg/Q derived', row['Avg/Q (sec)'], Math.round(431 / 10));
     eq('Percent computed', row['Percent'], 0.7);
-    ok('no question rows (homework does not send them)', !c.__tabs.has('Questions') || c.__rows('Questions').length <= 1);
+
+    // This assertion used to read "no question rows (homework does not send them)".
+    // That stopped being true the day the runner was fixed to post `questions`, and
+    // it kept passing only because the fixture had drifted and no longer had any. A
+    // stale fixture and a stale expectation agreeing with each other is not a test.
+    // Homework's per-question rows carry the predictions the class reviews together.
+    eq('homework writes one row per question',
+        c.__rows('Questions').length, 1 + FIX.rw_homework.questions.length);
+    const q1 = c.__byName('Questions', 1);
+    eq('the prediction lands in the sheet', q1['Prediction'], FIX.rw_homework.questions[0].prediction);
+    eq('time-on-text lands separately from time-on-options', q1['On text'], FIX.rw_homework.questions[0].onText);
+    eq('and the skill comes with it', q1['Skill'], FIX.rw_homework.questions[0].skill);
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -337,6 +387,70 @@ sec('10 · Cross-subject: one student, one schema, two sheets');
     ok('both carry a Session ID', !!a['Session ID'] && !!b['Session ID']);
     ok('both carry a numeric Percent', typeof a['Percent'] === 'number' && typeof b['Percent'] === 'number');
     ok('both carry Duration in seconds', typeof a['Duration (sec)'] === 'number' && typeof b['Duration (sec)'] === 'number');
+}
+
+// ══════════════════════════════════════════════════════════════════
+sec('7 · The tutor dashboard can actually read the sheet this script writes');
+{
+    // THE BUG THIS EXISTS TO PREVENT COMING BACK:
+    //
+    // tutor-dashboard.html read the PAYLOAD's field names — `pct`, `date`,
+    // `blurCount`, `skillStats`. This script writes the SHEET's headers — `Percent`,
+    // `Timestamp`, `Focus Losses`, `Breakdown`. They have never matched. A missing
+    // column returns '' instead of throwing, so the dashboard rendered blank dates,
+    // NaN percentages, zero tab-switches and an empty "Weakest" line, and looked for
+    // all the world like a tutor who simply had no data yet.
+    //
+    // Nothing in either file could catch that alone: the script was right, the
+    // dashboard was right about its own names, and only the JOIN between them was
+    // wrong. So this asserts the join — the real payload through the real doPost,
+    // then every logical column the dashboard asks for, resolved against the header
+    // row that actually came out.
+    const html = fs.readFileSync(path.join(HERE, '..', 'tutor-dashboard.html'), 'utf8');
+    const m = html.match(/const COL = \{([\s\S]*?)\n\};/);
+    ok('the dashboard exposes its column map', !!m);
+
+    const COL = {};
+    if (m) {
+        for (const line of m[1].split('\n')) {
+            const mm = line.match(/^\s*(\w+):\s*\[([^\]]+)\]/);
+            if (mm) COL[mm[1]] = mm[2].split(',').map(s => s.trim().replace(/^'|'$/g, ''));
+        }
+    }
+
+    const c = makeCtx(RW);
+    c.__post(FIX.rw_homework);
+    const row = c.__byName('Sessions', 1);
+    const headers = Object.keys(row);
+    const resolve = key => (COL[key] || []).find(n =>
+        headers.some(h => h.toLowerCase() === n.toLowerCase()));
+
+    // Every column the dashboard renders must be findable in a real sheet row.
+    for (const key of ['date', 'student', 'type', 'score', 'total', 'pct', 'avgSecs', 'blur', 'title'])
+        ok('the dashboard can find "' + key + '"', !!resolve(key),
+            'tried ' + JSON.stringify(COL[key]) + ' against ' + JSON.stringify(headers));
+
+    // And the two that carry the learning signal.
+    ok('the dashboard can find the acquisition breakdown', !!resolve('breakdown'));
+    ok('the dashboard can find the retention column', !!resolve('retention'),
+        'without this the durable-learning number never reaches the tutor');
+
+    // Retention must survive the round trip with its counts intact — a rate alone
+    // would let "100%" off a single retrieval read as a month of evidence.
+    const ret = JSON.parse(row['Retention'] || '{}');
+    ok('retention arrives as per-skill correct/total',
+        ret['Inferences'] && typeof ret['Inferences'].correct === 'number'
+                          && typeof ret['Inferences'].total === 'number',
+        JSON.stringify(row['Retention']));
+
+    // A session with no review due must leave the cell BLANK, not 0. "We don't know
+    // yet" and "they remembered none of it" are different claims and only one is true.
+    const c2 = makeCtx(RW);
+    const noRet = JSON.parse(JSON.stringify(FIX.rw_homework));
+    delete noRet.retention;
+    noRet.sessionId = 'hw_noret';
+    c2.__post(noRet);
+    eq('no reviews due → a blank cell, never a zero', c2.__byName('Sessions', 1)['Retention'], '');
 }
 
 // ══════════════════════════════════════════════════════════════════

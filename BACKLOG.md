@@ -71,7 +71,7 @@ stops the trivial case of a student opening another student's plan out of curios
 
 **The two apps have two different Apps Scripts, and only the SAT one is structured.**
 
-- SAT → `tutor-sheet/rw-apps-script.gs` (endpoint `AKfycbzR0…`): Sessions **and** Questions tabs,
+- SAT → `tutor-sheet/rw-apps-script.md` (endpoint `AKfycbzR0…`): Sessions **and** Questions tabs,
   `QUESTION_COLUMNS`, reads `b.questions`. This is the one the `detail`/`questions` bug hit, and
   the one that needed redeploying.
 - PSAT → `PSAT 8-9/Tutor Backend (Apps Script).gs` (endpoint `AKfycbww5…`): 92 lines, **one row

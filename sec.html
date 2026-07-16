@@ -352,6 +352,8 @@
     .example-wrap { grid-template-columns: 1fr; }
   }
   </style>
+  <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+  <script src="ns-migrate.js?v=20260716"></script>
   <script src="gate.js?v=20260703"></script>
   <script src="anti-cheat.js?v=20260703"></script>
 </head>
@@ -675,8 +677,8 @@ const QREF = [
 // ─────────────────────────────────────────────────────────────────
 // PERSISTENCE
 // ─────────────────────────────────────────────────────────────────
-const SK = 'wayne_sec_rules_v1';
-const TK = 'wayne_theme_v1';
+const SK = 'satrw_sec_rules_v1';
+const TK = 'satrw_theme_v1';
 
 function loadSet(key) {
   try { return new Set(JSON.parse(localStorage.getItem(key)) || []); }

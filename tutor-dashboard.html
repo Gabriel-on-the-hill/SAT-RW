@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAT Mastery — Tutor Dashboard</title>
+<!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+<script src="ns-migrate.js?v=20260716"></script>
 <script src="gate.js?v=20260703"></script>
 <style>
   :root{
@@ -64,9 +66,22 @@
         In your Google Sheet: <b>File → Share → Publish to web</b> → choose the responses sheet →
         format <b>Comma-separated values (.csv)</b> → <b>Publish</b> → copy the link and paste it above.
         The dashboard reads it directly (Google serves published CSVs with CORS, so no Apps Script change is needed).
-        It maps columns by header name — it expects headers like
-        <code>date, student, type, score, total, pct, avgSecs, blurCount, skillStats</code>,
-        and shows whatever it finds.
+        It maps columns by header name and shows whatever it finds — the headers the
+        Apps Script writes: <code>Timestamp, Student, Type, Score, Max, Percent, Avg/Q (sec),
+        Focus Losses, Breakdown, Retention</code>. Older header names still resolve, so a
+        sheet written by a previous version keeps working.
+      </div>
+    </details>
+    <details>
+      <summary>Why is “kept” blank?</summary>
+      <div class="hint">
+        <b>Kept</b> is retention: how often a student got a question right when the review ladder
+        brought it <i>back</i>, days or weeks later. It is the only number here that distinguishes
+        “learned it” from “still has it” — average accuracy always flatters.
+        It is blank until spaced reviews actually come due, which takes a few days from a
+        student's first set. <b>Blank means “not measured yet”, not zero.</b>
+        A plan pinned to <code>review: 0</code> never generates any, so it will stay blank until
+        that plan is re-authored.
       </div>
     </details>
   </div>
@@ -75,7 +90,7 @@
 </div>
 
 <script>
-const URL_KEY = 'wayne_dash_csv_url';
+const URL_KEY = 'satrw_dash_csv_url';
 const $ = id => document.getElementById(id);
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -126,10 +141,56 @@ function parseCSV(text){
   });
 }
 
-// Case-insensitive column getter
-function col(obj,name){
-  const k=Object.keys(obj).find(k=>k.toLowerCase()===name.toLowerCase());
-  return k?obj[k]:'';
+// ── The column map ────────────────────────────────────────────────────────────
+// The sheet's headers are the APPS SCRIPT's (tutor-sheet/rw-apps-script.md). They
+// are not the payload's field names, and this file used to ask for the payload's:
+// `pct` where the sheet says `Percent`, `date` where it says `Timestamp`,
+// `blurCount` where it says `Focus Losses`, `skillStats` where it says `Breakdown`.
+// A miss returns '' rather than throwing, so every one of those columns rendered
+// blank or NaN and the dashboard looked like a tutor with no data instead of a bug.
+//
+// So: name every column by its logical role, list the headers that can carry it —
+// current name first, legacy names after — and take the first that exists. That
+// keeps a sheet written by an older script readable, and it is why a rename in the
+// Apps Script must add a name here rather than replace one.
+// `apps-script.test.js` §7 posts a real payload and asserts every entry below
+// resolves against the header row the script actually writes.
+const COL = {
+  date:      ['Timestamp', 'date'],
+  student:   ['Student', 'student'],
+  type:      ['Type', 'type'],
+  score:     ['Score', 'score'],
+  total:     ['Max', 'Total', 'total'],
+  pct:       ['Percent', '%', 'pct'],
+  avgSecs:   ['Avg/Q (sec)', 'avgSecs'],
+  blur:      ['Focus Losses', 'blurCount'],
+  breakdown: ['Breakdown', 'Skill Stats', 'skillStats'],
+  retention: ['Retention', 'retention'],
+  title:     ['Assignment', 'assignmentTitle'],
+  skills:    ['Skills', 'skills'],
+};
+
+// Case-insensitive lookup of a logical column by any of its known headers.
+function col(obj,key){
+  const names = COL[key] || [key];
+  const keys  = Object.keys(obj);
+  for(const n of names){
+    const k = keys.find(k=>k.toLowerCase()===n.toLowerCase());
+    if(k && obj[k]!=='') return obj[k];
+  }
+  return '';
+}
+
+// The Apps Script stores Percent as a FRACTION (score/max), and Sheets may publish
+// it as "0.7" or as "70%" depending on the cell format. Both mean the same thing,
+// and reading 0.7 as "0.7%" would report a strong session as a failing one.
+function pctOf(raw){
+  if(raw===''||raw==null) return NaN;
+  const s=String(raw).trim();
+  const n=parseFloat(s.replace('%',''));
+  if(isNaN(n)) return NaN;
+  if(s.includes('%')) return n;
+  return n<=1 ? n*100 : n;   // a fraction, or already 0–100
 }
 
 function pctClass(p){ p=+p; return p>=80?'pass':p>=60?'warn':'fail'; }
@@ -143,38 +204,57 @@ function render(rows){
   const students={};
   rows.forEach(r=>{
     const name=col(r,'student')||'(unknown)';
-    if(!students[name]) students[name]={n:0,pctSum:0,blur:0,skill:{}};
+    if(!students[name]) students[name]={n:0,pctSum:0,pctN:0,blur:0,skill:{},ret:{c:0,t:0}};
     const s=students[name]; s.n++;
-    const p=parseFloat(col(r,'pct')); if(!isNaN(p)) s.pctSum+=p;
-    const b=parseInt(col(r,'blurCount'),10); if(!isNaN(b)) s.blur+=b;
-    // skillStats may be JSON: {"Skill":{"correct":x,"total":y}}
-    const raw=col(r,'skillStats');
+    const p=pctOf(col(r,'pct')); if(!isNaN(p)){ s.pctSum+=p; s.pctN++; }
+    const b=parseInt(col(r,'blur'),10); if(!isNaN(b)) s.blur+=b;
+    // Breakdown is JSON: {"Skill":{"correct":x,"total":y}} — acquisition.
+    const raw=col(r,'breakdown');
     if(raw){ try{ const js=JSON.parse(raw);
       Object.entries(js).forEach(([sk,v])=>{ if(!s.skill[sk])s.skill[sk]={c:0,t:0}; s.skill[sk].c+=(v.correct||0); s.skill[sk].t+=(v.total||0); });
+    }catch(e){} }
+    // Retention, same shape — but counted ONLY on questions the review ladder brought
+    // back after a delay. This is the durable-learning number: accuracy says they got
+    // it right, this says they still had it weeks later. Blank means no review was due
+    // in that session, which is "we don't know yet" — never a zero.
+    const ret=col(r,'retention');
+    if(ret){ try{ const js=JSON.parse(ret);
+      Object.values(js).forEach(v=>{ s.ret.c+=(v.correct||0); s.ret.t+=(v.total||0); });
     }catch(e){} }
   });
 
   const totalSessions=rows.length;
   const totalStudents=Object.keys(students).length;
   const totalBlur=Object.values(students).reduce((n,s)=>n+s.blur,0);
+  const allRet=Object.values(students).reduce((a,s)=>({c:a.c+s.ret.c,t:a.t+s.ret.t}),{c:0,t:0});
 
   let html = `<div class="card"><div class="stat-grid">
     <div class="stat"><div class="n">${totalStudents}</div><div class="l">Students</div></div>
     <div class="stat"><div class="n">${totalSessions}</div><div class="l">Sessions</div></div>
+    <div class="stat"><div class="n">${allRet.t?Math.round(allRet.c/allRet.t*100)+'%':'—'}</div>
+      <div class="l">${allRet.t?`Retained (${allRet.c}/${allRet.t})`:'No reviews due yet'}</div></div>
     <div class="stat"><div class="n">${totalBlur}</div><div class="l">Tab-switches</div></div>
   </div></div>`;
 
   // ── Per-student cards ──
   html += '<div class="card"><div class="student-head">By student</div>';
   Object.entries(students).sort((a,b)=>b[1].n-a[1].n).forEach(([name,s])=>{
-    const avg=s.n?Math.round(s.pctSum/s.n):0;
+    const avg=s.pctN?Math.round(s.pctSum/s.pctN):0;
     const weak=Object.entries(s.skill).filter(([,v])=>v.t>=3)
       .map(([sk,v])=>({sk,rate:v.c/v.t,c:v.c,t:v.t}))
       .sort((a,b)=>a.rate-b.rate).slice(0,3)
       .map(w=>`${w.sk} ${Math.round(w.rate*100)}%`).join(' · ');
+    // Accuracy and retention next to each other, always. Accuracy alone always
+    // flatters — a student can sit at 90% on the work in front of them and 50% on
+    // the same skill three weeks later, and only the pair shows it. The count rides
+    // along because "100%" off one delayed retrieval is not a retention claim.
+    const rp = s.ret.t ? Math.round(s.ret.c/s.ret.t*100) : null;
     html+=`<div style="padding:0.5rem 0;border-bottom:1px solid var(--border)">
       <b>${esc(name)}</b>
       <span class="pill ${pctClass(avg)}" style="margin-left:0.4rem">${avg}% avg</span>
+      ${rp!==null
+        ? `<span class="pill ${pctClass(rp)}" style="margin-left:0.4rem" title="Retention: ${s.ret.c} of ${s.ret.t} spaced reviews correct. Only questions the ladder brought back after a delay.">${rp}% kept (${s.ret.c}/${s.ret.t})</span>`
+        : `<span class="pill tag-other" style="margin-left:0.4rem" title="No spaced reviews have come due yet, so there is nothing to measure retention on. This is not a zero.">kept —</span>`}
       <span class="weak" style="margin-left:0.4rem">${s.n} sessions</span>
       ${s.blur>0?`<span class="flag" style="margin-left:0.4rem">⚑ ${s.blur} tab-switch${s.blur!==1?'es':''}</span>`:''}
       ${weak?`<div class="weak" style="margin-top:0.2rem">Weakest: ${esc(weak)}</div>`:''}
@@ -189,14 +269,14 @@ function render(rows){
   rows.slice(0,150).forEach(r=>{
     const d=col(r,'date'); const dd=d?new Date(d):null;
     const dateStr= dd&&!isNaN(dd)? dd.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' '+dd.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) : esc(d);
-    const type=col(r,'type'); const pct=col(r,'pct'); const blur=parseInt(col(r,'blurCount'),10)||0;
-    const detail = col(r,'assignmentTitle') || (col(r,'skills')||'').slice(0,40);
+    const type=col(r,'type'); const pct=pctOf(col(r,'pct')); const blur=parseInt(col(r,'blur'),10)||0;
+    const detail = col(r,'title') || (col(r,'skills')||'').slice(0,40);
     html+=`<tr>
       <td>${dateStr}</td>
       <td>${esc(col(r,'student')||'—')}</td>
       <td><span class="pill ${typeClass(type)}">${esc(type||'—')}</span></td>
       <td>${esc(col(r,'score'))}/${esc(col(r,'total'))}</td>
-      <td><span class="pill ${pctClass(pct)}">${esc(pct)}%</span></td>
+      <td>${isNaN(pct)?'—':`<span class="pill ${pctClass(pct)}">${Math.round(pct)}%</span>`}</td>
       <td>${esc(col(r,'avgSecs'))}s</td>
       <td>${blur>0?`<span class="flag">${blur}</span>`:'0'}</td>
       <td>${esc(detail)}</td>

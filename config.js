@@ -11,9 +11,9 @@
 //                            by anti-cheat.js from the same key).
 
 const CFG_KEYS = {
-    EXAM_DATE: 'wayne_cfg_exam_date',  // 'YYYY-MM-DD'
-    Q_BUDGET:  'wayne_cfg_q_budget',   // integer seconds
-    RELAX:     'wayne_cfg_relax',      // '1' = relaxed
+    EXAM_DATE: 'satrw_cfg_exam_date',  // 'YYYY-MM-DD'
+    Q_BUDGET:  'satrw_cfg_q_budget',   // integer seconds
+    RELAX:     'satrw_cfg_relax',      // '1' = relaxed
 };
 
 const CFG_DEFAULTS = {

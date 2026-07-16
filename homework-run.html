@@ -82,6 +82,8 @@
   .lbl{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-top:.7rem}
   .saved{font-size:.78rem;color:var(--good);font-weight:700;margin-top:.25rem;height:1rem}
 </style>
+<!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+<script src="ns-migrate.js?v=20260716"></script>
 <script src="gate.js?v=20260703"></script>
 <script src="data-craft-structure.js?v=20260703"></script>
 <script src="data-expression-of-ideas.js?v=20260703"></script>
@@ -176,7 +178,7 @@
   // only a running score, so clicking Next destroyed the question, her answer and
   // the explanation — while the finish screen told her to go review them.
   // We store ids and rehydrate from the bank, so the record stays small.
-  var RECS_KEY = 'wayne_hwrec_'+student+'_'+plan.start+'_'+dayN;
+  var RECS_KEY = 'satrw_hwrec_'+student+'_'+plan.start+'_'+dayN;
   var records = [];
   function saveRecs(){ try{ localStorage.setItem(RECS_KEY, JSON.stringify({at:Date.now(), recs:records})); }catch(e){} }
   function loadRecs(){ try{ var o=JSON.parse(localStorage.getItem(RECS_KEY)); return (o&&o.recs&&o.recs.length)?o.recs:null; }catch(e){ return null; } }
@@ -473,7 +475,7 @@
         };
       }
       saveRecs();
-      try{ localStorage.setItem('wayne_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){}
+      try{ localStorage.setItem('satrw_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){}
       postLog(Math.round((Date.now()-started)/1000));
     } else {
       saveRecs();
@@ -606,8 +608,31 @@
   // written: every homework row in the sheet came back with its per-question columns
   // blank while practice rows were full. The predictions are the reasoning the class
   // reviews together, and they were going nowhere. Key and names now match the
-  // contract in tutor-sheet/rw-apps-script.gs — change them together or this silently
+  // contract in tutor-sheet/rw-apps-script.md — change them together or this silently
   // breaks again.
+  // This session's DELAYED RETRIEVALS, per skill — the durable-learning number, sent
+  // so the tutor can see it without the student's device in front of them. That is
+  // the whole point: the monthly report is written away from this browser, and a
+  // retention claim nobody can check is exactly the line that reads as diligence
+  // while being false.
+  //
+  // The rules match the ledger's own counter in progress.js exactly, and they must:
+  // two numbers for the same thing that disagree are worse than one.
+  //   • only questions the ladder chose (`_isReviewQ`) — a first meeting is acquisition;
+  //   • only questions actually REACHED. finish() backfills not-reached questions with
+  //     ok:false so the review screen can show them, and counting those as retention
+  //     misses would report a student as forgetting work they never saw.
+  function sessionRetention(){
+    var ret={};
+    records.forEach(function(r){
+      if(!r || !r.chosen || !r.skill || !_isReviewQ[r.id]) return;
+      if(!ret[r.skill]) ret[r.skill]={correct:0,total:0};
+      ret[r.skill].total++;
+      if(r.ok) ret[r.skill].correct++;
+    });
+    return ret;
+  }
+
   function postLog(secs){
     try{
       if(typeof SHEET_SYNC_ENDPOINT==='string' && SHEET_SYNC_ENDPOINT){
@@ -615,6 +640,7 @@
         fetch(SHEET_SYNC_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
           body:JSON.stringify({type:'homework',student:student,day:dayN,focus:spec.focus,score:got,total:records.length,seconds:secs,at:new Date().toISOString(),
             sessionId:'hw_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8),
+            retention:sessionRetention(),
             questions:records.map(function(r){
               return {id:r.id, skill:r.skill, difficulty:r.difficulty,
                       chosen:r.chosen, correct:r.answer, isCorrect:r.ok,

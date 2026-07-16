@@ -637,12 +637,12 @@ function showHwResults() {
 }
 
 // ── Session history logging ───────────────────────────────────────
-// Writes a record to the same `wayne_sat_history` key that Practice
+// Writes a record to the same `satrw_sat_history` key that Practice
 // (app.js) uses, in the same shape so the existing renderers (and our
 // new progress.html) can show Practice + Homework rows side-by-side.
 // Adds `source`/`assignmentId`/`assignmentTitle` so the progress page
 // can label and filter homework rows. Capped at 100 records.
-const HW_HISTORY_KEY = 'wayne_sat_history';
+const HW_HISTORY_KEY = 'satrw_sat_history';
 const HW_HISTORY_CAP = 100;
 
 function _logHwSession() {

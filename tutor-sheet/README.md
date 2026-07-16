@@ -29,7 +29,23 @@ Score · Max · Percent · Duration (sec) · Avg/Q (sec) · Mode ·
 Focus Losses · Session ID · Breakdown
 ```
 
-Subject-specific columns follow on the right (R&W adds `Skills`, `Difficulties`; Math adds `Variant`, `Smart Mode`, `Exam Mode`, `Topic`, `Missed`, `Ungraded`).
+Subject-specific columns follow on the right (R&W adds `Skills`, `Difficulties`, `Retention`; Math adds `Variant`, `Smart Mode`, `Exam Mode`, `Topic`, `Missed`, `Ungraded`).
+
+> ## ⚠️ The R&W sheet is due a redeploy (16 Jul 2026)
+>
+> Two things only reach the sheet once you redeploy R&W from `rw-apps-script.md`:
+>
+> - **The per-question predictions.** These have **never** arrived. `homework-run.html` was fixed
+>   long ago to post them, and `rw-apps-script.gs` was updated to read them — but the `.gs` is not
+>   what you paste, the `.md` is, and the `.md` never got the change. The `Prediction`, `On text`
+>   and `On options` columns have been silently dropped server-side ever since. (The `.gs` copies
+>   are now deleted so this cannot happen again — the `.md` is the only source.)
+> - **`Retention`** — the new durable-learning column: per-skill `{correct,total}` over the
+>   questions the review ladder brought *back* after a delay. It is what lets the tutor dashboard
+>   answer "is it staying learned?" rather than only "did they get it right on the day".
+>
+> Follow **Deploy** below. `ensureHeaders_` only appends headers to the right and never clears a
+> cell, so your existing sheet and all its history are safe.
 
 ## Deploy (each sheet, once)
 

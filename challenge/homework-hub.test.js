@@ -39,7 +39,7 @@ function build(student, ledger) {
         const w = dom.window;
         w.sessionStorage.setItem('mastery_unlocked', '1');
         w.sessionStorage.setItem('mastery_user', student);
-        if (ledger) w.localStorage.setItem('wayne_progress_' + student, JSON.stringify(ledger));
+        if (ledger) w.localStorage.setItem('satrw_progress_' + student, JSON.stringify(ledger));
         for (const f of DECLARED) {
             const s = w.document.createElement('script');
             s.textContent = read(f);

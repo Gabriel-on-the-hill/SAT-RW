@@ -7,7 +7,9 @@ const questionBank = [
 ];
 
 // ── Constants ─────────────────────────────────────────────────────
-// TODO: update EXAM_DATE to Wayne's actual SAT test date
+// The countdown shown on the home screen. It is one date for the whole app, not a
+// per-student one — several students share this build, so it can only ever be the
+// nearest sitting they are all working toward. Update it when that changes.
 const EXAM_DATE = new Date('2026-08-23');
 
 const TRAP_SETS = {

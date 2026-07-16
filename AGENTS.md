@@ -12,16 +12,29 @@ files**. There is no shared module — a fix to `homework-run.html` here is *not
 
 ## Run the tests before you claim anything works
 
+**This is the whole list. If a suite is not on it, it does not get run — and a suite nobody
+runs goes red and stays red.** `tutor-sheet/apps-script.test.js` was missing from this list and
+sat failing for months while the fixture it guards drifted out of date; the bug it was there to
+catch (the per-question predictions being dropped server-side) was live that entire time.
+
 ```
 npm install jsdom --prefix /tmp/j
 NODE_PATH=/tmp/j/node_modules node homework/homework-run.test.js   # the learning loop
+NODE_PATH=/tmp/j/node_modules node homework/review-ladder.test.js  # spacing, retention, calibration
 NODE_PATH=/tmp/j/node_modules node homework/assignments.test.js    # the plans are sane
 NODE_PATH=/tmp/j/node_modules node homework/bank.test.js           # the bank is classified right
 NODE_PATH=/tmp/j/node_modules node challenge/*.test.js             # the challenge feature
+NODE_PATH=/tmp/j/node_modules node ns-migrate.test.js              # nobody loses their work
+node tutor-sheet/apps-script.test.js                               # the sheet + dashboard join
 ```
 
-They skip cleanly without jsdom. Every one of them exists because something was silently
-broken and nothing failed. Read a test's header before you change what it guards.
+`homework-run.test.js` takes several minutes — it stands up a fresh jsdom per case and each one
+parses the whole question bank. Node buffers to a pipe, so it prints nothing until it finishes.
+It is slow, not hung.
+
+They skip cleanly without jsdom (`apps-script.test.js` needs no jsdom at all). Every one of them
+exists because something was silently broken and nothing failed. Read a test's header before you
+change what it guards.
 
 ## Assigning homework
 

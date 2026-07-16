@@ -44,6 +44,8 @@
   .cchip.c{background:#fef3c7;color:#92400e}
   .cchip.m{background:var(--good-soft);color:var(--good)}
 </style>
+<!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+<script src="ns-migrate.js?v=20260716"></script>
 <script src="gate.js?v=20260703"></script>
 <script src="sheet-sync.js?v=20260703"></script>
 <script src="homework/assignments.js?v=20260714"></script>
@@ -140,10 +142,10 @@
 
   var avail = hwDaysAvailable(plan.start);
   function fmtDate(start, offset){ var d=hwParseDate(start); if(!d) return 'soon'; d.setDate(d.getDate()+offset); return d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); }
-  function done(n){ try { return localStorage.getItem('wayne_hw_'+student+'_'+plan.start+'_'+n)==='1'; } catch(e){ return false; } }
+  function done(n){ try { return localStorage.getItem('satrw_hw_'+student+'_'+plan.start+'_'+n)==='1'; } catch(e){ return false; } }
   // A finished day keeps its questions, answers and explanations, so it can be
   // reopened for review — that is where the misses get worked, not in the run.
-  function reviewable(n){ try { return !!localStorage.getItem('wayne_hwrec_'+student+'_'+plan.start+'_'+n); } catch(e){ return false; } }
+  function reviewable(n){ try { return !!localStorage.getItem('satrw_hwrec_'+student+'_'+plan.start+'_'+n); } catch(e){ return false; } }
   var html='';
   plan.days.forEach(function(day){
     var open = day.n <= avail;

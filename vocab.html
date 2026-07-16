@@ -365,6 +365,8 @@
     .daily-strip { padding: 0.75rem 1rem; }
   }
   </style>
+  <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+  <script src="ns-migrate.js?v=20260716"></script>
   <script src="gate.js?v=20260703"></script>
   <script src="anti-cheat.js?v=20260703"></script>
 </head>
@@ -533,9 +535,9 @@ const TOTAL = TRAP.length + VERBS.length + ADJS.length + NOUNS.length;
 // PERSISTENCE
 // ─────────────────────────────────────────────────────────────────
 
-const SK = 'wayne_vocab_v1';
-const DK = 'wayne_daily_v1';
-const TK = 'wayne_theme_v1';
+const SK = 'satrw_vocab_v1';
+const DK = 'satrw_daily_v1';
+const TK = 'satrw_theme_v1';
 
 function loadLearned() {
   try { return new Set(JSON.parse(localStorage.getItem(SK)) || []); }

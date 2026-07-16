@@ -55,11 +55,37 @@ var SESSION_COLUMNS = [
   'Score', 'Max', 'Percent', 'Duration (sec)', 'Avg/Q (sec)', 'Mode',
   'Focus Losses', 'Session ID', 'Breakdown'
 ];
-var EXTRA_COLUMNS = ['Skills', 'Difficulties'];   // R&W only
+// 'Retention' is R&W-only and appended last, so it lands to the right of the
+// existing columns and the Math sheet's shared schema is untouched.
+//
+// It is the per-session retention tally: {skill:{correct,total}} over the questions
+// the review ladder brought BACK after a delay. Accuracy says "did they get it
+// right"; this says "did they get it right weeks later". Only the second one
+// answers "is it staying learned?", which is the claim the monthly report makes to
+// a parent — and until this column existed that claim was uncheckable away from the
+// student's own device.
+//
+// Blank is not zero. Blank means no review was due in that session, which is the
+// honest "we do not know yet" — do not fill it in with a 0.
+var EXTRA_COLUMNS = ['Skills', 'Difficulties', 'Retention'];   // R&W only
 
+// The first 13 are the shared core, identical to the Math script and in the same
+// order, so a student's week reads across both subjects. R&W's three extras are
+// appended LAST on purpose: ensureHeaders_ adds new headers to the right, so a
+// sheet written by the Math script stays readable and existing rows keep their data.
+//
+// Prediction is the one that matters. The homework runner makes the student write
+// what the answer must be BEFORE the choices appear, and that sentence is the
+// reasoning the class reviews together — a right answer reached by bad reasoning is
+// as much a target as a wrong one, and the score alone never shows it.
+//
+// On text is the integrity signal: a Hard passage committed in four seconds was not
+// read. Do not average it into a single per-question time — that is exactly what
+// hides it.
 var QUESTION_COLUMNS = [
   'Timestamp', 'Student', 'Subject', 'Session ID', '#', 'Question ID',
-  'Skill', 'Difficulty', 'Chosen', 'Correct', 'Right', 'Seconds', 'Trap'
+  'Skill', 'Difficulty', 'Chosen', 'Correct', 'Right', 'Seconds', 'Trap',
+  'Prediction', 'On text', 'On options'
 ];
 
 // Old header → new header. Applied in place, so existing rows keep their data.
@@ -116,6 +142,7 @@ function normalise_(b) {
     'Focus Losses':   present_(b.blurCount),
     'Session ID':     b.sessionId || '',
     'Breakdown':      b.skillStats ? JSON.stringify(b.skillStats) : '',
+    'Retention':      b.retention  ? JSON.stringify(b.retention)  : '',
     'Skills':         Array.isArray(b.skills) ? b.skills.join(', ') : '',
     'Difficulties':   Array.isArray(b.diffs) ? b.diffs.join(', ') : ''
   };
@@ -125,7 +152,8 @@ function normalise_(b) {
     return {
       id: q.id, skill: q.skill, difficulty: q.difficulty,
       chosen: q.chosen, correct: q.correct, right: q.isCorrect,
-      secs: q.secs, trap: q.trap
+      secs: q.secs, trap: q.trap,
+      prediction: q.prediction, onText: q.onText, onOpts: q.onOpts
     };
   });
   return row;
@@ -236,7 +264,10 @@ function appendQuestions_(norm, qs) {
       'Correct':     q.correct || '',
       'Right':       q.right === undefined || q.right === null ? '' : !!q.right,
       'Seconds':     present_(q.secs),
-      'Trap':        q.trap || ''
+      'Trap':        q.trap || '',
+      'Prediction':  q.prediction || '',
+      'On text':     present_(q.onText),
+      'On options':  present_(q.onOpts)
     });
   });
   sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, headers.length).setValues(rows);

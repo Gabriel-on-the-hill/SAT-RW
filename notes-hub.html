@@ -132,6 +132,8 @@
     .note-card-cta { display: none; }
   }
   </style>
+  <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+  <script src="ns-migrate.js?v=20260716"></script>
   <script src="gate.js?v=20260703"></script>
   <script src="anti-cheat.js?v=20260703"></script>
 </head>
@@ -219,7 +221,7 @@
 </main>
 
 <script>
-const TK = 'wayne_theme_v1';
+const TK = 'satrw_theme_v1';
 function applyTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   document.getElementById('themeBtn').innerHTML = t === 'dark' ? '&#9728;&#65039;' : '&#127769;';

@@ -4,9 +4,14 @@
 //   NODE_PATH=/tmp/j/node_modules node tutor-sheet/capture-fixtures.js
 //
 // Writes tutor-sheet/fixtures.json, which apps-script.test.js replays through
-// the Apps Script `doPost`. Nothing here is hand-written: the R&W payloads come
-// from driving the real app in jsdom, and the Math payload comes from calling
-// the real MathSession.logCompletion() and intercepting its fetch.
+// the Apps Script `doPost`. The practice and challenge payloads come from driving
+// the real app in jsdom, and the Math payload from calling the real
+// MathSession.logCompletion() and intercepting its fetch.
+//
+// The homework payload is the exception: the runner builds its body inline, so that
+// one is reproduced by hand in captureHomework() and held to the real thing by an
+// assertion in apps-script.test.js. Read the note there before editing it — it has
+// drifted before.
 // ─────────────────────────────────────────────────────────────────
 'use strict';
 const fs = require('fs');
@@ -73,14 +78,39 @@ function captureRW() {
     });
 }
 
-// ── R&W homework: the inline runner's literal, read from source ──
-// homework-run.html builds its own body. We reproduce it here and the test
-// asserts the key set still matches what that file sends.
+// ── R&W homework: the one payload that is reproduced, not driven ──
+// homework-run.html builds its body inline rather than through sheet-sync.js, and
+// driving the whole runner here would mean standing up a plan and answering a set.
+// So this mirrors that literal — and apps-script.test.js §4 asserts the key set
+// still matches what the file actually sends, which is the only thing keeping the
+// two honest.
+//
+// IT HAS ALREADY DRIFTED ONCE. This fixture went months without `questions` after
+// the runner started sending them, so the guard that exists to catch a wrong key
+// was itself failing and the suite's one red line was ignored. If you add a field
+// to postLog(), add it here in the same commit.
 function captureHomework() {
     return {
         type: 'homework', student: 'Segun', day: 2, focus: 'Transitions, at pace',
         score: 7, total: 10, seconds: 431, at: new Date().toISOString(),
         sessionId: 'hw_test_abc123',
+        // Per-skill tally over the questions the review ladder brought BACK — the
+        // durable-learning number. Only delayed retrievals, only ones reached.
+        retention: { 'Inferences': { correct: 1, total: 2 } },
+        questions: [
+            // A spaced review, remembered.
+            { id: 'inf-h-01', skill: 'Inferences', difficulty: 'Hard', chosen: 'B', correct: 'B',
+              isCorrect: true, secs: 74, onText: 41, onOpts: 33,
+              prediction: 'the author is about to concede a point' },
+            // A spaced review, forgotten — this is what retention exists to show.
+            { id: 'inf-m-04', skill: 'Inferences', difficulty: 'Medium', chosen: 'A', correct: 'C',
+              isCorrect: false, secs: 52, onText: 30, onOpts: 22,
+              prediction: 'a contrast is coming' },
+            // A first meeting: acquisition, and deliberately NOT in `retention`.
+            { id: 'tra-m-09', skill: 'Transitions', difficulty: 'Medium', chosen: 'D', correct: 'D',
+              isCorrect: true, secs: 38, onText: 19, onOpts: 19,
+              prediction: 'the second sentence gives the result' },
+        ],
     };
 }
 

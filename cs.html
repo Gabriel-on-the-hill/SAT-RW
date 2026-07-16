@@ -160,6 +160,8 @@
     .example-wrap { grid-template-columns:1fr; }
   }
   </style>
+  <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
+  <script src="ns-migrate.js?v=20260716"></script>
   <script src="gate.js?v=20260703"></script>
   <script src="anti-cheat.js?v=20260703"></script>
 </head>
@@ -341,8 +343,8 @@ var QREF = [
   { cluster:'ctc', rule:'Cross-Text',       test:'Summarise each text’s claim, then name the relationship. Check BOTH texts. Qualify is not disagree.' }
 ];
 
-var SK = 'wayne_cs_methods_v1';
-var TK = 'wayne_theme_v1';
+var SK = 'satrw_cs_methods_v1';
+var TK = 'satrw_theme_v1';
 
 function loadSet(key){ try { return new Set(JSON.parse(localStorage.getItem(key)) || []); } catch(e){ return new Set(); } }
 function saveSet(key,set){ try { localStorage.setItem(key, JSON.stringify([].concat.apply([],[Array.from(set)]))); } catch(e){} }

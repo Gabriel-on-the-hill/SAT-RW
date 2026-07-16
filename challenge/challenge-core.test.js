@@ -47,10 +47,10 @@ function section(t) { console.log('\n' + t); }
 const now = () => Date.now();
 function user(u) { ctx.sessionStorage.setItem('mastery_user', u); }
 function setLedger(led, u) {
-    ctx.localStorage.setItem('wayne_progress_' + (u || 'guest'), JSON.stringify(led));
+    ctx.localStorage.setItem('satrw_progress_' + (u || 'guest'), JSON.stringify(led));
 }
 function getLedger(u) {
-    return JSON.parse(ctx.localStorage.getItem('wayne_progress_' + (u || 'guest')) || '{}');
+    return JSON.parse(ctx.localStorage.getItem('satrw_progress_' + (u || 'guest')) || '{}');
 }
 const Q = id => ({ id, skill: 'Inferences', difficulty: 'Hard' });
 
@@ -245,7 +245,7 @@ section('13 · Multi-student: one frozen set, independent progress, zero new sto
     eq('Bruce:   0 mastered, 1 wrong, 1 unseen', [bc.mastered, bc.notAttempted, bc.wrong], [0, 1, 1]);
     ok('same denominator for both', jc.total === bc.total && jc.total === 2);
     ok('no challenge-specific storage key exists',
-        ctx.localStorage.getItem('wayne_challenge_p8') === null);
+        ctx.localStorage.getItem('satrw_challenge_p8') === null);
 }
 
 // ═════════════════════════════════════════════════════════════════

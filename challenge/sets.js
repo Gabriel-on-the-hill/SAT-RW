@@ -45,7 +45,7 @@
 //             same ruleType/goalType where present).
 //
 // The Challenge module introduces ZERO new storage. Mastery, counts and
-// completion are all derived from `wayne_progress_<student>`, which gate.js
+// completion are all derived from `satrw_progress_<student>`, which gate.js
 // already scopes per student. Two students may hold the same set with wholly
 // independent progress; the same bank question may appear in several sets.
 // ─────────────────────────────────────────────────────────────────

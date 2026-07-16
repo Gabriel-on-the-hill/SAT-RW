@@ -1,11 +1,11 @@
-// ── Wayne's SAT — shared progress ledger ──────────────────────────
-// Storage key: 'wayne_progress'
+// ── SAT R&W Mastery — shared progress ledger ──────────────────────
+// Storage key: 'satrw_progress'
 // Shape: { [questionId]: { correct: number, wrong: number, lastSeen: number } }
 
 // Per-student keys: the mastery ledger and trap stats are scoped to whoever is
 // signed in (sessionStorage 'mastery_user' from gate.js), so multiple students
 // can share a device without their progress mixing. Legacy un-suffixed keys
-// ('wayne_progress' / 'wayne_trap_stats') are copied across on first read so
+// ('satrw_progress' / 'satrw_trap_stats') are copied across on first read so
 // existing data carries over.
 var _hwMigrated = {};
 function _hwUser() {
@@ -14,12 +14,12 @@ function _hwUser() {
     if (!_hwMigrated[u]) {
         _hwMigrated[u] = true;
         try {
-            var lp = localStorage.getItem('wayne_progress');
-            if (lp != null && localStorage.getItem('wayne_progress_' + u) == null)
-                localStorage.setItem('wayne_progress_' + u, lp);
-            var lt = localStorage.getItem('wayne_trap_stats');
-            if (lt != null && localStorage.getItem('wayne_trap_stats_' + u) == null)
-                localStorage.setItem('wayne_trap_stats_' + u, lt);
+            var lp = localStorage.getItem('satrw_progress');
+            if (lp != null && localStorage.getItem('satrw_progress_' + u) == null)
+                localStorage.setItem('satrw_progress_' + u, lp);
+            var lt = localStorage.getItem('satrw_trap_stats');
+            if (lt != null && localStorage.getItem('satrw_trap_stats_' + u) == null)
+                localStorage.setItem('satrw_trap_stats_' + u, lt);
         } catch (e) {}
     }
     return u;
@@ -55,12 +55,12 @@ const REVIEW_LADDER_DAYS = [1, 3, 7, 21, 42];
 const DAY_MS = 86_400_000;
 
 function getProgress() {
-    try { return JSON.parse(localStorage.getItem('wayne_progress_' + _hwUser())) || {}; }
+    try { return JSON.parse(localStorage.getItem('satrw_progress_' + _hwUser())) || {}; }
     catch(e) { return {}; }
 }
 
 function _saveProgress(ledger) {
-    try { localStorage.setItem('wayne_progress_' + _hwUser(), JSON.stringify(ledger)); } catch(e) {}
+    try { localStorage.setItem('satrw_progress_' + _hwUser(), JSON.stringify(ledger)); } catch(e) {}
 }
 
 // Call after every answered question.
@@ -114,12 +114,12 @@ function recordAnswer(id, isCorrect, source, meta) {
 //
 // Shape: { [skill]: { correct, total } }
 function getRetentionStats() {
-    try { return JSON.parse(localStorage.getItem('wayne_retention_' + _hwUser())) || {}; }
+    try { return JSON.parse(localStorage.getItem('satrw_retention_' + _hwUser())) || {}; }
     catch (e) { return {}; }
 }
 
 function _saveRetentionStats(stats) {
-    try { localStorage.setItem('wayne_retention_' + _hwUser(), JSON.stringify(stats)); } catch (e) {}
+    try { localStorage.setItem('satrw_retention_' + _hwUser(), JSON.stringify(stats)); } catch (e) {}
 }
 
 function _recordRetention(skill, isCorrect) {
@@ -324,11 +324,11 @@ function mergeProgress(incoming) {
     _saveProgress(existing);
 }
 
-// Clear the entire ledger (use when Wayne wants a fresh start).
+// Clear the entire ledger (use when a student wants a fresh start).
 function resetLedger() {
-    localStorage.removeItem('wayne_progress_' + _hwUser());
-    try { localStorage.removeItem('wayne_trap_stats_' + _hwUser()); } catch (e) {}
-    try { localStorage.removeItem('wayne_retention_' + _hwUser()); } catch (e) {}
+    localStorage.removeItem('satrw_progress_' + _hwUser());
+    try { localStorage.removeItem('satrw_trap_stats_' + _hwUser()); } catch (e) {}
+    try { localStorage.removeItem('satrw_retention_' + _hwUser()); } catch (e) {}
 }
 
 // ── Trap analytics ────────────────────────────────────────────────
@@ -338,12 +338,12 @@ function resetLedger() {
 //   { [bucket]: { wrong: number, total: number, skill: string } }
 
 function getTrapStats() {
-    try { return JSON.parse(localStorage.getItem('wayne_trap_stats_' + _hwUser())) || {}; }
+    try { return JSON.parse(localStorage.getItem('satrw_trap_stats_' + _hwUser())) || {}; }
     catch (e) { return {}; }
 }
 
 function _saveTrapStats(stats) {
-    try { localStorage.setItem('wayne_trap_stats_' + _hwUser(), JSON.stringify(stats)); } catch (e) {}
+    try { localStorage.setItem('satrw_trap_stats_' + _hwUser(), JSON.stringify(stats)); } catch (e) {}
 }
 
 // Call after every answered question that has a known skill.

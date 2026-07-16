@@ -38,8 +38,8 @@ try { ({ JSDOM } = require('jsdom')); }
 catch (e) { console.log('SKIP — jsdom not installed (see header).'); process.exit(0); }
 
 const APP        = path.join(__dirname, '..');
-const LEDGER_KEY = 'wayne_progress_guest';    // 'wayne_progress_' + (sessionStorage mastery_user || 'guest')
-const TRAP_KEY   = 'wayne_trap_stats_guest';  // per-skill accuracy — what calibration reads
+const LEDGER_KEY = 'satrw_progress_guest';    // 'satrw_progress_' + (sessionStorage mastery_user || 'guest')
+const TRAP_KEY   = 'satrw_trap_stats_guest';  // per-skill accuracy — what calibration reads
 const DAY        = 86_400_000;
 const ago        = d => Date.now() - d * DAY;
 
