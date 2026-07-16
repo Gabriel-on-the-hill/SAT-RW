@@ -472,6 +472,59 @@ function finish() {
             ok('the field the Apps Script reads is present: ' + f, f in q0);
     }
 
+    // ═════════════════════════════════════════════════════════════════
+    section('11 · Difficulty calibration leans a range, and never overrides the tutor');
+    {
+        // ~85% success is where learning is maximised (`AS-4`). Calibration nudges a
+        // cruising student up and an overloaded one down — but ONLY inside a range the
+        // tutor already allowed. The recommender itself is unit-tested in
+        // review-ladder.test.js; what is tested here is the thing that could actually
+        // hurt a student: the draw.
+        //
+        // Day 3's sections list diffs ["Medium","Hard"] — a range, i.e. the tutor
+        // saying either end is fine. Day 1 pins ["Medium"] — a decision, not a range.
+        const TRAP = 'wayne_trap_stats___TEST__';
+        const traps = pct => JSON.stringify({
+            'Inferences — general': { skill: 'Inferences', total: 20, wrong: Math.round(20 * (1 - pct)) },
+        });
+
+        // Both ends of the range must actually exist, or this section would "pass" by
+        // drawing the only thing available.
+        {
+            const QB = build(1).__QB();
+            const inf = d => QB.filter(q => q.skill === 'Inferences' && q.difficulty === d).length;
+            ok('the bank holds both ends of the range to choose between', inf('Medium') > 0 && inf('Hard') > 0,
+                `Medium=${inf('Medium')} Hard=${inf('Hard')}`);
+        }
+
+        const runDay = (day, store) => {
+            const w = reopen(day, store);
+            for (let i = 0; i < 3; i++) { commit(w, 'p'); all(w, '.opt')[0].click(); $(w, 'next').click(); }
+            return recs(w);
+        };
+
+        // Section 1 of day 3 is the Inferences section, and it is drawn first.
+        const up = runDay(3, { [TRAP]: traps(0.95) })[0];
+        ok('a student cruising at 95% is drawn UP to Hard within the range',
+            up.skill === 'Inferences' && up.difficulty === 'Hard', JSON.stringify(up));
+
+        const down = runDay(3, { [TRAP]: traps(0.70) })[0];
+        ok('a student overloaded at 70% is drawn DOWN to Medium in the same section',
+            down.skill === 'Inferences' && down.difficulty === 'Medium', JSON.stringify(down));
+
+        // THE GUARDRAIL. A day that pins one difficulty is the tutor's explicit choice
+        // and calibration must not perturb it by so much as a question. The draw is
+        // frozen here, so an identical set is a real assertion and not luck.
+        const plain    = runDay(1, {}).map(r => r.id);
+        const cruising = runDay(1, { [TRAP]: traps(0.95) }).map(r => r.id);
+        ok('a day that PINS a difficulty is untouched, however well the student is doing',
+            JSON.stringify(plain) === JSON.stringify(cruising),
+            'never promote a student to a difficulty the day did not list');
+
+        // And the exact-count guarantee that `sections` exists for survives all of it.
+        eq('a calibrated sections day still draws its exact count', runDay(3, { [TRAP]: traps(0.95) }).length, 3);
+    }
+
     console.log('\n' + '─'.repeat(64));
     if (fail) { console.log(`${fail} FAILED: ` + fails.join(' · ')); process.exit(1); }
     console.log(`ALL ${pass} ASSERTIONS PASSED`);

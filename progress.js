@@ -65,7 +65,15 @@ function _saveProgress(ledger) {
 
 // Call after every answered question.
 // source: 'practice' | 'exam' | 'homework'  — exam answers count double.
-function recordAnswer(id, isCorrect, source) {
+// meta:   { skill, review } — optional. `review: true` means the ladder chose this
+//         question (dueForReview), so the answer is a DELAYED retrieval and counts
+//         toward retention. `skill` is the bucket it counts into. Both are ignored
+//         when absent, so the three-argument callers keep working unchanged.
+//
+//         `source` says where the answer happened; `review` says why the question
+//         was drawn. They are different questions and must not be folded together —
+//         an exam answer still counts double whether or not it was a review.
+function recordAnswer(id, isCorrect, source, meta) {
     const ledger = getProgress();
     if (!ledger[id]) ledger[id] = { correct: 0, wrong: 0, lastSeen: 0 };
     // Read the rung BEFORE touching anything. _streak() falls back to `correct` for
@@ -84,6 +92,76 @@ function recordAnswer(id, isCorrect, source) {
         if (ledger[id].correct > 0) ledger[id].correct--;
     }
     _saveProgress(ledger);
+    if (meta && meta.review) _recordRetention(meta.skill, isCorrect);
+}
+
+// ── Retention: is it STAYING learned? ─────────────────────────────
+// The ledger has always known whether an answer was right. It could not, until
+// now, tell "learned and retained" from "learned and forgotten" — and that is the
+// exact claim a monthly report makes to a parent.
+//
+// The difference between the two is delay. Getting a question right the first time
+// you meet it is ACQUISITION. Getting it right when the ladder brings it back
+// weeks later is RETENTION, and only the second is evidence that anything stuck
+// (`AN-4`, `MR-8`). The spacing ladder already creates the delayed retrievals;
+// this is what finally counts them.
+//
+// So exactly one thing lands here: an answer to a question dueForReview() chose.
+// A first attempt must never be counted. Acquisition accuracy always looks good,
+// so a first attempt leaking in moves this number in the flattering direction —
+// and a flattering number that ends up in a report is a lie (`M1`). Nor does a
+// redo count: the redo is untimed with notes open, and it is not a memory test.
+//
+// Shape: { [skill]: { correct, total } }
+function getRetentionStats() {
+    try { return JSON.parse(localStorage.getItem('wayne_retention_' + _hwUser())) || {}; }
+    catch (e) { return {}; }
+}
+
+function _saveRetentionStats(stats) {
+    try { localStorage.setItem('wayne_retention_' + _hwUser(), JSON.stringify(stats)); } catch (e) {}
+}
+
+function _recordRetention(skill, isCorrect) {
+    if (!skill) return;
+    const stats = getRetentionStats();
+    if (!stats[skill]) stats[skill] = { correct: 0, total: 0 };
+    stats[skill].total += 1;
+    if (isCorrect) stats[skill].correct += 1;
+    _saveRetentionStats(stats);
+}
+
+// The durable-learning readout: retention rate per skill, plus overall.
+// Returns { bySkill: { [skill]: { correct, total, rate } }, overall: { correct, total, rate } }.
+//
+// The counts come back with the rates on purpose. "100%" off a single delayed
+// retrieval is not a retention claim, and any surface showing this must be able to
+// say 1/1 rather than imply a month of evidence.
+function getRetention() {
+    const stats   = getRetentionStats();
+    const bySkill = {};
+    let correct = 0, total = 0;
+    Object.entries(stats).forEach(([skill, s]) => {
+        const c = s.correct || 0, t = s.total || 0;
+        if (!t) return;
+        bySkill[skill] = { correct: c, total: t, rate: c / t };
+        correct += c; total += t;
+    });
+    return {
+        bySkill,
+        overall: { correct, total, rate: total ? correct / total : 0 },
+    };
+}
+
+function mergeRetention(incoming) {
+    if (!incoming || typeof incoming !== 'object') return;
+    const existing = getRetentionStats();
+    Object.entries(incoming).forEach(([skill, s]) => {
+        if (!existing[skill]) existing[skill] = { correct: 0, total: 0 };
+        existing[skill].correct += s.correct || 0;
+        existing[skill].total   += s.total   || 0;
+    });
+    _saveRetentionStats(existing);
 }
 
 // ── The ladder ────────────────────────────────────────────────────
@@ -250,6 +328,7 @@ function mergeProgress(incoming) {
 function resetLedger() {
     localStorage.removeItem('wayne_progress_' + _hwUser());
     try { localStorage.removeItem('wayne_trap_stats_' + _hwUser()); } catch (e) {}
+    try { localStorage.removeItem('wayne_retention_' + _hwUser()); } catch (e) {}
 }
 
 // ── Trap analytics ────────────────────────────────────────────────
@@ -309,6 +388,58 @@ function mergeTrapStats(incoming) {
         }
     });
     _saveTrapStats(existing);
+}
+
+// ── Difficulty calibration ────────────────────────────────────────
+// Rolling per-skill accuracy, rebuilt from the trap buckets — every bucket already
+// carries its `skill`, `total` and `wrong`, so this is the one per-skill accuracy
+// the app has. (The mastery ledger is keyed by question id and does not know what
+// skill a question is.)
+// Returns { [skill]: { correct, total, rate } }.
+function getSkillAccuracy() {
+    const out = {};
+    Object.values(getTrapStats()).forEach(s => {
+        const skill = s.skill;
+        if (!skill) return;
+        if (!out[skill]) out[skill] = { correct: 0, total: 0, rate: 0 };
+        out[skill].total   += s.total || 0;
+        out[skill].correct += (s.total || 0) - (s.wrong || 0);
+    });
+    Object.values(out).forEach(v => { v.rate = v.total ? v.correct / v.total : 0; });
+    return out;
+}
+
+// ~85% success is where learning is maximised: below ~80% is overload and
+// demoralisation, above ~90% there is no desirable difficulty left and the student
+// is just being told what they already know (`AS-4`).
+//
+// This returns a BIAS — 'up' | 'hold' | 'down' — and never a difficulty. The tutor's
+// homework day says which difficulties are allowed; calibration only chooses within
+// what the day already permits. A day that pins one difficulty is a decision, not a
+// range, and nothing here may touch it: never override the tutor.
+//
+// MIN_CALIBRATION_ATTEMPTS exists because 3-for-3 on a skill is a coin landing
+// heads three times, not evidence of cruising. Under the threshold we hold, so a
+// student's first day on a new skill runs exactly as authored.
+const MIN_CALIBRATION_ATTEMPTS = 8;
+const CALIBRATE_UP_ABOVE       = 0.90;
+const CALIBRATE_DOWN_BELOW     = 0.80;
+
+// `skills` is a skill name or an array of them. A section naming several skills is
+// calibrated off their combined accuracy — one bias for the one draw it controls.
+function recommendDifficulty(skills) {
+    const names = Array.isArray(skills) ? skills : [skills];
+    const acc   = getSkillAccuracy();
+    let correct = 0, total = 0;
+    names.forEach(n => {
+        const a = acc[n];
+        if (a) { correct += a.correct; total += a.total; }
+    });
+    if (total < MIN_CALIBRATION_ATTEMPTS) return 'hold';
+    const rate = correct / total;
+    if (rate > CALIBRATE_UP_ABOVE)   return 'up';
+    if (rate < CALIBRATE_DOWN_BELOW) return 'down';
+    return 'hold';
 }
 
 function _fyShuffle(arr) {

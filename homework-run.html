@@ -87,7 +87,7 @@
 <script src="data-expression-of-ideas.js?v=20260703"></script>
 <script src="data-info-ideas.js?v=20260703"></script>
 <script src="data-conventions.js?v=20260703"></script>
-<script src="progress.js?v=20260714"></script>
+<script src="progress.js?v=20260716"></script>
 <script src="sheet-sync.js?v=20260703"></script>
 <script src="homework/assignments.js?v=20260714"></script>
 </head>
@@ -132,6 +132,45 @@
     typeof questionBank_CON!=='undefined'?questionBank_CON:[]);
   function byId(id){ for(var i=0;i<QB.length;i++) if(QB[i].id===id) return QB[i]; return null; }
   function _pick(pool,n){ var ordered=(typeof prioritizePool==='function')?prioritizePool(pool):pool.slice().sort(function(){return Math.random()-0.5;}); return ordered.slice(0, n); }
+  function _shuf(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+
+  // ── Difficulty calibration (AS-4) ─────────────────────────────────────────
+  // A section listing a RANGE of difficulties — diffs:["Medium","Hard"] — is the
+  // tutor saying "either is fine here". That, and only that, is permission to lean
+  // the draw toward the end that keeps him near the ~85% success rate where
+  // learning is maximised. A section that pins ONE difficulty is an explicit tutor
+  // choice and is left exactly as authored: calibration never promotes a student to
+  // a difficulty the day did not list.
+  //
+  // It leans, it does not lurch. Most of the count comes from the target end and
+  // the remainder still mixes in the other — a student who is cruising gets harder
+  // work, not a wall; a student who is drowning gets relief, not a demotion.
+  //
+  // The section's exact count survives calibration in every case. That guarantee is
+  // what `sections` exists for and it is not negotiable: if the leaning end is thin,
+  // we top back up from the rest of the pool rather than serve a short section.
+  var CALIBRATE_LEAN = 0.7;
+  var DIFF_ORDER = ['Easy','Medium','Hard'];
+  function _calibratedPick(sec, pool, n){
+    var diffs=(sec.diffs||[]).slice().sort(function(a,b){ return DIFF_ORDER.indexOf(a)-DIFF_ORDER.indexOf(b); });
+    if(diffs.length<2 || typeof recommendDifficulty!=='function') return _pick(pool, n);
+    var bias=recommendDifficulty(sec.skills||[]);
+    if(bias==='hold') return _pick(pool, n);
+
+    var target = (bias==='up') ? diffs[diffs.length-1] : diffs[0];
+    var lean=[], rest=[];
+    pool.forEach(function(q){ (q.difficulty===target?lean:rest).push(q); });
+
+    var picked=_pick(lean, Math.min(Math.ceil(n*CALIBRATE_LEAN), n));
+    var have={}; picked.forEach(function(q){ have[q.id]=true; });
+    if(picked.length<n) picked=picked.concat(_pick(rest, n-picked.length));
+    picked.forEach(function(q){ have[q.id]=true; });
+    if(picked.length<n) picked=picked.concat(_pick(pool.filter(function(q){return !have[q.id];}), n-picked.length));
+
+    // Shuffle, or the section serves its Hard block first and its Medium block
+    // second — which is exactly the blocking that `sections` exists to prevent.
+    return _shuf(picked.slice(0, n));
+  }
 
   // What she actually did, kept question by question. Without this the run held
   // only a running score, so clicking Next destroyed the question, her answer and
@@ -165,7 +204,7 @@
         if(sec.ruleType && q.ruleType!==sec.ruleType) return false;
         return true;
       });
-      var picked=_pick(pool, sec.count||0);
+      var picked=_calibratedPick(sec, pool, sec.count||0);
       picked.forEach(function(q){_used[q.id]=true;});
       set=set.concat(picked);
     });
@@ -201,6 +240,14 @@
   var _inSet   = {}; set.forEach(function(q){ _inSet[q.id] = true; });
   var reviewQs = (typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet) : [];
   reviewQs.forEach(function(q){ set.splice(Math.floor(Math.random() * (set.length + 1)), 0, q); });
+
+  // These — and nothing else in the set — are delayed retrievals: questions he has
+  // met before and the ladder says are overdue. Answering one is the only evidence
+  // the app ever gets that something STAYED learned, so their outcomes are counted
+  // separately from first meetings. See the retention block in progress.js.
+  // He is never told which ones they are: a question flagged as review is a question
+  // answered differently, and the measurement would be of the flag, not the memory.
+  var _isReviewQ = {}; reviewQs.forEach(function(q){ _isReviewQ[q.id] = true; });
 
   if(!set.length){ run.innerHTML='<div class="done-card">No questions available for this day. <a href="homework-hub.html">Back</a></div>'; return; }
 
@@ -390,7 +437,16 @@
     }
     saveRecs();
 
-    if(typeof recordAnswer==='function') recordAnswer(q.id, ok, 'practice');
+    // A redo is untimed with notes open. It is not a memory test and it is not a
+    // calibration signal, so it feeds neither retention nor the per-skill accuracy
+    // the difficulty recommender reads — the same reason it never rewrites the
+    // first attempt. It still climbs the ladder: he did get it right in the end.
+    if(typeof recordAnswer==='function')
+      recordAnswer(q.id, ok, 'practice', { skill:q.skill, review: !isRedo && !!_isReviewQ[q.id] });
+    // Homework never fed the per-skill stats — only the practice app did. That left
+    // the trap analytics, and now the difficulty recommender, blind to the work he
+    // actually does most of.
+    if(!isRedo && typeof recordTrapOutcome==='function') recordTrapOutcome(q.skill, q.trapName, ok);
 
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){
       b.disabled=true; var bl=b.dataset.l;

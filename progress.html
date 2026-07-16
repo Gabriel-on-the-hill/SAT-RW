@@ -184,10 +184,18 @@
   /* ── Per-skill accuracy ──────────────────────────────────────── */
   .skill-list { display: flex; flex-direction: column; gap: 0.45rem; padding-top: 0.4rem; }
   .skill-row {
-    display: grid; grid-template-columns: minmax(0,1fr) 60px 80px;
+    display: grid; grid-template-columns: minmax(0,1fr) 60px 80px 104px;
     gap: 0.75rem; align-items: center;
     font-size: 0.86rem;
   }
+  .skill-ret {
+    font-size: 0.75rem; text-align: right; white-space: nowrap;
+    font-variant-numeric: tabular-nums; font-weight: 700;
+  }
+  .skill-ret.pct-pass { color: var(--pass-hue); }
+  .skill-ret.pct-warn { color: var(--warn-hue); }
+  .skill-ret.pct-fail { color: var(--fail-hue); }
+  .skill-ret.none     { color: var(--text-muted); font-weight: 400; opacity: 0.55; }
   .skill-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .skill-bar-bg {
     height: 8px; background: var(--border); border-radius: 999px;
@@ -306,6 +314,9 @@
     <div class="section-body">
       <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:0.5rem">
         Aggregated across every session, sorted by weakest first. Use this to pick your next focus.
+        <b>Kept</b> is different: it counts only the questions that came back to you days or weeks
+        later, so it tells you what you still remember rather than what you got right on the day.
+        A high bar with a low <b>kept</b> is the sign to revisit a skill you thought was finished.
       </p>
       <div class="skill-list" id="skillList"></div>
     </div>
@@ -341,7 +352,7 @@
 <script src="data-craft-structure.js?v=20260703"></script>
 <script src="data-expression-of-ideas.js?v=20260703"></script>
 <script src="data-info-ideas.js?v=20260703"></script>
-<script src="progress.js?v=20260714"></script>
+<script src="progress.js?v=20260716"></script>
 <script src="homework/assignments.js?v=20260714"></script>
 <script>
 (function () {
@@ -413,10 +424,21 @@
     const last          = history[0];
     const lastSummary   = last ? `${last.score}/${last.total} (${last.pct}%)` : '—';
 
+    // Accuracy and retention sit next to each other on purpose, and the pair is the
+    // whole point. Accuracy says "did you get it right"; retention says "did you get
+    // it right weeks later, without being told it was coming". Only the second one
+    // answers "is it staying learned?" — and accuracy alone always flatters.
+    const ret = (typeof getRetention === 'function') ? getRetention() : { overall: { total: 0 } };
+    const r   = ret.overall;
+
     const cells = [
       { label: 'Sessions logged',  value: totalSessions, sub: '' },
       { label: 'Questions seen',   value: totalQs.toLocaleString(), sub: '' },
       { label: 'Overall accuracy', value: totalQs > 0 ? `${avgPct}%` : '—', sub: `${totalCorrect.toLocaleString()} correct` },
+      // Never a bare percentage: "100%" off one delayed retrieval is not evidence of
+      // anything, and the count is what stops it reading as though it were.
+      { label: 'Retention',        value: r.total > 0 ? `${Math.round(r.rate * 100)}%` : '—',
+        sub: r.total > 0 ? `${r.correct}/${r.total} on spaced reviews` : 'no spaced reviews yet' },
       { label: 'Most recent',      value: lastSummary, sub: last ? fmtDate(last.date) : '' },
     ];
     document.getElementById('summaryRow').innerHTML = cells.map(c => `
@@ -487,6 +509,13 @@
         agg[skill].total   += s.total   || 0;
       });
     });
+    // The bar is acquisition. The figure beside it is retention — the same skill,
+    // measured only on questions the ladder brought back after a delay. A skill can
+    // sit at 90% on the bar and 50% on the right, and that gap is the single most
+    // useful thing on this screen: it means the practice is landing and the memory
+    // is not. A skill with no retention figure has simply not come back yet.
+    const ret = (typeof getRetention === 'function') ? getRetention().bySkill : {};
+
     const rows = Object.entries(agg)
       .filter(([, s]) => s.total > 0)
       .map(([skill, s]) => ({
@@ -494,6 +523,7 @@
         correct: s.correct,
         total:   s.total,
         pct:     Math.round((s.correct / s.total) * 100),
+        ret:     ret[skill] || null,
       }))
       .sort((a, b) => a.pct - b.pct);
 
@@ -502,15 +532,20 @@
       container.innerHTML = '<div class="empty">No per-skill data yet — complete a session first.</div>';
       return;
     }
-    container.innerHTML = rows.map(r => `
+    container.innerHTML = rows.map(r => {
+      const rp = r.ret ? Math.round(r.ret.rate * 100) : null;
+      return `
       <div class="skill-row">
         <span class="skill-name">${escapeHtml(r.skill)}</span>
         <div class="skill-bar-bg">
           <div class="skill-bar-fill ${barClass(r.pct)}" style="width:${r.pct}%"></div>
         </div>
         <span class="skill-stat">${r.correct}/${r.total} · ${r.pct}%</span>
-      </div>
-    `).join('');
+        ${r.ret
+          ? `<span class="skill-ret ${pctClass(rp)}" title="Retention: ${r.ret.correct} of ${r.ret.total} spaced reviews answered correctly">kept ${rp}% <span style="opacity:.6">(${r.ret.correct}/${r.ret.total})</span></span>`
+          : `<span class="skill-ret none" title="No spaced reviews of this skill are due yet — nothing to measure retention on.">kept —</span>`}
+      </div>`;
+    }).join('');
   }
 
   // ── Render: per-assignment mastery ─────────────────────────────

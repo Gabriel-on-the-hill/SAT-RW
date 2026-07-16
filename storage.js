@@ -274,6 +274,11 @@ function buildFullBackup() {
         history:    safeGetJSON(STORAGE.HISTORY, []),
         progress:   (typeof getProgress === 'function') ? getProgress() : {},
         trapStats:  (typeof getTrapStats === 'function') ? getTrapStats() : {},
+        // Retention is measured on spaced reviews only, so it accumulates slowly and
+        // cannot be reconstructed from anything else in this file. Left out of the
+        // backup, a device change would silently reset the one number that says
+        // whether any of this stuck.
+        retention:  (typeof getRetentionStats === 'function') ? getRetentionStats() : {},
     };
 }
 
@@ -357,6 +362,8 @@ function openRestoreAllModal() {
                 && typeof mergeProgress === 'function') { mergeProgress(incoming.progress); restored++; }
             if (incoming.trapStats && typeof incoming.trapStats === 'object'
                 && typeof mergeTrapStats === 'function') { mergeTrapStats(incoming.trapStats); }
+            if (incoming.retention && typeof incoming.retention === 'object'
+                && typeof mergeRetention === 'function') { mergeRetention(incoming.retention); }
             if (restored === 0)
                 throw new Error('No history or progress found in this file.');
             modal.style.display = 'none';

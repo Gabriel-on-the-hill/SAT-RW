@@ -39,6 +39,7 @@ catch (e) { console.log('SKIP — jsdom not installed (see header).'); process.e
 
 const APP        = path.join(__dirname, '..');
 const LEDGER_KEY = 'wayne_progress_guest';    // 'wayne_progress_' + (sessionStorage mastery_user || 'guest')
+const TRAP_KEY   = 'wayne_trap_stats_guest';  // per-skill accuracy — what calibration reads
 const DAY        = 86_400_000;
 const ago        = d => Date.now() - d * DAY;
 
@@ -61,16 +62,22 @@ const BANK = [
     { id: 'inf2', skill: 'Inferences',              difficulty: 'Hard'   },
 ];
 
-// Fresh window with progress.js loaded and a ledger seeded.
-function withLedger(ledger) {
+// Fresh window with progress.js loaded and a ledger seeded. `traps` optionally seeds
+// the per-skill trap buckets, which is where difficulty calibration reads accuracy from.
+function withLedger(ledger, traps) {
     const dom = new JSDOM('<!doctype html><body>', { runScripts: 'dangerously', url: 'https://x.test' });
     const w   = dom.window;
     w.localStorage.setItem(LEDGER_KEY, JSON.stringify(ledger));
+    if (traps) w.localStorage.setItem(TRAP_KEY, JSON.stringify(traps));
     const s = w.document.createElement('script');
     s.textContent = fs.readFileSync(path.join(APP, 'progress.js'), 'utf8');
     w.document.body.appendChild(s);
     return w;
 }
+
+// A trap bucket as recordTrapOutcome writes it: total attempts, of which `wrong`.
+const skillAt = (skill, total, pct) =>
+    ({ [skill + ' — general']: { skill, total, wrong: Math.round(total * (1 - pct)) } });
 
 // ── 1 · the ladder itself ─────────────────────────────────────────────────────
 section('The ladder: each correct pushes the next sighting further out');
@@ -241,6 +248,111 @@ section('Live plans authored before the ladder are frozen');
         ok(`${name}'s plan is still frozen (review: 0)`, plan.review === 0,
             'this plan\'s counts assume no review draw; re-author the counts before lifting the freeze');
     }
+}
+
+// ── 10 · retention: measured on delayed retrievals ONLY ───────────────────────
+section('Retention counts spaced reviews, and nothing else');
+{
+    // WHY THIS IS STRICT: acquisition accuracy always looks good. Retention is the
+    // one number that can say "learned and then forgotten", and it is the number the
+    // monthly report's claim to a parent rests on. Every leak into it — a first
+    // attempt, a redo, an untimed notes-open retry — moves it in the FLATTERING
+    // direction. A retention figure that counts first meetings is not a weaker
+    // measurement, it is a false one.
+    const w = withLedger({
+        wic1: { correct: 2, wrong: 0, streak: 2, lastSeen: ago(40), lastResult: 'correct' },
+        tsp1: { correct: 2, wrong: 0, streak: 2, lastSeen: ago(40), lastResult: 'correct' },
+    });
+    ok('both seeded questions are genuinely due', w.dueForReview(BANK, 4, {}).length === 2);
+
+    // Two DUE reviews: one right, one wrong. This is the measurement.
+    w.recordAnswer('wic1', true,  'homework', { skill: 'Words in Context',          review: true });
+    w.recordAnswer('tsp1', false, 'homework', { skill: 'Text Structure and Purpose', review: true });
+    // A first exposure, answered right. This is acquisition and must NOT be counted.
+    w.recordAnswer('inf1', true,  'homework', { skill: 'Inferences', review: false });
+    // A legacy three-argument caller (the practice app) records no retention at all.
+    w.recordAnswer('inf2', true,  'practice');
+
+    const r = w.getRetention();
+    ok('a review answered right is retained',
+        r.bySkill['Words in Context'].correct === 1 && r.bySkill['Words in Context'].total === 1);
+    ok('a review answered wrong counts against retention',
+        r.bySkill['Text Structure and Purpose'].correct === 0 &&
+        r.bySkill['Text Structure and Purpose'].total   === 1);
+    ok('a FIRST exposure is acquisition, not retention', !r.bySkill['Inferences'],
+        'if this fails the number flatters — first attempts are being counted as memory');
+    ok('a three-argument caller records no retention', Object.keys(r.bySkill).length === 2);
+    ok('overall retention is 1 of 2, not 2 of 3',
+        r.overall.correct === 1 && r.overall.total === 2 && r.overall.rate === 0.5,
+        JSON.stringify(r.overall));
+
+    // The counts travel with the rate on purpose: "100%" off one retrieval is not
+    // evidence, and a surface that cannot say 1/1 will imply it was.
+    ok('rates ship with their counts', r.bySkill['Words in Context'].rate === 1);
+
+    const fresh = withLedger({});
+    ok('a student with no reviews yet has no retention claim',
+        fresh.getRetention().overall.total === 0);
+}
+
+// ── 11 · retention survives a device change ───────────────────────────────────
+section('Retention is carried, not silently reset');
+{
+    // It accumulates only on spaced reviews, so it is slow to earn and impossible to
+    // reconstruct from anything else. Dropped from a backup, a new device silently
+    // resets the one number that says whether any of this stuck.
+    const w = withLedger({});
+    w.mergeRetention({ 'Words in Context': { correct: 3, total: 4 } });
+    w.mergeRetention({ 'Words in Context': { correct: 1, total: 2 }, 'Inferences': { correct: 2, total: 2 } });
+    const r = w.getRetention();
+    ok('an imported counter sums rather than overwrites',
+        r.bySkill['Words in Context'].correct === 4 && r.bySkill['Words in Context'].total === 6,
+        JSON.stringify(r.bySkill['Words in Context']));
+    ok('a new skill arrives intact', r.bySkill['Inferences'].total === 2);
+
+    w.resetLedger();
+    ok('a fresh start clears retention too', w.getRetention().overall.total === 0,
+        'a cleared ledger with a stale retention figure would be a claim about work that no longer exists');
+}
+
+// ── 12 · difficulty calibration aims at ~85% ──────────────────────────────────
+section('Calibration reads accuracy and points at the ~85% band');
+{
+    // ~85% is where productive struggle lives: below ~80% is overload, above ~90%
+    // there is no desirable difficulty left (`AS-4`).
+    const at = (total, pct) => withLedger({}, skillAt('Inferences', total, pct))
+        .recommendDifficulty('Inferences');
+
+    ok('a student cruising at 95% should be pushed up',   at(20, 0.95) === 'up');
+    ok('a student at 70% is overloaded — ease off',       at(20, 0.70) === 'down');
+    ok('a student at 85% is exactly where we want them',  at(20, 0.85) === 'hold');
+    ok('80–90% is the hold band, not a nudge',            at(20, 0.85) === 'hold' && at(20, 0.90) === 'hold');
+
+    // Sample size. 3-for-3 is a coin landing heads three times, not evidence.
+    ok('a thin sample holds instead of guessing', at(3, 1.0) === 'hold',
+        'calibrating off three attempts would jerk a new skill to Hard on noise');
+    ok('an unknown skill holds', withLedger({}).recommendDifficulty('Never Taught') === 'hold');
+
+    // A section may name more than one skill, and then one bias governs the one draw
+    // it controls — so it must read their COMBINED record. Here each skill on its own
+    // would pull the opposite way (100% says up, 70% says down); together they are at
+    // 85%, which is exactly where the student should already be.
+    const both = withLedger({}, Object.assign(
+        skillAt('Inferences',      10, 1.0),
+        skillAt('Words in Context', 10, 0.7)));
+    ok('several skills calibrate off their combined accuracy, not one of them',
+        both.recommendDifficulty(['Inferences', 'Words in Context']) === 'hold',
+        'got ' + both.recommendDifficulty(['Inferences', 'Words in Context']));
+    ok('though each skill alone would pull the opposite way',
+        both.recommendDifficulty('Inferences') === 'up' &&
+        both.recommendDifficulty('Words in Context') === 'down');
+
+    // The accuracy itself is rebuilt from the trap buckets, which is the only
+    // per-skill record the app keeps (the mastery ledger is keyed by question id and
+    // does not know what skill a question is).
+    const acc = withLedger({}, skillAt('Inferences', 20, 0.95)).getSkillAccuracy();
+    ok('per-skill accuracy is reconstructable', acc['Inferences'].correct === 19 && acc['Inferences'].total === 20,
+        JSON.stringify(acc['Inferences']));
 }
 
 console.log('\n' + '─'.repeat(64));
