@@ -370,6 +370,85 @@ const HOMEWORK = {
           { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Dash",  count:2 }
         ] },
     ]
+  },
+
+  // Bruce — week of 18 Jul. Five sets, Sat–Wed, building to a ten-question set at
+  // test pace on the Wednesday.
+  //
+  // ENFORCE, THEN ENCOURAGE. predictMode() keys off the clock: untimed → he TYPES
+  // the prediction; timed → one click. Typing is the only thing that can make the
+  // reasoning step happen, and it can only happen with no clock on. So days 1–2 are
+  // untimed and days 3–5 are timed, and every skill is written untimed BEFORE it is
+  // written timed. The clock then tightens 90s → 80s → 71s (SAT R&W pace) rather
+  // than arriving all at once.
+  //
+  // `minutes` budgets the WHOLE set, review questions included — not just `count`.
+  // Day 3: 4+2 = 6 @ 90s = 9. Day 4: 6+2 = 8 @ 80s = 11. Day 5: 10+0 @ ~71s = 12.
+  //
+  // Day 1 splits Form, Structure and Sense by ruleType. assignments.test.js checks
+  // pool depth by skill + difficulty and IGNORES ruleType, so it will NOT catch a
+  // thin ruleType draw. Tallied by hand at Medium+Hard: Mod 12 (M2 H10), Poss 5
+  // (M3 H2), Pron 6 (M4 H2) — each ≥ its count of 2, but Poss and Pron sit near the
+  // floor. Do not raise those counts without re-tallying.
+  //
+  // Modifiers are Hard-only in practice (2 Medium in a 719-question bank), so the
+  // range cannot lower them. That is what day 1 being untimed is for: hold the
+  // difficulty, add the scaffold.
+  //
+  // Command of Evidence — Quantitative is the THINNEST pool in the bank: M5 H7 = 12
+  // at Medium+Hard. It carries count:2 and no more, and the week draws 6 of the 12.
+  // If it ever looks thinner than this, that is a parser regression, not a fact
+  // about the test — see AGENTS.md and bank.test.js. Note the em dash in the skill
+  // name; a hyphen will not resolve.
+  //
+  // Every day gives a RANGE, not a fixed difficulty, so recommendDifficulty() may
+  // lean the draw toward the end that keeps him near ~85% success. It holds until a
+  // skill has 8 attempts, so early days run exactly as authored.
+  //
+  // Counts are authored around the review dose: day 1 is 6+0 (an empty ledger has
+  // nothing due yet), days 2–4 carry +2, day 5 is 10+0 so the rehearsal is exactly
+  // ten at pace.
+  //
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser. Keep it free of assessment of him.
+  "Bruce": {
+    title: "This week: lock the focus, then find it under a clock",
+    start: "2026-07-18",
+    unlock: "cumulative",
+    days: [
+      { n:1, focus:"Form, structure & sense — modifiers, possessives, pronouns", minutes:0, review:0,
+        tip:"Untimed on purpose: type what the sentence needs before the choices appear. Modifier — name the noun the opening phrase describes, then check that that noun is the first thing after the comma. Possessive — decide who owns it, and whether they are one or many, before you place the apostrophe. Pronoun — say the noun it stands for out loud; if you cannot name it, the pronoun is wrong. Write the rule you are using, not just the answer.",
+        sections:[
+          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod",  count:2 },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Poss", count:2 },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Pron", count:2 }
+        ] },
+      { n:2, focus:"Evidence and inferences — say it before you look", minutes:0,
+        tip:"Still untimed, still typed. Two texts: in one sentence, say what each author would say to the other, and name the exact point they part on. Inference: finish the thought the text stops just short of — it has to follow from the text alone, with nothing of yours added. Charts and tables: read the axis labels and the UNITS before you read a single choice, and say what the data shows in your own words. Every one of these is the same move — decide what the answer must do, then go looking.",
+        sections:[
+          { skills:["Cross-Text Connections"],              diffs:["Medium","Hard"], count:2 },
+          { skills:["Inferences"],                          diffs:["Medium","Hard"], count:2 },
+          { skills:["Command of Evidence — Quantitative"],  diffs:["Medium","Hard"], count:2 }
+        ] },
+      { n:3, focus:"Form, structure & sense — same rules, now on a clock", minutes:9,
+        tip:"Saturday's rules at ninety seconds a question. One click to commit this time, so the discipline is yours to keep: read the whole sentence, decide what it needs, and only then open the choices. Eliminate in one pass. If you catch yourself going back and forth between a choice and the text, you never locked an answer — go back to the sentence and decide first.",
+        skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], count:4 },
+      { n:4, focus:"Evidence and inferences — eighty seconds a question", minutes:11,
+        tip:"Same order as Sunday, ten seconds tighter. Name what the answer must do before you read a single option, then eliminate once and move. Two traps to watch: an option can be entirely true and still be the wrong answer — true is not the test, on-task is. And on a chart, a choice that misreads the units is designed to look right to someone who never checked them.",
+        sections:[
+          { skills:["Cross-Text Connections"],              diffs:["Medium","Hard"], count:2 },
+          { skills:["Inferences"],                          diffs:["Medium","Hard"], count:2 },
+          { skills:["Command of Evidence — Quantitative"],  diffs:["Medium","Hard"], count:2 }
+        ] },
+      { n:5, focus:"Mixed set — ten questions at test pace", minutes:12, review:0,
+        tip:"Ten questions at about seventy seconds each: this is the real thing, and it is the longest set of the week on purpose. Everything mixed, no warning which is which — the test gives no warning either. Read, decide what the answer must do, open the choices, eliminate once, move on. Every question you reopen after choosing is paid for by the next one. If you run out of time, submit what you have; the set is not lost.",
+        sections:[
+          { skills:["Form, Structure, and Sense"],          diffs:["Medium","Hard"], count:3 },
+          { skills:["Inferences"],                          diffs:["Medium","Hard"], count:3 },
+          { skills:["Cross-Text Connections"],              diffs:["Medium","Hard"], count:2 },
+          { skills:["Command of Evidence — Quantitative"],  diffs:["Medium","Hard"], count:2 }
+        ] },
+    ]
   }
 };
 
