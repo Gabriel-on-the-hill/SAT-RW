@@ -71,6 +71,51 @@ ok('there are questions', QB.length > 0, `${QB.length} questions`);
 ok('every question has a skill', QB.every(q => !!q.skill));
 ok('every question has a difficulty', QB.every(q => ['Easy', 'Medium', 'Hard'].includes(q.difficulty)));
 
+// ── The id is the spine of everything ────────────────────────────────────────
+// `id` is not a label. It is the only thing joining a question to the student:
+// the mastery ledger, the review ladder, the retention counter and the saved
+// per-question record are ALL keyed by it, and the runner's section builder
+// de-duplicates on it.
+//
+// So a question with no id, or an id shared with another question, does not fail.
+// It does something much worse — it does the wrong thing quietly:
+//
+//   • `_used[q.id]` in homework-run.html. The first id-less question sets
+//     `_used[undefined] = true`, and every OTHER id-less question is then filtered
+//     out of every later section. A `sections` day silently serves short.
+//   • `recordAnswer(undefined, …)` writes `ledger[undefined]`, so every id-less
+//     question in the bank shares ONE record. Answer one correctly twice and the
+//     lot of them are "mastered" — including ones the student has never seen.
+//   • `dueForReview` skips on `skip[q.id]`, so once one is in the set they are all
+//     excluded from review. They are never brought back.
+//   • Two questions sharing an id share a ladder rung and a retention tally. The
+//     student is credited with remembering something they were never asked.
+//
+// The parser reads ids from the source PDFs (`ID:` lines), so this holds today by
+// luck of the export rather than by construction. If a rebuild ever drops or
+// reuses one, this is the only thing that will say so.
+section('Every question has its own id');
+{
+    const missing = QB.filter(q => !q.id);
+    ok('every question has an id', missing.length === 0,
+        `${missing.length} without one, e.g. [${(missing[0] || {}).skill}] "${((missing[0] || {}).question || '').slice(0, 60)}…"`);
+
+    const seen = new Map();
+    const dupes = [];
+    for (const q of QB) {
+        if (!q.id) continue;
+        if (seen.has(q.id)) dupes.push(q.id); else seen.set(q.id, q);
+    }
+    ok('no two questions share an id', dupes.length === 0,
+        `${dupes.length} duplicated: ${[...new Set(dupes)].slice(0, 5).join(', ')}`);
+
+    // Ids travel into localStorage keys and a Google Sheet column. Something
+    // unstringifyable here is a rebuild that changed shape, not a new question.
+    const odd = QB.filter(q => q.id && typeof q.id !== 'string');
+    ok('every id is a string', odd.length === 0,
+        `${odd.length} non-string, e.g. ${JSON.stringify((odd[0] || {}).id)}`);
+}
+
 section('Data questions are filed as Quantitative');
 {
     const misfiled = QB.filter(q => asksAboutData(q) && q.skill !== QUANT);
