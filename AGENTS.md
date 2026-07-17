@@ -56,8 +56,35 @@ editor and stay impersonal — shapes, pools, guardrails.
 
 **And this repo is PUBLIC, with GitHub Pages on.** Committing a note about a student does not
 just show it to that student, it publishes it to the internet at a stable URL, indexed, about a
-named minor. `PLAN-NOTES.md` is ignored for exactly that reason. If you ever need those notes
-shared or backed up, put them in a **private** repo — never this one.
+named minor — the students on this app are school-age, and the sister app's are younger still.
+`PLAN-NOTES.md` is ignored for exactly that reason. If you ever need those notes shared or backed
+up, put them in a **private** repo — never this one.
+
+### The gate names are the only names this repo gets
+
+`gate.js` maps a password to a display name; that name lands in `sessionStorage.mastery_user`, and
+every lookup in the app keys off it — plan, ledger, history, retention, challenge set. **Key a plan
+by the gate name and nothing else.** Any other key fails silently: no error, no warning, just
+*"No homework is assigned for X yet."* and you find out in class.
+
+**Some gate names are a student's real first name. At least one is deliberately not.** Do not assume
+which is which, and never "tidy" a gate name into a real one — for that student, the gate name is
+the only thing standing between a public, indexed, permanent URL and their identity.
+
+So the rule is: **the gate names are the complete list of personal names this repo may contain.**
+Do not add another — not in code, a comment, a doc, a test fixture, or **a commit message**, which is
+as public as the code and cannot be taken back. Everything else about a student goes in the tutors'
+notes, outside version control.
+
+And **never explain a name.** Do not write down which login belongs to whom, do not say where a name
+came from, and do not enumerate who the *other* names are while discussing one — a mapping spelled
+out in prose is still a mapping, and subtracting the named from a known list is how the unnamed one
+gets identified. This applies to legacy identifiers you are cleaning up too: say what the string
+*is*, never who it was.
+
+**Parts of this history predate this rule and do not follow it. They are not precedent.** If you find
+a name in an old commit, the fix is to stop repeating it — not to work out what it meant, and not to
+add a note pointing at it, which only republishes the thing it warns about.
 
 The student sees exactly three strings: `title`, `day.focus`, `day.tip`. Write them as
 instruction **to** him, never as assessment **of** him. "Rhetorical synthesis (notes open)" —

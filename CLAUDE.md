@@ -5,6 +5,10 @@ they are not Claude-specific, so they live in the file every assistant reads.
 
 The short version:
 
+- **This repo is public. The gate names in `gate.js` are the only personal names it may contain —
+  some are real first names, at least one deliberately is not.** Never add another name, in code,
+  comments, docs, or a commit message; never explain where a gate name came from or which login is
+  whom. Old commits break this rule; they are not precedent. Plans are keyed by the gate name.
 - This app and its sister app run the **same homework engine from separate files**. Change one,
   change both, run both test suites.
 - **Run the tests.** They exist because things broke silently. `homework/*.test.js`.
