@@ -44,7 +44,7 @@ claim the monthly reports make to parents. The spacing ladder *created* delayed 
 *counted* them.
 
 **What shipped.**
-- `progress.js` — a sibling store, `wayne_retention_<user>`, shape `{ [skill]: { correct, total } }`.
+- `progress.js` — a sibling store, `satrw_retention_<user>`, shape `{ [skill]: { correct, total } }`.
   `recordAnswer(id, isCorrect, source, meta)` takes a 4th argument, `{ skill, review }`, and tallies
   retention only when `review` is true. `getRetention()` returns
   `{ bySkill: { [skill]: {correct,total,rate} }, overall: {…} }` — **rates always ship with their
@@ -196,9 +196,15 @@ months ago and has been silently dropped ever since. The redeploy is what finall
 
 ## A note on the storage namespace (16 Jul 2026)
 
-Every key was prefixed `wayne_`, because the folder this app happens to live in is named after a
-student. It is the shared SAT R&W Mastery app — Gabe, Jeffrey and Segun are in `assignments.js`, not
-Wayne — so the prefix is now `satrw_`, pairing with the sister app's `psat89_`.
+Every key was prefixed `wayne_` — a legacy namespace inherited from the directory this app was first
+built in, and never a name that belonged in the app. This is the shared SAT R&W Mastery app and the
+prefix was nobody's, so it is now `satrw_`, pairing with the sister app's `psat89_`.
+
+**Gate names are the app's only identities, and they are not real names.** `gate.js` maps a password
+to a display name, that name lands in `sessionStorage.mastery_user`, and every lookup keys off it —
+plan, ledger, history, retention, challenge set. This repo is public, so a gate name is deliberately
+not the student's own. Do not add a real name to this repository to "clarify" one; the mapping lives
+in the tutor's notes, outside version control.
 
 **The rename is not the risky part; the data is.** The old keys are in the students' browsers,
 holding their ledger, history, retention and notes. `ns-migrate.js` copies `wayne_*` → `satrw_*` once,

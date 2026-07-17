@@ -8,9 +8,9 @@
 //
 // WHY THIS EXISTS
 //
-// Every key in this app was prefixed `wayne_`, because the folder it happens to
-// live in is named after a student. It is the shared SAT R&W Mastery app — Gabe,
-// Jeffrey and Segun use it too — so the prefix was renamed to `satrw_`.
+// Every key in this app carried the prefix `wayne_` — a legacy namespace inherited
+// from the directory it was first built in. This is the shared SAT R&W Mastery app
+// and the prefix belonged to nobody, so it was renamed to `satrw_`.
 //
 // The danger in that rename is not in this repo. It is in the students' browsers,
 // where `wayne_progress_Gabe` and the rest hold their mastery ledger, their session

@@ -7,10 +7,11 @@
 //
 // WHY THIS EXISTS
 //
-// Every key in this app used to be prefixed `wayne_`. That was never right: this
-// is the shared SAT R&W Mastery app and Gabe, Jeffrey and Segun use it too. It
-// only ever said `wayne_` because the folder it happens to live in is named after
-// a student. A student is not a namespace.
+// Every key in this app used to carry the prefix `wayne_` — a legacy namespace
+// inherited from the directory this app was first built in, and never a name that
+// belonged in the app itself. This is the shared SAT R&W Mastery app: everyone who
+// signs in at the gate uses the same build, and it is nobody's in particular. The
+// prefix is now `satrw_`, pairing with the sister app's `psat89_`.
 //
 // The rename is not a find-and-replace, because the old keys are not in this repo
 // — they are in the students' browsers, holding their mastery ledger, their
