@@ -313,14 +313,45 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey: no day-by-day plan this week — a `challenge` key makes the hub
-  // render a challenge card instead of a day list and defer completion to the
-  // mastery ledger, so there is deliberately no "Done" tick. The set itself is
-  // frozen in challenge/sets.js. Rationale: homework/PLAN-NOTES.md.
+  // Jeffrey — 20 Jul class sets. Two in-class R&W sets, run back-to-back in
+  // today's session, so this is deliberately NOT the week's homework (that lands
+  // after the class):
+  //   Set 1 — UNTIMED (minutes:0 → the runner asks him to TYPE the prediction),
+  //           Information & Ideas: the surer half (evidence + central ideas) at
+  //           Medium, then inference Medium→Hard. Hard is met untimed, on purpose.
+  //   Set 2 — TIMED at test pace on a mixed draw, Medium-weighted with one Hard
+  //           inference so pace and success stay honest.
+  // Both carry review:0 so each runs as EXACTLY its authored count for the class.
+  // start is 19 Jul so BOTH days unlock for today's session (cumulative unlock
+  // opens Day 1 on start, Day 2 the next calendar day). The p8-rw challenge card
+  // is set aside while these run; sets.js still holds the frozen set untouched.
+  // Multi-skill days use `sections` or the draw collapses to one pool (AGENTS.md).
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   "Jeffrey": {
-    title: "This week: your Practice 8 Challenge",
-    challenge: "p8-rw",
-    days: []
+    title: "Today's class: Information & Ideas — predict, then check",
+    start: "2026-07-19",
+    unlock: "cumulative",
+    days: [
+      { n:1, focus:"Set 1 (untimed): Information & Ideas — say it before you look", minutes:0, review:0,
+        tip:"Take your time — this set is untimed, so type your answer before the choices appear. For evidence and central-idea questions, write the exact claim in your own words first, then keep only the choice that truly supports it. For an inference, finish the thought the text stops just short of, using nothing but the text itself. The prediction is the work here — the letter comes after.",
+        sections:[
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:2 },
+          { skills:["Central Ideas and Details"],     diffs:["Medium"], count:2 },
+          { skills:["Inferences"],                    diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                    diffs:["Hard"],   count:1 }
+        ] },
+      { n:2, focus:"Set 2 (timed, ~75s): mixed — prove the check under the clock", minutes:10, review:0,
+        tip:"One click to commit, about seventy-five seconds a question. Same move every time: name what the answer has to do before you open the choices, then eliminate in one pass. A choice can be completely true and still be the wrong answer — on-task beats true. Don't finish with time on the clock; spend whatever is left re-reading the two answers you were least sure of.",
+        sections:[
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"],        count:1 },
+          { skills:["Central Ideas and Details"],     diffs:["Medium"],        count:1 },
+          { skills:["Inferences"],                    diffs:["Medium"],        count:1 },
+          { skills:["Words in Context"],              diffs:["Easy","Medium"], count:2 },
+          { skills:["Boundaries"],                    diffs:["Medium"],        count:1 },
+          { skills:["Form, Structure, and Sense"],    diffs:["Medium"],        count:1 },
+          { skills:["Inferences"],                    diffs:["Hard"],          count:1 }
+        ] },
+    ]
   },
 
   // Segun — week of 14 Jul. Four sets, Tue–Fri; Sat/Sun intentionally empty.
