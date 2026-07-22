@@ -354,51 +354,89 @@ const HOMEWORK = {
     ]
   },
 
-  // Segun — week of 14 Jul. Four sets, Tue–Fri; Sat/Sun intentionally empty.
-  // Every day untimed (minutes:0), so the runner asks him to TYPE the decision
-  // rather than click a commit button — that written decision is the point of
-  // the week.
+  // Segun — week of 22 Jul. FOUR sets, Wed–Sat; Sun left clear before the class.
+  // TWO untimed, then TWO timed. Exam is 22 Aug.
   //
-  // Days 2 and 4 split Boundaries by ruleType because the bank is lopsided
-  // (Commas 33, NoPunct 12, Semi 6, Colon 4, Dash 6): an unfiltered draw is a
-  // comma drill. assignments.test.js checks pool depth by skill+difficulty and
-  // IGNORES ruleType, so it will NOT catch a thin ruleType draw. Day 4 was
-  // tallied by hand — Semi M1+H4=5, Colon M1+H2=3, Dash M3+H3=6, each ≥ its
-  // count of 2. Do not raise those counts without re-tallying.
+  // The clock arrives this week, but graded by fluency rather than flat: it goes
+  // on skills already carried at a workable pace, and stays off first contact
+  // with a rule that is not automatic yet. Every skill is written untimed BEFORE
+  // it is written timed. Which skills sit on which side, and the pace data behind
+  // that call, are in PLAN-NOTES.md — not here.
+  //
+  // Days 1-2 MUST stay minutes:0. predictMode() keys off the clock, and untimed
+  // is the only state in which the runner makes him TYPE the prediction. Timing
+  // all four sets would delete the typed step for the whole week.
+  //
+  // Day 4 writes Rhetorical Synthesis as TWO single-difficulty sections, not one
+  // ["Medium","Hard"] range. A two-value range routes through _calibratedPick(),
+  // and below CALIBRATE_DOWN_BELOW it leans 70% to the easy end — which would
+  // silently drop the Hard exposure this set exists for. One difficulty per
+  // section bypasses calibration. Do not merge them.
+  //
+  // Hard is deliberate on Day 4 and it is capped at 2 of 10, so the rest of the
+  // set stays landable — that ratio is what makes meeting Hard survivable rather
+  // than demoralising. Misses drop to the bottom of the ladder and come back on
+  // their own; there is no need to schedule the revisit.
+  //
+  // `minutes` budgets the WHOLE set, review questions included, not just `count`.
+  // Day 3: 8+2 = 10 @ 90s = 15. Day 4: 8+2 = 10 @ ~71s = 12.
+  //
+  // Boundaries and FSS are split by ruleType because both banks are lopsided; an
+  // unfiltered Boundaries draw is a comma drill. assignments.test.js checks pool
+  // depth by skill+difficulty and IGNORES ruleType, so it will NOT catch a thin
+  // ruleType draw. Tallied by hand — Boundaries: Semi M1+H4=5, Colon M1+H2=3,
+  // Dash M3+H3=6. FSS: Mod M2+H10=12, SVA E5+M6=11, VTense E5+M2=7, Poss E2+M3=5,
+  // Pron E2+M4=6. This week draws Mod 5, Semi 3, Colon 1, Dash 2.
+  //
+  // COLON AND SEMI ARE AT THE FLOOR. After this week the bank holds 2 colon and
+  // 2 semicolon questions at Medium+Hard, for four remaining weeks. Do not raise
+  // either count without re-tallying, and treat it as a content gap to fill.
+  //
+  // Modifiers are Hard-only in practice: E0 M2 H10. The range cannot lower them,
+  // which is exactly what Day 1 being untimed is there to carry.
+  //
+  // `review: 0` is gone. Every day is now its authored count + the default 2
+  // review, and maintenance on earlier skills rides that draw instead of costing
+  // a whole set. The counts above were written around that dose.
   //
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser. Keep it free of assessment of him.
   "Segun": {
-    title: "This week: boundaries and rhetorical synthesis",
-    start: "2026-07-14",
+    title: "This week: modifiers, the harder punctuation, then the same work at pace",
+    start: "2026-07-22",
     unlock: "cumulative",
-    review: 0,                // ← FROZEN. This week was authored before the ladder landed;
-                              //   the counts assume no review draw. Drop the line next week.
     days: [
-      { n:1, focus:"Boundaries (take your time, notes open)", minutes:0,
-        tip:"Two questions, in this order, before you look at the choices: is each side a complete sentence, and do the two sides belong in one sentence? Two complete sentences can only be joined by a period, a semicolon, or a comma + FANBOYS. Notes open — you are building the flowchart this week, not racing it.",
+      { n:1, focus:"Modifiers and agreement (take your time, notes open)", minutes:0,
+        tip:"Modifiers first, and slowly. Name the noun the opening phrase describes, then check that exact noun is the first thing after the comma — nothing else may sit in that slot. If the sentence tells you a trash can was racing through the park, the modifier is dangling. For the agreement question: find the real subject, ignore everything between the commas, then use the odd-one-out check. Write the rule down before you look at the choices — this set is untimed so that you can.",
         sections:[
-          { skills:["Boundaries"],          diffs:["Easy"],            count:2 },
-          { skills:["Boundaries"],          diffs:["Medium"],          count:4 }
+          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod", count:3 },
+          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA", count:1 }
         ] },
-      { n:2, focus:"Boundaries: comma, or nothing at all (notes open)", minutes:0,
-        tip:"Most boundaries questions reduce to one decision: does anything belong here at all? Read the sentence with no punctuation in it first. If neither side stands alone, a semicolon and a period are both wrong before you even compare them. Write that decision out before you look at the choices.",
-        sections:[
-          { skills:["Boundaries"], diffs:["Easy","Medium"], ruleType:"Commas",  count:4 },
-          { skills:["Boundaries"], diffs:["Easy","Medium"], ruleType:"NoPunct", count:2 }
-        ] },
-      { n:3, focus:"Rhetorical synthesis (take your time, notes open)", minutes:0,
-        tip:"Find the 'The student wants to…' sentence and name the goal before you read a single choice: compare, define/explain, emphasize a trait, address an audience, specify, present a study, generalize, or overview. Say what the correct answer must do, then read the choices. The trap this skill is built on: a choice can be entirely true and still be off-task.",
-        sections:[
-          { skills:["Rhetorical Synthesis"], diffs:["Easy"],           count:2 },
-          { skills:["Rhetorical Synthesis"], diffs:["Medium"],         count:4 }
-        ] },
-      { n:4, focus:"Boundaries: when the answer is not a comma (notes open)", minutes:0,
-        tip:"The three marks you said you find hardest. Semicolon: two complete sentences, closely related. Colon: the first part sets something up, the second part delivers it — an explanation, a list, a definition. Dash: the colon's job, or a matched pair fencing off non-essential information. Name the job the mark has to do, then pick the mark.",
+      { n:2, focus:"Boundaries: when the answer is not a comma (notes open)", minutes:0,
+        tip:"The three marks you said you find hardest, and the first time you are running them on your own. Name the job the mark has to do before you pick the mark. Semicolon: two complete sentences, closely related, no FANBOYS — could a period go there instead? Colon: the first part sets something up, the second delivers it — an explanation, a list, a definition. Dash: the colon's job, or a matched pair fencing off non-essential information — remove what sits between them and a complete sentence should be left. These come back on Saturday with a clock, so build the flowchart now.",
         sections:[
           { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Semi",  count:2 },
-          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Colon", count:2 },
-          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Dash",  count:2 }
+          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Colon", count:1 },
+          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Dash",  count:1 }
+        ] },
+      { n:3, focus:"Conventions and transitions, at pace", minutes:15,
+        tip:"Ten questions, about ninety seconds each — a little more than the real test gives you. Same modifier rule as Wednesday, now without the luxury of time: name the noun, check the slot straight after the comma, move on. Possessives: decide who owns it and whether they are one or many before you place the apostrophe — and remember pronouns never take one. Pronouns: find the exact noun the pronoun stands for. Transitions: name the relationship before you read a single word choice. You have already worked at this pace on transitions and it went fine, so trust it — read, decide, commit, move.",
+        sections:[
+          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod",    count:2 },
+          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA",    count:1 },
+          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"VTense", count:1 },
+          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"Poss",   count:1 },
+          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"Pron",   count:1 },
+          { skills:["Transitions"],                diffs:["Medium","Hard"],                    count:2 }
+        ] },
+      { n:4, focus:"Mixed review at test pace", minutes:12,
+        tip:"Ten at test pace — about seventy seconds a question, one click to commit. Two of the synthesis questions are the hard ones on purpose; they are meant to find the edge of what you can do, so treat a miss there as information, not a verdict. Same move every time: say what the answer has to DO before you open the choices, then eliminate in one pass. Once you have decided, do not go back and re-argue an option — that is what has been costing you. A choice can be completely true and still be off-task. For word meaning, cover the blank and supply your own word first.",
+        sections:[
+          { skills:["Rhetorical Synthesis"], diffs:["Medium"],                        count:2 },
+          { skills:["Rhetorical Synthesis"], diffs:["Hard"],                          count:2 },
+          { skills:["Words in Context"],     diffs:["Medium"],                        count:2 },
+          { skills:["Boundaries"],           diffs:["Medium","Hard"], ruleType:"Semi", count:1 },
+          { skills:["Boundaries"],           diffs:["Medium","Hard"], ruleType:"Dash", count:1 }
         ] },
     ]
   },

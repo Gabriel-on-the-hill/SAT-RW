@@ -241,7 +241,10 @@ section('Live plans authored before the ladder are frozen');
     s.textContent = fs.readFileSync(path.join(APP, 'homework/assignments.js'), 'utf8');
     w.document.body.appendChild(s);
 
-    const FROZEN = ['Gabe', 'Segun'];
+    // Segun came off this list on 22 Jul: his plan was re-authored for the week of
+    // 22 Jul with every day's count written around the +2 review draw, which is the
+    // condition the freeze was waiting on. Gabe's is still the pre-ladder plan.
+    const FROZEN = ['Gabe'];
     for (const name of FROZEN) {
         const plan = w.HOMEWORK[name];
         if (!plan) { ok(`${name} is frozen`, true, 'plan is gone — re-assigned, presumably'); continue; }
