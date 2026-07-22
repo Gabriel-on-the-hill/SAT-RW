@@ -65,6 +65,14 @@
   .rv .ans{font-size:.92rem;margin-bottom:.25rem}
   .rv .ans .lab{display:inline-block;min-width:5.6rem;color:var(--muted);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
   .rv .ans.bad b{color:var(--bad)} .rv .ans.good b{color:var(--good)}
+  .rv .rvo{list-style:none;margin:.55rem 0 .2rem;padding:0}
+  .rv .rvo li{border:1.5px solid var(--border);background:var(--surface);border-radius:10px;
+    padding:.55rem .7rem;margin-bottom:.4rem;font-size:.92rem;line-height:1.45}
+  .rv .rvo li.correct{border-color:var(--good);background:var(--good-soft)}
+  .rv .rvo li.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .rv .rvo .m{float:right;margin-left:.6rem;font-style:normal;font-weight:800;font-size:.7rem;
+    text-transform:uppercase;letter-spacing:.04em}
+  .rv .rvo .m.good{color:var(--good)} .rv .rvo .m.bad{color:var(--bad)}
   .rv .fixed{display:inline-block;background:var(--good-soft);color:var(--good);font-weight:800;font-size:.75rem;
     border-radius:999px;padding:.15rem .55rem;margin-top:.35rem}
   .rv .exp{background:var(--accent-soft);border-radius:8px;padding:.7rem .8rem;margin-top:.6rem;font-size:.92rem}
@@ -546,10 +554,30 @@
     var timing = (r.secs==null) ? 'not reached'
       : (r.onText!=null ? r.onText+'s on the text · '+r.onOpts+'s on the choices' : r.secs+'s');
 
-    var yours = r.chosen
-      ? '<div class="ans '+(r.ok?'good':'bad')+'"><span class="lab">You chose</span><b>'+esc(r.chosen)+'</b></div>'
-      : '<div class="ans"><span class="lab">You chose</span><b>—</b></div>';
-    var right = '<div class="ans good"><span class="lab">Correct</span><b>'+esc(r.answer)+'</b></div>';
+    // EVERY option, marked — not two bare letters. `chosen` and `answer` store
+    // letters only, so the card used to say "You chose C / Correct D" and never
+    // rendered q.options at all. The bank's explanation argues choice by choice
+    // ("Choice A is incorrect…"), so hiding A and B made the explanation
+    // unreadable and sent students back to the tutor to find out what they had
+    // even picked. q.options is already in memory; this costs nothing.
+    var LETTERS='ABCDEFGH';
+    var opts=(q.options||[]).map(function(o,i){
+      var s=String(o).trim();
+      var L=/^[A-H][.)]/.test(s) ? s.charAt(0) : LETTERS.charAt(i);   // fall back to position
+      var isAns=(L===r.answer), isPick=(L===r.chosen);
+      var mark = (isAns&&isPick) ? '<em class="m good">your answer · correct</em>'
+               : isAns           ? '<em class="m good">correct</em>'
+               : isPick          ? '<em class="m bad">you chose</em>' : '';
+      return '<li class="'+(isAns?'correct':isPick?'wrong':'')+'">'+esc(s)+mark+'</li>';
+    }).join('');
+    // Keep the old letter lines as the fallback for any question with no options
+    // array, so a bank gap degrades to the previous behaviour instead of blank.
+    var yours = opts ? '<ul class="rvo">'+opts+'</ul>'
+      : (r.chosen
+          ? '<div class="ans '+(r.ok?'good':'bad')+'"><span class="lab">You chose</span><b>'+esc(r.chosen)+'</b></div>'
+          : '<div class="ans"><span class="lab">You chose</span><b>—</b></div>')
+        +'<div class="ans good"><span class="lab">Correct</span><b>'+esc(r.answer)+'</b></div>';
+    var right = (opts && !r.chosen) ? '<div class="ans"><span class="lab">You chose</span><b>— not reached</b></div>' : '';
     var pred  = r.prediction ? '<div class="yourpred" style="margin-top:.5rem"><b>What you predicted</b>'+esc(r.prediction)+'</div>' : '';
     var fixed = r.redoOk ? '<div class="fixed">Put right on the redo</div>' : '';
 

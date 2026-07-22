@@ -304,7 +304,18 @@ let store, missCount;
     eq('every question is on the review screen', cards.length, 3);
     eq('every explanation is re-readable', all(w, '.rv .exp').length, 3);
     ok('the passage can be reopened', all(w, '.rv details summary').length === 3);
-    ok('her answer and the right answer are both shown', all(w, '.rv .ans').length >= 6);
+    // The review used to render two bare letters — "You chose C / Correct D" —
+    // and never touch q.options at all. The bank's explanation argues choice by
+    // choice ("Choice A is incorrect…"), so hiding A and B made the explanation
+    // unreadable and cost real class time: a student had to ask the tutor what he
+    // had even picked. Every option is now listed and marked.
+    const lists = all(w, '.rv .rvo');
+    eq('every card lists the options in full', lists.length, 3);
+    ok('all four choices are shown, not just the two letters',
+        lists.every(u => u.querySelectorAll('li').length === 4));
+    ok('the right answer is marked on every card',
+        lists.every(u => u.querySelectorAll('li.correct').length === 1));
+    eq('and her own wrong pick is marked too', all(w, '.rv.miss .rvo li.wrong').length, 3);
     ok('her prediction is replayed', all(w, '.rv .yourpred').length === 3);
     ok('time-on-text is recorded', /on the text/.test(all(w, '.rv .rvm')[0].textContent));
 
