@@ -8,8 +8,9 @@
 // Selection logic supports BOTH:
 //   • curated `ids` arrays  (Transitions, I&I homework)
 //   • `ruleWeights` per-rule quotas  (SEC homework)
-// Within every pool, prioritizePool() orders wrong → unseen → mastered,
-// so mastered items only re-appear if the bank is exhausted.
+// Within every pool, prioritizePool() orders unseen → wrong → mastered,
+// so mastered items only re-appear if the bank is exhausted. Coverage leads;
+// spaced review arrives on the ladder's schedule instead (see progress.js).
 // ─────────────────────────────────────────────────────────────────
 
 // ── Resolve the assignment from the URL ───────────────────────────
@@ -84,8 +85,8 @@ function selectMode(mode) {
 //   (3) same-difficulty backfill if still short;
 //   (4) other-difficulty spillover as a last resort.
 //
-// Every pool is ordered by prioritizePool (wrong → unseen → mastered)
-// so previously-missed questions are picked first.
+// Every pool is ordered by prioritizePool (unseen → wrong → mastered)
+// so unmet questions are picked first and the pool is covered before it repeats.
 function _pickSectionQuestions(sec, used, idMap) {
     const quota  = sec.count || (sec.ids && sec.ids.length) || 0;
     const picked = [];

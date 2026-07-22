@@ -183,7 +183,7 @@ function splitPoolByFreshness(pool) {
 function buildActiveQuestions() {
     const limit = getLimit();
     const { fresh, parked } = splitPoolByFreshness(getFilteredPool());
-    const orderedFresh = prioritizePool(fresh);   // missed first, then unseen
+    const orderedFresh = prioritizePool(fresh);   // unseen first, then misses
 
     if (limit > 0) {
         if (orderedFresh.length >= limit) return orderedFresh.slice(0, limit);

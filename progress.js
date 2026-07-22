@@ -248,21 +248,33 @@ function _isResting(record) {
 }
 
 // Reorder pool with THREE tiers:
-//   1. needsWork — seen, has had at least one wrong answer, not yet mastered.
-//                  Surfaces FIRST so the student practises their misses.
-//   2. unseen    — never answered.
-//   3. resting   — answered correctly at some point. Sorted by how OVERDUE it is
-//                  (see the review ladder), not shuffled: when a narrow pool runs
-//                  out of unseen questions, the thing the student is closest to
-//                  forgetting is the thing that should come back.
+//   1. unseen    — never answered. COVERAGE FIRST.
+//   2. needsWork — seen, has had at least one wrong answer, not yet mastered.
+//   3. resting   — owes nothing right now: never missed, or missed and since
+//                  mastered. Sorted by how OVERDUE it is (see the review ladder),
+//                  not shuffled: when a narrow pool runs out of unseen questions,
+//                  the thing the student is closest to forgetting comes back.
 // The first two tiers are shuffled so order within them is random.
 //
-// `unseen` deliberately stays AHEAD of `resting`. Review does not get to crowd out
-// new material inside a normal draw — a day set to teach a new skill must still
-// teach it. Review gets its own dose instead, drawn against the whole bank by
-// dueForReview(), because that is the only draw that can reach a due question the
-// day's skill/difficulty filter has already excluded.
-function prioritizePool(pool) {
+// WHY unseen LEADS (changed 22 Jul 2026 — it used to be needsWork).
+// The review ladder is the review instrument: dueForReview() draws against the
+// WHOLE bank on its own schedule (1/3/7/21/42 days) and splices its dose into the
+// set. This function's job is the OTHER half — the new material the day exists to
+// teach. Putting misses first here meant review arrived twice, through a scheduled
+// channel and an unscheduled one, and the unscheduled one had no spacing at all.
+//
+// It bites hardest exactly where it hurts most: a narrow pool. `Poss` holds five
+// questions at Medium+Hard, so a misses-first draw re-serves the same two every
+// time and the other three are never met. What that trains is recall of those
+// answers rather than the rule behind them, and the two are indistinguishable in
+// the score.
+//
+// `opts.missesFirst` restores the old order for the two callers that genuinely
+// want it: a Challenge set (a fixed list of the student's own test misses — there
+// is no coverage to gain, only mastery of those items), and a homework day where
+// the ladder turned out to have nothing due, so misses would otherwise get no
+// channel at all that day.
+function prioritizePool(pool, opts) {
     const ledger    = getProgress();
     const needsWork = [];
     const unseen    = [];
@@ -281,9 +293,13 @@ function prioritizePool(pool) {
 
     resting.sort((a, b) => _overdueBy(ledger[b.id]) - _overdueBy(ledger[a.id]));
 
+    const missesFirst = !!(opts && opts.missesFirst);
+    const lead = missesFirst ? needsWork : unseen;
+    const next = missesFirst ? unseen    : needsWork;
+
     return [
-        ..._fyShuffle(needsWork),
-        ..._fyShuffle(unseen),
+        ..._fyShuffle(lead),
+        ..._fyShuffle(next),
         ...resting,
     ];
 }

@@ -89,12 +89,24 @@ section('2 · segmentOf is one-to-one with prioritizePool\'s four tiers');
     const led = getLedger();
     const pool = ['masteredClean', 'nope', 'correctOnce', 'wrongFresh', 'wrongPartial'].map(Q);
     const RANK = { wrong: 0, notAttempted: 1, correctOnce: 2, mastered: 3 };
-    const ordered = ctx.prioritizePool(pool);          // the app's own orderer
-    const ranks = ordered.map(q => RANK[C.segmentOf(q, led)]);
-    ok('prioritizePool emits wrong → unseen → softMastered → mastered',
-        ranks.every((r, i) => i === 0 || ranks[i - 1] <= r), JSON.stringify(ranks));
+    const rank = opts => ctx.prioritizePool(pool, opts).map(q => RANK[C.segmentOf(q, led)]);
+    const sorted = rs => rs.every((r, i) => i === 0 || rs[i - 1] <= r);
+
+    // A Challenge serves misses first: a closed list of the student's own test
+    // misses has no coverage to win, only mastery of those items. That is exactly
+    // prioritizePool's `missesFirst` variant, and SERVE_ORDER must equal it.
+    ok('missesFirst emits wrong → unseen → softMastered → mastered',
+        sorted(rank({ missesFirst: true })), JSON.stringify(rank({ missesFirst: true })));
     ok('our SERVE_ORDER is that order minus mastered',
         JSON.stringify(C.SERVE_ORDER) === JSON.stringify(['wrong', 'notAttempted', 'correctOnce']));
+
+    // And the DEFAULT deliberately differs — homework covers new material first
+    // and lets the review ladder schedule the misses. If this ever stops failing
+    // the sorted() check, prioritizePool's default has silently gone back to
+    // misses-first and a homework day is quietly re-serving the same misses.
+    const dflt = rank(undefined);
+    ok('the default is NOT misses-first — unseen leads',
+        dflt.indexOf(RANK.notAttempted) < dflt.indexOf(RANK.wrong), JSON.stringify(dflt));
 }
 
 // ═════════════════════════════════════════════════════════════════

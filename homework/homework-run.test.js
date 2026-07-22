@@ -422,19 +422,53 @@ function finish() {
     }
 
     // ═════════════════════════════════════════════════════════════════
-    section('9 · The REAL draw brings her misses back');
+    section('9 · The REAL draw covers the pool; the ladder brings her misses back');
     {
         // Everything above freezes the draw. Here we use the genuine one, because a
         // miss that never comes back is a miss she never learns from.
+        //
+        // That guarantee now lives in TWO places, so this section checks both.
+        // prioritizePool() leads with UNSEEN (changed 22 Jul 2026) so a narrow pool
+        // gets covered rather than re-serving the same two misses until she knows
+        // the answers by shape; dueForReview() is what actually returns a miss, on
+        // the ladder's schedule. Assert the split, or a future edit can quietly
+        // delete one half and still look green.
         const w = build(1);
         const real = w.__realPrioritize;
         const QB = w.__QB();
         const pool = QB.filter(q => q.skill === 'Inferences' && q.difficulty === 'Medium');
 
         ok('there is a pool to draw from', pool.length >= 4);
-        w.recordAnswer(pool[pool.length - 1].id, false, 'homework');   // miss the LAST one
-        const drawn = real(pool).slice(0, 1).map(q => q.id);
-        eq('a missed question is drawn first next time', drawn[0], pool[pool.length - 1].id);
+        const missed = pool[pool.length - 1].id;
+        w.recordAnswer(missed, false, 'homework');   // miss the LAST one
+
+        ok('the miss does not crowd out unseen questions',
+            real(pool)[0].id !== missed,
+            're-serving a miss immediately trains recall of that answer, not the skill');
+
+        // It must not sink below material she has already answered clean, though —
+        // one tier down is the point, two would bury it.
+        const clean = pool[0].id;
+        w.recordAnswer(clean, true, 'homework');
+        const drawn = real(pool).map(q => q.id);
+        ok('but it still outranks anything already answered clean',
+            drawn.indexOf(missed) < drawn.indexOf(clean));
+
+        // The fallback path: when the ladder has nothing due, the day's own draw
+        // takes misses first, so they never lose both channels at once.
+        eq('missesFirst puts it back at the front',
+            real(pool, { missesFirst: true })[0].id, missed);
+
+        // And the ladder is what returns it on a schedule. A miss is NOT due the
+        // instant she makes it — the 20h cooldown is deliberate — so age it.
+        ok('the miss is not due immediately',
+            w.dueForReview(QB, 5, {}).every(q => q.id !== missed));
+        const ledger = w.getProgress();
+        ledger[missed].lastSeen = Date.now() - 21 * 3600 * 1000;
+        w._saveProgress(ledger);
+        ok('once the cooldown clears, the ladder brings it back',
+            w.dueForReview(QB, 5, {}).some(q => q.id === missed),
+            'this is the channel that now owns "misses come back"');
 
         // ...but only from a pool that matches its skill AND difficulty. This is the
         // trap that makes a plan's difficulty ladder silently drop her misses.
@@ -539,4 +573,9 @@ function finish() {
     console.log('\n' + '─'.repeat(64));
     if (fail) { console.log(`${fail} FAILED: ` + fails.join(' · ')); process.exit(1); }
     console.log(`ALL ${pass} ASSERTIONS PASSED`);
+    // Every build() leaves a live jsdom window behind, and each one holds the event
+    // loop open. Without this the suite hangs forever ON SUCCESS — which stayed
+    // hidden because the failure path above force-exits, so a red run looked
+    // healthier than a green one.
+    process.exit(0);
 }

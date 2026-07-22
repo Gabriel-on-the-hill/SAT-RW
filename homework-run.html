@@ -154,7 +154,7 @@
     typeof questionBank_II!=='undefined'?questionBank_II:[],
     typeof questionBank_CON!=='undefined'?questionBank_CON:[]);
   function byId(id){ for(var i=0;i<QB.length;i++) if(QB[i].id===id) return QB[i]; return null; }
-  function _pick(pool,n){ var ordered=(typeof prioritizePool==='function')?prioritizePool(pool):pool.slice().sort(function(){return Math.random()-0.5;}); return ordered.slice(0, n); }
+  function _pick(pool,n){ var ordered=(typeof prioritizePool==='function')?prioritizePool(pool,{missesFirst:_missesFirst}):pool.slice().sort(function(){return Math.random()-0.5;}); return ordered.slice(0, n); }
   function _shuf(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
 
   // ── Difficulty calibration (AS-4) ─────────────────────────────────────────
@@ -213,6 +213,23 @@
     showReview(true, false);
     return;
   }
+  // ── Will the ladder have anything to give today? ───────────────────────────
+  // The day's own draw leads with UNSEEN questions (see prioritizePool), because
+  // spaced review is the ladder's job and not the draw's. But if the ladder is
+  // going to come back empty, misses get no channel at all that day — so the draw
+  // takes them first instead. Two ways it comes back empty, and only one of them
+  // is a fallback case:
+  //   • nothing is DUE (he did yesterday's set an hour ago) → fall back;
+  //   • the day set `review: 0` → that is the author freezing review on purpose,
+  //     so respect it and leave the draw on unseen-first.
+  // Resolved here rather than at the review block below, because _pick() runs
+  // during the build and needs the answer before the set exists.
+  var reviewN = (typeof spec.review === 'number') ? spec.review
+              : (plan && typeof plan.review === 'number') ? plan.review
+              : 2;
+  var _missesFirst = reviewN > 0 &&
+      !(typeof dueForReview === 'function' && dueForReview(QB, 1, {}).length > 0);
+
   // Section-aware build: each section draws an exact count from its own
   // filtered pool (skill + difficulty + optional ruleType), no repeats across
   // sections. Days without `sections` fall back to the simple skills/diffs/count.
@@ -257,9 +274,7 @@
   // was already running when the ladder landed, so nobody's homework grew by two
   // questions overnight. New plans simply omit it and get review for free — which is
   // the point: spacing should be what happens when the tutor does nothing.
-  var reviewN  = (typeof spec.review === 'number') ? spec.review
-               : (plan && typeof plan.review === 'number') ? plan.review
-               : 2;
+  // `reviewN` is resolved before the build — see the _missesFirst block above.
   var _inSet   = {}; set.forEach(function(q){ _inSet[q.id] = true; });
   var reviewQs = (typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet) : [];
   reviewQs.forEach(function(q){ set.splice(Math.floor(Math.random() * (set.length + 1)), 0, q); });

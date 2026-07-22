@@ -68,10 +68,18 @@
 
     // ── Segments ─────────────────────────────────────────────────
     // Exhaustive and mutually exclusive. One-to-one with the four tiers
-    // prioritizePool() uses, in the same order:
+    // prioritizePool() uses:
     //   wrong = needsWork · notAttempted = unseen · correctOnce = softMastered
     //
     // The branch order matters and mirrors progress.js exactly.
+    //
+    // SERVE_ORDER, however, deliberately does NOT match prioritizePool's default
+    // any more (22 Jul 2026). That default now leads with `unseen`, because a
+    // homework day's job is to cover new material and spaced review arrives on the
+    // ladder. A Challenge is the opposite instrument: a fixed, closed list of the
+    // student's own test misses, where there is no coverage to win and the only
+    // goal is mastering those items. So a Challenge keeps misses first — which is
+    // exactly prioritizePool(pool, { missesFirst: true }).
     //
     // Consequence worth knowing: a question you have EVER got wrong never
     // enters `correctOnce`. `wrong` is defined by wrong > 0, and its only
