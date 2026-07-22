@@ -14,7 +14,10 @@
   .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
   .topbar .t{font-weight:700;color:var(--muted);font-size:.9rem}
   .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
-  .tip{background:var(--accent-soft);border:1px solid #cfe0fb;border-radius:10px;padding:.7rem .85rem;font-size:.92rem;margin-bottom:1rem}
+  /* pre-line: tips are plain text with newlines (set via textContent below), so
+     the line breaks are the only structure they have. Without this they collapse
+     into a wall of prose and get skipped, which is exactly what they must not do. */
+  .tip{background:var(--accent-soft);border:1px solid #cfe0fb;border-radius:10px;padding:.75rem .9rem;font-size:.92rem;margin-bottom:1rem;white-space:pre-line;line-height:1.5}
   /* The reveal is locked until she has been on the text long enough to have read
      it. Dimmed, but still clickable — clicking tells her why. */
   .btn.locked{opacity:.55}
@@ -131,6 +134,16 @@
   var run=document.getElementById('run');
   hwLoadPlan(student, function(plan){
   if(!plan||!dayN||!plan.days[dayN-1]){ run.innerHTML='<div class="done-card">This homework day was not found. <a href="homework-hub.html">Back to homework</a></div>'; document.getElementById('tip').style.display='none'; return; }
+  // A sequential plan is gated here too, not just on the hub — otherwise the
+  // order is a suggestion that any old bookmark walks straight past. Review of
+  // an already-finished set is always allowed; only a fresh run is gated.
+  // hwDayOpen() opens the set if localStorage is unreadable, so this can never
+  // strand someone whose storage is broken.
+  if(!reviewOnly && typeof hwDayOpen==='function' && !hwDayOpen(student, plan, dayN)){
+    run.innerHTML='<div class="done-card"><div class="big">Not yet</div>'
+      +'<p style="margin-top:.6rem;color:var(--muted)">Finish set '+(dayN-1)+' first — this one opens as soon as you submit it.</p>'
+      +'<div class="nav" style="justify-content:center;margin-top:1rem"><a class="btn" href="homework-hub.html">Back to homework</a></div></div>';
+    document.getElementById('tip').style.display='none'; return; }
   var spec=plan.days[dayN-1];
   var hwTimer=null;
   document.getElementById('hdr').textContent='Day '+dayN+' · '+spec.focus;

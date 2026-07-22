@@ -47,7 +47,12 @@ function build(student, ledger) {
         }
         // the page's own inline <script> is still in HTML and ran during parse,
         // but it needs the externals above, so re-run it now.
-        const inline = RAW.match(/<script>\n\(function\(\)\{[\s\S]*?<\/script>/);
+        // \s* not \n — on a Windows checkout the working tree is CRLF, and a
+        // literal \n silently fails to match, leaving `inline` null and crashing
+        // the whole suite before a single assertion runs. A suite that dies
+        // looks exactly like a suite that passes if you only read the exit line.
+        const inline = RAW.match(/<script>\s*\(function\(\)\s*\{[\s\S]*?<\/script>/);
+        if (!inline) throw new Error('could not find the inline <script> in homework-hub.html');
         const s = w.document.createElement('script');
         s.textContent = inline[0].replace(/^<script>/, '').replace(/<\/script>$/, '');
         w.document.body.appendChild(s);
@@ -109,9 +114,20 @@ console.log('\n3 · The card tracks the ledger, and only ever says "mastered" wh
 
 console.log('\n4 · Everyone else is untouched');
 {
+    // Segun's plan has days, so he must get a normal set list and never a
+    // challenge card. He moved to `unlock: "sequential"` on 22 Jul, so the
+    // wording is "set", the later sets are gated on finishing the one before,
+    // and the footer states BOTH rules — how they open, and the window they are
+    // meant to be spread over. A student who is not told the second one will
+    // sit and do the lot in an evening, which is the spacing gone.
     const s = await build('Segun');
-    ok('Segun still gets days', /Start day 1/.test(txt(s)), txt(s));
-    ok('Segun keeps the day-gate footer', /A new day opens each day/.test(note(s)));
+    ok('Segun gets a set list, not a challenge card', /Start set 1/.test(txt(s)), txt(s));
+    ok('the second set is gated on finishing the first',
+        /Opens when you finish set 1/.test(txt(s)), txt(s));
+    ok('the footer explains that finishing one opens the next',
+        /next set opens as soon as you submit/i.test(note(s)), note(s));
+    ok('and gives the window, so he is not pushed to rush them',
+        /spread them out/i.test(note(s)), note(s));
 
     const b = await build('Bruce');
     ok('Bruce still sees no homework', /No homework is assigned for Bruce/.test(txt(b)), txt(b));

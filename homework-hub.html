@@ -29,7 +29,10 @@
   .state.done{background:var(--good-soft);color:var(--good)}
   .state.lock{background:var(--surface2);color:var(--lock)}
   .day .meta{font-size:.85rem;color:var(--muted);margin:.1rem 0 .5rem 2.6rem}
-  .day .tip{font-size:.88rem;color:var(--text);background:var(--accent-soft);border-radius:9px;padding:.5rem .7rem;margin:0 0 .6rem 2.6rem}
+  /* pre-line so a tip's line breaks survive. Tips are authored as PLAIN TEXT with
+     newlines — the runner sets them via textContent, so HTML tags would show up
+     literally there. Newlines are the only formatting that works in both. */
+  .day .tip{font-size:.88rem;color:var(--text);background:var(--accent-soft);border-radius:9px;padding:.6rem .8rem;margin:0 0 .6rem 2.6rem;white-space:pre-line;line-height:1.5}
   .day .go{margin-left:2.6rem}
   .btn{display:inline-block;border:none;background:var(--accent);color:#fff;border-radius:9px;padding:.5rem 1rem;font-weight:700;font-size:.88rem;text-decoration:none;cursor:pointer}
   .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
@@ -140,25 +143,42 @@
   // so this card defers to the ledger instead of tracking "done" itself.
   if (plan.challenge) { renderChallengeCard(plan); return; }
 
-  var avail = hwDaysAvailable(plan.start);
+  var seq = plan.unlock === 'sequential';
   function fmtDate(start, offset){ var d=hwParseDate(start); if(!d) return 'soon'; d.setDate(d.getDate()+offset); return d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); }
+  function fmtOn(s){ var d=hwParseDate(s); return d? d.toLocaleDateString(undefined,{weekday:'long',month:'short',day:'numeric'}) : null; }
   function done(n){ try { return localStorage.getItem('satrw_hw_'+student+'_'+plan.start+'_'+n)==='1'; } catch(e){ return false; } }
+
+  // He has to know both rules BEFORE he starts, or the first locked card reads as
+  // the app being broken. Two sentences, at the top, above the sets: how they
+  // open, and the window to spread them over. The window is the whole reason the
+  // date is still here — sequential unlock stopped enforcing spacing, so we ask
+  // for it in words instead of pretending a lock is doing it.
+  if (seq) {
+    var last = fmtOn(plan.through), first = fmtOn(plan.start);
+    var howMany = plan.days.length;
+    document.getElementById('note').textContent =
+      'One set at a time. The next set opens as soon as you submit the one before it.'
+      + (last ? ' All ' + howMany + ' are yours to finish between ' + (first||'today') + ' and ' + last
+              + ' — spread them out, about one a day. There is no reward for rushing them.' : '')
+      + ' Read the explanation for anything you get wrong.';
+  }
   // A finished day keeps its questions, answers and explanations, so it can be
   // reopened for review — that is where the misses get worked, not in the run.
   function reviewable(n){ try { return !!localStorage.getItem('satrw_hwrec_'+student+'_'+plan.start+'_'+n); } catch(e){ return false; } }
   var html='';
   plan.days.forEach(function(day){
-    var open = day.n <= avail;
+    var open = hwDayOpen(student, plan, day.n);
     var isDone = done(day.n);
     var cls = 'day' + (isDone?' done':(open?'':' locked'));
-    var state = isDone? '<span class="state done">Done</span>' : (open? '<span class="state open">Available</span>' : '<span class="state lock">Opens '+fmtDate(plan.start, day.n-1)+'</span>');
+    var lockLabel = seq ? 'Opens when you finish set '+(day.n-1) : 'Opens '+fmtDate(plan.start, day.n-1);
+    var state = isDone? '<span class="state done">Done</span>' : (open? '<span class="state open">Available</span>' : '<span class="state lock">'+lockLabel+'</span>');
     html += '<div class="'+cls+'">'
       + '<div class="top"><span class="num">'+day.n+'</span><span class="focus">'+day.focus+'</span>'+state+'</div>'
       + '<div class="meta">'+(day.diffs?day.diffs.join(' + ')+' &middot; ':'')+(day.sections?day.sections.reduce(function(s,x){return s+(x.count||0);},0):day.count)+' questions'+(day.minutes? ' &middot; '+day.minutes+' min':'')+'</div>'
       + (open? '<div class="tip">'+day.tip+'</div>' : '')
       + (open? '<div class="go" style="display:flex;gap:.5rem;flex-wrap:wrap">'
           + (reviewable(day.n)? '<a class="btn" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'&mode=review">Review your misses</a>' : '')
-          + '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':'Start day '+day.n)+'</a>'
+          + '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':'Start set '+day.n)+'</a>'
           + '</div>' : '')
       + '</div>';
   });

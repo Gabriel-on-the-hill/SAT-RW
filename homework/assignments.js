@@ -263,10 +263,19 @@ function hwGetAssignment(id) {
 // ------------------------------------------------------------------
 // The tutor "assigns" by adding an entry below, keyed to the student's
 // name (the name their password maps to in gate.js — Jeffrey, Bruce,
-// Gabe, Segun). Days unlock one per calendar day from `start`; missed
-// days stay open. Build entries painlessly with assign.html — no need
-// to hand-edit. This sits alongside the shared HW_ASSIGNMENTS catalog
+// Gabe, Segun). Build entries painlessly with assign.html — no need to
+// hand-edit. This sits alongside the shared HW_ASSIGNMENTS catalog
 // above; the homework hub/runner use the per-student plans below.
+//
+// UNLOCK — `sequential` is the default and what new plans should use:
+//   unlock: "sequential"  Set 1 is open; each later set opens when the
+//                         one before it is submitted. Pair it with
+//                         `through: "YYYY-MM-DD"` — the hub then tells
+//                         the student the window the sets are meant to
+//                         be spread over, so nothing pushes them to do
+//                         the lot in one sitting. See hwDayOpen().
+//   unlock: "cumulative"  Legacy: one set per calendar day from `start`,
+//                         missed days stay open.
 //
 // Where plans come from:
 //   HW_USE_SHEET = false → from this file (reliable, instant, no backend) ← default
@@ -354,8 +363,20 @@ const HOMEWORK = {
     ]
   },
 
-  // Segun — week of 22 Jul. FOUR sets, Wed–Sat; Sun left clear before the class.
-  // TWO untimed, then TWO timed. Exam is 22 Aug.
+  // Segun — week of 22 Jul. FOUR sets, TWO untimed then TWO timed, `sequential`:
+  // set 1 is open now and each later set opens when the one before it is
+  // submitted. `through` is 26 Jul, so the hub tells him the window to spread
+  // them over — nothing stops him doing all four tonight except being asked not
+  // to, and being asked is the honest version. Exam is 22 Aug.
+  //
+  // THE ORDER IS LOAD-BEARING. Under sequential unlock he meets these in exactly
+  // this order, every time, so each set is placed to set up a later one:
+  //   1 → 4  semicolon/dash get their untimed rep here, and come back timed in 4
+  //   2 → 3  modifiers and subject-verb get their untimed rep, timed in 3
+  //   3 → 4  the pace ladder, 90 s/q before test pace
+  // Set 1 is also the most STARTABLE — one decision procedure, a skill family he
+  // has recent success in — because under sequential unlock a stall on set 1
+  // blocks the whole week. Do not reorder these without rebuilding that chain.
   //
   // The clock arrives this week, but graded by fluency rather than flat: it goes
   // on skills already carried at a workable pace, and stays off first contact
@@ -402,25 +423,26 @@ const HOMEWORK = {
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser. Keep it free of assessment of him.
   "Segun": {
-    title: "This week: modifiers, the harder punctuation, then the same work at pace",
+    title: "This week: the harder punctuation, modifiers, then the same work at pace",
     start: "2026-07-22",
-    unlock: "cumulative",
+    through: "2026-07-26",
+    unlock: "sequential",
     days: [
-      { n:1, focus:"Modifiers and agreement (take your time, notes open)", minutes:0,
-        tip:"Modifiers first, and slowly. Name the noun the opening phrase describes, then check that exact noun is the first thing after the comma — nothing else may sit in that slot. If the sentence tells you a trash can was racing through the park, the modifier is dangling. For the agreement question: find the real subject, ignore everything between the commas, then use the odd-one-out check. Write the rule down before you look at the choices — this set is untimed so that you can.",
-        sections:[
-          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod", count:3 },
-          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA", count:1 }
-        ] },
-      { n:2, focus:"Boundaries: when the answer is not a comma (notes open)", minutes:0,
-        tip:"The three marks you said you find hardest, and the first time you are running them on your own. Name the job the mark has to do before you pick the mark. Semicolon: two complete sentences, closely related, no FANBOYS — could a period go there instead? Colon: the first part sets something up, the second delivers it — an explanation, a list, a definition. Dash: the colon's job, or a matched pair fencing off non-essential information — remove what sits between them and a complete sentence should be left. These come back on Saturday with a clock, so build the flowchart now.",
+      { n:1, focus:"Semicolons, colons and dashes (untimed, notes open)", minutes:0,
+        tip:"Two questions, in this order:\n1. Is each side a complete sentence?\n2. What job does the mark have to do?\n\nSemicolon → two complete sentences, closely related.\nColon → first part sets up, second part delivers.\nDash → the colon's job, or a pair fencing off extra information.\n\nName the job before you pick the mark." ,
         sections:[
           { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Semi",  count:2 },
           { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Colon", count:1 },
           { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Dash",  count:1 }
         ] },
+      { n:2, focus:"Modifiers and agreement (untimed, notes open)", minutes:0,
+        tip:"Modifier: name the noun the opening phrase describes. That noun must be the FIRST thing after the comma.\n\"Racing through the park, the dog…\" ✓  \"…the trash can…\" ✗\n\nAgreement: find the real subject, ignore everything between the commas, then use the odd-one-out check.\n\nWrite the rule down before you look at the choices.",
+        sections:[
+          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod", count:3 },
+          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA", count:1 }
+        ] },
       { n:3, focus:"Conventions and transitions, at pace", minutes:15,
-        tip:"Ten questions, about ninety seconds each — a little more than the real test gives you. Same modifier rule as Wednesday, now without the luxury of time: name the noun, check the slot straight after the comma, move on. Possessives: decide who owns it and whether they are one or many before you place the apostrophe — and remember pronouns never take one. Pronouns: find the exact noun the pronoun stands for. Transitions: name the relationship before you read a single word choice. You have already worked at this pace on transitions and it went fine, so trust it — read, decide, commit, move.",
+        tip:"About 90 seconds a question — a little more than the real test gives you.\n\nModifier → the noun goes straight after the comma.\nSubject-verb → find the real subject, use odd-one-out.\nPossessive → who owns it, and are they one or many? Pronouns never take an apostrophe.\nPronoun → name the exact noun it stands for.\nTransition → name the relationship before you read the choices.\n\nRead, decide, commit, move.",
         sections:[
           { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod",    count:2 },
           { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA",    count:1 },
@@ -430,7 +452,7 @@ const HOMEWORK = {
           { skills:["Transitions"],                diffs:["Medium","Hard"],                    count:2 }
         ] },
       { n:4, focus:"Mixed review at test pace", minutes:12,
-        tip:"Ten at test pace — about seventy seconds a question, one click to commit. Two of the synthesis questions are the hard ones on purpose; they are meant to find the edge of what you can do, so treat a miss there as information, not a verdict. Same move every time: say what the answer has to DO before you open the choices, then eliminate in one pass. Once you have decided, do not go back and re-argue an option — that is what has been costing you. A choice can be completely true and still be off-task. For word meaning, cover the blank and supply your own word first.",
+        tip:"Test pace — about 70 seconds a question.\n\nSay what the answer has to DO before you open the choices. Then eliminate in one pass.\n\nOnce you have decided, do not go back and re-argue an option. That is the habit costing you marks.\n\nSynthesis: a choice can be completely true and still be off-task.\nWord meaning: cover the blank and supply your own word first.\n\nTwo synthesis questions here are hard on purpose. A miss there is information, not a verdict.",
         sections:[
           { skills:["Rhetorical Synthesis"], diffs:["Medium"],                        count:2 },
           { skills:["Rhetorical Synthesis"], diffs:["Hard"],                          count:2 },
@@ -533,7 +555,38 @@ function hwParseDate(s) {
   return isNaN(d) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
+// Is set `n` open to this student yet?
+//
+// THE DEFAULT IS `sequential`: Set 1 is always open, and each later set opens
+// when the one before it is submitted. A set is earned, not waited for. This
+// replaced `cumulative` (one per calendar day) because a student who sat down
+// on a Saturday with time to work could only ever reach that day's set, and a
+// student who fell behind saw a wall of everything at once.
+//
+// The trade sequential makes is that it stops enforcing SPACING — nothing now
+// prevents all five sets in one evening, which is the one thing the design
+// cannot afford. So a sequential plan should also carry `through`, and the hub
+// shows the student the window the sets are meant to be spread across. The
+// pacing is asked for honestly rather than imposed by a lock.
+//
+// If localStorage cannot be read we OPEN the set rather than strand the
+// student. Broken storage must never be able to lock someone out of homework.
+function hwDayOpen(student, plan, n) {
+  if (!plan) return n === 1;
+  if (plan.unlock === 'sequential') {
+    if (n <= 1) return true;
+    try {
+      for (var i = 1; i < n; i++) {
+        if (localStorage.getItem('satrw_hw_' + student + '_' + plan.start + '_' + i) !== '1') return false;
+      }
+      return true;
+    } catch (e) { return true; }
+  }
+  return n <= hwDaysAvailable(plan.start);
+}
+
 // Days available so far (cumulative unlock by calendar day; Day 1 on start date).
+// Only `unlock: "cumulative"` plans use this now — see hwDayOpen above.
 function hwDaysAvailable(startStr) {
   var start = hwParseDate(startStr);
   if (!start) return 1;   // if the date is missing/odd, open Day 1 rather than lock everything
@@ -568,6 +621,7 @@ function hwLoadPlan(student, cb) {
 if (typeof window !== "undefined") {
   window.HOMEWORK = HOMEWORK;
   window.hwDaysAvailable = hwDaysAvailable;
+  window.hwDayOpen = hwDayOpen;
   window.hwLoadPlan = hwLoadPlan;
   window.hwParseDate = hwParseDate;
 }
