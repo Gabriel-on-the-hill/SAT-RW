@@ -10,6 +10,13 @@ Read it before proposing an architecture.
 files**. There is no shared module — a fix to `homework-run.html` here is *not* a fix there.
 **Change one, change both, and run both test suites.**
 
+**Adding questions to the bank from the source textbooks?** Read
+[tools/EXTRACTION-GUIDE.md](tools/EXTRACTION-GUIDE.md) first, all of it. The three PDFs in this
+folder are *scans* whose OCR silently drops characters and whose A/B/C/D letters are unrecoverable
+from the text layer — an extraction built on the obvious assumptions produces questions with no
+correct answer, and nothing in the app will tell you. Stage 1 (the page inventory) is already done:
+`python tools/inventory_books.py` regenerates `_extract/INVENTORY.md`.
+
 ## Run the tests before you claim anything works
 
 **This is the whole list. If a suite is not on it, it does not get run — and a suite nobody

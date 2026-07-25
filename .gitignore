@@ -6,6 +6,14 @@
 homework/PLAN-NOTES.md
 **/PLAN-NOTES.md
 
+# ── NEVER COMMIT: copyrighted source books, and anything derived from them ──
+# The three SAT textbooks in this folder are commercial books still on sale, and
+# this repo is PUBLIC. They are working sources for the question-extraction
+# pipeline (tools/inventory_books.py) and must never be published, nor must the
+# extracted question data. Keep both here locally, or in a PRIVATE repo.
+*.pdf
+_extract/
+
 # editor / OS cruft
 .DS_Store
 Thumbs.db
