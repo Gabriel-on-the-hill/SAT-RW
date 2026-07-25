@@ -322,43 +322,96 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey — 20 Jul class sets. Two in-class R&W sets, run back-to-back in
-  // today's session, so this is deliberately NOT the week's homework (that lands
-  // after the class):
-  //   Set 1 — UNTIMED (minutes:0 → the runner asks him to TYPE the prediction),
-  //           Information & Ideas: the surer half (evidence + central ideas) at
-  //           Medium, then inference Medium→Hard. Hard is met untimed, on purpose.
-  //   Set 2 — TIMED at test pace on a mixed draw, Medium-weighted with one Hard
-  //           inference so pace and success stay honest.
-  // Both carry review:0 so each runs as EXACTLY its authored count for the class.
-  // start is 19 Jul so BOTH days unlock for today's session (cumulative unlock
-  // opens Day 1 on start, Day 2 the next calendar day). The p8-rw challenge card
-  // is set aside while these run; sets.js still holds the frozen set untouched.
-  // Multi-skill days use `sections` or the draw collapses to one pool (AGENTS.md).
+  // Jeffrey — week of 25 Jul, into a full practice test on 1 Aug. FIVE sets,
+  // `sequential`, `through` 30 Jul so the day before the test stays clear.
+  //
+  // THE ORDER IS LOAD-BEARING. Sets 1-3 each train ONE block of the test-order
+  // routine; sets 4-5 run all three blocks end to end. Do not reorder them:
+  //   1 -> 3   Information & Ideas untimed (typed prediction) before timed
+  //   2 -> 4   the grammar block at ~75 s/q before it appears inside the routine
+  //   3 -> 4   the reading block at ~110 s/q before it appears inside the routine
+  //   4 -> 5   same shape, longer and one difficulty step up
+  // Set 1 is also the most STARTABLE — untimed, and the skill covered most
+  // recently — because under sequential unlock a stall on set 1 blocks the week.
+  //
+  // Day 1 MUST stay minutes:0. predictMode() keys off the clock, and untimed is
+  // the only state in which the runner makes him TYPE the prediction.
+  //
+  // Days 4 and 5 carry `review: 0`, and that is structural rather than stylistic:
+  // review questions are spliced in at RANDOM POSITIONS, which would break the
+  // block order those two sets exist to rehearse. Sections are concatenated in
+  // authored order, so with review off they run exactly as written. Days 1-3 take
+  // the default 2 and their counts are authored around it (5 + 2 = 7).
+  //
+  // `minutes` budgets the WHOLE set, review questions included. Day 2: 5+2 = 7 in
+  // 10. Day 3: 5+2 = 7 in 13. Day 4: 10 in 14. Day 5: 12 in 17. The budgets are
+  // deliberately ABOVE the ~71 s/q test average — the per-block paces live in the
+  // tips, and one clock per set is what makes the allocation his to make.
+  //
+  // Single-difficulty sections are deliberate wherever the count matters: a
+  // two-value range routes through _calibratedPick() and, below
+  // CALIBRATE_DOWN_BELOW, leans 70% to the easy end — which would silently drop
+  // the Hard exposure. Only day 4's Words in Context is written as a range.
+  //
+  // Pool depth checked against the bank: CoE-Textual Medium draws 6 of 17,
+  // Boundaries Medium 7 of 21, Inferences Medium 3 of 13, FSS Medium 4 of 19.
+  // CoE-QUANTITATIVE IS AT THE FLOOR — five Medium questions bank-wide, this week
+  // draws one. Do not raise that count without re-tallying.
+  //
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser. Keep it free of assessment of him.
   "Jeffrey": {
-    title: "Today's class: Information & Ideas — predict, then check",
-    start: "2026-07-19",
-    unlock: "cumulative",
+    title: "This week: one block at a time, then the whole routine twice",
+    start: "2026-07-25",
+    through: "2026-07-30",
+    unlock: "sequential",
     days: [
-      { n:1, focus:"Set 1 (untimed): Information & Ideas — say it before you look", minutes:0, review:0,
-        tip:"Take your time — this set is untimed, so type your answer before the choices appear. For evidence and central-idea questions, write the exact claim in your own words first, then keep only the choice that truly supports it. For an inference, finish the thought the text stops just short of, using nothing but the text itself. The prediction is the work here — the letter comes after.",
+      { n:1, focus:"Central ideas and evidence (untimed — type it out)", minutes:0,
+        tip:"No clock on this one. Type what you think before the choices appear.\n\nStart at the first sentence — the main idea is usually there, and every detail after it is doing a job for that sentence.\n\n\"However\" flips the direction and then comes back to the original idea. \"Also\" and \"additionally\" keep going the same way.\n\nFor evidence: write the exact claim the answer has to support, in your own words, then test each choice against that sentence.\n\nAbout fifteen minutes. One sitting, phone in another room.",
         sections:[
-          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:2 },
           { skills:["Central Ideas and Details"],     diffs:["Medium"], count:2 },
-          { skills:["Inferences"],                    diffs:["Medium"], count:1 },
-          { skills:["Inferences"],                    diffs:["Hard"],   count:1 }
+          { skills:["Central Ideas and Details"],     diffs:["Hard"],   count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:2 }
         ] },
-      { n:2, focus:"Set 2 (timed, ~75s): mixed — prove the check under the clock", minutes:10, review:0,
-        tip:"One click to commit, about seventy-five seconds a question. Same move every time: name what the answer has to do before you open the choices, then eliminate in one pass. A choice can be completely true and still be the wrong answer — on-task beats true. Don't finish with time on the clock; spend whatever is left re-reading the two answers you were least sure of.",
+      { n:2, focus:"Grammar, unhurried — about seventy-five seconds each", minutes:10,
+        tip:"Seventy-five seconds a question, not forty-five. The extra seconds are the whole point.\n\nEvery question, same two steps:\n1. Is each side a complete sentence?\n2. What job does the punctuation have to do?\n\nThen read your answer back into the sentence before you move on.\n\nDo not finish with time on the clock. Whatever is left goes to re-reading the two you were least sure of.",
         sections:[
+          { skills:["Boundaries"],                 diffs:["Medium"], count:3 },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium"], count:2 }
+        ] },
+      { n:3, focus:"The reading block — about a hundred and ten seconds each", minutes:13,
+        tip:"This is the slow block, and it is meant to be. Roughly a hundred and ten seconds a question.\n\nName what the answer has to do before you open the choices, then eliminate in one pass. A choice can be completely true and still be wrong — on-task beats true.\n\nFor a chart: read the axis and the units first. Negative correlation means the two move in opposite directions.\n\nIf one question will not crack, commit, note it, and move on. Do not spend the block on it.",
+        sections:[
+          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:2 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                         diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                         diffs:["Hard"],   count:1 }
+        ] },
+      { n:4, focus:"The whole routine, in test order — one clock", minutes:14, review:0,
+        tip:"Ten questions, fourteen minutes, one clock — you decide how to spend it. Work them in the order they come:\n\nFirst three (grammar): about 75 seconds each.\nNext three (words and structure): about 60 seconds. These are allowed to be quick.\nLast four (reading): about 110 seconds each. This is where the minutes you saved get spent.\n\nNo block is finished with time on the clock. Leftover seconds go to the two answers you were least sure of.",
+        sections:[
+          { skills:["Boundaries"],                    diffs:["Medium"],        count:2 },
+          { skills:["Form, Structure, and Sense"],    diffs:["Medium"],        count:1 },
+          { skills:["Words in Context"],              diffs:["Easy","Medium"], count:2 },
+          { skills:["Text Structure and Purpose"],    diffs:["Medium"],        count:1 },
           { skills:["Command of Evidence — Textual"], diffs:["Medium"],        count:1 },
           { skills:["Central Ideas and Details"],     diffs:["Medium"],        count:1 },
           { skills:["Inferences"],                    diffs:["Medium"],        count:1 },
-          { skills:["Words in Context"],              diffs:["Easy","Medium"], count:2 },
-          { skills:["Boundaries"],                    diffs:["Medium"],        count:1 },
-          { skills:["Form, Structure, and Sense"],    diffs:["Medium"],        count:1 },
           { skills:["Inferences"],                    diffs:["Hard"],          count:1 }
+        ] },
+      { n:5, focus:"The same routine, longer — the last one before Saturday", minutes:17, review:0,
+        tip:"Twelve questions, seventeen minutes, one clock. Same three blocks, same order:\n\nFirst four (grammar): about 75 seconds each.\nNext three (words and cross-text): about 60 seconds.\nLast five (reading): about 110 seconds each.\n\nSome of these are hard on purpose — that is what the second module looks like. Getting one wrong after a real attempt is a good outcome; guessing fast is not.\n\nSame rules: finish nothing early, and spend what is left on the two you were least sure of.",
+        sections:[
+          { skills:["Boundaries"],                    diffs:["Medium"], count:2 },
+          { skills:["Boundaries"],                    diffs:["Hard"],   count:1 },
+          { skills:["Form, Structure, and Sense"],    diffs:["Medium"], count:1 },
+          { skills:["Words in Context"],              diffs:["Medium"], count:2 },
+          { skills:["Cross-Text Connections"],        diffs:["Medium"], count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:1 },
+          { skills:["Central Ideas and Details"],     diffs:["Hard"],   count:1 },
+          { skills:["Text Structure and Purpose"],    diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                    diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                    diffs:["Hard"],   count:1 }
         ] },
     ]
   },

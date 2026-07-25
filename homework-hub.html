@@ -48,17 +48,17 @@
   .cchip.m{background:var(--good-soft);color:var(--good)}
 </style>
 <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
-<script src="ns-migrate.js?v=20260716"></script>
+<script src="ns-migrate.js?v=20260717"></script>
 <script src="gate.js?v=20260703"></script>
-<script src="sheet-sync.js?v=20260703"></script>
-<script src="homework/assignments.js?v=20260714"></script>
+<script src="sheet-sync.js?v=20260716"></script>
+<script src="homework/assignments.js?v=20260726"></script>
 <!-- Challenge card. progress.js supplies the ledger, challenge-core the segments.
      No question banks are loaded: segmentOf() reads only q.id, so "Mastered N of M"
      is computable from the frozen ids alone. sets.js tolerates a missing
      CHALLENGE_P8 — the debrief payload is not needed on this page. -->
-<script src="progress.js?v=20260716"></script>
-<script src="challenge/sets.js?v=20260710"></script>
-<script src="challenge/challenge-core.js?v=20260710"></script>
+<script src="progress.js?v=20260722"></script>
+<script src="challenge/sets.js?v=20260716"></script>
+<script src="challenge/challenge-core.js?v=20260722"></script>
 </head>
 <body>
 <div class="wrap">
