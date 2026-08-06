@@ -22,6 +22,7 @@ produces a bank full of questions with no correct answer, and nothing anywhere w
 | `../homework/bank.test.js` | The invariants your output must satisfy. Read the `id` guard's reasoning. |
 | `../homework/assignments.js` (comments) | Explains `sections`, `review`, `ruleType`, and the pool floors. |
 | `_extract/INVENTORY.md` | Page manifest from stage 1. Regenerate with `python tools/inventory_books.py`. |
+| `_extract/SEGMENTS.md` | The questions themselves, from stage 2, with the review queue. `python tools/segment_pages.py`. **This, not INVENTORY.md, is what stage 3 works from — see §13.** |
 
 ## Why accuracy beats yield here
 
@@ -50,6 +51,10 @@ Two independent estimates are reported on purpose. *Layout* counts groups of fou
 *Key* counts entries in the answer key and knows nothing about page layout. **Where they agree the
 number is trustworthy; where they diverge, the gap is what you must recover by reading page
 images.** Never quote one without the other.
+
+> **Both columns are now superseded — see §13.** Stage 2 segmented **266** questions from the
+> grammar book and **108** from the Critical Reader. The Critical Reader's 21 is the worst of the
+> two estimates by a distance, and its 71 was not really a key count at all.
 
 ### The bubble glyphs — the single most important fact
 
@@ -187,9 +192,21 @@ only the *difficulty* signal filters. Weight rather than exclude, following the 
 
 **Explanations**: the grammar book's key has none. Build them from the eleven `ruleType` templates —
 the rule prose already exists in `sec.html` (49 rule blocks) and the other note modules
-(`transitions.html`, `rs.html`, `ii.html`, `cs.html`) — plus one question-specific line naming which
-clause or word triggered the rule. The tutor writes that line. The Critical Reader's own inline
-explanations should be used directly.
+(`transitions.html`, `rs.html`, `ii.html`, `cs.html`). The Critical Reader's own inline explanations
+should be used directly.
+
+**SETTLED (tutor, 25 Jul): the rule template alone. Do not block on a tutor-written line.**
+The earlier plan had the tutor add one question-specific sentence per grammar item; at ~160 questions
+that is the step that would have stalled the batch, so it is dropped.
+
+Be honest about the cost, and then reduce it. A template says *what the rule is*; it does not say
+*which word here triggered it*, and that second half is the part that turns a wrong answer into a
+correction. So do not stop at the template — **derive the specific line instead of writing it.** On a
+conventions question the four options are the same sentence differing at one point, which is
+computable: diff them, find the token where they part, and generate "the choice is between a comma, a
+semicolon, a full stop and no punctuation after *supplies*." That is question-specific, costs no
+tutor time, and is deterministic. Template + derived line is the target; template alone is the floor,
+not the goal.
 
 ---
 
@@ -292,6 +309,42 @@ the same released material.
 **Make it a test, not a script.** A near-duplicate assertion belongs beside the id guard in
 `bank.test.js`, so a future batch cannot silently reintroduce what this one filtered out.
 
+### Measured on stage 2's output, 25 Jul — the plan above holds, with one surprise
+
+Run over the 324 four-option questions stage 2 produced, against all 719 bank questions
+(232,956 pairs, ~50 s brute force — no clustering machinery needed, as §6 predicted).
+
+**The punctuation trap is real: 54% of the conventions bank collapses.** Strip the `A. ` prefix and
+the punctuation from every option and **65 of 120** Boundaries / Form-Structure-Sense questions lose
+at least one distinct option — the four choices stop being four. Keep the punctuation and 91% stay
+fully distinct. Across the whole bank it is 9%, which is why this trap is invisible until it eats
+precisely the pools this job exists to fill. *(A first pass measured 0% and was wrong: it normalised
+`"A. Umuofia's traditions…"` with the letter prefix still attached, so every option was trivially
+unique. Strip the prefix first or this test silently passes.)*
+
+**Nothing in these books overlaps the existing bank.** Every one of the 324 scores **below 0.38**
+against its nearest bank question; the distribution has nothing above 0.50 at all. Treat this as
+strong but provisional — the new side is stage 2's OCR draft, so scores are a floor, and it must be
+re-run on stage 3's clean text before anyone relies on it. The practical consequence if it holds:
+new-vs-bank dedup will drop nothing, and the real work is entirely within the batch.
+
+**Within the batch there are real duplicates, exactly where §6 said to look.** 7 pairs above 0.55,
+and the top one is decisive: `grammar_p117_q04` (printed p.116) and `grammar_p182_q04` (printed
+p.181) are **the same doomsayers-and-food-supplies sentence**, once in a chapter exercise and again
+in the cumulative review, scoring **0.973**. Note what makes it interesting: the stems are identical
+but **the option sets are not** — the book reshuffles and rewords the choices. So the pair is not
+catchable by comparing options, and it is still a duplicate for our purposes, because the student
+would meet the same sentence twice under two different ids. **Block and decide on the stem for
+same-book pairs; options are the tiebreak, not the test.**
+
+The remaining six pairs are worked examples on instruction pages (e.g. `grammar_p165_q01` ~
+`grammar_p166_q01`, 0.802, identical options under different teaching prose). Taking only the keyed
+questions (§11) removes them before dedup ever runs.
+
+**Threshold, from this distribution rather than from guesswork:** ≥0.95 same question, drop without
+review. 0.70–0.95 is the hand-review band and it held only 4 pairs here — small enough to read.
+Below 0.55, nothing. Re-measure on clean text; do not inherit these numbers blindly.
+
 ---
 
 # 7. Figures (Command of Evidence — Quantitative)
@@ -323,14 +376,17 @@ unanswerable question, and nothing errors.
 **Stage 1 — inventory (done).** `python tools/inventory_books.py` → `_extract/INVENTORY.md` and
 `inventory.json`. Re-run if sources change. Gives the page manifest and both question estimates.
 
-**Stage 2 — render and segment.** Render pages at 300–400 dpi. Segment questions by geometry, not
-reading order. Each question travels with its own options column, in page order, so option *position*
-is preserved even though the letter is not.
+**Stage 2 — render and segment (done).** `python tools/segment_pages.py` → `_extract/SEGMENTS.md`,
+`segments/<book>.json`, a 300 dpi render of every page carrying a question, and one crop per
+question. Byte-identical on a re-run; renders are skipped when the file exists, so an interrupted
+run resumes. Output is ~400 MB and gitignored. What it found is §13 — **read that before stage 3,
+it changes three things this guide assumed.**
 
 **Stage 3 — dual-channel transcription.** Read the crop visually; take the text layer as a parallel
 draft; normalise both and compare. **Agreement promotes the record; disagreement sends it to a review
-queue.** This is what makes "accurate" a measurable claim rather than a hope. Expect a large queue on
-the grammar book and a small one on the Critical Reader.
+queue.** This is what makes "accurate" a measurable claim rather than a hope. Start from
+`_extract/SEGMENTS.md`'s review queue: 72 of 374 questions are already flagged with what is wrong
+with them, and the other 302 need the comparison run anyway.
 
 **Stage 4 — join the answer key.** A separate, separately-verified step. Record the source page of
 *both* the question and its key entry on every record, so any later dispute is one lookup. The letter
@@ -339,7 +395,8 @@ comes from geometry cross-checked against the key — never from the text layer.
 **Stage 5 — dedup.** Per §6, against the merged bank and within the batch.
 
 **Stage 6 — complete the schema.** `skill`, `difficulty` (§5), `ruleType` (§7 below), `strategy`,
-`explanation`, `image`.
+`explanation`, `image`. The explanation generator is **built and tested**: `node tools/explain.js`
+(`--self-test` runs it on stage 2's output). See §14.
 
 **Stage 7 — gates, then land.** Nothing enters the bank directly; extracted questions sit in a pending
 file and promote only on passing §9.
@@ -350,7 +407,8 @@ and a resumable pipeline is the difference between a bad batch costing an hour a
 **Order: grammar book first.** Its two estimates agree (112 vs 131), so the count is trustworthy, and
 it feeds the `ruleType` pools that are actually at the floor. Critical Reader second. Vocabulary last
 — it is vision-only, and its main yield is Words in Context, already the deepest pool at 134, though
-its Transitions section is worth having.
+its Transitions section is worth having. Stage 2 changed the *size* of the second book but not this
+order; see §13.
 
 ---
 
@@ -439,38 +497,172 @@ needed there, and both suites must be run.
 - The question-specific line for each grammar `explanation` (§3). The rule template is yours; the
   "which word triggered it here" sentence is theirs.
 - Any question the dual-channel check flags as disagreeing and you cannot resolve from the image.
-- Whether the Critical Reader is digital-format throughout. Page 46 is correct — "Mark for Review",
-  one question per short passage — but if earlier sections use the old long-passage-many-questions
-  shape, those questions are the wrong form for this app regardless of how cleanly they extract.
-  **Verify before extracting that book.**
+- ~~Whether the Critical Reader is digital-format throughout.~~ **Answered by stage 2: yes, for its
+  questions.** All 105 of its `Mark for Review` stamps run pp.35–166 in the one-question-per-short-
+  passage shape; no long-passage-many-questions section exists. What it *does* also contain is
+  teaching drills that are not MCQs at all (p.68 and neighbours ask "What does 'they' refer to?"),
+  and those are flagged, not extracted. See §13.
+- ~~What to do with the grammar book's 106 worked-example questions.~~ **SETTLED (tutor, 25 Jul):
+  take only the keyed ones.** Extract the ~160 questions on exercise pages, which the key on
+  pp.202–207 covers, and drop the 106 worked examples inside the teaching text. Every extracted
+  grammar question therefore has an independent answer source, and nothing depends on parsing an
+  answer out of surrounding prose. Filter: `INVENTORY.md` labels the page `exercise`. This also
+  removes most of the `no_anchor` and `inline_letters` flags, which cluster on instruction pages.
 
 Finally: this repo is public and names of students must never appear in app prose or in committed
 files. Tutor-facing notes belong in `homework/PLAN-NOTES.md`, which is gitignored.
 
 ---
 
-# 12. Deferred fixes — pre-existing, not caused by this work
+# 12. Deferred fixes — CLEARED in stage 2
 
-Two repo problems were found while preparing this pipeline and consciously **left for stage 2 to
-clear**, because they are small and it is wasteful to make a separate pass for them. Neither is caused
-by the extraction. Both are recorded here so they are not lost — a deferred fix that is not written
-down is a fix that does not happen.
+Two pre-existing repo problems were recorded here for stage 2 to clear. Both are now done. Kept for
+the record, because the first turned out to be much larger than it looked.
 
-**1. The bank cache tag is stale (student-facing, fix regardless of extraction).**
-All four bank scripts are loaded as `data-*.js?v=20260703` across `index.html`, `homework-run.html`,
-`ii.html` and `sec.html`, but `data-info-ideas.js` was last committed **12 July** — after that tag.
-The `?v=` string is the whole cache-busting mechanism (there is no build step), so a returning
-student's browser serves the 3 July bank and silently never refetches. Jeffrey's Info & Ideas draws
-in particular may be running against a stale file right now. **Fix:** bump every `?v=20260703` to the
-day the new questions land, in one pass across all HTML that loads a bank. Since stage 2 adds the
-`-ext.js` files and their `<script>` tags to those same HTML files, do it in the same edit — and see
-§9, this is the trap the new questions themselves will hit if the tag is not bumped.
+**1. Stale cache tags — CLEARED, and it was eleven files, not one.**
+The entry below named `data-info-ideas.js`. Auditing every `?v=` tag against the last commit date of
+the file it points at found **eleven** stale, some by nineteen days: `app.js` still on the 3 July
+build after the 22 July draw-order change, `progress.js` and `challenge/challenge-core.js` likewise,
+`homework/assignments.js` serving the previous week's plan, plus `anti-cheat.js`, `challenge/sets.js`,
+`config.js`, `history.js`, `ns-migrate.js`, `sheet-sync.js` and the bank file originally reported.
+Every tag now carries the date its file last changed, and **`cache-tags.test.js` fails on a stale tag
+or a `?v=` pointing at a file that does not exist** — it is on the canonical list in `AGENTS.md`.
+That is the part that matters: the tag going stale is a recurring silent failure, not a one-off.
+The new `-ext.js` files will still need their own tags bumped when they land (§9).
 
-**2. `MasteryApp/AGENTS.md` has two broken doc links (off by one directory).**
-Lines 162 and 165 point to `../../../AGENTS.md` and `../../../Pedagogical-Design-Handbook.md`. Those
-resolved when the app lived at `SAT GUIDES/WAYNE/MasteryApp`; it has since moved up one level to
-`SAT GUIDES/MasteryApp`, so from `MasteryApp/AGENTS.md` the correct paths are now **`../../AGENTS.md`**
-and **`../../Pedagogical-Design-Handbook.md`** (verified: `../../../` misses, `../../` resolves).
-**Fix:** change `../../../` to `../../` on both lines. Nothing else in the file is affected.
+*Original entry: all four bank scripts loaded as `data-*.js?v=20260703`, but `data-info-ideas.js` was
+last committed 12 July — so a returning browser served the 3 July bank and never refetched.*
+
+**2. `MasteryApp/AGENTS.md` had two broken doc links — CLEARED.**
+`../../../AGENTS.md` and `../../../Pedagogical-Design-Handbook.md` were left over from when the app
+lived at `SAT GUIDES/WAYNE/MasteryApp`; both are now `../../`, verified to resolve.
 *(For the record: the `pedagogy` skill's identical-looking `../../../` references were checked and
 are correct from that skill's own location — do not "fix" those.)*
+
+---
+
+# 13. What stage 2 established — read before stage 3
+
+`python tools/segment_pages.py` → `_extract/SEGMENTS.md`. Four of these correct something this guide
+asserted earlier, and the corrections are in this file's own numbers above only where noted.
+
+| | grammar | critical_reader |
+|---|---:|---:|
+| stage 1 said (layout / key) | 112 / 131 | 21 / 71 |
+| **questions segmented** | **266** | **108** |
+| four clean options | 214 | 88 |
+| in the review queue | 52 | 20 |
+| pages carrying a question | 117 | 73 |
+
+**The Critical Reader is five times the book stage 1 measured, and its page labels are useless
+here.** 108 questions on 73 pages, not 21 on 14, and its 105 `Mark for Review` stamps agree
+independently. The labels are not wrong so much as blind: a Critical Reader page carries a question
+*and* its explanation prose, so it classifies as `instruction` and its question vanishes. **80 of its
+108 questions sit on pages stage 1 called instruction.** Drive stage 3 off `SEGMENTS.md`, never off
+`INVENTORY.md`'s exercise pages.
+
+**The option letters ARE readable — from the image.** §1 says the letter "is not recoverable from the
+text layer", and that stands. But at 300 dpi the circled Ⓐ Ⓑ Ⓒ Ⓓ are perfectly legible in the crops
+(see grammar p.72, critical_reader p.113). So stage 3's visual read can take the letter **directly**,
+and stage 4's key join becomes a *check on* that reading rather than the only source of it. This is
+the single biggest de-risking in the pipeline: §9's "systematic off-by-one" trap loses its teeth,
+because two independent channels now have to agree.
+
+**Position 1–4 = A–D, confirmed, not assumed.** The Critical Reader's Sentence Completions (pp.38–40)
+were segmented by geometry alone and joined to its key (p.56, which gives 1.B 2.B 3.C 4.A 5.D 6.A).
+Five of the six have options extracted, and all five match the key's own prose — "*'Artificial' is the
+only negative answer*" against position 2, "*'Frivolous' means 'unserious,' so (C) is correct*"
+against position 3, and so on. Top of column is A.
+
+**The grammar book's yield splits in two, and only one half has a key.** 160 of its 266 questions are
+on exercise pages, which the key on pp.202–207 covers. The other **106 are worked examples inside the
+teaching text** — real questions in the same box layout, but the book answers them in surrounding
+prose, not in the key. They are a genuine extra yield and they need a different answer source, so
+decide what to do with them before stage 4 rather than discovering it there.
+
+**Not everything segmented is bank-shaped, and it is flagged rather than guessed at.** Two formats
+found that this app cannot use: the pre-digital *identify the error* item, with (A)…(D) marked inside
+the sentence and empty bubbles beside it (grammar p.45 and 6 more, flag `inline_letters`); and
+Critical Reader teaching pages whose "options" are sub-questions — "*What does 'they' refer to?*"
+(p.68 and neighbours, flag `few_options`). Discard at stage 3, do not try to reshape them.
+
+**The Critical Reader's "71 from key" was mostly not a key.** Only p.99 is an answer-key page, with 8
+entries. The other ~63 are explanation openers on prose pages — "Answers: Sentence Completions"
+(p.56) and its siblings at pp.90, 100, 119, 131, 143, 157, 167. That is good news for §3: those pages
+carry a full explanation per question, which is the explanation source §3 already planned to use.
+
+**The Critical Reader scan carries a third-party watermark** across every page ("Ms. ANH Day SAT
+1600" and a phone number), so this PDF is a redistributed copy. It is in every crop. `_extract/` is
+gitignored and must stay that way; nothing derived from the *images* may be published, whatever is
+decided about the question text.
+
+**The vocabulary book is rendered, not segmented, and that is the correct outcome.** It has no text
+layer, so there is no geometry to work from: `--books vocabulary` writes 9 contact sheets covering
+pp.50–152 (`_extract/contact/vocabulary/`), 12 pages to a sheet, which is the cheap way to look at a
+vision-only book. Reading them confirms the §1 sketch and adds two things. Its **Transitions
+chapter (pp.110–121) is in clean digital Bluebook layout** — "Mark for Review", real circled Ⓐ–Ⓓ,
+noticeably crisper than either OCR'd book, so it should extract *better* than the other two. But
+much of what is there is **not four-option SAT items**: two-choice teaching examples (pp.117–118)
+and "select the continuation word in each set" drills (p.120, answers p.145). Sort those out by
+eye before extracting, not after.
+
+**Cost.** ~400 MB of renders in `_extract/`, ~6 minutes for a cold run, seconds for a warm one
+(existing images are skipped). The JSON and Markdown are byte-identical across runs — if they are
+not, something is wrong. `SEGMENTS.md` always covers every book with a record on disk, so running
+one book does not delete the others from the report.
+
+---
+
+# 14. The explanation generator — built, stage 6 plugs it in
+
+`node tools/explain.js --self-test` · `node tools/explain.js questions.json`
+
+Settled at §3: no hand-written per-question line. This produces a question-specific one anyway,
+without inventing reasoning, in three parts.
+
+```
+The four choices are the same words. They differ only in what comes after "supplies":
+A nothing, B a comma, C a full stop, D a semicolon.        ← derived, computed from the options
+Use a semicolon to join two independent clauses that are related but don't use a
+coordinator (and / but / so etc.)…                          ← the rule, loaded from sec.html
+Ask: Could I replace the semicolon with a period and have two complete sentences?…
+The answer is C, "supplies. In only a few decades, they claimed".        ← from the key
+```
+
+**Three branches, all deterministic.** (a) Four transition words → each one's category names what
+picking it would assert. (b) One sentence differing at a point → diff the options, name the anchor
+word and the punctuation each choice puts there. (c) Four short alternatives that are not
+transitions (pronouns, verb forms, possessives) → the `ruleType` names what is being chosen between.
+
+**Nothing is copied.** The 11 rule blocks come out of `sec.html` and the transition categories out of
+`transitions.html` **at runtime**. A second copy of a rule is a second version of the truth. The
+supplementary transition lexicon in the tool is reference data, not rule prose, and the note module
+wins on any word both define.
+
+**It emits PLAIN TEXT.** `explanation` reaches the student through `textContent` / `esc()` /
+`innerText` at `homework-run.html:496` and `:630`, `homework-run.js:624`, `app.js:1009`. The rule
+prose is full of `<strong>` and `&mdash;`, so tags are stripped and entities decoded. Emit HTML and
+the student reads the markup.
+
+**What it will not do, on purpose.** It never argues why the right answer is right in *this*
+sentence. That needs judgement, and the grammar book's key is a bare letter — there is no
+independent check on it. Handing the student the exact decision point plus the diagnostic is honest;
+inventing the reasoning and being wrong teaches them their own correct thinking was mistaken.
+
+**Coverage: 47% measured, and that is a floor, not the number.** 66 of the 140 keyed grammar
+questions with four clean options get a derived line *today*. The rest are blocked by two things
+that stage 3 and stage 6 remove:
+
+- **19 option words are OCR damage** — `"ndeed"` for *Indeed*, `"n contrast"` for *In contrast*, the
+  dropped leading letter §1 describes. Stage 3's visual read fixes these. Nothing to add here.
+- **172 are not transitions at all** — pronouns, verb forms, `"because"`, `"unless"`. Branch (c)
+  covers them, but it needs `ruleType`, which stage 6 itself assigns. Order matters: classify
+  `ruleType` **before** generating explanations, or this branch is silent.
+
+Re-run `--self-test` after stage 3 to get the real number.
+
+**A warning worth the ink.** An early version tested `/^ask\b/` and a stray **0x08 byte** landed
+inside the pattern. The regex silently never matched, every explanation shipped a doubled "Ask:
+Ask:", and `grep`, `sed` and reading the line in an editor all rendered the byte invisibly — only
+`cat -A` showed it. If a regex in this pipeline is provably correct and provably not matching, check
+for control characters before anything else.
