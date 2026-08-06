@@ -14,8 +14,11 @@ files**. There is no shared module — a fix to `homework-run.html` here is *not
 [tools/EXTRACTION-GUIDE.md](tools/EXTRACTION-GUIDE.md) first, all of it. The three PDFs in this
 folder are *scans* whose OCR silently drops characters and whose A/B/C/D letters are unrecoverable
 from the text layer — an extraction built on the obvious assumptions produces questions with no
-correct answer, and nothing in the app will tell you. Stage 1 (the page inventory) is already done:
-`python tools/inventory_books.py` regenerates `_extract/INVENTORY.md`.
+correct answer, and nothing in the app will tell you. Stages 1 and 2 are already done:
+`python tools/inventory_books.py` regenerates `_extract/INVENTORY.md` (the page manifest) and
+`python tools/segment_pages.py` regenerates `_extract/SEGMENTS.md` (the questions, with a review
+queue and a 300 dpi crop each). **Stage 3 works from SEGMENTS.md, not INVENTORY.md** — the guide's
+§13 says why.
 
 ## Run the tests before you claim anything works
 
@@ -32,7 +35,9 @@ NODE_PATH=/tmp/j/node_modules node homework/assignments.test.js    # the plans a
 NODE_PATH=/tmp/j/node_modules node homework/bank.test.js           # the bank is classified right
 NODE_PATH=/tmp/j/node_modules node challenge/*.test.js             # the challenge feature
 NODE_PATH=/tmp/j/node_modules node ns-migrate.test.js              # nobody loses their work
+NODE_PATH=/tmp/j/node_modules node ratio-mix.test.js               # custom practice in a ratio
 node tutor-sheet/apps-script.test.js                               # the sheet + dashboard join
+node cache-tags.test.js                                            # students get the CURRENT files
 ```
 
 `homework-run.test.js` takes several minutes — it stands up a fresh jsdom per case and each one
@@ -159,10 +164,10 @@ Guarded by `homework/homework-run.test.js`. Do not remove these without a reason
 "it's simpler":
 
 **These are not UI preferences. They are the house pedagogy, and the house rules are in the root
-[AGENTS.md](../../../AGENTS.md).** Each rule below has a name and a body of evidence behind it — the
+[AGENTS.md](../../AGENTS.md).** Each rule below has a name and a body of evidence behind it — the
 prediction gate is retrieval practice (`PS-4`), untimed-before-timed is `AS-5`, `sections` is
 interleaving (`MR-4`), misses coming back is spaced retrieval (`MR-1`). Look one up in
-[Pedagogical-Design-Handbook.md](../../../Pedagogical-Design-Handbook.md) before you decide it is
+[Pedagogical-Design-Handbook.md](../../Pedagogical-Design-Handbook.md) before you decide it is
 overhead. Every one of them makes the app feel *harder* than the obvious alternative. That is the
 mechanism, not a bug in it.
 
@@ -178,6 +183,52 @@ mechanism, not a bug in it.
 - **A redo never rewrites the first attempt.** What she did under the clock is the honest
   record. The redo only adds "put right on the redo".
 - **Running out of time must not destroy the set.** Submit what she has; show the review.
+
+## Custom practice in a ratio
+
+The setup screen can divide a sitting between skills in a proportion — "five Transitions, three
+Boundaries, two Words in Context" is the ratio toggle plus shares of 3 / 2 / 1 and a limit of 10.
+Ported from the Math app's Custom Practice (`shared/engine.js`, `_quota` / `_allocate`). Guarded by
+`ratio-mix.test.js`.
+
+**The toggle decides whether a ratio applies. Not whether the numbers differ.** The Math app infers
+intent from whether the shares are unequal, and pays for it: 1-and-1 is how you would ask for an
+even five-and-five split, and it is also exactly what an untouched screen looks like — so that
+request is unaskable there, and fails silently as "whatever the queue had", which for two skills is
+frequently ten of one and none of the other. Here the switch says it out loud. Do not replace it
+with a heuristic.
+
+With the toggle off, `buildActiveQuestions` returns precisely the slice it returned before any of
+this existed. That is the property everything rests on: the default screen, every Quick Preset, the
+weak-area drill and the homework runner never turn it on, so if the allocator ever started
+constraining an un-toggled draw it would quietly change every set the app has ever built, with no
+error and no symptom. §5 of `ratio-mix.test.js` is the tripwire, and it pins `Math.random` because
+`prioritizePool` shuffles.
+
+Three things the allocator must keep doing:
+
+- **The difficulty split is PER SKILL, not across the set.** Apportion by skill, then apportion each
+  skill's quota by difficulty. Treating the two as independent marginals is the obvious
+  implementation and it is wrong in a way only the interior shows: on this bank, Cross-Text 1 :
+  Transitions 1 crossed with Medium 1 : Hard 1 at a limit of 10 gave five of each skill and five of
+  each difficulty — both sets of totals exactly right — with **four of the five Hard on one skill.**
+  A tutor who sets both dimensions means "half of *each* skill hard", which is a claim about cells,
+  and marginals prove nothing about cells. The cost is that per-skill rounding makes the overall
+  difficulty totals drift off the stated ratio (1:3 over 12 lands 4/8, not 3/9). That is the right
+  trade. §3b of `ratio-mix.test.js` holds it.
+- **A quota the pool cannot fill bends; the set does not shrink.** Ask for five Hard Cross-Text when
+  none exist and you still get a full-length sitting: the shortfall is spent on that skill's other
+  difficulties first, because **the skill split is the stronger promise** — it is the one the tutor
+  states first — and only then on raw queue order. A short session is indistinguishable, to the
+  student, from having finished.
+- **The ratio picks how MANY, the queue picks WHICH.** Every pass walks the already-prioritised
+  pool in order and only filters, so inside a quota the weakest questions still come first.
+
+**R&W orders the result in domain blocks, easy → hard — `orderSATStyle`, keyed to `RW_DOMAIN_ORDER`.
+The Math app shuffles its custom set; do not copy that here.** SAT Math genuinely is presented
+mixed and R&W is not: the real module runs Craft & Structure → Information & Ideas → Standard
+English Conventions → Expression of Ideas. Shuffling would drill a question order the student never
+meets. `buildMockExam` uses the same function, so the two cannot drift.
 
 ## Writing a week of homework
 
@@ -238,6 +289,21 @@ the graph…" sat in the Textual bucket, and Quantitative was left with **3 Medi
 
 Classify by the **stem** (`_infer_coe_type`), and let `bank.test.js` hold the line. If a skill's
 pool ever looks implausibly thin, that is a build bug, not a fact about the test.
+
+## Shipping a change: bump the file's `?v=` tag in the same commit
+
+There is no build step. The `?v=YYYYMMDD` on every `<script>` and `<link>` is the whole
+cache-busting mechanism, and **the tag is the date that file last changed**. Edit a file
+without bumping its tag and every browser holding the old copy keeps it — no error, no
+symptom, the app simply runs last month's code for the students who use it most.
+
+That had happened to eleven files at once, some nineteen days stale: `app.js` still on the
+3 July build after the 22 July draw-order change, `data-info-ideas.js` missing the July
+Information & Ideas questions, `homework/assignments.js` serving the previous week's plan.
+The tutor was reading those results as if they came from the current app.
+
+`cache-tags.test.js` fails on a stale tag and on a `?v=` pointing at a file that does not
+exist. Run it before you claim a change is live.
 
 ## A note on this codebase
 

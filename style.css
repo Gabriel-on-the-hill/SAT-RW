@@ -520,6 +520,79 @@ h1, h2, h3 {
     margin-bottom: 0.6rem;
 }
 
+/* Header row: the section title, and the "share" caption over the weight column. */
+.setup-section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+.setup-section-head h3 { margin-bottom: 0.6rem; }
+.weight-hint {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    opacity: 0.7;
+    /* Sits over the weight boxes: their width plus the row gap. */
+    width: 2.9rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* A checkbox and its ratio weight sit on one line; the label keeps all the
+   click area it had, so ticking a skill is unchanged. */
+.setup-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.setup-row > label { flex: 1; min-width: 0; }
+
+/* The master switch. Reads as a heading rather than one more skill row,
+   because it governs every weight box below it. */
+.ratio-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 0.6rem;
+    border: 1px dashed var(--border);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    user-select: none;
+}
+.ratio-toggle input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Relative share, not a count. Disabled until the ratio is switched on AND
+   its own skill is ticked — a greyed box is the signal that the number in it
+   cannot affect anything yet. */
+.weight-input {
+    width: 2.9rem;
+    padding: 0.3rem 0.35rem;
+    text-align: center;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0.4rem;
+    flex-shrink: 0;
+}
+.weight-input:disabled {
+    opacity: 0.35;
+    background: #f8fafc;
+    cursor: not-allowed;
+}
+
 .setup-section label {
     display: flex;
     align-items: center;

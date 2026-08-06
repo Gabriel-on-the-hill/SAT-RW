@@ -94,6 +94,20 @@ const SKILL_DOMAIN = {
     'Form, Structure, and Sense':             'Std. English Conv.',
 };
 
+// The order the four domains appear in a real digital SAT R&W module. R&W is
+// NOT shuffled the way the Math module is: the section runs domain by domain,
+// and within a domain the questions climb from easy to hard. Anything we build
+// that claims to be "SAT-style" is ordered by this, so there is one rule and
+// one place to change it.
+const RW_DOMAIN_ORDER = [
+    'Craft & Structure',
+    'Information & Ideas',
+    'Std. English Conv.',
+    'Expression of Ideas',
+];
+
+const DIFF_RANK = { Easy: 0, Medium: 1, Hard: 2 };
+
 const SKILL_COUNT_IDS = {
     'Central Ideas and Details':              'count-cid',
     'Command of Evidence — Textual':     'count-coe-t',
@@ -165,6 +179,249 @@ function getFilteredPool() {
     return questionBank.filter(q => skills.includes(q.skill) && diffs.includes(q.difficulty));
 }
 
+// ══════════════════════════════════════════════════════════════════
+// RATIO MIX  (custom practice in a proportion — ported from the Math app)
+//
+// The tutor asks for "five Transitions, three Boundaries, two Words in
+// Context" by ticking "Mix in a ratio", setting the shares to 3 / 2 / 1 and
+// the limit to 10. Shares are RELATIVE, never counts, so the same 3:2:1
+// survives changing the limit from 10 to 27.
+//
+// The one property everything else rests on: **the toggle, and only the
+// toggle, decides whether a ratio applies.** With it off, `isRatioOn()` is
+// false, the whole mechanism sits out, and `buildActiveQuestions` returns
+// precisely the slice it returned before this code existed. The default
+// screen, every Quick Preset, the weak-area drill and the homework runner are
+// therefore untouched — none of them turn it on.
+//
+// The Math app infers the same intent from whether the numbers differ. Do not
+// copy that here. It costs you the even split: 1-and-1 is how you would ask
+// for five and five, and it is also exactly what an untouched screen looks
+// like, so the request is unaskable and fails silently as "whatever the queue
+// had" — which for two skills is frequently ten of one and none of the other.
+// ══════════════════════════════════════════════════════════════════
+
+function isRatioOn() {
+    const el = document.getElementById('ratioToggle');
+    return !!(el && el.checked);
+}
+
+// A dimension can only be apportioned if something in it has a positive share.
+// All-zero weights are a contradiction ("include these, give them none"), and
+// dividing by that total is a NaN quota — so the dimension stands down.
+function hasShares(weights) {
+    const keys = Object.keys(weights || {});
+    return keys.length > 0 && keys.reduce((a, k) => a + (weights[k] || 0), 0) > 0;
+}
+
+// Skill names carry spaces, commas and em-dashes, all of which are legal inside
+// a double-quoted CSS attribute value. Only a quote or a backslash would break
+// the selector. Hand-rolled rather than CSS.escape() because this has to run
+// under jsdom in the test suite as well as in a browser.
+const _attrEsc = v => String(v).replace(/(["\\])/g, '\\$1');
+
+// Read the weight beside each CHECKED box. Unchecked rows are absent, not
+// zero — a zero weight is a real instruction ("include this skill, give it
+// none of the set"), and conflating the two would make unticking a skill and
+// zeroing it mean different things in the summary.
+function readWeights(selector, attr, selected) {
+    const out = {};
+    selected.forEach(key => {
+        const el = document.querySelector(`${selector}[${attr}="${_attrEsc(key)}"]`);
+        let v = el ? parseFloat(el.value) : 1;
+        if (!isFinite(v) || v < 0) v = 1;
+        out[key] = v;
+    });
+    return out;
+}
+
+function getSkillWeights() {
+    return readWeights('.weight-input', 'data-skill', getSelectedSkills());
+}
+
+function getDiffWeights() {
+    return readWeights('.weight-input', 'data-diff', getSelectedDiffs());
+}
+
+// Largest-remainder apportionment of `count` across weighted keys.
+// Plain rounding loses or invents questions — 10 split 1:1:1 rounds to 3+3+3=9,
+// and the student is handed nine questions when the screen promised ten.
+// Largest remainder hands the leftovers to the keys that were rounded down
+// hardest, so the parts always sum to exactly `count`.
+function apportion(weights, count) {
+    const keys = Object.keys(weights);
+    const total = keys.reduce((a, k) => a + (weights[k] || 0), 0);
+    const out = {};
+    if (total <= 0 || count <= 0) { keys.forEach(k => { out[k] = 0; }); return out; }
+    const parts = keys.map(k => {
+        const exact = count * (weights[k] || 0) / total;
+        return { k, n: Math.floor(exact), rem: exact - Math.floor(exact) };
+    });
+    let assigned = parts.reduce((a, p) => a + p.n, 0);
+    // Ties go to the key that comes first, which keeps the split deterministic.
+    const byRemainder = parts.slice().sort((a, b) => b.rem - a.rem);
+    let i = 0;
+    while (assigned < count && byRemainder.length) {
+        byRemainder[i % byRemainder.length].n++;
+        assigned++;
+        i++;
+    }
+    parts.forEach(p => { out[p.k] = p.n; });
+    return out;
+}
+
+// Choose `count` from an ALREADY-QUEUED pool, honouring the skill and
+// difficulty shares as closely as the pool allows.
+//
+// `pool` arrives in the order prioritizePool built — unseen first, then misses,
+// least-recent first. Every pass below walks it in that order and only ever
+// filters, so within a quota the student still gets the questions he most
+// needs. The ratio decides how MANY of each; the queue decides WHICH.
+//
+// ── The difficulty split is PER SKILL, not across the set ──────────
+//
+// The obvious implementation treats the two dimensions as independent
+// marginals: apportion `count` by skill, apportion `count` by difficulty, and
+// take anything that fits both. It satisfies both sets of totals and is wrong
+// in a way that only shows up in the interior. Measured on this bank, Cross-Text
+// 1 : Transitions 1 crossed with Medium 1 : Hard 1 at a limit of 10 gave
+//
+//     Cross-Text  4 Hard / 1 Medium        Transitions  1 Hard / 4 Medium
+//
+// Five of each skill and five of each difficulty — both marginals exactly
+// right — and yet almost all the Hard landed on one skill. Nothing is wrong
+// with the arithmetic; the first pass simply walks the queue and whichever
+// cell it meets first eats the allowance. A tutor who sets both dimensions
+// means "half of EACH skill hard", and that is a claim about the cells.
+//
+// So: apportion by skill first, then apportion each skill's quota by
+// difficulty. The grid is the target; the marginals fall out of it.
+//
+// Three passes per cell, because a cell the pool cannot fill must not cost the
+// set its length. Cross-Text with no Hard questions left still owes its skill
+// quota, so the shortfall is spent on that skill's other difficulties before
+// anything else claims it — the skill split is the stronger promise, since it
+// is the one the tutor states first. Only after every cell and every skill has
+// had its turn does the set backfill in raw queue order. A quota the pool
+// cannot satisfy degrades; it never truncates the session.
+function allocateByRatio(pool, count, diffWeights, skillWeights) {
+    const diffOn  = hasShares(diffWeights);
+    const skillOn = hasShares(skillWeights);
+    if (!diffOn && !skillOn) return pool.slice(0, count);
+
+    const picked = [];
+    const used   = new Set();
+    const sweep = accept => {
+        for (const q of pool) {
+            if (picked.length >= count) return;
+            if (used.has(q)) continue;
+            if (accept(q)) { picked.push(q); used.add(q); }
+        }
+    };
+
+    // "Still owed" counters. `claim` spends one if the quota has room, and says
+    // whether it did — a sweep takes the question only when something was spent,
+    // so a counter can never go negative and a question is never double-counted.
+    const claim = (bucket, key) => {
+        if (!bucket || !(bucket[key] > 0)) return false;
+        bucket[key]--;
+        return true;
+    };
+
+    // Difficulty only. No skill shares to nest inside, so this is the plain
+    // one-dimensional case.
+    if (!skillOn) {
+        const owedDiff = apportion(diffWeights, count);
+        sweep(q => claim(owedDiff, q.difficulty));
+        sweep(() => true);
+        return picked;
+    }
+
+    const owedSkill = apportion(skillWeights, count);
+
+    // Skill only.
+    if (!diffOn) {
+        sweep(q => claim(owedSkill, q.skill));
+        sweep(() => true);
+        return picked;
+    }
+
+    // Both — every skill's quota is itself split by the difficulty shares.
+    const owedCell = {};                        // skill → { difficulty → still owed }
+    Object.keys(owedSkill).forEach(s => {
+        owedCell[s] = apportion(diffWeights, owedSkill[s]);
+    });
+
+    // Pass 1 · fill the grid cell by cell. Spending a cell also spends the
+    // skill's overall quota, so pass 2 only ever sees a genuine shortfall.
+    sweep(q => {
+        if (!claim(owedCell[q.skill], q.difficulty)) return false;
+        owedSkill[q.skill]--;
+        return true;
+    });
+    // Pass 2 · a cell the pool ran dry on is made up from the SAME skill at any
+    // difficulty, so the skill split survives a difficulty the bank is thin in.
+    sweep(q => claim(owedSkill, q.skill));
+    // Pass 3 · whatever is still short comes from the queue, weakest first.
+    sweep(() => true);
+
+    return picked;
+}
+
+// How big a set can honour this ratio exactly, given what the pool actually
+// holds? Used for "All matching questions", where there is no total to divide.
+// Without this, picking a ratio and leaving the limit on "All" would appear to
+// do nothing — the least useful possible outcome of setting a ratio.
+//
+// For each key, `have / share` is how many whole sets its supply can cover; the
+// scarcest key sets the ceiling. Two Cross-Text questions at a 1-in-5 share
+// caps the sitting at ten, not at the eighty the other skills could fill.
+function ratioCapacity(pool, weights, keyOf) {
+    const keys  = Object.keys(weights);
+    const total = keys.reduce((a, k) => a + (weights[k] || 0), 0);
+    if (total <= 0) return 0;
+    let cap = Infinity;
+    keys.forEach(k => {
+        const share = weights[k] || 0;
+        if (share <= 0) return;                 // a zero-weight key never binds
+        const have = pool.filter(q => keyOf(q) === k).length;
+        cap = Math.min(cap, Math.floor(have * total / share));
+    });
+    return isFinite(cap) ? cap : pool.length;
+}
+
+// The set size to apportion when the limit is "All matching questions".
+function ratioTotalForWholePool(pool, diffWeights, skillWeights) {
+    let cap = pool.length;
+    if (hasShares(diffWeights))  cap = Math.min(cap, ratioCapacity(pool, diffWeights,  q => q.difficulty));
+    if (hasShares(skillWeights)) cap = Math.min(cap, ratioCapacity(pool, skillWeights, q => q.skill));
+    return cap;
+}
+
+// Order a set the way a real R&W module is ordered: domain by domain in
+// RW_DOMAIN_ORDER, and easy → hard inside each domain. Skills interleave
+// within their domain exactly as they do on the test.
+//
+// This is where R&W deliberately parts company with the Math app, which
+// shuffles its custom set — Math genuinely is presented mixed. Copying the
+// shuffle here would teach a question order the student will never meet.
+//
+// Array.prototype.sort is stable, so questions tied on domain AND difficulty
+// keep the queue order prioritizePool gave them: the weakest still come first
+// within the block.
+function orderSATStyle(questions) {
+    const domainRank = skill => {
+        const i = RW_DOMAIN_ORDER.indexOf(SKILL_DOMAIN[skill]);
+        return i === -1 ? RW_DOMAIN_ORDER.length : i;   // unmapped skills sort last
+    };
+    return questions.slice().sort((a, b) => {
+        const d = domainRank(a.skill) - domainRank(b.skill);
+        if (d !== 0) return d;
+        const ra = DIFF_RANK[a.difficulty], rb = DIFF_RANK[b.difficulty];
+        return (ra === undefined ? 1 : ra) - (rb === undefined ? 1 : rb);
+    });
+}
+
 // Split a pool by whether the student has already answered it correctly.
 //   • fresh  = never seen (unseen) OR previously missed (needs review)
 //   • parked = answered correctly with no pending miss (soft- or fully-mastered)
@@ -181,23 +438,43 @@ function splitPoolByFreshness(pool) {
 }
 
 function buildActiveQuestions() {
-    const limit = getLimit();
+    const limit    = getLimit();
+    const diffW    = getDiffWeights();
+    const skillW   = getSkillWeights();
+    const ratioOn  = isRatioOn() && (hasShares(diffW) || hasShares(skillW));
     const { fresh, parked } = splitPoolByFreshness(getFilteredPool());
     const orderedFresh = prioritizePool(fresh);   // unseen first, then misses
 
     if (limit > 0) {
-        if (orderedFresh.length >= limit) return orderedFresh.slice(0, limit);
-        // Not enough fresh questions — backfill with already-correct ones.
+        // The candidate queue the ratio draws from. Parked (already-correct)
+        // questions are appended, least-recent first, exactly as before — a
+        // ratio must not be denied its quota just because the fresh questions
+        // for that skill have run out this week.
         const ledger = (typeof getProgress === 'function') ? getProgress() : {};
         const topUp  = parked.slice().sort((a, b) =>
             ((ledger[a.id] && ledger[a.id].lastSeen) || 0) -
             ((ledger[b.id] && ledger[b.id].lastSeen) || 0));
-        return orderedFresh.concat(topUp).slice(0, limit);
+        const queue = orderedFresh.concat(topUp);
+
+        if (!ratioOn) {
+            // Unchanged: fresh first, top up only if fresh runs short.
+            return orderedFresh.length >= limit
+                ? orderedFresh.slice(0, limit)
+                : queue.slice(0, limit);
+        }
+        return orderSATStyle(allocateByRatio(queue, limit, diffW, skillW));
     }
+
     // "All matching questions": serve only what's genuinely due. When nothing is
     // due (everything answered recently or mastered) this is empty, and the setup
     // screen shows a "caught up" state instead of re-serving what you just answered.
-    return orderedFresh;
+    if (!ratioOn) return orderedFresh;
+
+    // A ratio with no stated total means "the biggest set this ratio can fill
+    // from what's due" — see ratioTotalForWholePool.
+    const total = ratioTotalForWholePool(orderedFresh, diffW, skillW);
+    if (total <= 0) return [];
+    return orderSATStyle(allocateByRatio(orderedFresh, total, diffW, skillW));
 }
 
 // Launch a session over the whole filtered pool, ignoring the review cooldown.
@@ -212,9 +489,19 @@ function startPracticeAnyway() {
         const durEl = document.getElementById('timerDurationSelect');
         total = durEl ? Math.max(60, Math.min(10800, (parseInt(durEl.value, 10) || 10) * 60)) : 600;
     }
-    const limit = getLimit();
-    let qs = prioritizePool(getFilteredPool());
-    if (limit > 0) qs = qs.slice(0, limit);
+    const limit  = getLimit();
+    const diffW  = getDiffWeights();
+    const skillW = getSkillWeights();
+    const pool   = prioritizePool(getFilteredPool());
+    let qs = pool;
+    if (isRatioOn() && (hasShares(diffW) || hasShares(skillW))) {
+        // The ratio holds here too. "Practice anyway" ignores the review
+        // cooldown, not the mix the tutor asked for.
+        const total = limit > 0 ? limit : ratioTotalForWholePool(pool, diffW, skillW);
+        qs = orderSATStyle(allocateByRatio(pool, total, diffW, skillW));
+    } else if (limit > 0) {
+        qs = pool.slice(0, limit);
+    }
     launchSession(qs, mode, { mode: tmode, total });
 }
 
@@ -303,17 +590,19 @@ function startWeakAreaDrill() {
 
 const MOCK_MODULE_SIZE    = 27;
 const MOCK_MODULE_SECONDS = 32 * 60;            // 32 minutes
-const MOCK_DOMAIN_MIX     = [                   // domain → #questions (≈ blueprint weights)
-    ['Craft & Structure',  8],                  // ~28%
-    ['Information & Ideas', 7],                  // ~26%
-    ['Std. English Conv.',  7],                  // ~26%
-    ['Expression of Ideas', 5],                  // ~20%
+// Domain → #questions (≈ blueprint weights). The ORDER here is not the
+// presentation order — orderSATStyle owns that, via RW_DOMAIN_ORDER. Keeping
+// the two in step by eye is how they drift, so this only says how many.
+const MOCK_DOMAIN_MIX     = [
+    ['Craft & Structure',   8],                 // ~28%
+    ['Information & Ideas', 7],                 // ~26%
+    ['Std. English Conv.',  7],                 // ~26%
+    ['Expression of Ideas', 5],                 // ~20%
 ];
 let mockExam          = false;
 let mockScoreEstimate = null;
 
 function buildMockExam() {
-    const rank = { Easy: 0, Medium: 1, Hard: 2 };
     const out  = [];
     MOCK_DOMAIN_MIX.forEach(([domain, n]) => {
         const pool = questionBank.filter(q => SKILL_DOMAIN[q.skill] === domain);
@@ -330,10 +619,11 @@ function buildMockExam() {
         // Backfill if a domain is thin in a difficulty.
         const rest = _fyShuffle([...byDiff.Easy, ...byDiff.Medium, ...byDiff.Hard]);
         while (picked.length < n && rest.length) picked.push(rest.shift());
-        picked.sort((a, b) => rank[a.difficulty] - rank[b.difficulty]);   // easy → hard
         out.push(...picked);
     });
-    return out;
+    // Domain blocks in test order, easy → hard within each. Same rule the
+    // custom ratio set uses; changing one changes both, on purpose.
+    return orderSATStyle(out);
 }
 
 function startMockExam() {
@@ -360,7 +650,35 @@ function estimateRWScore(correct, total) {
     return 800;
 }
 
+// A share box is live only while the ratio is switched on AND its own skill is
+// ticked. An editable box that nothing reads is a lie: the tutor types 3 / 2 / 1,
+// sees the numbers sitting there, and gets a set built by something else.
+function syncWeightInputs() {
+    const on = isRatioOn();
+    document.querySelectorAll('input[name="skill"]').forEach(cb => {
+        const w = document.querySelector(`.weight-input[data-skill="${_attrEsc(cb.value)}"]`);
+        if (w) w.disabled = !on || !cb.checked;
+    });
+    document.querySelectorAll('input[name="diff"]').forEach(cb => {
+        const w = document.querySelector(`.weight-input[data-diff="${_attrEsc(cb.value)}"]`);
+        if (w) w.disabled = !on || !cb.checked;
+    });
+}
+
+// "Trans 5 · Bdry 3 · WIC 2" — the mix actually built, in the order it will be
+// served. What the tutor asked for and what the pool could supply are not
+// always the same thing, so this reports the SET, never the requested ratio.
+function describeMix(questions) {
+    const counts = new Map();
+    questions.forEach(q => counts.set(q.skill, (counts.get(q.skill) || 0) + 1));
+    return [...counts.entries()]
+        .map(([skill, n]) => `${SKILL_ABBR[skill] || skill} ${n}`)
+        .join(' \xb7 ');
+}
+
 function updateSetupUI() {
+    syncWeightInputs();
+
     const diffs = getSelectedDiffs();
 
     Object.entries(SKILL_COUNT_IDS).forEach(([skill, id]) => {
@@ -375,7 +693,9 @@ function updateSetupUI() {
     const filtered  = getFilteredPool();
     const limit     = getLimit();
     // Reflect the real session the builder will produce (correct answers held back).
-    const total     = buildActiveQuestions().length;
+    const built     = buildActiveQuestions();
+    const total     = built.length;
+    const ratioOn   = isRatioOn() && (hasShares(getDiffWeights()) || hasShares(getSkillWeights()));
     const excluded  = (limit === 0) ? (filtered.length - total) : 0;
     const summaryEl = document.getElementById('sessionSummary');
     const startBtn  = document.getElementById('startSessionBtn');
@@ -405,8 +725,14 @@ function updateSetupUI() {
         } else {
             const note = excluded > 0
                 ? ` \xb7 ${excluded} already correct (hidden)` : '';
+            // With a ratio on, the per-skill counts ARE the useful information —
+            // "WIC + Trans + Bdry" doesn't tell you whether you got 5/3/2 or
+            // 8/1/1. Show the realised mix instead of the skill list.
+            const body = ratioOn
+                ? describeMix(built)
+                : labels.join(' + ');
             summaryEl.textContent =
-                `${total} question${total !== 1 ? 's' : ''} — ${labels.join(' + ')} — ${diffs.join(' \xb7 ')}${note}`;
+                `${total} question${total !== 1 ? 's' : ''} — ${body} — ${diffs.join(' \xb7 ')}${note}`;
             summaryEl.className = 'session-summary';
             startBtn.disabled   = false;
         }
@@ -423,6 +749,12 @@ function applyPreset(btn) {
     document.querySelectorAll('input[name="diff"]').forEach(el => {
         el.checked = diffs.includes(el.value);
     });
+    // A preset states a whole set-up, so it clears any ratio left over from the
+    // last one. Without this, "Craft & Structure · All" would quietly inherit a
+    // 3:1 mix from a click two minutes ago and serve a set nobody asked for.
+    const ratioToggle = document.getElementById('ratioToggle');
+    if (ratioToggle) ratioToggle.checked = false;
+    document.querySelectorAll('.weight-input').forEach(el => { el.value = '1'; });
     document.getElementById('limitSelect').value = btn.dataset.limit;
     updateSetupUI();
 }
@@ -1345,6 +1677,15 @@ function init() {
 
     document.querySelectorAll('input[name="skill"], input[name="diff"]')
         .forEach(el => el.addEventListener('change', updateSetupUI));
+    // 'input' as well as 'change': typing a weight should redraw the mix as you
+    // type, not only when the box loses focus. A tutor who sets 3 / 2 / 1 and
+    // hits Start without clicking away must still see the split it produced.
+    document.querySelectorAll('.weight-input').forEach(el => {
+        el.addEventListener('input',  updateSetupUI);
+        el.addEventListener('change', updateSetupUI);
+    });
+    const ratioToggle = document.getElementById('ratioToggle');
+    if (ratioToggle) ratioToggle.addEventListener('change', updateSetupUI);
     document.getElementById('limitSelect').addEventListener('change', updateSetupUI);
 
     const timerModeSelect = document.getElementById('timerModeSelect');

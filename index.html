@@ -10,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260703">
+    <link rel="stylesheet" href="style.css?v=20260806">
     <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
-    <script src="ns-migrate.js?v=20260716"></script>
+    <script src="ns-migrate.js?v=20260717"></script>
     <script src="gate.js?v=20260703"></script>
-    <script src="anti-cheat.js?v=20260703"></script>
+    <script src="anti-cheat.js?v=20260716"></script>
 </head>
 <body>
 
@@ -142,99 +142,204 @@
                         white-space:nowrap;">&#8592; Hub</button>
             </div>
 
+            <!-- ── Ratio mix ────────────────────────────────────────────
+                 One switch turns the whole mechanism on. OFF (the default) and
+                 the boxes are dead: the draw is exactly what it was before this
+                 control existed. ON and the Question Limit is divided between
+                 the ticked skills in proportion to their shares.
+
+                 The switch is what says "a ratio is wanted" — NOT whether the
+                 numbers happen to differ. Reading intent off the numbers would
+                 make an even 5-and-5 split unaskable, since 1-and-1 is
+                 indistinguishable from having touched nothing at all. That is
+                 the most obvious thing a tutor would want and it would silently
+                 return whatever the queue felt like. -->
+            <div class="setup-section">
+                <label class="ratio-toggle">
+                    <input type="checkbox" id="ratioToggle">
+                    <span>Mix in a ratio</span>
+                    <span class="q-count">divide the set by share</span>
+                </label>
+            </div>
+
             <!-- Domain: Information and Ideas -->
             <div class="setup-section">
-                <h3>Information and Ideas</h3>
-                <label>
-                    <input type="checkbox" name="skill" value="Central Ideas and Details">
-                    <span>Central Ideas and Details</span>
-                    <span class="q-count" id="count-cid">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Command of Evidence — Textual">
-                    <span>Command of Evidence — Textual</span>
-                    <span class="q-count" id="count-coe-t">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Command of Evidence — Quantitative">
-                    <span>Command of Evidence — Quantitative</span>
-                    <span class="q-count" id="count-coe-q">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Inferences">
-                    <span>Inferences</span>
-                    <span class="q-count" id="count-inf">—</span>
-                </label>
+                <div class="setup-section-head">
+                    <h3>Information and Ideas</h3>
+                    <span class="weight-hint">share</span>
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Central Ideas and Details">
+                        <span>Central Ideas and Details</span>
+                        <span class="q-count" id="count-cid">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Central Ideas and Details"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Central Ideas and Details">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Command of Evidence — Textual">
+                        <span>Command of Evidence — Textual</span>
+                        <span class="q-count" id="count-coe-t">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Command of Evidence — Textual"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Command of Evidence — Textual">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Command of Evidence — Quantitative">
+                        <span>Command of Evidence — Quantitative</span>
+                        <span class="q-count" id="count-coe-q">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Command of Evidence — Quantitative"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Command of Evidence — Quantitative">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Inferences">
+                        <span>Inferences</span>
+                        <span class="q-count" id="count-inf">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Inferences"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Inferences">
+                </div>
             </div>
 
             <!-- Domain: Craft and Structure -->
             <div class="setup-section">
-                <h3>Craft and Structure</h3>
-                <label>
-                    <input type="checkbox" name="skill" value="Words in Context" checked>
-                    <span>Words in Context</span>
-                    <span class="q-count" id="count-wic">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Text Structure and Purpose">
-                    <span>Text Structure and Purpose</span>
-                    <span class="q-count" id="count-tsp">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Cross-Text Connections">
-                    <span>Cross-Text Connections</span>
-                    <span class="q-count" id="count-ctc">—</span>
-                </label>
+                <div class="setup-section-head">
+                    <h3>Craft and Structure</h3>
+                    <span class="weight-hint">share</span>
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Words in Context" checked>
+                        <span>Words in Context</span>
+                        <span class="q-count" id="count-wic">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Words in Context"
+                           value="1" min="0" step="1"
+                           aria-label="Share of the set for Words in Context">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Text Structure and Purpose">
+                        <span>Text Structure and Purpose</span>
+                        <span class="q-count" id="count-tsp">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Text Structure and Purpose"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Text Structure and Purpose">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Cross-Text Connections">
+                        <span>Cross-Text Connections</span>
+                        <span class="q-count" id="count-ctc">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Cross-Text Connections"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Cross-Text Connections">
+                </div>
             </div>
 
             <!-- Domain: Expression of Ideas -->
             <div class="setup-section">
-                <h3>Expression of Ideas</h3>
-                <label>
-                    <input type="checkbox" name="skill" value="Rhetorical Synthesis">
-                    <span>Rhetorical Synthesis</span>
-                    <span class="q-count" id="count-rs">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Transitions">
-                    <span>Transitions</span>
-                    <span class="q-count" id="count-trans">—</span>
-                </label>
+                <div class="setup-section-head">
+                    <h3>Expression of Ideas</h3>
+                    <span class="weight-hint">share</span>
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Rhetorical Synthesis">
+                        <span>Rhetorical Synthesis</span>
+                        <span class="q-count" id="count-rs">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Rhetorical Synthesis"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Rhetorical Synthesis">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Transitions">
+                        <span>Transitions</span>
+                        <span class="q-count" id="count-trans">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Transitions"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Transitions">
+                </div>
             </div>
 
             <!-- Domain: Standard English Conventions -->
             <div class="setup-section">
-                <h3>Standard English Conventions</h3>
-                <label>
-                    <input type="checkbox" name="skill" value="Boundaries">
-                    <span>Boundaries</span>
-                    <span class="q-count" id="count-bdry">—</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="skill" value="Form, Structure, and Sense">
-                    <span>Form, Structure, and Sense</span>
-                    <span class="q-count" id="count-fss">—</span>
-                </label>
+                <div class="setup-section-head">
+                    <h3>Standard English Conventions</h3>
+                    <span class="weight-hint">share</span>
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Boundaries">
+                        <span>Boundaries</span>
+                        <span class="q-count" id="count-bdry">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Boundaries"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Boundaries">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="skill" value="Form, Structure, and Sense">
+                        <span>Form, Structure, and Sense</span>
+                        <span class="q-count" id="count-fss">—</span>
+                    </label>
+                    <input type="number" class="weight-input" data-skill="Form, Structure, and Sense"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set for Form, Structure, and Sense">
+                </div>
             </div>
 
             <!-- Difficulty -->
             <div class="setup-section">
-                <h3>Difficulty</h3>
-                <label>
-                    <input type="checkbox" name="diff" value="Easy" checked>
-                    <span class="diff-dot diff-easy"></span>
-                    <span>Easy</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="diff" value="Medium">
-                    <span class="diff-dot diff-medium"></span>
-                    <span>Medium</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="diff" value="Hard">
-                    <span class="diff-dot diff-hard"></span>
-                    <span>Hard</span>
-                </label>
+                <div class="setup-section-head">
+                    <h3>Difficulty</h3>
+                    <span class="weight-hint">share</span>
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="diff" value="Easy" checked>
+                        <span class="diff-dot diff-easy"></span>
+                        <span>Easy</span>
+                    </label>
+                    <input type="number" class="weight-input" data-diff="Easy"
+                           value="1" min="0" step="1"
+                           aria-label="Share of the set that is Easy">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="diff" value="Medium">
+                        <span class="diff-dot diff-medium"></span>
+                        <span>Medium</span>
+                    </label>
+                    <input type="number" class="weight-input" data-diff="Medium"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set that is Medium">
+                </div>
+                <div class="setup-row">
+                    <label>
+                        <input type="checkbox" name="diff" value="Hard">
+                        <span class="diff-dot diff-hard"></span>
+                        <span>Hard</span>
+                    </label>
+                    <input type="number" class="weight-input" data-diff="Hard"
+                           value="1" min="0" step="1" disabled
+                           aria-label="Share of the set that is Hard">
+                </div>
             </div>
 
             <!-- Question Limit -->
@@ -533,7 +638,7 @@
 
     <script src="data-craft-structure.js?v=20260703"></script>
     <script src="data-expression-of-ideas.js?v=20260703"></script>
-    <script src="data-info-ideas.js?v=20260703"></script>
+    <script src="data-info-ideas.js?v=20260712"></script>
     <script src="data-conventions.js?v=20260703"></script>
     <!-- Progress Panel (Ctrl+Shift+P · tutor view) -->
     <div id="progressPanel" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:600;overflow-y:auto;padding:2rem 1rem" onclick="if(event.target===this)closeProgressPanel()">
@@ -549,21 +654,21 @@
       </div>
     </div>
 
-    <script src="config.js?v=20260703"></script>
-    <script src="progress.js?v=20260716"></script>
-    <script src="sheet-sync.js?v=20260703"></script>
+    <script src="config.js?v=20260716"></script>
+    <script src="progress.js?v=20260722"></script>
+    <script src="sheet-sync.js?v=20260716"></script>
     <script src="storage.js?v=20260716"></script>
     <script src="timer.js?v=20260703"></script>
-    <script src="history.js?v=20260703"></script>
-    <script src="app.js?v=20260703"></script>
+    <script src="history.js?v=20260712"></script>
+    <script src="app.js?v=20260806"></script>
 
     <!-- Challenge module. Order matters: the debrief payload declares
          CHALLENGE_P8, which sets.js reads; challenge.js wraps app.js and so
          must load last. It injects its own hub tile and its own screen —
          no markup above this line is touched. -->
     <script src="data-challenge-jeffrey-p8.js?v=20260710"></script>
-    <script src="challenge/sets.js?v=20260710"></script>
-    <script src="challenge/challenge-core.js?v=20260710"></script>
+    <script src="challenge/sets.js?v=20260716"></script>
+    <script src="challenge/challenge-core.js?v=20260722"></script>
     <script src="challenge/challenge.js?v=20260710"></script>
 </body>
 </html>
