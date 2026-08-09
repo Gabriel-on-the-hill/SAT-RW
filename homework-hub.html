@@ -41,6 +41,8 @@
   .day .num.ch{background:#7c3aed;font-size:1rem}
   .cbar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin:.15rem 0 .55rem 2.6rem}
   .cbar i{display:block;height:100%;background:#7c3aed}
+  .chdiv{margin:1.6rem 0 .7rem;padding-top:1.1rem;border-top:1px solid var(--border);
+         font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--text-muted)}
   .cchips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .65rem 2.6rem}
   .cchip{font-size:.72rem;font-weight:600;padding:.15rem .5rem;border-radius:99px;background:var(--surface2);color:var(--muted)}
   .cchip.w{background:#fdeced;color:#b91c1c}
@@ -57,7 +59,7 @@
      is computable from the frozen ids alone. sets.js tolerates a missing
      CHALLENGE_P8 — the debrief payload is not needed on this page. -->
 <script src="progress.js?v=20260722"></script>
-<script src="challenge/sets.js?v=20260716"></script>
+<script src="challenge/sets.js?v=20260809"></script>
 <script src="challenge/challenge-core.js?v=20260722"></script>
 </head>
 <body>
@@ -82,16 +84,17 @@
   // The challenge card. No "Done" badge and no day gate: a challenge is not
   // finished after one pass. Each question needs two clean correct answers, and
   // mastery lapses after 21 days — so the ledger, not this page, owns the state.
-  function renderChallengeCard(plan){
-    var note = document.getElementById('note');
-    if (typeof ChallengeCore === 'undefined' || !window.CHALLENGE_SETS) {
-      list.innerHTML = '<div class="empty">Your challenge is not available on this device.</div>'; return;
-    }
-    var sets = ChallengeCore.setsFor(student, window.CHALLENGE_SETS);
-    var set  = sets.filter(function(s){ return s.setId === plan.challenge; })[0];
-    if (!set || !set.ids.length) {
-      list.innerHTML = '<div class="empty">Your challenge set is not ready yet.</div>'; return;
-    }
+  // Every set this student has, newest last, ready to serve. Empty array if the
+  // challenge scripts are absent or nothing is committed for him yet.
+  function challengeSets(){
+    if (typeof ChallengeCore === 'undefined' || !window.CHALLENGE_SETS) return [];
+    return ChallengeCore.setsFor(student, window.CHALLENGE_SETS)
+                        .filter(function(s){ return s.ids && s.ids.length; });
+  }
+
+  // The card, as a STRING. Split out from renderChallengeCard so a days-plan can
+  // append it under the sets instead of replacing them — a plan may now have both.
+  function challengeCardHTML(set){
     // segmentOf() only ever reads q.id, so the tally needs the ids and the ledger.
     var stubs = set.ids.map(function(id){ return { id: id }; });
     var c     = ChallengeCore.counts(stubs, getProgress());
@@ -106,8 +109,7 @@
         : 'Mastered ' + c.mastered + ' of ' + c.total + '. This is not finished until all ' + c.total +
           ' are mastered, and each one needs two clean correct answers.';
 
-    list.innerHTML =
-      '<div class="day' + (gate === 'done' ? ' done' : '') + '">' +
+    return '<div class="day' + (gate === 'done' ? ' done' : '') + '">' +
         '<div class="top">' +
           '<span class="num ch">&#9876;</span>' +
           '<span class="focus">' + esc(set.title) + '</span>' +
@@ -126,9 +128,32 @@
         '<div class="tip">' + tip + '</div>' +
         '<div class="go"><a class="btn" href="index.html?challenge=1">Open the Challenge &rarr;</a></div>' +
       '</div>';
+  }
 
+  // Challenge-ONLY plan: the card is the whole page.
+  function renderChallengeCard(plan){
+    var note = document.getElementById('note');
+    if (typeof ChallengeCore === 'undefined' || !window.CHALLENGE_SETS) {
+      list.innerHTML = '<div class="empty">Your challenge is not available on this device.</div>'; return;
+    }
+    var set = challengeSets().filter(function(s){ return s.setId === plan.challenge; })[0];
+    if (!set) {
+      list.innerHTML = '<div class="empty">Your challenge set is not ready yet.</div>'; return;
+    }
+    list.innerHTML = challengeCardHTML(set);
     if (note) note.textContent = 'There are no daily sets this week. Work through the challenge whenever you like, ' +
       'as often as you like. It is done when every question is mastered — not when you have been through it once.';
+  }
+
+  // Days-plan tail: the newest committed set, appended UNDER the sets rather than
+  // replacing them. Sets are append-only and the newest is the one built from the
+  // most recent test, so that is the one to surface. Returns '' when there is none,
+  // which is why a student with no sets sees exactly what he saw before.
+  function challengeTailHTML(){
+    var sets = challengeSets();
+    if (!sets.length) return '';
+    return '<div class="chdiv">Your challenge &mdash; separate from the sets above, and never finished in one pass</div>'
+         + challengeCardHTML(sets[sets.length - 1]);
   }
 
   if (!student) { document.getElementById('who').textContent=''; list.innerHTML='<div class="empty">Please sign in from the hub first.</div>'; return; }
@@ -182,7 +207,7 @@
           + '</div>' : '')
       + '</div>';
   });
-  list.innerHTML = html;
+  list.innerHTML = html + challengeTailHTML();
   });
 })();
 </script>
