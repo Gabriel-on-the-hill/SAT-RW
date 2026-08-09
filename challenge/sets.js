@@ -86,6 +86,62 @@ window.CHALLENGE_SETS = {
                 '2bb7416a', '50801257', '67614549', 'de3dd17d',
             ],
         },
+        {
+            setId:  'p11-rw',
+            title:  'Practice 11 misses',
+            source: 'SAT Practice Test 11',
+            date:   '2026-08-08',
+
+            // Layer 1 — the debrief. 17 verbatim R&W misses, UNSCORED: these ids
+            // are in no bank, so they never enter the mastery denominator. The
+            // score report records 17 R&W incorrect, so the capture is complete
+            // in count. TWO ARE PARTIAL and flagged `partial: true` in the data
+            // file — one is missing options C and D, one has its figure only.
+            review: (typeof CHALLENGE_P11 !== 'undefined') ? CHALLENGE_P11 : null,
+
+            // Layer 2 — FROZEN 9 August 2026 from
+            // "Jeffrey Ejike/Jeffrey_p11rw_Shortlist_2026-08-09.md".
+            // 22 bank questions: siblings of the misses, matched on skill,
+            // difficulty, and — where the bank carries them — ruleType and
+            // goalType. Exclusion list was the 251 ids in the app's own question
+            // export, the 28 ids of p8-rw above, the 20 ids reserved by the
+            // standing Transitions Homework assignment, and one item that the
+            // export could not know about because it was worked in a session.
+            //
+            // WEIGHTED BY REPETITIONS-TO-LEARN, NOT BY MISS COUNT. Rule-bound
+            // skills need few reps and get few slots; procedural skills
+            // (both Commands of Evidence, Rhetorical Synthesis, Transitions)
+            // carry the set. Inferences is deliberately BELOW its miss count:
+            // judgement does not automate with repetition, and the unseen pool
+            // is two deep at Medium.
+            //
+            // POOL NOTE FOR WHOEVER BUILDS p12: this set takes BOTH remaining
+            // unseen verb-tense items and the last unseen Hard Quantitative
+            // item. A next set cannot repeat this shape. Conventions still holds
+            // nine unseen Boundaries at Medium/Hard — move the quota there.
+            //
+            // DO NOT EDIT. These ids are the denominator of "Mastered N of 22".
+            ids: [
+                // Command of Evidence — Textual (4)
+                'e946a32e', 'dc87adf4', '87023f34', '5d6ab069',
+                // Command of Evidence — Quantitative (4)
+                '626a1308', 'a9ac31e4', '89f71526', 'a9040290',
+                // Central Ideas and Details (3)
+                '14189fbb', '96802cc0', '659c6c1d',
+                // Inferences (2)
+                'f1bfbed3', 'db876fd5',
+                // Transitions (2)
+                'ad729337', '11df9b99',
+                // Rhetorical Synthesis (2) — both goalType: Compare
+                'c34d6bff', '1b94a80a',
+                // Words in Context (2)
+                'ae31c343', 'a5831311',
+                // Text Structure and Purpose (1)
+                'fca04045',
+                // Form, Structure & Sense — verb tense (2)
+                'd46ac7e7', 'db2e480a',
+            ],
+        },
     ],
 
     'Bruce': [],
