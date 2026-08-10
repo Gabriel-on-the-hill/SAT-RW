@@ -38,9 +38,23 @@ const SCRIPTS = [
     'app.js',
     // test-only probe: a classic script, so it closes over app.js's lexical globals
     null,
-    'data-challenge-jeffrey-p8.js', 'challenge/sets.js', 'challenge/challenge-core.js', 'challenge/challenge.js',
+    'data-challenge-jeffrey-p8.js', 'data-challenge-jeffrey-p11.js',
+    'challenge/sets.js', 'challenge/challenge-core.js', 'challenge/challenge.js',
 ];
 const PROBE = 'window.__peek = function(){ return { activeQuestions: activeQuestions, userMode: userMode }; };';
+
+// ── Expectations are DERIVED FROM THE ROSTER, never written as literals ──
+//
+// This suite loads the real challenge/sets.js, so every "28 questions" and
+// "Practice Test 8" written by hand became a failure the day a second set was
+// appended — a test asserting the roster's contents rather than the module's
+// behaviour. sets.js is append-only and challenge.js serves the LAST entry, so
+// that is what these read. Appending a p12 set must not touch this file.
+const SETS  = (() => { const w = {}; new Function('window', read('challenge/sets.js'))(w); return w.CHALLENGE_SETS; })();
+const SET   = SETS.Jeffrey[SETS.Jeffrey.length - 1];
+const N     = SET.ids.length;
+const REVIEW_N = (SET.review || []).length
+    || (read('data-challenge-jeffrey-p11.js').match(/^\s*id: '/gm) || []).length;
 
 // Scripts run while document.readyState === 'loading', exactly as they do in a
 // browser for tags at the end of <body>. challenge.js therefore defers boot()
@@ -91,8 +105,8 @@ section('1 · The tile appears only for a student who has a set');
     const w = await build('Jeffrey');
     const tile = $(w, 'challengeTile');
     ok('Jeffrey gets a tile', !!tile);
-    ok('tile shows the live tally', /Mastered 0 of 28/.test(txt(tile)), txt(tile));
-    ok('tile names the source', /Practice Test 8/.test(txt(tile)));
+    ok('tile shows the live tally', new RegExp('Mastered 0 of '+N).test(txt(tile)), txt(tile));
+    ok('tile names the source', new RegExp(SET.source.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test(txt(tile)));
 
     const b = await build('Bruce');
     ok('Bruce gets no tile', !$(b, 'challengeTile'));
@@ -106,20 +120,20 @@ section('2 · The start screen and its gates');
     w.openChallenge();
     const scr = $(w, 'challengeScreen');
     eq('screen is shown', scr.style.display, 'block');
-    ok('tally rendered', /Mastered 0 of 28 \(0%\)/.test(txt(scr)));
-    ok('segments rendered', /not attempted 28/.test(txt(scr)));
+    ok('tally rendered', new RegExp('Mastered 0 of '+N+' \\(0%\\)').test(txt(scr)));
+    ok('segments rendered', new RegExp('not attempted '+N).test(txt(scr)));
     eq('default session size', $(w, 'cHowMany').value, '10');
-    ok('debrief offered for 16 misses', /Review your 16 misses/.test(txt(scr)));
+    ok('debrief offered for '+REVIEW_N+' misses', new RegExp('Review your '+REVIEW_N+' misses').test(txt(scr)));
     ok('Begin offered (gate=normal)', !!$(w, 'cBeginBtn'));
 
     // Drive the ledger to "every question correct once" → confirm gate.
-    const ids = w.CHALLENGE_SETS.Jeffrey[0].ids;
+    const ids = w.CHALLENGE_SETS.Jeffrey[w.CHALLENGE_SETS.Jeffrey.length-1].ids;
     const led = {};
     ids.forEach(id => { led[id] = { correct: 1, wrong: 0, lastSeen: Date.now() }; });
     w.localStorage.setItem('satrw_progress_Jeffrey', JSON.stringify(led));
     w.openChallenge();
     ok('confirm gate: no Begin button', !$(w, 'cBeginBtn'));
-    ok('confirm gate: offers the confirm pass', /Confirm the 28 you only got right once/.test(txt($(w, 'challengeScreen'))));
+    ok('confirm gate: offers the confirm pass', new RegExp('Confirm the '+N+' you only got right once').test(txt($(w, 'challengeScreen'))));
 
     // …and to "all mastered" → done gate.
     ids.forEach(id => { led[id] = { correct: 2, wrong: 0, lastSeen: Date.now() }; });
@@ -136,12 +150,12 @@ section('3 · Layer 1 (debrief) never touches the mastery ledger');
     w.openChallenge();
     $(w, 'cDebriefBtn').click();
     const scr = $(w, 'challengeScreen');
-    ok('debrief opens on the first miss', /Review 1 of 16/.test(txt(scr)));
+    ok('debrief opens on the first miss', new RegExp('Review 1 of '+REVIEW_N).test(txt(scr)));
     ok('debrief is labelled unscored', /Nothing on this screen counts toward mastery/.test(txt(scr)));
 
     const before = w.localStorage.getItem('satrw_progress_Jeffrey');
     w.document.querySelector('#cOpts .copt').click();      // answer it
-    ok('explanation revealed', /Choice/.test(txt($(w, 'cReveal'))));
+    ok('explanation revealed', /\bis correct\b/.test(txt($(w, 'cReveal'))));   // phrasing-independent: p8 says "Choice B is correct", p11 says "C is correct"
     ok('correct choice highlighted', !!w.document.querySelector('#cOpts .copt.right'));
     eq('ledger untouched', w.localStorage.getItem('satrw_progress_Jeffrey'), before);
     eq('ledger is still empty', ledger(w), null);
@@ -214,7 +228,7 @@ section('5 · Completion is decorated with the challenge tally');
     eq('completion shown', $(w, 'completionScreen').style.display, 'flex');
     const box = $(w, 'challengeCompletion');
     ok('challenge tally injected', !!box);
-    ok('tally counts the set, not the session', /Mastered 0 of 28/.test(txt(box)), txt(box));
+    ok('tally counts the set, not the session', new RegExp('Mastered 0 of '+N).test(txt(box)), txt(box));
     ok('correct-once reflected', /correct once 1/.test(txt(box)), txt(box));
     ok('Back to Challenge offered', !!$(w, 'cBackToChallenge'));
 
@@ -223,7 +237,7 @@ section('5 · Completion is decorated with the challenge tally');
     const examOpt = $(w, 'modeSelect').querySelector('option[value="exam"]');
     ok('Exam re-enabled after leaving', examOpt.disabled === false && examOpt.hidden === false);
     eq('challenge screen hidden', $(w, 'challengeScreen').style.display, 'none');
-    ok('hub tile tally refreshed', /Mastered 0 of 28/.test(txt($(w, 'challengeTile'))));
+    ok('hub tile tally refreshed', new RegExp('Mastered 0 of '+N).test(txt($(w, 'challengeTile'))));
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -235,7 +249,7 @@ section('6 · index.html?challenge=1 opens the challenge directly');
     const deep = await build('Jeffrey', '?challenge=1');
     eq('deep link → challenge screen', $(deep, 'challengeScreen').style.display, 'block');
     eq('deep link → hub hidden', $(deep, 'hubScreen').style.display, 'none');
-    ok('start screen rendered', /Mastered 0 of 28/.test(txt($(deep, 'challengeScreen'))));
+    ok('start screen rendered', new RegExp('Mastered 0 of '+N).test(txt($(deep, 'challengeScreen'))));
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -263,8 +277,8 @@ section("7 · The tutor's sheet can tell challenge work apart");
     const post = w.__posts[w.__posts.length - 1];
     ok('a session was posted', !!post);
     eq('type is challenge, not practice', post.type, 'challenge');
-    eq('carries the set id', post.assignmentId, 'p8-rw');
-    eq('carries the set title', post.assignmentTitle, 'Practice 8 misses');
+    eq('carries the set id', post.assignmentId, SET.setId);
+    eq('carries the set title', post.assignmentTitle, SET.title);
     ok('per-question diagnostics survive', Array.isArray(post.questions) && post.questions.length === 1);
 
     // Ordinary practice must still post as practice — the stamp is scoped.

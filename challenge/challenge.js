@@ -373,8 +373,19 @@
     }
 
     function boot() {
+        // THE NEWEST SET, NOT THE FIRST. sets.js is append-only, so the last entry
+        // is the one built from the most recent practice test — which is the one
+        // worth working. This read `sets[0]` while a student had only one set, and
+        // the day a second was appended it silently kept serving the old one while
+        // the homework hub advertised the new one. Same rule in both places:
+        // homework-hub.html's challengeTailHTML() also takes the last entry.
+        //
+        // Superseded sets STAY IN THE FILE. They are not served, but their ids are
+        // still the exclusion list every future set is generated against (sets.js
+        // rule 3), and deleting one would silently redefine a "Mastered N of M"
+        // the student has already seen.
         var sets = CC.setsFor(studentName(), window.CHALLENGE_SETS);
-        state.set = sets.length ? sets[0] : null;
+        state.set = sets.length ? sets[sets.length - 1] : null;
         if (!state.set) return;                       // no tile, no screen, nothing served
 
         var problems = CC.validateSet(state.set);
