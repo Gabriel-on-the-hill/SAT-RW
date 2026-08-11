@@ -322,324 +322,265 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey — 6 to 14 Aug, into the dress-rehearsal test on 15 Aug. FIVE sets,
-  // `sequential`, `through` 14 Aug so the day before the test stays clear.
+  // Jeffrey — 11 Aug. ONE set. Replaces the 6–14 Aug five-set plan, which is
+  // cleared: days 1, 2 and 3 were run on 5–6 Aug; days 4 and 5 never opened.
+  // Re-authored on the tutor's instruction ahead of the 12 Aug class.
   //
-  // THE SHAPE CHANGED. The 25 Jul plan trained one block per set and then ran the
-  // three blocks end to end at ten and twelve questions. Sets 1, 3 and 4 here are
-  // full 27-question modules instead, because a 27-question module is the only
-  // thing that has ever exposed what a ten-question set does not: the module is
-  // 27 q in 32 min and nothing shorter reproduces the last five questions of it.
+  // THIS IS A HOMEWORK DAY, NOT A CHALLENGE SET, and that is load-bearing twice:
+  //   - predictMode() lives in homework-run.html and returns 'type' only when
+  //     minutes === 0. The Challenge runner has no typed-prediction state at all,
+  //     and typing the prediction is the entire point of this set.
+  //   - prioritizePool() leads with `unseen` for a homework day. A Challenge set
+  //     passes missesFirst and leads with items he has already answered wrong.
+  //     The brief was to prioritise what he has NOT done.
+  // challenge/sets.js was therefore not touched. It is append-only, and its ids
+  // are the denominator of "Mastered N of 22"; p11-rw has already been run twice.
   //
-  // THE ORDER INSIDE EACH REP IS LOAD-BEARING and matches the test-order routine:
-  //   SEC + Expression (12) -> Craft / Words in Context (8) -> Info & Ideas (7).
-  // Sections concatenate in authored order, so `review: 0` is structural on every
-  // rep — review questions splice in at RANDOM POSITIONS and would break the block
-  // order the reps exist to rehearse. Do not drop it from days 1, 3 or 4.
+  // minutes:0 IS LOAD-BEARING — see above. review:0 keeps all ten questions on the
+  // three named skills; a ladder splice inserts other skills at random positions.
   //
-  // Day 2 MUST stay minutes:0. predictMode() keys off the clock, and untimed is
-  // the only state in which the runner makes him TYPE the prediction. It is the
-  // only typed-prediction set in the plan, which is why it is not also timed.
+  // POOL — re-tallied 11 Aug against the banks, net of the 186 ids in his export
+  // and the 50 committed to p8-rw and p11-rw. Free items remaining:
+  //   Words in Context            E 42   M 19   H 47
+  //   CoE — Textual               E 16   M  3   H 13    <- Medium nearly gone
+  //   CoE — Quantitative          E 13   M  2   H  2    <- THINNEST IN THE BANK
+  // This day draws WiC 1E/2M, CoE-T 2E/1M/1H, CoE-Q 2E/1M, and deliberately leaves
+  // 1 Medium + 2 Hard Quantitative for the 12 Aug class sets. Do not raise the
+  // Quantitative counts without re-tallying.
   //
-  // `minutes` is a LABEL on the hub card, not a countdown — homework-run.html
-  // reads it only through predictMode(). The 32 on the reps tells him the module
-  // length; the clock itself has to be external. The tips carry the two wall-clock
-  // checkpoints rather than per-question paces, because a checkpoint survives
-  // pressure and a per-question target does not.
+  // WHY EASY-WEIGHTED, 5 of 10. Seven of the seventeen Practice 11 misses were
+  // Easy against one Hard, and both Command-of-Evidence misses on that test were
+  // Easy. Sixteen Easy CoE-Textual items have never been served at all. On an
+  // untimed set an Easy miss is a pure process failure, which is the most
+  // diagnostic single result this set can produce.
   //
-  // Pool depth re-tallied against the bank for three reps plus day 2:
-  // Boundaries Medium draws 12 of 21, FSS Medium 6 of 19, Inferences Medium 6 of 13,
-  // CoE-Textual Medium 6 of 17, Transitions Medium 9 of 49, Rhetorical Synthesis
-  // Medium 9 of 70, Words in Context Medium 12 of 134, Text Structure 6 of 96,
-  // Cross-Text 6 of 70, Central Ideas Medium 6 of 47.
-  // CoE-QUANTITATIVE IS THE THINNEST POOL IN THE BANK — M5 H7 = 12 total. This plan
-  // draws 3 Medium and 4 Hard, so 7 of 12. Every CoE-Q section is written at a
-  // SINGLE difficulty on purpose: a two-value range routes through
-  // _calibratedPick(), leans 70% to the easy end below CALIBRATE_DOWN_BELOW, and
-  // would drain the five Medium without saying so. Do not raise these counts
-  // without re-tallying.
+  // Sections are SINGLE-DIFFICULTY on purpose: a two-value `diffs` routes through
+  // _calibratedPick(), leans 70% to the easy end, and would silently reshape the
+  // ratio this day is built on.
   //
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser. Keep it free of assessment of him.
   "Jeffrey": {
-    title: "Two weeks out: the full module, three times",
-    start: "2026-08-06",
+    title: "Ten questions, no clock — say what the answer has to do",
+    start: "2026-08-11",
+    through: "2026-08-11",
+    unlock: "sequential",
+    days: [
+      { n:1, focus:"Words in context and evidence (untimed — type it out)", minutes:0, review:0,
+        tip:"No clock on this one. Ten questions, and the typing is the set.\n\nBefore the choices appear you have to type what the answer has to do. Not which one you think it is — what it has to DO. The choices are only where you check it.\n\nWhat to type, by question type:\n\nWORDS IN CONTEXT — the meaning in your own words, AND the words in the sentence that gave it to you. If you cannot point at the phrase that defines it, you are guessing from the topic. The sentence almost always defines the blank; find that part first and quote it.\n\nEVIDENCE FROM A TEXT — the live word in the claim. One word, the one the evidence has to satisfy. Write it down, then test each quotation against that word alone. A quotation can be accurate, well written and about the right person, and still not touch the word. True is not the test; on-task is.\n\nEVIDENCE FROM A TABLE OR GRAPH — read the axis labels and the units before you read a single choice. Then type what the data shows in one plain sentence, and say which row, column or axis you read it from. If a range is given, say which end you are using.\n\nThen: cross out on the first failure. Do not rank them, and do not pick a favourite and defend it. The question is never which is best — it is which three fail. If two survive, the one that names the specific thing in the claim wins.\n\nOne word is not a prediction. About thirty minutes. One sitting, phone in another room.",
+        sections:[
+          { skills:["Words in Context"],                   diffs:["Easy"],   count:1 },
+          { skills:["Words in Context"],                   diffs:["Medium"], count:2 },
+          { skills:["Command of Evidence — Textual"],      diffs:["Easy"],   count:2 },
+          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:1 },
+          { skills:["Command of Evidence — Textual"],      diffs:["Hard"],   count:1 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Easy"],   count:2 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:1 }
+        ] },
+    ]
+  },
+
+  // Segun — 11–14 Aug. FOUR sets, THREE untimed then ONE timed, `sequential`.
+  // Replaces the 22 Jul block, which is retired: set 1 of it was submitted and
+  // sets 2–4 never opened. Re-authored rather than flipped, per AGENTS.md.
+  // `through` is 14 Aug so the hub prints the window and asks for the sets to be
+  // spread out — under sequential that request is the only spacing left.
+  //
+  // THE HARD SECTIONS SIT IN THE READING DOMAINS, WHICH IS WHERE THE BANK IS
+  // DEEPEST. Free Hard depth, tallied by hand on 11 Aug net of every id already
+  // served on this plan key: Words in Context 49, Text Structure 35, Cross-Text
+  // 27, Inferences 26, CoE-Textual 20, Central Ideas 16, CoE-Quantitative 7.
+  // Nothing in this block repeats and nothing is near a floor.
+  //
+  // CONVENTIONS IS THE DEPLETED DOMAIN AND THIS BLOCK STAYS OFF IT. Free at
+  // Medium+Hard: FSS Medium 4 (SVA 2, Pron 2), Semi H1, Colon H1, Dash H2,
+  // Commas M8 H8, NoPunct M2 H3, Mod H9. DO NOT BUILD A CONVENTIONS SET off this
+  // pool — Colon in particular cannot support one. Maintenance on those skills
+  // rides the default 2-question review draw, which crosses the day's filter.
+  //
+  // THE ORDER IS LOAD-BEARING. Under sequential unlock the sets are met in this
+  // order, every time, so each is placed to set up a later one:
+  //   1 → 2  Inferences gets its untimed rep in 1, then carries 4 of 6 in 2
+  //   1 → 4  Words in Context untimed in 1, back under the clock in 4
+  //   2 → 3  evidence-from-text in 2 before two-text comparison in 3
+  //   1,2,3 → 4  every skill in the timed set has had an untimed rep first
+  // Set 1 is the most STARTABLE at six questions with no clock, which matters
+  // because under sequential unlock a stall on set 1 blocks the week. Do not
+  // reorder without rebuilding that chain.
+  //
+  // DAYS 1-3 MUST STAY minutes:0. predictMode() keys off the clock and untimed is
+  // the only state in which the runner makes the prediction be TYPED. These three
+  // sets are first contact with the Hard tier of these skills, so the typed step
+  // is the whole point. Day 4 is timed because pace under a mixed draw is the
+  // separate thing being rehearsed. Untimed before timed, per AS-5.
+  //
+  // EVERY SECTION IS SINGLE-DIFFICULTY, DELIBERATELY. A two-value diffs range
+  // routes through _calibratedPick(), and below CALIBRATE_DOWN_BELOW it leans 70%
+  // to the easy end — which silently removes the Hard exposure these sets exist
+  // for. One difficulty per section bypasses calibration. Do not merge sections
+  // and do not widen a range to "give some room".
+  //
+  // Day 4 is 6 Hard of 10 authored, with 4 Medium carrying Expression of Ideas
+  // and Conventions so the set stays landable and so Medium misses stay in scope
+  // for prioritizePool() — a Medium miss can never reappear in a Hard-only set.
+  //
+  // `minutes` budgets the WHOLE set, review included: 10+2 = 12 @ ~71s = 12 min.
+  //
+  // assignments.test.js checks pool depth by skill+difficulty and IGNORES
+  // ruleType, so the two ruleType draws on Day 4 were tallied by hand: Commas
+  // Medium 8, Pron Medium 2. Pron is the tight one — do not raise it past 1 and
+  // do not add a second FSS Medium section anywhere in this block.
+  //
+  // `review` is omitted throughout, so every day is its authored count + the
+  // default 2. The counts were written around that dose.
+  //
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser and this repo is public. Keep it free
+  // of assessment of him — shapes, pools and guardrails only.
+  "Segun": {
+    title: "This week: the reading questions, at the hard end",
+    start: "2026-08-11",
     through: "2026-08-14",
     unlock: "sequential",
     days: [
-      { n:1, focus:"The full module, in test order — one clock", minutes:32, review:0,
-        tip:"Twenty-seven questions, thirty-two minutes, one clock. Start it on your phone and put the phone across the room, face down.\n\nWork them in the order they come. Two checkpoints, and they are clock times, not per-question targets — glance at the timer, not at every question:\n\n10:00 — the twelve grammar questions are done, start Words in Context.\n17:20 — start the reading block.\nIf it is past 19:00 and you are not in the reading block yet, go there anyway.\n\nThe last two minutes go to the two answers you were least sure of. Do not finish with time on the clock, and do not finish before question twenty-seven.\n\nOne sitting. Every question gets an answer you could explain out loud.",
+      { n:1, focus:"Word meaning and inference (untimed — type it out)", minutes:0,
+        tip:"No clock on this one. Six questions, and the typing is the set.\n\nBefore the choices appear you have to type what the answer has to do.\n\nWORD MEANING — say the meaning in your own words, AND quote the part of the sentence that gave it to you. If you cannot point at the phrase that defines it, you are working from the topic instead of the sentence. The familiar meaning of a word is the trap; the sentence decides.\n\nINFERENCE — finish the thought the text has already started. It has to be grounded in the text, in scope, and complete. If you have to add a fact of your own, it is wrong.\n\nThen cross out on the first failure. Do not rank the choices and do not pick a favourite and defend it. The question is never which is best. It is which three fail.\n\nThese are hard on purpose. About fifteen minutes, one sitting.",
         sections:[
-          // Block 1 — SEC + Expression (12), the reorder's first stop
-          { skills:["Boundaries"],                        diffs:["Medium"], count:4 },
-          { skills:["Form, Structure, and Sense"],         diffs:["Medium"], count:2 },
-          { skills:["Transitions"],                        diffs:["Medium"], count:3 },
-          { skills:["Rhetorical Synthesis"],               diffs:["Medium"], count:3 },
-          // Block 2 — Craft / Words in Context (8)
-          { skills:["Words in Context"],                   diffs:["Medium"], count:4 },
-          { skills:["Text Structure and Purpose"],         diffs:["Medium"], count:2 },
-          { skills:["Cross-Text Connections"],             diffs:["Medium"], count:2 },
-          // Block 3 — Information & Ideas (7), the slow block
-          { skills:["Central Ideas and Details"],          diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:1 },
-          { skills:["Inferences"],                         diffs:["Medium"], count:2 }
+          { skills:["Words in Context"], diffs:["Hard"], count:4 },
+          { skills:["Inferences"],       diffs:["Hard"], count:2 }
         ] },
-      { n:2, focus:"Evidence and data (untimed — type it out)", minutes:0,
-        tip:"No clock on this one, and it is the only set in the plan like that.\n\nType what the answer has to do before the choices appear. Every question. That sentence is the work — the choices are just where you check it.\n\nWrite the exact claim the evidence has to support, in your own words, then test each choice against that sentence. A choice can be completely true and still be wrong; on-task beats true.\n\nFor a figure: read the axis and the units before you read anything else. Then say what the data shows in one plain sentence, and only then look at what each choice claims about it.\n\nAbout twenty minutes. One sitting, phone in another room.",
+      { n:2, focus:"Inference and evidence (untimed — type it out)", minutes:0,
+        tip:"Same method, still no clock.\n\nINFERENCE — grounded, in scope, complete. Say it before you look.\n\nEVIDENCE FROM A TEXT — find the live word in the claim. One word, the one the evidence has to satisfy. Type it, then test each quotation against that word alone.\n\nA quotation can be accurate, well written, about the right person and the right study, and still not touch the word. True is not the test. On-task is.",
         sections:[
-          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Hard"],   count:2 },
-          { skills:["Rhetorical Synthesis"],               diffs:["Medium"], count:2 }
+          { skills:["Inferences"],                    diffs:["Hard"], count:4 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:2 }
         ] },
-      { n:3, focus:"The full module again — same clock, same order", minutes:32, review:0,
-        tip:"Same set-up as the first one. Twenty-seven questions, thirty-two minutes, one clock, phone across the room.\n\n10:00 — grammar done.\n17:20 — reading block started.\nPast 19:00, go to the reading block wherever you are.\n\nThe number that matters is not the score. It is whether all twenty-seven got an answer, and where the clock stood when the grammar was finished. Write both down before you close the laptop.\n\nIf a question will not crack, commit to your best choice, note it, and move. A question you spend four minutes on costs you two others.",
+      { n:3, focus:"Two texts, main ideas, and data (untimed — type it out)", minutes:0,
+        tip:"No clock.\n\nTWO TEXTS — read the second text first and name its position in one sentence. Then read the first. The question is almost always what the second writer would say about the first.\n\nMAIN IDEA — cover the whole text, not the opening line. The answer has to hold for every part of it.\n\nDATA — read the axis labels and the units before you read a single choice. Then say in one plain sentence what the figure shows, and name the row or the axis you read it from. If a range is given, say which end you are using.",
         sections:[
-          // Block 1 — SEC + Expression (12), the reorder's first stop
-          { skills:["Boundaries"],                        diffs:["Medium"], count:4 },
-          { skills:["Form, Structure, and Sense"],         diffs:["Medium"], count:2 },
-          { skills:["Transitions"],                        diffs:["Medium"], count:3 },
-          { skills:["Rhetorical Synthesis"],               diffs:["Medium"], count:3 },
-          // Block 2 — Craft / Words in Context (8)
-          { skills:["Words in Context"],                   diffs:["Medium"], count:4 },
-          { skills:["Text Structure and Purpose"],         diffs:["Medium"], count:2 },
-          { skills:["Cross-Text Connections"],             diffs:["Medium"], count:2 },
-          // Block 3 — Information & Ideas (7), the slow block
-          { skills:["Central Ideas and Details"],          diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Hard"], count:1 },
-          { skills:["Inferences"],                         diffs:["Medium"], count:2 }
-        ] },
-      // Day 4 added 9 Aug. Information & Ideas only, untimed, EASY-weighted.
-      //
-      // WHY EASY, WHEN EVERY OTHER SET HERE IS MEDIUM. The Easy tier is not filler
-      // in this domain: on the 8 Aug practice test, seven of the Information &
-      // Ideas items marked Easy were the ones missed. A Medium or Hard set cannot
-      // measure whether that is fixed, because it does not ask the question. Six of
-      // the ten below are Easy for that reason, with a Medium tail so the set is
-      // not uniformly below test level.
-      //
-      // POOL NOTE — this day costs nothing from the thin pool. CoE-Quantitative is
-      // M5 H7 = 12 usable and days 1-3 and 5 already draw 7 of those 12. The two
-      // CoE-Q items here are drawn from the EASY tier (16 items), which no other
-      // day in this plan touches. Do not "upgrade" them to Medium without
-      // re-tallying: it would drain the five Medium and starve day 5.
-      //
-      // minutes:0 IS LOAD-BEARING, same as day 2. predictMode() keys off the clock
-      // and untimed is the only state where the runner makes him TYPE the
-      // prediction before the choices render. Typing it is the whole set.
-      //
-      // review:0 keeps the full dose on one domain. This day exists to cover one
-      // domain densely; a cross-skill review splice would spend two of the ten.
-      //
-      // Sections are SINGLE-DIFFICULTY on purpose. A two-value `diffs` routes
-      // through _calibratedPick() and leans 70% to one end, which would silently
-      // reshape the Easy/Medium ratio this day is built on.
-      { n:4, focus:"Information & Ideas — say what the answer has to do (untimed)", minutes:0, review:0,
-        tip:"No clock. Ten questions, all from the reading block, and the whole set is one habit.\n\nBefore the choices appear, type what the answer has to do. Not what you think the answer is — what it has to DO. One clause. \"It has to say the wolf was brought back because the elk overgrazed.\" Then open the choices and find the one that does it.\n\nFour steps, every question:\n\n1. Underline the exact thing that has to be proved. Not the topic — the claim.\n2. Say that claim back in your own words before you look at anything else.\n3. Test each choice against it and cross out on the first failure. Do not rank them. The question is never which is best; it is which three fail.\n4. If two survive, the one that names the specific thing in the claim wins.\n\nOn a table or a graph: read the axis labels and the units before you read the text, and say in one plain sentence what the data shows.\n\nA choice can be completely true and still be wrong. True is not the test. On-task is.\n\nAbout thirty minutes. One sitting, phone in another room.",
-        sections:[
-          { skills:["Central Ideas and Details"],          diffs:["Easy"],   count:2 },
-          { skills:["Command of Evidence — Textual"],      diffs:["Easy"],   count:2 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Easy"],   count:2 },
-          { skills:["Inferences"],                         diffs:["Easy"],   count:3 },
-          { skills:["Inferences"],                         diffs:["Medium"], count:1 }
-        ] },
-      { n:5, focus:"The last full module before Saturday", minutes:32, review:0,
-        tip:"Twenty-seven questions, thirty-two minutes, one clock. The last rehearsal before the test.\n\nSame two checkpoints: 10:00 and 17:20.\n\nSome of these are hard on purpose. Getting one wrong after a real attempt is a good outcome; answering in eight seconds is not — if you could not say why in a sentence, it was a guess, and a guess costs the same as a wrong answer but teaches you nothing.\n\nFinish nothing early. Spend whatever is left on the two you were least sure of.",
-        sections:[
-          // Block 1 — SEC + Expression (12), the reorder's first stop
-          { skills:["Boundaries"],                        diffs:["Medium"], count:4 },
-          { skills:["Form, Structure, and Sense"],         diffs:["Medium"], count:2 },
-          { skills:["Transitions"],                        diffs:["Medium"], count:3 },
-          { skills:["Rhetorical Synthesis"],               diffs:["Medium"], count:3 },
-          // Block 2 — Craft / Words in Context (8)
-          { skills:["Words in Context"],                   diffs:["Medium"], count:4 },
-          { skills:["Text Structure and Purpose"],         diffs:["Medium"], count:2 },
-          { skills:["Cross-Text Connections"],             diffs:["Medium"], count:2 },
-          // Block 3 — Information & Ideas (7), the slow block
-          { skills:["Central Ideas and Details"],          diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:2 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Hard"], count:1 },
-          { skills:["Inferences"],                         diffs:["Medium"], count:2 }
-        ] },
-    ]
-  },
-
-  // Segun — week of 22 Jul. FOUR sets, TWO untimed then TWO timed, `sequential`:
-  // set 1 is open now and each later set opens when the one before it is
-  // submitted. `through` is 26 Jul, so the hub tells him the window to spread
-  // them over — nothing stops him doing all four tonight except being asked not
-  // to, and being asked is the honest version. Exam is 22 Aug.
-  //
-  // THE ORDER IS LOAD-BEARING. Under sequential unlock he meets these in exactly
-  // this order, every time, so each set is placed to set up a later one:
-  //   1 → 4  semicolon/dash get their untimed rep here, and come back timed in 4
-  //   2 → 3  modifiers and subject-verb get their untimed rep, timed in 3
-  //   3 → 4  the pace ladder, 90 s/q before test pace
-  // Set 1 is also the most STARTABLE — one decision procedure, a skill family he
-  // has recent success in — because under sequential unlock a stall on set 1
-  // blocks the whole week. Do not reorder these without rebuilding that chain.
-  //
-  // The clock arrives this week, but graded by fluency rather than flat: it goes
-  // on skills already carried at a workable pace, and stays off first contact
-  // with a rule that is not automatic yet. Every skill is written untimed BEFORE
-  // it is written timed. Which skills sit on which side, and the pace data behind
-  // that call, are in PLAN-NOTES.md — not here.
-  //
-  // Days 1-2 MUST stay minutes:0. predictMode() keys off the clock, and untimed
-  // is the only state in which the runner makes him TYPE the prediction. Timing
-  // all four sets would delete the typed step for the whole week.
-  //
-  // Day 4 writes Rhetorical Synthesis as TWO single-difficulty sections, not one
-  // ["Medium","Hard"] range. A two-value range routes through _calibratedPick(),
-  // and below CALIBRATE_DOWN_BELOW it leans 70% to the easy end — which would
-  // silently drop the Hard exposure this set exists for. One difficulty per
-  // section bypasses calibration. Do not merge them.
-  //
-  // Hard is deliberate on Day 4 and it is capped at 2 of 10, so the rest of the
-  // set stays landable — that ratio is what makes meeting Hard survivable rather
-  // than demoralising. Misses drop to the bottom of the ladder and come back on
-  // their own; there is no need to schedule the revisit.
-  //
-  // `minutes` budgets the WHOLE set, review questions included, not just `count`.
-  // Day 3: 8+2 = 10 @ 90s = 15. Day 4: 8+2 = 10 @ ~71s = 12.
-  //
-  // Boundaries and FSS are split by ruleType because both banks are lopsided; an
-  // unfiltered Boundaries draw is a comma drill. assignments.test.js checks pool
-  // depth by skill+difficulty and IGNORES ruleType, so it will NOT catch a thin
-  // ruleType draw. Tallied by hand — Boundaries: Semi M1+H4=5, Colon M1+H2=3,
-  // Dash M3+H3=6. FSS: Mod M2+H10=12, SVA E5+M6=11, VTense E5+M2=7, Poss E2+M3=5,
-  // Pron E2+M4=6. This week draws Mod 5, Semi 3, Colon 1, Dash 2.
-  //
-  // COLON AND SEMI ARE AT THE FLOOR. After this week the bank holds 2 colon and
-  // 2 semicolon questions at Medium+Hard, for four remaining weeks. Do not raise
-  // either count without re-tallying, and treat it as a content gap to fill.
-  //
-  // Modifiers are Hard-only in practice: E0 M2 H10. The range cannot lower them,
-  // which is exactly what Day 1 being untimed is there to carry.
-  //
-  // `review: 0` is gone. Every day is now its authored count + the default 2
-  // review, and maintenance on earlier skills rides that draw instead of costing
-  // a whole set. The counts above were written around that dose.
-  //
-  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
-  // This file is downloaded by his browser. Keep it free of assessment of him.
-  "Segun": {
-    title: "This week: the harder punctuation, modifiers, then the same work at pace",
-    start: "2026-07-22",
-    through: "2026-07-26",
-    unlock: "sequential",
-    days: [
-      { n:1, focus:"Semicolons, colons and dashes (untimed, notes open)", minutes:0,
-        tip:"Two questions, in this order:\n1. Is each side a complete sentence?\n2. What job does the mark have to do?\n\nSemicolon → two complete sentences, closely related.\nColon → first part sets up, second part delivers.\nDash → the colon's job, or a pair fencing off extra information.\n\nName the job before you pick the mark." ,
-        sections:[
-          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Semi",  count:2 },
-          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Colon", count:1 },
-          { skills:["Boundaries"], diffs:["Medium","Hard"], ruleType:"Dash",  count:1 }
-        ] },
-      { n:2, focus:"Modifiers and agreement (untimed, notes open)", minutes:0,
-        tip:"Modifier: name the noun the opening phrase describes. That noun must be the FIRST thing after the comma.\n\"Racing through the park, the dog…\" ✓  \"…the trash can…\" ✗\n\nAgreement: find the real subject, ignore everything between the commas, then use the odd-one-out check.\n\nWrite the rule down before you look at the choices.",
-        sections:[
-          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod", count:3 },
-          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA", count:1 }
-        ] },
-      { n:3, focus:"Conventions and transitions, at pace", minutes:15,
-        tip:"About 90 seconds a question — a little more than the real test gives you.\n\nModifier → the noun goes straight after the comma.\nSubject-verb → find the real subject, use odd-one-out.\nPossessive → who owns it, and are they one or many? Pronouns never take an apostrophe.\nPronoun → name the exact noun it stands for.\nTransition → name the relationship before you read the choices.\n\nRead, decide, commit, move.",
-        sections:[
-          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod",    count:2 },
-          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"SVA",    count:1 },
-          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"VTense", count:1 },
-          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"Poss",   count:1 },
-          { skills:["Form, Structure, and Sense"], diffs:["Easy","Medium"], ruleType:"Pron",   count:1 },
-          { skills:["Transitions"],                diffs:["Medium","Hard"],                    count:2 }
+          { skills:["Cross-Text Connections"],             diffs:["Hard"],   count:3 },
+          { skills:["Central Ideas and Details"],          diffs:["Hard"],   count:2 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:1 }
         ] },
       { n:4, focus:"Mixed review at test pace", minutes:12,
-        tip:"Test pace — about 70 seconds a question.\n\nSay what the answer has to DO before you open the choices. Then eliminate in one pass.\n\nOnce you have decided, do not go back and re-argue an option. That is the habit costing you marks.\n\nSynthesis: a choice can be completely true and still be off-task.\nWord meaning: cover the blank and supply your own word first.\n\nTwo synthesis questions here are hard on purpose. A miss there is information, not a verdict.",
+        tip:"Test pace, about seventy seconds a question.\n\nSay what the answer has to DO before you open the choices, then eliminate in one pass. Once you have decided, do not go back and re-argue an option.\n\nWord meaning → cover the blank and supply your own word first.\nInference → grounded, in scope, complete.\nTwo texts → read the second one first.\nSynthesis → a choice can be completely true and still be off-task.\nTransition → name the relationship before you read the words.\n\nSix of these ten are hard on purpose. A miss there is information, not a verdict. What is not optional is the prediction. Answering fast and answering slow are the same mistake when the method has not run.",
         sections:[
-          { skills:["Rhetorical Synthesis"], diffs:["Medium"],                        count:2 },
-          { skills:["Rhetorical Synthesis"], diffs:["Hard"],                          count:2 },
-          { skills:["Words in Context"],     diffs:["Medium"],                        count:2 },
-          { skills:["Boundaries"],           diffs:["Medium","Hard"], ruleType:"Semi", count:1 },
-          { skills:["Boundaries"],           diffs:["Medium","Hard"], ruleType:"Dash", count:1 }
+          { skills:["Words in Context"],           diffs:["Hard"],   count:2 },
+          { skills:["Inferences"],                 diffs:["Hard"],   count:2 },
+          { skills:["Cross-Text Connections"],     diffs:["Hard"],   count:1 },
+          { skills:["Rhetorical Synthesis"],       diffs:["Hard"],   count:1 },
+          { skills:["Text Structure and Purpose"], diffs:["Medium"], count:1 },
+          { skills:["Transitions"],                diffs:["Medium"], count:1 },
+          { skills:["Boundaries"],                 diffs:["Medium"], ruleType:"Commas", count:1 },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"Pron",   count:1 }
         ] },
     ]
   },
 
-  // Bruce — week of 18 Jul. Five sets, Sat–Wed, building to a ten-question set at
-  // test pace on the Wednesday.
+  // Bruce — 11–18 Aug. FOUR sets, `sequential`, `through` 18 Aug so the hub prints
+  // the window and asks for them to be spread out. Replaces the 18 Jul block, which
+  // is retired: all five sets of it were submitted. Re-authored, not flipped, per
+  // AGENTS.md.
   //
-  // ENFORCE, THEN ENCOURAGE. predictMode() keys off the clock: untimed → he TYPES
-  // the prediction; timed → one click. Typing is the only thing that can make the
-  // reasoning step happen, and it can only happen with no clock on. So days 1–2 are
-  // untimed and days 3–5 are timed, and every skill is written untimed BEFORE it is
-  // written timed. The clock then tightens 90s → 80s → 71s (SAT R&W pace) rather
-  // than arriving all at once.
+  // SET 1 IS RUN IN THE ROOM, THE REST AT HOME. That is why it is the only set with
+  // no review dose and an exact ten: it has to be exactly ten at pace, and it has to
+  // be the first thing met under sequential unlock.
   //
-  // `minutes` budgets the WHOLE set, review questions included — not just `count`.
-  // Day 3: 4+2 = 6 @ 90s = 9. Day 4: 6+2 = 8 @ 80s = 11. Day 5: 10+0 @ ~71s = 12.
+  // WHAT THIS BLOCK DELIBERATELY DOES NOT DRAW, and why:
+  //   Form, Structure & Sense at HARD — 4 free items left on this key out of 23.
+  //     A Hard FSS section here would mostly re-serve. Set 3 works the same domain
+  //     at Medium, split by ruleType, where there is still depth.
+  //   Command of Evidence — Quantitative — thinnest pool in the bank and reserved
+  //     for another key's 12 Aug sets. Nothing here draws it. Note the em dash in
+  //     the skill name; a hyphen will not resolve.
   //
-  // Day 1 splits Form, Structure and Sense by ruleType. assignments.test.js checks
-  // pool depth by skill + difficulty and IGNORES ruleType, so it will NOT catch a
-  // thin ruleType draw. Tallied by hand at Medium+Hard: Mod 12 (M2 H10), Poss 5
-  // (M3 H2), Pron 6 (M4 H2) — each ≥ its count of 2, but Poss and Pron sit near the
-  // floor. Do not raise those counts without re-tallying.
+  // WHERE THE DEPTH IS. Tallied by hand on 11 Aug, free items on this key:
+  //   Text Structure and Purpose   E 28   M 33   H 35     <- never drawn before
+  //   Central Ideas and Details    E 16   M 15   H 16     <- never drawn before
+  //   CoE — Textual                E 16   M 17   H 19
+  //   Boundaries                   E 16   M 21   H 22
+  //   Transitions                  E 20   M 14   H 13
+  // Sets 1, 2 and 4 sit on those five skills. Nothing in them is near a floor.
   //
-  // Modifiers are Hard-only in practice (2 Medium in a 719-question bank), so the
-  // range cannot lower them. That is what day 1 being untimed is for: hold the
-  // difficulty, add the scaffold.
+  // SET 3 IS THE TIGHT ONE AND assignments.test.js WILL NOT CATCH IT — it checks
+  // pool depth by skill + difficulty and IGNORES ruleType. Tallied by hand, free
+  // Form, Structure & Sense at Medium: SVA 3, VForm 2, VTense 1, Pron 2, Mod 2.
+  // VForm 2 and VTense 1 are exactly their counts. _pickSectionQuestions backfills
+  // from the same difficulty before it spills to another, so a short ruleType pool
+  // degrades to a plain Medium draw rather than a short set — but the sub-rule
+  // targeting is what set 3 exists for. DO NOT RAISE THOSE COUNTS, and do not
+  // author VForm or VTense at Medium again on this key without re-tallying.
   //
-  // Command of Evidence — Quantitative is the THINNEST pool in the bank: M5 H7 = 12
-  // at Medium+Hard. It carries count:2 and no more, and the week draws 6 of the 12.
-  // If it ever looks thinner than this, that is a parser regression, not a fact
-  // about the test — see AGENTS.md and bank.test.js. Note the em dash in the skill
-  // name; a hyphen will not resolve.
+  // EVERY SECTION IS SINGLE-DIFFICULTY, DELIBERATELY. A two-value diffs range
+  // routes through _calibratedPick() and leans to the easy end, which would
+  // silently reshape the Medium/Hard ratio each set is built on. One difficulty
+  // per section bypasses calibration. Do not merge sections and do not widen a
+  // range to "give some room".
   //
-  // Every day gives a RANGE, not a fixed difficulty, so recommendDifficulty() may
-  // lean the draw toward the end that keeps him near ~85% success. It holds until a
-  // skill has 8 attempts, so early days run exactly as authored.
+  // THE ORDER IS LOAD-BEARING under sequential unlock:
+  //   1 → 2  the five reading skills meet the clock first, then get an untimed,
+  //          TYPED rep at the hard end — the reverse of the usual order, because
+  //          set 1 is a cold read and its value dies if it is rehearsed first
+  //   2 → 4  every skill in the closing timed set has had its untimed rep
+  //   3 → 4  conventions at Medium, then only via the review draw
   //
-  // Counts are authored around the review dose: day 1 is 6+0 (an empty ledger has
-  // nothing due yet), days 2–4 carry +2, day 5 is 10+0 so the rehearsal is exactly
-  // ten at pace.
+  // minutes: set 1 is 10+0 @ ~71s = 12. Set 2 is untimed (minutes:0 is the ONLY
+  // state in which predictMode() makes the prediction be typed — do not put a
+  // clock on it). Set 3 is 6+0 @ 90s = 9. Set 4 is 8 + the default 2 = 10 @ ~72s
+  // = 12, which is the one set in this block authored to INCLUDE the review dose:
+  // by the time it opens, sets 1–3 are past the 20h cooldown and the ladder should
+  // finally serve. If it does not, that set runs loose at 90s and the ladder needs
+  // looking at, not the plan.
   //
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
-  // This file is downloaded by his browser. Keep it free of assessment of him.
+  // This file is downloaded by his browser and this repo is public. Keep it free
+  // of assessment of him — shapes, pools and guardrails only.
   "Bruce": {
-    title: "This week: lock the focus, then find it under a clock",
-    start: "2026-07-18",
-    unlock: "cumulative",
+    title: "This week: the parts of the paper we have not been looking at",
+    start: "2026-08-11",
+    through: "2026-08-18",
+    unlock: "sequential",
     days: [
-      { n:1, focus:"Form, structure & sense — modifiers, possessives, pronouns", minutes:0, review:0,
-        tip:"Untimed on purpose: type what the sentence needs before the choices appear. Modifier — name the noun the opening phrase describes, then check that that noun is the first thing after the comma. Possessive — decide who owns it, and whether they are one or many, before you place the apostrophe. Pronoun — say the noun it stands for out loud; if you cannot name it, the pronoun is wrong. Write the rule you are using, not just the answer.",
+      { n:1, focus:"Ten questions at test pace — punctuation, transitions, purpose, evidence", minutes:12, review:0,
+        tip:"Ten questions, about seventy seconds each, and five skills that have had almost no reps in here: punctuation, transitions, the purpose of a text, evidence from a passage, and main ideas.\n\nOne click to commit, so the discipline is yours to keep. The click is the commitment: read the text and decide what the answer has to DO before you open the choices. Opening them early does not save time — it removes the only thing you can eliminate against.\n\nPUNCTUATION — is each side of the mark a complete sentence? Two complete sides take a period or a semicolon. One complete and one fragment takes a comma, a colon or a dash. And sometimes nothing belongs at all; that choice is on the paper for a reason.\nTRANSITIONS — name the relationship between the two sentences in your own words BEFORE you read the four words on offer. Contrast, continuation, example, cause and effect.\nPURPOSE — the question is what the text is DOING, not what it is about. A choice can name the right topic and the wrong job.\nEVIDENCE — find the live word in the claim, the one the quotation has to satisfy, and test each option against that word alone.\nMAIN IDEA — it has to hold for the whole text, not just the opening line.\n\nEliminate on the first failure and move. If you run out of time, submit what you have; the set is not lost.",
         sections:[
-          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Mod",  count:2 },
-          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Poss", count:2 },
-          { skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], ruleType:"Pron", count:2 }
+          { skills:["Boundaries"],                    diffs:["Medium"], count:2 },
+          { skills:["Boundaries"],                    diffs:["Hard"],   count:1 },
+          { skills:["Transitions"],                   diffs:["Medium"], count:1 },
+          { skills:["Transitions"],                   diffs:["Hard"],   count:1 },
+          { skills:["Text Structure and Purpose"],    diffs:["Medium"], count:1 },
+          { skills:["Text Structure and Purpose"],    diffs:["Hard"],   count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"],   count:1 },
+          { skills:["Central Ideas and Details"],     diffs:["Medium"], count:1 }
         ] },
-      { n:2, focus:"Evidence and inferences — say it before you look", minutes:0,
-        tip:"Still untimed, still typed. Two texts: in one sentence, say what each author would say to the other, and name the exact point they part on. Inference: finish the thought the text stops just short of — it has to follow from the text alone, with nothing of yours added. Charts and tables: read the axis labels and the UNITS before you read a single choice, and say what the data shows in your own words. Every one of these is the same move — decide what the answer must do, then go looking.",
+      { n:2, focus:"Purpose, main ideas and evidence (untimed — type it out)", minutes:0,
+        tip:"No clock on this one, and the typing is the set. Before the choices appear you have to type what the answer has to do — not which one you think it is, what it has to DO.\n\nPURPOSE — one sentence: what is this text doing, and for whom? Describing, arguing, correcting, illustrating, introducing? Then say which part of the text told you. The trap is a choice that names the right topic and the wrong job, and it is the single most common wrong answer in this part of the paper.\n\nMAIN IDEA — cover the whole text, not the first line. Write the claim in your own words and check it against the last sentence as well as the first.\n\nEVIDENCE — write the live word in the claim before you read a quotation. One word. Then test each quotation against that word alone. A quotation can be accurate, well written, about the right person and the right study, and still not touch the word. True is not the test. On-task is.\n\nTRANSITION — name the relationship in your own words first.\n\nThese are at the hard end on purpose, and untimed on purpose: this is the mode your best work has always come from. Take the time and write the reasoning down.",
         sections:[
-          { skills:["Cross-Text Connections"],              diffs:["Medium","Hard"], count:2 },
-          { skills:["Inferences"],                          diffs:["Medium","Hard"], count:2 },
-          { skills:["Command of Evidence — Quantitative"],  diffs:["Medium","Hard"], count:2 }
+          { skills:["Text Structure and Purpose"],    diffs:["Hard"],   count:2 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"],   count:2 },
+          { skills:["Central Ideas and Details"],     diffs:["Medium"], count:1 },
+          { skills:["Transitions"],                   diffs:["Medium"], count:1 }
         ] },
-      { n:3, focus:"Form, structure & sense — same rules, now on a clock", minutes:9,
-        tip:"Saturday's rules at ninety seconds a question. One click to commit this time, so the discipline is yours to keep: read the whole sentence, decide what it needs, and only then open the choices. Eliminate in one pass. If you catch yourself going back and forth between a choice and the text, you never locked an answer — go back to the sentence and decide first.",
-        skills:["Form, Structure, and Sense"], diffs:["Medium","Hard"], count:4 },
-      { n:4, focus:"Evidence and inferences — eighty seconds a question", minutes:11,
-        tip:"Same order as Sunday, ten seconds tighter. Name what the answer must do before you read a single option, then eliminate once and move. Two traps to watch: an option can be entirely true and still be the wrong answer — true is not the test, on-task is. And on a chart, a choice that misreads the units is designed to look right to someone who never checked them.",
+      { n:3, focus:"Verbs — form, agreement and tense, at ninety seconds", minutes:9, review:0,
+        tip:"Six questions, ninety seconds each. All six are about verbs, and the whole exercise is deciding WHICH verb question you are looking at before you choose.\n\nVERB FORM — count the real verbs in the sentence. A sentence needs exactly one for each subject. `-ing` and `to-` are not real verbs; they cannot hold a sentence up on their own. So: if the sentence already has its real verb, the blank takes the -ing or to- form. If it does not, the blank has to BE the real verb. That is the whole rule, and it is mechanical — you never have to like the sound of it.\n\nSUBJECT-VERB AGREEMENT — cross out everything between the subject and the blank, then read what is left. The words in between are there to make a singular subject look plural.\n\nVERB TENSE — find the other time marker in the sentence and match it. If one past event happened before another past event, the earlier one takes `had`.\n\nHow to tell them apart: look at what the four options differ by. If they differ by -ing / to- / plain verb, it is form. If they differ by is/are or an -s ending, it is agreement. If they differ by when it happened, it is tense. The rule is hiding in the options, not in the sentence.",
         sections:[
-          { skills:["Cross-Text Connections"],              diffs:["Medium","Hard"], count:2 },
-          { skills:["Inferences"],                          diffs:["Medium","Hard"], count:2 },
-          { skills:["Command of Evidence — Quantitative"],  diffs:["Medium","Hard"], count:2 }
+          { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"VForm",  count:2 },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"SVA",    count:2 },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"VTense", count:1 },
+          { skills:["Form, Structure, and Sense"], diffs:["Hard"],   ruleType:"VTense", count:1 }
         ] },
-      { n:5, focus:"Mixed set — ten questions at test pace", minutes:12, review:0,
-        tip:"Ten questions at about seventy seconds each: this is the real thing, and it is the longest set of the week on purpose. Everything mixed, no warning which is which — the test gives no warning either. Read, decide what the answer must do, open the choices, eliminate once, move on. Every question you reopen after choosing is paid for by the next one. If you run out of time, submit what you have; the set is not lost.",
+      { n:4, focus:"Mixed review at test pace", minutes:12,
+        tip:"Ten questions at about seventy seconds each — eight new, and the rest are questions from earlier this week coming back round. That is deliberate: the ones that return are the ones worth checking you have kept.\n\nEverything mixed, no warning which is which. The paper gives no warning either.\n\nName the job before you open the choices, then eliminate in one pass. Once you have decided, do not go back and re-argue an option — every question you reopen after choosing is paid for by the next one.\n\nPunctuation → is each side a complete sentence?\nTransition → name the relationship first.\nPurpose → what is it doing, not what is it about.\nEvidence → find the live word in the claim.\nTwo texts → read the second one first, then ask what its author would say about the first.\nInference → grounded, in scope, complete. Nothing of yours added.\n\nOne sitting, phone in another room. If a question is going nowhere, leave an answer behind before you move on — a marked question with no answer is a guaranteed zero, and a guess is not.",
         sections:[
-          { skills:["Form, Structure, and Sense"],          diffs:["Medium","Hard"], count:3 },
-          { skills:["Inferences"],                          diffs:["Medium","Hard"], count:3 },
-          { skills:["Cross-Text Connections"],              diffs:["Medium","Hard"], count:2 },
-          { skills:["Command of Evidence — Quantitative"],  diffs:["Medium","Hard"], count:2 }
+          { skills:["Boundaries"],                    diffs:["Medium"], count:1 },
+          { skills:["Boundaries"],                    diffs:["Hard"],   count:1 },
+          { skills:["Transitions"],                   diffs:["Medium"], count:1 },
+          { skills:["Text Structure and Purpose"],    diffs:["Hard"],   count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:1 },
+          { skills:["Central Ideas and Details"],     diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                    diffs:["Hard"],   count:1 },
+          { skills:["Cross-Text Connections"],        diffs:["Hard"],   count:1 }
         ] },
     ]
   }

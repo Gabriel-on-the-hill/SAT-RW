@@ -17,7 +17,10 @@ const CFG_KEYS = {
 };
 
 const CFG_DEFAULTS = {
-    EXAM_DATE: '2026-08-23',
+    // The August sitting is a SATURDAY. 2026-08-23 was a Sunday, and this default
+    // is what the countdown on the progress panel reads when a device has never
+    // had a date set on it — so every such device was a day out.
+    EXAM_DATE: '2026-08-22',
     Q_BUDGET:  100,
 };
 
