@@ -477,10 +477,22 @@ const HOMEWORK = {
     ]
   },
 
-  // Bruce — 11–18 Aug. FOUR sets, `sequential`, `through` 18 Aug so the hub prints
+  // Bruce — 11–20 Aug. FIVE sets, `sequential`, `through` 20 Aug so the hub prints
   // the window and asks for them to be spread out. Replaces the 18 Jul block, which
   // is retired: all five sets of it were submitted. Re-authored, not flipped, per
   // AGENTS.md.
+  //
+  // Sets 1–4 are unchanged from the 11 Aug authoring — set 1 is submitted and the
+  // draw for 2–4 is fixed. Two TIPS were corrected afterwards (set 2's prediction
+  // requirement, set 3's verb-form rule); no section, count or difficulty moved.
+  //
+  // SET 5 ADDED 12 AUG. Boundaries, untimed, split by ruleType so the draw exercises
+  // the branch decision rather than defaulting to commas. Free depth on this key
+  // when it was authored: NoPunct M3 H5, Commas M12 H8, Semi M1 H4, Colon M1 H2,
+  // Dash M2 H2. The draw takes NoPunct M2 H2, Commas M1, Semi H1 — NoPunct Medium
+  // is left with 1 and set 4's unfiltered Boundaries draw can also land on it, so
+  // DO NOT RAISE THE NoPunct COUNTS. assignments.test.js ignores ruleType and will
+  // not catch it. Colon is untouched here: M1 H2 is too thin to author against.
   //
   // SET 1 IS RUN IN THE ROOM, THE REST AT HOME. That is why it is the only set with
   // no review dose and an exact ten: it has to be exactly ten at pace, and it has to
@@ -538,7 +550,7 @@ const HOMEWORK = {
   "Bruce": {
     title: "This week: the parts of the paper we have not been looking at",
     start: "2026-08-11",
-    through: "2026-08-18",
+    through: "2026-08-20",
     unlock: "sequential",
     days: [
       { n:1, focus:"Ten questions at test pace — punctuation, transitions, purpose, evidence", minutes:12, review:0,
@@ -555,7 +567,7 @@ const HOMEWORK = {
           { skills:["Central Ideas and Details"],     diffs:["Medium"], count:1 }
         ] },
       { n:2, focus:"Purpose, main ideas and evidence (untimed — type it out)", minutes:0,
-        tip:"No clock on this one, and the typing is the set. Before the choices appear you have to type what the answer has to do — not which one you think it is, what it has to DO.\n\nPURPOSE — one sentence: what is this text doing, and for whom? Describing, arguing, correcting, illustrating, introducing? Then say which part of the text told you. The trap is a choice that names the right topic and the wrong job, and it is the single most common wrong answer in this part of the paper.\n\nMAIN IDEA — cover the whole text, not the first line. Write the claim in your own words and check it against the last sentence as well as the first.\n\nEVIDENCE — write the live word in the claim before you read a quotation. One word. Then test each quotation against that word alone. A quotation can be accurate, well written, about the right person and the right study, and still not touch the word. True is not the test. On-task is.\n\nTRANSITION — name the relationship in your own words first.\n\nThese are at the hard end on purpose, and untimed on purpose: this is the mode your best work has always come from. Take the time and write the reasoning down.",
+        tip:"No clock on this one, and the typing is the set. Before the choices appear you have to type what the answer has to do — not which one you think it is, what it has to DO.\n\nONE RULE FOR WHAT YOU TYPE: it has to contain a word you copied out of the text. \"Answer choices\" is not a prediction — there are no choices on the screen yet, which is the entire point of the screen. If you cannot yet name what the answer has to do, you are not finished reading, and the box is telling you so rather than getting in your way.\n\nPURPOSE — one sentence: what is this text doing, and for whom? Describing, arguing, correcting, illustrating, introducing? Then say which part of the text told you. The trap is a choice that names the right topic and the wrong job, and it is the single most common wrong answer in this part of the paper.\n\nMAIN IDEA — cover the whole text, not the first line. Write the claim in your own words and check it against the last sentence as well as the first.\n\nEVIDENCE — write the live word in the claim before you read a quotation. One word. Then test each quotation against that word alone. A quotation can be accurate, well written, about the right person and the right study, and still not touch the word. True is not the test. On-task is.\n\nTRANSITION — name the relationship in your own words first.\n\nThese are at the hard end on purpose, and untimed on purpose: this is the mode your best work has always come from. Take the time and write the reasoning down.",
         sections:[
           { skills:["Text Structure and Purpose"],    diffs:["Hard"],   count:2 },
           { skills:["Command of Evidence — Textual"], diffs:["Hard"],   count:2 },
@@ -563,7 +575,7 @@ const HOMEWORK = {
           { skills:["Transitions"],                   diffs:["Medium"], count:1 }
         ] },
       { n:3, focus:"Verbs — form, agreement and tense, at ninety seconds", minutes:9, review:0,
-        tip:"Six questions, ninety seconds each. All six are about verbs, and the whole exercise is deciding WHICH verb question you are looking at before you choose.\n\nVERB FORM — count the real verbs in the sentence. A sentence needs exactly one for each subject. `-ing` and `to-` are not real verbs; they cannot hold a sentence up on their own. So: if the sentence already has its real verb, the blank takes the -ing or to- form. If it does not, the blank has to BE the real verb. That is the whole rule, and it is mechanical — you never have to like the sound of it.\n\nSUBJECT-VERB AGREEMENT — cross out everything between the subject and the blank, then read what is left. The words in between are there to make a singular subject look plural.\n\nVERB TENSE — find the other time marker in the sentence and match it. If one past event happened before another past event, the earlier one takes `had`.\n\nHow to tell them apart: look at what the four options differ by. If they differ by -ing / to- / plain verb, it is form. If they differ by is/are or an -s ending, it is agreement. If they differ by when it happened, it is tense. The rule is hiding in the options, not in the sentence.",
+        tip:"Six questions, ninety seconds each. All six are about verbs, and the whole exercise is deciding WHICH verb question you are looking at before you choose.\n\nVERB FORM — this is the rule from class, with the missing step added. Work the blank's OWN clause, not the whole sentence.\n1. Count the real verbs already in that clause. `-ing` and `to-` are not real verbs; they cannot hold a clause up on their own.\n2. NONE — the blank has to BE the real verb.\n3. ONE — now look at the word joining the blank to it. If that word is `and`, `but` or `or` and the subject has not changed, the blank is a SECOND real verb sharing that subject, and it must match the tense of the first. Anything else joining it — a comma, a `which`, a `that`, nothing at all — and the blank takes the -ing or to- form.\n\nStep 3 is the part we did not have last week. Without it the rule tells you to write `developing` where the sentence wants `developed`. Watch out for an `and` that joins two -ing words to each other rather than joining the blank to a real verb — that one does not count.\n\nSUBJECT-VERB AGREEMENT — cross out everything between the subject and the blank, then read what is left. The words in between are there to make a singular subject look plural.\n\nVERB TENSE — find the other time marker in the sentence and match it. If one past event happened before another past event, the earlier one takes `had`.\n\nHow to tell them apart: look at what the four options differ by. If they differ by -ing / to- / plain verb, it is form. If they differ by is/are or an -s ending, it is agreement. If they differ by when it happened, it is tense. The rule is hiding in the options, not in the sentence.",
         sections:[
           { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"VForm",  count:2 },
           { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"SVA",    count:2 },
@@ -581,6 +593,14 @@ const HOMEWORK = {
           { skills:["Central Ideas and Details"],     diffs:["Medium"], count:1 },
           { skills:["Inferences"],                    diffs:["Hard"],   count:1 },
           { skills:["Cross-Text Connections"],        diffs:["Hard"],   count:1 }
+        ] },
+      { n:5, focus:"Punctuation — which of the two questions is it? (untimed — type it out)", minutes:0,
+        tip:"Six punctuation questions, no clock, and one decision to make before every one of them.\n\nSTEP 0 — look at what sits beside the mark. Is it a chunk that could be printed on its own as a whole sentence? Or is it a descriptive add-on hanging off a noun? That answer sends you down one of two roads, and taking the wrong road is how these get missed.\n\nROAD A — JOINING. Cover the mark and check each side.\nComplete + complete: a full stop, a semicolon, or a comma with and/but/so/for/or/nor/yet. A colon only if the right side explains the left.\nComplete + fragment: a comma, a colon, a dash — or nothing.\nFragment + complete: a comma, a dash — or nothing.\n\"Complete\" means its own subject and its own real verb, printable alone. A chunk starting with that, which, because or although is NOT complete, however long it is.\n\nROAD B — AN ADD-ON. Take the chunk out and read the sentence without it.\nStill works, still means the same thing: it is non-essential, so fence it with a MATCHING PAIR — two commas, or two dashes. Never one of each.\nBreaks, or you can no longer tell WHICH thing is being talked about: it is essential, so NO punctuation at all.\n\nAnd the number worth carrying in: about one in five of these has \"no punctuation\" as the right answer. The option with nothing in it is a real answer, not a throwaway.\n\nType which road you are on, and why, before the choices appear.",
+        sections:[
+          { skills:["Boundaries"], diffs:["Medium"], ruleType:"NoPunct", count:2 },
+          { skills:["Boundaries"], diffs:["Hard"],   ruleType:"NoPunct", count:2 },
+          { skills:["Boundaries"], diffs:["Medium"], ruleType:"Commas",  count:1 },
+          { skills:["Boundaries"], diffs:["Hard"],   ruleType:"Semi",    count:1 }
         ] },
     ]
   }

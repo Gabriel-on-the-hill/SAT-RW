@@ -17,10 +17,16 @@ const CFG_KEYS = {
 };
 
 const CFG_DEFAULTS = {
-    // The August sitting is a SATURDAY. 2026-08-23 was a Sunday, and this default
-    // is what the countdown on the progress panel reads when a device has never
-    // had a date set on it — so every such device was a day out.
-    EXAM_DATE: '2026-08-22',
+    // The sitting is SATURDAY 12 SEPTEMBER 2026, confirmed in the 11 Aug class.
+    // Two earlier values were wrong and both reached the student's home screen:
+    // 2026-08-23 (a Sunday — no sitting falls on one) and then 2026-08-22, which
+    // was the right weekday for the wrong month.
+    //
+    // THIS DEFAULT ONLY APPLIES TO A DEVICE THAT HAS NEVER HAD A DATE SET.
+    // getExamDateStr() prefers the localStorage value whenever it parses, so a
+    // device carrying an older date keeps it and this edit does not reach it.
+    // Setting it on HIS device, from the progress panel, is a separate action.
+    EXAM_DATE: '2026-09-12',
     Q_BUDGET:  100,
 };
 

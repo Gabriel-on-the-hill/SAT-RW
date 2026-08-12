@@ -94,8 +94,13 @@ console.log('\n2 · Jeffrey gets a challenge card, not a day list');
 
 console.log('\n3 · The card tracks the ledger, and only ever says "mastered" when it is');
 {
-    const ids = JSON.parse(read('challenge/sets.js').match(/ids: \[([\s\S]*?)\]/)[1]
-        .replace(/'/g, '"').replace(/,\s*$/, '').replace(/^/, '[') + ']');
+    // sets.js annotates each id block with `// Skill (n)` comments. Strip line
+    // comments BEFORE quote-swapping — a comment reaching JSON.parse throws, and
+    // that is what made this suite red from the day the newest set was added.
+    const ids = JSON.parse('[' + read('challenge/sets.js').match(/ids: \[([\s\S]*?)\]/)[1]
+        .replace(/\/\/[^\n]*/g, '')
+        .replace(/'/g, '"')
+        .replace(/,\s*$/, '') + ']');
     const half = {}; ids.slice(0, 14).forEach(id => { half[id] = { correct: 2, wrong: 0, lastSeen: Date.now() }; });
     const w1 = await build('Jeffrey', half);
     ok('half mastered → 50%', /50%/.test(w1.document.getElementById('list').innerHTML), txt(w1));
@@ -129,8 +134,16 @@ console.log('\n4 · Everyone else is untouched');
     ok('and gives the window, so he is not pushed to rush them',
         /spread them out/i.test(note(s)), note(s));
 
+    // This key had no plan when the suite was written, so it asserted the empty
+    // state. It has carried one since 11 Aug. Kept as a routing assertion — a
+    // sequential day list and NO challenge card — because the empty-state branch
+    // is already covered by the unknown-student case, and an assertion that only
+    // holds while a student is unassigned goes red the moment they are taught.
     const b = await build('Bruce');
-    ok('Bruce still sees no homework', /No homework is assigned for Bruce/.test(txt(b)), txt(b));
+    ok('the day list renders for a plan with no challenge key',
+        /Start set 1/.test(txt(b)), txt(b));
+    ok('later sets are gated', /Opens when you finish set 1/.test(txt(b)), txt(b));
+    ok('and no challenge card is shown', !/Open the Challenge/.test(txt(b)), txt(b));
 }
 
 }
