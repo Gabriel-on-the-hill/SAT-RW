@@ -53,39 +53,8 @@
 window.CHALLENGE_SETS = {
 
     'Jeffrey': [
-        {
-            // `-rw` because his Practice 8 MATH misses are a separate set, in a
-            // separate app: Michael SAT's Challenge_App/data/jeffrey.js.
-            setId:  'p8-rw',
-            title:  'Practice 8 misses',
-            source: 'SAT Practice Test 8',
-            date:   '2026-07-04',
-
-            // Layer 1 — the debrief. 16 verbatim R&W misses, UNSCORED: these
-            // ids are in no bank, so they never enter the mastery denominator.
-            // The score report records 23 R&W incorrect, so 7 are absent.
-            review: (typeof CHALLENGE_P8 !== 'undefined') ? CHALLENGE_P8 : null,
-
-            // Layer 2 — FROZEN 10 July 2026 from challenge/shortlist-jeffrey-p8-rw.md.
-            // 28 bank questions: siblings of his misses, matched on skill and (for
-            // Conventions) ruleType, each skill carrying at least one Hard and one
-            // Medium. Per-domain quotas come from the 4 July score-report bars, not
-            // from the captured miss counts — the capture over-samples Standard
-            // English Conventions (bar 5/7) and under-samples Information & Ideas
-            // (bar 2/7). Selected with zero fallbacks: every id is an exact match.
-            //
-            // DO NOT EDIT. These ids are the denominator of "Mastered N of 28".
-            // A new practice test appends a new set; it never rewrites this one.
-            ids: [
-                '0094f813', '084e8a77', '0252e6a1', '133abbda',
-                '0b5ecf0e', '032fd227', '0c61d9c0', '105ea6de',
-                '03080769', '17bf10de', '040583a5', '0c622cfb',
-                '04cbeca3', '1d08c7ee', '03701ef3', '299c5303',
-                '08395130', '350e2336', '0dba14e6', '3882ddf6',
-                '10cd0327', '0778b4ac', 'c468db1c', 'c101fc44',
-                '2bb7416a', '50801257', '67614549', 'de3dd17d',
-            ],
-        },
+        // p8-rw (Practice 8) retired 11 Aug 2026 — see challenge/_retired/p8-rw.md.
+        // Removed from the roster, not edited: its ids stay reconstructable there.
         {
             setId:  'p11-rw',
             title:  'Practice 11 misses',

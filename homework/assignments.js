@@ -322,9 +322,9 @@ const HOMEWORK = {
     ]
   },
 
-  // Jeffrey — 11 Aug. ONE set. Replaces the 6–14 Aug five-set plan, which is
+  // Jeffrey — 12 Aug. ONE set. Replaces the 6–14 Aug five-set plan, which is
   // cleared: days 1, 2 and 3 were run on 5–6 Aug; days 4 and 5 never opened.
-  // Re-authored on the tutor's instruction ahead of the 12 Aug class.
+  // Re-authored on the tutor's instruction for the night of the 12 Aug class.
   //
   // THIS IS A HOMEWORK DAY, NOT A CHALLENGE SET, and that is load-bearing twice:
   //   - predictMode() lives in homework-run.html and returns 'type' only when
@@ -339,13 +339,13 @@ const HOMEWORK = {
   // minutes:0 IS LOAD-BEARING — see above. review:0 keeps all ten questions on the
   // three named skills; a ladder splice inserts other skills at random positions.
   //
-  // POOL — re-tallied 11 Aug against the banks, net of the 186 ids in his export
+  // POOL — re-tallied 12 Aug against the banks, net of the 186 ids in his export
   // and the 50 committed to p8-rw and p11-rw. Free items remaining:
   //   Words in Context            E 42   M 19   H 47
   //   CoE — Textual               E 16   M  3   H 13    <- Medium nearly gone
   //   CoE — Quantitative          E 13   M  2   H  2    <- THINNEST IN THE BANK
   // This day draws WiC 1E/2M, CoE-T 2E/1M/1H, CoE-Q 2E/1M, and deliberately leaves
-  // 1 Medium + 2 Hard Quantitative for the 12 Aug class sets. Do not raise the
+  // 1 Medium + 2 Hard Quantitative for the 13-14 Aug sets. Do not raise the
   // Quantitative counts without re-tallying.
   //
   // WHY EASY-WEIGHTED, 5 of 10. Seven of the seventeen Practice 11 misses were
@@ -361,9 +361,24 @@ const HOMEWORK = {
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser. Keep it free of assessment of him.
   "Jeffrey": {
-    title: "Ten questions, no clock — say what the answer has to do",
+    title: "Into Saturday: type it, then prove it survives a clock",
+    // ⚠ DO NOT CHANGE `start` ONCE A SET HAS BEEN SUBMITTED. It is not a display
+    // date — it is the KEY for completion and review records:
+    //   satrw_hw_<student>_<start>_<n>      (submitted)
+    //   satrw_hwrec_<student>_<start>_<n>   (his answers, for reopening)
+    // Moving it orphans every flag already written. On 14 Aug this file was edited
+    // from 2026-08-12 to 2026-08-13 after day 1 had been submitted; his 10/10
+    // stopped being recognised, day 1 re-read as "Available", and day 2 locked
+    // itself behind a set the app no longer believed he had finished.
+    //
+    // THE VALUE BELOW IS THE ONE THAT WAS DEPLOYED, not the one that matches the
+    // calendar. HEAD (commit 12 Aug 17:08) shipped start: "2026-08-11", and day 1
+    // was submitted against that build at 00:38 on 13 Aug — so the flag in his
+    // browser reads satrw_hw_Jeffrey_2026-08-11_1. The key follows the deploy, and
+    // the deploy is the only thing his browser has ever seen.
+    // Use `through` for the window — that one IS display only and is safe to move.
     start: "2026-08-11",
-    through: "2026-08-11",
+    through: "2026-08-15",
     unlock: "sequential",
     days: [
       { n:1, focus:"Words in context and evidence (untimed — type it out)", minutes:0, review:0,
@@ -376,6 +391,48 @@ const HOMEWORK = {
           { skills:["Command of Evidence — Textual"],      diffs:["Hard"],   count:1 },
           { skills:["Command of Evidence — Quantitative"], diffs:["Easy"],   count:2 },
           { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:1 }
+        ] },
+      // Day 2 — RE-CUT 14 Aug as a WARM-UP for the practice test on the 15th.
+      // It was authored on the 13th as a 15-question, 15-minute mixed set with a
+      // review splice. Its job changed, so its shape did.
+      //
+      // WHAT DAY 1 RETURNED, and why this set is easier than it was going to be.
+      // 10/10 untimed, and the mechanism moved, not just the score: across the two
+      // 5-6 Aug module reps he spent 1 second on the text against 4 in the options
+      // on grammar items (1:4.1, 63%). On day 1 that inverted to 1:0.4 — 1,078
+      // seconds on the text against 398 in the options — with a MEDIAN of 94
+      // seconds on the text, and every prediction typed as a real claim rather
+      // than the word "choices". The method is installed. What is NOT established
+      // is that it survives a clock: day 1 ran at 159 s/q untimed and one Hard
+      // CoE-Textual item took 428 seconds. The test gives him ~71.
+      //
+      // SO THIS IS A WARM-UP, NOT A TEST. Ten questions, ten minutes, 60 s/q. Its
+      // job is to start the clock-habit and END ON SUCCESS the morning of a test —
+      // not to find his ceiling. Everything is at or below the difficulty he has
+      // just cleared.
+      //
+      // TWO DELIBERATE REMOVALS, both reversals of the 13 Aug draft:
+      //   - review:0, not review:3. The ladder splices at RANDOM POSITIONS and can
+      //     serve an old Hard miss last. A warm-up has to be predictable and has to
+      //     finish well. The ladder gets unfrozen in Sunday's post-test set, which
+      //     is the right place for it and has been since July.
+      //   - No Hard CoE-Textual. The 13 Aug draft carried two. That skill at Hard
+      //     cost him seven minutes on day 1; two of them inside a ten-minute warm-up
+      //     is a way to walk into the test rattled.
+      //
+      // POOL — Quantitative draws EASY ONLY. The bank holds 1 Medium and 2 Hard
+      // Quantitative unseen and they are reserved for Sunday. Easy has 11 free.
+      { n:2, focus:"Ten minutes, mixed — the warm-up", minutes:10, review:0,
+        tip:"Do this in the twenty minutes before the test, not the night before. Ten questions, ten minutes, one timer.\n\nThis is a warm-up. It is not a test and it is not a last-minute fix. Nothing in it is harder than what you did on Wednesday night, and you got all ten of those right.\n\nWhat you did on Wednesday is the thing to repeat. You spent your time IN THE TEXT and almost none of it shuffling the choices, and you typed a real prediction every time. That is the whole method and it is already yours. Today the only thing added is a clock, and sixty seconds a question is more than the test gives you.\n\nSame three moves:\n\nWords in context — cover the choices, find the part of the sentence that defines the word, say your own word first.\nEvidence from a text — name the live word in the claim before you read a single quotation.\nA table or a graph — axis, units, one sentence about what the data shows, and which row you read it from.\n\nYou told me on Wednesday that you overthink and triple-check when the clock is tight. You were right, and it is the one thing that costs you points. The rule for both, and you already have it: once you have chosen, you are done. If it still nags, write the number down and move on.\n\nOne clarification for today, because these sound like opposites and are not: you may SKIP a question before you answer it. You may not RE-OPEN one after you have answered it. Skipping early is cheap. Re-deciding is what ran the clock out in Module 1.\n\nIf a question here goes past ninety seconds, answer it and move. Then close the laptop and go and take the test.",
+        sections:[
+          { skills:["Words in Context"],                   diffs:["Easy"],   count:1 },
+          { skills:["Words in Context"],                   diffs:["Medium"], count:1 },
+          { skills:["Command of Evidence — Textual"],      diffs:["Easy"],   count:2 },
+          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:1 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Easy"],   count:2 },
+          { skills:["Central Ideas and Details"],          diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                         diffs:["Medium"], count:1 },
+          { skills:["Text Structure and Purpose"],         diffs:["Medium"], count:1 }
         ] },
     ]
   },
@@ -439,7 +496,7 @@ const HOMEWORK = {
   // of assessment of him — shapes, pools and guardrails only.
   "Segun": {
     title: "This week: the reading questions, at the hard end",
-    start: "2026-08-11",
+    start: "2026-08-12",
     through: "2026-08-14",
     unlock: "sequential",
     days: [
@@ -549,7 +606,7 @@ const HOMEWORK = {
   // of assessment of him — shapes, pools and guardrails only.
   "Bruce": {
     title: "This week: the parts of the paper we have not been looking at",
-    start: "2026-08-11",
+    start: "2026-08-12",
     through: "2026-08-20",
     unlock: "sequential",
     days: [
