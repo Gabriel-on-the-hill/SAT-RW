@@ -481,7 +481,12 @@ const HOMEWORK = {
   // and Conventions so the set stays landable and so Medium misses stay in scope
   // for prioritizePool() — a Medium miss can never reappear in a Hard-only set.
   //
-  // `minutes` budgets the WHOLE set, review included: 10+2 = 12 @ ~71s = 12 min.
+  // `minutes` budgets the WHOLE set, review included: 10+2 = 12 @ ~71s = 852s,
+  // which is 14 min, not 12. It was authored at 12 — the arithmetic was run on the
+  // 10 authored questions and the review dose was left out of it. At 12 the set
+  // runs at 60 s/q, tighter than the test, and the pace it measures is then a
+  // property of the budget rather than of the sitting. CORRECTED TO 14 ON 17 AUG.
+  // Whenever a day's count changes, re-run this line: (count + review) x 71 / 60.
   //
   // assignments.test.js checks pool depth by skill+difficulty and IGNORES
   // ruleType, so the two ruleType draws on Day 4 were tallied by hand: Commas
@@ -519,7 +524,7 @@ const HOMEWORK = {
           { skills:["Central Ideas and Details"],          diffs:["Hard"],   count:2 },
           { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], count:1 }
         ] },
-      { n:4, focus:"Mixed review at test pace", minutes:12,
+      { n:4, focus:"Mixed review at test pace", minutes:14,
         tip:"Test pace, about seventy seconds a question.\n\nSay what the answer has to DO before you open the choices, then eliminate in one pass. Once you have decided, do not go back and re-argue an option.\n\nWord meaning → cover the blank and supply your own word first.\nInference → grounded, in scope, complete.\nTwo texts → read the second one first.\nSynthesis → a choice can be completely true and still be off-task.\nTransition → name the relationship before you read the words.\n\nSix of these ten are hard on purpose. A miss there is information, not a verdict. What is not optional is the prediction. Answering fast and answering slow are the same mistake when the method has not run.",
         sections:[
           { skills:["Words in Context"],           diffs:["Hard"],   count:2 },
