@@ -206,5 +206,100 @@ window.CHALLENGE_SETS = {
 
     'Bruce': [],
     'Gabe':  [],
-    'Segun': [],
+    'Segun': [
+        // ── One set, committed 18 Aug 2026 ─────────────────────────────
+        // A SKILL set, not a test set: selected from the bank by skill, difficulty
+        // and archetype rather than from one test's verbatim misses, so it carries
+        // no `review` layer. The schema allows that ("Omit when you only have a
+        // score report") and challenge.js renders no debrief button without one.
+        // No full question-level report has ever arrived for this key; only a
+        // score and a partial list, which is not a set of verbatim misses.
+        //
+        // WHY ONE SET AND NOT THREE. boot() takes sets[sets.length - 1]. There is
+        // no picker, no query param and no way to reach an earlier entry, so a
+        // second set would be unreachable until a mid-week edit swapped it in —
+        // a code change days before an exam, on a file whose ids are immutable.
+        // #cHowMany sets the session size and defaults to 10, and the set is not
+        // finished until all 16 are mastered, so it is worked across sittings by
+        // design. Every skill gets contact on night one instead of waiting.
+        //
+        // SIXTEEN, NOT TWENTY-FOUR. MASTERY_THRESHOLD is 2 and requeue() cannot
+        // promote within a sitting, so 16 ids is a floor of 32 attempts across at
+        // least two sittings. Four days is what that fits.
+        //
+        // ARCHETYPES, which is what the selection is actually on:
+        //   Words in Context / Medium (4) — in every one the defining phrase sits
+        //     in the NEXT clause or the next sentence, and a topic-plausible
+        //     option is available to anyone who answers from the subject matter
+        //     instead. 340b33cd and bce627d9 additionally turn on a second sense
+        //     of a common word. The twin ids 9c35759f and 86fbc64d are duplicate
+        //     items and are excluded; take only one of a pair.
+        //   Inferences / Hard (4) — one per failure shape, deliberately: a13c1c66
+        //     offers two true generalities that answer a different question;
+        //     58e9e497 requires carrying an exclusion ("barring the possibility");
+        //     4b3d6062 has a directionally-right but incomplete option beside the
+        //     complete one; 6b8a7c74 turns on which party the claim is about.
+        //   Rhetorical Synthesis / Hard (4) — selected so that no two share a goal
+        //     verb: generalise-and-support, quote-to-show-a-problem, emphasise a
+        //     RELATIVE quantity, identify an accomplishment. In each, at least one
+        //     option is accurate about the notes and off-task for the goal.
+        //   CoE — Quantitative / Hard (2) — 040583a5 is the only two-series graph
+        //     in the free pool (axis plus legend, not one row); cca6fae9 is a
+        //     four-column table containing a "no data available" cell.
+        //   Form, Structure & Sense / Hard, ruleType Mod (2) — both put the
+        //     modifier in first position with the subject choice after the comma,
+        //     one appositive list and one participial. Mod is Easy 0, Medium 2,
+        //     Hard 10 bank-wide, so Hard is the only tier that can carry it.
+        //
+        // WHAT IS DELIBERATELY ABSENT. Cross-Text, Central Ideas and CoE-Textual
+        // are not here: they were all drawn at Hard on this key on 17 Aug and the
+        // set has four days to cover ground those draws did not. Boundaries is
+        // not here either — free Semi/Hard on this key is ONE item, which cannot
+        // carry a scored slot, and Commas is the only deep family left.
+        //
+        // EXCLUSIONS APPLIED at selection: all 94 ids ever served on this key,
+        // read from the question export. Rule 3 is vacuous here — this is the
+        // first set on the key — but it binds the next one, which must exclude
+        // these 16 as well.
+        //
+        // POOL NOTE FOR THE NEXT SET, counted net of the 94: this takes 4 of 30
+        // free WiC Medium, 4 of 20 Inferences Hard, 4 of 15 RS Hard, 2 of 7
+        // CoE-Q Hard and 2 of 9 Mod Hard. CoE-Q is the one to watch — 5 Hard and
+        // 3 Medium remain and nothing else in the bank replaces them.
+        //
+        // ORDER IS DELIBERATE: the five skills alternate so that a first session
+        // drawn off the top at the default 10 meets every one of them.
+        // buildQueue() reorders by ledger state, so this governs the first pass
+        // only — which is the one that happens tonight.
+        //
+        // DO NOT EDIT. These ids are the denominator of "Mastered N of 16".
+        {
+            setId:  'read-syn-aug',
+            title:  'Reading and synthesis — finish the sentence before you look',
+            source: 'Craft & Structure, Information & Ideas and Expression of Ideas, selected on archetype',
+            date:   '2026-08-18',
+            ids: [
+                // Words in Context, Medium — the defining phrase is not in the clause with the blank (2)
+                '340b33cd', 'eb59336c',
+                // Inferences, Hard — true-but-off-task, and a carried exclusion (2)
+                'a13c1c66', '58e9e497',
+                // Rhetorical Synthesis, Hard — generalise-and-support, quote-to-show-a-problem (2)
+                'b0620764', 'fdd9a360',
+                // CoE — Quantitative, Hard — two-series graph, axis and legend (1)
+                '040583a5',
+                // Form, Structure & Sense, Hard, Mod — appositive list before the subject (1)
+                '5b8f9cf2',
+                // Words in Context, Medium — second sense of a common word (2)
+                '1fbf276a', 'bce627d9',
+                // Inferences, Hard — incomplete vs complete, and which party (2)
+                '4b3d6062', '6b8a7c74',
+                // Rhetorical Synthesis, Hard — a RELATIVE quantity, and one accomplishment (2)
+                '5fa51c86', '87d34a39',
+                // CoE — Quantitative, Hard — table with a missing cell (1)
+                'cca6fae9',
+                // Form, Structure & Sense, Hard, Mod — participial before the subject (1)
+                'd2b81427',
+            ],
+        },
+    ],
 };
