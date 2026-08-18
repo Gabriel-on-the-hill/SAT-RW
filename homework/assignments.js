@@ -373,15 +373,15 @@ const HOMEWORK = {
   // scratch against a new date.
   // `challenge:` NAMES THE SET THE HUB CARDS. It must match a live setId in
   // challenge/sets.js — and challenge.js serves sets[length-1], so it must name
-  // the LAST entry there. On 20 Aug, when the second set is uncommented, this
-  // string moves to 'trn-aug' in the same edit. assignments.test.js asserts that
-  // a plan with no days carries this field; without it the hub renders empty.
+  // the LAST entry there, or the hub advertises one set and the runner serves
+  // another. assignments.test.js asserts that a plan with no days carries this
+  // field; without it the hub renders empty.
   "Jeffrey": {
-    title: "This week: your punctuation challenge",
+    title: "This week: your punctuation and transitions challenge",
     start: "2026-08-11",
     through: "2026-08-21",
     unlock: "sequential",
-    challenge: "bnd-aug",
+    challenge: "bnd-trn-aug",
     days: [],
   },
 
