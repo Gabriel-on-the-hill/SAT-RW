@@ -528,7 +528,42 @@ const HOMEWORK = {
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser and this repo is public. Keep it free
   // of assessment of him — shapes, pools and guardrails only.
+  // CLEARED 18 AUG 2026 — `days: []`, deliberately, at the tutor's instruction.
+  // The hub carries no daily set on this key for the last week before the exam;
+  // the work is one set in the Challenge module (challenge/sets.js). An empty
+  // `days` renders an empty hub with the challenge card, which is the intended
+  // state — it is not an unfinished edit.
+  //
+  // `start` IS KEPT AT 2026-08-12 AND MUST NOT MOVE. It is not a display date, it
+  // is the KEY for completion and review records:
+  //   satrw_hw_<student>_<start>_<n>      (submitted)
+  //   satrw_hwrec_<student>_<start>_<n>   (his answers, for reopening)
+  // Three sets were submitted against that key on 17 Aug. Moving it orphans every
+  // flag already written — see the note on the other cleared block for what that
+  // cost in practice. `through` is display only and is safe to move.
+  //
+  // `challenge:` NAMES THE SET THE HUB CARDS. It must match a live setId in
+  // challenge/sets.js — and challenge.js serves sets[length-1], so it must name
+  // the LAST entry there, or the hub advertises one set and the runner serves
+  // another. assignments.test.js asserts that a plan with no days carries this
+  // field; without it the hub renders empty.
+  //
+  // THE 12-14 AUG BLOCK IS KEPT VERBATIM BELOW, commented. Day 4 of it was never
+  // submitted. To re-assign, uncomment and append — do not rebuild from scratch
+  // against a new date.
   "Segun": {
+    title: "This week: your reading and synthesis challenge",
+    start: "2026-08-12",
+    through: "2026-08-21",
+    unlock: "sequential",
+    challenge: "read-syn-aug",
+    days: [],
+  },
+
+  /* CLEARED 18 AUG 2026 — the 12–14 Aug block, kept verbatim for the `start` key
+     and the four authored days. Uncomment to restore.
+
+  "Segun_cleared_2026-08-18": {
     title: "This week: the reading questions, at the hard end",
     start: "2026-08-12",
     through: "2026-08-14",
@@ -567,6 +602,7 @@ const HOMEWORK = {
         ] },
     ]
   },
+  */
 
   // Bruce — 11–20 Aug. FIVE sets, `sequential`, `through` 20 Aug so the hub prints
   // the window and asks for them to be spread out. Replaces the 18 Jul block, which

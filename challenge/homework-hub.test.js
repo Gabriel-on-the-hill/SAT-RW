@@ -3,9 +3,12 @@
 //
 //   NODE_PATH=/tmp/j/node_modules node challenge/homework-hub.test.js
 //
-// Jeffrey's plan carries `challenge: 'p8-rw'` and no days, so the hub must show
-// a challenge card whose completion is mastery — never a "Done" tick. Segun's
-// plan still has days, so his must be untouched.
+// A plan carrying `challenge:` and no days must show a challenge card whose
+// completion is mastery — never a "Done" tick. A plan carrying days must show an
+// ordinary set list and no card. Both fixtures are DERIVED from the roster and
+// from HOMEWORK, never named: on 18 Aug a hardcoded student key was cleared to a
+// challenge plan and took four assertions red with it, which read as a hub bug
+// and was only a re-assignment. Plans change weekly; they cannot be fixtures.
 //
 // The hub loads NO question banks. Its tally comes from the frozen ids plus the
 // ledger, because segmentOf() reads only q.id. This test asserts that too: if
@@ -136,31 +139,44 @@ console.log('\n3 · The card tracks the ledger, and only ever says "mastered" wh
 
 console.log('\n4 · Everyone else is untouched');
 {
-    // Segun's plan has days, so he must get a normal set list and never a
-    // challenge card. He moved to `unlock: "sequential"` on 22 Jul, so the
-    // wording is "set", the later sets are gated on finishing the one before,
-    // and the footer states BOTH rules — how they open, and the window they are
-    // meant to be spread over. A student who is not told the second one will
-    // sit and do the lot in an evening, which is the spacing gone.
-    const s = await build('Segun');
-    ok('Segun gets a set list, not a challenge card', /Start set 1/.test(txt(s)), txt(s));
-    ok('the second set is gated on finishing the first',
-        /Opens when you finish set 1/.test(txt(s)), txt(s));
-    ok('the footer explains that finishing one opens the next',
-        /next set opens as soon as you submit/i.test(note(s)), note(s));
-    ok('and gives the window, so he is not pushed to rush them',
-        /spread them out/i.test(note(s)), note(s));
+    // THE KEY IS DERIVED, NOT NAMED — and that is the whole point of this block.
+    //
+    // It used to read `build('Segun')`, because that key had a sequential day
+    // list when the suite was written. On 18 Aug that plan was cleared to
+    // `days: []` with a `challenge:`, and these four assertions went red — not
+    // because the hub broke, but because the fixture had been re-taught. That is
+    // the same failure the header warns about one level up: this file already
+    // refuses to hardcode "Practice 8" or "28 questions", and hardcoding WHICH
+    // STUDENT still has daily sets is the identical mistake. A plan is a thing
+    // that gets re-assigned every week. It cannot be a fixture.
+    //
+    // So: take any key that carries a sequential day list. Assign, clear or swap
+    // any student and this still tests the routing it was written to test. If NO
+    // key has days, that is a real finding and the block says so rather than
+    // silently asserting nothing.
+    const daysKey = Object.keys(HOMEWORK_SRC).find(k =>
+        HOMEWORK_SRC[k].unlock === 'sequential' && (HOMEWORK_SRC[k].days || []).length > 1);
+    ok('some key still carries a sequential day list to test the routing against',
+        !!daysKey, Object.keys(HOMEWORK_SRC).join(', '));
 
-    // This key had no plan when the suite was written, so it asserted the empty
-    // state. It has carried one since 11 Aug. Kept as a routing assertion — a
-    // sequential day list and NO challenge card — because the empty-state branch
-    // is already covered by the unknown-student case, and an assertion that only
-    // holds while a student is unassigned goes red the moment they are taught.
-    const b = await build('Bruce');
-    ok('the day list renders for a plan with no challenge key',
-        /Start set 1/.test(txt(b)), txt(b));
-    ok('later sets are gated', /Opens when you finish set 1/.test(txt(b)), txt(b));
-    ok('and no challenge card is shown', !/Open the Challenge/.test(txt(b)), txt(b));
+    if (daysKey) {
+        // A day-list plan must get a normal set list and never a challenge card.
+        // Under sequential unlock the wording is "set", later sets are gated on
+        // finishing the one before, and the footer states BOTH rules — how they
+        // open, and the window they are meant to be spread over. A student who is
+        // not told the second one will sit and do the lot in an evening, which is
+        // the spacing gone.
+        const s = await build(daysKey);
+        ok('a day-list plan gets a set list, not a challenge card',
+            /Start set 1/.test(txt(s)), txt(s));
+        ok('the second set is gated on finishing the first',
+            /Opens when you finish set 1/.test(txt(s)), txt(s));
+        ok('the footer explains that finishing one opens the next',
+            /next set opens as soon as you submit/i.test(note(s)), note(s));
+        ok('and gives the window, so he is not pushed to rush them',
+            /spread them out/i.test(note(s)), note(s));
+        ok('and no challenge card is shown', !/Open the Challenge/.test(txt(s)), txt(s));
+    }
 }
 
 }
