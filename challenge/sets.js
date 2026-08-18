@@ -53,8 +53,97 @@
 window.CHALLENGE_SETS = {
 
     'Jeffrey': [
-        // p8-rw (Practice 8) retired 11 Aug 2026 — see challenge/_retired/p8-rw.md.
-        // Removed from the roster, not edited: its ids stay reconstructable there.
+        // p8-rw  (Practice 8)  retired 11 Aug 2026 — see challenge/_retired/p8-rw.md.
+        // p11-rw (Practice 11) retired 18 Aug 2026 — see challenge/_retired/p11-rw.md.
+        // Removed from the roster, not edited: their ids stay reconstructable there.
+        //
+        // ── The two sets below, committed 18 Aug 2026 ──────────────────
+        // These are SKILL sets, not test sets. Same append-only rule applies:
+        // the ids are frozen on commit and are the denominator of
+        // "Mastered N of 10" and "Mastered N of 8".
+        //
+        // EXCLUSIONS APPLIED at selection: the 22 ids of p11-rw, the 28 ids of
+        // p8-rw, and the 16 ids worked in the 17 Aug class. Rule 3 holds — no id
+        // below appears in any other set on this key, live or retired.
+        //
+        // ⚠ ONLY THE LAST ENTRY IS SERVED. challenge.js line 388 takes
+        // sets[sets.length - 1]. So the second of these two sets is commented
+        // out, not omitted: its ids are reviewed and frozen in this commit, and
+        // it goes live by deleting two comment markers on 20 Aug — at which
+        // point it becomes the last entry and `challenge:` on the homework plan
+        // moves to 'trn-aug' with it. Uncommenting it early silently retires
+        // bnd-aug from the hub.
+        {
+            setId:  'bnd-aug',
+            title:  'Punctuation — the branch decision',
+            source: 'Conventions bank, selected on ruleType',
+            date:   '2026-08-18',
+
+            // NO COLON SECTION, and it is not an oversight. Colon is 1 Medium and
+            // 2 Hard bank-wide; p8-rw holds two of those three, and the remaining
+            // Hard item (fba5d8d1) is the only unseen colon question in the bank.
+            // A one-item pool cannot support a scored set. Held back deliberately.
+            //
+            // SPLIT BY ruleType so the draw exercises the branch decision rather
+            // than defaulting to commas, which is 33 of the 61 Boundaries items.
+            // Semi/Hard takes the largest quota: it is the most rule-bound family
+            // in the bank and therefore the cheapest per repetition — the same
+            // repetitions-to-learn weighting used on p11-rw.
+            //
+            // 78e978b5 is tagged NoPunct but tests the colon boundary from the
+            // other side: the list is not preceded by a complete clause. It is
+            // the closest the unseen pool gets to the colon rule.
+            //
+            // POOL NOTE FOR THE NEXT SET: this takes 3 of the 4 free Semi/Hard
+            // and 2 of the 3 free Dash/Hard. Commas is the only deep pool left —
+            // Medium 10, Hard 8 free after this.
+            //
+            // DO NOT EDIT. These ids are the denominator of "Mastered N of 10".
+            ids: [
+                // Semi — two independent clauses, adverb in the joint (4)
+                '790fc366', 'f78997cf', 'a9e5b788', '78b88c04',
+                // NoPunct — no mark belongs at the break (3)
+                '78e978b5', '403d7bb5', '6d4b2e1e',
+                // Dash — paired, never mixed with a comma (2)
+                '109d5bbb', '1aa3f174',
+                // Commas (1)
+                '5670a657',
+            ],
+        },
+        /* ── UNCOMMENT ON 20 AUG. Not before: see the note above. ──────
+        {
+            setId:  'trn-aug',
+            title:  'Transitions — naming the relationship',
+            source: 'Expression of Ideas bank, selected on category',
+            date:   '2026-08-18',
+
+            // SELECTED ON CATEGORY, NOT DIRECTION. In every one of the eight, at
+            // least two options share the direction of the answer and differ only
+            // in category — concession, emphasis, restatement, result. 176edca6,
+            // 974b5a8c and f5959727 turn on a concession word (Granted / Of
+            // course) against a contrast that reads more naturally; e3edc138 and
+            // 2df7b582 turn on restatement. A same-or-opposite reading does not
+            // resolve any of them.
+            //
+            // RELEASES THE 20 IDS RESERVED BY THE LEGACY `transitions` ENTRY in
+            // HW_ASSIGNMENTS. The hub and the runner read the per-student plans
+            // in HOMEWORK, not that catalogue, so those ids have never been
+            // servable on this key. p11-rw excluded them as a precaution;
+            // honouring it here leaves 2 Medium and 1 Hard free, which is not a
+            // set. Eight are taken below; twelve remain if that entry is ever
+            // wired into a plan.
+            //
+            // DO NOT EDIT. These ids are the denominator of "Mastered N of 8".
+            ids: [
+                // Hard — concession and restatement against a contrast pull (4)
+                '176edca6', '974b5a8c', 'e3edc138', '2df7b582',
+                // Medium — category discrimination (4)
+                '221ecf0f', 'f8c4591b', '3fd0ab63', '17e49403',
+            ],
+        },
+        ── end of the 20 Aug set ─────────────────────────────────── */
+
+        /* RETIRED 18 AUG 2026 — see challenge/_retired/p11-rw.md
         {
             setId:  'p11-rw',
             title:  'Practice 11 misses',
@@ -111,6 +200,7 @@ window.CHALLENGE_SETS = {
                 'd46ac7e7', 'db2e480a',
             ],
         },
+        */
     ],
 
     'Bruce': [],

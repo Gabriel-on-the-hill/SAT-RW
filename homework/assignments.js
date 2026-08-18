@@ -360,7 +360,35 @@ const HOMEWORK = {
   //
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser. Keep it free of assessment of him.
+  // CLEARED 18 AUG 2026 — `days: []`, deliberately, at the tutor's instruction.
+  // The hub carries no set on this key for the last week before the exam; the
+  // current work is two sets in the Challenge module (challenge/sets.js) and one
+  // full practice test sat outside the app. An empty `days` renders an empty hub,
+  // which is the intended state — it is not an unfinished edit.
+  //
+  // `start` AND THE TWO DAYS ARE KEPT, COMMENTED, BELOW. Do not delete them and
+  // do not change `start` if this key is ever re-authored: it is the storage key
+  // for records already written, and the note under it explains what moving it
+  // cost on 14 Aug. To re-assign, uncomment and append — do not rebuild from
+  // scratch against a new date.
+  // `challenge:` NAMES THE SET THE HUB CARDS. It must match a live setId in
+  // challenge/sets.js — and challenge.js serves sets[length-1], so it must name
+  // the LAST entry there. On 20 Aug, when the second set is uncommented, this
+  // string moves to 'trn-aug' in the same edit. assignments.test.js asserts that
+  // a plan with no days carries this field; without it the hub renders empty.
   "Jeffrey": {
+    title: "This week: your punctuation challenge",
+    start: "2026-08-11",
+    through: "2026-08-21",
+    unlock: "sequential",
+    challenge: "bnd-aug",
+    days: [],
+  },
+
+  /* CLEARED 18 AUG 2026 — the 11–15 Aug block, kept verbatim for the `start` key
+     and the two authored days. Uncomment to restore.
+
+  "Jeffrey_cleared_2026-08-18": {
     title: "Into Saturday: type it, then prove it survives a clock",
     // ⚠ DO NOT CHANGE `start` ONCE A SET HAS BEEN SUBMITTED. It is not a display
     // date — it is the KEY for completion and review records:
@@ -436,6 +464,7 @@ const HOMEWORK = {
         ] },
     ]
   },
+  */
 
   // Segun — 11–14 Aug. FOUR sets, THREE untimed then ONE timed, `sequential`.
   // Replaces the 22 Jul block, which is retired: set 1 of it was submitted and

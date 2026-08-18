@@ -22,6 +22,23 @@ catch (e) { console.log('SKIP — jsdom not installed.'); process.exit(0); }
 const APP = path.join(__dirname, '..');
 const read = f => fs.readFileSync(path.join(APP, f), 'utf8');
 
+// ── Expectations are DERIVED FROM THE ROSTER, never written as literals ──
+//
+// This suite used to hardcode "Practice 8", "28 questions" and "50%". Those went
+// stale the day that set was retired, and the failures read as product bugs when
+// they were only fixture drift. The hub picks its set by `plan.challenge`, so
+// that is what these read — a set appended, retired or renamed must not touch
+// this file.
+const HOMEWORK_SRC = (() => {
+    const src = read('homework/assignments.js');
+    return new Function(src + '; return HOMEWORK;')();
+})();
+const SETS_SRC = (() => { const w = {}; new Function('window', read('challenge/sets.js'))(w); return w.CHALLENGE_SETS; })();
+const PLAN = HOMEWORK_SRC.Jeffrey;
+const SET  = SETS_SRC.Jeffrey.filter(s => s.setId === PLAN.challenge)[0];
+const N    = SET.ids.length;
+const esc  = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const RAW = read('homework-hub.html');
 const HTML = RAW.replace(/<script\b[^>]*src[^>]*><\/script>/gi, '').replace(/<link\b[^>]*>/gi, '');
 
@@ -80,31 +97,31 @@ console.log('\n2 · Jeffrey gets a challenge card, not a day list');
 {
     const w = await build('Jeffrey');
     const t = txt(w);
-    eq('title is the challenge', w.document.getElementById('title').textContent, 'This week: your Practice 8 Challenge');
-    ok('card names the set', /Practice 8 misses/.test(t), t);
-    ok('28 questions', /28 questions/.test(t));
-    ok('tally from the ledger', /mastered 0/.test(t) && /not attempted 28/.test(t), t);
+    eq('title is the challenge', w.document.getElementById('title').textContent, PLAN.title);
+    ok('card names the set', new RegExp(esc(SET.title)).test(t), t);
+    ok(N + ' questions', new RegExp(N + ' questions').test(t));
+    ok('tally from the ledger', /mastered 0/.test(t) && new RegExp('not attempted ' + N).test(t), t);
     ok('shows 0%', />0%<|0%/.test(w.document.getElementById('list').innerHTML));
     ok('NO Done badge', !/>Done</.test(w.document.getElementById('list').innerHTML));
     ok('no day gate language', !/Start day/.test(t));
-    ok('says it is not finished after one pass', /not finished until all 28 are mastered/.test(t), t);
+    ok('says it is not finished after one pass', new RegExp('not finished until all ' + N + ' are mastered').test(t), t);
     ok('links to the deep link', /index\.html\?challenge=1/.test(w.document.getElementById('list').innerHTML));
     ok('footer explains no daily sets', /no daily sets this week/.test(note(w)), note(w));
 }
 
 console.log('\n3 · The card tracks the ledger, and only ever says "mastered" when it is');
 {
-    // sets.js annotates each id block with `// Skill (n)` comments. Strip line
-    // comments BEFORE quote-swapping — a comment reaching JSON.parse throws, and
-    // that is what made this suite red from the day the newest set was added.
-    const ids = JSON.parse('[' + read('challenge/sets.js').match(/ids: \[([\s\S]*?)\]/)[1]
-        .replace(/\/\/[^\n]*/g, '')
-        .replace(/'/g, '"')
-        .replace(/,\s*$/, '') + ']');
-    const half = {}; ids.slice(0, 14).forEach(id => { half[id] = { correct: 2, wrong: 0, lastSeen: Date.now() }; });
+    // Ids come off the SERVED set, evaluated from the roster (see the header),
+    // not scraped with a regex. The old scrape took the FIRST `ids: [...]` in
+    // the file, which is only the served set by coincidence of ordering — and
+    // it broke on comments, on retired blocks and on any set appended above.
+    const ids = SET.ids;
+    const halfN = Math.floor(N / 2);
+    const pct   = Math.round(halfN / N * 100);
+    const half = {}; ids.slice(0, halfN).forEach(id => { half[id] = { correct: 2, wrong: 0, lastSeen: Date.now() }; });
     const w1 = await build('Jeffrey', half);
-    ok('half mastered → 50%', /50%/.test(w1.document.getElementById('list').innerHTML), txt(w1));
-    ok('still not finished', /not finished until all 28/.test(txt(w1)));
+    ok('half mastered → ' + pct + '%', new RegExp(pct + '%').test(w1.document.getElementById('list').innerHTML), txt(w1));
+    ok('still not finished', new RegExp('not finished until all ' + N).test(txt(w1)));
     ok('still no Done badge', !/>Done</.test(w1.document.getElementById('list').innerHTML));
 
     const all = {}; ids.forEach(id => { all[id] = { correct: 2, wrong: 0, lastSeen: Date.now() }; });

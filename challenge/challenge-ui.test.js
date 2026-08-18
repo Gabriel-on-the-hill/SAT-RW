@@ -56,6 +56,20 @@ const N     = SET.ids.length;
 const REVIEW_N = (SET.review || []).length
     || (read('data-challenge-jeffrey-p11.js').match(/^\s*id: '/gm) || []).length;
 
+// `review` IS OPTIONAL — sets.js schema: "Omit when you only have a score
+// report." A SKILL set (one built from the bank by ruleType or category rather
+// than from one test's verbatim misses) has no debrief layer at all, and
+// challenge.js only renders #cDebriefBtn when the served set carries one.
+//
+// This suite previously assumed the newest set always had a review layer, and
+// went red the first time a skill set was served — asserting the roster's
+// contents rather than the module's behaviour, which is the exact failure the
+// note above was written to prevent. The debrief sections now skip when there
+// is nothing to debrief. They still run in full whenever a test set is served.
+const HAS_DEBRIEF = !!(SET.review && SET.review.length);
+const skipNoDebrief = t =>
+    console.log('  - ' + t + '  [skipped — served set has no review layer]');
+
 // Scripts run while document.readyState === 'loading', exactly as they do in a
 // browser for tags at the end of <body>. challenge.js therefore defers boot()
 // to DOMContentLoaded, and the test has to wait for it.
@@ -123,7 +137,8 @@ section('2 · The start screen and its gates');
     ok('tally rendered', new RegExp('Mastered 0 of '+N+' \\(0%\\)').test(txt(scr)));
     ok('segments rendered', new RegExp('not attempted '+N).test(txt(scr)));
     eq('default session size', $(w, 'cHowMany').value, '10');
-    ok('debrief offered for '+REVIEW_N+' misses', new RegExp('Review your '+REVIEW_N+' misses').test(txt(scr)));
+    if (HAS_DEBRIEF) ok('debrief offered for '+REVIEW_N+' misses', new RegExp('Review your '+REVIEW_N+' misses').test(txt(scr)));
+    else { skipNoDebrief('debrief offered'); ok('no debrief button when there is no review layer', !$(w, 'cDebriefBtn')); }
     ok('Begin offered (gate=normal)', !!$(w, 'cBeginBtn'));
 
     // Drive the ledger to "every question correct once" → confirm gate.
@@ -145,7 +160,9 @@ section('2 · The start screen and its gates');
 
 // ═════════════════════════════════════════════════════════════════
 section('3 · Layer 1 (debrief) never touches the mastery ledger');
-{
+if (!HAS_DEBRIEF) {
+    skipNoDebrief('the whole debrief section');
+} else {
     const w = await build('Jeffrey');
     w.openChallenge();
     $(w, 'cDebriefBtn').click();
