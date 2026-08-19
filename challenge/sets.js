@@ -204,7 +204,86 @@ window.CHALLENGE_SETS = {
         */
     ],
 
-    'Bruce': [],
+    'Bruce': [
+        // ── One set, committed 19 Aug 2026 ─────────────────────────────
+        // A SKILL set, not a test set. No practice test has landed since 25 Jul,
+        // so there are no verbatim misses to debrief and no `review` layer —
+        // the schema allows that and challenge.js renders no debrief button
+        // without one. Selected from the bank by ruleType and by the shape of
+        // the options, on the four families worked in the 19 Aug class.
+        //
+        // ONE SET ONLY. boot() takes sets[sets.length - 1] and there is no
+        // picker, so a second entry here would be unreachable. #cHowMany
+        // defaults to 10, and the set is not finished until all 14 are
+        // mastered, so it is worked across several sittings by design.
+        //
+        // THE FOUR FAMILIES, and why these are one set and not four:
+        //
+        //   COMPLEX LIST — a list whose items already contain commas, so the
+        //   separators must become semicolons. Three items exist in the bank
+        //   that genuinely test it; 5cc85f01 is the control that LOOKS like one
+        //   and is not.
+        //
+        //   THE ADVERB IN THE JOINT — however, though, rather. These are not
+        //   coordinating conjunctions and cannot join two complete clauses. The
+        //   question is always which clause the word belongs to, decided before
+        //   the mark is chosen. Four items, and the options differ only by where
+        //   the word sits.
+        //
+        //   NO MARK AT ALL — the blank falls mid-clause, or the following name
+        //   is essential to identifying the noun. The empty option is the
+        //   answer in every one of these. It is ~1 in 5 of the Boundaries bank
+        //   and it is the family most often walked past.
+        //
+        //   COLON AND DASH — the two thinnest rule pools, and the ones a
+        //   flowchart drilled on comma/semicolon never reaches. 707461d8 puts a
+        //   closing parenthesis against a sentence boundary; c8540a5b offers a
+        //   bracket, a dash, a comma and nothing for the same slot.
+        //
+        // WHY MEDIUM IS ONLY 4 OF 14. Every family above is decided by a rule,
+        // not by judgement, so difficulty here is the number of competing rules
+        // in the options rather than the reading load. The Hard items are the
+        // ones where two families collide, which is the whole point of the set.
+        //
+        // THREE OF THESE HAVE BEEN SERVED ON THIS KEY BEFORE (c04e9136,
+        // 790fc366, 403d7bb5) and were the anchors of a class. A first correct
+        // on a recently worked item can be recall rather than retrieval, which
+        // is exactly what the two-correct rule is for: MASTERY_THRESHOLD is 2
+        // and REATTEMPT_ORDER sends a correct-once question to the back of the
+        // queue, so the confirming pass lands a sitting or more later. Repeats
+        // are the design here, not contamination.
+        //
+        // DELIBERATELY EXCLUDED: 59094d87 (comma + coordinating conjunction).
+        // It was the fourth miss of 18 Aug, but it is the one rule of the four
+        // that is not in dispute, and a set that includes it invites the
+        // flowchart back in. RESERVE, if a 15th is ever wanted: 6d4b2e1e — the
+        // essential-appositive sibling of 80aa7690.
+        //
+        // ⚠️ POOL NOTE FOR THE NEXT SET. This takes FIVE OF THE SIX Semi items
+        // in the bank; only 1724dac2 (Easy) remains. It also takes 4 of 12
+        // NoPunct, 1 of 4 Colon and 2 of 6 Dash. NO FUTURE SET OR HOMEWORK DAY
+        // CAN DRAW ruleType:"Semi" — a section asking for it will silently
+        // backfill from Commas and test nothing. Commas (33) is the only deep
+        // Boundaries pool left.
+        //
+        // DO NOT EDIT. These ids are the denominator of "Mastered N of 14".
+        {
+            setId:  'bnd-aug19',
+            title:  'Punctuation — the four that are not on the flowchart',
+            source: 'Conventions, selected on ruleType and on the shape of the options',
+            date:   '2026-08-19',
+            ids: [
+                // Complex list — items carrying their own commas (3)
+                'c04e9136', '78b88c04', '5cc85f01',
+                // The adverb in the joint — however, though, rather (4)
+                '790fc366', 'f78997cf', '2bb7416a', 'a9e5b788',
+                // No mark at all — mid-clause, and the essential name (4)
+                '403d7bb5', '80aa7690', '6ea8c23f', '594b4a94',
+                // Colon and dash — the thin pools (3)
+                'c468db1c', '707461d8', 'c8540a5b',
+            ],
+        },
+    ],
     'Gabe':  [],
     'Segun': [
         // ── One set, committed 18 Aug 2026 ─────────────────────────────

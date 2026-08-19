@@ -675,6 +675,19 @@ const HOMEWORK = {
   // This file is downloaded by his browser and this repo is public. Keep it free
   // of assessment of him — shapes, pools and guardrails only.
   "Bruce": {
+    title: "This week: your punctuation challenge",
+    start: "2026-08-12",
+    through: "2026-08-26",
+    unlock: "sequential",
+    challenge: "bnd-aug19",
+    days: [],
+  },
+
+  /* CLEARED 19 AUG 2026 — the 12–20 Aug block, kept verbatim for the `start` key
+     and the five authored days. All five were submitted on 18 Aug. Uncomment to
+     restore.
+
+  "Bruce_cleared_2026-08-19": {
     title: "This week: the parts of the paper we have not been looking at",
     start: "2026-08-12",
     through: "2026-08-20",
@@ -731,6 +744,7 @@ const HOMEWORK = {
         ] },
     ]
   }
+  */
 };
 
 // Parse a start date robustly: accepts "YYYY-MM-DD", a Date, ISO, or locale
