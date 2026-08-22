@@ -202,6 +202,16 @@ function commit(w, text) {
     $(w, 'predGo').click();
 }
 
+// Clicking an option SELECTS it; it no longer grades it. An untimed set then
+// wants Submit, so a misclick is not fatal; a timed set defers grading to the
+// end of the whole set, so it can be revised the way the real test allows.
+// These helpers hide that so the assertions below stay about learning, not
+// about which button. See finishSet() for the timed tail.
+function grade(w) {
+    const sub = $(w, 'submit');
+    if (sub && !sub.classList.contains('hidden')) sub.click();
+}
+
 // The runner builds its set inside a closure and never publishes the answer key,
 // so setAnswersFor() mirrors the build to learn it. That lets a test MISS on
 // purpose — without which there is nothing to review, redo or tag.
@@ -209,11 +219,21 @@ function pickWrong(w) {
     const qNo = +$(w, 'run').querySelector('.t').textContent.match(/Question (\d+)/)[1];
     const ans = w.__setAnswers[qNo - 1];
     all(w, '.opt').find(b => b.dataset.l !== ans).click();
+    grade(w);
 }
 function pickRight(w) {
     const qNo = +$(w, 'run').querySelector('.t').textContent.match(/Question (\d+)/)[1];
     const ans = w.__setAnswers[qNo - 1];
     all(w, '.opt').find(b => b.dataset.l === ans).click();
+    grade(w);
+}
+
+// Leaving the last question. Untimed finishes outright; timed lands on the
+// end-of-set check first, which is the point of it.
+function finishSet(w) {
+    $(w, 'next').click();
+    const panel = w.document.getElementById('hwReview');
+    if (panel && !panel.classList.contains('hidden')) $(w, 'hwRevSubmit').click();
 }
 
 // Mirrors the runner's build to learn the answer key. Safe only because
@@ -342,7 +362,7 @@ section('4 · Correct answers are not given busywork');
 {
     const w = build(1);
     setAnswersFor(w, 0);
-    for (let i = 0; i < 3; i++) { commit(w, 'my prediction'); pickRight(w); $(w, 'next').click(); }
+    for (let i = 0; i < 3; i++) { commit(w, 'my prediction'); pickRight(w); finishSet(w); }
     eq('all three correct', all(w, '.rv.ok').length, 3);
     eq('no miss-tagging on a question she nailed', all(w, '.rv.ok .tags').length, 0);
     eq('nothing left to redo', all(w, '#redo').length, 0);
@@ -364,7 +384,7 @@ section('6 · A redo never rewrites the honest first attempt');
 {
     const w = build(1);
     setAnswersFor(w, 0);
-    for (let i = 0; i < 3; i++) { commit(w, 'my prediction'); pickWrong(w); $(w, 'next').click(); }
+    for (let i = 0; i < 3; i++) { commit(w, 'my prediction'); pickWrong(w); finishSet(w); }
 
     const before = JSON.parse(JSON.stringify(recs(w)));
     ok('a redo is offered', !!$(w, 'redo'));
@@ -374,13 +394,15 @@ section('6 · A redo never rewrites the honest first attempt');
     ok('the redo is untimed, so she types again', !!$(w, 'predText'));
     ok('the redo is labelled a redo', /redo/.test($(w, 'run').querySelector('.t').textContent));
 
-    // Answer them correctly this time.
+    // Answer them correctly this time. A redo is untimed, so it takes the
+    // practice route: select, then Submit.
     for (let i = 0; i < 3; i++) {
         commit(w, 'second attempt');
         const id = all(w, '.opt');
         const want = recs(w).filter(r => !r.ok && !r.redoOk)[0].answer;
         id.find(b => b.dataset.l === want).click();
-        $(w, 'next').click();
+        grade(w);
+        finishSet(w);
     }
 
     const after = recs(w);
@@ -544,7 +566,7 @@ function finish() {
 
         const runDay = (day, store) => {
             const w = reopen(day, store);
-            for (let i = 0; i < 3; i++) { commit(w, 'p'); all(w, '.opt')[0].click(); $(w, 'next').click(); }
+            for (let i = 0; i < 3; i++) { commit(w, 'p'); all(w, '.opt')[0].click(); grade(w); finishSet(w); }
             return recs(w);
         };
 

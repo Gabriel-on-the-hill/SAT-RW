@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260806">
+    <link rel="stylesheet" href="style.css?v=20260822">
     <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
     <script src="ns-migrate.js?v=20260717"></script>
     <script src="gate.js?v=20260703"></script>
@@ -95,6 +95,18 @@
             <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">Recent session scores, per-skill accuracy, and mastery counts across all homework.</div>
           </a>
 
+          <a href="progress-map.html" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              text-decoration:none;color:inherit;display:block;"
+              onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#128506;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Skill Map</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">Every skill at a glance: what's strong, what's in progress, and what you haven't started.</div>
+          </a>
+
           <a href="notes-hub.html" style="
               background:var(--surface);border:2px solid var(--border);
               border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
@@ -105,6 +117,18 @@
             <div style="font-size:1.5rem;margin-bottom:0.6rem">&#128214;</div>
             <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Notes</div>
             <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">Reference cards for every Reading &amp; Writing skill: Vocab, Craft &amp; Structure, Transitions, RS, SEC, and Information &amp; Ideas.</div>
+          </a>
+
+          <a href="baseline.html" style="
+              background:var(--surface);border:2px solid var(--border);
+              border-radius:1rem;padding:1.5rem 1.25rem;cursor:pointer;
+              text-align:left;transition:border-color 0.18s,box-shadow 0.18s,transform 0.15s;
+              text-decoration:none;color:inherit;display:block;"
+              onmouseover="this.style.borderColor='var(--primary-light)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow)'"
+              onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow=''">
+            <div style="font-size:1.5rem;margin-bottom:0.6rem">&#129517;</div>
+            <div style="font-size:1rem;font-weight:700;margin-bottom:0.3rem">Baseline</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.4">A 22-question check across every skill, once, to work out what to start on. 26 minutes.</div>
           </a>
 
         </div>
@@ -612,6 +636,16 @@
                 <div class="card">
                     <div id="questionMeta">
                         <span class="badge badge-orange" id="difficultyBadge">—</span>
+                        <button type="button" id="flagBtn" class="flag-btn hidden"
+                                title="Flag this question to come back to it">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" style="vertical-align:-0.12em">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                                <line x1="4" y1="22" x2="4" y2="15"/>
+                            </svg>
+                            <span id="flagBtnLabel">Mark for review</span>
+                        </button>
                     </div>
                     <div id="questionText" style="font-weight:600; font-size:1.05rem; margin-bottom:1.5rem;">—</div>
 
@@ -629,11 +663,46 @@
                             <strong>Strategy:</strong> <span id="strategyName"></span><br>
                             <strong>Watch for:</strong> <span id="trapName"></span>
                         </div>
-                        <button class="btn btn-primary" id="nextBtn" style="margin-top:1rem;">Next Question</button>
+                    </div>
+
+                    <!-- Navigation lives OUTSIDE the feedback block on purpose. It used
+                         to sit inside it, and the feedback block is display:none until an
+                         answer is given — so the only way to reach the next question was
+                         to answer this one. No skipping, no going back, no changing your
+                         mind. That is not how the real test works and it is not how
+                         practice should work either. -->
+                    <div class="qnav" id="qnav">
+                        <button type="button" class="btn" id="backBtn">&#8592; Back</button>
+                        <div class="qnav-right">
+                            <button type="button" class="btn" id="skipBtn">Skip</button>
+                            <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
+
+        <!-- End-of-module review, exam mode only. The real digital test shows one of
+             these before you can submit, and a student who has never seen it does not
+             know that leaving a question blank is a decision they are allowed to make
+             deliberately rather than by running out of road. -->
+        <div id="examReview" class="exam-review hidden">
+            <div class="exam-review-card">
+                <h2 id="examReviewTitle">Check your work</h2>
+                <p id="examReviewLede" class="exam-review-lede"></p>
+                <div id="examReviewGrid" class="exam-review-grid"></div>
+                <div class="exam-review-key">
+                    <span><i class="dot dot-answered"></i> Answered</span>
+                    <span><i class="dot dot-blank"></i> Blank</span>
+                    <span><i class="dot dot-flagged"></i> Flagged</span>
+                </div>
+                <div class="exam-review-actions">
+                    <button type="button" class="btn" id="examReviewBackBtn">Keep working</button>
+                    <button type="button" class="btn btn-primary" id="examReviewSubmitBtn">Submit module</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="data-craft-structure.js?v=20260703"></script>
@@ -656,11 +725,13 @@
 
     <script src="config.js?v=20260812"></script>
     <script src="progress.js?v=20260722"></script>
-    <script src="sheet-sync.js?v=20260716"></script>
-    <script src="storage.js?v=20260716"></script>
+    <script src="sheet-sync.js?v=20260822"></script>
+    <!-- Must load before storage.js and app.js: both call into it. -->
+    <script src="session-responses.js?v=20260822"></script>
+    <script src="storage.js?v=20260822"></script>
     <script src="timer.js?v=20260703"></script>
     <script src="history.js?v=20260712"></script>
-    <script src="app.js?v=20260806"></script>
+    <script src="app.js?v=20260822"></script>
 
     <!-- Challenge module. Order matters: the debrief payload declares
          CHALLENGE_P8, which sets.js reads; challenge.js wraps app.js and so
@@ -668,7 +739,7 @@
          no markup above this line is touched. -->
     <script src="data-challenge-jeffrey-p8.js?v=20260710"></script>
     <script src="data-challenge-jeffrey-p11.js?v=20260809"></script>
-    <script src="challenge/sets.js?v=20260818"></script>
+    <script src="challenge/sets.js?v=20260819"></script>
     <script src="challenge/challenge-core.js?v=20260722"></script>
     <script src="challenge/challenge.js?v=20260810"></script>
 </body>

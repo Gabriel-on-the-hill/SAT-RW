@@ -33,7 +33,12 @@ const HTML = read('index.html')
     .replace(/<link\b[^>]*>/gi, '');
 
 const SCRIPTS = [
-    'gate.js', 'config.js', 'progress.js', 'sheet-sync.js', 'storage.js', 'timer.js', 'history.js',
+    // session-responses.js must come before storage.js and app.js: both call
+    // into it, and without it resetProgress() throws on makeResponses, which
+    // aborts launchSession — so the challenge's exam-mode guard never arms and
+    // no options ever render. The failure looks nothing like a missing script.
+    'gate.js', 'config.js', 'progress.js', 'sheet-sync.js',
+    'session-responses.js', 'storage.js', 'timer.js', 'history.js',
     'data-craft-structure.js', 'data-expression-of-ideas.js', 'data-info-ideas.js', 'data-conventions.js',
     'app.js',
     // test-only probe: a classic script, so it closes over app.js's lexical globals
@@ -122,9 +127,22 @@ section('1 · The tile appears only for a student who has a set');
     ok('tile shows the live tally', new RegExp('Mastered 0 of '+N).test(txt(tile)), txt(tile));
     ok('tile names the source', new RegExp(SET.source.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test(txt(tile)));
 
-    const b = await build('Bruce');
-    ok('Bruce gets no tile', !$(b, 'challengeTile'));
-    ok('Bruce gets no challenge screen', !$(b, 'challengeScreen'));
+    // The control has to be someone with NO set, and it used to be a name typed
+    // in by hand. That is the one literal this file's own header says not to
+    // write — "expectations are DERIVED FROM THE ROSTER" — and it went stale the
+    // day that name was assigned a set: the control stopped being a control, the
+    // suite went red, and it stayed red because nothing else pointed at it.
+    //
+    // A sentinel instead. The gate is bypassed here, so the key need not be a
+    // real login — and it must not be, because a name added to this repo is a
+    // name published to the internet. This one cannot be assigned a set by
+    // accident, and the assertion below proves the control is still a control.
+    const NOBODY = '__no_challenge_set__';
+    ok('the control genuinely has no set', !SETS[NOBODY]);
+
+    const b = await build(NOBODY);
+    ok('a student with no set gets no tile', !$(b, 'challengeTile'));
+    ok('...and no challenge screen', !$(b, 'challengeScreen'));
 }
 
 // ═════════════════════════════════════════════════════════════════

@@ -71,6 +71,11 @@ function saveSessionState() {
         score,
         mode:           userMode,
         missedIds:      missedQuestions.map(m => m.q.id),
+        // Every selection, flag, per-question time and commit flag. Without this
+        // a resumed session came back as a blank slate that had already written
+        // half its answers to the mastery ledger.
+        responses:      (typeof packResponses === 'function' && Array.isArray(responses))
+            ? packResponses(responses) : null,
         secondsElapsed,
         timerMode,
         countdownTotal,
@@ -106,6 +111,11 @@ function restoreSession(state) {
         ? state.countdownRemaining : countdownTotal;
     missedQuestions      = (state.missedIds || [])
         .map(id => idMap[id]).filter(Boolean).map(q => ({ q }));
+    // A session saved before responses existed has none; unpackResponses turns
+    // a missing or corrupt blob into blanks rather than throwing.
+    responses            = (typeof unpackResponses === 'function')
+        ? unpackResponses(state.responses, activeQuestions.length)
+        : [];
     return true;
 }
 

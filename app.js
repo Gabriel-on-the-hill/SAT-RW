@@ -126,6 +126,10 @@ const SKILL_COUNT_IDS = {
 
 // ── State ─────────────────────────────────────────────────────────
 let currentQuestionIndex = 0;
+// One slot per active question: { chosen, flagged, secs, committed }. This is
+// the single source of truth for what the student has said. See
+// session-responses.js for why it replaced push-on-click.
+let responses            = [];
 let score                = 0;
 let userMode             = 'assisted';
 let timerInterval        = null;
@@ -541,6 +545,32 @@ function launchSession(questions, mode, timer) {
 function finalizeSession() {
     stopTimer();
     clearSessionState();
+
+    // The clock can run out while the review overlay is up; it must not be left
+    // floating over the completion screen.
+    const reviewPanel = document.getElementById('examReview');
+    if (reviewPanel) reviewPanel.classList.add('hidden');
+
+    // Anything still uncommitted is committed now — a session can end from the
+    // timer as easily as from a button, and an answer the student gave must not
+    // be lost because they never pressed Next. commitAll is idempotent, so a
+    // module that already went through submitModule() is unaffected.
+    commitAll(responses, activeQuestions,
+              userMode === 'exam' ? 'exam' : 'practice', recordAnswer);
+
+    // Rebuild the results in QUESTION order, blanks included. The old
+    // sessionResults was in click order, which stopped meaning anything once a
+    // student could answer question 9 before question 3.
+    sessionResults  = buildResults(responses, activeQuestions);
+    // Blanks belong here too. A question you skipped is one you still owe, and
+    // the completion screen has always known how to render it — the "Not
+    // answered" label on the missed list was written for a case that could not
+    // previously happen. Review Missed now re-serves them.
+    missedQuestions = sessionResults
+        .filter(r => !r.isCorrect)
+        .map(r => ({ q: r.q, selected: r.selected }));
+    score = sessionResults.filter(r => r.isCorrect).length;
+
     const skills = [...new Set(activeQuestions.map(q => q.skill))];
     const diffs  = [...new Set(activeQuestions.map(q => q.difficulty))];
     logSession(skills, diffs, score, activeQuestions.length);
@@ -1211,9 +1241,16 @@ function applyPassageHighlights(q) {
 }
 
 function loadQuestion(index) {
-    isAnswered        = false;
     questionStartTime = Date.now();
     const q           = activeQuestions[index];
+
+    // A session restored from storage, or one whose length changed, must still
+    // have a slot for every question.
+    if (!responses || responses.length !== activeQuestions.length) {
+        responses = makeResponses(activeQuestions.length);
+    }
+    const r    = responses[index];
+    isAnswered = !!(r && r.committed);
 
     const feedbackContainer = document.getElementById('feedbackContainer');
     const optionsContainer  = document.getElementById('optionsContainer');
@@ -1283,6 +1320,26 @@ function loadQuestion(index) {
         btn.addEventListener('click', () => handleOptionClick(btn, letter, q));
         optionsContainer.appendChild(btn);
     });
+
+    // Coming back to a question shows what was chosen, and — if it was already
+    // graded — the feedback that went with it. Returning to a blank slate would
+    // make Back look like it had wiped the work.
+    paintSelection();
+    if (r && r.committed && userMode !== 'exam' && r.chosen !== null) {
+        const correct = r.chosen === q.answer;
+        document.getElementById('feedbackTitle').textContent =
+            correct ? "Nice — that's right." : "Not quite — here's why.";
+        feedbackContainer.className = 'feedback-section visible '
+            + (correct ? 'feedback-success' : 'feedback-error');
+        document.getElementById('feedbackText').innerText   = q.explanation;
+        document.getElementById('strategyName').textContent = q.strategy || 'Standard POE';
+        document.getElementById('trapName').textContent     =
+            TRAP_SETS[q.skill] || q.trapName || '—';
+        // A graded question has nothing left to predict.
+        predictionStep.classList.add('hidden');
+        optionsContainer.classList.remove('hidden');
+    }
+    syncNav();
 }
 
 // Renders a question snapshot (used for Command of Evidence — Quantitative
@@ -1295,55 +1352,249 @@ function renderQuestionImage(src) {
 // ANSWER HANDLING
 // ══════════════════════════════════════════════════════════════════
 
+// Clicking an option SELECTS it. It does not commit it.
+//
+// This used to be the whole answer pipeline: the first click wrote the mastery
+// ledger, pushed a row onto sessionResults, and set a one-shot `isAnswered`
+// latch that refused every later click. That made a misclick permanent and made
+// going back meaningless, because there was nowhere to put a second thought.
+// Selection and commitment are now separate events, and the ledger only hears
+// about the second one. See session-responses.js.
 function handleOptionClick(btn, selectedLetter, q) {
-    if (isAnswered) return;
-    isAnswered = true;
+    const i = currentQuestionIndex;
+    if (responses[i] && responses[i].committed) return;   // graded, and final
 
-    const secs              = questionStartTime
-        ? Math.round((Date.now() - questionStartTime) / 1000) : 0;
-    const isCorrect         = selectedLetter === q.answer;
-    recordAnswer(q.id, isCorrect, userMode === 'exam' ? 'exam' : 'practice');
+    setChoice(responses, i, selectedLetter);
+    paintSelection();
+
+    // Exam mode has no Submit step — a selection IS the answer, revisable until
+    // the module is submitted, exactly as the real digital test behaves.
+    if (userMode === 'exam') { syncNav(); saveSessionState(); return; }
+
+    syncNav();
+    saveSessionState();
+}
+
+// Repaint the option buttons from the stored response, so returning to a
+// question shows what was chosen rather than a blank slate.
+function paintSelection() {
+    const i   = currentQuestionIndex;
+    const r   = responses[i] || {};
+    const q   = activeQuestions[i];
+    const box = document.getElementById('optionsContainer');
+    if (!box || !q) return;
+
+    Array.from(box.children).forEach(b => {
+        const ltr = b.querySelector('.opt-letter');
+        const letter = ltr ? ltr.textContent.trim().replace('.', '') : null;
+        b.classList.remove('pending', 'selected', 'correct', 'incorrect');
+        b.disabled = !!r.committed;
+        if (letter && letter === r.chosen) {
+            b.classList.add(r.committed ? 'selected' : 'pending');
+        }
+    });
+
+    // After commit in a coached mode, mark right and wrong.
+    if (r.committed && userMode !== 'exam' && r.chosen !== null) {
+        Array.from(box.children).forEach(b => {
+            const ltr = b.querySelector('.opt-letter');
+            const letter = ltr ? ltr.textContent.trim().replace('.', '') : null;
+            if (letter === q.answer) b.classList.add('correct');
+            else if (letter === r.chosen) b.classList.add('incorrect');
+        });
+    }
+}
+
+// Commit the current question: write the ledger once, then show feedback.
+// Used by practice/assisted mode only — exam mode commits the whole module.
+function submitAnswer() {
+    const i = currentQuestionIndex;
+    const q = activeQuestions[i];
+    const r = responses[i];
+    if (!r || r.committed || r.chosen === null) return;
+
+    bankTimeOnCurrent();
+    const isCorrect = r.chosen === q.answer;
+    commitOne(responses, i, q, 'practice', recordAnswer);
     recordTrapOutcome(q.skill, q.trapName, isCorrect);
+    if (isCorrect) score++;
+    document.getElementById('currentScore').textContent = score;
+
     const feedbackContainer = document.getElementById('feedbackContainer');
     const feedbackTitle     = document.getElementById('feedbackTitle');
-    const optionsContainer  = document.getElementById('optionsContainer');
 
-    sessionResults.push({ q, selected: selectedLetter, correct: q.answer, isCorrect, secs });
-    if (!isCorrect) missedQuestions.push({ q, selected: selectedLetter });
-    if (isCorrect) score++;
-
-    // ── Exam mode: blind lock — no correctness, no explanation, score
-    //    hidden. The student reviews everything on the completion screen. ──
-    if (userMode === 'exam') {
-        btn.classList.add('selected');
-        Array.from(optionsContainer.children).forEach(b => { b.disabled = true; });
-        feedbackTitle.textContent   = 'Answer locked — keep going';
-        feedbackContainer.className = 'feedback-section visible feedback-exam';
-        saveSessionState();
-        return;
-    }
-
-    document.getElementById('currentScore').textContent = score;
     if (isCorrect) {
-        btn.classList.add('correct');
         feedbackTitle.textContent   = "Nice — that's right.";
         feedbackContainer.className = 'feedback-section visible feedback-success';
     } else {
-        btn.classList.add('incorrect');
-        Array.from(optionsContainer.children).forEach(b => {
-            const ltr = b.querySelector('.opt-letter');
-            if (ltr && ltr.textContent.trim() === q.answer + '.') b.classList.add('correct');
-        });
         feedbackTitle.textContent   = "Not quite — here's why.";
         feedbackContainer.className = 'feedback-section visible feedback-error';
     }
-
     document.getElementById('feedbackText').innerText   = q.explanation;
     document.getElementById('strategyName').textContent = q.strategy || 'Standard POE';
     document.getElementById('trapName').textContent     =
         TRAP_SETS[q.skill] || q.trapName || '—';
 
+    paintSelection();
+    syncNav();
     saveSessionState();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// QUESTION NAVIGATION
+// ══════════════════════════════════════════════════════════════════
+
+// Charge the time spent to whichever question was on screen, then restart the
+// clock. Called before every move, so a revisit adds to the total rather than
+// overwriting it.
+function bankTimeOnCurrent() {
+    if (!questionStartTime) return;
+    const secs = Math.round((Date.now() - questionStartTime) / 1000);
+    addTime(responses, currentQuestionIndex, secs);
+    questionStartTime = Date.now();
+}
+
+function goToQuestion(index) {
+    if (index < 0 || index >= activeQuestions.length) return;
+    bankTimeOnCurrent();
+    currentQuestionIndex = index;
+    loadQuestion(index);
+    saveSessionState();
+}
+
+function goBackQuestion() { goToQuestion(currentQuestionIndex - 1); }
+
+// Skip leaves the question genuinely blank. It is not a wrong answer and it
+// writes nothing to the mastery ledger — "did not attempt" is not evidence
+// about a skill, and recording it as a miss would send the review ladder off to
+// re-teach something that was never actually tested.
+function skipQuestion() {
+    if (userMode !== 'exam') clearChoice(responses, currentQuestionIndex);
+    advanceQuestion();
+}
+
+function advanceQuestion() {
+    bankTimeOnCurrent();
+    if (currentQuestionIndex < activeQuestions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion(currentQuestionIndex);
+        saveSessionState();
+        return;
+    }
+    // Past the last question. Exam mode owes the student a review screen before
+    // anything is final; every other mode finishes here.
+    if (userMode === 'exam') { openExamReview(); return; }
+    finalizeSession();
+}
+
+function toggleFlagCurrent() {
+    toggleFlag(responses, currentQuestionIndex);
+    syncNav();
+    saveSessionState();
+}
+
+// Show/hide the right controls for this mode and this question's state.
+function syncNav() {
+    const i = currentQuestionIndex;
+    const r = responses[i] || {};
+    const isExam = userMode === 'exam';
+    const last   = i === activeQuestions.length - 1;
+
+    const back   = document.getElementById('backBtn');
+    const skip   = document.getElementById('skipBtn');
+    const submit = document.getElementById('submitBtn');
+    const next   = document.getElementById('nextBtn');
+    const flag   = document.getElementById('flagBtn');
+    if (!back || !skip || !submit || !next) return;
+
+    // Back is available everywhere except the first question. In a coached mode
+    // it is a re-read, not a second attempt: committed answers stay committed.
+    back.classList.toggle('hidden', i === 0);
+
+    if (isExam) {
+        // No Submit per question — the selection is the answer.
+        submit.classList.add('hidden');
+        skip.classList.add('hidden');
+        next.classList.remove('hidden');
+        next.textContent = last ? 'Review answers' : 'Next';
+    } else {
+        const committed = !!r.committed;
+        // Submit appears once something is selected and not yet graded.
+        submit.classList.toggle('hidden', committed || r.chosen === null);
+        // Skip is the honest alternative to guessing, and it disappears once the
+        // question has been graded.
+        skip.classList.toggle('hidden', committed);
+        next.classList.toggle('hidden', !committed);
+        next.textContent = last ? 'Finish' : 'Next';
+    }
+
+    if (flag) {
+        flag.classList.toggle('hidden', !isExam);
+        flag.classList.toggle('flagged', !!r.flagged);
+        const label = document.getElementById('flagBtnLabel');
+        if (label) label.textContent = r.flagged ? 'Flagged' : 'Mark for review';
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// END-OF-MODULE REVIEW  (exam mode)
+// ══════════════════════════════════════════════════════════════════
+
+function openExamReview() {
+    const panel = document.getElementById('examReview');
+    if (!panel) { submitModule(); return; }
+    bankTimeOnCurrent();
+
+    const s = responseSummary(responses, activeQuestions);
+    const lede = document.getElementById('examReviewLede');
+    if (lede) {
+        lede.textContent = s.blank
+            ? `${s.answered} answered · ${s.blank} still blank`
+              + (s.flagged ? ` · ${s.flagged} flagged` : '')
+              + '. Blank questions score nothing — there is no penalty for guessing.'
+            : `All ${s.answered} answered`
+              + (s.flagged ? ` · ${s.flagged} flagged for another look` : '') + '.';
+    }
+
+    const grid = document.getElementById('examReviewGrid');
+    if (grid) {
+        grid.innerHTML = '';
+        activeQuestions.forEach((q, i) => {
+            const r = responses[i] || {};
+            const cell = document.createElement('button');
+            cell.type = 'button';
+            cell.className = 'qcell ' + (r.chosen != null ? 'answered' : 'blank')
+                           + (r.flagged ? ' flagged' : '');
+            cell.textContent = i + 1;
+            cell.title = (r.chosen != null ? 'Answered ' + r.chosen : 'Blank')
+                       + (r.flagged ? ' · flagged' : '');
+            cell.addEventListener('click', () => { closeExamReview(); goToQuestion(i); });
+            grid.appendChild(cell);
+        });
+    }
+    panel.classList.remove('hidden');
+}
+
+function closeExamReview() {
+    const panel = document.getElementById('examReview');
+    if (panel) panel.classList.add('hidden');
+    questionStartTime = Date.now();
+}
+
+// The only place an exam-mode answer reaches the mastery ledger. One write per
+// question, blanks excluded, and safe to call twice — the timer expiring and the
+// Submit button can both land here.
+function submitModule() {
+    closeExamReview();
+    bankTimeOnCurrent();
+    commitAll(responses, activeQuestions, 'exam', recordAnswer);
+    activeQuestions.forEach((q, i) => {
+        const r = responses[i];
+        if (r && r.chosen !== null) {
+            recordTrapOutcome(q.skill, q.trapName, r.chosen === q.answer);
+        }
+    });
+    finalizeSession();
 }
 
 // Session resume (save/load/restore/checkForSavedSession) lives in storage.js.
@@ -1356,6 +1607,7 @@ function resetProgress() {
     currentQuestionIndex = 0;
     score                = 0;
     secondsElapsed       = 0;
+    responses            = makeResponses(activeQuestions.length);
     if (!reviewMode) { missedQuestions = []; sessionResults = []; }
     // Exam mode hides the running score so correctness isn't revealed mid-test.
     document.getElementById('currentScore').textContent    = (userMode === 'exam') ? '—' : '0';
@@ -1529,28 +1781,51 @@ function initKeyboardShortcuts() {
 
         const key = e.key.toUpperCase();
 
+        // The review overlay owns the keyboard while it is up.
+        const reviewOpen = (() => {
+            const p = document.getElementById('examReview');
+            return p && !p.classList.contains('hidden');
+        })();
+        if (reviewOpen) {
+            if (key === 'ESCAPE') { e.preventDefault(); closeExamReview(); }
+            return;
+        }
+
+        const _clickIfLive = (id) => {
+            const b = document.getElementById(id);
+            if (b && !b.classList.contains('hidden')) { b.click(); return true; }
+            return false;
+        };
+
         if (key === ' ' || key === 'ENTER') {
             e.preventDefault();
             const predStep = document.getElementById('predictionStep');
             if (!predStep.classList.contains('hidden')) {
                 predStep.classList.add('hidden');
                 document.getElementById('optionsContainer').classList.remove('hidden');
-            } else if (isAnswered) {
-                document.getElementById('nextBtn').click();
+                return;
             }
+            // Submit first if there is something to submit, otherwise move on.
+            if (!_clickIfLive('submitBtn')) _clickIfLive('nextBtn');
             return;
         }
 
-        if (key === 'ARROWRIGHT' && isAnswered) {
-            e.preventDefault();
-            document.getElementById('nextBtn').click();
+        // Arrows now navigate rather than only advancing a graded question.
+        if (key === 'ARROWRIGHT') { e.preventDefault(); _clickIfLive('nextBtn'); return; }
+        if (key === 'ARROWLEFT')  { e.preventDefault(); _clickIfLive('backBtn'); return; }
+
+        // F flags the current question for review (exam mode).
+        if (key === 'F') {
+            const flag = document.getElementById('flagBtn');
+            if (flag && !flag.classList.contains('hidden')) { e.preventDefault(); flag.click(); }
             return;
         }
 
         const letterMap = { A:'A', B:'B', C:'C', D:'D', '1':'A', '2':'B', '3':'C', '4':'D' };
         if (letterMap[key]) {
             const optContainer = document.getElementById('optionsContainer');
-            if (optContainer.classList.contains('hidden') || isAnswered) return;
+            const rNow = responses[currentQuestionIndex];
+            if (optContainer.classList.contains('hidden') || (rNow && rNow.committed)) return;
             const target = Array.from(optContainer.querySelectorAll('.option-btn')).find(b => {
                 const ltr = b.querySelector('.opt-letter');
                 return ltr && ltr.textContent.trim() === letterMap[key] + '.';
@@ -1743,13 +2018,27 @@ function init() {
         document.getElementById('optionsContainer').classList.remove('hidden');
     });
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < activeQuestions.length) {
-            loadQuestion(currentQuestionIndex);
-        } else {
-            finalizeSession();
-        }
+    document.getElementById('nextBtn').addEventListener('click', advanceQuestion);
+    document.getElementById('backBtn').addEventListener('click', goBackQuestion);
+    document.getElementById('skipBtn').addEventListener('click', skipQuestion);
+    document.getElementById('submitBtn').addEventListener('click', submitAnswer);
+
+    const flagBtn = document.getElementById('flagBtn');
+    if (flagBtn) flagBtn.addEventListener('click', toggleFlagCurrent);
+
+    const reviewBack = document.getElementById('examReviewBackBtn');
+    if (reviewBack) reviewBack.addEventListener('click', closeExamReview);
+
+    const reviewSubmit = document.getElementById('examReviewSubmitBtn');
+    if (reviewSubmit) reviewSubmit.addEventListener('click', () => {
+        const s = responseSummary(responses, activeQuestions);
+        // Submitting with blanks is allowed — it is the student's call — but it
+        // should never happen by accident on a scored module.
+        if (s.blank && !confirm(
+                s.blank + ' question' + (s.blank > 1 ? 's are' : ' is')
+                + ' still blank. They score nothing, and there is no penalty for'
+                + ' guessing. Submit anyway?')) return;
+        submitModule();
     });
 
     document.getElementById('reviewMissedBtn').addEventListener('click', () => {

@@ -28,6 +28,25 @@
   .opt:hover{border-color:var(--accent)}
   .opt.correct{border-color:var(--good);background:var(--good-soft)}
   .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  /* Chosen but not yet graded. Under a clock this is as far as it ever goes
+     until the set is submitted. */
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+  .nav{gap:.5rem;align-items:center}
+  /* End-of-set check, timed sets only */
+  .hwrev{position:fixed;inset:0;z-index:900;background:rgba(15,23,42,.55);
+    display:flex;align-items:center;justify-content:center;padding:1.4rem}
+  .hwrev.hidden{display:none}
+  .hwrev-card{background:#fff;border-radius:1rem;padding:1.6rem;max-width:560px;width:100%;
+    max-height:85vh;overflow-y:auto;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+  .hwrev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(3rem,1fr));gap:.45rem;margin:1rem 0}
+  .qcell{position:relative;padding:.5rem .25rem;border:1.5px solid var(--border);border-radius:.5rem;
+    background:#fff;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+  .qcell:hover{border-color:var(--accent)}
+  .qcell.answered{background:#eff6ff;border-color:#93c5fd;color:#1e40af}
+  .qcell.blank{border-style:dashed;color:#94a3b8}
+  .qcell.flagged::after{content:'';position:absolute;top:3px;right:3px;width:7px;height:7px;
+    border-radius:50%;background:#f59e0b}
+  .hwrev-actions{display:flex;justify-content:flex-end;gap:.6rem;margin-top:1rem}
   .fb{display:none;border-radius:10px;padding:.8rem .9rem;margin-top:.4rem}
   .fb.show{display:block}
   .fb.ok{background:var(--good-soft)} .fb.no{background:var(--bad-soft)}
@@ -102,7 +121,7 @@
 <script src="data-conventions.js?v=20260703"></script>
 <script src="progress.js?v=20260722"></script>
 <script src="sheet-sync.js?v=20260716"></script>
-<script src="homework/assignments.js?v=20260818"></script>
+<script src="homework/assignments.js?v=20260819"></script>
 </head>
 <body>
 <div class="wrap">
@@ -110,6 +129,23 @@
   <div id="tip" class="tip"></div>
   <div id="run"></div>
   <div id="finish" class="hidden"></div>
+</div>
+
+<!-- End-of-set check, timed sets only. A timed set is a rehearsal for a test
+     that shows you one of these, and a student who has never seen it does not
+     know that leaving a question blank is a choice he is allowed to make
+     deliberately rather than by running out of road. -->
+<div id="hwReview" class="hwrev hidden">
+  <div class="hwrev-card">
+    <h2 style="margin:0 0 .3rem;font-size:1.25rem">Check your work</h2>
+    <p id="hwRevLede" class="sub" style="margin:0"></p>
+    <div id="hwRevGrid" class="hwrev-grid"></div>
+    <div class="sub" style="font-size:.78rem">Dashed = blank &middot; amber dot = flagged</div>
+    <div class="hwrev-actions">
+      <button type="button" class="btn sec" id="hwRevBack">Keep working</button>
+      <button type="button" class="btn" id="hwRevSubmit">Submit set</button>
+    </div>
+  </div>
 </div>
 <script>
 (function(){
@@ -298,8 +334,36 @@
   // → type; on the clock → commit. The redo is untimed, so it goes back to typing.
   function predictMode(){ return (!isRedo && spec.minutes > 0) ? 'commit' : 'type'; }
 
+  // Navigation follows the clock, and it has to.
+  //
+  // A timed set is a rehearsal for a test that lets you move around, change your
+  // mind and flag a question to come back to — so a timed set does too. That
+  // forces feedback to the END of the set: going back to change an answer is
+  // meaningless once you have already been shown the correct one. The review
+  // screen has always shown every question with its explanation, so deferring
+  // costs nothing; it just stops the set from answering itself as he goes.
+  //
+  // An untimed set keeps instant feedback, because there is no test to rehearse
+  // and the explanation is the whole point of the exercise. It gains a Skip, so
+  // no question forces a guess, and a Submit step so a misclick is not fatal.
+  function navMode(){ return (!isRedo && spec.minutes > 0) ? 'exam' : 'practice'; }
+
   var idx=0, started=Date.now(), answered=false, isRedo=false;
   var qStart=null, revealTs=null, prediction='', readTimer=null;
+
+  // Per-question navigation state, parallel to daySet. records[] holds the
+  // graded outcome; this holds everything needed to REBUILD a question he has
+  // already visited — otherwise going back would re-lock the options behind a
+  // prediction he has already made and a read-gate he has already served.
+  var nav=[];
+  function navOf(i){
+    if(!nav[i]) nav[i]={ revealed:false, prediction:'', flagged:false,
+                         chosen:null, graded:false, secs:0,
+                         firstSeen:null, revealTs:null };
+    return nav[i];
+  }
+  function resetNav(n){ nav=[]; for(var i=0;i<n;i++) navOf(i); }
+  resetNav(daySet.length);
 
   // ── What "predict first" actually asks, per skill ──────────────────────────
   //
@@ -352,7 +416,9 @@
   }
 
   function render(){
-    answered=false; revealTs=null; prediction='';
+    var n=navOf(idx);
+    // A question already visited comes back as it was left, not as a blank slate.
+    answered=n.graded; revealTs=n.revealed?Date.now():null; prediction=n.prediction||'';
     var q=set[idx];
     qStart=Date.now();
     var mode=predictMode();
@@ -376,17 +442,52 @@
         + '</div>';
 
     var opts=q.options.map(function(o){var L=o.trim()[0];return '<button class="opt" data-l="'+L+'">'+esc(o)+'</button>';}).join('');
-    run.innerHTML='<div class="t" style="margin-bottom:.5rem">Question '+(idx+1)+' of '+set.length+(isRedo?' · redo':'')+'</div>'
+
+    var flagBtn = (navMode()==='exam')
+      ? '<button class="btn" id="flagq" style="padding:.15rem .55rem;font-size:.72rem;margin-left:.5rem">'
+        + (navOf(idx).flagged ? 'Flagged' : 'Mark for review') + '</button>'
+      : '';
+
+    run.innerHTML='<div class="t" style="margin-bottom:.5rem">Question '+(idx+1)+' of '+set.length+(isRedo?' · redo':'')+flagBtn+'</div>'
       +media+'<div class="qtext">'+esc(q.question)+'</div>'
       +predictBox
       +'<div id="yourpred"></div>'
       +'<div id="opts" class="hidden">'+opts+'</div>'
       +'<div class="fb" id="fb"><div class="h" id="fbh"></div><p id="fbt"></p></div>'
-      +'<div class="nav"><button class="btn hidden" id="next">'+(idx===set.length-1?'Finish':'Next')+'</button></div>';
+      +'<div class="nav">'
+        +'<button class="btn hidden" id="back">&#8592; Back</button>'
+        +'<span style="flex:1"></span>'
+        +'<button class="btn hidden" id="skip">Skip</button>'
+        +'<button class="btn hidden" id="submit">Submit</button>'
+        +'<button class="btn hidden" id="next">'+(idx===set.length-1?(navMode()==='exam'?'Review answers':'Finish'):'Next')+'</button>'
+      +'</div>';
 
-    document.getElementById('predGo').onclick=function(){ commit(); };
+    var predGoEl=document.getElementById('predGo');
+    if(predGoEl) predGoEl.onclick=function(){ commit(); };
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){b.onclick=function(){choose(b,q);};});
-    document.getElementById('next').onclick=function(){ idx++; if(idx>=set.length) finish(false); else render(); };
+    document.getElementById('next').onclick=function(){ advance(); };
+    document.getElementById('back').onclick=function(){ bankQ(); if(idx>0){ idx--; render(); } };
+    document.getElementById('skip').onclick=function(){ navOf(idx).chosen=null; advance(); };
+    document.getElementById('submit').onclick=function(){ gradeCurrent(q); };
+    var flagEl=document.getElementById('flagq');
+    if(flagEl) flagEl.onclick=function(){
+      var v=navOf(idx); v.flagged=!v.flagged; syncHwNav();
+    };
+
+    // Rebuild a question already visited: prediction served, options open,
+    // selection restored, and — untimed only — the grade he has already seen.
+    if(n.revealed){
+      var pbox=document.getElementById('predict');
+      if(pbox) pbox.remove();
+      document.getElementById('opts').classList.remove('hidden');
+      if(n.prediction){
+        document.getElementById('yourpred').innerHTML=
+          '<div class="yourpred"><b>Your prediction</b>'+esc(n.prediction)+'</div>';
+      }
+      paintHwChoice(q);
+      if(n.graded && navMode()!=='exam') showHwFeedback(q, recOf(q.id));
+    }
+    syncHwNav();
 
     // Count the lock down in the button itself, so the wait is visible and not a
     // dead control she has to guess at.
@@ -446,60 +547,240 @@
     }
     if(readTimer){ clearInterval(readTimer); readTimer=null; }
     revealTs=Date.now();
+    // Record the reveal against THIS question, not just in a local. Without
+    // this, coming back to a question re-locked the choices behind a prediction
+    // he had already made, and the prediction never reached the record — which
+    // is most of what the review screen is for.
+    var n=navOf(idx);
+    n.revealed=true;
+    n.prediction=prediction;
+    if(n.firstSeen===null) n.firstSeen=qStart;
+    if(n.revealTs===undefined || n.revealTs===null) n.revealTs=revealTs;
     document.getElementById('predict').remove();
     document.getElementById('opts').classList.remove('hidden');
+    syncHwNav();
   }
 
   function recOf(id){ for(var i=0;i<records.length;i++) if(records[i] && records[i].id===id) return records[i]; return null; }
 
-  function choose(btn,q){
-    if(answered || !revealTs) return;
-    answered=true;
-    var L=btn.dataset.l, ok=L===q.answer, now=Date.now();
+  // Charge time to whichever question is on screen, then restart the clock, so a
+  // revisit adds to the total rather than overwriting it.
+  function bankQ(){
+    if(!qStart) return;
+    navOf(idx).secs += Math.round((Date.now()-qStart)/1000);
+    qStart=Date.now();
+  }
 
-    if (isRedo) {
-      // The first attempt stays the honest record. A redo just notes that she
-      // came back and got it — it never rewrites what she did under the clock.
-      var r=recOf(q.id);
-      if (r) { r.redoOk=ok; r.redoAt=now; }
+  function advance(){
+    bankQ();
+    if(idx < set.length-1){ idx++; render(); return; }
+    if(navMode()==='exam'){ openHwReview(); return; }
+    finish(false);
+  }
+
+  // Show/hide the controls for this mode and this question's state.
+  function syncHwNav(){
+    var n=navOf(idx), m=navMode(), last=idx===set.length-1;
+    var back=document.getElementById('back'), skip=document.getElementById('skip');
+    var sub=document.getElementById('submit'), nx=document.getElementById('next');
+    var fl=document.getElementById('flagq');
+    if(!back||!skip||!sub||!nx) return;
+
+    back.classList.toggle('hidden', idx===0);
+    if(fl) fl.textContent = n.flagged ? 'Flagged' : 'Mark for review';
+
+    if(m==='exam'){
+      // Under a clock the selection IS the answer, revisable until the set is
+      // submitted. No per-question Submit, and no feedback yet.
+      sub.classList.add('hidden');
+      skip.classList.add('hidden');
+      nx.classList.toggle('hidden', !n.revealed);
+      nx.textContent = last ? 'Review answers' : 'Next';
     } else {
-      records[idx]={
-        id:q.id, skill:q.skill, difficulty:q.difficulty,
-        chosen:L, answer:q.answer, ok:ok,
-        prediction:prediction,
-        onText:Math.round((revealTs-qStart)/1000),   // seconds before the choices appeared
-        onOpts:Math.round((now-revealTs)/1000),      // seconds among the choices
-        secs:Math.round((now-qStart)/1000),
-        tag:null, fix:''
-      };
+      sub.classList.toggle('hidden', !n.revealed || n.graded || n.chosen===null);
+      skip.classList.toggle('hidden', !n.revealed || n.graded);
+      nx.classList.toggle('hidden', !n.graded);
+      nx.textContent = last ? 'Finish' : 'Next';
     }
-    saveRecs();
+  }
 
+  function paintHwChoice(q){
+    var n=navOf(idx);
+    Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){
+      b.classList.remove('sel','correct','wrong');
+      b.disabled=!!n.graded;
+      if(b.dataset.l===n.chosen) b.classList.add('sel');
+    });
+    if(n.graded && navMode()!=='exam'){
+      Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){
+        if(b.dataset.l===q.answer) b.classList.add('correct');
+        else if(b.dataset.l===n.chosen) b.classList.add('wrong');
+      });
+    }
+  }
+
+  function showHwFeedback(q, r){
+    var okk = r ? r.ok : false;
+    var fb=document.getElementById('fb'); fb.className='fb show '+(okk?'ok':'no');
+    document.getElementById('fbh').textContent = okk ? "Nice — that's right." : "Not quite — here's why.";
+    document.getElementById('fbt').textContent = q.explanation;
+  }
+
+  // Selecting an option. Under a clock this is the whole act; untimed it waits
+  // for Submit, so a misclick costs nothing.
+  function choose(btn,q){
+    if(!revealTs) return;
+    var n=navOf(idx);
+    if(n.graded) return;
+    n.chosen=btn.dataset.l;
+    paintHwChoice(q);
+    syncHwNav();
+    if(navMode()==='exam') writeRec(q, /*grade*/false);
+  }
+
+  // Write (or update) the record for this question. Under a clock `ok` is left
+  // provisional until the set is submitted; untimed it is final immediately.
+  function writeRec(q, grade){
+    if(isRedo) return;
+    var n=navOf(idx);
+    var r=records[idx]||{};
+    // Time on the text is measured from when the question first appeared to when
+    // he revealed the choices — both stamped on the question itself, so a
+    // revisit cannot rewrite them into nonsense.
+    var onText = (n.firstSeen && n.revealTs)
+      ? Math.round((n.revealTs - n.firstSeen)/1000)
+      : (r.onText != null ? r.onText : null);
+    var onOpts = (n.revealTs)
+      ? Math.max(0, n.secs - (onText || 0))
+      : (r.onOpts != null ? r.onOpts : null);
+    records[idx]={
+      id:q.id, skill:q.skill, difficulty:q.difficulty,
+      chosen:n.chosen, answer:q.answer,
+      ok: grade ? (n.chosen===q.answer) : (r.ok||false),
+      prediction:n.prediction||'',
+      onText: onText,
+      onOpts: onOpts,
+      secs: n.secs,
+      tag:r.tag||null, fix:r.fix||''
+    };
+    saveRecs();
+  }
+
+  // Untimed only: grade the selection, write the ledger, show the explanation.
+  function gradeCurrent(q){
+    var n=navOf(idx);
+    if(n.graded || n.chosen===null) return;
+    bankQ();
+    n.graded=true;
+    var okk=n.chosen===q.answer;
+    if(isRedo){
+      // The first attempt stays the honest record. A redo only notes that he
+      // came back and got it — it must never rewrite what he did the first
+      // time, which is what the tutor is actually reading.
+      var rr=recOf(q.id);
+      if(rr){ rr.redoOk=okk; rr.redoAt=Date.now(); saveRecs(); }
+    } else {
+      writeRec(q, true);
+    }
     // A redo is untimed with notes open. It is not a memory test and it is not a
     // calibration signal, so it feeds neither retention nor the per-skill accuracy
     // the difficulty recommender reads — the same reason it never rewrites the
     // first attempt. It still climbs the ladder: he did get it right in the end.
     if(typeof recordAnswer==='function')
-      recordAnswer(q.id, ok, 'practice', { skill:q.skill, review: !isRedo && !!_isReviewQ[q.id] });
+      recordAnswer(q.id, okk, 'practice', { skill:q.skill, review: !isRedo && !!_isReviewQ[q.id] });
     // Homework never fed the per-skill stats — only the practice app did. That left
     // the trap analytics, and now the difficulty recommender, blind to the work he
     // actually does most of.
-    if(!isRedo && typeof recordTrapOutcome==='function') recordTrapOutcome(q.skill, q.trapName, ok);
+    if(!isRedo && typeof recordTrapOutcome==='function') recordTrapOutcome(q.skill, q.trapName, okk);
+    paintHwChoice(q);
+    showHwFeedback(q, {ok:okk});
+    syncHwNav();
+  }
 
-    Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){
-      b.disabled=true; var bl=b.dataset.l;
-      if(bl===q.answer) b.classList.add('correct');
-      if(b===btn && !ok) b.classList.add('wrong');
-    });
-    var fb=document.getElementById('fb'); fb.className='fb show '+(ok?'ok':'no');
-    document.getElementById('fbh').textContent = ok ? "Nice — that's right." : "Not quite — here's why.";
-    document.getElementById('fbt').textContent = q.explanation;
-    document.getElementById('next').classList.remove('hidden');
+  // ── End-of-set check (timed sets) ──────────────────────────────────────────
+  function openHwReview(){
+    bankQ();
+    var panel=document.getElementById('hwReview');
+    if(!panel){ submitHwSet(); return; }
+
+    var answeredN=0, blank=0, flagged=0;
+    for(var i=0;i<set.length;i++){
+      var n=navOf(i);
+      if(n.chosen!==null) answeredN++; else blank++;
+      if(n.flagged) flagged++;
+    }
+    document.getElementById('hwRevLede').textContent = blank
+      ? answeredN+' answered · '+blank+' still blank'+(flagged?' · '+flagged+' flagged':'')
+        +'. A blank scores nothing, and nothing is deducted for a wrong guess.'
+      : 'All '+answeredN+' answered'+(flagged?' · '+flagged+' flagged for another look':'')+'.';
+
+    var grid=document.getElementById('hwRevGrid');
+    grid.innerHTML='';
+    for(var k=0;k<set.length;k++){
+      (function(j){
+        var n=navOf(j);
+        var b=document.createElement('button');
+        b.type='button';
+        b.className='qcell '+(n.chosen!==null?'answered':'blank')+(n.flagged?' flagged':'');
+        b.textContent=j+1;
+        b.onclick=function(){ closeHwReview(); idx=j; render(); };
+        grid.appendChild(b);
+      })(k);
+    }
+    panel.classList.remove('hidden');
+  }
+
+  function closeHwReview(){
+    var p=document.getElementById('hwReview');
+    if(p) p.classList.add('hidden');
+    qStart=Date.now();
+  }
+
+  // The only place a timed set's answers are graded and written to the ledger.
+  // Deferred to here on purpose: under a clock he can still change his mind, and
+  // an answer that was revised must count once, as revised.
+  function submitHwSet(){
+    closeHwReview();
+    bankQ();
+    for(var i=0;i<set.length;i++){
+      var n=navOf(i), q=set[i];
+      if(n.graded) continue;
+      n.graded=true;
+      if(n.chosen===null) continue;      // a blank is not a wrong answer
+      var okk=n.chosen===q.answer;
+      var r=records[i];
+      if(r){ r.ok=okk; r.chosen=n.chosen; r.secs=n.secs; }
+      if(typeof recordAnswer==='function')
+        recordAnswer(q.id, okk, 'practice', { skill:q.skill, review: !!_isReviewQ[q.id] });
+      if(typeof recordTrapOutcome==='function') recordTrapOutcome(q.skill, q.trapName, okk);
+    }
+    saveRecs();
+    finish(false);
   }
 
   // Running out of time must not cost her the set. Whatever she answered is kept,
   // the rest are marked not-reached, and she still lands on the review screen.
   function finish(expired){
+    // The clock can run out mid-set on a timed run, before anything has been
+    // graded. Grade and record whatever is there, then carry on.
+    if(navMode()==='exam' && !isRedo){
+      for(var g=0;g<set.length;g++){
+        var gn=navOf(g);
+        if(gn.graded || gn.chosen===null) continue;
+        gn.graded=true;
+        var gq=set[g], gok=gn.chosen===gq.answer, gr=records[g];
+        if(gr){ gr.ok=gok; gr.chosen=gn.chosen; gr.secs=gn.secs; }
+        if(typeof recordAnswer==='function')
+          recordAnswer(gq.id, gok, 'practice', { skill:gq.skill, review: !!_isReviewQ[gq.id] });
+        if(typeof recordTrapOutcome==='function') recordTrapOutcome(gq.skill, gq.trapName, gok);
+      }
+      saveRecs();
+    }
+    var _hp=document.getElementById('hwReview'); if(_hp) _hp.classList.add('hidden');
+    return _finishInner(expired);
+  }
+
+  function _finishInner(expired){
     if(hwTimer) { clearInterval(hwTimer); hwTimer=null; }
     if(readTimer) { clearInterval(readTimer); readTimer=null; }
     if(!isRedo){
@@ -567,6 +848,12 @@
       isRedo=true;
       set=toRedo.map(function(r){ return byId(r.id); }).filter(Boolean);
       idx=0; answered=false;
+      // A redo is a DIFFERENT, shorter set, so the per-question navigation state
+      // has to start over. Carrying it across meant question 1 of the redo
+      // inherited "prediction already made" from question 1 of the original —
+      // which skipped the predict step, the one part of a redo that matters.
+      resetNav(set.length);
+      qStart=null; revealTs=null; prediction='';
       f.classList.add('hidden'); f.innerHTML=''; run.classList.remove('hidden');
       render(); window.scrollTo(0,0);
     };
@@ -705,6 +992,18 @@
       }
     }catch(e){}
   }
+  (function(){
+    var rb=document.getElementById('hwRevBack'), rs=document.getElementById('hwRevSubmit');
+    if(rb) rb.onclick=function(){ closeHwReview(); };
+    if(rs) rs.onclick=function(){
+      var blank=0;
+      for(var i=0;i<set.length;i++) if(navOf(i).chosen===null) blank++;
+      if(blank && !confirm(blank+' question'+(blank>1?'s are':' is')+' still blank. '
+        +'They score nothing, and nothing is deducted for a wrong guess. Submit anyway?')) return;
+      submitHwSet();
+    };
+  })();
+
   render();
   if (spec.minutes > 0) {
     var remain = spec.minutes * 60, te = document.getElementById('timer'); te.style.display = 'inline-block';
