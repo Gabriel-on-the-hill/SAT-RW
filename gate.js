@@ -25,7 +25,12 @@
 //      to first names by convention so they read cleanly across the page.
 //      No other code change needed.
 //
-// The hashes here are for: "jeffrey", "bruce", "gabe", "segun".
+// The passwords are NOT listed here, and the line that used to list them has
+// been removed. This repo is public with Pages on, so a comment spelling out
+// every login is a published mapping — and AGENTS.md is explicit that the gate
+// names are the only personal names this repo may contain and that none of them
+// may be explained. The hashes below are the whole record; if you need to know
+// whether a password is already taken, hash it and look.
 // ─────────────────────────────────────────────────────────────────
 
 (function () {
@@ -37,22 +42,56 @@
         '17fc19d5d0ffa46dbe6a1c7c57e969aa6d5760544d96d5f2b0e96a1f66c7ea4b': 'Bruce',
         '72831924521887e6638e686d6d004cd6cefe48168d2d4e2c40d29115b9c611b9': 'Gabe',
         '87149c612bf9e736233e4e88c19a565d8356d45b7eb36d0d78785f59ac60fdf1': 'Segun',
+        '0b38f144b7790ef62e4d0e8a72958b1cbebb9bb9bf81f4aa1c2bbc05c323b496': 'Ayodeji',
     };
+
+    // Tutor-only. A random passphrase, NOT a first name: the hash is public, so
+    // the password's entropy is the only thing standing behind it, and a short
+    // guessable word is a trivial brute-force. To change it, hash the new one
+    // (recipe above) and replace this entry.
+    const TUTOR_HASHES = {
+        'd90f66ff3910800f3fc101e28f33997503c3bc09505201560045c33e00d43833': 'Tutor',
+    };
+
     const STORAGE_KEY  = 'mastery_unlocked';
     const USER_KEY     = 'mastery_user';
+    const ROLE_KEY     = 'mastery_role';
     const SESSION_FLAG = '1';
+
+    // What this page demands. Default 'student' keeps every existing page
+    // unchanged. A page that must not be opened by a student declares, BEFORE
+    // loading this file:
+    //     <script>window.GATE_REQUIRE = 'tutor';</script>
+    //     <script src="gate.js"></script>
+    //
+    // This exists because tutor-dashboard.html loaded the same gate as the app,
+    // so any student's own password opened a page showing EVERY student's
+    // accuracy, retention, weakest skills and tab-switch counts. That is an
+    // assessment of a student, and the house rule is that a student never reads
+    // one — about themselves or anyone else.
+    const REQUIRE = (typeof window !== 'undefined' && window.GATE_REQUIRE) || 'student';
+    // A tutor can open the student pages; a student cannot open a tutor page.
+    const TABLE = (REQUIRE === 'tutor')
+        ? TUTOR_HASHES
+        : Object.assign({}, ACCEPTED_HASHES, TUTOR_HASHES);
 
     // Expose a global lock function so the hub can offer a "Lock" button.
     // Defined unconditionally so it works whether or not the gate fired.
     window.lockMastery = function () {
         sessionStorage.removeItem(STORAGE_KEY);
         sessionStorage.removeItem(USER_KEY);
+        sessionStorage.removeItem(ROLE_KEY);
         location.reload();
     };
 
-    // Already unlocked? Render normally.
+    // Already unlocked? Render normally — but an unlock is not a blank cheque.
+    // The session flag alone said "somebody typed a valid password", which let a
+    // student who had unlocked the app walk straight into a tutor page. On a
+    // tutor page the ROLE must match; anything else re-prompts.
     try {
-        if (sessionStorage.getItem(STORAGE_KEY) === SESSION_FLAG) return;
+        if (sessionStorage.getItem(STORAGE_KEY) === SESSION_FLAG) {
+            if (REQUIRE !== 'tutor' || sessionStorage.getItem(ROLE_KEY) === 'tutor') return;
+        }
     } catch (e) { /* sessionStorage unavailable — fall through to gate */ }
 
     // Inject a stylesheet that hides the page until either the overlay is
@@ -158,10 +197,13 @@
                 btn.disabled = false;
                 return;
             }
-            if (ACCEPTED_HASHES[hash]) {
+            // TABLE, not ACCEPTED_HASHES: on a tutor page it holds only the
+            // tutor passphrase, so a student password does not open it.
+            if (TABLE[hash]) {
                 try {
                     sessionStorage.setItem(STORAGE_KEY, SESSION_FLAG);
-                    sessionStorage.setItem(USER_KEY, ACCEPTED_HASHES[hash]);
+                    sessionStorage.setItem(USER_KEY, TABLE[hash]);
+                    sessionStorage.setItem(ROLE_KEY, TUTOR_HASHES[hash] ? 'tutor' : 'student');
                 } catch (e) {}
                 overlay.remove();
             } else {

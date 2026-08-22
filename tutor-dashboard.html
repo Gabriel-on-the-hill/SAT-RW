@@ -6,7 +6,16 @@
 <title>SAT Mastery — Tutor Dashboard</title>
 <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
 <script src="ns-migrate.js?v=20260717"></script>
-<script src="gate.js?v=20260703"></script>
+<!-- TUTOR ONLY, and this line is the whole mechanism.
+     This page lists every student's accuracy, retention, weakest skills and
+     tab-switch counts. That is an assessment, and the house rule is that a
+     student never reads one — about themselves or anyone else. Until this
+     declaration existed the page loaded the same gate as the app, so
+     `mastery_unlocked` just meant "somebody typed a valid password" and any
+     student who had opened the app walked straight in.
+     It MUST come before gate.js: the gate reads window.GATE_REQUIRE at load. -->
+<script>window.GATE_REQUIRE = 'tutor';</script>
+<script src="gate.js?v=20260822"></script>
 <style>
   :root{
     --bg:#f1f5f9; --surface:#fff; --surface2:#f8fafc; --border:#e2e8f0;
