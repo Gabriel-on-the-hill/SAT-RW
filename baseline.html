@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Baseline Screener — SAT R&W</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#f1f5f9;--surface:#fff;--surface2:#f8fafc;--border:#e2e8f0;
+    --text:#1a2233;--muted:#5b6678;--accent:#2563eb;--accent-soft:#eaf1fe;
+    --good:#15803d;--good-soft:#eef8f0;--bad:#b91c1c;--bad-soft:#fdeced;
+    --warn:#b45309;--warn-soft:#fef6e7;--radius:14px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+  .wrap{max-width:680px;margin:0 auto;padding:1.3rem 1.15rem 4rem}
+  h1{font-size:1.55rem;font-weight:800;margin-bottom:.4rem}
+  h2{font-size:1.05rem;font-weight:800;margin:0 0 .5rem}
+  .lede{color:var(--muted);margin-bottom:1.3rem}
+  .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.15rem 1.2rem;margin-bottom:1rem;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .btn{border:none;background:var(--accent);color:#fff;border-radius:10px;padding:.7rem 1.3rem;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block}
+  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+  .qcount{font-weight:700;color:var(--muted);font-size:.9rem}
+  .timer{font-weight:800;font-variant-numeric:tabular-nums;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.35rem .7rem}
+  .timer.low{color:var(--bad);border-color:#f3c0c0}
+  .prog{height:4px;background:var(--surface2);border-radius:99px;overflow:hidden;margin-bottom:1rem}
+  .prog>i{display:block;height:100%;background:var(--accent);transition:width .2s}
+  .passage{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.2rem;margin-bottom:.9rem;white-space:pre-line}
+  .passage img{max-width:100%;height:auto;border-radius:8px}
+  .qtext{font-weight:700;margin-bottom:.8rem}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--border);background:var(--surface);
+    border-radius:10px;padding:.7rem .85rem;margin-bottom:.55rem;cursor:pointer;font-family:inherit;font-size:.95rem}
+  .opt:hover{border-color:var(--accent)}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+  .nav{display:flex;justify-content:space-between;gap:.6rem;margin-top:.4rem}
+  .big{font-size:2.1rem;font-weight:800;line-height:1.2}
+  .sub{color:var(--muted)}
+  .band{display:inline-block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;
+    padding:.16rem .5rem;border-radius:99px;white-space:nowrap}
+  .b-Secure{background:var(--good-soft);color:var(--good)}
+  .b-Proficient{background:#eef4ff;color:#1e40af}
+  .b-Developing{background:var(--warn-soft);color:var(--warn)}
+  .b-Priority{background:var(--bad-soft);color:var(--bad)}
+  .b-Foundational{background:#f3e8ff;color:#6b21a8}
+  .b-none{background:var(--surface2);color:var(--muted)}
+  table.diag{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:.4rem}
+  table.diag th,table.diag td{text-align:left;padding:.5rem .5rem;border-bottom:1px solid var(--border);vertical-align:top}
+  table.diag th{font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;min-width:70px}
+  .bar>i{display:block;height:100%;background:var(--accent)}
+  .focus{background:var(--accent-soft);border:1px solid #cfe0fb;border-radius:10px;padding:.75rem .9rem;margin:.55rem 0}
+  .focus a{color:var(--accent);font-weight:700}
+  .flagnote{font-size:.85rem;color:var(--warn);margin-top:.2rem}
+  .rev{border-top:1px solid var(--border);padding:.7rem 0;font-size:.92rem}
+  .rev .tag{font-weight:700}.rev .ok{color:var(--good)}.rev .no{color:var(--bad)}
+  .warnbox{background:var(--warn-soft);border:1px solid #f0d9a8;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;margin-top:.6rem}
+  .hidden{display:none}
+  details.exp{margin-top:.35rem}
+  details.exp summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:.88rem}
+</style>
+
+<!-- SCRIPT ORDER IS LOAD-BEARING. Three rules, in this order:
+
+     1. ns-migrate.js FIRST, before everything, on every page in this app. Every
+        key here used to carry a legacy prefix and the migration copies them
+        forward at load time. Run it second and progress.js and baseline-store.js
+        have already read an empty store: no error, the student is simply
+        greeted as brand new with no history. The sister app's baseline has no
+        such line because it has no legacy namespace — do not take its script
+        block as the model for this one.
+
+     2. gate.js second. Without it this page is open to anyone with the URL and,
+        worse, sessionStorage's `mastery_user` is never set — so the screener is
+        sat as "guest", the record files under satrw_baseline_guest and the row
+        posted to the tutor sheet is attributed to nobody. A baseline nobody can
+        attribute to a student is not a baseline. (baseline-recover.html exists
+        to rescue exactly that case in the sister app.)
+
+     3. anti-cheat.js before the bank, so the focus log is running from the
+        moment the page is live rather than from whenever the student presses
+        Start. Practice sessions record tab-switches; the one sitting whose
+        integrity matters most was posting a blank there.                    -->
+<script src="ns-migrate.js?v=20260717"></script>
+<script src="gate.js?v=20260703"></script>
+<script src="anti-cheat.js?v=20260716"></script>
+<script src="data-craft-structure.js?v=20260703"></script>
+<script src="data-expression-of-ideas.js?v=20260703"></script>
+<script src="data-info-ideas.js?v=20260712"></script>
+<script src="data-conventions.js?v=20260703"></script>
+<script src="progress.js?v=20260722"></script>
+<script src="sheet-sync.js?v=20260716"></script>
+<script src="baseline-spec.js?v=20260822"></script>
+<script src="baseline-grade.js?v=20260822"></script>
+<script src="baseline-store.js?v=20260822"></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="intro">
+    <h1>Baseline Screener</h1>
+    <p class="lede">A check that covers every Reading &amp; Writing skill, so we know exactly what to work on first.</p>
+    <div class="panel">
+      <p><b>22 questions &middot; 26 minutes.</b></p>
+      <p style="margin-top:.5rem;color:var(--muted)">Two questions on each of the eleven skills, all at the test's middle difficulty, at the real section's pace. You won't see whether an answer was right until the end — that's normal for a check like this, and it keeps the reading honest.</p>
+      <p style="margin-top:.5rem;color:var(--muted)">Afterwards there's a short optional follow-up that pins down how far your strongest skills go, and whether the weak ones need re-teaching or just practice.</p>
+      <p id="formNote" class="sub" style="margin-top:.6rem;font-size:.88rem"></p>
+      <div id="resumeBox" class="hidden warnbox"></div>
+    </div>
+    <button class="btn" id="startBtn" onclick="startTest()">Start</button>
+    <a class="btn sec" href="index.html">Back</a>
+  </div>
+
+  <div id="test" class="hidden">
+    <div class="topbar">
+      <span class="qcount" id="qcount"></span>
+      <span class="timer" id="timer"></span>
+    </div>
+    <div class="prog"><i id="progbar" style="width:0%"></i></div>
+    <div id="qbody"></div>
+    <div class="nav">
+      <button class="btn sec" id="backBtn" onclick="go(-1)">Back</button>
+      <button class="btn" id="nextBtn" onclick="go(1)">Next</button>
+    </div>
+  </div>
+
+  <div id="results" class="hidden"></div>
+</div>
+
+<script>
+// ── assemble the bank ─────────────────────────────────────────────
+// `const questionBank_*` in data-*.js is a global LEXICAL binding: a classic
+// script can see it, but it is not a property of window. Concatenate here the
+// way every other page does.
+const questionBank = [].concat(
+  typeof questionBank_CS  !== 'undefined' ? questionBank_CS  : [],
+  typeof questionBank_EOI !== 'undefined' ? questionBank_EOI : [],
+  typeof questionBank_II  !== 'undefined' ? questionBank_II  : [],
+  typeof questionBank_CON !== 'undefined' ? questionBank_CON : []
+);
+
+let FORM     = nextBaselineForm();
+let Q        = [];
+let stage    = 1;
+let idx      = 0;
+let answers  = [];
+let times    = [];        // seconds spent per item
+let shownAt  = 0;
+let remaining = BASELINE_SECONDS;
+let timer    = null;
+let screenerItems = [];   // stage-1 results, kept for the amend step
+let profile  = null;
+
+(function init(){
+  const built = buildBaselineForm(questionBank, FORM);
+  Q = spreadBaseline(built.questions);
+  answers = new Array(Q.length).fill(null);
+  times   = new Array(Q.length).fill(0);
+
+  const prior = getBaselines().length;
+  const fresh = baselineFormIsFresh();
+  document.getElementById('formNote').textContent =
+    prior === 0
+      ? 'Form ' + FORM + ' · your first sitting'
+      : 'Form ' + FORM + ' · sitting ' + (prior + 1) + (fresh
+          ? ' — different questions from last time'
+          : ' — you have seen these questions before, so treat the score as a rough check');
+
+  // Offer to pick up an unfinished sitting. See saveBaselineDraft(): losing 26
+  // minutes to a closed tab is the difference between a student who retakes it
+  // and a student who does not.
+  const d = getBaselineDraft();
+  if (d && d.form === FORM && Array.isArray(d.answers) && d.answers.some(a => a !== null)) {
+    const n = d.answers.filter(a => a !== null).length;
+    const box = document.getElementById('resumeBox');
+    box.innerHTML = '<b>You have an unfinished sitting.</b> ' + n + ' of ' + Q.length
+      + ' answered, with ' + Math.max(0, Math.round((d.remaining||0)/60)) + ' minutes left. '
+      + '<div style="margin-top:.5rem"><button class="btn" onclick="resumeTest()">Pick up where I left off</button> '
+      + '<button class="btn sec" onclick="discardDraft()">Start again</button></div>';
+    box.classList.remove('hidden');
+    document.getElementById('startBtn').classList.add('hidden');
+  }
+})();
+
+function discardDraft(){
+  clearBaselineDraft();
+  document.getElementById('resumeBox').classList.add('hidden');
+  document.getElementById('startBtn').classList.remove('hidden');
+}
+
+function resumeTest(){
+  const d = getBaselineDraft();
+  if (!d) return discardDraft();
+  answers   = d.answers.slice();
+  times     = (d.times || []).slice();
+  while (times.length < Q.length) times.push(0);
+  remaining = d.remaining || BASELINE_SECONDS;
+  idx       = Math.min(Q.length - 1, d.idx || 0);
+  beginClock();
+}
+
+function startTest(){
+  clearBaselineDraft();
+  if (typeof resetFocusLog === 'function') resetFocusLog();
+  beginClock();
+}
+
+function beginClock(){
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('test').classList.remove('hidden');
+  paintTimer();
+  timer = setInterval(tick, 1000);
+  shownAt = Date.now();
+  render();
+}
+
+function paintTimer(){
+  const m = Math.floor(remaining/60), s = remaining%60;
+  const el = document.getElementById('timer');
+  el.textContent = m + ':' + String(s).padStart(2,'0');
+  if (remaining <= 120) el.classList.add('low'); else el.classList.remove('low');
+}
+
+function tick(){
+  remaining--;
+  paintTimer();
+  // Persist every ten seconds rather than every keystroke: enough to bound the
+  // loss to a few questions, cheap enough not to thrash localStorage.
+  if (remaining % 10 === 0) persistDraft();
+  if (remaining <= 0){ clearInterval(timer); finishScreener(); }
+}
+
+function persistDraft(){
+  if (stage !== 1) return;              // the follow-up is short; not worth a draft
+  saveBaselineDraft({ form: FORM, idx, answers, times, remaining });
+}
+
+// Bank the time on the item being LEFT, not the one being entered. Revisits
+// accumulate, so a student who comes back to question 4 has both visits counted
+// — otherwise the timing overlay would read a long deliberation as a snap guess
+// and flag a considered answer as rushed.
+function bankTime(){
+  if (!shownAt) return;
+  times[idx] += Math.round((Date.now() - shownAt) / 1000);
+  shownAt = Date.now();
+}
+
+function render(){
+  const q = Q[idx];
+  document.getElementById('qcount').textContent = 'Question ' + (idx+1) + ' of ' + Q.length;
+  document.getElementById('progbar').style.width = ((idx)/Q.length*100) + '%';
+  const media = q.image
+    ? '<div class="passage"><img src="'+q.image+'" alt="'+String(q.alt||'Question figure').replace(/"/g,'&quot;')+'"></div>'
+    : (q.passage ? '<div class="passage">'+esc(q.passage)+'</div>' : '');
+  const opts = q.options.map(o => {
+    const letter = o.trim()[0];
+    const sel = answers[idx] === letter ? ' sel' : '';
+    return '<button class="opt'+sel+'" onclick="choose(\''+letter+'\')">'+esc(o)+'</button>';
+  }).join('');
+  document.getElementById('qbody').innerHTML = media + '<div class="qtext">'+esc(q.question)+'</div>' + opts;
+  document.getElementById('backBtn').style.visibility = idx === 0 ? 'hidden' : 'visible';
+  document.getElementById('nextBtn').textContent = idx === Q.length-1
+    ? (stage === 1 ? 'Finish' : 'See results') : 'Next';
+}
+
+function choose(l){ answers[idx] = l; persistDraft(); render(); }
+
+function go(d){
+  bankTime();
+  if (d > 0 && idx === Q.length-1){
+    const unanswered = answers.filter(a => a === null).length;
+    const msg = unanswered
+      ? unanswered + ' question' + (unanswered>1?'s are':' is') + ' still blank. Finish anyway?'
+      : 'Finish?';
+    if (!confirm(msg)) return;
+    return stage === 1 ? finishScreener() : finishProbes();
+  }
+  idx = Math.max(0, Math.min(Q.length-1, idx + d));
+  persistDraft();
+  render();
+}
+
+function esc(s){
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// STAGE 1 — screener
+// ══════════════════════════════════════════════════════════════════
+function finishScreener(){
+  clearInterval(timer);
+  bankTime();
+  clearBaselineDraft();
+
+  screenerItems = Q.map((q,k) => ({
+    id: q.id, skill: q.skill, difficulty: q.difficulty, stage: 1,
+    chosen: answers[k], correct: answers[k] === q.answer, seconds: times[k],
+  }));
+
+  profile = buildBaselineProfile(screenerItems);
+  const projection = projectBaseline(screenerItems);
+
+  // Write the record NOW. The follow-up is optional and the student may close
+  // the tab; the screener result must not depend on a stage that may not happen.
+  // The plan goes INTO the record as well as into its own key — a plan that
+  // lives only in the key reaches nobody.
+  const queue = baselineFocusQueue(profile, null, questionBank);
+  saveBaseline({
+    takenAt: Date.now(), form: FORM, stage: 'screener',
+    durationSec: BASELINE_SECONDS - remaining,
+    correct: screenerItems.filter(i => i.correct).length,
+    total: screenerItems.length,
+    blurCount: (typeof getBlurCount === 'function') ? getBlurCount() : '',
+    projection, skills: _slimSkills(profile), items: screenerItems,
+    focus: slimFocusQueue(queue),
+  });
+  saveFocusQueue(queue);
+
+  // ── the baseline does NOT write to the mastery ledger ─────────────
+  // Tagging the writes 'baseline' looks careful and does nothing. A ledger row
+  // makes a question SEEN; a miss puts it on rung zero of the review ladder —
+  // due again in one day — and dueForReview() draws from the whole bank
+  // filtered on nothing but "seen and overdue". A baseline is DESIGNED to miss
+  // across all eleven skills, so writing it would seed the next morning's
+  // homework with review questions from skills nobody has taught:
+  //
+  //   "It never serves an unseen question — a 'review' block that hands a
+  //    student an untaught skill cold is not review."   — AGENTS.md
+  //
+  // Nothing is lost by not writing. The record above already holds every item
+  // with the chosen letter, the correct letter and the elapsed seconds, which
+  // is strictly more than the ledger kept. The record is the right home for
+  // baseline data; the ledger is for questions that have been taught.
+
+  // Report now, not after the optional follow-up. The follow-up may never
+  // happen, and a tutor should not have to wait on a stage the student can
+  // decline in order to see that the screener was sat at all.
+  reportBaseline();
+
+  renderResults(projection, /*probesPending*/ true);
+}
+
+// ── report to the tutor sheet ─────────────────────────────────────
+// Fire-and-forget, exactly like practice and homework: a sync that fails must
+// never cost the student their result, which is already saved by this point.
+function reportBaseline(){
+  if (typeof syncSessionToSheet !== 'function') return;
+  // Report from the record that was just SAVED, not from live page state, so a
+  // row recovered from this browser months later is identical to the one that
+  // goes up now. baseline-recover.html uses the same builder.
+  const rec = latestBaseline();
+  if (!rec) return;
+  let student = '';
+  try { student = sessionStorage.getItem('mastery_user') || ''; } catch (e) {}
+  try {
+    const payload = baselineSheetPayload(rec, student);
+    if (payload) syncSessionToSheet(payload);
+  } catch (e) { console.warn('[baseline] sheet report failed (silent):', e); }
+}
+
+function _slimSkills(p){
+  const out = {};
+  Object.values(p).forEach(s => {
+    out[s.skill] = {
+      band: s.band, confidence: s.confidence,
+      screenCorrect: s.screenCorrect, screenTotal: s.screenTotal,
+      probeTier: s.probeTier, probeCorrect: s.probeCorrect,
+      routedProbe: s.routedProbe, flags: s.flags, note: s.note || null,
+    };
+  });
+  return out;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// STAGE 2 — probes
+// ══════════════════════════════════════════════════════════════════
+let probeSet = [];
+
+function startProbes(){
+  const used = screenerItems.map(i => i.id);
+  const built = buildProbeSet(questionBank, profile, used, FORM);
+  probeSet = built.probes;
+  if (!probeSet.length){ alert('No follow-up needed — every skill already has a clear reading.'); return; }
+  if (built.gaps.length) console.warn('baseline: unfillable probe slots', built.gaps);
+
+  Q = probeSet;
+  stage = 2;
+  idx = 0;
+  answers = new Array(Q.length).fill(null);
+  times   = new Array(Q.length).fill(0);
+  remaining = Q.length * 90;                 // ~90 s per probe; they are off-level
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('test').classList.remove('hidden');
+  paintTimer();
+  timer = setInterval(tick, 1000);
+  shownAt = Date.now();
+  render();
+  window.scrollTo(0,0);
+}
+
+function finishProbes(){
+  clearInterval(timer);
+  bankTime();
+
+  const probeItems = Q.map((q,k) => ({
+    id: q.id, skill: q.skill, difficulty: q.difficulty, stage: 2,
+    probeTier: q.probeTier, chosen: answers[k],
+    correct: answers[k] === q.answer, seconds: times[k],
+  }));
+
+  const all = screenerItems.concat(probeItems);
+  profile = buildBaselineProfile(all);
+  const projection = projectBaseline(all);   // still stage-1 only, by design
+
+  const queue2 = baselineFocusQueue(profile, null, questionBank);
+  amendLatestBaseline({
+    stage: 'complete', skills: _slimSkills(profile),
+    items: all, projection, focus: slimFocusQueue(queue2),
+    blurCount: (typeof getBlurCount === 'function') ? getBlurCount() : '',
+  });
+  saveFocusQueue(queue2);
+
+  // No ledger write here either — see finishScreener(). Probes are the worst
+  // candidates of all: a Hard ceiling probe on an untaught skill is precisely
+  // the cold-review the rule forbids.
+
+  // A second row, with the bands now resolved rather than provisional. Sent as
+  // its own row rather than an edit: the sheet is an append-only log, and the
+  // screener row is what the tutor may already have acted on.
+  reportBaseline();
+
+  Q = all.map(i => questionBank.find(q => q.id === i.id) || i);
+  renderResults(projection, /*probesPending*/ false, all);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// RESULTS
+// ══════════════════════════════════════════════════════════════════
+const GUIDE = {
+  'Words in Context':'vocab.html','Text Structure and Purpose':'cs.html','Cross-Text Connections':'cs.html',
+  'Rhetorical Synthesis':'rs.html','Transitions':'transitions.html',
+  'Central Ideas and Details':'ii.html','Command of Evidence — Textual':'ii.html',
+  'Command of Evidence — Quantitative':'ii.html','Inferences':'ii.html',
+  'Boundaries':'sec.html','Form, Structure, and Sense':'sec.html'
+};
+const BAND_ORDER = ['Secure','Proficient','Developing','Priority','Foundational'];
+
+function renderResults(projection, probesPending, allItems){
+  const rows = Object.values(profile);
+  let h = '<h1>Your baseline</h1>';
+
+  // ── projection ──
+  h += '<div class="panel" style="text-align:center">';
+  h += '<div class="big">' + projection.low + '–' + projection.high + '</div>';
+  h += '<div class="sub">estimated R&amp;W section score (200–800)</div>';
+  h += '<p class="sub" style="font-size:.83rem;margin-top:.5rem">' + esc(projection.caveat) + '</p>';
+  h += '</div>';
+
+  // ── the plan ──
+  const queue = baselineFocusQueue(profile, 4, questionBank);
+  h += '<div class="panel"><h2>Start here</h2>';
+  if (!queue.length){
+    h += '<p class="sub">Nothing is sitting in the priority range. Move to timed practice and a full mock.</p>';
+  } else {
+    h += '<p class="sub" style="margin-bottom:.4rem">Ordered by how much each is worth on the real test, not just by score.</p>';
+    queue.forEach((w,i) => {
+      h += '<div class="focus"><b>' + (i+1) + '. ' + esc(w.skill) + '</b> '
+        +  '<span class="band b-' + w.band + '">' + w.band + '</span><br>'
+        +  '<span class="sub">' + esc(BASELINE_BANDS[w.band].action) + '</span><br>'
+        +  '<a href="' + GUIDE[w.skill] + '">Open the guide &rarr;</a></div>';
+    });
+  }
+  h += '</div>';
+
+  // ── follow-up offer ──
+  if (probesPending){
+    const nProbe = rows.filter(r => r.routedProbe).length;
+    if (nProbe){
+      const nCeil = rows.filter(r => r.routedProbe === 'Hard').length;
+      const nFloor = rows.filter(r => r.routedProbe === 'Easy').length;
+      h += '<div class="panel" style="border-color:#cfe0fb;background:var(--accent-soft)">';
+      h += '<h2>Optional follow-up · ' + nProbe + ' question' + (nProbe>1?'s':'') + ' · about ' + Math.ceil(nProbe*90/60) + ' minutes</h2>';
+      h += '<p class="sub">' + nProbe + ' skill' + (nProbe>1?'s':'') + ' still ' + (nProbe>1?'have':'has') + ' an open question. ';
+      if (nCeil) h += nCeil + ' need a harder question to find the ceiling. ';
+      if (nFloor) h += nFloor + ' need an easier one to tell "needs re-teaching" from "needs practice". ';
+      h += 'Your results are already saved — you can do this now or later.</p>';
+      h += '<div style="margin-top:.7rem"><button class="btn" onclick="startProbes()">Continue</button> '
+        +  '<a class="btn sec" href="index.html">Stop here</a></div>';
+      h += '</div>';
+    }
+  }
+
+  // ── every skill ──
+  h += '<div class="panel"><h2>Every skill</h2>';
+  h += '<table class="diag"><tr><th>Skill</th><th>Screener</th><th>Level</th></tr>';
+  rows.slice().sort((a,b) =>
+      BAND_ORDER.indexOf(a.band || 'zzz') - BAND_ORDER.indexOf(b.band || 'zzz')
+      || String(a.skill).localeCompare(String(b.skill))
+    ).forEach(s => {
+    const cls = s.band ? 'b-' + s.band : 'b-none';
+    const lbl = s.band || 'not measured';
+    h += '<tr><td>' + esc(s.skill)
+      + (s.note ? '<div class="flagnote">' + esc(s.note) + '</div>' : '')
+      + '</td><td>' + s.screenCorrect + '/' + s.screenTotal
+      + (s.probeTier ? '<div class="sub" style="font-size:.8rem">' + s.probeTier + ' probe: '
+          + (s.probeCorrect ? 'passed' : 'missed') + '</div>' : '')
+      + '</td><td><span class="band ' + cls + '">' + lbl + '</span>'
+      + (s.confidence === 'provisional' ? '<div class="sub" style="font-size:.78rem">provisional</div>' : '')
+      + '</td></tr>';
+  });
+  h += '</table>';
+  h += '<p class="sub" style="font-size:.82rem;margin-top:.6rem">'
+    +  '<b>Secure</b> handles the hardest level &middot; <b>Proficient</b> solid at test level &middot; '
+    +  '<b>Developing</b> inconsistent &middot; <b>Priority</b> knows the idea, not the method &middot; '
+    +  '<b>Foundational</b> needs teaching before practice.</p>';
+  h += '<p class="sub" style="font-size:.82rem;margin-top:.4rem">Two questions per skill is enough to '
+    +  'sort them into levels, not to settle one. Treat this as where to start, not as a verdict.</p>';
+  h += '</div>';
+
+  // ── by domain ──
+  h += '<div class="panel"><h2>By domain</h2><table class="diag"><tr><th>Domain</th><th>Score</th><th></th></tr>';
+  Object.entries(projection.domains).forEach(([d,v]) => {
+    const r = Math.round(v.c/v.t*100);
+    h += '<tr><td>' + esc(d) + '</td><td>' + v.c + '/' + v.t + '</td>'
+      +  '<td><div class="bar"><i style="width:' + r + '%"></i></div></td></tr>';
+  });
+  h += '</table></div>';
+
+  // ── growth ──
+  const delta = baselineDelta();
+  if (delta){
+    h += '<div class="panel"><h2>Since your first baseline</h2>';
+    const moved = Object.entries(delta.skills).filter(([,v]) => v.moved !== 0);
+    if (!moved.length){
+      h += '<p class="sub">No skill has changed level yet.</p>';
+    } else {
+      moved.sort((a,b) => b[1].moved - a[1].moved).forEach(([s,v]) => {
+        h += '<div class="rev"><b>' + esc(s) + '</b> — '
+          +  '<span class="band b-' + v.was + '">' + v.was + '</span> &rarr; '
+          +  '<span class="band b-' + v.now + '">' + v.now + '</span></div>';
+      });
+    }
+    if (delta.projection && !delta.projection.meaningful){
+      h += '<p class="sub" style="font-size:.83rem;margin-top:.6rem">Score ranges overlap, so the change is within the margin of this check — not yet real movement.</p>';
+    }
+    h += '</div>';
+  }
+
+  // ── review ──
+  // The whole question comes back, not just the letters.
+  //
+  // The sister app's panel printed the skill, "Your answer: B · Correct: C" and
+  // a rationale — with the stem, the passage and the four options nowhere on
+  // the page. There is nothing to work through in that: the letters name
+  // options the student can no longer see, and the rationale discusses a text
+  // that is gone. AGENTS.md is explicit — "Every question survives the set:
+  // passage, her answer, the right answer, the explanation — re-readable" — and
+  // the baseline is the sitting most likely to be reviewed with a tutor
+  // afterwards, so it was the one sitting you could not review.
+  //
+  // Misses first, as in the runner. Collapsed by default, because twenty-two to
+  // thirty expanded passages is a wall nobody scrolls.
+  const revItems = (allItems || screenerItems).slice().sort((a,b) =>
+    (a.correct === b.correct) ? 0 : (a.correct ? 1 : -1));
+  const nMiss = revItems.filter(i => !i.correct).length;
+  h += '<div class="panel"><h2>Review</h2>';
+  h += '<p class="sub" style="font-size:.86rem;margin-bottom:.3rem">'
+    +  (nMiss ? 'The ' + nMiss + ' to look at first are at the top. ' : '')
+    +  'Open any one to see the passage, the options and why.</p>';
+  revItems.forEach(i => {
+    const q = questionBank.find(x => x.id === i.id);
+    if (!q) return;
+
+    const media = q.image
+      ? '<div class="passage"><img src="' + q.image + '" alt="'
+        + String(q.alt || 'Question figure').replace(/"/g,'&quot;') + '"></div>'
+      : (q.passage ? '<div class="passage">' + esc(q.passage) + '</div>' : '');
+
+    // Options carry their own verdict, so the letters in the header mean
+    // something. The right one is marked even on a correct answer: confirming
+    // what you chose is part of reading it back.
+    const opts = (q.options || []).map(o => {
+      const letter = String(o).trim()[0];
+      const isRight = letter === q.answer;
+      const isMine  = letter === i.chosen;
+      const style = isRight
+        ? 'border-color:#bfe3c8;background:var(--good-soft)'
+        : (isMine ? 'border-color:#f3c0c0;background:var(--bad-soft)' : '');
+      const tag = isRight ? ' <b style="color:var(--good)">&larr; correct</b>'
+                : (isMine ? ' <b style="color:var(--bad)">&larr; you chose this</b>' : '');
+      return '<div class="opt" style="cursor:default;' + style + '">' + esc(o) + tag + '</div>';
+    }).join('');
+
+    h += '<div class="rev"><span class="tag ' + (i.correct?'ok':'no') + '">'
+      +  (i.correct ? 'Correct' : 'Review') + '</span> &middot; ' + esc(i.skill)
+      +  ' <span class="sub">· ' + i.difficulty + (i.stage===2 ? ' · follow-up' : '') + '</span>'
+      +  '<br><span class="sub">Your answer: ' + (i.chosen || 'left blank')
+      +  ' &middot; Correct: ' + q.answer + ' &middot; ' + i.seconds + 's</span>'
+      +  '<details class="exp"><summary>Show the question</summary>'
+      +  '<div style="margin-top:.5rem">' + media
+      +  '<div class="qtext">' + esc(q.question) + '</div>' + opts
+      +  '<div style="margin-top:.5rem;font-size:.9rem"><b>Why:</b> '
+      +  esc(q.explanation) + '</div></div></details></div>';
+  });
+  h += '</div>';
+
+  h += '<div class="nav"><a class="btn sec" href="index.html">Back to app</a>'
+    +  '<a class="btn" href="progress.html">See progress</a></div>';
+
+  document.getElementById('test').classList.add('hidden');
+  const r = document.getElementById('results');
+  r.innerHTML = h;
+  r.classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>

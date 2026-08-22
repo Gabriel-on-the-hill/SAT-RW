@@ -454,6 +454,146 @@ sec('7 · The tutor dashboard can actually read the sheet this script writes');
 }
 
 // ══════════════════════════════════════════════════════════════════
+// THE BASELINE HAS SOMEWHERE TO LAND
+//
+// This script builds every row key by key, so anything the client posts that
+// has no column here is dropped — silently, into a row that still looks fine.
+// The baseline screener posts a block the practice payload has no concept of,
+// and before these columns existed a tutor would have opened the sheet after a
+// baseline and found `Type: baseline · Score 14 · Max 22` with every finding
+// the sitting produced gone and nothing anywhere saying so.
+//
+// The client half of this is baseline-sync.test.js, which proves the page
+// POSTS the block. This is the half that proves the sheet KEEPS it. Neither
+// suite can see the other's failure.
+{
+    console.log('\n── the baseline reaches the sheet intact ' + '─'.repeat(24));
+
+    const BASELINE_POST = {
+        date: '2026-08-22T10:00:00.000Z',
+        student: 'Tester',
+        sessionId: 'bl_1',
+        type: 'baseline',
+        assignmentTitle: 'Baseline Screener · Form A',
+        score: 14, total: 22, pct: 64,
+        duration: 1320, avgSecs: 60, mode: 'screener',
+        skills: ['Inferences', 'Boundaries'],
+        diffs: ['Medium'],
+        skillStats: { Inferences: { correct: 0, total: 2 } },
+        blurCount: 1,
+        questions: [{ id: 'i1', skill: 'Inferences', difficulty: 'Medium',
+                      chosen: 'A', isCorrect: false, secs: 40 }],
+        baseline: {
+            form: 'A', sitting: 1, stage: 'screener', takenAt: 1750000000000,
+            projectionLow: 480, projectionHigh: 540, accuracy: 50, blanks: 0,
+            bands: {
+                Inferences: { band: 'Priority', confidence: 'provisional',
+                              screener: '0/2', probe: '', note: '' },
+                Boundaries: { band: 'Secure', confidence: 'probed',
+                              screener: '2/2', probe: 'Hard:passed', note: '' },
+            },
+            focus: [
+                { skill: 'Inferences',  band: 'Priority',   weight: 0.075, score: 0.15 },
+                { skill: 'Transitions', band: 'Developing', weight: 0.082, score: 0.082 },
+                { skill: 'Cross-Text Connections', band: 'Developing', weight: 0.065, score: 0.065 },
+                { skill: 'Never Shown', band: 'Developing', weight: 0.01, score: 0.01 },
+            ],
+        },
+    };
+
+    const c = makeCtx(RW);
+    c.__post(BASELINE_POST);
+    const row = c.__byName('Sessions', 1);
+    const headers = c.__rows('Sessions')[0];
+
+    ok('the schema has a home for the baseline block',
+        headers.indexOf('Baseline') >= 0, JSON.stringify(headers));
+
+    // ensureHeaders_ only appends to the right, so a sheet written by the Math
+    // script — or by this one before today — stays readable and keeps its data.
+    ok('the new columns are appended after the shared core, not inserted',
+        headers.indexOf('Baseline') > headers.indexOf('Session ID')
+        && headers.indexOf('Baseline Projection') > headers.indexOf('Session ID'));
+
+    eq('the row is typed as a baseline', row['Type'], 'baseline');
+
+    // A RANGE, never a point. A single number in a spreadsheet cell is how ±30
+    // of instrument noise gets read to a parent as progress.
+    eq('the projection is a range, with the sitting and form beside it',
+        row['Baseline Projection'], '480–540 (sitting 1, form A)');
+
+    // The bands say which skills are weak; the plan says which to teach first.
+    // Only the second is the output of the exercise.
+    eq('the ranked plan is readable without opening the JSON',
+        row['Baseline Plan'],
+        'Inferences (Priority) · Transitions (Developing) · Cross-Text Connections (Developing)');
+
+    {
+        const b = JSON.parse(row['Baseline'] || '{}');
+        eq('the form survives', b.form, 'A');
+        eq('the sitting number survives', b.sitting, 1);
+        ok('every band survives with its confidence',
+            b.bands && b.bands['Inferences'].band === 'Priority'
+                    && b.bands['Boundaries'].confidence === 'probed',
+            row['Baseline']);
+        ok('the whole plan survives, not just the three shown',
+            b.focus && b.focus.length === 4);
+        ok('the projection survives as two numbers',
+            b.projectionLow === 480 && b.projectionHigh === 540);
+    }
+
+    // Per-question detail has to join back like any other session, or the
+    // timing overlay — which is what separates "did not know" from "ran out of
+    // clock" — never reaches the tutor.
+    {
+        const q = c.__byName('Questions', 1);
+        eq('per-question rows join on Session ID', q['Session ID'], 'bl_1');
+        eq('and carry the timing', Number(q['Seconds']), 40);
+    }
+
+    // Blank is not zero. A practice session is not a baseline that found
+    // nothing, and a column full of "{}" would make every chart lie.
+    {
+        const c3 = makeCtx(RW);
+        c3.__post(FIX.rw_practice);
+        const r3 = c3.__byName('Sessions', 1);
+        eq('a practice row leaves Baseline blank', r3['Baseline'], '');
+        eq('...and Baseline Projection blank', r3['Baseline Projection'], '');
+        eq('...and Baseline Plan blank', r3['Baseline Plan'], '');
+    }
+
+    // A row backfilled from a device months later must not read as a sitting
+    // that happened today. baseline-recover.html is the only thing that sets
+    // this, and it is the flag that stops a recovered baseline being charted as
+    // recent progress.
+    {
+        const c4 = makeCtx(RW);
+        const back = JSON.parse(JSON.stringify(BASELINE_POST));
+        back.sessionId = 'bl_backfill';
+        back.recovered = true;
+        c4.__post(back);
+        const b = JSON.parse(c4.__byName('Sessions', 1)['Baseline'] || '{}');
+        eq('a backfilled row is marked recovered', b.recovered, true);
+    }
+
+    // A malformed or partial baseline must not take the whole POST down with
+    // it. The row is the student's record; the block is a bonus.
+    {
+        const c5 = makeCtx(RW);
+        const odd = JSON.parse(JSON.stringify(BASELINE_POST));
+        odd.sessionId = 'bl_odd';
+        odd.baseline = { form: 'A' };            // no projection, no focus, no bands
+        const res = c5.__post(odd);
+        ok('a partial baseline block still stores the row', res && res.ok !== false,
+            JSON.stringify(res));
+        const r5 = c5.__byName('Sessions', 1);
+        eq('...with the derived columns simply blank', r5['Baseline Projection'], '');
+        eq('...and the plan blank', r5['Baseline Plan'], '');
+        ok('...and the block itself kept verbatim', /"form":"A"/.test(r5['Baseline']));
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════
 console.log('\n' + '─'.repeat(64));
 console.log(fail === 0 ? `ALL ${pass} ASSERTIONS PASSED` : `${pass} passed, ${fail} FAILED:\n  - ` + fails.join('\n  - '));
 process.exit(fail === 0 ? 0 : 1);

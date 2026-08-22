@@ -2,6 +2,20 @@
 
 Paste the whole block below into the Apps Script editor bound to the **R&W** spreadsheet, then run `setup` once and redeploy the web app.
 
+**Do not keep a `.gs` copy in this repo.** There was one once; nothing deployed it and nothing tested it, so when `Prediction` / `On text` / `On options` were added they were added *there* instead of here, and the predictions the class reviews together went nowhere for months while the sheet looked fine. `apps-script.test.js` parses the ```javascript block below, so this file is the only thing under test. When you need a paste-able file:
+
+```
+node tutor-sheet/extract-script.js > /tmp/rw.gs      # or: … math
+```
+
+It prints the same block the test reads, and refuses if that block is missing, truncated, or does not parse.
+
+## v2.1 — the baseline needed somewhere to land
+
+`EXTRA_COLUMNS` gains `Baseline Projection`, `Baseline Plan` and `Baseline`. This script builds every row **key by key**, so anything the client posts with no column here is dropped silently into a row that still looks fine — which is how a tutor would have opened the sheet after a baseline screener and found `Type: baseline · Score 14 · Max 22` with every band, the projected range and the ranked plan gone, and nothing anywhere saying so. `Baseline` is a JSON catch-all on purpose, so the next thing the client learns to send is not lost waiting on a redeploy. Blank on every non-baseline row, and **blank is not zero**: it means the session was not a baseline, not that the baseline found nothing.
+
+Redeploy is required for this. `ensureHeaders_` adds the columns to the right of the existing schema on the next POST, so nothing is reordered and no existing row loses data.
+
 ## What changed, and why
 
 **It captures what the app was already sending and the sheet was throwing away.**
@@ -67,7 +81,28 @@ var SESSION_COLUMNS = [
 //
 // Blank is not zero. Blank means no review was due in that session, which is the
 // honest "we do not know yet" — do not fill it in with a 0.
-var EXTRA_COLUMNS = ['Skills', 'Difficulties', 'Retention'];   // R&W only
+//
+// The three Baseline columns exist because this script builds every row KEY BY
+// KEY from the list above. Anything the client posts that has no column here is
+// dropped — silently, into a row that still looks completely fine. The baseline
+// screener posts a whole block the practice payload has no concept of: a
+// per-skill band with its confidence, a projected score RANGE, which parallel
+// form was sat, which sitting it was, and the ranked plan derived from all of
+// it. Without somewhere to put it, a tutor opening the sheet after a baseline
+// sees `Type: baseline · Score 14 · Max 22` and nothing else — every finding
+// the sitting produced, gone, with no error anywhere to say so. That happened
+// in the sister app: its script has a catch-all column and ours did not, which
+// is the only reason its baseline reached a sheet at all.
+//
+// `Baseline` is that catch-all, and it is deliberately the whole JSON block:
+// the two readable columns beside it are for a human skimming the sheet, and
+// the JSON is so that the next thing the client learns to send is not lost
+// waiting on a redeploy.
+//
+// Blank on every non-baseline row, and blank is not zero — it means this
+// session was not a baseline, not that the baseline found nothing.
+var EXTRA_COLUMNS = ['Skills', 'Difficulties', 'Retention',
+                     'Baseline Projection', 'Baseline Plan', 'Baseline'];   // R&W only
 
 // The first 13 are the shared core, identical to the Math script and in the same
 // order, so a student's week reads across both subjects. R&W's three extras are
@@ -144,7 +179,15 @@ function normalise_(b) {
     'Breakdown':      b.skillStats ? JSON.stringify(b.skillStats) : '',
     'Retention':      b.retention  ? JSON.stringify(b.retention)  : '',
     'Skills':         Array.isArray(b.skills) ? b.skills.join(', ') : '',
-    'Difficulties':   Array.isArray(b.diffs) ? b.diffs.join(', ') : ''
+    'Difficulties':   Array.isArray(b.diffs) ? b.diffs.join(', ') : '',
+    'Baseline Projection': baselineRange_(b),
+    'Baseline Plan':       baselinePlan_(b),
+    // Everything the baseline sent, verbatim, plus whether the row was
+    // backfilled from a device long after the fact — a late arrival must not
+    // read as a sitting that happened today.
+    'Baseline': b.baseline
+      ? JSON.stringify(b.recovered ? mergeRecovered_(b.baseline) : b.baseline)
+      : ''
   };
 
   // sheet-sync.js sends: { id, skill, difficulty, chosen, correct, isCorrect, secs, trap }
@@ -157,6 +200,40 @@ function normalise_(b) {
     };
   });
   return row;
+}
+
+// ── baseline helpers ──────────────────────────────────────────────
+// Two columns a human can skim without opening the JSON.
+
+// "480–540 (sitting 1, form A)". A RANGE, never a point: a 22-item screener
+// cannot support a point estimate, and a single number in a spreadsheet cell
+// invites reading ±30 of instrument noise as progress.
+function baselineRange_(b) {
+  var x = b && b.baseline;
+  if (!x || x.projectionLow == null || x.projectionHigh == null) return '';
+  var tail = [];
+  if (x.sitting) tail.push('sitting ' + x.sitting);
+  if (x.form)    tail.push('form ' + x.form);
+  return x.projectionLow + '–' + x.projectionHigh
+       + (tail.length ? ' (' + tail.join(', ') + ')' : '');
+}
+
+// The ranked plan, top three, in order. This is the output of the exercise —
+// the bands say which skills are weak, the plan says which one to teach first —
+// and it is the part the sister app computed and then posted nowhere.
+function baselinePlan_(b) {
+  var x = b && b.baseline;
+  if (!x || !x.focus || !x.focus.length) return '';
+  return x.focus.slice(0, 3).map(function (f) {
+    return f.skill + (f.band ? ' (' + f.band + ')' : '');
+  }).join(' · ');
+}
+
+function mergeRecovered_(baseline) {
+  var out = {};
+  for (var k in baseline) if (baseline.hasOwnProperty(k)) out[k] = baseline[k];
+  out.recovered = true;
+  return out;
 }
 
 // ══════════════════════════════════════════════════════════════════

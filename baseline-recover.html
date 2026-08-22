@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Recover a Baseline — SAT R&W</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#f1f5f9;--surface:#fff;--surface2:#f8fafc;--border:#e2e8f0;
+    --text:#1a2233;--muted:#5b6678;--accent:#2563eb;--accent-soft:#eaf1fe;
+    --good:#15803d;--good-soft:#eef8f0;--bad:#b91c1c;--bad-soft:#fdeced;
+    --warn:#b45309;--warn-soft:#fef6e7;--radius:14px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+  .wrap{max-width:680px;margin:0 auto;padding:1.3rem 1.15rem 4rem}
+  h1{font-size:1.5rem;font-weight:800;margin-bottom:.35rem}
+  h2{font-size:1rem;font-weight:800;margin:0 0 .3rem}
+  .lede{color:var(--muted);margin-bottom:1.2rem}
+  .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:1.1rem 1.15rem;margin-bottom:1rem;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .btn{border:none;background:var(--accent);color:#fff;border-radius:10px;padding:.6rem 1.1rem;
+    font-weight:700;font-size:.92rem;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block}
+  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .sub{color:var(--muted);font-size:.9rem}
+  .row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
+  input[type=text]{border:1.5px solid var(--border);border-radius:9px;padding:.5rem .7rem;
+    font-family:inherit;font-size:.95rem;min-width:11rem}
+  input[type=text]:focus{outline:none;border-color:var(--accent)}
+  .warn{background:var(--warn-soft);border:1px solid #f0d9a8;border-radius:10px;padding:.75rem .9rem;
+    font-size:.9rem;margin-top:.6rem}
+  .okmsg{background:var(--good-soft);border:1px solid #bfe3c8;border-radius:10px;padding:.6rem .8rem;
+    font-size:.9rem;margin-top:.6rem;color:var(--good);font-weight:600}
+  .badge{display:inline-block;font-size:.68rem;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;padding:.14rem .45rem;border-radius:99px;background:var(--surface2);color:var(--muted)}
+  .b-guest{background:var(--warn-soft);color:var(--warn)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.5rem}
+  th,td{text-align:left;padding:.35rem .4rem;border-bottom:1px solid var(--border)}
+  th{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  code{background:var(--surface2);padding:.1rem .3rem;border-radius:5px;font-size:.85em}
+  .hidden{display:none}
+</style>
+<!-- ns-migrate.js first, for the same reason it is first on every page here:
+     the keys this page hunts for are namespaced, and the migration is what puts
+     a legacy record under the name this page looks it up by. Skip it and the
+     page truthfully reports "nothing found" about a record that is right there. -->
+<script src="ns-migrate.js?v=20260717"></script>
+<script src="gate.js?v=20260703"></script>
+<script src="sheet-sync.js?v=20260716"></script>
+<script src="baseline-spec.js?v=20260822"></script>
+<script src="baseline-grade.js?v=20260822"></script>
+<script src="baseline-store.js?v=20260822"></script>
+</head>
+<body>
+<div class="wrap">
+  <h1>Recover a Baseline</h1>
+  <p class="lede">A baseline is saved to this browser the moment it finishes, before anything is sent
+    anywhere. If a screener was sat while the sheet sync was down — or before the page was gated, so
+    it filed under &ldquo;guest&rdquo; — the result is still here. It just never went up. This finds
+    it and sends it.</p>
+
+  <div id="out"></div>
+
+  <div class="panel">
+    <h2>Nothing here?</h2>
+    <p class="sub">A baseline lives in the browser it was sat in. It will not appear if this is a
+      different browser or device, if private/incognito mode was used, or if site data has been
+      cleared. Try the same browser on the same machine, signed in as the same student.</p>
+  </div>
+
+  <div class="row">
+    <a class="btn sec" href="index.html">Back to app</a>
+  </div>
+</div>
+
+<script>
+// Every baseline key on this device, whoever it was filed under — including
+// 'guest', which is the record most likely to need recovering, and including
+// the draft key's siblings, which are skipped because a half-finished sitting
+// is not a result.
+function findAllBaselines(){
+  const out = [];
+  for (let i = 0; i < localStorage.length; i++){
+    const k = localStorage.key(i);
+    if (!k || k.indexOf(BASELINE_KEY_PREFIX) !== 0) continue;
+    const who = k.slice(BASELINE_KEY_PREFIX.length);
+    if (who.indexOf('draft_') === 0) continue;      // scratch, not a sitting
+    let list = [];
+    try { list = JSON.parse(localStorage.getItem(k)) || []; } catch (e) { list = []; }
+    if (Array.isArray(list) && list.length) out.push({ key: k, who, list });
+  }
+  return out;
+}
+
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function when(ts){
+  if (!ts) return 'unknown date';
+  try { return new Date(ts).toLocaleString(); } catch (e) { return String(ts); }
+}
+
+function summarise(rec){
+  const items  = Array.isArray(rec.items) ? rec.items : [];
+  const s1     = items.filter(i => i.stage === 1);
+  const right  = s1.filter(i => i.correct).length;
+  const proj   = rec.projection || {};
+  const bands  = rec.skills || {};
+  const counts = {};
+  Object.values(bands).forEach(b => {
+    const k = b.band || 'not measured';
+    counts[k] = (counts[k] || 0) + 1;
+  });
+  return {
+    right, total: s1.length,
+    range: (proj.low && proj.high) ? (proj.low + '–' + proj.high) : '—',
+    counts,
+    skills: Object.keys(bands).length,
+  };
+}
+
+function render(){
+  const groups = findAllBaselines();
+  const out = document.getElementById('out');
+
+  if (!groups.length){
+    out.innerHTML = '<div class="panel"><h2>No baseline found on this browser</h2>'
+      + '<p class="sub">Nothing is stored under a <code>' + BASELINE_KEY_PREFIX + '*</code> key here.</p></div>';
+    return;
+  }
+
+  let html = '';
+  groups.forEach((g, gi) => {
+    g.list.forEach((rec, ri) => {
+      const sum = summarise(rec);
+      const isGuest = (g.who === 'guest');
+      html += '<div class="panel">';
+      html += '<h2>' + esc(g.who) + ' &middot; Form ' + esc(rec.form || '?')
+            + (rec.sitting ? ' &middot; sitting ' + esc(rec.sitting) : '')
+            + ' <span class="badge' + (isGuest ? ' b-guest' : '') + '">'
+            + esc(rec.stage || 'screener') + '</span></h2>';
+      html += '<p class="sub">' + esc(when(rec.takenAt)) + ' &middot; '
+            + sum.right + '/' + sum.total + ' correct &middot; projected '
+            + esc(sum.range) + ' &middot; ' + sum.skills + ' skills banded</p>';
+
+      if (Object.keys(sum.counts).length){
+        html += '<table><tr><th>Band</th><th>Skills</th></tr>';
+        Object.entries(sum.counts).forEach(([b, n]) => {
+          html += '<tr><td>' + esc(b) + '</td><td>' + n + '</td></tr>';
+        });
+        html += '</table>';
+      }
+
+      if (isGuest){
+        html += '<div class="warn"><b>Filed under &ldquo;guest&rdquo;.</b> This screener was sat '
+              + 'without a password, so it was never attributed to anyone. Type the student\'s name '
+              + 'below exactly as it appears at the gate — capitalisation included — or the sheet '
+              + 'will not match it to the rest of their work.</div>';
+      }
+
+      const who = isGuest ? '' : g.who;
+      html += '<div class="row">'
+            + '<input type="text" id="name-' + gi + '-' + ri + '" value="' + esc(who) + '" '
+            + 'placeholder="Student name" autocomplete="off" spellcheck="false">'
+            + '<button class="btn" id="send-' + gi + '-' + ri + '">Send to sheet</button>'
+            + '<button class="btn sec" id="dl-' + gi + '-' + ri + '">Download JSON</button>'
+            + '</div>';
+      html += '<div id="msg-' + gi + '-' + ri + '"></div>';
+      html += '</div>';
+    });
+  });
+  out.innerHTML = html;
+
+  // Wire after render, so the handlers close over the right record.
+  groups.forEach((g, gi) => {
+    g.list.forEach((rec, ri) => {
+      const tag = gi + '-' + ri;
+      let sent = false;
+      const btn = document.getElementById('send-' + tag);
+      const dl  = document.getElementById('dl-' + tag);
+      if (btn) btn.addEventListener('click', function(){
+        if (sent) return;                       // one row, not one per click
+        const name = (document.getElementById('name-' + tag) || {}).value || '';
+        if (!name.trim()){
+          document.getElementById('msg-' + tag).innerHTML =
+            '<div class="warn">Give the student\'s name first — a row with no name cannot be joined to their work.</div>';
+          return;
+        }
+        // Same builder the live page uses, so a row backfilled months later is
+        // identical to the one that would have gone up at the time. `recovered`
+        // is the only field this page adds: a late arrival in the sheet must
+        // not read as a sitting that happened today.
+        const payload = baselineSheetPayload(rec, name.trim());
+        if (!payload) return;
+        payload.recovered = true;
+        try { syncSessionToSheet(payload); } catch (e) {}
+        sent = true;
+        btn.disabled = true;
+        document.getElementById('msg-' + tag).innerHTML =
+          '<div class="okmsg">Sent. It will appear in the sheet as a recovered row.</div>';
+      });
+      if (dl) dl.addEventListener('click', function(){
+        // The offline path, for a device that cannot reach the sheet at all.
+        const blob = new Blob([JSON.stringify(rec, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'baseline-' + (g.who || 'unknown') + '-' + (rec.form || 'X') + '.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+    });
+  });
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Your Progress — SAT R&W</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#f1f5f9;--surface:#fff;--surface2:#f8fafc;--border:#e2e8f0;
+    --text:#1a2233;--muted:#5b6678;--accent:#2563eb;--good:#15803d;--good-soft:#eaf6ee;
+    --warn:#b45309;--warn-soft:#fdf3e7;--idle:#64748b;--idle-soft:#eef1f5;--radius:14px}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:16px}
+  .wrap{max-width:680px;margin:0 auto;padding:1.4rem 1.15rem 4rem}
+  header.bar{display:flex;align-items:center;gap:.6rem;margin-bottom:1.4rem}
+  .bar .mark{display:flex;align-items:center;gap:.5rem;font-weight:800;color:var(--accent)}
+  .bar .tag{flex:1;color:var(--muted);font-size:.85rem;font-weight:600}
+  .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
+  h1{font-size:1.55rem;font-weight:800;margin-bottom:.3rem}
+  .lede{color:var(--muted);font-size:.98rem;margin-bottom:1.2rem}
+  .summary{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:1.3rem;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .summary .row{display:flex;gap:1.2rem;flex-wrap:wrap}
+  .summary .stat{flex:1;min-width:120px}
+  .summary .n{font-size:1.5rem;font-weight:800}
+  .summary .l{font-size:.8rem;color:var(--muted)}
+  .milestone{margin-top:.7rem;font-size:.92rem;color:var(--good);font-weight:600}
+  .domain{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:1.3rem 0 .6rem .15rem}
+  .skill{display:flex;align-items:center;gap:.8rem;background:var(--surface);border:1px solid var(--border);
+    border-radius:12px;padding:.75rem .9rem;margin-bottom:.6rem;text-decoration:none;color:inherit}
+  .skill:hover{border-color:var(--accent)}
+  .skill .meta{flex:1;min-width:0}
+  .skill .name{font-weight:700;font-size:.95rem}
+  .skill .bar{height:7px;border-radius:99px;background:var(--surface2);overflow:hidden;margin-top:.4rem}
+  .skill .bar > i{display:block;height:100%;background:var(--good)}
+  .skill .count{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+  .pill{font-size:.72rem;font-weight:800;padding:.25rem .6rem;border-radius:99px;white-space:nowrap;flex-shrink:0}
+  .pill.strong{background:var(--good-soft);color:var(--good)}
+  .pill.progress{background:var(--warn-soft);color:var(--warn)}
+  .pill.idle{background:var(--idle-soft);color:var(--idle)}
+  .actions{display:flex;gap:.6rem;margin-top:1.6rem;flex-wrap:wrap}
+  .btn{border:none;background:var(--accent);color:#fff;border-radius:10px;padding:.6rem 1.1rem;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-block}
+  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .note{color:var(--muted);font-size:.9rem;margin-top:1.4rem}
+</style>
+<!-- ns-migrate.js FIRST, then the gate. Both matter more here than they look.
+     progress.js namespaces the mastery ledger by `mastery_user`, which the gate
+     sets as a side effect of unlocking — so an UNGATED progress page reads the
+     ledger of "guest" and truthfully renders a map on which the student has
+     never done anything. Not an error, not a blank page: a complete, confident,
+     wrong answer. (The sister app's copy of this page ships without either
+     line; do not take its script block as the model.) -->
+<script src="ns-migrate.js?v=20260717"></script>
+<script src="gate.js?v=20260822"></script>
+<script src="data-craft-structure.js?v=20260703"></script>
+<script src="data-expression-of-ideas.js?v=20260703"></script>
+<script src="data-info-ideas.js?v=20260712"></script>
+<script src="data-conventions.js?v=20260703"></script>
+<script src="progress.js?v=20260722"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <span class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M8 16l4-5 3 3 4-6"/></svg> Progress</span>
+    <span class="tag">Your skill journey</span>
+    <a class="back" href="index.html">Back</a>
+  </header>
+
+  <h1>Your Progress</h1>
+  <p class="lede">Here's how far you've come on each skill. A skill turns "Strong" once you've mastered most of its questions. Tap any skill to open its guide.</p>
+
+  <div class="summary" id="summary"></div>
+  <div id="map"></div>
+
+  <div class="actions">
+    <a class="btn" href="index.html">Practice</a>
+    <a class="btn sec" href="notes-hub.html">Notes</a>
+    <a class="btn sec" href="progress.html">Session history</a>
+    <a class="btn sec" href="baseline.html">Baseline Screener</a>
+  </div>
+  <p class="note">"Strong" means you've answered most of a skill's questions correctly and they've stuck. Mastery gently fades if you don't revisit a skill for a few weeks — that's your cue to come back.</p>
+</div>
+
+<script>
+(function(){
+  const QB = [].concat(
+    typeof questionBank_CS!=='undefined'?questionBank_CS:[],
+    typeof questionBank_EOI!=='undefined'?questionBank_EOI:[],
+    typeof questionBank_II!=='undefined'?questionBank_II:[],
+    typeof questionBank_CON!=='undefined'?questionBank_CON:[]
+  );
+  // Real SAT R&W module order: Craft & Structure → Information & Ideas →
+  // Standard English Conventions → Expression of Ideas. Same order as
+  // RW_DOMAIN_ORDER in app.js; the sister app's baseline uses a different one,
+  // so do not copy that.
+  const DOMAINS = [
+    ['Craft & Structure', ['Words in Context','Text Structure and Purpose','Cross-Text Connections']],
+    ['Information & Ideas', ['Central Ideas and Details','Command of Evidence — Textual','Command of Evidence — Quantitative','Inferences']],
+    ['Standard English Conventions', ['Boundaries','Form, Structure, and Sense']],
+    ['Expression of Ideas', ['Rhetorical Synthesis','Transitions']]
+  ];
+  const NOTE = {
+    'Words in Context':'vocab.html','Text Structure and Purpose':'cs.html','Cross-Text Connections':'cs.html',
+    'Rhetorical Synthesis':'rs.html','Transitions':'transitions.html',
+    'Central Ideas and Details':'ii.html','Command of Evidence — Textual':'ii.html','Command of Evidence — Quantitative':'ii.html','Inferences':'ii.html',
+    'Boundaries':'sec.html','Form, Structure, and Sense':'sec.html'
+  };
+  const NSKILLS = DOMAINS.reduce((n,d)=>n+d[1].length,0);
+
+  function summ(skill){
+    const pool = QB.filter(q=>q.skill===skill);
+    if (typeof getPoolSummary==='function') return getPoolSummary(pool);
+    return {mastered:0,struggling:0,unseen:pool.length,total:pool.length};
+  }
+  let totMastered=0, totQ=0, strongSkills=0, startedSkills=0;
+  let mapHtml='';
+  DOMAINS.forEach(([dom,skills])=>{
+    mapHtml += '<div class="domain">'+dom+'</div>';
+    skills.forEach(skill=>{
+      const s = summ(skill);
+      totMastered += s.mastered; totQ += s.total;
+      const seen = s.mastered + s.struggling;
+      if (seen>0) startedSkills++;
+      const rate = s.total ? s.mastered/s.total : 0;
+      let cls='idle', label='Not started';
+      if (rate>=0.6){ cls='strong'; label='Strong'; strongSkills++; }
+      else if (seen>0){ cls='progress'; label='In progress'; }
+      mapHtml += '<a class="skill" href="'+NOTE[skill]+'">'
+        + '<div class="meta"><div class="name">'+skill+'</div>'
+        + '<div class="bar"><i style="width:'+Math.round(rate*100)+'%"></i></div>'
+        + '<div class="count">'+s.mastered+' of '+s.total+' mastered'
+        + (s.struggling? ' &middot; '+s.struggling+' to review':'')+'</div></div>'
+        + '<span class="pill '+cls+'">'+label+'</span></a>';
+    });
+  });
+  document.getElementById('map').innerHTML = mapHtml;
+  let mile='';
+  if (strongSkills>=NSKILLS) mile='Every skill is strong — outstanding. Keep them fresh with mixed practice.';
+  else if (strongSkills>0) mile=strongSkills+' of '+NSKILLS+' skills are strong. Keep going.';
+  else if (startedSkills>0) mile="You're on your way — keep practicing to turn skills strong.";
+  else mile='Start with a Practice session or the Baseline Screener to begin your map.';
+  document.getElementById('summary').innerHTML =
+    '<div class="row"><div class="stat"><div class="n">'+totMastered+'</div><div class="l">questions mastered</div></div>'
+    + '<div class="stat"><div class="n">'+strongSkills+' / '+NSKILLS+'</div><div class="l">skills strong</div></div>'
+    + '<div class="stat"><div class="n">'+startedSkills+' / '+NSKILLS+'</div><div class="l">skills started</div></div></div>'
+    + '<div class="milestone">'+mile+'</div>';
+})();
+</script>
+</body>
+</html>
