@@ -471,7 +471,12 @@ def norm_cmp(s):
 
 
 def sim(a, b):
-    return difflib.SequenceMatcher(None, norm_cmp(a), norm_cmp(b)).ratio()
+    # autojunk MUST be off. It switches on at 200 elements and treats any
+    # element appearing in more than 1% of the sequence as junk -- which, on a
+    # character-level comparison of a passage, is most of the alphabet. Two
+    # identical passages then score 0.02 and the disagreement report fills up
+    # with matches that agree perfectly.
+    return difflib.SequenceMatcher(None, norm_cmp(a), norm_cmp(b), autojunk=False).ratio()
 
 
 def merge(books):
@@ -494,8 +499,20 @@ def merge(books):
             by_page.setdefault(c['page'], []).append(c)
 
         promoted, review, disagree = [], [], []
-        opt_pairs = opt_agree = 0
+        opt_pairs = opt_agree = found_by_eye = 0
         letters_bad = []
+        # the whole key, so a question stage 2 never emitted can still be joined
+        extra_key, extra_topic = {}, {}
+        if book == 'grammar':
+            doc = fitz.open(os.path.join(HERE, BOOKS[book]))
+            starts = exercise_starts(doc, 200)
+            kg, kt = key_groups(doc, 202, 214, {heading_name(r) for _, r, _ in starts})
+            for name, entries in kg.items():
+                for n, letter in entries.items():
+                    extra_key[(name, n)] = letter
+            for name, entries in kt.items():
+                for n, topic in entries.items():
+                    extra_topic[(name, n)] = topic
         for pg, items in by_page.items():
             vpath = os.path.join(VISION, book, "p%03d.json" % pg)
             if not os.path.exists(vpath):
@@ -558,8 +575,42 @@ def merge(books):
                 if worst < 0.90 or stem_s < 0.75:
                     disagree.append(rec)
 
+            # A question the eye found and stage 2 did not. This is not an edge
+            # case to tolerate -- it is the point of reading the page. Stage 2
+            # merged grammar p.176's questions 6 and 7 into one seven-option
+            # group and #7 disappeared; the key still answers it. Admitted here
+            # with the same key join, and marked so the report can say how many.
+            for i, v in enumerate(vitems):
+                if i in used or v.get('skip') or not v.get('n'):
+                    continue
+                opts = v.get('options') or []
+                if len(opts) != 4 or any(not o.strip() for o in opts):
+                    continue
+                sib = items[0]
+                letter = extra_key.get((sib['exercise'], v['n']))
+                if not letter:
+                    continue
+                promoted.append({
+                    'qid': '%s_p%03d_v%02d' % (book, pg, v['n']),
+                    'page': pg, 'printed': sib['printed'],
+                    'exercise': sib['exercise'], 'number': v['n'],
+                    'key_letter': letter, 'key_page': sib['key_page'],
+                    'key_topic': extra_topic.get((sib['exercise'], v['n'])),
+                    'n_options': 4, 'flags': ['found_by_eye'],
+                    'draft_stem': '', 'draft_options': [],
+                    'crop_image': None, 'page_image': sib['page_image'],
+                    'text': v['text'], 'options': opts,
+                    'letters': (v.get('letters') or 'ABCD').upper(),
+                    'prompt': v.get('prompt'), 'notes': v.get('notes'),
+                    'kind': v.get('kind'),
+                    'agree_options': None, 'agree_stem': None,
+                })
+                found_by_eye += 1
+
+        promoted.sort(key=lambda r: (r['page'], r['number'] or 0))
         totals[book] = dict(promoted=len(promoted), review=len(review),
-                            opt_pairs=opt_pairs, opt_agree=opt_agree)
+                            opt_pairs=opt_pairs, opt_agree=opt_agree,
+                            found_by_eye=found_by_eye)
         with open(os.path.join(STAGE3, book + ".json"), "w", encoding="utf-8") as f:
             json.dump(promoted, f, indent=1, ensure_ascii=False, sort_keys=True)
 
@@ -568,6 +619,7 @@ def merge(books):
         report.append("|---|---:|")
         report.append("| candidates | %d |" % len(cands))
         report.append("| **promoted** | **%d** |" % len(promoted))
+        report.append("| of those, found by eye and missed by stage 2 | %d |" % found_by_eye)
         report.append("| in the review queue | %d |" % len(review))
         if opt_pairs:
             report.append("| option texts compared | %d |" % opt_pairs)
