@@ -35,22 +35,19 @@ const REC = {
     savedAt: 1750000000000,
     sitting: 1,
     form: 'A',
-    stage: 'screener',
+    stage: 'complete',
     version: 1,
     correct: 3,
     total: 6,
     blurCount: 2,
     projection: { low: 480, high: 540, accuracy: 50, blanks: 0, domains: {}, caveat: 'x' },
     skills: {
-        'Inferences':  { band: 'Priority',   confidence: 'provisional',
-                         screenCorrect: 0, screenTotal: 2, probeTier: null,
-                         probeCorrect: null, routedProbe: 'Easy', flags: [], note: null },
-        'Boundaries':  { band: 'Proficient', confidence: 'provisional',
-                         screenCorrect: 2, screenTotal: 2, probeTier: null,
-                         probeCorrect: null, routedProbe: 'Hard', flags: [], note: null },
-        'Transitions': { band: 'Developing', confidence: 'resolved',
-                         screenCorrect: 1, screenTotal: 2, probeTier: null,
-                         probeCorrect: null, routedProbe: null, flags: [], note: null },
+        'Inferences':  { band: 'Priority',   confidence: 'measured',
+                         screenCorrect: 0, screenTotal: 2, flags: [], note: null },
+        'Boundaries':  { band: 'Proficient', confidence: 'measured',
+                         screenCorrect: 2, screenTotal: 2, flags: [], note: null },
+        'Transitions': { band: 'Developing', confidence: 'measured',
+                         screenCorrect: 1, screenTotal: 2, flags: [], note: null },
     },
     focus: [
         { skill: 'Inferences',  band: 'Priority',   weight: 0.075, score: 0.15 },
@@ -180,7 +177,7 @@ function waitFor(fn, ms) {
         eq(Object.keys(b).length, 3);
         eq(b['Inferences'].band, 'Priority');
         eq(b['Inferences'].screener, '0/2');
-        eq(b['Boundaries'].confidence, 'provisional');
+        eq(b['Boundaries'].confidence, 'measured');
         eq(b['Transitions'].band, 'Developing');
     });
 

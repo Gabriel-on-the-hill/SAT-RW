@@ -99,10 +99,9 @@ function mergeBaselines(incoming) {
 function firstBaseline() { return getBaselines()[0] || null; }
 function latestBaseline() { const l = getBaselines(); return l[l.length - 1] || null; }
 
-// Update the newest record in place — used when the follow-up probes come back
-// after the screener has already been written. The screener result must be
-// durable the moment it finishes, not held in memory pending a stage the
-// student may never choose to sit.
+// Update the newest record in place. The sitting itself no longer needs this —
+// there is one stage and it is written once — but a restore or a later
+// annotation does, and baseline-recover.html leans on it.
 function amendLatestBaseline(patch) {
     const list = getBaselines();
     if (!list.length) return false;
@@ -225,7 +224,6 @@ function baselineSheetPayload(rec, student) {
             band: s.band, confidence: s.confidence,
             screener: (s.screenCorrect != null ? s.screenCorrect : '?') + '/'
                     + (s.screenTotal != null ? s.screenTotal : '?'),
-            probe: s.probeTier ? (s.probeTier + ':' + (s.probeCorrect ? 'passed' : 'missed')) : '',
             note: s.note || '',
         };
     });
@@ -250,7 +248,7 @@ function baselineSheetPayload(rec, student) {
         // rows on an append-only log, and sharing an id would make the second
         // one vanish as a duplicate of the first.
         sessionId: 'bl_' + (rec.form || 'X') + '_' + (rec.takenAt || rec.savedAt || 0)
-                 + '_' + (rec.stage === 'complete' ? 'c' : 's'),
+                 + '_' + (rec.stage || 'complete'),
         source: 'baseline',
         mode: rec.stage || 'screener',
         assignmentTitle: 'Baseline Screener · Form ' + (rec.form || '?'),
@@ -271,7 +269,6 @@ function baselineSheetPayload(rec, student) {
         questions: items.map(i => ({
             id: i.id, skill: i.skill, difficulty: i.difficulty,
             chosen: i.chosen, isCorrect: i.correct, secs: i.seconds,
-            stage: i.stage, probeTier: i.probeTier || '',
         })),
         baseline: {
             form: rec.form,

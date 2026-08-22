@@ -5,6 +5,16 @@
 **Written:** 22 Aug 2026. Every claim below was checked by reading the source or running it —
 where a number appears, the command that produced it is named.
 
+**Status update, 22 Aug (later):** the two-stage design described below — screener plus an
+optional per-skill follow-up — **has been removed from both apps.** The sitting is 22 questions and
+ends when the student submits. That drops the band ladder from five rungs to three
+(`Proficient` / `Developing` / `Priority`), because `Secure` and `Foundational` were only ever
+readable from a probe served after the student had already finished. The cost is real and is
+recorded in `AGENTS.md`: `Foundational` was the "teach it, do not drill it" reading, and 0/2 alone
+cannot distinguish that from "knows the idea, cannot apply it". Both now report `Priority`, and the
+band's own `action` text says so rather than pretending the distinction was made. Everything below
+about the two-stage routing is history, not the current design.
+
 **Status:** Phase 0 is done. The five defects marked ✅ below were fixed in the sister app on
 22 Aug and all sixteen of its suites are green (§2a). Nothing has been ported here yet — Phase 1
 still has two decisions to settle and two blockers that are ours alone (§3.4).

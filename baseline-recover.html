@@ -48,8 +48,8 @@
      a legacy record under the name this page looks it up by. Skip it and the
      page truthfully reports "nothing found" about a record that is right there. -->
 <script src="ns-migrate.js?v=20260717"></script>
-<script src="gate.js?v=20260703"></script>
-<script src="sheet-sync.js?v=20260716"></script>
+<script src="gate.js?v=20260822"></script>
+<script src="sheet-sync.js?v=20260822"></script>
 <script src="baseline-spec.js?v=20260822"></script>
 <script src="baseline-grade.js?v=20260822"></script>
 <script src="baseline-store.js?v=20260822"></script>
@@ -142,7 +142,7 @@ function render(){
       html += '<h2>' + esc(g.who) + ' &middot; Form ' + esc(rec.form || '?')
             + (rec.sitting ? ' &middot; sitting ' + esc(rec.sitting) : '')
             + ' <span class="badge' + (isGuest ? ' b-guest' : '') + '">'
-            + esc(rec.stage || 'screener') + '</span></h2>';
+            + esc(rec.stage || 'complete') + '</span></h2>';
       html += '<p class="sub">' + esc(when(rec.takenAt)) + ' &middot; '
             + sum.right + '/' + sum.total + ' correct &middot; projected '
             + esc(sum.range) + ' &middot; ' + sum.skills + ' skills banded</p>';

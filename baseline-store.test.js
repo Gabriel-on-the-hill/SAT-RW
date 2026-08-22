@@ -1,6 +1,6 @@
 // baseline-store.test.js — persistence, retake forms, the mid-sitting draft,
 // growth deltas, the sheet payload, and a full run through
-// screener → probes → amended record.
+// and one full sitting end to end.
 // Run: node baseline-store.test.js
 //
 // Needs no jsdom: localStorage and sessionStorage are shimmed below, which is
@@ -85,12 +85,11 @@ function sit(formId, isCorrect, seconds) {
         skills[s.skill] = {
             band: s.band, confidence: s.confidence,
             screenCorrect: s.screenCorrect, screenTotal: s.screenTotal,
-            probeTier: s.probeTier, probeCorrect: s.probeCorrect,
-            routedProbe: s.routedProbe, flags: s.flags, note: s.note || null,
+            flags: s.flags, note: s.note || null,
         };
     });
     ctx.saveBaseline({
-        takenAt: Date.now(), form: formId, stage: 'screener',
+        takenAt: Date.now(), form: formId, stage: 'complete',
         correct: items.filter(i => i.correct).length, total: items.length,
         projection, skills, items, focus: ctx.slimFocusQueue(queue),
     });
@@ -393,7 +392,7 @@ t('the payload carries a session id', () => {
     sit('A', () => true);
     const p = ctx.baselineSheetPayload(ctx.latestBaseline(), 'Tester');
     ok(p.sessionId, 'no session id — the Questions rows cannot join');
-    ok(/^bl_A_\d+_s$/.test(p.sessionId), 'got ' + p.sessionId);
+    ok(/^bl_A_\d+_complete$/.test(p.sessionId), 'got ' + p.sessionId);
 });
 
 t('the id is stable, so a recovered row is not a second row', () => {
@@ -405,17 +404,19 @@ t('the id is stable, so a recovered row is not a second row', () => {
        ctx.baselineSheetPayload(rec, 'Someone Else').sessionId);
 });
 
-// The screener row and the completed row are two rows on an append-only log.
-// Sharing an id would make the second vanish as a duplicate of the first —
-// which is the row carrying the resolved bands.
-t('the screener and the completed sitting get different ids', () => {
+// One sitting posts one row. There was a second row when the follow-up existed
+// — the screener, then the completed sitting with the probes resolved — and its
+// id had to differ or the Apps Script would drop it as a duplicate. With no
+// second stage, two sittings on the same form must still differ, and they do
+// because the id carries takenAt.
+t('two sittings never share a session id', () => {
     reset();
     ctx.sessionStorage.setItem('mastery_user', 'Tester');
     sit('A', () => true);
-    const screener = ctx.baselineSheetPayload(ctx.latestBaseline(), 'Tester').sessionId;
-    ctx.amendLatestBaseline({ stage: 'complete' });
-    const complete = ctx.baselineSheetPayload(ctx.latestBaseline(), 'Tester').sessionId;
-    ok(screener !== complete, 'both rows would post as ' + screener);
+    const first = ctx.baselineSheetPayload(ctx.getBaselines()[0], 'Tester').sessionId;
+    sit('B', () => true);
+    const second = ctx.baselineSheetPayload(ctx.latestBaseline(), 'Tester').sessionId;
+    ok(first !== second, 'both sittings would post as ' + first);
 });
 
 console.log('\nMERGING A RESTORE\n-----------------');
@@ -481,49 +482,30 @@ t('a corrupt focus queue degrades to null', () => {
     eq(ctx.getFocusQueue(), null);
 });
 
-console.log('\nEND TO END — screener then probes\n---------------------------------');
-t('a mixed run completes both stages and amends one record', () => {
+console.log('\nEND TO END — one sitting, one submit\n' + '-'.repeat(36));
+t('a full sitting writes one record and one plan', () => {
     reset();
     ctx.sessionStorage.setItem('mastery_user', 'Tester');
-    // Conventions perfect (→ ceiling probes), Expression blank (→ floor probes),
-    // everything else half right (→ no probe at all).
     let flip = 0;
-    const { items, profile } = sit('A', (q) => {
-        const d = ctx.SKILL_DOMAIN[q.skill];
-        if (d === 'Std. English Conv.')  return true;
-        if (d === 'Expression of Ideas') return false;
-        return (flip++ % 2 === 0);
-    });
-
-    const { probes, gaps } = ctx.buildProbeSet(bank, profile, items.map(i => i.id), 'A');
-    eq(gaps, [], 'unfillable probe slots:');
-    eq(probes.length, 4, 'expected 2 ceiling + 2 floor probes, got ' + probes.length);
-
-    const probeItems = probes.map(p => ({
-        id: p.id, skill: p.skill, difficulty: p.difficulty, stage: 2,
-        probeTier: p.probeTier, chosen: 'A', correct: true, seconds: 70,
-    }));
-    const all = items.concat(probeItems);
-    const prof2 = ctx.buildBaselineProfile(all);
-    const skills2 = {};
-    Object.values(prof2).forEach(s => { skills2[s.skill] = { band: s.band, confidence: s.confidence }; });
-    ctx.amendLatestBaseline({ stage: 'complete', skills: skills2, items: all });
+    const { items, profile } = sit('A', () => (flip++ % 2 === 0));
 
     const list = ctx.getBaselines();
-    eq(list.length, 1, 'the follow-up created a second record:');
-    eq(list[0].stage, 'complete');
-    eq(list[0].items.length, 26);
-    eq(prof2['Boundaries'].band, 'Secure', 'a passed ceiling probe did not promote:');
-    eq(prof2['Transitions'].band, 'Priority', 'a passed floor probe did not land on Priority:');
+    eq(list.length, 1);
+    eq(list[0].stage, 'complete', 'a sitting is complete when it is submitted:');
+    eq(list[0].items.length, 22, 'the sitting is 22 questions and no more:');
+    ok(list[0].items.every(i => i.stage === 1 || i.stage === undefined),
+       'a stage-2 item reached the record');
+    eq(Object.keys(profile).length, 11);
 });
 
-t('probes are never drawn from questions already served', () => {
+t('nothing in the profile carries a probe any more', () => {
     reset();
     ctx.sessionStorage.setItem('mastery_user', 'Tester');
-    const { items, profile } = sit('A', () => false);
-    const used = items.map(i => i.id);
-    const { probes } = ctx.buildProbeSet(bank, profile, used, 'A');
-    probes.forEach(p => ok(!used.includes(p.id), p.id + ' was already served'));
+    const { profile } = sit('A', () => false);
+    Object.values(profile).forEach(s => {
+        ok(!('routedProbe' in s), s.skill + ' still routes a probe');
+        ok(!('probeTier'  in s),  s.skill + ' still carries a probe tier');
+    });
 });
 
 console.log('\n' + '='.repeat(48));

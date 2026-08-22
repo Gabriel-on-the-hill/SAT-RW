@@ -263,16 +263,10 @@ t('a ranked plan is rendered', () => {
     ok(/1\./.test(f[0].textContent), 'the plan is not numbered');
 });
 
-t('the follow-up is offered with a real count', () => {
-    const html = doc.getElementById('results').innerHTML;
-    ok(/Optional follow-up/.test(html), 'no follow-up offered');
-    ok(/\d+ question/.test(html), 'no question count in the offer');
-});
-
 t('the screener is persisted the moment it finishes', () => {
     const list = JSON.parse(ev('JSON.stringify(getBaselines())'));
     eq(list.length, 1);
-    eq(list[0].stage, 'screener');
+    eq(list[0].stage, 'complete');
     eq(list[0].total, 22);
     eq(list[0].sitting, 1);
     ok(list[0].projection.low > 0, 'no projection stored');
@@ -320,71 +314,55 @@ t('the same queue is in the record, for the sheet', () => {
     eq(rec.focus, fq.skills, 'the record and the live key disagree about the plan:');
 });
 
-t('conventions routed to a ceiling probe, expression to a floor probe', () => {
+t('the bands read straight off the screener', () => {
     const s = JSON.parse(ev('JSON.stringify(latestBaseline().skills)'));
-    eq(s['Boundaries'].routedProbe, 'Hard');
-    eq(s['Form, Structure, and Sense'].routedProbe, 'Hard');
-    eq(s['Rhetorical Synthesis'].routedProbe, 'Easy');
-    eq(s['Transitions'].routedProbe, 'Easy');
-    eq(s['Words in Context'].routedProbe, null, 'a half-right skill spent a probe:');
+    eq(s['Boundaries'].band, 'Proficient', '2/2:');
+    eq(s['Rhetorical Synthesis'].band, 'Priority', '0/2:');
+    eq(s['Words in Context'].band, 'Developing', '1/2:');
 });
 
-console.log('\nDRIVING THE FOLLOW-UP\n---------------------');
-t('the follow-up starts and serves only routed skills at the right tier', () => {
-    win.startProbes();
-    const set = JSON.parse(ev(
-        'JSON.stringify(Q.map(function(q){return [q.skill,q.difficulty];}))'));
-    eq(set.length, 4, 'expected 2 ceiling + 2 floor probes, got ' + set.length);
-    set.forEach(([skill, diff]) => {
-        const want = (skill === 'Boundaries' || skill === 'Form, Structure, and Sense')
-            ? 'Hard' : 'Easy';
-        eq(diff, want, skill + ':');
+console.log('\nTHE SITTING ENDS AT SUBMIT\n' + '-'.repeat(26));
+
+// The screener used to offer a follow-up here — a Hard item at every 2/2 skill
+// and an Easy one at every 0/2, served after the student had already finished.
+// It is removed. Once a student submits, that is the whole sitting.
+t('no follow-up is offered', () => {
+    const html = doc.getElementById('results').innerHTML;
+    ok(!/follow-up/i.test(html), 'the results screen still offers a follow-up');
+    ok(!/Continue/.test(html), 'the results screen still offers to continue');
+});
+
+t('and there is nothing left to drive it with', () => {
+    eq(ev('typeof startProbes'), 'undefined', 'startProbes still exists');
+    eq(ev('typeof finishProbes'), 'undefined', 'finishProbes still exists');
+});
+
+t('the record is complete the moment it is written', () => {
+    const list = JSON.parse(ev('JSON.stringify(getBaselines())'));
+    eq(list.length, 1);
+    eq(list[0].stage, 'complete');
+    eq(list[0].items.length, 22, 'the sitting is 22 questions and no more:');
+});
+
+t('every skill has a band from the screener alone', () => {
+    const s = JSON.parse(ev('JSON.stringify(latestBaseline().skills)'));
+    eq(Object.keys(s).length, 11);
+    Object.entries(s).forEach(([skill, v]) => {
+        ok(['Proficient', 'Developing', 'Priority'].includes(v.band),
+           skill + ' reports ' + v.band);
+        eq(v.confidence, 'measured', skill + ':');
     });
 });
 
-t('probes never reuse a screener question', () => {
-    const probeIds = JSON.parse(ev('JSON.stringify(Q.map(function(q){return q.id;}))'));
-    const seenIds  = JSON.parse(ev('JSON.stringify(screenerItems.map(function(i){return i.id;}))'));
-    probeIds.forEach(id => ok(!seenIds.includes(id), id + ' was already served'));
-});
-
-t('finishing the follow-up amends the same record', () => {
-    ev(`
-      Q.forEach(function (q, i) {
-        answers[i] = q.probeTier === 'Hard' ? q.answer
-          : q.options.map(function (o) { return o.trim()[0]; })
-                     .filter(function (l) { return l !== q.answer; })[0];
-        times[i] = 70;
-      });
-    `);
-    win.finishProbes();
-    const list = JSON.parse(ev('JSON.stringify(getBaselines())'));
-    eq(list.length, 1, 'the follow-up created a second record:');
-    eq(list[0].stage, 'complete');
-    eq(list[0].items.length, 26);
-});
-
-t('bands resolve in both directions after the probes', () => {
-    const s = JSON.parse(ev('JSON.stringify(latestBaseline().skills)'));
-    eq(s['Boundaries'].band, 'Secure', 'a passed ceiling probe did not promote:');
-    eq(s['Rhetorical Synthesis'].band, 'Foundational', 'a failed floor probe did not demote:');
-    eq(s['Boundaries'].confidence, 'probed');
-});
-
-t('the follow-up offer disappears once it is done', () => {
-    ok(!/Optional follow-up/.test(doc.getElementById('results').innerHTML),
-       'still offering a follow-up that has been sat');
-});
-
-t('the ledger is still untouched after the probes', () => {
+t('the ledger is still untouched', () => {
     eq(Object.keys(JSON.parse(ev('JSON.stringify(getProgress())'))).length, 0);
 });
 
 console.log('\nTHE REVIEW\n----------');
 t('review shows every item with its explanation', () => {
     const revs = doc.querySelectorAll('#results .rev');
-    ok(revs.length >= 26, 'only ' + revs.length + ' review rows');
-    ok(doc.querySelectorAll('#results details.exp').length >= 26, 'explanations missing');
+    eq(revs.length, 22, 'review rows:');
+    eq(doc.querySelectorAll('#results details.exp').length, 22, 'explanations:');
 });
 
 // The review panel used to print the skill, two letters and the rationale — and

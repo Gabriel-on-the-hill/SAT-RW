@@ -157,10 +157,9 @@ t('it carries a band for every skill', () => {
     });
 });
 
-t('bands are marked provisional before the follow-up', () => {
+t('bands are marked measured, not confirmed', () => {
     const bands = p1.body.baseline.bands;
-    ok(bands['Boundaries'].confidence === 'provisional',
-       'a skill awaiting a probe is marked ' + bands['Boundaries'].confidence);
+    eq(bands['Boundaries'].confidence, 'measured');
 });
 
 // The bands say which skills are weak. The queue says which one to teach on
@@ -174,57 +173,20 @@ t('it carries the ranked focus queue the tutor should act on', () => {
     ok(f[0].skill && f[0].band, 'a focus entry has no skill or band');
 });
 
-console.log('\nAFTER THE FOLLOW-UP\n' + '-'.repeat(19));
-const beforeProbe = posts.length;
-win.startProbes();
-ev(`
-  Q.forEach(function (q, i) {
-    answers[i] = q.probeTier === 'Hard' ? q.answer
-      : q.options.map(function (o) { return o.trim()[0]; })
-                 .filter(function (l) { return l !== q.answer; })[0];
-    times[i] = 70;
-  });
-`);
-win.finishProbes();
-const p2 = posts[posts.length - 1];
+console.log('\nONE SITTING, ONE ROW\n' + '-'.repeat(20));
 
-t('the follow-up posts a second row', () => eq(posts.length, beforeProbe + 1));
-t('the second row is marked complete, not screener', () => {
-    eq(p2.body.type, 'baseline');
-    eq(p2.body.baseline.stage, 'complete');
-});
-t('its bands are resolved rather than provisional', () => {
-    eq(p2.body.baseline.bands['Boundaries'].confidence, 'probed');
-});
-t('probe results are reported with their tier', () => {
-    ok(/^Hard:(passed|missed)$/.test(p2.body.baseline.bands['Boundaries'].probe),
-       'probe reads "' + p2.body.baseline.bands['Boundaries'].probe + '"');
+// There used to be two rows: the screener, then the completed sitting once the
+// follow-up probes came back. The follow-up is gone, so a sitting posts once
+// and the row is complete when it is posted.
+t('the sitting posts exactly one row', () => eq(posts.length, 1));
+
+t('and it is marked complete, not screener', () => {
+    eq(p1.body.baseline.stage, 'complete');
+    eq(p1.body.mode, 'complete');
 });
 
-// The sheet is an append-only log and the screener row is what the tutor may
-// already have acted on. A second row, not an edit.
-t('the screener row is not overwritten — both rows stand', () => {
-    eq(posts.filter(p => p.body && p.body.type === 'baseline').length, 2);
-    eq(posts[0].body.baseline.stage, 'screener');
-});
-
-t('the sitting number does not change between the two rows', () => {
-    eq(p2.body.baseline.sitting, p1.body.baseline.sitting);
-});
-
-// The Apps Script skips a Session ID it has already stored. If both rows posted
-// the same one, the second — the row carrying the resolved bands — would be
-// silently discarded as a duplicate.
-t('the two rows carry different session ids, or the second is discarded', () => {
-    ok(p1.body.sessionId, 'the screener row has no session id');
-    ok(p2.body.sessionId, 'the follow-up row has no session id');
-    ok(p1.body.sessionId !== p2.body.sessionId,
-       'both rows post as ' + p1.body.sessionId);
-});
-
-t('per-question rows have an id to join back on', () => {
-    ok(p2.body.sessionId && p2.body.questions.length,
-       'questions posted with nothing to join them to the session');
+t('nothing is left to post a second row with', () => {
+    eq(ev('typeof startProbes'), 'undefined', 'startProbes still exists');
 });
 
 console.log('\nFAILURE IS SILENT\n' + '-'.repeat(17));

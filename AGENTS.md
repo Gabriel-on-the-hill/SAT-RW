@@ -281,21 +281,32 @@ projection, skill weights) and `baseline-store.js` (the durable record). Five su
 list above. `baseline-recover.html` re-sends a sitting that reached a browser but never reached
 the sheet.
 
-22 questions, two per skill, all Medium, ~26 minutes. Then an optional per-skill follow-up: a skill
-that scored 2/2 gets one **Hard** ceiling probe, one that scored 0/2 gets one **Easy** floor probe,
-and 1/2 gets nothing because *Developing* is already the honest answer. Five bands out the other
-end, ranked into a plan by severity × skill weight.
+22 questions, two per skill, all Medium, ~26 minutes. **One sitting. When the student submits, the
+baseline is over** — there is no second stage and nothing is offered afterwards. Three bands out the
+other end (`Proficient` 2/2, `Developing` 1/2, `Priority` 0/2), ranked into a plan by severity ×
+skill weight.
 
 ### It reports a BAND, not a percentage, and that is the design
 
 Two items cannot support a percentage. With four options chance alone earns a quarter of them, and
 a two-item skill can only score 0, 50 or 100 — so "Inferences 50%" invites a tutor to act on a coin
-flip, and two students of identical ability get two different study plans. The measurement base is
-therefore fixed (the same two Medium items for everyone) and the probe moves a student one rung up
-or down from it. Uniform base, ordinal ladder, no denominator drift.
+flip, and two students of identical ability get two different study plans. Everyone answers the same
+two Medium items, and the reading is ordinal.
 
-`Priority` vs `Foundational` is the pair that earns its keep: more drilling is right for one and
-wrong for the other. If two bands would lead to the same lesson they should be one band.
+### There were five bands, and there is no follow-up. Do not put it back.
+
+The sister app offers an optional second stage on the results screen: a Hard ceiling probe at every
+skill scoring 2/2, an Easy floor probe at every 0/2. That is what produced `Secure` and
+`Foundational`, and it is removed here **as a deliberate decision, not an omission** — a check the
+student has completed is complete.
+
+Know what that costs, because it is real. `Foundational` was the "the underlying skill is not in
+place — teach it, do not drill it" reading, and 0/2 alone cannot tell that from "knows the idea,
+cannot apply it at test level". Both now report `Priority`, and its `action` text says so out loud
+rather than pretending the distinction was made. A screener is triage: it is allowed to say "this
+one needs a closer look" without taking that look. **If a band needs resolving, resolve it with
+taught practice — a homework set, which is the tutor's call and lives in `homework/assignments.js`
+— not by re-opening a finished assessment.**
 
 ### Two forms, and that is the bank talking
 
@@ -393,10 +404,10 @@ decision with its own test, not a tidy-up.
 
 ### Known limits — say them, do not quietly fix them wrong
 
-- **Two items per skill is triage, not certification.** Hence the `provisional` / `probed` /
-  `resolved` / `low` / `not-measured` marker. Note `resolved` means "no further probe planned" —
-  a 1/2 screener is the least informative outcome and it is the one that routes no probe. The
-  sister app calls that state `confirmed`; do not copy the word back.
+- **Two items per skill is triage, not certification.** Hence the `measured` / `low` /
+  `not-measured` marker. `measured` means only "these two items were genuinely attempted" — never
+  that the skill is settled. The sister app uses `confirmed` for the equivalent state; do not copy
+  that word back, because a tutor reading it beside a two-item result will over-trust it.
 - **The 200–800 projection is uncalibrated,** anchored to the range rather than to score data.
   It is a 60-point band, and `baselineDelta()` refuses to call movement real unless two bands fail
   to overlap. Do not turn it into a point estimate.

@@ -226,36 +226,24 @@ t('the clock is the real section pace, not the sister app\'s', () => {
        'the sitting is ' + Math.round(ctx.BASELINE_SECONDS / 60) + ' minutes');
 });
 
-console.log('\nROUTING\n-------');
-t('2/2 routes to a Hard ceiling probe', () => {
-    eq(ctx.routeSkill(2), { provisional: 'Proficient', probe: 'Hard' });
-});
-t('1/2 spends no probe', () => {
-    eq(ctx.routeSkill(1), { provisional: 'Developing', probe: null });
-});
-t('0/2 routes to an Easy floor probe', () => {
-    eq(ctx.routeSkill(0), { provisional: 'Priority', probe: 'Easy' });
+console.log('\nBANDING — three rungs, from the screener alone\n' + '-'.repeat(45));
+t('2/2 is Proficient', () => eq(ctx.bandFor(2), 'Proficient'));
+t('1/2 is Developing', () => eq(ctx.bandFor(1), 'Developing'));
+t('0/2 is Priority',   () => eq(ctx.bandFor(0), 'Priority'));
+
+// The sitting ends when the student submits, so there is no second stage and
+// nothing that could produce a fourth or fifth reading. Secure and Foundational
+// were only ever readable from a probe served AFTER the student had finished;
+// leaving them defined but unreachable would be dead vocabulary in a report a
+// tutor acts on.
+t('there are exactly three bands', () => {
+    eq(Object.keys(ctx.BASELINE_BANDS).sort(),
+       ['Developing', 'Priority', 'Proficient']);
 });
 
-console.log('\nBANDING — all routing paths\n---------------------------');
-const paths = [
-    [2, 'Hard', true,  'Secure'],
-    [2, 'Hard', false, 'Proficient'],
-    [1, null,   null,  'Developing'],
-    [0, 'Easy', true,  'Priority'],
-    [0, 'Easy', false, 'Foundational'],
-];
-paths.forEach(([c, tier, res, want]) => {
-    t(`${c}/2 + ${tier || 'no'} probe ${tier ? (res ? 'passed' : 'failed') : ''} -> ${want}`, () => {
-        eq(ctx.finalBand(c, tier, res), want);
-    });
-});
-
-t('unprobed 2/2 stays Proficient, never Secure', () => {
-    eq(ctx.finalBand(2, null, null), 'Proficient');
-});
-t('unprobed 0/2 stays Priority, never Foundational', () => {
-    eq(ctx.finalBand(0, null, null), 'Priority');
+t('nothing routes a follow-up any more', () => {
+    ok(typeof ctx.buildProbeSet === 'undefined', 'buildProbeSet still exists');
+    ok(typeof ctx.routeSkill === 'undefined', 'routeSkill still exists');
 });
 
 console.log('\nTIMING OVERLAY\n--------------');
@@ -277,36 +265,34 @@ const mkItems = (fn) => formA.map((q, i) => ({
     stage: 1, chosen: 'A', ...fn(q, i),
 }));
 
-t('a perfect screener routes every skill to a Hard probe', () => {
+t('a perfect screener reads every skill Proficient', () => {
     const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: true, seconds: 55 })));
     eq(Object.keys(prof).length, 11);
     Object.values(prof).forEach(s => {
-        eq(s.routedProbe, 'Hard', s.skill + ':');
         eq(s.band, 'Proficient', s.skill + ':');
-        eq(s.confidence, 'provisional', s.skill + ':');
+        eq(s.confidence, 'measured', s.skill + ':');
     });
 });
 
-t('a blank screener routes every skill to an Easy probe', () => {
+t('a blank screener reads every skill Priority', () => {
     const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: false, seconds: 55 })));
-    Object.values(prof).forEach(s => eq(s.routedProbe, 'Easy', s.skill + ':'));
+    Object.values(prof).forEach(s => eq(s.band, 'Priority', s.skill + ':'));
 });
 
-// The sister app labels this state `confirmed`, and a tutor reading that word
-// beside a two-item result will over-trust it. 1/2 is the LEAST informative
-// outcome and it is exactly the one that routes no probe, so it must not carry
-// the same word as a probe-resolved band.
-t('a 1/2 skill is "resolved", never "confirmed"', () => {
+// `measured` means the two items were genuinely attempted. It must never imply
+// the skill is settled — two items never settle a skill, and a tutor reading a
+// word like "confirmed" beside a two-item result will over-trust it.
+t('a half-right skill is Developing, and marked measured not confirmed', () => {
     let flip = 0;
     const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: (flip++ % 2 === 0), seconds: 55 })));
     Object.values(prof).forEach(s => {
         eq(s.band, 'Developing', s.skill + ':');
-        eq(s.confidence, 'resolved', s.skill + ':');
+        eq(s.confidence, 'measured', s.skill + ':');
         ok(s.confidence !== 'confirmed', s.skill + ' claims a two-item reading is confirmed');
     });
 });
 
-t('a skill answered in 3s is reported as not-measured, not Foundational', () => {
+t('a skill answered in 3s is reported as not-measured, not Priority', () => {
     const prof = ctx.buildBaselineProfile(mkItems((q) =>
         q.skill === 'Inferences'
             ? { correct: false, seconds: 3 }
@@ -326,70 +312,23 @@ t('one non-attempt out of two lowers confidence but keeps a band', () => {
     ok(prof['Transitions'].band, 'a half-attempted skill lost its band entirely');
 });
 
-t('probe results promote and demote correctly', () => {
+// A baseline sat before the follow-up was removed has stage-2 rows in it. That
+// record is the anchor every later claim of progress is measured against, so it
+// has to stay readable — the old probe items are simply not counted toward the
+// band.
+t('a record from the two-stage era still reads, ignoring its probes', () => {
     const base = mkItems(() => ({ correct: true, seconds: 55 }));
-    const probes = [
+    const legacyProbes = [
         { id: 'p1', skill: 'Transitions', difficulty: 'Hard',
           stage: 2, probeTier: 'Hard', correct: true,  seconds: 70 },
         { id: 'p2', skill: 'Boundaries',  difficulty: 'Hard',
           stage: 2, probeTier: 'Hard', correct: false, seconds: 70 },
     ];
-    const prof = ctx.buildBaselineProfile(base.concat(probes));
-    eq(prof['Transitions'].band, 'Secure');
-    eq(prof['Transitions'].confidence, 'probed');
+    const prof = ctx.buildBaselineProfile(base.concat(legacyProbes));
+    eq(Object.keys(prof).length, 11);
+    eq(prof['Transitions'].band, 'Proficient');
     eq(prof['Boundaries'].band, 'Proficient');
-    eq(prof['Boundaries'].confidence, 'probed');
-});
-
-console.log('\nPROBE SET\n---------');
-t('a probe exists for every routed skill, in the right tier', () => {
-    const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: false, seconds: 55 })));
-    const { probes, gaps } = ctx.buildProbeSet(bank, prof, formA.map(q => q.id), 'A');
-    eq(gaps, [], 'unfillable probe slots:');
-    eq(probes.length, 11);
-    probes.forEach(p => eq(p.difficulty, 'Easy', p.skill + ':'));
-});
-
-t('ceiling probes are all available too', () => {
-    const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: true, seconds: 55 })));
-    const { probes, gaps } = ctx.buildProbeSet(bank, prof, formA.map(q => q.id), 'A');
-    eq(gaps, []);
-    eq(probes.length, 11);
-    probes.forEach(p => eq(p.difficulty, 'Hard', p.skill + ':'));
-});
-
-t('probes never reuse a screener item', () => {
-    const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: false, seconds: 55 })));
-    const used = formA.map(q => q.id);
-    const { probes } = ctx.buildProbeSet(bank, prof, used, 'A');
-    probes.forEach(p => ok(!used.includes(p.id), p.id + ' reused from screener'));
-});
-
-t('a half-right screener spends no probes at all', () => {
-    let flip = 0;
-    const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: (flip++ % 2 === 0), seconds: 55 })));
-    const { probes } = ctx.buildProbeSet(bank, prof, formA.map(q => q.id), 'A');
-    eq(probes.length, 0, 'Developing skills should not consume probe items:');
-});
-
-// The sister app takes pool[0], so every student gets the identical Hard item
-// for a skill on every sitting — which the forms go to real trouble to avoid,
-// and then the probe hands straight back.
-t('probes are seeded, not just the first match in bank order', () => {
-    const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: true, seconds: 55 })));
-    const used = formA.map(q => q.id);
-    const a = ctx.buildProbeSet(bank, prof, used, 'A').probes.map(p => p.id);
-    const b = ctx.buildProbeSet(bank, prof, used, 'B').probes.map(p => p.id);
-    ok(a.some((id, i) => id !== b[i]),
-       'form A and form B probe with an identical set — the seed is not being used');
-});
-
-t('probing is deterministic for a given form', () => {
-    const prof = ctx.buildBaselineProfile(mkItems(() => ({ correct: true, seconds: 55 })));
-    const used = formA.map(q => q.id);
-    eq(ctx.buildProbeSet(bank, prof, used, 'A').probes.map(p => p.id),
-       ctx.buildProbeSet(bank, prof, used, 'A').probes.map(p => p.id),
-       'the probe set drifted between identical calls:');
+    eq(prof['Transitions'].screenTotal, 2, 'a probe was counted as a screener item:');
 });
 
 console.log('\nPROJECTION\n----------');
@@ -523,9 +462,9 @@ t('a heavy skill outranks a light one at the same band', () => {
     ok(b < c, 'Boundaries (13.2%) should outrank Cross-Text (6.5%) at the same band');
 });
 
-t('Secure and Proficient skills stay out of the queue', () => {
+t('Proficient skills stay out of the queue', () => {
     const q = ctx.baselineFocusQueue(weakProfile(), null, bank);
-    q.forEach(x => ok(ctx.BASELINE_BANDS[x.band].rank <= 3,
+    q.forEach(x => ok(ctx.BASELINE_BANDS[x.band].rank <= 2,
         x.skill + ' is ' + x.band + ' and should not be in the plan'));
 });
 

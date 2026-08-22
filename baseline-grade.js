@@ -19,43 +19,43 @@
 // rung up or down from it. Uniform base, ordinal ladder, no denominator drift.
 // ══════════════════════════════════════════════════════════════════
 
-// Five bands, each with a genuinely different instructional consequence. If two
-// bands would lead to the same lesson, they should be one band.
+// THREE bands. One sitting, one submit, and the reading is whatever those two
+// Medium items support — no more.
 //
-// Priority vs Foundational is the pair that earns its keep: more drilling is
-// the right answer for one and the wrong answer for the other, and a report
-// that cannot tell them apart sends a tutor to drill a student who needs
-// teaching — which fails, slowly, and looks like the student's fault.
+// There were five. Secure and Foundational are gone because they were never
+// readable from the screener: each one needed a second-stage probe, a Hard item
+// to find the ceiling or an Easy item to find the floor, served AFTER the
+// student had already finished. That follow-up is removed. Once a student
+// submits, that is the whole sitting.
+//
+// What that costs is worth writing down rather than discovering later.
+// Foundational was the "the underlying skill is not in place — teach it, do not
+// drill it" reading, and 0/2 on its own cannot tell that from "knows the idea,
+// cannot apply it at test level". Both now report as Priority. A screener is
+// triage, and triage is allowed to say "this one needs a closer look" without
+// pretending to have taken it: if a skill needs a floor or ceiling read, that
+// is a homework set, which is the tutor's call and belongs in
+// homework/assignments.js — not a second instrument bolted onto a check the
+// student has already finished.
 const BASELINE_BANDS = {
-    Secure: {
-        rank: 5,
-        label: 'Secure',
-        meaning: 'Handles this skill at the hardest level the test asks for.',
-        action: 'Maintain with spaced review only. Do not spend teaching time here.',
-    },
     Proficient: {
-        rank: 4,
+        rank: 3,
         label: 'Proficient',
-        meaning: 'Solid at test level; the hardest variants are not there yet.',
-        action: 'Light practice at Hard difficulty. Not a teaching priority.',
+        meaning: 'Solid at test level.',
+        action: 'Not a teaching priority. Keep it fresh with spaced review.',
     },
     Developing: {
-        rank: 3,
+        rank: 2,
         label: 'Developing',
         meaning: 'Inconsistent at test level — gets it sometimes.',
         action: 'Targeted practice at Medium, then push to Hard. Reachable gains.',
     },
     Priority: {
-        rank: 2,
-        label: 'Priority',
-        meaning: 'Has the underlying idea but cannot apply it at test level.',
-        action: 'Teach the method, then drill Medium. This is where points are.',
-    },
-    Foundational: {
         rank: 1,
-        label: 'Foundational',
-        meaning: 'The underlying skill is not in place yet.',
-        action: 'Pre-teach from scratch. Drilling test questions will not fix this.',
+        label: 'Priority',
+        meaning: 'Not working at test level yet.',
+        action: 'Teach the method before drilling. Check whether the underlying '
+              + 'skill is there — two questions cannot tell you that.',
     },
 };
 
@@ -82,39 +82,33 @@ function classifyTiming(item) {
     return null;
 }
 
-// ── stage 1 → provisional band, and the routing decision ──────────
-// 2/2 → the open question is the CEILING, so spend a Hard item.
-// 1/2 → Developing is already the honest answer; a probe buys nothing, so spend
-//       nothing. This is why the follow-up is short: a student who is genuinely
-//       middling on most skills sits almost no second stage.
-// 0/2 → the open question is the FLOOR, so spend an Easy item, which is the one
-//       place it is decisive — it separates "cannot apply it" from "has not got
-//       it", and those are different lessons.
-function routeSkill(correctCount) {
-    if (correctCount >= 2) return { provisional: 'Proficient', probe: 'Hard'  };
-    if (correctCount === 1) return { provisional: 'Developing', probe: null   };
-    return                         { provisional: 'Priority',   probe: 'Easy' };
-}
-
-// ── stage 2 → final band ──────────────────────────────────────────
-function finalBand(correctCount, probeTier, probeCorrect) {
-    if (probeTier === null || probeCorrect === null || probeCorrect === undefined) {
-        return routeSkill(correctCount).provisional;
-    }
-    if (probeTier === 'Hard') return probeCorrect ? 'Secure' : 'Proficient';
-    if (probeTier === 'Easy') return probeCorrect ? 'Priority' : 'Foundational';
-    return routeSkill(correctCount).provisional;
+// ── the band, from the two screener items and nothing else ────────
+// 2/2 → Proficient · 1/2 → Developing · 0/2 → Priority.
+//
+// That is the whole ladder. It is deliberately not more: two four-option items
+// can support an ordinal reading and cannot support anything finer, and a
+// report that claims finer is inviting a tutor to act on a coin flip.
+function bandFor(correctCount) {
+    if (correctCount >= 2) return 'Proficient';
+    if (correctCount === 1) return 'Developing';
+    return 'Priority';
 }
 
 // ── the profile ───────────────────────────────────────────────────
-// items: [{ id, skill, difficulty, correct, seconds, stage, probeTier }]
+// items: [{ id, skill, difficulty, correct, seconds }]
+//
+// `stage` is still tolerated on an item so that a record written before the
+// follow-up was removed still reads: those sittings have stage-2 rows, and they
+// are simply not counted toward the band. A stored baseline is the anchor every
+// later claim of progress is measured against, and it must not become
+// unreadable because the instrument changed.
 function buildBaselineProfile(items) {
     const skills = {};
 
-    items.filter(i => i.stage === 1).forEach(i => {
+    items.filter(i => i.stage === undefined || i.stage === 1).forEach(i => {
         const s = skills[i.skill] || (skills[i.skill] = {
             skill: i.skill, screenCorrect: 0, screenTotal: 0,
-            probeTier: null, probeCorrect: null, flags: [], items: [],
+            flags: [], items: [],
         });
         s.screenTotal++;
         if (i.correct) s.screenCorrect++;
@@ -123,36 +117,21 @@ function buildBaselineProfile(items) {
         s.items.push(i);
     });
 
-    items.filter(i => i.stage === 2).forEach(i => {
-        const s = skills[i.skill];
-        if (!s) return;
-        s.probeTier    = i.probeTier || i.difficulty;
-        s.probeCorrect = !!i.correct;
-        const t = classifyTiming(i);
-        if (t) s.flags.push(t);
-        s.items.push(i);
-    });
-
     Object.values(skills).forEach(s => {
-        const route = routeSkill(s.screenCorrect);
-        s.routedProbe  = route.probe;
-        s.provisional  = route.provisional;
-        s.band         = finalBand(s.screenCorrect, s.probeTier, s.probeCorrect);
+        s.band       = bandFor(s.screenCorrect);
+        // One sitting, one reading. `measured` means exactly "these two items
+        // were genuinely attempted" — not that the skill is settled. Two items
+        // never settle a skill, which is what the note on the results screen
+        // says out loud.
+        s.confidence = 'measured';
 
-        // `resolved` means "no further probe is planned", which is NOT the same
-        // as "measured reliably" — a 1/2 screener is the least informative
-        // outcome there is and it is precisely the one that routes no probe.
-        // The sister app calls this state `confirmed`, and a tutor reading that
-        // word next to a two-item result will over-trust it. Say what is true.
-        s.confidence = s.probeTier ? 'probed' : (route.probe ? 'provisional' : 'resolved');
-
-        // A skill whose screener items were not genuinely attempted has not been
+        // A skill whose items were not genuinely attempted has not been
         // measured. Say so rather than reporting a band built on a coin flip: a
-        // false "Foundational" sends a tutor to re-teach something the student
+        // false "Priority" sends a tutor to re-teach something the student
         // already knows, which is the most expensive mistake this report can
         // make and the one a student will not correct out loud.
         const nonAttempts = s.items.filter(i =>
-            i.stage === 1 && classifyTiming(i) === 'non-attempt').length;
+            classifyTiming(i) === 'non-attempt').length;
         if (nonAttempts >= s.screenTotal) {
             s.band = null;
             s.confidence = 'not-measured';
@@ -287,49 +266,32 @@ function skillWeights(bank) {
 function baselineFocusQueue(profile, limit, bank) {
     const weights = skillWeights(bank);
     const scored = Object.values(profile)
-        .filter(s => s.band && BASELINE_BANDS[s.band].rank <= 3)
+        // Proficient stays out of the plan; Developing and Priority are the
+        // teaching range.
+        .filter(s => s.band && BASELINE_BANDS[s.band].rank <= 2)
         .map(s => {
             const w = weights[s.skill] || 0.05;
-            const severity = 4 - BASELINE_BANDS[s.band].rank;   // Dev 1, Pri 2, Found 3
+            const severity = 3 - BASELINE_BANDS[s.band].rank;   // Dev 1, Pri 2
             return { ...s, weight: w, priorityScore: severity * w };
         })
         .sort((a, b) => b.priorityScore - a.priorityScore);
     return limit ? scored.slice(0, limit) : scored;
 }
 
-// Build the stage-2 probe set: one item per skill that routed to a probe, drawn
-// from the correct tier and excluding anything already served.
-function buildProbeSet(bank, profile, excludeIds, seed) {
-    const exclude = new Set(excludeIds || []);
-    const out = [];
-    const gaps = [];
-    Object.values(profile).forEach(s => {
-        if (!s.routedProbe) return;
-        const pool = bank.filter(q =>
-            q.skill === s.skill && q.difficulty === s.routedProbe && !exclude.has(q.id));
-        if (!pool.length) {
-            // Never substitute another skill to fill the slot. Report the gap:
-            // a probe from the wrong skill would resolve a band that was never
-            // tested, which is worse than leaving it provisional.
-            gaps.push({ skill: s.skill, tier: s.routedProbe });
-            return;
-        }
-        // Seeded, not pool[0]. Taking the first match means every student gets
-        // the identical Hard question for a skill on every sitting — which the
-        // forms go to real trouble to avoid, and then the probe hands back. The
-        // seed carries the form letter, so a retake probes with a different item.
-        const rand = _mulberry32(_seedFrom('probe::' + (seed || '') + '::' + s.skill));
-        const pick = pool[Math.floor(rand() * pool.length)] || pool[0];
-        out.push({ ...pick, stage: 2, probeTier: s.routedProbe });
-        exclude.add(pick.id);
-    });
-    return { probes: out, gaps };
-}
+// There is no buildProbeSet, and there is no stage two. The sitting is 22
+// questions and it ends when the student submits.
+//
+// It used to route a Hard ceiling probe at every 2/2 skill and an Easy floor
+// probe at every 0/2 one, offered on the results screen after the student had
+// already finished. That is what produced the five-band ladder, and it is gone
+// on purpose: a check the student has completed should be complete. If a band
+// needs resolving, resolve it with taught practice — a homework set — not by
+// re-opening a finished assessment.
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
-        BASELINE_BANDS, classifyTiming, routeSkill, finalBand, skillWeights,
-        buildBaselineProfile, projectBaseline, baselineFocusQueue, buildProbeSet,
+        BASELINE_BANDS, classifyTiming, bandFor, skillWeights,
+        buildBaselineProfile, projectBaseline, baselineFocusQueue,
         BASELINE_SCALE_LOW, BASELINE_SCALE_HIGH,
         T_NON_ATTEMPT, T_RUSHED, T_LABOURED,
     };
