@@ -53,10 +53,12 @@
 window.CHALLENGE_SETS = {
 
     'Jeffrey': [
-        // p8-rw  (Practice 8)  retired 11 Aug 2026 — see challenge/_retired/p8-rw.md.
-        // p11-rw (Practice 11) retired 18 Aug 2026 — see challenge/_retired/p11-rw.md.
+        // p8-rw      (Practice 8)  retired 11 Aug 2026 — see challenge/_retired/p8-rw.md.
+        // p11-rw     (Practice 11) retired 18 Aug 2026 — see challenge/_retired/p11-rw.md.
+        // bnd-trn-aug (skill set)  retired 23 Aug 2026 — see challenge/_retired/bnd-trn-aug.md.
         // Removed from the roster, not edited: their ids stay reconstructable there.
         //
+        /* RETIRED 23 AUG 2026 — see challenge/_retired/bnd-trn-aug.md
         // ── One set, committed 18 Aug 2026 ─────────────────────────────
         // A SKILL set, not a test set: selected from the bank by ruleType and by
         // category rather than from one test's verbatim misses, so it carries no
@@ -143,6 +145,7 @@ window.CHALLENGE_SETS = {
                 '5670a657',
             ],
         },
+        END OF THE 18 AUG SET — RETIRED 23 AUG 2026 */
 
         /* RETIRED 18 AUG 2026 — see challenge/_retired/p11-rw.md
         {
@@ -202,6 +205,139 @@ window.CHALLENGE_SETS = {
             ],
         },
         */
+
+        // ── One set, committed 23 Aug 2026 ─────────────────────────────
+        // A SKILL set, not a test set: selected from the bank by skill and
+        // difficulty rather than from one test's verbatim misses, so it carries
+        // no `review` layer. The schema allows that ("Omit when you only have a
+        // score report") and challenge.js renders no debrief button without one.
+        //
+        // WHY THE ROSTER TURNED OVER. The set this replaces was punctuation and
+        // transitions, and that work is finished. Two consecutive score reports
+        // now state the first-module figure instead of leaving it to be
+        // back-solved: 22 of 27, then 25 of 27, against back-solves near 16 in
+        // early August. The grammar block is where the first module is won and
+        // it has been won. What both reports also say is that the loss has moved
+        // to the second module, which is the harder one and which no set on this
+        // key has ever targeted. This set targets it.
+        //
+        // WHY HARD ONLY, AND IT IS THE POINT OF THE SET. Every set on this key
+        // has mixed Easy, Medium and Hard. The second module is not mixed. A set
+        // that averages three difficulties trains for a module that does not
+        // exist, which is the likeliest reason the second module keeps arriving
+        // as a surprise. All sixteen are Hard.
+        //
+        // WHY THIS SKILL. Information & Ideas is roughly a quarter of the
+        // section and it printed 2 of 7 on the August report, its floor. It has
+        // had no sustained teaching since 13 July, when it was designated
+        // manage-not-solve — a judgement that was correct while the first module
+        // was the constraint and is wrong now. A hard second module is
+        // disproportionately built from this skill.
+        //
+        // SIXTEEN, NOT TWENTY-FOUR. MASTERY_THRESHOLD is 2 and requeue() cannot
+        // promote within a sitting, so 16 ids is a floor of 32 attempts across at
+        // least two sittings. Twenty days is what that fits, alongside a weekly
+        // practice test and the maths work.
+        //
+        // ARCHETYPES — the selection is on the shape of the WRONG answer, because
+        // the failure this set is built against is a first move, not a topic:
+        // reading the options before the claim has been named.
+        //   Inferences / Hard (6) — one per failure shape: ce4448b7 requires
+        //     carrying the direction of a hypothesis the researchers expected to
+        //     REVERSE; e185a21f offers a "must have" overreach beside the modest
+        //     true reading; aaddd60f turns a negative premise into what follows,
+        //     with an instrument-reliability option that changes the subject;
+        //     3f236877 carries a confidentiality clause to an unintended
+        //     consequence past two topic-plausible options; 4ba0695d turns on the
+        //     DIRECTION of gene flow, i.e. which party the claim is about;
+        //     95dbdf51 asks for a named theorist's logic applied to a case, so
+        //     the claim to be extracted is the theory's, not the passage's.
+        //   CoE — Textual / Hard (4) — 156ff681 is the only WEAKEN item here and
+        //     is deliberately included: the direction of the task is exactly what
+        //     a skipped claim loses. 09f9edb0 needs a finding about two named
+        //     traditions that bears on homogenisation rather than on either one.
+        //     63e7799d must distinguish between two competing mechanisms, not
+        //     merely agree with the conclusion. c83e0b43 is a QUOTATION item
+        //     rather than a finding item — the second module mixes the two.
+        //   CoE — Quantitative / Hard (3) — the standing gap: zero converted in
+        //     July. Each has a distractor that is TRUE ON THE TABLE and does not
+        //     bear on the claim, which is the trap named in his own handout.
+        //     b2e54b50 is correlations, where the comparison is distance from
+        //     zero and two of the values are negative; 2c06139b is two variables
+        //     across three conditions, where the largest difference is not the
+        //     supporting one; 56f477fb is a subgroup-versus-overall percentage.
+        //   Central Ideas / Hard (3) — d1b8a9ad is the true-but-narrow detail
+        //     against the whole-text point; 35b46381 is a granted-concession
+        //     structure ("having granted that…") in dense science prose;
+        //     1a2b29c9 is literary and turns on tone, which the second module
+        //     always carries and which no recent set has held.
+        //
+        // WHAT IS DELIBERATELY ABSENT. Boundaries, Transitions and the rest of
+        // Expression of Ideas. Not because they are mastered outright, but
+        // because 25 of 27 leaves four points there and this set has twenty days.
+        //
+        // EXCLUSIONS APPLIED at selection: every id in p8-rw, p11-rw and
+        // bnd-trn-aug, live or retired, and the ids worked in the 17 Aug class.
+        // Rule 3 holds — no id below appears in any other set on this key.
+        // Ids held on OTHER keys are not excluded and must not be: the schema
+        // says the same bank question may appear in several sets, and per-student
+        // progress is independent.
+        //
+        // POOL NOTE FOR THE NEXT SET, counted net of this key's exclusions.
+        // Hard remaining after this draw: Inferences 16, CoE-Textual 13,
+        // Central Ideas 11, and CoE — QUANTITATIVE 2. ⚠️ CoE-Q IS NOW THE THIN
+        // POOL ON THIS KEY — two Hard items left and nothing in the bank
+        // replaces them. A future set or homework section asking for CoE-Q at
+        // Hard will backfill and test nothing. Draw it at Medium, or draw it
+        // from a fresh import.
+        //
+        // ORDER IS DELIBERATE: the four skills alternate so that a first session
+        // drawn off the top at the default 10 meets every one of them — the
+        // first ten below are 3 Inferences, 3 CoE-Textual, 2 CoE-Quantitative
+        // and 2 Central Ideas. buildQueue() reorders by ledger state, so this
+        // governs the first pass only, which is the one that happens tonight.
+        //
+        // DO NOT EDIT. These ids are the denominator of "Mastered N of 16".
+        {
+            setId:  'ii-claim-aug23',
+            title:  'Information and Ideas — name the claim before you look',
+            source: 'Information & Ideas, Hard only, selected on the shape of the wrong answer',
+            date:   '2026-08-23',
+            ids: [
+                // Inferences — a reversed hypothesis (1)
+                'ce4448b7',
+                // CoE — Textual — WEAKEN, not support (1)
+                '156ff681',
+                // CoE — Quantitative — correlations, distance from zero (1)
+                'b2e54b50',
+                // Central Ideas — the true-but-narrow detail (1)
+                'd1b8a9ad',
+                // Inferences — "must have" overreach beside the modest reading (1)
+                'e185a21f',
+                // CoE — Textual — bears on homogenisation, not on either tradition (1)
+                '09f9edb0',
+                // CoE — Quantitative — two variables, three conditions (1)
+                '2c06139b',
+                // Central Ideas — granted concession, dense science prose (1)
+                '35b46381',
+                // Inferences — negative premise, and a change-of-subject option (1)
+                'aaddd60f',
+                // CoE — Textual — distinguishes two competing mechanisms (1)
+                '63e7799d',
+                // CoE — Quantitative — subgroup versus overall percentage (1)
+                '56f477fb',
+                // Central Ideas — literary, and it turns on tone (1)
+                '1a2b29c9',
+                // Inferences — a clause carried to an unintended consequence (1)
+                '3f236877',
+                // CoE — Textual — a QUOTATION item, not a finding item (1)
+                'c83e0b43',
+                // Inferences — the direction of the transfer (1)
+                '4ba0695d',
+                // Inferences — apply the named theorist's logic, not the passage's (1)
+                '95dbdf51',
+            ],
+        },
     ],
 
     'Bruce': [

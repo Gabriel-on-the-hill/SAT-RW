@@ -381,7 +381,7 @@ const HOMEWORK = {
     start: "2026-08-11",
     through: "2026-08-21",
     unlock: "sequential",
-    challenge: "bnd-trn-aug",
+    challenge: "ii-claim-aug23",
     days: [],
   },
 
