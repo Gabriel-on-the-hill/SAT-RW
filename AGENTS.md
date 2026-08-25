@@ -38,6 +38,7 @@ NODE_PATH=/tmp/j/node_modules node ns-migrate.test.js              # nobody lose
 NODE_PATH=/tmp/j/node_modules node ratio-mix.test.js               # custom practice in a ratio
 NODE_PATH=/tmp/j/node_modules node session-responses.test.js       # the answer model
 NODE_PATH=/tmp/j/node_modules node session-nav.e2e.test.js         # ... wired to the real page
+node session-flush.test.js                                          # an unfinished sitting still reports
 NODE_PATH=/tmp/j/node_modules node homework/homework-nav.test.js   # moving around a homework set
 NODE_PATH=/tmp/j/node_modules node gate.test.js                    # no student opens a tutor page
 NODE_PATH=/tmp/j/node_modules node baseline.test.js                # forms, bands, routing, weights
@@ -200,6 +201,18 @@ mechanism, not a bug in it.
 - **A redo never rewrites the first attempt.** What she did under the clock is the honest
   record. The redo only adds "put right on the redo".
 - **Running out of time must not destroy the set.** Submit what she has; show the review.
+- **Walking away must not destroy the set either.** The ledger is written per question; the
+  sheet was written only from the end of a set, which practice mode and untimed homework reach
+  only by advancing PAST the last question — neither has a Submit button. A set answered and
+  then navigated away from wrote everything locally and sent the tutor nothing, and
+  `mode:'no-cors'` meant nothing could tell. It was found in the sister PSAT 8/9 app on
+  24 Aug 2026 and this app had it identically. A `pagehide` flush now posts what was committed.
+  **Use `pagehide`, never `visibilitychange`** — these sessions are screen-shared and
+  tab-switched constantly, so visibilitychange would post a row on every alt-tab. **Keepalive
+  must stay on both fetches**, or the browser cancels the request mid-unload.
+  **And the partial must never reuse the finished row's Session ID.** That id is an idempotency
+  key here and first write wins, so a shared id would store the fragment and discard the real
+  result — the partial posts under `<id>_partial`. `session-flush.test.js` holds all of it.
 
 ## A student can move around a set
 

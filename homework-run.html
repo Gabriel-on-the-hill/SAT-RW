@@ -120,7 +120,7 @@
 <script src="data-info-ideas.js?v=20260712"></script>
 <script src="data-conventions.js?v=20260703"></script>
 <script src="progress.js?v=20260722"></script>
-<script src="sheet-sync.js?v=20260822"></script>
+<script src="sheet-sync.js?v=20260825"></script>
 <script src="homework/assignments.js?v=20260823"></script>
 </head>
 <body>
@@ -976,21 +976,56 @@
     return ret;
   }
 
-  function postLog(secs){
+  // The same divergence history.js documents lived here too: in UNTIMED mode the
+  // ledger is written per question (grade(), above) but postLog fires only from
+  // finish(), which advance() reaches by moving PAST the last question. There is no
+  // Submit button in untimed mode, so a set abandoned on its final question wrote
+  // everything locally and sent nothing. Untimed sets are the ones carrying the
+  // typed predictions, which makes this the expensive version of the bug.
+  //
+  // The partial posts under a DIFFERENT sessionId ('..._partial'). This app's Apps
+  // Script skips a Session ID it has already stored -- first write wins -- so
+  // reusing the id would keep the fragment and discard the real result.
+  var _hwSessionId='hw_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8);
+  var _hwLogged=false, _hwPartialLogged=false;
+
+  function postLog(secs, partial){
     try{
       if(typeof SHEET_SYNC_ENDPOINT==='string' && SHEET_SYNC_ENDPOINT){
-        var got=records.filter(function(r){return r.ok;}).length;
+        var done=records.filter(function(r){return r && r.chosen;});
+        var rows=partial ? done : records;
+        if(partial && !done.length) return;          // nothing committed, nothing to say
+        var got=rows.filter(function(r){return r.ok;}).length;
         fetch(SHEET_SYNC_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
-          body:JSON.stringify({type:'homework',student:student,day:dayN,focus:spec.focus,score:got,total:records.length,seconds:secs,at:new Date().toISOString(),
-            sessionId:'hw_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8),
+          // Without keepalive the browser cancels an in-flight request as the page
+          // unloads, which is exactly when the partial flush fires.
+          keepalive:true,
+          body:JSON.stringify({type:'homework',student:student,day:dayN,
+            focus:(spec.focus||'')+(partial?' -- INCOMPLETE ('+done.length+' of '+records.length+' answered)':''),
+            partial:!!partial,
+            score:got,total:rows.length,seconds:secs,at:new Date().toISOString(),
+            sessionId:_hwSessionId+(partial?'_partial':''),
             retention:sessionRetention(),
-            questions:records.map(function(r){
+            questions:rows.map(function(r){
               return {id:r.id, skill:r.skill, difficulty:r.difficulty,
                       chosen:r.chosen, correct:r.answer, isCorrect:r.ok,
                       secs:r.secs, onText:r.onText, onOpts:r.onOpts, prediction:r.prediction};
             })})});
+        if(partial) _hwPartialLogged=true; else _hwLogged=true;
       }
     }catch(e){}
+  }
+
+  // pagehide only -- see the note in app.js initSessionFlush(). A set that has been
+  // finished has already posted and is skipped; a redo posts nothing either way.
+  if(typeof window!=='undefined' && window.addEventListener){
+    window.addEventListener('pagehide', function(){
+      try{
+        if(_hwLogged || _hwPartialLogged || isRedo || reviewOnly) return;
+        bankQ();
+        postLog(Math.round((Date.now()-started)/1000), true);
+      }catch(e){}
+    });
   }
   (function(){
     var rb=document.getElementById('hwRevBack'), rs=document.getElementById('hwRevSubmit');

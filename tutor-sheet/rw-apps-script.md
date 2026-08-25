@@ -20,12 +20,12 @@ Redeploy is required for this. `ensureHeaders_` adds the columns to the right of
 
 **It captures what the app was already sending and the sheet was throwing away.**
 
-| Field the app POSTs | v1 | v2 |
-|---|:--:|:--:|
-| `questions[]` — per-question `chosen`, `correct`, `secs`, **`trap`** | ❌ dropped | ✅ one row each in a **Questions** tab |
-| `blurCount` — tab-switches during the session | ❌ dropped | ✅ `Focus Losses` |
-| `assignmentId` (e.g. `p8-rw`) | ❌ merged away | ✅ its own column |
-| `sessionId` | — (didn't exist) | ✅ idempotency key |
+| Field the app POSTs                                                  | v1               | v2                                    |
+| -------------------------------------------------------------------- |:----------------:|:-------------------------------------:|
+| `questions[]` — per-question `chosen`, `correct`, `secs`, **`trap`** | ❌ dropped        | ✅ one row each in a **Questions** tab |
+| `blurCount` — tab-switches during the session                        | ❌ dropped        | ✅ `Focus Losses`                      |
+| `assignmentId` (e.g. `p8-rw`)                                        | ❌ merged away    | ✅ its own column                      |
+| `sessionId`                                                          | — (didn't exist) | ✅ idempotency key                     |
 
 **Four defects fixed.**
 
@@ -103,6 +103,18 @@ var SESSION_COLUMNS = [
 // session was not a baseline, not that the baseline found nothing.
 var EXTRA_COLUMNS = ['Skills', 'Difficulties', 'Retention',
                      'Baseline Projection', 'Baseline Plan', 'Baseline'];   // R&W only
+//
+// OPTIONAL, NOT YET ADDED — 'Partial'. Since 25 Aug 2026 the client posts
+// `partial: true` on a sitting flushed by `pagehide` (answered, then walked away
+// from before the last question — see history.js logPartialSession). Today that is
+// readable two ways without any script change: the row's Session ID ends `_partial`,
+// and its Assignment cell reads "INCOMPLETE - n of m answered". Adding 'Partial'
+// here would make it filterable; ensureHeaders_ appends it on the right with no
+// migration. Costs a redeploy, which is the only reason it is not already done.
+//
+// DO NOT make the partial share the finished row's Session ID to "tidy" this up.
+// seenSessionIds_ is first-write-wins, so the fragment would be stored and the real
+// result discarded as a duplicate — the exact data loss this all exists to stop.
 
 // The first 13 are the shared core, identical to the Math script and in the same
 // order, so a student's week reads across both subjects. R&W's three extras are

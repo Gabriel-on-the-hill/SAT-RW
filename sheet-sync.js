@@ -41,6 +41,12 @@ function syncSessionToSheet(record) {
         // Questions tab join back to this session on it.
         sessionId:       record.sessionId || '',
         type:            record.source || 'practice',
+        // An unfinished sitting flushed by pagehide. The visible marker travels in
+        // assignmentTitle (see history.js logPartialSession); this flag is here so a
+        // future 'Partial' entry in EXTRA_COLUMNS can read it without a client change.
+        // NOTE this payload is built key by key and drops anything unnamed -- which is
+        // exactly how the sister app's baseline reached localStorage and nothing else.
+        partial:         !!record.partial,
         assignmentId:    record.assignmentId    || '',
         assignmentTitle: record.assignmentTitle || '',
         score:           record.score ?? '',

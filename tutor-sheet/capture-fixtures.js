@@ -94,6 +94,10 @@ function captureHomework() {
         type: 'homework', student: 'Segun', day: 2, focus: 'Transitions, at pace',
         score: 7, total: 10, seconds: 431, at: new Date().toISOString(),
         sessionId: 'hw_test_abc123',
+        // False on a set that was FINISHED. True only on the pagehide flush of a set
+        // that was walked away from, which posts under `<sessionId>_partial` so the
+        // script's first-write-wins dedupe cannot discard the real result later.
+        partial: false,
         // Per-skill tally over the questions the review ladder brought BACK — the
         // durable-learning number. Only delayed retrievals, only ones reached.
         retention: { 'Inferences': { correct: 1, total: 2 } },

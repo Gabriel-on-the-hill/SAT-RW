@@ -271,6 +271,7 @@
     "seconds": 431,
     "at": "2026-07-16T20:32:32.644Z",
     "sessionId": "hw_test_abc123",
+    "partial": false,
     "retention": {
       "Inferences": {
         "correct": 1,

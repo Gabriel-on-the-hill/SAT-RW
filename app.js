@@ -519,6 +519,10 @@ function launchSession(questions, mode, timer) {
     reviewMode      = false;
     missedQuestions = [];
     sessionResults  = [];
+    // A fresh sitting gets a fresh identity, and both "already logged" flags
+    // reset with it -- otherwise a second session in the same page load would
+    // inherit the first one's and never flush. See history.js.
+    if (typeof setSessionId === 'function') setSessionId(newSessionId());
     mockExam        = false;
     userMode        = mode || 'assisted';
     const headerModeEl = document.getElementById('modeSelect');
@@ -2134,6 +2138,32 @@ function init() {
     renderBackupReminder();
     renderDueToday();
     checkForSavedSession();
+    initSessionFlush();
+}
+
+// ==================================================================
+// PAGEHIDE FLUSH -- the sheet must not depend on pressing Next
+// ==================================================================
+// The ledger is written per question; the sheet was written only from
+// finalizeSession(), which practice mode reaches ONLY by advancing past the last
+// question. Answer the final question, read the feedback, navigate away -- and the
+// tutor got nothing, with no way to tell. This is the missing trigger.
+//
+// `pagehide` only. visibilitychange fires on every alt-tab, and these sessions are
+// screen-shared and tab-switched constantly; it would post a row each time.
+// pagehide fires on navigate-away and on close, which is the case that loses data.
+//
+// keepalive:true on the fetch in sheet-sync.js is what lets the request outlive the
+// page. Without it the browser cancels it mid-unload and this whole handler is
+// theatre -- do not remove it.
+function initSessionFlush() {
+    if (typeof window === 'undefined' || !window.addEventListener) return;
+    window.addEventListener('pagehide', () => {
+        try {
+            bankTimeOnCurrent();                 // charge the open question first
+            if (typeof logPartialSession === 'function') logPartialSession();
+        } catch (e) { /* never block unload */ }
+    });
 }
 
 init();
