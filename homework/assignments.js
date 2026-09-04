@@ -745,6 +745,79 @@ const HOMEWORK = {
     ]
   }
   */
+
+  // ── 4–13 SEP 2026 · four untimed sets on one rule ────────────────
+  //
+  // First plan on this key. Nothing has been run here before, so the mastery
+  // ledger is empty and the review draw has nothing to serve until this block
+  // starts filling it. That is why every set is `minutes: 0` and why none of
+  // them carries `review: 0`: the dose is left at the default so it can start
+  // firing as soon as there is anything to fire with — from set 2 onward, and
+  // only if the sets land on SEPARATE NIGHTS. Four in one evening produce four
+  // scores and no retention data at all.
+  //
+  // minutes:0 is not "no time limit" — it is the ONLY state in which
+  // predictMode() makes the prediction be TYPED. The typed prediction is the
+  // whole mechanism of this block. Do not put a clock on any of these.
+  //
+  // ONE RULE, TWO SKILLS. Rhetorical Synthesis and Text Structure and Purpose
+  // sit in the same method family: the question names a job, and a wrong answer
+  // is usually true about the passage and off-task. RS states the goal in the
+  // stem; TS&P makes you derive it. Teaching both is the point — a rule that
+  // only works on the skill it was taught on is a trick, not a rule.
+  //
+  // THE ORDER IS LOAD-BEARING under sequential unlock:
+  //   1 → 2  the rule on the skill that states the job, then on the skill that
+  //          makes you find it. Set 2 is the transfer and it fails honestly
+  //   2 → 3  both skills have an untimed Medium rep before either meets Hard
+  //   3 → 4  set 4 mixes the two so the type has to be named before it is
+  //          answered, and it is authored to INCLUDE the review dose: by the
+  //          time it opens, sets 1–3 are past the 20h cooldown
+  //
+  // Counts: sets 1–3 are 4 + up to 2 review. Set 4 is 6 + 2 = 8.
+  //
+  // WHY THESE TWO SKILLS AND NOT THE HEAVIER ONES. Both pools are clean of
+  // provisional difficulty labels (RS entirely; TS&P 3 of 36 at Medium). After
+  // the 4 Sep extension merge that is no longer true of most of the bank, and a
+  // set whose tier is a guess cannot be read as evidence. Sections 3 and 4 sit
+  // at Hard partly for the same reason: the baseline forms spend Medium only,
+  // so a Hard draw cannot collide with them.
+  //
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser and this repo is public. Keep it
+  // free of assessment of him — shapes, pools and guardrails only.
+  "Ayodeji": {
+    title: "This week: what does the answer have to DO?",
+    start: "2026-09-04",
+    through: "2026-09-13",
+    unlock: "sequential",
+    days: [
+      { n:1, focus:"Name the job before you look at the choices", minutes:0,
+        tip:"Four questions, no clock, and the typing is the set.\n\nEach of these gives you a goal and some notes, and asks which sentence does the job. Before the choices appear you have to type what the answer has to DO — not which one you think it is, what it has to DO.\n\nONE RULE FOR WHAT YOU TYPE: it has to contain a word you copied out of the text. \"Answer choices\" is not a prediction — there are no choices on the screen yet, and that is the entire point of the screen. If you cannot yet say what the answer has to do, you are not finished reading, and the box is telling you so rather than getting in your way.\n\nHOW TO WORK ONE:\n1. Read the goal in the question and write it down in your own words. Not the topic — the job. \"Emphasise the difference between the two methods.\" \"Introduce the study to someone who has not read it.\"\n2. Read each choice and ask ONE thing: does it do that?\n3. TRUE IS NOT THE TEST. Most of the wrong answers here are accurate. They are copied faithfully out of the notes and they are about the right subject. They just do not do the job that was asked for. Accurate and off-task is still wrong.\n\nIf two choices both seem to do it, one of them is doing something slightly different — go back to the sentence you wrote and read it again word by word." ,
+        sections:[
+          { skills:["Rhetorical Synthesis"], diffs:["Medium"], count:4 }
+        ] },
+      { n:2, focus:"The same rule, on a question that does not tell you the job", minutes:0,
+        tip:"Four questions, no clock, typed prediction again — and the same rule as set 1 with one part removed.\n\nLast set, the question TOLD you the goal. This set does not. It asks what a sentence, or a paragraph, or the whole text is DOING, and you have to work the job out for yourself before you can test anything against it.\n\nHOW TO WORK ONE:\n1. Read the part the question points at. Then say, in one sentence, what it is DOING there. Describing? Arguing? Correcting something said earlier? Giving an example? Introducing something that is about to be explained?\n2. Say which words told you. If you cannot point at them, you have guessed.\n3. Then read the choices, and test each one against your sentence.\n\nTHE TRAP, AND IT IS THE COMMONEST WRONG ANSWER IN THIS PART OF THE PAPER: a choice that names the right topic and the wrong job. The text really is about migration, and the choice really does say migration, and the sentence was still doing something else — setting up a contrast, or qualifying a claim made two lines earlier.\n\nWhat the text is ABOUT and what the text is DOING are two different questions. This set is always the second one." ,
+        sections:[
+          { skills:["Text Structure and Purpose"], diffs:["Medium"], count:4 }
+        ] },
+      { n:3, focus:"The same two questions at the hard end", minutes:0,
+        tip:"Four questions, no clock, two of each kind — the goal-stated kind from set 1 and the work-it-out kind from set 2. Same rule. Harder texts.\n\nWhat gets harder is not the rule, it is the distance between the choices. At this end two or three of them will do something close to the job, and the winner is the one that does exactly it. So the sentence you type before the choices appear is worth more here than it was on Monday, not less — it is the only fixed thing you have to measure them against.\n\nWrite it more precisely than you think you need to. \"Says something about the results\" will not separate these. \"Says the results were weaker than the earlier study predicted\" will.\n\nAnd when two choices survive: put them side by side and find the single word they differ by. That word is the question." ,
+        sections:[
+          { skills:["Rhetorical Synthesis"],        diffs:["Hard"], count:2 },
+          { skills:["Text Structure and Purpose"],  diffs:["Hard"], count:2 }
+        ] },
+      { n:4, focus:"Mixed — decide which question it is before you answer it", minutes:0,
+        tip:"Eight questions, no clock. Six new, and the rest are questions from earlier this week coming back round. That is deliberate: the ones that return are the ones worth checking you have kept.\n\nMixed, with no warning which is which. The paper gives no warning either, and that is the skill this set is for.\n\nFIRST, EVERY TIME: which of the two am I looking at?\n• The question NAMES a goal — \"wants to emphasise\", \"wants to introduce\" — then the job is written down for you. Copy it and test against it.\n• The question asks what something is DOING — its function, its purpose, why it is there — then work the job out first, from the words on the page, and only then look down.\n\nBoth end the same way: name the job, test each choice against it, and throw out anything that is true but off-task.\n\nOne sitting, phone in another room. Type the prediction properly on every one — a set where the typing goes vague is a set that did not run, whatever it scores." ,
+        sections:[
+          { skills:["Rhetorical Synthesis"],       diffs:["Medium"], count:2 },
+          { skills:["Rhetorical Synthesis"],       diffs:["Hard"],   count:1 },
+          { skills:["Text Structure and Purpose"], diffs:["Medium"], count:2 },
+          { skills:["Text Structure and Purpose"], diffs:["Hard"],   count:1 }
+        ] },
+    ]
+  },
 };
 
 // Parse a start date robustly: accepts "YYYY-MM-DD", a Date, ISO, or locale
