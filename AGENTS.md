@@ -321,16 +321,14 @@ one needs a closer look" without taking that look. **If a band needs resolving, 
 taught practice — a homework set, which is the tutor's call and lives in `homework/assignments.js`
 — not by re-opening a finished assessment.**
 
-### Two forms, and that is the bank talking
+### Two confirmed forms, and that is the bank talking
 
-Three forms at two per skill needs six Medium items in every skill. **Command of Evidence —
-Quantitative has five.** That is the real count — only one Textual stem reads quantitative and it
-genuinely is one, and all 28 chart-bearing items are already filed Quantitative — so the answer is
-two forms, not three with an exception for one skill. An exception would mean Quantitative alone
-repeated between sittings, and the retake comparison on that skill would silently be measuring
-memory. `baselinePreflight()` fails the build if a form cannot be supplied, and warns when the bank
-has grown enough to support another. `baseline.test.js` asserts the constraint is still real, so
-two forms stays a decision rather than becoming inertia.
+The extension bank carries classifier-assigned provisional difficulty, so it is available for
+practice but excluded from baseline forms and from the bank-frequency weights used to rank the
+baseline plan. The confirmed bank still has five Medium Command of Evidence — Quantitative items;
+three forms need six. Repeating that skill would make a retake comparison measure memory.
+`baselinePreflight()` fails if the confirmed bank cannot supply a form and warns when it can support
+another. `baseline.test.js` keeps two forms a decision rather than inertia.
 
 ### The baseline does NOT write to the mastery ledger
 
@@ -557,3 +555,5 @@ exist. Run it before you claim a change is live.
 can see it, but it is **not** a property of `window`. Tests must inject a probe script to reach
 it. `prioritizePool` and `recordAnswer` are function declarations, so they *are* on `window`,
 which is how tests stub them. `challenge/challenge-ui.test.js` explains this too.
+
+## Imported Claude Cowork project instructions

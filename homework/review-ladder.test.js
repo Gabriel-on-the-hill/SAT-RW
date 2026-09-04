@@ -356,6 +356,18 @@ section('Calibration reads accuracy and points at the ~85% band');
     const acc = withLedger({}, skillAt('Inferences', 20, 0.95)).getSkillAccuracy();
     ok('per-skill accuracy is reconstructable', acc['Inferences'].correct === 19 && acc['Inferences'].total === 20,
         JSON.stringify(acc['Inferences']));
+
+    const provisional = withLedger({});
+    for (let i = 0; i < 12; i++)
+        provisional.recordTrapOutcome('Inferences', null, false, false);
+    const provisionalStats = provisional.getTrapStats()['Inferences — general'];
+    ok('provisional outcomes still reach trap analytics',
+        provisionalStats.total === 12 && provisionalStats.wrong === 12,
+        JSON.stringify(provisionalStats));
+    ok('provisional outcomes never calibrate difficulty',
+        provisional.recommendDifficulty('Inferences') === 'hold' &&
+        provisional.getSkillAccuracy()['Inferences'].total === 0,
+        JSON.stringify(provisional.getSkillAccuracy()['Inferences']));
 }
 
 console.log('\n' + '─'.repeat(64));

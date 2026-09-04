@@ -351,7 +351,7 @@ function resetLedger() {
 // Tallies how often a student gets caught by each trap type. Questions
 // with a specific `trapName` are tracked by that name; everything else
 // falls back to a per-skill bucket. Shape:
-//   { [bucket]: { wrong: number, total: number, skill: string } }
+//   { [bucket]: { wrong, total, calibrationWrong, calibrationTotal, skill } }
 
 function getTrapStats() {
     try { return JSON.parse(localStorage.getItem('satrw_trap_stats_' + _hwUser())) || {}; }
@@ -363,15 +363,23 @@ function _saveTrapStats(stats) {
 }
 
 // Call after every answered question that has a known skill.
-function recordTrapOutcome(skill, trapName, isCorrect) {
+function recordTrapOutcome(skill, trapName, isCorrect, includeInCalibration = true) {
     if (!skill) return;
     const bucket = (trapName && String(trapName).trim())
         ? String(trapName).trim()
         : skill + ' — general';
     const stats = getTrapStats();
     if (!stats[bucket]) stats[bucket] = { wrong: 0, total: 0, skill };
+    if (stats[bucket].calibrationTotal == null) {
+        stats[bucket].calibrationTotal = stats[bucket].total || 0;
+        stats[bucket].calibrationWrong = stats[bucket].wrong || 0;
+    }
     stats[bucket].total += 1;
     if (!isCorrect) stats[bucket].wrong += 1;
+    if (includeInCalibration) {
+        stats[bucket].calibrationTotal += 1;
+        if (!isCorrect) stats[bucket].calibrationWrong += 1;
+    }
     stats[bucket].skill = skill;
     _saveTrapStats(stats);
 }
@@ -396,10 +404,22 @@ function mergeTrapStats(incoming) {
     const existing = getTrapStats();
     Object.entries(incoming).forEach(([bucket, s]) => {
         if (!existing[bucket]) {
-            existing[bucket] = { wrong: s.wrong || 0, total: s.total || 0, skill: s.skill || '' };
+            existing[bucket] = {
+                wrong: s.wrong || 0,
+                total: s.total || 0,
+                calibrationWrong: s.calibrationWrong == null ? (s.wrong || 0) : s.calibrationWrong,
+                calibrationTotal: s.calibrationTotal == null ? (s.total || 0) : s.calibrationTotal,
+                skill: s.skill || '',
+            };
         } else {
+            if (existing[bucket].calibrationTotal == null) {
+                existing[bucket].calibrationTotal = existing[bucket].total || 0;
+                existing[bucket].calibrationWrong = existing[bucket].wrong || 0;
+            }
             existing[bucket].wrong += s.wrong || 0;
             existing[bucket].total += s.total || 0;
+            existing[bucket].calibrationWrong += s.calibrationWrong == null ? (s.wrong || 0) : s.calibrationWrong;
+            existing[bucket].calibrationTotal += s.calibrationTotal == null ? (s.total || 0) : s.calibrationTotal;
             existing[bucket].skill = s.skill || existing[bucket].skill;
         }
     });
@@ -417,9 +437,11 @@ function getSkillAccuracy() {
     Object.values(getTrapStats()).forEach(s => {
         const skill = s.skill;
         if (!skill) return;
+        const total = s.calibrationTotal == null ? (s.total || 0) : s.calibrationTotal;
+        const wrong = s.calibrationWrong == null ? (s.wrong || 0) : s.calibrationWrong;
         if (!out[skill]) out[skill] = { correct: 0, total: 0, rate: 0 };
-        out[skill].total   += s.total || 0;
-        out[skill].correct += (s.total || 0) - (s.wrong || 0);
+        out[skill].total   += total;
+        out[skill].correct += total - wrong;
     });
     Object.values(out).forEach(v => { v.rate = v.total ? v.correct / v.total : 0; });
     return out;

@@ -39,8 +39,10 @@ const vm = require('vm');
 const path = require('path');
 
 const APP = path.join(__dirname, '..');
-const BANK_FILES = ['data-craft-structure.js', 'data-expression-of-ideas.js',
-                    'data-info-ideas.js', 'data-conventions.js'];
+const BANK_FILES = ['data-craft-structure.js', 'data-craft-structure-ext.js',
+                    'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+                    'data-info-ideas.js', 'data-info-ideas-ext.js',
+                    'data-conventions.js', 'data-conventions-ext.js'];
 
 const SKILL_DOMAIN = {
     'Words in Context':                    'Craft & Structure',

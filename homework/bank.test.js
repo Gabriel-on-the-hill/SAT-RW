@@ -31,7 +31,10 @@ catch (e) { console.log('SKIP — jsdom not installed (see header).'); process.e
 
 const APP = path.join(__dirname, '..');
 const read = f => fs.readFileSync(path.join(APP, f), 'utf8');
-const BANKS = ['data-craft-structure.js', 'data-expression-of-ideas.js', 'data-info-ideas.js', 'data-conventions.js'];
+const BANKS = ['data-craft-structure.js', 'data-craft-structure-ext.js',
+    'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+    'data-info-ideas.js', 'data-info-ideas-ext.js',
+    'data-conventions.js', 'data-conventions-ext.js'];
 const PROBE = `window.__QB = function () {
     return [].concat(
         typeof questionBank_CS  !== 'undefined' ? questionBank_CS  : [],
@@ -114,6 +117,77 @@ section('Every question has its own id');
     const odd = QB.filter(q => q.id && typeof q.id !== 'string');
     ok('every id is a string', odd.length === 0,
         `${odd.length} non-string, e.g. ${JSON.stringify((odd[0] || {}).id)}`);
+}
+
+section('Extension questions are safe to merge');
+{
+    const incoming = QB.filter(q => q.difficultyStatus === 'provisional');
+    const base = QB.filter(q => q.difficultyStatus !== 'provisional');
+    const normalise = value => String(value || '').toLowerCase()
+        .replace(/[“”]/g, '"').replace(/[’]/g, "'").replace(/[–—]/g, '-')
+        .replace(/[^a-z0-9]+/g, ' ').trim();
+    const grams = value => {
+        const text = normalise(value);
+        const result = new Set();
+        for (let i = 0; i <= text.length - 4; i++) result.add(text.slice(i, i + 4));
+        return result;
+    };
+    const dice = (left, right) => {
+        if (!left.size || !right.size) return 0;
+        let overlap = 0;
+        for (const gram of left) if (right.has(gram)) overlap++;
+        return 2 * overlap / (left.size + right.size);
+    };
+    const content = q => [q.passage, q.question]
+        .concat((q.options || []).map(option => option.replace(/^[A-D]\.\s*/, ''))).join(' ');
+
+    ok('each extension loads immediately after its base',
+        ['craft-structure', 'expression-of-ideas', 'info-ideas', 'conventions'].every(name =>
+            BANKS.indexOf(`data-${name}-ext.js`) === BANKS.indexOf(`data-${name}.js`) + 1));
+    ok('the extension bank is present', incoming.length > 0, `${incoming.length} provisional questions`);
+    ok('every extension question has complete provenance', incoming.every(q => q.source && q.source.book &&
+        q.source.ref && Number.isInteger(q.source.questionPage) && Number.isInteger(q.source.keyPage)));
+    const sourceRefs = incoming.map(q => q.source.ref);
+    ok('every extension source reference is unique', new Set(sourceRefs).size === sourceRefs.length);
+    ok('every extension question has a complete four-choice record', incoming.every(q =>
+        q.passage && q.question && q.explanation && q.strategy && q.options && q.options.length === 4 && /^[A-D]$/.test(q.answer)));
+    ok('every extension conventions question has a ruleType', incoming.every(q =>
+        !['Boundaries', 'Form, Structure, and Sense'].includes(q.skill) || !!q.ruleType));
+    const answerOnly = incoming.filter(q => /^The answer is [A-D],/.test(q.explanation));
+    ok('no extension question gives answer-only feedback', answerOnly.length === 0,
+        answerOnly.map(q => q.id).join(', '));
+
+    const baseGrams = base.map(q => [q, grams(content(q))]);
+    const repeatedBase = [];
+    for (const question of incoming) {
+        const candidate = grams(content(question));
+        for (const [prior, priorGrams] of baseGrams) {
+            const score = dice(candidate, priorGrams);
+            if (score >= 0.95) { repeatedBase.push([question.id, prior.id, score]); break; }
+        }
+    }
+    ok('no extension question duplicates the base bank', repeatedBase.length === 0,
+        repeatedBase.slice(0, 5).map(([id, prior, score]) => `${id} / ${prior} (${score.toFixed(3)})`).join('\n      '));
+
+    const passageGrams = incoming.map(q => [q, grams(q.passage)]);
+    const repeatedIncoming = [];
+    for (let i = 0; i < passageGrams.length; i++) {
+        for (let j = 0; j < i; j++) {
+            const score = dice(passageGrams[i][1], passageGrams[j][1]);
+            if (score >= 0.95) repeatedIncoming.push([passageGrams[i][0].id, passageGrams[j][0].id, score]);
+        }
+    }
+    ok('no two extension questions repeat the same passage', repeatedIncoming.length === 0,
+        repeatedIncoming.slice(0, 5).map(([id, prior, score]) => `${id} / ${prior} (${score.toFixed(3)})`).join('\n      '));
+
+    const letters = incoming.reduce((counts, q) => {
+        counts[q.answer] = (counts[q.answer] || 0) + 1;
+        return counts;
+    }, {});
+    const largestShare = Math.max(...Object.values(letters)) / incoming.length;
+    ok('extension answer positions are plausibly distributed',
+        'ABCD'.split('').every(letter => letters[letter]) && largestShare <= 0.40,
+        JSON.stringify(letters));
 }
 
 section('Data questions are filed as Quantitative');

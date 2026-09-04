@@ -43,8 +43,10 @@ function captureRW() {
         w.sessionStorage.setItem('mastery_unlocked', '1');
         w.sessionStorage.setItem('mastery_user', 'Jeffrey');
         const files = ['gate.js', 'anti-cheat.js', 'config.js', 'progress.js', 'sheet-sync.js', 'storage.js',
-            'timer.js', 'history.js', 'data-craft-structure.js', 'data-expression-of-ideas.js',
-            'data-info-ideas.js', 'data-conventions.js', 'app.js', null,
+            'timer.js', 'history.js', 'data-craft-structure.js', 'data-craft-structure-ext.js',
+            'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+            'data-info-ideas.js', 'data-info-ideas-ext.js',
+            'data-conventions.js', 'data-conventions-ext.js', 'app.js', null,
             'data-challenge-jeffrey-p8.js', 'challenge/sets.js', 'challenge/challenge-core.js', 'challenge/challenge.js'];
         for (const f of files) {
             const s = w.document.createElement('script');

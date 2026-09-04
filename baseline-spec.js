@@ -10,7 +10,7 @@
 // drift no matter how a student performs.
 //
 // THE ANCHOR IS MEDIUM, AND THAT IS A DATA DECISION
-// Our bank is 229 Easy / 224 Medium / 266 Hard across 719 questions. Medium is
+// The confirmed bank is 229 Easy / 224 Medium / 266 Hard across 719 questions. Medium is
 // the modal difficulty of the real section, so it discriminates best on a
 // student nobody has measured yet, and a FIXED anchor tier is what keeps the
 // measurement base uniform: everybody answers the same two Medium items per
@@ -18,28 +18,21 @@
 // spent in stage two as floor and ceiling probes, only where the screener
 // leaves the answer genuinely open (see baseline-grade.js).
 //
-// TWO FORMS, NOT THREE — AND THAT IS THE BANK TALKING
-// The sister PSAT 8/9 app runs three parallel forms. We cannot, and the reason
-// is one cell. Medium counts per skill here:
+// TWO FORMS — AND THAT IS THE BANK TALKING
+// Extracted extension questions carry classifier-assigned, provisional
+// difficulty. They are valid practice, but they cannot anchor a baseline whose
+// interpretation depends on every item genuinely being Medium. Form selection
+// and skill weighting therefore use only confirmed questions. Confirmed Medium
+// counts per skill are:
 //
 //     Words in Context 35 · Text Structure 33 · Rhetorical Synthesis 31
 //     Boundaries 21 · Cross-Text 21 · Form/Structure/Sense 19 · CoE-Textual 17
 //     Central Ideas 15 · Transitions 14 · Inferences 13
 //     Command of Evidence — Quantitative ...................  5
 //
-// Three forms at two per skill needs six. Quantitative has five, and that is
-// the real count, not a classification miss: only one Textual stem reads
-// quantitative and it genuinely is one ("which quotation from a survey
-// respondent…"), and all 28 chart-bearing items are already filed Quantitative.
-// AGENTS.md records why that pool is worth re-checking before believing it —
-// it was once THREE Medium in a 719-question bank, because the parser inferred
-// the evidence type by counting digits and a bar graph contributes none.
-//
-// So: two forms. Not three with an exception for one skill, because an
-// exception means Quantitative alone would repeat between sittings and the
-// retake comparison on that skill would silently be measuring memory. Better a
-// smaller honest number. baselinePreflight() is what will tell us the day the
-// bank can support a third.
+// Three forms at two per skill needs six. Quantitative has five, so two forms
+// remain the largest honest number. baselinePreflight() will say when the
+// confirmed bank can support another instead of letting the form count drift.
 // ══════════════════════════════════════════════════════════════════
 
 // baseline.html does not load app.js — 90 KB of session UI it has no use for —
@@ -94,7 +87,11 @@ const BASELINE_SKILLS = [
 
 const BASELINE_ITEMS_PER_SKILL = 2;              // 11 skills × 2 = 22 items
 const BASELINE_ANCHOR_TIER     = 'Medium';
-const BASELINE_FORMS           = ['A', 'B'];     // see the header: the bank's limit, not a choice
+const BASELINE_FORMS           = ['A', 'B'];      // see the header: the confirmed bank's limit
+
+function baselineEligibleQuestion(question) {
+    return !!question && question.difficultyStatus !== 'provisional';
+}
 
 // 22 items at the real section's pace. SAT R&W runs ~71 s/question, so a
 // screener that is honest about time is ~26 minutes — longer than the sister
@@ -185,7 +182,7 @@ function buildBaselineForm(bank, formId) {
 
     BASELINE_SKILLS.forEach(skill => {
         const pool = bank.filter(q =>
-            q.skill === skill && q.difficulty === BASELINE_ANCHOR_TIER);
+            baselineEligibleQuestion(q) && q.skill === skill && q.difficulty === BASELINE_ANCHOR_TIER);
         // Shuffle once per skill with a skill-stable seed, THEN slice by form.
         // Seeding on the skill rather than the form is what makes the forms
         // disjoint slices of one ordering, instead of independent draws that
@@ -285,7 +282,7 @@ function baselinePreflight(bank) {
     const need = BASELINE_FORMS.length * BASELINE_ITEMS_PER_SKILL;
     BASELINE_SKILLS.forEach(skill => {
         const have = bank.filter(q =>
-            q.skill === skill && q.difficulty === BASELINE_ANCHOR_TIER).length;
+            baselineEligibleQuestion(q) && q.skill === skill && q.difficulty === BASELINE_ANCHOR_TIER).length;
         if (have < need) {
             errors.push(`${skill}: only ${have} ${BASELINE_ANCHOR_TIER} items, need ${need} for ${BASELINE_FORMS.length} forms`);
         }
@@ -294,8 +291,8 @@ function baselinePreflight(bank) {
     // 2. Probe pools are non-empty in BOTH directions for every skill, or a
     //    student can route to a probe that does not exist.
     BASELINE_SKILLS.forEach(skill => {
-        const easy = bank.filter(q => q.skill === skill && q.difficulty === 'Easy').length;
-        const hard = bank.filter(q => q.skill === skill && q.difficulty === 'Hard').length;
+        const easy = bank.filter(q => baselineEligibleQuestion(q) && q.skill === skill && q.difficulty === 'Easy').length;
+        const hard = bank.filter(q => baselineEligibleQuestion(q) && q.skill === skill && q.difficulty === 'Hard').length;
         if (easy === 0) errors.push(`${skill}: no Easy items — floor probe impossible`);
         if (hard === 0) errors.push(`${skill}: no Hard items — ceiling probe impossible`);
         if (easy > 0 && easy < 3) warnings.push(`${skill}: only ${easy} Easy items — floor probe repeats across retakes`);
@@ -325,7 +322,7 @@ function baselinePreflight(bank) {
     //    note, so the constant above gets revisited when the bank grows instead
     //    of staying at two forever because nobody looked.
     const couldSupply = BASELINE_SKILLS.every(skill =>
-        bank.filter(q => q.skill === skill && q.difficulty === BASELINE_ANCHOR_TIER).length
+        bank.filter(q => baselineEligibleQuestion(q) && q.skill === skill && q.difficulty === BASELINE_ANCHOR_TIER).length
             >= (BASELINE_FORMS.length + 1) * BASELINE_ITEMS_PER_SKILL);
     if (couldSupply) {
         warnings.push(`the bank can now supply ${BASELINE_FORMS.length + 1} forms — consider adding one`);
@@ -339,7 +336,7 @@ if (typeof module !== 'undefined' && module.exports) {
         BASELINE_SKILLS, BASELINE_ITEMS_PER_SKILL, BASELINE_ANCHOR_TIER,
         BASELINE_SECONDS, BASELINE_SECONDS_PER_ITEM, BASELINE_FORMS,
         BLUEPRINT_WEIGHT, RW_DOMAIN_ORDER,
-        baselineManifest, buildBaselineForm, orderBaselineSAT, spreadBaseline,
+        baselineManifest, baselineEligibleQuestion, buildBaselineForm, orderBaselineSAT, spreadBaseline,
         baselinePreflight,
     };
 }

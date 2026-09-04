@@ -1,7 +1,7 @@
 const fs=require('fs');
 const DIR='c:/Antigravity/SAT GUIDES/WAYNE/MasteryApp/';
 function load(f){let t=fs.readFileSync(DIR+f,'utf8');t=t.replace(/^const\s+\w+\s*=\s*/,'').replace(/;\s*$/,'');return JSON.parse(t);}
-const all=[].concat(load('data-craft-structure.js'),load('data-info-ideas.js'),load('data-conventions.js'),load('data-expression-of-ideas.js'));
+const all=[].concat(load('data-craft-structure.js'),load('data-craft-structure-ext.js'),load('data-info-ideas.js'),load('data-info-ideas-ext.js'),load('data-conventions.js'),load('data-conventions-ext.js'),load('data-expression-of-ideas.js'),load('data-expression-of-ideas-ext.js'));
 
 // same blueprint as the assessment (ids drive verbatim answer lookup)
 const SEL=[

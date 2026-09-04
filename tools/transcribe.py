@@ -638,8 +638,9 @@ def merge(books):
             report.append("| qid | opt | stem | text layer said | image says |")
             report.append("|---|---:|---:|---|---|")
             for r in sorted(disagree, key=lambda r: r['agree_options'])[:60]:
-                pair = min(zip(r['draft_options'], r['options']),
-                           key=lambda ab: sim(*ab) if ab[0].strip() else 2)
+                pairs = list(zip(r['draft_options'], r['options']))
+                pair = min(pairs, key=lambda ab: sim(*ab) if ab[0].strip() else 2) \
+                    if pairs else ('(no text-layer options)', ' / '.join(r['options']))
                 report.append("| `%s` | %.2f | %.2f | %s | %s |" % (
                     r['qid'], r['agree_options'], r['agree_stem'],
                     (pair[0] or '(empty)').replace('|', '\\|')[:60],

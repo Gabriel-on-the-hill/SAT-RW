@@ -38,7 +38,10 @@ catch (e) { console.log('SKIP — jsdom not installed (see header).'); process.e
 const APP = path.join(__dirname, '..');
 const read = f => fs.readFileSync(path.join(APP, f), 'utf8');
 
-const BANKS = ['data-craft-structure.js', 'data-expression-of-ideas.js', 'data-info-ideas.js', 'data-conventions.js'];
+const BANKS = ['data-craft-structure.js', 'data-craft-structure-ext.js',
+    'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+    'data-info-ideas.js', 'data-info-ideas-ext.js',
+    'data-conventions.js', 'data-conventions-ext.js'];
 // The banks are `const questionBank_*`, i.e. global LEXICAL bindings that never land
 // on window. A classic script can see them; the test cannot. Hence the probe.
 const PROBE = `window.__QB = function () {

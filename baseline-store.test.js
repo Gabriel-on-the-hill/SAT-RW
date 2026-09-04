@@ -32,8 +32,10 @@ const ctx = {
 };
 vm.createContext(ctx);
 
-['data-craft-structure.js', 'data-expression-of-ideas.js',
- 'data-info-ideas.js', 'data-conventions.js'].forEach(f => {
+['data-craft-structure.js', 'data-craft-structure-ext.js',
+ 'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+ 'data-info-ideas.js', 'data-info-ideas-ext.js',
+ 'data-conventions.js', 'data-conventions-ext.js'].forEach(f => {
     vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), ctx);
 });
 vm.runInContext(`
@@ -186,7 +188,7 @@ t('the second sitting advances to a form not yet sat', () => {
     ok(ctx.baselineFormIsFresh());
 });
 
-// Only two forms exist here — the bank's limit, see baseline-spec.js. The
+// Only two confirmed forms exist here — the bank's limit, see baseline-spec.js. The
 // sister app wraps round silently while its intro still promises "different
 // questions from last time", which turns a true sentence into a false one on
 // exactly the sitting where the student would notice.

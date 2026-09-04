@@ -115,11 +115,15 @@
 <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
 <script src="ns-migrate.js?v=20260717"></script>
 <script src="gate.js?v=20260822"></script>
-<script src="data-craft-structure.js?v=20260703"></script>
-<script src="data-expression-of-ideas.js?v=20260703"></script>
-<script src="data-info-ideas.js?v=20260712"></script>
-<script src="data-conventions.js?v=20260703"></script>
-<script src="progress.js?v=20260722"></script>
+<script src="data-craft-structure.js?v=20260903"></script>
+<script src="data-craft-structure-ext.js?v=20260904"></script>
+<script src="data-expression-of-ideas.js?v=20260903"></script>
+<script src="data-expression-of-ideas-ext.js?v=20260904"></script>
+<script src="data-info-ideas.js?v=20260903"></script>
+<script src="data-info-ideas-ext.js?v=20260904"></script>
+<script src="data-conventions.js?v=20260903"></script>
+<script src="data-conventions-ext.js?v=20260904"></script>
+<script src="progress.js?v=20260904"></script>
 <script src="sheet-sync.js?v=20260825"></script>
 <script src="homework/assignments.js?v=20260823"></script>
 </head>
@@ -691,7 +695,8 @@
     // Homework never fed the per-skill stats — only the practice app did. That left
     // the trap analytics, and now the difficulty recommender, blind to the work he
     // actually does most of.
-    if(!isRedo && typeof recordTrapOutcome==='function') recordTrapOutcome(q.skill, q.trapName, okk);
+    if(!isRedo && typeof recordTrapOutcome==='function')
+      recordTrapOutcome(q.skill, q.trapName, okk, q.difficultyStatus!=='provisional');
     paintHwChoice(q);
     showHwFeedback(q, {ok:okk});
     syncHwNav();
@@ -752,7 +757,8 @@
       if(r){ r.ok=okk; r.chosen=n.chosen; r.secs=n.secs; }
       if(typeof recordAnswer==='function')
         recordAnswer(q.id, okk, 'practice', { skill:q.skill, review: !!_isReviewQ[q.id] });
-      if(typeof recordTrapOutcome==='function') recordTrapOutcome(q.skill, q.trapName, okk);
+      if(typeof recordTrapOutcome==='function')
+        recordTrapOutcome(q.skill, q.trapName, okk, q.difficultyStatus!=='provisional');
     }
     saveRecs();
     finish(false);
@@ -772,7 +778,8 @@
         if(gr){ gr.ok=gok; gr.chosen=gn.chosen; gr.secs=gn.secs; }
         if(typeof recordAnswer==='function')
           recordAnswer(gq.id, gok, 'practice', { skill:gq.skill, review: !!_isReviewQ[gq.id] });
-        if(typeof recordTrapOutcome==='function') recordTrapOutcome(gq.skill, gq.trapName, gok);
+        if(typeof recordTrapOutcome==='function')
+          recordTrapOutcome(gq.skill, gq.trapName, gok, gq.difficultyStatus!=='provisional');
       }
       saveRecs();
     }

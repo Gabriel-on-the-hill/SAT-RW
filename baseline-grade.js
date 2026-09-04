@@ -229,7 +229,8 @@ function projectBaseline(items) {
 let _skillWeightCache = null;
 
 function skillWeights(bank) {
-    const src = bank || (typeof questionBank !== 'undefined' ? questionBank : []);
+    const all = bank || (typeof questionBank !== 'undefined' ? questionBank : []);
+    const src = all.filter(q => typeof baselineEligibleQuestion !== 'function' || baselineEligibleQuestion(q));
 
     // Key the cache on a cheap fingerprint, not on length alone. Two different
     // banks of equal size are common in tests — a fixture and the real bank

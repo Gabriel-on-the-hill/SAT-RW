@@ -38,7 +38,7 @@ function _saveBaselines(list) {
 // Which form this student has not sat yet, and whether that is an honest offer.
 //
 // A retake that re-serves the same questions measures memory, so the form
-// advances every sitting — but there are only two forms (the bank's limit, see
+// advances every sitting — but there are only two confirmed forms (the bank's limit, see
 // baseline-spec.js), so a third sitting must repeat one. The sister app wraps
 // round silently while its intro screen still promises "different questions
 // from last time", which turns a true sentence into a false one on the sitting

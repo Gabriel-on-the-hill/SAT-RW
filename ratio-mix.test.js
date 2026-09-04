@@ -65,7 +65,10 @@ const HTML = read('index.html')
 
 const SCRIPTS = [
     'gate.js', 'config.js', 'progress.js', 'sheet-sync.js', 'storage.js', 'timer.js', 'history.js',
-    'data-craft-structure.js', 'data-expression-of-ideas.js', 'data-info-ideas.js', 'data-conventions.js',
+    'data-craft-structure.js', 'data-craft-structure-ext.js',
+    'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+    'data-info-ideas.js', 'data-info-ideas-ext.js',
+    'data-conventions.js', 'data-conventions-ext.js',
     'app.js',
     null,   // test-only probe: a classic script, so it closes over app.js's lexical globals
 ];

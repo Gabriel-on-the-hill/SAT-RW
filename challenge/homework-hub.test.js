@@ -49,7 +49,7 @@ const HTML = RAW.replace(/<script\b[^>]*src[^>]*><\/script>/gi, '').replace(/<li
 // sufficient, and that no bank is among them.
 const DECLARED = [...RAW.matchAll(/<script\s+src="([^"?]+)/gi)].map(m => m[1]);
 
-function build(student, ledger) {
+function build(student, ledger, plan) {
     return new Promise(resolve => {
         const dom = new JSDOM(HTML, {
             runScripts: 'dangerously',
@@ -62,7 +62,9 @@ function build(student, ledger) {
         if (ledger) w.localStorage.setItem('satrw_progress_' + student, JSON.stringify(ledger));
         for (const f of DECLARED) {
             const s = w.document.createElement('script');
-            s.textContent = read(f);
+            s.textContent = read(f) + (f === 'homework/assignments.js' && plan
+                ? `\nHOMEWORK[${JSON.stringify(student)}] = ${JSON.stringify(plan)};`
+                : '');
             w.document.body.appendChild(s);
         }
         // the page's own inline <script> is still in HTML and ran during parse,
@@ -139,34 +141,22 @@ console.log('\n3 · The card tracks the ledger, and only ever says "mastered" wh
 
 console.log('\n4 · Everyone else is untouched');
 {
-    // THE KEY IS DERIVED, NOT NAMED — and that is the whole point of this block.
-    //
-    // It used to read `build('Segun')`, because that key had a sequential day
-    // list when the suite was written. On 18 Aug that plan was cleared to
-    // `days: []` with a `challenge:`, and these four assertions went red — not
-    // because the hub broke, but because the fixture had been re-taught. That is
-    // the same failure the header warns about one level up: this file already
-    // refuses to hardcode "Practice 8" or "28 questions", and hardcoding WHICH
-    // STUDENT still has daily sets is the identical mistake. A plan is a thing
-    // that gets re-assigned every week. It cannot be a fixture.
-    //
-    // So: take any key that carries a sequential day list. Assign, clear or swap
-    // any student and this still tests the routing it was written to test. If NO
-    // key has days, that is a real finding and the block says so rather than
-    // silently asserting nothing.
-    const daysKey = Object.keys(HOMEWORK_SRC).find(k =>
-        HOMEWORK_SRC[k].unlock === 'sequential' && (HOMEWORK_SRC[k].days || []).length > 1);
-    ok('some key still carries a sequential day list to test the routing against',
-        !!daysKey, Object.keys(HOMEWORK_SRC).join(', '));
-
-    if (daysKey) {
+    const daysKey = '__TEST__';
+    const dayPlan = {
+        title: 'Test sequence', unlock: 'sequential', through: '2099-12-31', review: 0,
+        days: [
+            { n: 1, focus: 'First set', tip: '', skills: ['Transitions'], diffs: ['Easy'], count: 1, minutes: 0 },
+            { n: 2, focus: 'Second set', tip: '', skills: ['Transitions'], diffs: ['Easy'], count: 1, minutes: 0 },
+        ],
+    };
+    {
         // A day-list plan must get a normal set list and never a challenge card.
         // Under sequential unlock the wording is "set", later sets are gated on
         // finishing the one before, and the footer states BOTH rules — how they
         // open, and the window they are meant to be spread over. A student who is
         // not told the second one will sit and do the lot in an evening, which is
         // the spacing gone.
-        const s = await build(daysKey);
+        const s = await build(daysKey, null, dayPlan);
         ok('a day-list plan gets a set list, not a challenge card',
             /Start set 1/.test(txt(s)), txt(s));
         ok('the second set is gated on finishing the first',

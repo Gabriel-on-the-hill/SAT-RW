@@ -99,19 +99,21 @@ function rules() {
 const EXTRA_TRANSITIONS = {
     CONTRAST: ['nevertheless', 'nonetheless', 'alternatively', 'conversely', 'instead',
         'rather', 'still', 'yet', 'although', 'though', 'even so', 'despite this',
-        'in spite of this', 'on the contrary', 'on the other hand', 'regardless',
+        'despite', 'in spite of this', 'on the contrary', 'on the other hand', 'regardless',
         'notwithstanding', 'whereas', 'while'],
     CONTINUATION: ['moreover', 'furthermore', 'additionally', 'in addition', 'also',
         'likewise', 'similarly', 'indeed', 'in fact', 'besides', 'further', 'what is more',
         'equally', 'as well'],
     'CAUSE – EFFECT': ['therefore', 'thus', 'hence', 'consequently', 'accordingly',
-        'as a result', 'for this reason', 'so', 'because of this', 'then'],
+        'as a result', 'as such', 'for this reason', 'so', 'because', 'because of this', 'then'],
     'EXAMPLE / SPECIFICATION': ['for example', 'for instance', 'specifically',
         'in particular', 'to illustrate', 'namely', 'that is', 'in other words',
         'particularly', 'notably'],
     SEQUENCE: ['first', 'second', 'third', 'next', 'finally', 'meanwhile', 'subsequently',
         'previously', 'earlier', 'later', 'afterward', 'afterwards', 'eventually',
         'ultimately', 'in the meantime', 'to begin with'],
+    CONDITION: ['unless'],
+    TIME: ['until', 'when'],
 };
 
 function transitions() {

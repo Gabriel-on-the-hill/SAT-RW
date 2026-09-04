@@ -2,7 +2,7 @@
 //
 // Verifies the screener against the REAL bank, not a fixture. A fixture would
 // have hidden the finding that shaped the whole build here: Command of Evidence
-// — Quantitative holds five Medium items, so this app runs TWO parallel forms
+// — Quantitative holds five confirmed Medium items, so this app runs TWO parallel forms
 // where the sister PSAT app runs three. A fixture with a tidy ten-per-skill
 // would have let a three-form design ship and fail on one skill, silently, on
 // the first retake.
@@ -16,8 +16,10 @@ const vm = require('vm');
 // ── load the bank the way the browser does ────────────────────────
 const ctx = { console, module: undefined, exports: undefined };
 vm.createContext(ctx);
-['data-craft-structure.js', 'data-expression-of-ideas.js',
- 'data-info-ideas.js', 'data-conventions.js'].forEach(f => {
+['data-craft-structure.js', 'data-craft-structure-ext.js',
+ 'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+ 'data-info-ideas.js', 'data-info-ideas-ext.js',
+ 'data-conventions.js', 'data-conventions-ext.js'].forEach(f => {
     vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), ctx);
 });
 vm.runInContext(`
@@ -74,20 +76,19 @@ pre.errors.forEach(e => console.log('  ERROR   ' + e));
 pre.warnings.forEach(w => console.log('  warn    ' + w));
 t('preflight passes with zero errors', () => ok(pre.ok, pre.errors.join(' | ')));
 
-// The constraint that set the form count. If this ever stops being true the
-// warning in preflight will say so, and the constant should be revisited — but
-// it must be a decision, not a drift.
-t('the bank genuinely cannot supply a third form', () => {
+// The constraint that sets the form count. If this ever stops being true the
+// warning in preflight will say so, and the constant should be revisited.
+t('the confirmed bank genuinely cannot supply a third form', () => {
+    eq(ctx.BASELINE_FORMS, ['A', 'B']);
     const need = 3 * ctx.BASELINE_ITEMS_PER_SKILL;
     const thin = ctx.BASELINE_SKILLS.filter(s =>
-        bank.filter(q => q.skill === s && q.difficulty === 'Medium').length < need);
+        bank.filter(q => ctx.baselineEligibleQuestion(q) && q.skill === s && q.difficulty === 'Medium').length < need);
     ok(thin.length > 0,
-       'the bank now supports three forms — revisit BASELINE_FORMS, do not leave it at two by inertia');
-    ok(thin.includes('Command of Evidence — Quantitative'),
-       'the thin skill is no longer the one the header explains: ' + thin.join(', '));
+       'the confirmed bank now supports three forms — revisit BASELINE_FORMS, do not leave it at two by inertia');
+    ok(thin.includes('Command of Evidence — Quantitative'), 'Quantitative is no longer a limiting skill');
 });
 
-// Quantitative was once THREE Medium in a 719-question bank, because the parser
+// Quantitative was once THREE Medium in the original bank, because the parser
 // inferred the evidence type by counting digits and a chart contributes none.
 // AGENTS.md: "If a skill's pool ever looks implausibly thin, that is a build
 // bug, not a fact about the test." This is the tripwire for the next rebuild.
@@ -119,6 +120,10 @@ t('every form covers all 11 skills, 2 each', () => {
 
 t('every screener item is Medium', () => {
     forms.forEach(f => f.questions.forEach(q => eq(q.difficulty, 'Medium', q.id)));
+});
+
+t('no provisional item reaches the baseline', () => {
+    forms.forEach(f => f.questions.forEach(q => ok(ctx.baselineEligibleQuestion(q), q.id)));
 });
 
 t('no item id is reused across forms', () => {
@@ -421,6 +426,11 @@ t('skill weights sum to ~1.0 across the four domains', () => {
     const w = ctx.skillWeights(bank);
     const sum = Object.values(w).reduce((a, b) => a + b, 0);
     ok(Math.abs(sum - 1) < 0.01, 'weights sum to ' + sum.toFixed(3));
+});
+
+t('provisional extension volume cannot distort skill weights', () => {
+    const confirmed = bank.filter(q => ctx.baselineEligibleQuestion(q));
+    eq(ctx.skillWeights(bank), ctx.skillWeights(confirmed));
 });
 
 // The sister app keys this cache on bank.length alone. Two different banks of

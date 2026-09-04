@@ -6,7 +6,7 @@
 // Run: NODE_PATH=/tmp/j/node_modules node baseline.e2e.test.js
 //      (or JSDOM_PATH=/path/to/jsdom node baseline.e2e.test.js)
 //
-// SLOW, NOT HUNG. It stands up a jsdom and parses the whole 719-question bank,
+// SLOW, NOT HUNG. It stands up a jsdom and parses the whole question bank,
 // and Node buffers to a pipe, so it prints nothing until it finishes. Keep
 // jsdom on a local disk — across a synced folder this suite takes minutes
 // instead of seconds, and a suite that looks broken stops being run.
@@ -111,7 +111,7 @@ t('the page is gated', () => {
 });
 
 t('page boots with no script errors', () => eq(pageErrors, []));
-t('bank assembled in the page', () => eq(ev('questionBank.length'), 719));
+t('bank assembled in the page', () => eq(ev('questionBank.length'), 957));
 t('form built to 22 items', () => eq(ev('Q.length'), 22));
 t('the clock is the SAT sitting, not the sister app\'s', () =>
     eq(ev('remaining'), 22 * 71));
