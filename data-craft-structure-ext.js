@@ -485,6 +485,7 @@ const questionBank_CS_EXT = [
   {
     "id": "9e1d0620",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "difficultyStatus": "provisional",
     "passage": "Far below the mid-ocean ridge volcanoes and their countless layers of crust-forming lava is the mantle, a 3,200-kilometer-thick layer of scorching hot rock that forms the earth's midsection and surrounds its metallic core. <u>At the planet's cool surface, upthrusted mantle rocks are dark green, but if you could see them in their rightful home, they would be glowing red- or even white-hot.</u> The top of the mantle is about 1,300 degrees Celsius, and it gets about one degree hotter with each kilometer of depth. The weight of overlying rock means the pressure also increases with depth about 1,000 atmospheres for every three kilometers.",
@@ -508,6 +509,7 @@ const questionBank_CS_EXT = [
   {
     "id": "a309fdc1",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "difficultyStatus": "provisional",
     "passage": "The Awakening is an 1890 novel by Kate Chopin. Edna Pontellier, the protagonist, is on vacation with her husband and children at Grand Isle resort in Louisiana. Edna Pontellier could not have told why, wishing to go to the beach with Robert, she should in the first place have declined, and in the second place have followed in obedience to one of the two contradictory impulses which impelled her. A certain light was beginning to dawn dimly within her. In short, Mrs. Pontellier was beginning to realize her position in the universe as a human being, and to recognize her relations as an individual to the world within and about her.",
@@ -531,6 +533,7 @@ const questionBank_CS_EXT = [
   {
     "id": "a283f47e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "difficultyStatus": "provisional",
     "passage": "In order to better understand people's receptiveness to opposing viewpoints, public policy scholars Julia Minson of Harvard University and Frances Chen of the University of British Columbia reviewed dozens of studies spanning 1984 to 2021. Among their findings was the fact that people who feel strongly about an issue can be receptive to others' views without altering their own opinions. <u>As the researchers point out, two thoughtful people might examine each other's ideas seriously and, recognizing that it is possible for reasonable people to hold either perspective, respectfully agree to disagree.</u>",
@@ -554,6 +557,7 @@ const questionBank_CS_EXT = [
   {
     "id": "7c91dc44",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "difficultyStatus": "provisional",
     "passage": "To be a female artist in the nineteenth century was challenging enough, but to be a female sculptor was nearly unthinkable. <u>Not only were sculptors expected to have a familiarity with the human form that no woman in that age could acquire, but they had to work with heavy materials, such as blocks of marble weighing many hundreds of pounds.</u> Nevertheless, a few intrepid American women wound their way to Italy and learned to sculpt.",
@@ -577,6 +581,7 @@ const questionBank_CS_EXT = [
   {
     "id": "22acae8e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "difficultyStatus": "provisional",
     "passage": "The following text is from Charlotte Grimké's poem “Wordsworth.” Poet of the serene and thoughtful lay! <u>In youth's fair dawn, when the soul, still untried, Longs for life's conflict, and seeks restlessly Food for its cravings in the stirring songs, The thrilling strains of more impassioned bards;</u> Or, eager for fresh joys, culls with delight The flowers that bloom in fancy's fairy realm— We may not prize the mild and steadfast ray That streams from thy pure soul in tranquil song",
@@ -600,6 +605,7 @@ const questionBank_CS_EXT = [
   {
     "id": "9d6b0c8c",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "difficultyStatus": "provisional",
     "passage": "One of the most persistent and problematic biases in science involves motivated reasoning—that is, the tendency to interpret observations to fit preconceived notions. According to Professor Brian Nosek, a specialist in human biases and co-founder of the Center for Open Science at the University of Virginia, psychologists have demonstrated that “most of our reasoning is in fact rationalization.” In other words, people begin by making decisions about what to think or do, and their “explanation” later serves as a means to justify what they believed or how they intended to act in the first place.",
@@ -623,6 +629,7 @@ const questionBank_CS_EXT = [
   {
     "id": "7d77c491",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "difficultyStatus": "provisional",
     "passage": "In recent years, many companies have shifted from a model in which workers are placed in individual cubicles to one based on open-office plans, with the goal of fostering employee interaction and collaboration. Studies suggest, however, that such strategies may backfire, increasing job dissatisfaction and leaving workers no more likely to work together than before. <u>Researchers at Harvard Business School theorize that employees' tendency to avoid one another in open offices may be attributable to the “fourth wall”—the imaginary curtain that prevents actors from being distracted by the audience and preserves the imaginary world of a play.</u> To preserve a sense of psychological autonomy, employees in open offices establish their own fourth walls, which their colleagues quickly come to respect.",

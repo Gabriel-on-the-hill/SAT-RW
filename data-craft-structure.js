@@ -2,6 +2,7 @@ const questionBank_CS = [
   {
     "id": "d60bc86d",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Some studies have suggested that posture can influence cognition, but we should not overstate this phenomenon. A case in point: In a 2014 study, Megan O’Brien and Alaa Ahmed had subjects stand or sit while making risky simulated economic decisions. Standing is more physically unstable and cognitively demanding than sitting; accordingly, O’Brien and Ahmed hypothesized that standing subjects would display more risk aversion during the decision-making tasks than sitting subjects did, since they would want to avoid further feelings of discomfort and complicated risk evaluations. But O’Brien and Ahmed actually found no difference in the groups’ performance.",
     "question": "Which choice best states the main purpose of the text?",
@@ -19,6 +20,7 @@ const questionBank_CS = [
   {
     "id": "d105cd4a",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Dubautia carrii is a species in a family of plants known collectively as the silversword alliance, all of which grow only on the Hawaiian Islands. Members of this alliance exhibit an extraordinary range of phenotypes, with some species maturing into vines and others into shrubs and trees. All species in the alliance descended from a single ancestral tarweed plant that arrived on the islands around 5 million years ago. The tarweed’s descendants diversified into distinct species as they adapted to live in the wide variety of habitats found on the Hawaiian Islands.",
     "question": "Which choice best states the main purpose of the text?",
@@ -87,6 +89,7 @@ const questionBank_CS = [
   {
     "id": "d377baf4",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "The following text is adapted from Charles Dickens’s 1854 novel Hard Times. Coketown is a fictional town in England. [Coketown] contained several large streets all very like one another, and many small streets still more like one another, inhabited by people equally like one another, who all went in and out at the same hours, with the same sound upon the same pavements, to do the same work, and to whom every day was the same as yesterday and tomorrow, and every year the counterpart of the last and the next.",
     "question": "Which choice best states the main purpose of the text?",
@@ -121,6 +124,7 @@ const questionBank_CS = [
   {
     "id": "561f41db",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "Jackie Ormes’s Torchy Brown in Dixie to Harlem (1937–38) was the first comic strip by a Black woman to appear in a widely read newspaper. The strip tells the story of Torchy, a young woman who leaves Mississippi to become a performer in New York City. Torchy’s story reflects the experience of the Great Migration (1910–1970), when millions of Black Americans left the South in search of opportunities in other parts of the United States. Torchy Brown thus shows how Ormes used comics to comment humorously on issues affecting Black Americans, which she continued to do throughout her career.",
     "question": "Which choice best states the main purpose of the text?",
@@ -206,6 +210,7 @@ const questionBank_CS = [
   {
     "id": "128b7cff",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "Composer Florence Price won first place for her score Symphony in E Minor at the 1932 Wanamaker Foundation Awards. The piece was performed the following year by the Chicago Symphony Orchestra, a significant recognition of its quality. Price continued to compose many musical pieces throughout her career, blending traditional Black spirituals with classical European Romantic musical traditions. In recent years, Price’s concertos and symphonies have been performed and recorded by several major orchestras, further preserving her work for others to enjoy.",
     "question": "Which choice best states the main purpose of the text?",
@@ -308,6 +313,7 @@ const questionBank_CS = [
   {
     "id": "733d2605",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "The following text is adapted from George Eliot’s 1857 short story “The Sad Fortunes of the Rev. Amos Barton.” Mr. Ely is a clergyman in the town of Milby.\n\nBy the laity of Milby and its neighbourhood [Mr. Ely] was regarded as a man of quite remarkable powers and learning, who must make a considerable sensation in London pulpits and drawing-rooms on his occasional visit to the metropolis; and by his brother clergy he was regarded as a discreet and agreeable fellow. Mr. Ely never got into a warm discussion; he suggested what might be thought, but rarely said what he thought himself; he never let either men or women see that he was laughing at them, and he never gave any one an opportunity of laughing at him.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -359,6 +365,7 @@ const questionBank_CS = [
   {
     "id": "cf57c1d5",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "In 1973, poet Miguel Algarín started inviting other writers who, like him, were Nuyorican—a term for New Yorkers of Puerto Rican heritage—to gather in his apartment to present their work. The gatherings were so well attended that Algarín soon had to rent space in a cafe to accommodate them. Thus, the Nuyorican Poets Cafe was born. Moving to a permanent location in 1981, the Nuyorican Poets Cafe expanded its original scope beyond the written word, hosting art exhibitions and musical performances as well. Half a century since its inception, it continues to foster emerging Nuyorican talent.",
     "question": "Which choice best describes the overall purpose of the text?",
@@ -376,6 +383,7 @@ const questionBank_CS = [
   {
     "id": "8cd1e66e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Easy",
     "passage": "Catherine L. Cardelús is a researcher who studies canopy soil. Canopy soil is formed in a tree’s branches (its canopy) when dead leaves and other falling things collect. This material breaks down, becoming canopy soil. Canopy soil helps preserve a healthy water cycle (how water moves through the environment) in rainforests. This benefit is one reason Cardelús is interested in the canopy soils in large choibá trees in rainforests in Costa Rica.",
     "question": "Which choice best describes the text’s overall structure?",
@@ -410,6 +418,7 @@ const questionBank_CS = [
   {
     "id": "2b18fad1",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Reyna Grande’s 2012 memoir The Distance Between Us. In the text, Grande reflects on a time when she and her older sister Mago were children. A Barbie is a type of doll.\n\nI begged Mago to come play with me. She wasn’t as interested in my Barbie as she had been just two months before, which <u>made me sad because that was the only thing Mago had envied me for.</u> Usually, it was me doing the envying. After I pestered her relentlessly, she finally put her notebook down and came over to me.\n\n©2012 by Reyna Grande",
     "question": "Which choice best describes the function of the underlined portion in the text?",
@@ -478,6 +487,7 @@ const questionBank_CS = [
   {
     "id": "8f528a85",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "The following text is from John Dryden’s 1697 translation of Virgil’s poem the Aeneid, written in the first century BCE. Queen Dido has just heard the Trojan hero Aeneas recount a sad tale.\n\nBut anxious cares already seiz’d the queen: She fed within her veins a flame unseen; The hero’s valor, acts, and birth inspire Her soul with love, and fan the secret fire. His words, his looks, imprinted in her heart, Improve the passion, and increase the smart.",
     "question": "Which choice best states the main purpose of the text?",
@@ -546,6 +556,7 @@ const questionBank_CS = [
   {
     "id": "8ece0047",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "passage": "Horizontal gene transfer occurs when an organism of one species acquires genetic material from an organism of another species through nonreproductive means. The genetic material can then be transferred “vertically” in the second species—that is, through reproductive inheritance. Scientist Atma Ivancevic and her team have hypothesized infection by invertebrate parasites as a mechanism of horizontal gene transfer between vertebrate species: <u>while feeding, a parasite could acquire a gene from one host, then relocate to a host from a different vertebrate species and transfer the gene to it in turn.</u>",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
@@ -580,6 +591,7 @@ const questionBank_CS = [
   {
     "id": "fb16e2c2",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Vadamalai Elangovan and Ganapathi Marimuthu showed that high moonlight intensity inhibits the activity of the greater short- nosed fruit bat (Cynopterus sphinx), a result explicable in terms of benefits and costs: greater lunar intensity may not enable the bats to increase foraging success enough to offset the higher chance of detection by predatory owls or hawks. Most other nocturnal mammals respond to lunar intensity variations similarly to greater short-nosed fruit bats, but mongoose lemurs (Eulemur mongoz) display the opposite pattern, as their heavy reliance on visual foraging results in a different balance of reward and risk.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -597,6 +609,7 @@ const questionBank_CS = [
   {
     "id": "4259636f",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "passage": "<u>In Jane Austen’s novel Mansfield Park, an almost imperceptible smile from potential suitor Henry Crawford causes the protagonist Fanny Price to blush; her embarrassment grows when she suspects that he is aware of it.</u> This moment—in which Fanny not only infers Henry’s mental state through his gestures, but also infers that he is drawing inferences about her mental state—illustrates what literary scholar George Butte calls “deep intersubjectivity,” a technique for representing interactions between consciousnesses through which Austen’s novels derive much of their social and psychological drama.",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -631,6 +644,7 @@ const questionBank_CS = [
   {
     "id": "17146498",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Works of moral philosophy, such as Plato’s Republic or Aristotle’s Nicomachean Ethics, are partly concerned with how to live a morally good life. But philosopher Jonathan Barnes argues that works that present a method of living such a life without also supplying a motive are inherently useful only to those already wishing to be morally good—those with no desire for moral goodness will not choose to follow their rules. However, some works of moral philosophy attempt to describe what constitutes a morally good life while also proposing reasons for living one.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -682,6 +696,7 @@ const questionBank_CS = [
   {
     "id": "767a370d",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "In many agricultural environments, the banks of streams are kept forested to protect water quality, but it’s been unclear what effects these forests may have on stream biodiversity. To investigate the issue, biologist Xingli Giam and colleagues studied an Indonesian oil palm plantation, comparing the species richness of forested streams with that of nonforested streams. Giam and colleagues found that species richness was significantly higher in forested streams, a finding the researchers attribute to the role leaf litter plays in sheltering fish from predators and providing food resources.",
     "question": "Which choice best states the main purpose of the text?",
@@ -818,6 +833,7 @@ const questionBank_CS = [
   {
     "id": "cc76d23a",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "The following text is adapted from Herman Melville’s 1857 novel The Confidence-Man. Humphry Davy was a prominent British chemist and inventor.\n\nYears ago, a grave American savant, being in London, observed at an evening party there, a certain coxcombical fellow, as he thought, an absurd ribbon in his lapel, and full of smart [banter], whisking about to the admiration of as many as were disposed to admire. Great was the savant’s disdain; but, chancing ere long to find himself in a corner with the jackanapes, got into conversation with him, when he was somewhat ill-prepared for the good sense of the jackanapes, but was altogether thrown aback, upon subsequently being [informed that he was] no less a personage than Sir Humphry Davy.",
     "question": "Which choice best states the main purpose of the text?",
@@ -852,6 +868,7 @@ const questionBank_CS = [
   {
     "id": "849dc345",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "Animals use many objects as tools to achieve goals more easily. Such goals include grooming, finding food, and protecting themselves. For a long time, people thought tool use was unique to primates. Dolphins and other animals, though, have busted the myth that tool use requires hands. Inventively, dolphins use sponges to protect their noses from scratches when foraging on the seafloor. Palm cockatoos also get creative. They use leaves to pad their beaks when opening nuts.",
     "question": "Which choice best states the main purpose of the text?",
@@ -869,6 +886,7 @@ const questionBank_CS = [
   {
     "id": "3cd6524f",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "According to Indian economist and sociologist Radhakamal Mukerjee (1889–1968), the Eurocentric concepts that informed early twentieth-century social scientific methods—for example, the idea that all social relations are reducible to struggles between individuals—had little relevance for India. Making the social sciences more responsive to Indians’ needs, Mukerjee argued, required constructing analytical categories informed by India’s cultural and ecological circumstances. Mukerjee thus proposed the communalist “Indian village” as the ideal model on which to base Indian economic and social policy.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -886,6 +904,7 @@ const questionBank_CS = [
   {
     "id": "e36419af",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Louise Erdrich’s 1986 novel The Beet Queen. The narrator discusses her relationship with her young niece, Dot. Celestine, the narrator’s sister-in-law, is Dot’s mother.\n\nDot was as impatient with babyhood as I. She tried at once to grow out of it. Celestine never saw that, because she, and only she, took pleasure in Dot’s helpless softness. Only Celestine was saddened by her daughter’s fierce progress. Day by day, Dot grew stronger. <u>In her shopping-cart stroller she exercised to exhaustion, bouncing for hours to develop her leg muscles.</u>\n\n©1986 by Louise Erdrich",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -1056,6 +1075,7 @@ const questionBank_CS = [
   {
     "id": "f5d735e4",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is adapted from Oscar Wilde’s 1897 nonfiction work De Profundis. People whose desire is solely for self-realisation never know where they are going. They can’t know. In one sense of the word it is of course necessary to know oneself: that is the first achievement of knowledge. But to recognise that the soul of a man is unknowable, is the ultimate achievement of wisdom. The final mystery is oneself. When one has weighed the sun in the balance, and measured the steps of the moon, and mapped out the seven heavens star by star, there still remains oneself. <u>Who can calculate the orbit of his own soul?</u>",
     "question": "Which choice best describes the function of the underlined question in the text as a whole?",
@@ -1107,6 +1127,7 @@ const questionBank_CS = [
   {
     "id": "9492c926",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "passage": "The following text is from Joseph Conrad’s 1907 novel The Secret Agent: A Simple Tale. Mr. Verloc is navigating the London streets on his way to a meeting. Before reaching Knightsbridge, Mr. Verloc took a turn to the left out of the busy main thoroughfare, uproarious with the traffic of swaying omnibuses and trotting vans, in the almost silent, swift flow of hansoms [horse-drawn carriages]. Under his hat, worn with a slight backward tilt, his hair had been carefully brushed into respectful sleekness; for his business was with an Embassy. And Mr. Verloc, steady like a <u>rock—a soft kind of rock—marched</u> now along a street which could with every propriety be described as private.",
     "question": "Which choice best describes the function of the underlined phrase in the text as a whole?",
@@ -1141,6 +1162,7 @@ const questionBank_CS = [
   {
     "id": "8a991dc8",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Michelene Pesantubbee, a historian and citizen of the Choctaw Nation, has identified a dilemma inherent to research on the status of women in her tribe during the 1600s and 1700s: the primary sources from that era, travel narratives and other accounts by male European colonizers, underestimate the degree of power conferred on Choctaw women by their traditional roles in political, civic, and ceremonial life. Pesantubbee argues that the Choctaw oral tradition and findings from archaeological sites in the tribe’s homeland supplement the written record by providing crucial insights into those roles.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -1158,6 +1180,7 @@ const questionBank_CS = [
   {
     "id": "77ac529e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "Historians Tiya Miles and Roy E. Finkenbine have both documented the assistance Indigenous peoples gave to Black freedom seekers leaving the South before the US Civil War. Much of the historical evidence of this help comes from Indigenous oral traditions and from autobiographies written by the freedom seekers. <u>One such narrative is Jermain Loguen’s autobiography, which tells about how Neshnabé (Potawatomi) villagers offered him food, lodging, and directions during his 1835 journey from Tennessee to Canada.</u>",
     "question": "Which choice best describes the function of the underlined sentence?",
@@ -1192,6 +1215,7 @@ const questionBank_CS = [
   {
     "id": "6f104dd1",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "Genetic studies have led researchers to suggest that turtles are most closely related to the group that includes modern crocodiles. But studies of fossils have suggested instead that turtles are most closely related to other groups, such as the one that contains modern snakes. <u>However, many of the fossil studies have relied on incomplete data sets.</u> For a 2022 investigation, biologist Tiago R. Simões and colleagues examined more than 1,000 reptile fossils collected worldwide. From this large data set, they found clear agreement with the results of the genetic studies.",
     "question": "Which choice best describes the function of the underlined sentence?",
@@ -1209,6 +1233,7 @@ const questionBank_CS = [
   {
     "id": "cdbc0f69",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Raymond Antrobus, an accomplished poet and writer of prose, recently released his debut spoken word poetry album, The First Time I Wore Hearing Aids, in collaboration with producer Ian Brennan. The album contains both autobiographical and reflective pieces combining Antrobus’s spoken words with Brennan’s fragmented audio elements and pieces of music to convey how people who are deaf may experience sound, both its presence and absence. Some critics suggest that the album questions the function of sound in the world, highlighting that the experience of sound is multifaceted.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -1277,6 +1302,7 @@ const questionBank_CS = [
   {
     "id": "c93c43dc",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Space scientists Anna-Lisa Paul, Stephen M. Elardo, and Robert Ferl planted seeds of Arabidopsis thaliana in samples of lunar regolith—the surface material of the Moon—and, serving as a control group, in terrestrial soil. They found that while all the seeds germinated, the roots of the regolith-grown plants were stunted compared with those in the control group. Moreover, unlike the plants in the control group, the regolith-grown plants exhibited red pigmentation, reduced leaf size, and inhibited growth rates— indicators of stress that were corroborated by postharvest molecular analysis.",
     "question": "Which choice best states the main purpose of the text?",
@@ -1362,6 +1388,7 @@ const questionBank_CS = [
   {
     "id": "c8b920ee",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Why do sand cats purr but lions roar? Researchers hypothesize that this difference between the two feline species may be partly due to a U-shaped bone in their throats called the hyoid. Sand cats, which are much smaller than lions, have a rigid hyoid that rumbles when the cat’s larynx vibrates, resulting in a purr. By contrast, lions have a somewhat flexible hyoid, and the bone is attached to the skull with a stretchy ligament that sand cats lack. These traits allow lions and most other species of big cats to produce powerful roars. The same traits may also prevent most big cats from purring.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -1430,6 +1457,7 @@ const questionBank_CS = [
   {
     "id": "493479db",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "passage": "The 1967 release of Harold Cruse’s book The Crisis of the Negro Intellectual isolated him from almost all other scholars and activists of the American Civil Rights Movement—though many of those thinkers disagreed with each other, he nonetheless found ways to disagree with them all. He thought that activists who believed that Black people such as himself should culturally assimilate were naïve. <u>But he also sharply criticized Black nationalists such as Marcus Garvey who wanted to establish independent, self-contained Black economies and societies, even though Cruse himself identified as a Black nationalist.</u>",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -1447,6 +1475,7 @@ const questionBank_CS = [
   {
     "id": "62bb43f6",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "Part of the Atacama Desert in Peru has surprisingly rich plant life despite receiving almost no rainfall. Moisture from winter fog sustains plants once they’re growing, but the soil’s tough crust makes it hard for seeds to germinate in the first place. Local birds that dig nests in the ground seem to be of help: <u>they churn the soil, exposing buried seeds to moisture and nutrients.</u> Indeed, in 2016 Cristina Rengifo Faiffer found that mounds of soil dug up by birds were far more fertile and supported more seedlings than soil in undisturbed areas.",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
@@ -1498,6 +1527,7 @@ const questionBank_CS = [
   {
     "id": "76717567",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "The following text is adapted from Etsu Inagaki Sugimoto’s 1925 memoir A Daughter of the Samurai. As a young woman, Sugimoto moved from feudal Japan to the United States.\n\nThe standards of my own and my adopted country differed so widely in some ways, and my love for both lands was so sincere, that sometimes I had an odd feeling of standing upon a cloud in space, and gazing with measuring eyes upon two separate worlds. At first I was continually trying to explain, by Japanese standards, all the queer things that came every day before my surprised eyes; for no one seemed to know the origin or significance of even the most familiar customs, nor why they existed and were followed.",
     "question": "Which choice best describes the main purpose of the text?",
@@ -1532,6 +1562,7 @@ const questionBank_CS = [
   {
     "id": "12852fd3",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "In most building demolitions, the building materials are destroyed and sent to landfills. City officials in Portland, Oregon, wanted to reduce this waste. The officials passed a law requiring demolition companies to deconstruct some buildings instead. Deconstruction involves carefully taking buildings apart piece by piece. Damage to the materials is avoided so that they can be reused in new constructions. A 2019 study found that 27 percent of materials from deconstructions in Portland were able to be reused. The remaining materials were processed for recycling instead of going to a landfill.",
     "question": "Which choice best states the main purpose of the text?",
@@ -1634,6 +1665,7 @@ const questionBank_CS = [
   {
     "id": "09d1bf78",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "The following text is from Holly Goldberg Sloan’s 2017 novel Short. More than two years ago my parents bought a piano from some people who were moving to Utah. Mom and Dad gave it to my brothers and me for Christmas. I had to act really happy because it was such a big present, but I pretty much hated the thing from the second it was carried into the hallway upstairs, which is right next to my bedroom. The piano glared at me. It was like a songbird in a cage. It wanted to be set free. ©2017 by Holly Goldberg Sloan",
     "question": "Which choice best states the main purpose of the text?",
@@ -1669,6 +1701,7 @@ const questionBank_CS = [
     "id": "748123f3",
     "image": "assets/fig_748123f3.png",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Virginia Woolf’s 1919 novel Night and Day. The text describes a gathering of young artists and intellectuals.\n\nOne person after another rose, and, as with an ill-balanced axe, attempted to hew out his conception of art a little more clearly, and sat down with the feeling that, for some reason which he could not grasp, his strokes had gone awry. As they sat down they turned almost invariably to the person sitting next them, and rectified and continued what they had just said in public.",
     "question": "Which choice best describes the function of the underlined portions in the text as a whole?",
@@ -1686,6 +1719,7 @@ const questionBank_CS = [
   {
     "id": "34135282",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "Researchers have found a nearly 164,000-year-old molar from a member of the archaic human species known as Denisovans in a cave in Laos, suggesting that Denisovans lived in a wider range of environments than indicated by earlier evidence. <u>Before the discovery, Denisovans were thought to have lived only at high altitudes in relatively cold climates in what are now Russia and</u> China, but the discovery of the tooth in Laos suggests that they may have lived at low altitudes in relatively warm climates in Southeast Asia as well.",
     "question": "Which choice best states the function of the underlined portion in the text as a whole?",
@@ -1720,6 +1754,7 @@ const questionBank_CS = [
   {
     "id": "b4159cd8",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "Archeological excavation of Market Street Chinatown, a nineteenth-century Chinese American community in San Jose, California, provided the first evidence that Asian food products were imported to the United States in the 1800s: bones from a freshwater fish species native to Southeast Asia. <u>Jinshanzhuang—Hong Kong–based import/export firms—likely coordinated the fish’s transport from Chinese-operated fisheries in Vietnam and Malaysia to North American markets.</u> This route reveals the (often overlooked) multinational dimensions of the trade networks linking Chinese diaspora communities.",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -1771,6 +1806,7 @@ const questionBank_CS = [
   {
     "id": "428d801f",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Easy",
     "passage": "Many films from the early 1900s have been lost. These losses include several films by the first wave of Black women filmmakers. We know about these lost movies only from small pieces of evidence. For example, an advertisement for Jennie Louise Touissant Welcome’s documentary Doing Their Bit still exists. There’s a reference in a magazine to Tressie Souders’s film A Woman’s Error. And Maria P. Williams’s The Flames of Wrath is mentioned in a letter and a newspaper article, and one image from the movie was discovered in the 1990s.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -1856,6 +1892,7 @@ const questionBank_CS = [
   {
     "id": "0b016420",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Using NASA’s powerful James Webb Space Telescope (JWST), Mercedes López-Morales and colleagues measured the wavelengths of light traveling through the atmosphere of WASP-39b, an exoplanet, or planet outside our solar system. Different molecules absorb different wavelengths of light, and the wavelength measurements showed the presence of carbon dioxide (CO₂) in WASP-39b’s atmosphere. This finding not only offers the first decisive evidence of CO₂ in the atmosphere of an exoplanet but also illustrates the potential for future scientific breakthroughs held by the JWST.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -1873,6 +1910,7 @@ const questionBank_CS = [
   {
     "id": "35e921f5",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Easy",
     "passage": "Hiroshi Senju is known worldwide for his paintings of waterfalls. These paintings are large and tend not to show the entire waterfall. Instead, Senju focuses on just the point where the falling water reaches the pool below, keeping the top of the waterfall out of view. While Senju’s paintings are rooted in art movements originating in the United States, the artist uses traditional Japanese techniques and materials that make his work instantly recognizable.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -1924,6 +1962,7 @@ const questionBank_CS = [
   {
     "id": "1ff56d95",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "During Rome’s republican period, which ended in the first century BCE, libraries were predominantly owned by wealthy individuals who tightly controlled access to their book collections. The first public library became available in Rome in 28 BCE and was soon followed by one commissioned by Emperor Augustus. As modern scholar Fabio Fernandes notes, however, these two traditions aren’t as distinct as they seem, as both the emperor and the private library owners viewed their libraries as extensions of their personal patronage, just on vastly differing scales.",
     "question": "Which choice best states the main purpose of the text?",
@@ -2026,6 +2065,7 @@ const questionBank_CS = [
   {
     "id": "6e30747e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Herman Melville’s 1854 novel The Lightning-rod Man. The stranger still stood in the exact middle of the cottage, where he had first planted himself. <u>His singularity impelled a closer</u> scrutiny. A lean, gloomy figure. Hair dark and lank, mattedly streaked over his brow. His sunken pitfalls of eyes were ringed by indigo halos, and played with an innocuous sort of lightning: the gleam without the bolt. The whole man was dripping. He stood in a puddle on the bare oak floor: his strange walking-stick vertically resting at his side.",
     "question": "Which choice best states the function of the underlined sentence in the overall structure of the text?",
@@ -2043,6 +2083,7 @@ const questionBank_CS = [
   {
     "id": "032fd227",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Many archaeologists assume that large-scale engineering projects in ancient societies required an elite class to plan and direct the necessary labor. However, recent discoveries, such as the excavation of an ancient canal near the Gulf Coast of Alabama, have complicated this picture. Using radiocarbon dating, a team of researchers concluded that the 1.39-kilometer-long canal was most likely constructed between 576 and 650 CE by an Indigenous society that was relatively free of social classes.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -2077,6 +2118,7 @@ const questionBank_CS = [
   {
     "id": "19217740",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Studying late nineteenth- and early twentieth-century artifacts from an agricultural and domestic site in Texas, archaeologist Ayana O. Flewellen found that Black women employed as farm workers utilized hook-and-eye closures to fasten their clothes at the waist, giving themselves a silhouette similar to the one that was popular in contemporary fashion and typically achieved through more restrictive garments such as corsets. Flewellen argues that this sartorial practice shows that these women balanced hegemonic ideals of femininity with the requirements of their physically demanding occupation.",
     "question": "Which choice best states the main purpose of the text?",
@@ -2128,6 +2170,7 @@ const questionBank_CS = [
   {
     "id": "df561d13",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Ameen Rihani’s 1921 poem “The Wanderer.” I wander among the hills of alien lands Where Nature her prerogative resigns To Man; where Comfort in her shack reclines And all the arts and sciences commands. <u>But in my soul The eastern billows roll— I hear the voices of my native strands.</u>",
     "question": "Which choice best describes the function of the underlined lines in the text as a whole?",
@@ -2162,6 +2205,7 @@ const questionBank_CS = [
   {
     "id": "fca04045",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "In the Here and Now Storybook (1921), educator Lucy Sprague Mitchell advanced the then controversial idea that books for very young children should imitate how they use language, since toddlers, who cannot yet grasp narrative or abstract ideas, seek reassurance in verbal repetition and naming. The most enduring example of this idea is Margaret Wise Brown’s 1947 picture book Goodnight Moon, in which a young rabbit names the objects in his room as he drifts off to sleep. Scholars note that the book’s emphasis on repetition, rhythm, and nonsense rhyme speaks directly to Mitchell’s influence.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -2179,6 +2223,7 @@ const questionBank_CS = [
   {
     "id": "c51b865d",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "The following text is from George Marion McClellan’s 1895 poem “Eternity.”\n\nMy spirit swoons, and all my senses cry For Ocean’s breast and covering of the sky. Rock me to sleep, ye waves, and outward bound, Just let me drift far out from toil and care, Where lapping of the waves shall be the sound, Which mingled with the winds that gently bear Me on between a peaceful sea and sky, To make my soothing slumberous lullaby.",
     "question": "Which choice best states the main purpose of the text?",
@@ -2264,6 +2309,7 @@ const questionBank_CS = [
   {
     "id": "0c61d9c0",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Mathematician Claude Shannon is widely regarded as a foundational figure in information theory. His most important paper, “A Mathematical Theory of Communication,” published in 1948 when he was employed at Bell Labs, utilized a concept called a “binary digit” (shortened to “bit”) to measure the amount of information in any signal and determine the fastest rate at which information could be transmitted while still being reliably decipherable. Robert Gallagher, one of Shannon’s colleagues, said that the bit was “[Shannon’s] discovery, and from it the whole communications revolution has sprung.”",
     "question": "Which choice best describes the overall structure of the text?",
@@ -2485,6 +2531,7 @@ const questionBank_CS = [
   {
     "id": "673e0f85",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "The following text is from Srimati Svarna Kumari Devi’s 1894 novel The Fatal Garland (translated by A. Christina Albers in 1910). Shakti is walking near a riverbank that she visited frequently during her childhood.\n\nShe crossed the woods she knew so well. <u>The trees seemed to extend their branches like welcoming arms.</u> They greeted her as an old friend. Soon she reached the river-side.",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
@@ -2502,6 +2549,7 @@ const questionBank_CS = [
   {
     "id": "a68eb278",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "The following text is from Charlotte Perkins Gilman’s 1910 poem “The Earth’s Entail.” No matter how we cultivate the land, Taming the forest and the prairie free; No matter how we irrigate the sand, Making the desert blossom at command, We must always leave the borders of the sea; The immeasureable reaches Of the windy wave-wet beaches, The million-mile-long margin of the sea.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -2603,6 +2651,7 @@ const questionBank_CS = [
   {
     "id": "47904792",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "Animals use many objects as tools to achieve goals more easily. Such goals include grooming, finding food, and protecting\nthemselves. For a long time, people thought tool use was unique to primates. Dolphins and other animals, though, have busted the\nmyth that tool use requires hands. Inventively, dolphins use sponges to protect their noses from scratches when foraging on the\nseafloor. Palm cockatoos also get creative. They use leaves to pad their beaks when opening nuts.",
     "question": "Which choice best states the main purpose of the text?",
@@ -2651,6 +2700,7 @@ const questionBank_CS = [
   {
     "id": "48e4021d",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "The following text is from Holly Goldberg Sloan's 2017 novel Short.\n More than two years ago my parents bought a piano from some people who were moving to Utah. Mom and Dad gave it to\n my brothers and me for Christmas. I had to act really happy because it was such a big present, but I pretty much hated the\n thing from the second it was carried into the hallway upstairs, which is right next to my bedroom. The piano glared at me. It\n was like a songbird in a cage. It wanted to be set free.\n ©2017 by Holly Goldberg Sloan",
     "question": "Which choice best states the main purpose of the text?",
@@ -2683,6 +2733,7 @@ const questionBank_CS = [
   {
     "id": "a2dd51c1",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "In most building demolitions, the building materials are destroyed and sent to landfills. City officials in Portland, Oregon, wanted to\nreduce this waste. The officials passed a law requiring demolition companies to deconstruct some buildings instead.\nDeconstruction involves carefully taking buildings apart piece by piece. Damage to the materials is avoided so that they can be\nreused in new constructions. A 2019 study found that 27 percent of materials from deconstructions in Portland were able to be\nreused. The remaining materials were processed for recycling instead of going to a landfill.",
     "question": "Which choice best states the main purpose of the text?",
@@ -2699,6 +2750,7 @@ const questionBank_CS = [
   {
     "id": "a68239ed",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "The following text is adapted from Oscar Wilde's 1897 nonfiction work De Profundis.\n People whose desire is solely for self-realisation never know where they are going. They <u>can</u>'t know. In one sense <u><u>of</u> <u><u>the</u></u></u> word\n it is of course necessary to know oneself: that is the first achievement of knowledge. But to recognise that the soul of a man\n is unknowable, is the ultimate achievement of wisdom. The final mystery is oneself. When one has weighed the sun in the\n <u>balance, and measured</u> the <u>steps</u> of the moon, and mapped out the seven heavens star by star, there still remains oneself.\n <u>Who</u> can <u>calculate</u> the <u>orbit</u> of <u>his own soul?</u>",
     "question": "Which choice best describes the function of the underlined question in the text as a whole?",
@@ -2763,6 +2815,7 @@ const questionBank_CS = [
   {
     "id": "809addda",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "<u>The</u> following text is from Ameen Rihani's 1921 poem \"The Wanderer.\"\n\n <u>I</u> wander among <u><u>the</u></u> hills <u>of</u> alien lands\n Where Nature her prerogative resigns\n\n To Man; where Comfort <u>in</u> her shack reclines\n And <u>all</u> the <u>arts</u> and sciences commands.\n <u>But</u> in <u><u>my</u> soul</u>\n The <u>eastern billows roll—</u>\n\n I <u>hear</u> the <u>voices</u> of my <u>native strands.</u>",
     "question": "Which choice best describes the function of the underlined lines in the text as a whole?",
@@ -2843,6 +2896,7 @@ const questionBank_CS = [
   {
     "id": "e929fe98",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "Composer Florence Price won first place for her score Symphony in E Minor at the 1932 Wanamaker Foundation Awards. The\npiece was performed the following year by the Chicago Symphony Orchestra, a significant recognition of its quality. Price\ncontinued to compose many musical pieces throughout her career, blending traditional Black spirituals with classical European\nRomantic musical traditions. In recent years, Price's concertos and symphonies have been performed and recorded by several\nmajor orchestras, further preserving her work for others to enjoy.",
     "question": "Which choice best states the main purpose of the text?",
@@ -2939,6 +2993,7 @@ const questionBank_CS = [
   {
     "id": "e13171c4",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "Historians Tiya Miles <u><u>and</u></u> Roy E. Finkenbine have both documented <u>the</u> assistance <u>Indigenous</u> peoples gave <u>to</u> Black <u>freedom</u>\nseekers leaving the South before the US Civil War. Much <u>of</u> the historical <u>evidence</u> of <u>this help comes <u><u>from</u></u></u> Indigenous <u>oral traditions</u> and from <u>autobiographies written by</u> the freedom <u>seekers. One such narrative is Jermain</u> Loguen's <u>autobiography, which tells about how Neshnabé (Potawatomi) villagers offered him food, lodging,</u> and <u>directions during his 1835 journey</u> from\n<u>Tennessee</u> to <u>Canada.</u>",
     "question": "Which choice best describes the function of the underlined sentence?",
@@ -3019,6 +3074,7 @@ const questionBank_CS = [
   {
     "id": "066a3295",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "Researchers <u>have</u> found <u>a</u> nearly 164,000-year-old molar from a member <u>of the</u> archaic human species known as <u><u>Denisovans</u> <u><u><u>in</u></u></u></u> a\n<u>cave</u> in <u>Laos, suggesting that</u> Denisovans <u><u>lived</u></u> in a <u>wider range</u> of <u>environments than indicated by earlier evidence. Before</u> the\n<u>discovery,</u> Denisovans <u>were thought to</u> have lived <u>only at high altitudes</u> in <u>relatively cold climates</u> in <u>what are now Russia and China,</u> but the discovery of the tooth in Laos suggests that they may have lived at low altitudes in relatively warm climates in\nSoutheast Asia as well.",
     "question": "Which choice best states the function of the underlined portion in the text as a whole?",
@@ -3115,6 +3171,7 @@ const questionBank_CS = [
   {
     "id": "c966ad55",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "<u>The</u> following text is from Srimati Svarna Kumari Devi's 1894 novel The Fatal Garland (translated by A. Christina Albers in 1910).\nShakti is walking near a riverbank that she visited frequently during her childhood.\n\n She crossed the woods she knew so well. The <u>trees seemed to extend their branches like welcoming arms.</u> They greeted her\n as an old friend. Soon she reached the river-side.",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
@@ -3131,6 +3188,7 @@ const questionBank_CS = [
   {
     "id": "40270820",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Easy",
     "passage": "Catherine L. Cardelús is a researcher who studies canopy soil. Canopy soil is formed in a tree's branches (its canopy) when dead\nleaves and other falling things collect. This material breaks down, becoming canopy soil. Canopy soil helps preserve a healthy\nwater cycle (how water moves through the environment) in rainforests. This benefit is one reason Cardelús is interested in the\ncanopy soils in large choibá trees in rainforests in Costa Rica.",
     "question": "Which choice best describes the text's overall structure?",
@@ -3163,6 +3221,7 @@ const questionBank_CS = [
   {
     "id": "764331f8",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "The following text is from Louise Erdrich's 1986 novel The Beet Queen. The narrator discusses <u><u><u>her</u></u></u> relationship with her young\nniece, Dot. <u>Celestine</u>, the narrator's sister-<u>in</u>-law, is Dot's mother.\n\n Dot <u>was</u> as impatient with babyhood as I. She tried at once <u><u>to</u></u> grow out of it. Celestine never saw that, because <u>she</u>, and only\n she, took pleasure in Dot's <u>helpless softness. Only</u> Celestine was <u>saddened <u>by</u></u> her daughter's <u>fierce progress. Day</u> by day, Dot\n grew stronger. <u>In</u> her <u>shopping-cart stroller</u> she <u>exercised</u> to <u>exhaustion, bouncing for hours</u> to <u>develop</u> her <u>leg muscles.</u>\n\n ©1986 by Louise Erdrich",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -3243,6 +3302,7 @@ const questionBank_CS = [
   {
     "id": "02e49a0c",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "Genetic <u>studies <u>have</u></u> led researchers <u>to</u> suggest <u>that turtles are most closely related</u> to <u>the</u> group that includes modern crocodiles.\nBut studies <u>of</u> fossils have <u>suggested instead</u> that turtles are most closely related to other groups, such as the one that contains\nmodern snakes. <u>However, many</u> of the <u>fossil</u> studies have <u>relied on incomplete data sets.</u> For a 2022 investigation, biologist Tiago\nR. Simões and colleagues examined more than 1,000 reptile fossils collected worldwide. From this large data set, they found clear\nagreement with the results of the genetic studies.",
     "question": "Which choice best describes the function of the underlined sentence?",
@@ -3291,6 +3351,7 @@ const questionBank_CS = [
   {
     "id": "1782cdd7",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "In many agricultural environments, the banks of streams are kept forested to protect water quality, but it's been unclear what\neffects these forests may have on stream biodiversity. To investigate the issue, biologist Xingli Giam and colleagues studied an\nIndonesian oil palm plantation, comparing the species richness of forested streams with that of nonforested streams. Giam and\ncolleagues found that species richness was significantly higher in forested streams, a finding the researchers attribute to the role\nleaf litter plays in sheltering fish from predators and providing food resources.",
     "question": "Which choice best states the main purpose of the text?",
@@ -3323,6 +3384,7 @@ const questionBank_CS = [
   {
     "id": "56ec23a0",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Easy",
     "passage": "Hiroshi Senju is known worldwide for his paintings of waterfalls. These paintings are large and tend not to show the entire\nwaterfall. Instead, Senju focuses on just the point where the falling water reaches the pool below, keeping the top of the waterfall\nout of view. While Senju's paintings are rooted in art movements originating in the United States, the artist uses traditional\nJapanese techniques and materials that make his work instantly recognizable.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3339,6 +3401,7 @@ const questionBank_CS = [
   {
     "id": "5e732e67",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Easy",
     "passage": "Many films from the early 1900s have been lost. These losses include several films by the first wave of Black women filmmakers.\nWe know about these lost movies only from small pieces of evidence. For example, an advertisement for Jennie Louise Touissant\nWelcome's documentary Doing Their Bit still exists. There's a reference in a magazine to Tressie Souders's film A Woman's Error.\nAnd Maria P. Williams's The Flames of Wrath is mentioned in a letter and a newspaper article, and one image from the movie was\ndiscovered in the 1990s.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3371,6 +3434,7 @@ const questionBank_CS = [
   {
     "id": "0ed94d4c",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Easy",
     "passage": "Jackie Ormes's Torchy Brown in Dixie to Harlem (1937–38) was the first comic strip by a Black woman to appear in a widely read\nnewspaper. The strip tells the story of Torchy, a young woman who leaves Mississippi to become a performer in New York City.\nTorchy's story reflects the experience of the Great Migration (1910–1970), when millions of Black Americans left the South in\nsearch of opportunities in other parts of the United States. Torchy Brown thus shows how Ormes used comics to comment\nhumorously on issues affecting Black Americans, which she continued to do throughout her career.",
     "question": "Which choice best states the main purpose of the text?",
@@ -3435,6 +3499,7 @@ const questionBank_CS = [
   {
     "id": "ac5bf490",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Easy",
     "passage": "The following text is from Reyna Grande's 2012 memoir The Distance Between Us. In <u>the</u> text, Grande reflects on a time when she\nand her older sister <u><u>Mago</u></u> were children. A Barbie is a type of doll.\n\n <u>I begged</u> Mago <u>to come play with <u><u>me</u></u>. She</u> wasn't <u>as interested in my</u> Barbie as she <u>had</u> been just two months before, <u>which made</u> me <u>sad because that was</u> the <u>only thing</u> Mago had <u>envied</u> me <u>for.</u> Usually, it was me doing the envying. After I pestered\n her relentlessly, she finally put her notebook down and came over to me.\n\n ©2012 by Reyna Grande",
     "question": "Which choice best describes the function of the underlined portion in the text?",
@@ -3451,6 +3516,7 @@ const questionBank_CS = [
   {
     "id": "dcd9ad50",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "The following text is adapted from George Eliot's 1857 short story \"The Sad Fortunes of the Rev. Amos Barton.\" Mr. Ely is a\nclergyman in the town of Milby.\n\n By the laity of Milby and its neighbourhood [Mr. Ely] was regarded as a man of quite remarkable powers and learning, who\n must make a considerable sensation in London pulpits and drawing-rooms on his occasional visit to the metropolis; and by\n his brother clergy he was regarded as a discreet and agreeable fellow. Mr. Ely never got into a warm discussion; he suggested\n what might be thought, but rarely said what he thought himself; he never let either men or women see that he was laughing at\n them, and he never gave any one an opportunity of laughing at him.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3499,6 +3565,7 @@ const questionBank_CS = [
   {
     "id": "f6352bd3",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Many archaeologists assume that large-scale engineering projects in ancient societies required an elite class to plan and direct\nthe necessary labor. However, recent discoveries, such as the excavation of an ancient canal near the Gulf Coast of Alabama, have\ncomplicated this picture. Using radiocarbon dating, a team of researchers concluded that the 1.39-kilometer-long canal was most\nlikely constructed between 576 and 650 CE by an Indigenous society that was relatively free of social classes.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3515,6 +3582,7 @@ const questionBank_CS = [
   {
     "id": "b4d29611",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Michelene Pesantubbee, a historian and citizen of the Choctaw Nation, has identified a dilemma inherent to research on the status\nof women in her tribe during the 1600s and 1700s: the primary sources from that era, travel narratives and other accounts by male\nEuropean colonizers, underestimate the degree of power conferred on Choctaw women by their traditional roles in political, civic,\nand ceremonial life. Pesantubbee argues that the Choctaw oral tradition and findings from archaeological sites in the tribe's\nhomeland supplement the written record by providing crucial insights into those roles.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3531,6 +3599,7 @@ const questionBank_CS = [
   {
     "id": "8bc66f89",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "Part of <u><u>the</u></u> Atacama Desert <u>in</u> Peru has surprisingly rich plant life despite receiving almost no rainfall. Moisture from winter fog\nsustains plants once <u>they</u>'re growing, but the soil's <u>tough crust makes it hard for <u>seeds</u> <u>to</u> germinate</u> in the <u>first</u> place. Local birds\nthat dig nests in the ground seem to be of help: they <u>churn</u> the <u>soil, exposing buried</u> seeds to <u>moisture and nutrients.</u> Indeed, in\n2016 Cristina Rengifo Faiffer found that mounds of soil dug up by birds were far more fertile and supported more seedlings than\nsoil in undisturbed areas.",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
@@ -3547,6 +3616,7 @@ const questionBank_CS = [
   {
     "id": "e7247766",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "Horizontal <u><u><u>gene</u></u> <u>transfer</u></u> occurs when an organism <u>of one species</u> acquires genetic material <u><u>from</u></u> an organism of another species\nthrough nonreproductive means. The genetic material can <u>then</u> be transferred \"vertically\" <u>in the</u> second species—that is, through\nreproductive inheritance. Scientist Atma Ivancevic <u>and</u> her team have <u>hypothesized infection by invertebrate parasites as <u><u><u><u>a</u></u></u></u> mechanism</u> of <u>horizontal</u> gene transfer <u>between <u>vertebrate</u> species: while feeding,</u> a <u>parasite could acquire</u> a gene from one <u><u>host</u>,</u>\nthen <u>relocate <u>to</u></u> a host from a <u>different</u> vertebrate species and transfer the gene to <u>it</u> in <u>turn.</u>",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
@@ -3563,6 +3633,7 @@ const questionBank_CS = [
   {
     "id": "48555763",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "<u>The</u> following text is from Herman Melville's 1854 novel The Lightning-rod Man.\nThe stranger still stood in the exact middle of the cottage, where he had first planted himself. <u>His singularity impelled a closer scrutiny.</u> A lean, gloomy figure. Hair dark and lank, mattedly streaked over his brow. His sunken pitfalls of eyes were ringed by\nindigo halos, and played with an innocuous sort of lightning: the gleam without the bolt. The whole man was dripping. He stood in\na puddle on the bare oak floor: his strange walking-stick vertically resting at his side.",
     "question": "Which choice best states the function of the underlined sentence in the overall structure of the text?",
@@ -3611,6 +3682,7 @@ const questionBank_CS = [
   {
     "id": "6d44060a",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Works of moral philosophy, such as Plato's Republic or Aristotle's Nicomachean Ethics, are partly concerned with how to live a\nmorally good life. But philosopher Jonathan Barnes argues that works that present a method of living such a life without also\nsupplying a motive are inherently useful only to those already wishing to be morally good—those with no desire for moral\ngoodness will not choose to follow their rules. However, some works of moral philosophy attempt to describe what constitutes a\nmorally good life while also proposing reasons for living one.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3819,6 +3891,7 @@ const questionBank_CS = [
   {
     "id": "f631132b",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "In the Here and Now Storybook (1921), educator Lucy Sprague Mitchell advanced the then controversial idea that books for very\nyoung children should imitate how they use language, since toddlers, who cannot yet grasp narrative or abstract ideas, seek\nreassurance in verbal repetition and naming. The most enduring example of this idea is Margaret Wise Brown's 1947 picture book\nGoodnight Moon, in which a young rabbit names the objects in his room as he drifts off to sleep. Scholars note that the book's\nemphasis on repetition, rhythm, and nonsense rhyme speaks directly to Mitchell's influence.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3835,6 +3908,7 @@ const questionBank_CS = [
   {
     "id": "c0e1b70a",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "The following text is adapted from Etsu Inagaki Sugimoto's 1925 memoir A Daughter of the Samurai. As a young woman,\nSugimoto moved from feudal Japan to the United States.\n\n The standards of my own and my adopted country differed so widely in some ways, and my love for both lands was so\n sincere, that sometimes I had an odd feeling of standing upon a cloud in space, and gazing with measuring eyes upon two\n separate worlds. At first I was continually trying to explain, by Japanese standards, all the queer things that came every day\n before my surprised eyes; for no one seemed to know the origin or significance of even the most familiar customs, nor why\n they existed and were followed.",
     "question": "Which choice best describes the main purpose of the text?",
@@ -3867,6 +3941,7 @@ const questionBank_CS = [
   {
     "id": "f2c48e47",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "The following text is from Charlotte Perkins Gilman's 1910 poem \"The Earth's Entail.\"\nNo matter how we cultivate the land,\nTaming the forest and the prairie free;\nNo matter how we irrigate the sand,\nMaking the desert blossom at command,\nWe must always leave the borders of the sea;\nThe immeasureable reaches\nOf the windy wave-wet beaches,\nThe million-mile-long margin of the sea.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -3899,6 +3974,7 @@ const questionBank_CS = [
   {
     "id": "c6bd3447",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Virginia Woolf's 1919 novel Night and Day. The text describes <u>a</u> gathering <u>of</u> young artists and\nintellectuals.\n\n One person after another rose, and, as with <u>an ill-balanced axe, attempted to hew out</u> his <u>conception</u> of <u>art</u> a little more\n clearly, and sat down with the feeling that, for some reason which he could not grasp, his <u>strokes had gone awry.</u> As they sat\n down they turned almost invariably to the person sitting next them, and rectified and continued what they had just said in\n public.",
     "question": "Which choice best describes the function of the underlined portions in the text as a whole?",
@@ -3963,6 +4039,7 @@ const questionBank_CS = [
   {
     "id": "6f5fc289",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "The following text is adapted from Charles Dickens's 1854 novel Hard Times. Coketown is a fictional town in England.\n[Coketown] contained several large streets all very like one another, and many small streets still more like one another, inhabited by\npeople equally like one another, who all went in and out at the same hours, with the same sound upon the same pavements, to do\nthe same work, and to whom every day was the same as yesterday and tomorrow, and every year the counterpart of the last and\nthe next.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4075,6 +4152,7 @@ const questionBank_CS = [
   {
     "id": "ff97fd53",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Medium",
     "passage": "In 1973, poet Miguel Algarín started inviting other writers who, like him, were Nuyorican—a term for New Yorkers of Puerto Rican\nheritage—to gather in his apartment to present their work. The gatherings were so well attended that Algarín soon had to rent\nspace in a cafe to accommodate them. Thus, the Nuyorican Poets Cafe was born. Moving to a permanent location in 1981, the\nNuyorican Poets Cafe expanded its original scope beyond the written word, hosting art exhibitions and musical performances as\nwell. Half a century since its inception, it continues to foster emerging Nuyorican talent.",
     "question": "Which choice best describes the overall purpose of the text?",
@@ -4107,6 +4185,7 @@ const questionBank_CS = [
   {
     "id": "df46a2ee",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "The following text is from Joseph Conrad's 1907 novel The Secret Agent: A Simple Tale. Mr. Verloc is navigating the London\nstreets on his way to a meeting.\nBefore reaching Knightsbridge, Mr. Verloc took a turn to the left out <u>of</u> the busy main thoroughfare, uproarious with the traffic of\nswaying omnibuses and trotting vans, in the almost silent, swift flow of hansoms [horse-drawn carriages]. Under his hat, worn with\na slight backward tilt, his hair <u>had been</u> carefully brushed into respectful sleekness; for his business was with an Embassy. And Mr.\nVerloc, steady like a rock—a <u>soft kind</u> of rock—marched now along a street which could with every propriety be described as\nprivate.",
     "question": "Which choice best describes the function of the underlined phrase in the text as a whole?",
@@ -4123,6 +4202,7 @@ const questionBank_CS = [
   {
     "id": "190857f0",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Why do sand cats purr but lions roar? Researchers hypothesize that this difference between the two feline species may be partly\ndue to a U-shaped bone in their throats called the hyoid. Sand cats, which are much smaller than lions, have a rigid hyoid that\nrumbles when the cat's larynx vibrates, resulting in a purr. By contrast, lions have a somewhat flexible hyoid, and the bone is\nattached to the skull with a stretchy ligament that sand cats lack. These traits allow lions and most other species of big cats to\nproduce powerful roars. The same traits may also prevent most big cats from purring.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -4139,6 +4219,7 @@ const questionBank_CS = [
   {
     "id": "2903a041",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Medium",
     "passage": "Using NASA's powerful James Webb Space Telescope (JWST), Mercedes López-Morales and colleagues measured the\nwavelengths of light traveling through the atmosphere of WASP-39b, an exoplanet, or planet outside our solar system. Different\nmolecules absorb different wavelengths of light, and the wavelength measurements showed the presence of carbon dioxide (CO₂)\nin WASP-39b's atmosphere. This finding not only offers the first decisive evidence of CO₂ in the atmosphere of an exoplanet but\nalso illustrates the potential for future scientific breakthroughs held by the JWST.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -4155,6 +4236,7 @@ const questionBank_CS = [
   {
     "id": "236fee8e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Medium",
     "passage": "Archeological excavation of Market Street Chinatown, <u>a</u> nineteenth-century Chinese <u>American</u> community <u><u>in</u></u> San Jose, California,\nprovided <u><u><u>the</u></u></u> first evidence that Asian <u>food</u> products <u>were imported <u><u>to</u></u></u> the <u>United States</u> in the <u>1800s: bones <u>from</u></u> a <u>freshwater</u> fish\n<u>species native</u> to <u>Southeast Asia. Jinshanzhuang—Hong Kong–based import/export firms—likely coordinated</u> the fish's <u>transport</u>\nfrom <u>Chinese-operated fisheries</u> in <u>Vietnam and Malaysia</u> to <u>North</u> American <u>markets.</u> This route reveals the (often overlooked)\nmultinational dimensions of the trade networks linking Chinese diaspora communities.",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -4267,6 +4349,7 @@ const questionBank_CS = [
   {
     "id": "65406d2c",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Dubautia carrii is a species in a family of plants known collectively as the silversword alliance, all of which grow only on the\nHawaiian Islands. Members of this alliance exhibit an extraordinary range of phenotypes, with some species maturing into vines\nand others into shrubs and trees. All species in the alliance descended from a single ancestral tarweed plant that arrived on the\nislands around 5 million years ago. The tarweed's descendants diversified into distinct species as they adapted to live in the wide\nvariety of habitats found on the Hawaiian Islands.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4299,6 +4382,7 @@ const questionBank_CS = [
   {
     "id": "b4887dae",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Mathematician Claude Shannon is widely regarded as a foundational figure in information theory. His most important paper, \"A\nMathematical Theory of Communication,\" published in 1948 when he was employed at Bell Labs, utilized a concept called a\n\"binary digit\" (shortened to \"bit\") to measure the amount of information in any signal and determine the fastest rate at which\ninformation could be transmitted while still being reliably decipherable. Robert Gallagher, one of Shannon's colleagues, said that\nthe bit was \"[Shannon's] discovery, and from it the whole communications revolution has sprung.\"",
     "question": "Which choice best describes the overall structure of the text?",
@@ -4331,6 +4415,7 @@ const questionBank_CS = [
   {
     "id": "aa5897b8",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "passage": "<u>In Jane</u> Austen's <u>novel Mansfield Park, an almost imperceptible smile from potential suitor Henry Crawford causes the protagonist Fanny Price to blush; her embarrassment grows when she suspects that he is aware of it.</u> This moment—in which Fanny not only\ninfers Henry's mental state through his gestures, but also infers that he is drawing inferences about her mental state—illustrates\nwhat literary scholar George Butte calls \"deep intersubjectivity,\" a technique for representing interactions between\nconsciousnesses through which Austen's novels derive much of their social and psychological drama.",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -4347,6 +4432,7 @@ const questionBank_CS = [
   {
     "id": "c61a7c4a",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Some studies have suggested that posture can influence cognition, but we should not overstate this phenomenon. A case in point:\nIn a 2014 study, Megan O'Brien and Alaa Ahmed had subjects stand or sit while making risky simulated economic decisions.\nStanding is more physically unstable and cognitively demanding than sitting; accordingly, O'Brien and Ahmed hypothesized that\nstanding subjects would display more risk aversion during the decision-making tasks than sitting subjects did, since they would\nwant to avoid further feelings of discomfort and complicated risk evaluations. But O'Brien and Ahmed actually found no difference\nin the groups' performance.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4363,6 +4449,7 @@ const questionBank_CS = [
   {
     "id": "b0f7541b",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "The following text is adapted from Herman Melville's 1857 novel The Confidence-Man. Humphry Davy was a prominent British\nchemist and inventor.\n\n Years ago, a grave American savant, being in London, observed at an evening party there, a certain coxcombical fellow, as he\n thought, an absurd ribbon in his lapel, and full of smart [banter], whisking about to the admiration of as many as were\n disposed to admire. Great was the savant's disdain; but, chancing ere long to find himself in a corner with the jackanapes, got\n into conversation with him, when he was somewhat ill-prepared for the good sense of the jackanapes, but was altogether\n thrown aback, upon subsequently being [informed that he was] no less a personage than Sir Humphry Davy.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4411,6 +4498,7 @@ const questionBank_CS = [
   {
     "id": "5f56fdec",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "The following text is from George Marion McClellan's 1895 poem \"Eternity.\"\n\n My spirit swoons, and all my senses cry\n For Ocean's breast and covering of the sky.\n Rock me to sleep, ye waves, and outward bound,\n Just let me drift far out from toil and care,\n Where lapping of the waves shall be the sound,\n Which mingled with the winds that gently bear\n Me on between a peaceful sea and sky,\n To make my soothing slumberous lullaby.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4475,6 +4563,7 @@ const questionBank_CS = [
   {
     "id": "d4732483",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Studying late nineteenth- and early twentieth-century artifacts from an agricultural and domestic site in Texas, archaeologist Ayana\nO. Flewellen found that Black women employed as farm workers utilized hook-and-eye closures to fasten their clothes at the waist,\ngiving themselves a silhouette similar to the one that was popular in contemporary fashion and typically achieved through more\nrestrictive garments such as corsets. Flewellen argues that this sartorial practice shows that these women balanced hegemonic\nideals of femininity with the requirements of their physically demanding occupation.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4539,6 +4628,7 @@ const questionBank_CS = [
   {
     "id": "9b01bcf4",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Function",
     "difficulty": "Hard",
     "passage": "The 1967 release of Harold <u>Cruse</u>'s book The Crisis of the Negro Intellectual isolated him from almost all other scholars <u>and activists</u> of the American Civil Rights Movement—<u>though</u> many of those thinkers disagreed with each other, <u>he</u> nonetheless found\nways <u>to</u> disagree with <u>them all. He thought <u>that</u></u> activists <u><u>who</u> believed</u> that <u><u><u><u>Black</u></u></u> people <u>such</u> <u><u>as</u></u> <u>himself</u> should</u> culturally\n<u>assimilate were naïve. But</u> he <u>also sharply criticized</u> Black <u>nationalists</u> such as <u>Marcus Garvey</u> who <u>wanted</u> to <u>establish independent, self-contained</u> Black <u>economies</u> and <u>societies, even</u> though Cruse himself <u>identified</u> as <u>a</u> Black <u>nationalist.</u>",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
@@ -4555,6 +4645,7 @@ const questionBank_CS = [
   {
     "id": "ad4f7362",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "The following text is from John Dryden's 1697 translation of Virgil's poem the Aeneid, written in the first century BCE. Queen Dido\nhas just heard the Trojan hero Aeneas recount a sad tale.\n\n But anxious cares already seiz'd the queen:\n She fed within her veins a flame unseen;\n The hero's valor, acts, and birth inspire\n Her soul with love, and fan the secret fire.\n His words, his looks, imprinted in her heart,\n Improve the passion, and increase the smart.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4683,6 +4774,7 @@ const questionBank_CS = [
   {
     "id": "a70cbc53",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Raymond Antrobus, an accomplished poet and writer of prose, recently released his debut spoken word poetry album, The First\nTime I Wore Hearing Aids, in collaboration with producer Ian Brennan. The album contains both autobiographical and reflective\npieces combining Antrobus's spoken words with Brennan's fragmented audio elements and pieces of music to convey how people\nwho are deaf may experience sound, both its presence and absence. Some critics suggest that the album questions the function\nof sound in the world, highlighting that the experience of sound is multifaceted.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -4715,6 +4807,7 @@ const questionBank_CS = [
   {
     "id": "4eee64fa",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "Space scientists Anna-Lisa Paul, Stephen M. Elardo, and Robert Ferl planted seeds of Arabidopsis thaliana in samples of lunar\nregolith—the surface material of the Moon—and, serving as a control group, in terrestrial soil. They found that while all the seeds\ngerminated, the roots of the regolith-grown plants were stunted compared with those in the control group. Moreover, unlike the\nplants in the control group, the regolith-grown plants exhibited red pigmentation, reduced leaf size, and inhibited growth rates—\nindicators of stress that were corroborated by postharvest molecular analysis.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4859,6 +4952,7 @@ const questionBank_CS = [
   {
     "id": "34d7bb25",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "According to Indian economist and sociologist Radhakamal Mukerjee (1889–1968), the Eurocentric concepts that informed early\ntwentieth-century social scientific methods—for example, the idea that all social relations are reducible to struggles between\nindividuals—had little relevance for India. Making the social sciences more responsive to Indians' needs, Mukerjee argued, required\nconstructing analytical categories informed by India's cultural and ecological circumstances. Mukerjee thus proposed the\ncommunalist \"Indian village\" as the ideal model on which to base Indian economic and social policy.",
     "question": "Which choice best describes the overall structure of the text?",
@@ -4923,6 +5017,7 @@ const questionBank_CS = [
   {
     "id": "0b5ecf0e",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Purpose",
     "difficulty": "Hard",
     "passage": "During Rome's republican period, which ended in the first century BCE, libraries were predominantly owned by wealthy individuals\nwho tightly controlled access to their book collections. The first public library became available in Rome in 28 BCE and was soon\nfollowed by one commissioned by Emperor Augustus. As modern scholar Fabio Fernandes notes, however, these two traditions\naren't as distinct as they seem, as both the emperor and the private library owners viewed their libraries as extensions of their\npersonal patronage, just on vastly differing scales.",
     "question": "Which choice best states the main purpose of the text?",
@@ -4939,6 +5034,7 @@ const questionBank_CS = [
   {
     "id": "4ed09415",
     "skill": "Text Structure and Purpose",
+    "ruleType": "Structure",
     "difficulty": "Hard",
     "passage": "Vadamalai Elangovan and Ganapathi Marimuthu showed that high moonlight intensity inhibits the activity of the greater short-\nnosed fruit bat (Cynopterus sphinx), a result explicable in terms of benefits and costs: greater lunar intensity may not enable the\nbats to increase foraging success enough to offset the higher chance of detection by predatory owls or hawks. Most other\nnocturnal mammals respond to lunar intensity variations similarly to greater short-nosed fruit bats, but mongoose lemurs\n(Eulemur mongoz) display the opposite pattern, as their heavy reliance on visual foraging results in a different balance of reward\nand risk.",
     "question": "Which choice best describes the overall structure of the text?",
