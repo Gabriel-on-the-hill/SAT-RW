@@ -271,14 +271,33 @@ t('homework-run.html posts with keepalive too', () => {
        'the homework post never set keepalive; a set submitted as the tab closed could vanish');
 });
 
-t('homework-run.html flushes an unfinished set on pagehide', () => {
+t('homework-run.html flushes a part-answered set, and COMMITS a fully answered one', () => {
     const src = fs.readFileSync(path.join(APP, 'homework-run.html'), 'utf8');
     ok(/addEventListener\('pagehide'/.test(src), 'no pagehide handler in the homework runner');
     const hidx = src.indexOf("addEventListener('pagehide'");
-    const handler = src.slice(hidx, hidx + 400);
-    ok(/postLog\([\s\S]*?,\s*true\s*\)/.test(handler), 'pagehide must post with partial=true');
+    const handler = src.slice(hidx, hidx + 1200);
     ok(/_hwLogged\s*\|\|\s*_hwPartialLogged/.test(handler),
        'the handler must skip a set that has already reported');
+    ok(/postLog\([\s\S]*?,\s*true\s*\)/.test(handler),
+       'a part-answered set must still post with partial=true');
+
+    // Ported from the sister app 6 Sep 2026, where this cost a student seventeen
+    // days. The partial flush was written for a set abandoned halfway and it
+    // treated EVERY unpressed set the same way. So a student who answered all ten
+    // questions and closed the tab was filed to the tutor as "INCOMPLETE (10 of 10
+    // answered)" — not a description of anything — and the completion flag was
+    // still never written, which under sequential unlock shut every later set
+    // behind it. It was invisible: the score screen had already shown a
+    // finished-looking result and the tutor reviewed it with the student.
+    //
+    // Reaching the score screen is how the STUDENT sees the result. It is not what
+    // makes the work exist.
+    ok(/answered\s*>=\s*daySet\.length/.test(handler),
+       'pagehide must recognise a fully answered set');
+    ok(/localStorage\.setItem\('satrw_hw_'/.test(handler),
+       'a fully answered set must write its completion flag, or the plan deadlocks behind it');
+    ok(/postLog\(secs\)\s*;/.test(handler),
+       'a fully answered set must post a REAL row, not one marked INCOMPLETE');
 });
 
 t('app.js wires the pagehide flush, and does NOT use visibilitychange', () => {

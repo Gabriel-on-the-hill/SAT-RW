@@ -125,7 +125,7 @@
 <script src="data-conventions-ext.js?v=20260904"></script>
 <script src="progress.js?v=20260904"></script>
 <script src="sheet-sync.js?v=20260825"></script>
-<script src="homework/assignments.js?v=20260823"></script>
+<script src="homework/assignments.js?v=20260906"></script>
 </head>
 <body>
 <div class="wrap">
@@ -1025,12 +1025,34 @@
 
   // pagehide only -- see the note in app.js initSessionFlush(). A set that has been
   // finished has already posted and is skipped; a redo posts nothing either way.
+  //
+  // A FULLY ANSWERED SET IS FINISHED, whether or not she pressed Finish. Ported
+  // from the sister app 6 Sep 2026. The partial flush above was written for a set
+  // abandoned halfway, and it treated every unpressed set the same way -- so a
+  // student who answered all ten questions and closed the tab was filed to the
+  // tutor as "INCOMPLETE (10 of 10 answered)", which is not a description of
+  // anything, and the completion flag was still never written, which under
+  // sequential unlock shut every later set behind it.
+  //
+  // Reaching the score screen is how the STUDENT sees her result. It is not what
+  // makes the work exist. If every question in the set has an answer, commit it the
+  // way finish() would: write the flag, post a normal row. A short set keeps the
+  // partial behaviour, because a set with three of ten answered genuinely is not a
+  // result and must not read as one.
   if(typeof window!=='undefined' && window.addEventListener){
     window.addEventListener('pagehide', function(){
       try{
         if(_hwLogged || _hwPartialLogged || isRedo || reviewOnly) return;
         bankQ();
-        postLog(Math.round((Date.now()-started)/1000), true);
+        var secs=Math.round((Date.now()-started)/1000);
+        var answered=records.filter(function(r){ return r && r.chosen; }).length;
+        if(daySet.length && answered>=daySet.length){
+          saveRecs();
+          try{ localStorage.setItem('satrw_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){}
+          postLog(secs);              // a real row, not a partial
+        } else {
+          postLog(secs, true);
+        }
       }catch(e){}
     });
   }

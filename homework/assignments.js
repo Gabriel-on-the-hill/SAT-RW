@@ -848,13 +848,33 @@ function hwParseDate(s) {
 //
 // If localStorage cannot be read we OPEN the set rather than strand the
 // student. Broken storage must never be able to lock someone out of homework.
+// THE CALENDAR FLOOR, ported from the sister app 6 Sep 2026 where it deadlocked
+// for real. A student answered all ten questions of set 1 and closed the tab
+// without reaching the score screen, so the completion flag was never written and
+// the four sets behind it -- that week's entire new skill -- stayed shut for
+// seventeen days. Nothing errored. The hub prints every set, so she was looking at
+// four sets she could not start, and the score screen had already shown her a
+// finished-looking result which her tutor then reviewed with her. Neither of them
+// could see it.
+//
+// So a missing flag no longer LOCKS a later set, it only stops that set from being
+// EARNED EARLY. Sequential keeps what it was built for -- submit set 1 and set 2
+// opens at once, so a free Saturday is not wasted -- and falls back to the calendar
+// rule when a set was not submitted. The worst case is now cumulative's pace, which
+// is the behaviour this replaced, rather than a plan that never opens again.
+//
+// Fixing the flag itself is homework-run.html's job (a fully answered set now
+// commits on pagehide). This is the floor under it: no submission path can be
+// perfect, and no bug in one should ever be able to strand a student's whole week.
 function hwDayOpen(student, plan, n) {
   if (!plan) return n === 1;
   if (plan.unlock === 'sequential') {
     if (n <= 1) return true;
     try {
       for (var i = 1; i < n; i++) {
-        if (localStorage.getItem('satrw_hw_' + student + '_' + plan.start + '_' + i) !== '1') return false;
+        if (localStorage.getItem('satrw_hw_' + student + '_' + plan.start + '_' + i) !== '1') {
+          return n <= hwDaysAvailable(plan.start);
+        }
       }
       return true;
     } catch (e) { return true; }

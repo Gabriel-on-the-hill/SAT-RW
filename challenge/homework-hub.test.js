@@ -49,7 +49,7 @@ const HTML = RAW.replace(/<script\b[^>]*src[^>]*><\/script>/gi, '').replace(/<li
 // sufficient, and that no bank is among them.
 const DECLARED = [...RAW.matchAll(/<script\s+src="([^"?]+)/gi)].map(m => m[1]);
 
-function build(student, ledger, plan) {
+function build(student, ledger, plan, seed) {
     return new Promise(resolve => {
         const dom = new JSDOM(HTML, {
             runScripts: 'dangerously',
@@ -60,6 +60,10 @@ function build(student, ledger, plan) {
         w.sessionStorage.setItem('mastery_unlocked', '1');
         w.sessionStorage.setItem('mastery_user', student);
         if (ledger) w.localStorage.setItem('satrw_progress_' + student, JSON.stringify(ledger));
+        // `seed` writes raw localStorage before the page renders, so a card can be
+        // driven into a state that only storage produces — an answered-but-never-
+        // submitted set, for one.
+        if (seed) for (const k of Object.keys(seed)) w.localStorage.setItem(k, seed[k]);
         for (const f of DECLARED) {
             const s = w.document.createElement('script');
             s.textContent = read(f) + (f === 'homework/assignments.js' && plan
@@ -166,6 +170,34 @@ console.log('\n4 · Everyone else is untouched');
         ok('and gives the window, so he is not pushed to rush them',
             /spread them out/i.test(note(s)), note(s));
         ok('and no challenge card is shown', !/Open the Challenge/.test(txt(s)), txt(s));
+    }
+
+    {
+        // ANSWERED BUT NOT SUBMITTED. Ported from the sister app 6 Sep 2026, where
+        // this state hid a seventeen-day outage. Answers are written per question
+        // as the student works; the completion flag is written only at the score
+        // screen. A set holding answers and no flag is work actually done that
+        // never reached the tutor — and under sequential unlock it is also what is
+        // holding up every set behind it.
+        //
+        // The card used to render it as "Available", identical to a set never
+        // opened. So the hub told the student to start something already finished,
+        // and told the tutor nothing at all.
+        const recKey = 'satrw_hwrec_' + daysKey + '_' + dayPlan.start + '_1';
+        const worked = JSON.stringify({ at: Date.now(), recs: [{ id: 'a', chosen: 'B', ok: true }] });
+
+        const s = await build(daysKey, null, dayPlan, { [recKey]: worked });
+        ok('an answered but unsubmitted set is not called Available',
+            !/Available/.test(txt(s)), txt(s));
+        ok('it says so plainly instead',
+            /Answered\s*·\s*not submitted/.test(txt(s)), txt(s));
+        ok('and its button says Finish, not Start',
+            /Finish set 1/.test(txt(s)) && !/Start set 1/.test(txt(s)), txt(s));
+
+        const doneKey = 'satrw_hw_' + daysKey + '_' + dayPlan.start + '_1';
+        const d = await build(daysKey, null, dayPlan, { [recKey]: worked, [doneKey]: '1' });
+        ok('a submitted set still reads Done, not the new state',
+            /Done/.test(txt(d)) && !/not submitted/.test(txt(d)), txt(d));
     }
 }
 

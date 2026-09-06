@@ -53,7 +53,7 @@
 <script src="ns-migrate.js?v=20260717"></script>
 <script src="gate.js?v=20260822"></script>
 <script src="sheet-sync.js?v=20260825"></script>
-<script src="homework/assignments.js?v=20260823"></script>
+<script src="homework/assignments.js?v=20260906"></script>
 <!-- Challenge card. progress.js supplies the ledger, challenge-core the segments.
      No question banks are loaded: segmentOf() reads only q.id, so "Mastered N of M"
      is computable from the frozen ids alone. sets.js tolerates a missing
@@ -182,7 +182,7 @@
     var last = fmtOn(plan.through), first = fmtOn(plan.start);
     var howMany = plan.days.length;
     document.getElementById('note').textContent =
-      'One set at a time. The next set opens as soon as you submit the one before it.'
+      'One set at a time. The next set opens as soon as you submit the one before it, and on its own day at the latest.'
       + (last ? ' All ' + howMany + ' are yours to finish between ' + (first||'today') + ' and ' + last
               + ' — spread them out, about one a day. There is no reward for rushing them.' : '')
       + ' Read the explanation for anything you get wrong.';
@@ -190,20 +190,42 @@
   // A finished day keeps its questions, answers and explanations, so it can be
   // reopened for review — that is where the misses get worked, not in the run.
   function reviewable(n){ try { return !!localStorage.getItem('satrw_hwrec_'+student+'_'+plan.start+'_'+n); } catch(e){ return false; } }
+
+  // ANSWERED BUT NOT SUBMITTED — ported from the sister app 6 Sep 2026, and it is
+  // the state that hid a seventeen-day outage there. Answers are written per
+  // question as he works; the completion flag is written only at the score screen.
+  // A set holding answers and no flag is work he has actually done that has not
+  // reached the tutor, and under sequential unlock it is also the thing holding up
+  // every set after it.
+  //
+  // It used to render as "Available", identical to a set never opened. So the hub
+  // told the student to start something already finished, and told the tutor
+  // nothing at all.
+  function answeredCount(n){
+    try{
+      var raw=localStorage.getItem('satrw_hwrec_'+student+'_'+plan.start+'_'+n);
+      if(!raw) return 0;
+      var recs=(JSON.parse(raw)||{}).recs||[];
+      return recs.filter(function(r){ return r && r.chosen; }).length;
+    }catch(e){ return 0; }
+  }
   var html='';
   plan.days.forEach(function(day){
     var open = hwDayOpen(student, plan, day.n);
     var isDone = done(day.n);
+    var started = !isDone && answeredCount(day.n) > 0;
     var cls = 'day' + (isDone?' done':(open?'':' locked'));
     var lockLabel = seq ? 'Opens when you finish set '+(day.n-1) : 'Opens '+fmtDate(plan.start, day.n-1);
-    var state = isDone? '<span class="state done">Done</span>' : (open? '<span class="state open">Available</span>' : '<span class="state lock">'+lockLabel+'</span>');
+    var state = isDone? '<span class="state done">Done</span>'
+              : started? '<span class="state open">Answered &middot; not submitted</span>'
+              : (open? '<span class="state open">Available</span>' : '<span class="state lock">'+lockLabel+'</span>');
     html += '<div class="'+cls+'">'
       + '<div class="top"><span class="num">'+day.n+'</span><span class="focus">'+day.focus+'</span>'+state+'</div>'
       + '<div class="meta">'+(day.diffs?day.diffs.join(' + ')+' &middot; ':'')+(day.sections?day.sections.reduce(function(s,x){return s+(x.count||0);},0):day.count)+' questions'+(day.minutes? ' &middot; '+day.minutes+' min':'')+'</div>'
       + (open? '<div class="tip">'+day.tip+'</div>' : '')
       + (open? '<div class="go" style="display:flex;gap:.5rem;flex-wrap:wrap">'
           + (reviewable(day.n)? '<a class="btn" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'&mode=review">Review your misses</a>' : '')
-          + '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':'Start set '+day.n)+'</a>'
+          + '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':started?'Finish set '+day.n:'Start set '+day.n)+'</a>'
           + '</div>' : '')
       + '</div>';
   });

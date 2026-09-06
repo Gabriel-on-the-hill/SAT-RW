@@ -137,6 +137,65 @@ for (const [student, plan] of Object.entries(HOMEWORK)) {
     }
 }
 
+// ── The calendar floor under sequential unlock ────────────────────────────
+// Ported from the sister app 6 Sep 2026, where sequential deadlocked for real. A
+// student answered all ten questions of set 1, closed the tab without reaching
+// the score screen, and the completion flag was never written — so the four sets
+// behind it, that week's entire new skill, never opened. Nothing errored. The hub
+// listed all five, so she was looking at four sets she could not start.
+//
+// A missing flag must therefore stop a set being EARNED EARLY, never lock it.
+// Submit and the next one opens at once; do not, and the calendar still releases
+// it on its own day. The worst case is cumulative's pace, not a dead plan.
+section('the calendar floor under sequential unlock');
+{
+    // This JSDOM is built without a URL, so its origin is opaque and touching
+    // window.localStorage throws. hwDayOpen catches that and returns true by
+    // design — broken storage must never lock a student out — which would make
+    // every assertion below pass for the wrong reason. So stub the store.
+    const store = {};
+    Object.defineProperty(w, 'localStorage', {
+        configurable: true,
+        value: {
+            getItem: k => (k in store ? store[k] : null),
+            setItem: (k, v) => { store[k] = String(v); },
+            removeItem: k => { delete store[k]; },
+            clear: () => { for (const k of Object.keys(store)) delete store[k]; },
+        },
+    });
+    ok('the localStorage stub is live, so these assertions mean something',
+        (w.localStorage.setItem('probe', '1'), w.localStorage.getItem('probe') === '1'));
+    w.localStorage.clear();
+
+    const ymd = n => {
+        const d = new Date(); d.setDate(d.getDate() - n);
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0')
+             + '-' + String(d.getDate()).padStart(2, '0');
+    };
+    const isOpen = (start, n, submitted) => {
+        w.localStorage.clear();
+        for (const i of (submitted || [])) w.localStorage.setItem('satrw_hw_T_' + start + '_' + i, '1');
+        const plan = { start, unlock: 'sequential', days: [1, 2, 3, 4, 5].map(x => ({ n: x })) };
+        return w.hwDayOpen('T', plan, n);
+    };
+
+    ok('set 1 is always open', isOpen(ymd(0), 1, []) === true);
+    ok('an unsubmitted set 1 still gates set 2 on day one',
+        isOpen(ymd(0), 2, []) === false,
+        'the floor must not hand out the whole week at once — that is what sequential replaced');
+    ok('submitting set 1 still opens set 2 immediately',
+        isOpen(ymd(0), 2, [1]) === true,
+        'sequential must keep letting a student earn the next set ahead of its day');
+    ok('a submitted run opens the set after it, ahead of its calendar day',
+        isOpen(ymd(0), 3, [1, 2]) === true);
+    ok('THE REGRESSION: an unsubmitted set no longer deadlocks the ones behind it',
+        [2, 3, 4, 5].every(n => isOpen(ymd(17), n, []) === true),
+        'a missing completion flag stranded the rest of the plan for seventeen days');
+    ok('the floor releases only the days that have actually arrived',
+        isOpen(ymd(2), 5, []) === false,
+        'set 5 is not due two days into the plan');
+}
+
 console.log('\n' + '─'.repeat(64));
 if (fail) { console.log(`${fail} FAILED:\n  · ` + fails.join('\n  · ')); process.exit(1); }
 console.log(`ALL ${pass} ASSERTIONS PASSED`);
