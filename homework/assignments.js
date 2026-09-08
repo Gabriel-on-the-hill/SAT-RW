@@ -604,6 +604,75 @@ const HOMEWORK = {
   },
   */
 
+  // ── Bruce · 8 SEP 2026 · two timed sets, both before the class ──────────────
+  //
+  // Replaces the 11–20 Aug block (retired below, kept verbatim) and RETIRES the
+  // `challenge` key that stood in its place since 19 Aug. That key is not
+  // cosmetic: when a plan carries `challenge`, homework-hub.html renders the
+  // challenge card and RETURNS — it never reads `days` at all. A block authored
+  // underneath a live `challenge` key is invisible on the hub. Remove it, or the
+  // two sets below do not exist as far as the student is concerned.
+  //
+  // TWO SETS, NOT FOUR, AND BOTH BEFORE THE CLASS ON 8 SEP. This block is a triage
+  // instrument, not a week's practice: it runs BEFORE the last class so the class
+  // can be steered by what it shows. That is why it is two sets and not four, and
+  // why it is authored the morning of.
+  //
+  // NO `through` KEY, DELIBERATELY. homework-hub.html only prints the window —
+  // "spread them out, about one a day. There is no reward for rushing them." — when
+  // `through` is present. That sentence is correct on every other block on this key
+  // and wrong on this one. Omitting the key drops the whole clause and leaves the
+  // note reading "One set at a time. The next set opens as soon as you submit the
+  // one before it." Nothing else reads `through`; hwDayOpen()'s calendar floor keys
+  // off `start` and the day index, so set 2 still opens the moment set 1 is
+  // submitted, and on 9 Sep at the latest if it is not.
+  //
+  // WHAT THAT COSTS. Two sets in one sitting means set 2's review draw cannot
+  // return set 1's questions — the 20h cooldown — and one-a-night was the only
+  // remaining shape that could have proved the ladder fires on this key. It is
+  // spent knowingly. The dose should still serve on BOTH sets from the August
+  // ledger, which is three weeks overdue; if it returns nothing even now, the
+  // problem is the ladder and not the spacing.
+  //
+  // BOTH TIMED, DELIBERATELY — the reverse of the two previous blocks. `minutes > 0`
+  // is what makes predictMode() return 'commit', so the prediction is one click
+  // rather than typed. An untimed set measures the method under conditions the
+  // sitting does not offer, and with the sitting four days out the block has to
+  // measure the mode it will be sat in. ~71s a question is the real paper's rate,
+  // and the instrument this block exists to read is the `On text` column.
+  //
+  // minutes INCLUDES the review dose: (8 + 2) x 71 / 60 = 12 on both sets. Neither
+  // day sets `review`, so both take the default 2. Re-run that line if a count moves.
+  //
+  // EVERY SECTION IS SINGLE-DIFFICULTY. A two-value diffs range routes through
+  // _calibratedPick() and leans the draw, which would silently reshape the
+  // Medium/Hard ratio each set is built on. Medium stays in scope on Boundaries and
+  // Transitions on purpose: prioritizePool() returns misses only from a pool
+  // matching the skill AND the difficulty, so a Hard-only set cannot bring back a
+  // Medium miss.
+  //
+  // POOLS. Set 1's three ruleType sections were tallied BY HAND — assignments.test.js
+  // checks depth by skill + difficulty and IGNORES ruleType. Bank-wide Boundaries by
+  // rule: Commas M27 H16, NoPunct M4 H14, Semi M7 H11, Dash M6 H9, Colon M4 H4.
+  // NoPunct is drawn at HARD ONLY: NoPunct Medium is 4 bank-wide and was down to one
+  // free item on this key in August, and set 2's unfiltered Boundaries draw can also
+  // land on it. DO NOT AUTHOR NoPunct AT MEDIUM HERE. Colon and Dash are untouched —
+  // too thin to target. Set 2 draws Text Structure and Purpose WITHOUT a ruleType on
+  // purpose: it is a pace rehearsal, not a rule drill, and Function is the shallowest
+  // of the three ruleType pools (M18 H8) with another key's live block spending it.
+  //
+  // NOT DRAWN, and why: Form, Structure & Sense — Hard pool spent on this key (19 of
+  // 23 served) and the Medium pool heavily drawn across three blocks. Command of
+  // Evidence — Quantitative — thinnest pool in the bank, reserved for another key;
+  // note the em dash in the skill name, a hyphen will not resolve. Words in Context
+  // as a vocabulary drill — retired from this plan on 22 Jul.
+  //
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser and this repo is public. Keep it free
+  // of assessment of him — shapes, pools and guardrails only.
+  //
+  // ── The retired 11–20 Aug block's notes, kept for the commented-out copy below ──
+  //
   // Bruce — 11–20 Aug. FIVE sets, `sequential`, `through` 20 Aug so the hub prints
   // the window and asks for them to be spread out. Replaces the 18 Jul block, which
   // is retired: all five sets of it were submitted. Re-authored, not flipped, per
@@ -675,12 +744,32 @@ const HOMEWORK = {
   // This file is downloaded by his browser and this repo is public. Keep it free
   // of assessment of him — shapes, pools and guardrails only.
   "Bruce": {
-    title: "This week: your punctuation challenge",
-    start: "2026-08-12",
-    through: "2026-08-26",
+    title: "Two sets to do before class today",
+    start: "2026-09-08",
     unlock: "sequential",
-    challenge: "bnd-aug19",
-    days: [],
+    days: [
+      { n:1, focus:"Punctuation and transitions, on a clock", minutes:12,
+        tip:"Do this one before class today, and set 2 straight after it if you have the time. What these two show is what we spend the class on, so an honest run is worth more to you than a good score.\n\nEight questions, about seventy seconds each. One click to commit, and that click is the whole exercise: decide what the answer has to DO before you open the choices.\n\nPUNCTUATION — cover the mark and read each side on its own. Two complete sides take a full stop or a semicolon. One complete and one fragment takes a comma, a colon or a dash. And about one in five of these wants NO mark at all — the option with nothing in it is a real answer, not a throwaway.\n\nCOMPLEX LISTS — when the items already carry their own commas, the separators BETWEEN the items go up to semicolons. Find where the list starts and where it ends before you choose; the word 'and' near the end usually tells you.\n\nTHE ADVERB IN THE JOINT — however, though, rather, therefore, moreover. These are not conjunctions. They cannot hold two complete sentences together with a comma, wherever in the sentence they sit.\n\nTRANSITIONS — name the relationship in your own words BEFORE you read the four words on offer: contrast, continuation, example, cause and effect. And contrast has a subtype that concedes — of course, granted, admittedly, that said. It means \"yes, I know this complicates things, and it is true\", not \"therefore\".\n\nEVIDENCE — find the live word in the claim, the one the quotation has to satisfy, and test each option against that word alone. A quotation can be accurate, well written and about the right study and still not touch the word.\n\nAbout forty seconds on the text, thirty on the choices. Under ten on the text means you did not read it. Nothing gets a third pass; every question gets a first one.",
+        sections:[
+          { skills:["Boundaries"],                    diffs:["Medium"], ruleType:"Semi",    count:1 },
+          { skills:["Boundaries"],                    diffs:["Medium"], ruleType:"Commas",  count:1 },
+          { skills:["Boundaries"],                    diffs:["Hard"],   ruleType:"Commas",  count:1 },
+          { skills:["Boundaries"],                    diffs:["Hard"],   ruleType:"NoPunct", count:1 },
+          { skills:["Transitions"],                   diffs:["Medium"], count:1 },
+          { skills:["Transitions"],                   diffs:["Hard"],   count:2 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"],   count:1 }
+        ] },
+      { n:2, focus:"Mixed at test pace — name the job, one pass", minutes:12,
+        tip:"Eight questions, about seventy seconds each, everything mixed and no warning which is which. The paper gives no warning either.\n\nName the job before you open the choices, then eliminate in one pass.\n\nSYNTHESIS — the question hands you a goal and some notes and asks which sentence does the job. Write the goal in your own words first, and write it precisely: \"says something about the results\" will not separate the choices, \"says the results were weaker than the earlier study predicted\" will. Most of the wrong answers here are accurate — copied faithfully out of the notes, about the right subject, doing a different job. TRUE IS NOT THE TEST. ON-TASK IS.\n\nPURPOSE — what is this part of the text DOING, not what is it about. A choice can name the right topic and the wrong job, and that is the commonest wrong answer in this part of the paper.\n\nEVIDENCE — the live word in the claim, and nothing else.\n\nTRANSITIONS — the relationship first, the word second.\n\nPUNCTUATION — is each side of the mark a complete sentence?\n\nOnce you have decided, do not go back and re-argue an option: every question you reopen after choosing is paid for by the next one. If one is going nowhere, leave your best answer behind and move on — a question left blank is a guaranteed zero and a guess is not.\n\nThis is the second of the two before class. One sitting, phone in another room.",
+        sections:[
+          { skills:["Rhetorical Synthesis"],          diffs:["Medium"], count:2 },
+          { skills:["Rhetorical Synthesis"],          diffs:["Hard"],   count:1 },
+          { skills:["Text Structure and Purpose"],    diffs:["Medium"], count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], count:1 },
+          { skills:["Transitions"],                   diffs:["Hard"],   count:2 },
+          { skills:["Boundaries"],                    diffs:["Hard"],   count:1 }
+        ] },
+    ]
   },
 
   /* CLEARED 19 AUG 2026 — the 12–20 Aug block, kept verbatim for the `start` key
