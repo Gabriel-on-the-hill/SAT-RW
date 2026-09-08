@@ -54,9 +54,52 @@ const REVIEW_COOLDOWN_MS = 20 * 3_600_000;  // 20 hours
 const REVIEW_LADDER_DAYS = [1, 3, 7, 21, 42];
 const DAY_MS = 86_400_000;
 
+function _questionAliasMap() {
+    var bank;
+    try { bank = questionBank; } catch (e) { return {}; }
+    if (!Array.isArray(bank)) return {};
+    var aliases = {};
+    bank.forEach(function(q) {
+        (q.altIds || []).forEach(function(id) { if (id && id !== q.id) aliases[id] = q.id; });
+    });
+    return aliases;
+}
+
+function _canonicalQuestionId(id) {
+    return _questionAliasMap()[id] || id;
+}
+
+function _mergeAliasProgressRecord(current, aliasRecord) {
+    if (!current) return aliasRecord;
+    var currentSeen = current.lastSeen || 0;
+    var aliasSeen = aliasRecord.lastSeen || 0;
+    var latest = aliasSeen > currentSeen ? aliasRecord : current;
+    var merged = Object.assign({}, current, aliasRecord, latest);
+    merged.correct = (current.correct || 0) + (aliasRecord.correct || 0);
+    merged.wrong = (current.wrong || 0) + (aliasRecord.wrong || 0);
+    merged.lastSeen = Math.max(currentSeen, aliasSeen);
+    return merged;
+}
+
+function _migrateQuestionAliases(ledger) {
+    var aliases = _questionAliasMap();
+    var changed = false;
+    Object.keys(aliases).forEach(function(alias) {
+        if (!Object.prototype.hasOwnProperty.call(ledger, alias)) return;
+        var canonical = aliases[alias];
+        ledger[canonical] = _mergeAliasProgressRecord(ledger[canonical], ledger[alias]);
+        delete ledger[alias];
+        changed = true;
+    });
+    return changed;
+}
+
 function getProgress() {
-    try { return JSON.parse(localStorage.getItem('satrw_progress_' + _hwUser())) || {}; }
-    catch(e) { return {}; }
+    try {
+        var ledger = JSON.parse(localStorage.getItem('satrw_progress_' + _hwUser())) || {};
+        if (_migrateQuestionAliases(ledger)) _saveProgress(ledger);
+        return ledger;
+    } catch(e) { return {}; }
 }
 
 function _saveProgress(ledger) {
@@ -74,6 +117,7 @@ function _saveProgress(ledger) {
 //         was drawn. They are different questions and must not be folded together —
 //         an exam answer still counts double whether or not it was a review.
 function recordAnswer(id, isCorrect, source, meta) {
+    id = _canonicalQuestionId(id);
     const ledger = getProgress();
     if (!ledger[id]) ledger[id] = { correct: 0, wrong: 0, lastSeen: 0 };
     // Read the rung BEFORE touching anything. _streak() falls back to `correct` for
@@ -277,13 +321,15 @@ function _isResting(record) {
 function prioritizePool(pool, opts) {
     const ledger    = getProgress();
     const needsWork = [];
-    const unseen    = [];
+    const unseenOfficial = [];
+    const unseenProvisional = [];
     const resting   = [];
 
     pool.forEach(q => {
         const r = ledger[q.id];
         if (!r) {
-            unseen.push(q);
+            const provisional = q.difficultyStatus === 'provisional';
+            (provisional ? unseenProvisional : unseenOfficial).push(q);
         } else if ((r.wrong || 0) > 0 && !_isMastered(r)) {
             needsWork.push(q); // has had at least one miss
         } else {
@@ -293,13 +339,20 @@ function prioritizePool(pool, opts) {
 
     resting.sort((a, b) => _overdueBy(ledger[b.id]) - _overdueBy(ledger[a.id]));
 
+    // Both groups stay drawable, but trusted College Board items lead the unseen
+    // tier. Shuffle inside each group, never across the provenance boundary.
+    const unseen = [
+        ..._fyShuffle(unseenOfficial),
+        ..._fyShuffle(unseenProvisional),
+    ];
+
     const missesFirst = !!(opts && opts.missesFirst);
     const lead = missesFirst ? needsWork : unseen;
     const next = missesFirst ? unseen    : needsWork;
 
     return [
-        ..._fyShuffle(lead),
-        ..._fyShuffle(next),
+        ...(lead === unseen ? lead : _fyShuffle(lead)),
+        ...(next === unseen ? next : _fyShuffle(next)),
         ...resting,
     ];
 }
@@ -329,6 +382,7 @@ function mergeProgress(incoming) {
     if (!incoming || typeof incoming !== 'object') return;
     const existing = getProgress();
     Object.entries(incoming).forEach(([id, r]) => {
+        id = _canonicalQuestionId(id);
         if (!existing[id]) {
             existing[id] = r;
         } else {

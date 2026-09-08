@@ -1420,7 +1420,8 @@ function submitAnswer() {
     bankTimeOnCurrent();
     const isCorrect = r.chosen === q.answer;
     commitOne(responses, i, q, 'practice', recordAnswer);
-    recordTrapOutcome(q.skill, q.trapName, isCorrect, q.difficultyStatus !== 'provisional');
+    recordTrapOutcome(q.skill, q.trapName, isCorrect,
+        q.difficultyStatus !== 'provisional');
     if (isCorrect) score++;
     document.getElementById('currentScore').textContent = score;
 

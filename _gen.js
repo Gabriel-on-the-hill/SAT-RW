@@ -5,7 +5,7 @@ const all=[].concat(load('data-craft-structure.js'),load('data-craft-structure-e
 
 const SEL=[
  {n:1, id:'50e2cbb3', dom:'Craft & Structure', skill:'Words in Context', diff:'Easy',   focus:'Use context (restatement) to choose a common word. A miss = weak context-clue habit or fell for the familiar-definition trap.'},
- {n:2, id:'d8d1ecaa', dom:'Craft & Structure', skill:'Words in Context', diff:'Medium', focus:'Negative-direction context. A miss = wrong logical direction or imprecise word sense.'},
+ {n:2, id:'8f0cc7a7', dom:'Craft & Structure', skill:'Words in Context', diff:'Medium', focus:'Negative-direction context. A miss = wrong logical direction or imprecise word sense.'},
  {n:3, id:'2b18fad1', dom:'Craft & Structure', skill:'Text Structure & Purpose', diff:'Medium', focus:'Function of a sentence in a narrative. A miss = naming the topic instead of what the sentence DOES.'},
  {n:4, id:'d60bc86d', dom:'Craft & Structure', skill:'Text Structure & Purpose', diff:'Hard', focus:'Main purpose with close purpose-verbs (illustrate vs argue vs explain). A miss = purpose-verb / intensity confusion.'},
  {n:5, id:'2592e0de', dom:'Information & Ideas', skill:'Central Ideas & Details', diff:'Easy', focus:'Main idea vs detail. A miss = chose a true detail instead of the whole-text idea.'},

@@ -6,7 +6,7 @@ const all=[].concat(load('data-craft-structure.js'),load('data-craft-structure-e
 // same blueprint as the assessment (ids drive verbatim answer lookup)
 const SEL=[
  {n:1, id:'50e2cbb3', dom:'Craft & Structure', skill:'Words in Context', diff:'Easy'},
- {n:2, id:'d8d1ecaa', dom:'Craft & Structure', skill:'Words in Context', diff:'Medium'},
+ {n:2, id:'8f0cc7a7', dom:'Craft & Structure', skill:'Words in Context', diff:'Medium'},
  {n:3, id:'2b18fad1', dom:'Craft & Structure', skill:'Text Structure & Purpose', diff:'Medium'},
  {n:4, id:'d60bc86d', dom:'Craft & Structure', skill:'Text Structure & Purpose', diff:'Hard'},
  {n:5, id:'2592e0de', dom:'Information & Ideas', skill:'Central Ideas & Details', diff:'Easy'},

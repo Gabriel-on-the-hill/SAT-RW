@@ -14,7 +14,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it most effectively uses data from the table to complete the text about the el Castillo\npyramid. The table presents information for the location, height, and age of four pyramids, and the task is to use the data from the\ntable to complete the text by choosing the correct height for el Castillo, which the table shows is 40 meters.\n\nChoice A is incorrect because, according to the table, el Castillo is 40 meters tall, not 33 meters, which is the height of the Great\nPyramid in Mexico. Choice B is incorrect because, according to the table, el Castillo is 40 meters tall, not 47 meters, which is the\nheight of the Pyramid of Sahure in Egypt. Choice D is incorrect because, according to the table, el Castillo is 40 meters tall, not 60\nmeters, which is the height of the Pyramid of Djoser in Egypt.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6f626ae5",
@@ -30,7 +34,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it presents the quotation that most directly illustrates the claim that Whitman's poem\nsuggests that its readers haven't fully understood themselves. This quotation makes that point directly by saying to readers, \"You\nhave not known what you are.\" The quotation goes on to reinforce this point using a metaphor of sleep, saying that readers have\n\"slumber'd\" and that their \"eyelids have been the same as closed most of the time.\"\n\nChoice B is incorrect because this quotation doesn't suggest that readers haven't fully understood themselves but instead\ncharacterizes readers as \"immense\" and \"interminable.\" Although immense and interminable things can be difficult to understand,\nthis quotation doesn't make that point. Choice C is incorrect because this quotation doesn't suggest that readers haven't fully\nunderstood themselves but instead conveys the speaker's regret over not having celebrated readers sooner. In fact, this quotation\nsays nothing at all about readers themselves—it's focused solely on the speaker's feelings about readers. Choice D is incorrect\nbecause this quotation doesn't suggest that readers haven't fully understood themselves; instead, this quotation makes the point\nthat the speaker has understood readers and is determined to create \"hymns\" about them.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "85439572",
@@ -46,7 +54,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. Armijo believes that using more heliostats will speed up the roasting process, and this finding shows\nthat with 50 heliostats—more than the number of heliostats already used—the roasting time is indeed reduced.\n\nChoice A is incorrect. The evenness of temperature in the roasting drum doesn't tell us about the speed of the roasting process,\nwhich is what Armijo's hypothesis is concerned with. Choice C is incorrect. Armijo's hypothesis is focused on the speed of the\nroasting process, not the flavor of the resulting roasted chiles. Choice D is incorrect. Though Armijo's hypothesis mentions a\nbenefit of solar-roasting green chiles (easier peeling), it doesn't address the speed of the roasting process.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a9040290",
@@ -62,8 +74,12 @@ const questionBank_II = [
       "D. strong enough to generate about 175 thousand more MWh of electricity from wind turbines."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer. The claim is that when winds are stronger than forecasted, wind turbines can generate more energy\nthan predicted. The supporting graph shows the additional amount (above the predicted amount) that the turbines generated\n\funder those conditions, with the West generating about 150 thousand additional MWh.\n\nChoice B is incorrect. This choice doesn't complete the example. The graph shows the additional amount of electricity that the\nwind turbines generated. The West bar is greater than 0, so the West generated more than the predicted amount. Choice C is\nincorrect. This choice doesn't complete the example. The graph shows the additional amount of electricity that the wind turbines\ngenerated. The West bar is greater than 0, so the West generated more than the predicted amount. Choice D is incorrect. This\nchoice misreads the graph. The graph shows us that the West (the bar on the left) generated about 150 thousand additional MWh.",
-    "strategy": "Support Check"
+    "explanation": "Choice A is the best answer. The claim is that when winds are stronger than forecasted, wind turbines can generate more energy\nthan predicted. The supporting graph shows the additional amount (above the predicted amount) that the turbines generated\n under those conditions, with the West generating about 150 thousand additional MWh.\n\nChoice B is incorrect. This choice doesn't complete the example. The graph shows the additional amount of electricity that the\nwind turbines generated. The West bar is greater than 0, so the West generated more than the predicted amount. Choice C is\nincorrect. This choice doesn't complete the example. The graph shows the additional amount of electricity that the wind turbines\ngenerated. The West bar is greater than 0, so the West generated more than the predicted amount. Choice D is incorrect. This\nchoice misreads the graph. The graph shows us that the West (the bar on the left) generated about 150 thousand additional MWh.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "01989d77",
@@ -79,7 +95,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The passage tells us that \"tanks with duckweed (a floating plant) and algae released higher levels of\nmethane than tanks with watermilfoil (an underwater plant) did.\" This suggests that the presence of some kinds of underwater\nplants like watermilfoil may help prevent methane from escaping shallow lakes and ponds.\n\nChoice B is incorrect. The passage doesn't mention deeper bodies of water at all, so there's no basis for this inference. Choice C is\nincorrect. The passage doesn't compare the likelihood of shallow lakes and ponds containing algae, watermilfoil, or duckweed.\nChoice D is incorrect. The study didn't include any tanks with a mix of plants, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "8a8236e1",
@@ -95,7 +115,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text states that archaeologists are interested in using scents to better understand \"ancient rituals,\ntrade, social hierarchies, and medicine,\" all of which are important aspects of ancient life.\n\nChoice A is incorrect. The text doesn't say anything about investigating if people's sense of smell has declined in recent centuries.\nIt says that scents fade over time—not that people have gotten worse at smelling scents. Choice C is incorrect. The text says that\narchaeologists are interested in using scents to better understand \"ancient rituals, trade, social hierarchies, and medicine,\" but it\ndoesn't say anything about ancient scents being enjoyable to people today. Choice D is incorrect. The text doesn't say anything\nabout developing new medicines. Rather, it says that archaeologists are interested in using scents to better understand \"ancient\nrituals, trade, social hierarchies, and medicine.\"",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4603d1f7",
@@ -111,7 +135,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. In one example, musicians made less money than expected by using the \"pay as you wish\" model. In\nthe other example, a musician made more money than expected. This suggests that some musicians may have more success\nthan others using the \"pay as you wish\" model.\n\nChoice B is incorrect. This inference isn't supported. In the examples provided, the individual musician was more successful with\nthe \"pay as you wish\" model than the band was. Choice C is incorrect. This inference isn't supported. The passage provides no\ninstances in which musicians changed the suggested prices of their songs or albums, nor does it mention this as a possibility.\nChoice D is incorrect. This inference isn't supported. The text never discusses the differences in popularity of different musicians,\nso there is no basis to make this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6df33868",
@@ -127,7 +155,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it most effectively illustrates the claim that the speaker in the poem \"We Are Marching\"\npredicts future success. To say that someone will \"never know\" an experience—like defeat, or being unsuccessful—is to indicate\nthat they will never personally have that experience. Thus, when the speaker says that the marching group \"shall never know\ndefeat,\" the speaker is predicting that the group will experience only success in the future.\n\nChoice A is incorrect because the quotation presents a question about an activity already taking place (marching), not a statement\nabout future success. The speaker is asking if the sound of marching feet is being heard. Choice B is incorrect because the\nquotation directs an immediate action instead of making a prediction about the future. The speaker is telling people to \"get in line,\"\nor to join the march that's already happening. Choice C is incorrect because the quotation describes a past action instead of\nmaking a prediction about the future. The speaker is stating that those in the march have \"answered duty's call\"—that is, that they\nhave acted out of a sense of duty.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "20000f5f",
@@ -143,7 +175,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text tells us that because of the copyright, adapting Sherlock Holmes stories used to be\nexpensive and difficult. This suggests that after the copyright ends, it will be less expensive and less difficult to adapt these\nstories.\n\nChoice A is incorrect. This inference isn't supported. The text never suggests that the copyright ending will make Sherlock Holmes\nstories harder to find. Instead, it suggests that adaptations of these stories will be easier and less expensive to make. Choice B is\nincorrect. This inference isn't supported. The text never discusses people's interest in detective stories, so there is no basis to\nmake this inference. Choice D is incorrect. This inference isn't supported. The text never suggests that copyright fees from the\npast are returned after a copyright ends, so there is no basis to make this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c228bd45",
@@ -159,7 +195,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it describes something that is true of Mother, as presented in the text. The text indicates that\nin addition to other activities, Mother writes stories for her children while they are at school and makes up \"funny pieces of poetry\"\nfor certain occasions.\n\nChoice A is incorrect because the text suggests that Mother prefers to spend her time with her children and doesn't sit at home\nhoping that ladies will visit her. Choice B is incorrect because the text says only that Mother makes up poetry for the children's\nbirthdays, not that she likes birthdays more than other special occasions. Choice D is incorrect because the text doesn't suggest\nthat Mother prefers reading to her children over the other activities she does with them, such as playing with them and writing\nstories and poems for them.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6bc0e595",
@@ -175,7 +215,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text tells us that \"people who got to touch the items were willing to pay much more money for\nthem than people who weren't allowed to touch\" them. This suggests that being able to interact with a product in person may\nmake it seem more valuable to a shopper.\n\nChoice A is incorrect. The text doesn't discuss how much people spend each month, so there's not much basis for this claim.\nFurthermore, since being able to touch a product tends to make people \"willing to pay much more money\" for it, we might predict\nthat an online shopper would be willing to spend less on the same purchases as an in-person shopper. Choice C is incorrect. The\ntext doesn't discuss what retailers \"should charge,\" so there's not much basis for this claim. Furthermore, the study in the text\nsuggests that in-person stores may actually be able to charge more for a given product, since shoppers can touch it. Choice D is\nincorrect. The text doesn't discuss products that are only available online, so there's not much basis for this claim. Furthermore,\nproducts only available online would still have the problem of shoppers not being able to touch them, and the study suggests that\nthis lowers the prices shoppers are willing to pay.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0fc0a773",
@@ -191,7 +235,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it presents a finding that, if true, would most directly support the student's claim that putting\na work online increases the number of people who experience it. The text states that the Minneapolis Institute of Art has more\nthan 90,000 artworks. It goes on to explain that images of a subset of these works can be viewed online, such as an image of\nArmajani's drawing Mississippi Delta. The text then presents a student's claim that online images of art can increase the number of\npeople who experience the work. If more people view Armajani's drawing online than they do in person, this finding would support\nthe student's claim about the benefits of putting a work from the museum online. Thus, this finding would most directly support\nthe claim because, if it were true, more people would view Mississippi Delta online than would visit the entire museum in person.\n\nChoice A is incorrect because information about the museum having several works by Armajani wouldn't address the student's\nclaim about how putting artworks online affects the number of people who experience them. The quantity of works by one artist\nthat are held in a museum collection wouldn't support a claim about audience size or the impact of online accessibility. Choice B is\nincorrect because opinions about the museum would only relate to the institution's reputation. This finding wouldn't provide\ninformation about online accessibility or whether digital images increase the number of people who view specific artworks. Choice\nC is incorrect because critics' praise for Mississippi Delta wouldn't address the student's claim about how online access increases\nthe number of people who can experience a work. Although positive comments from art critics could affect interest in an artwork,\nthis finding wouldn't provide information about how many people experience the work or whether online accessibility increases\nthat number.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "9debe79a",
@@ -207,8 +255,12 @@ const questionBank_II = [
       "D. the lowest temperature for both Ramah and Tuba City was 50°."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it effectively uses data from the table to complete the statement, providing an example of\nhow the people of the Navajo Nation can experience different climate conditions depending on where they live. The table shows\nthe average highest temperatures and average lowest temperatures in four locations in the Navajo Nation in July. According to the\ntable, Ramah's average highest temperature for July was 83°, whereas Cameron's average highest temperature was much higher,\nat 99°. This difference illustrates the statement that the people of the Navajo Nation can experience different climate conditions\ndepending on where they live.\n\nChoice A is incorrect because it states that Cameron and Teec Nos Pos had the same average lowest temperature (65°) for July,\nwhich suggests a similarity in climate conditions in those locations rather than a difference. Choice B is incorrect because it\nmisrepresents the data from the table, which shows that the average highest temperature in July for Tuba City was 83°, not 94°,\nand for Teec Nos Pos it was 94°, not 93°. Even if the cited data accurately reflected the data in the table, the similarity between the\ntwo values for average highest temperature would suggest that people in the two locations likely experience similar climate\nconditions, not different climate conditions. Choice D is incorrect because it states that Ramah and Tuba City had the same\n\faverage lowest temperature (50°) for July, which suggests a similarity in climate conditions in those locations rather than a\ndifference.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice C is the best answer because it effectively uses data from the table to complete the statement, providing an example of\nhow the people of the Navajo Nation can experience different climate conditions depending on where they live. The table shows\nthe average highest temperatures and average lowest temperatures in four locations in the Navajo Nation in July. According to the\ntable, Ramah's average highest temperature for July was 83°, whereas Cameron's average highest temperature was much higher,\nat 99°. This difference illustrates the statement that the people of the Navajo Nation can experience different climate conditions\ndepending on where they live.\n\nChoice A is incorrect because it states that Cameron and Teec Nos Pos had the same average lowest temperature (65°) for July,\nwhich suggests a similarity in climate conditions in those locations rather than a difference. Choice B is incorrect because it\nmisrepresents the data from the table, which shows that the average highest temperature in July for Tuba City was 83°, not 94°,\nand for Teec Nos Pos it was 94°, not 93°. Even if the cited data accurately reflected the data in the table, the similarity between the\ntwo values for average highest temperature would suggest that people in the two locations likely experience similar climate\nconditions, not different climate conditions. Choice D is incorrect because it states that Ramah and Tuba City had the same\n average lowest temperature (50°) for July, which suggests a similarity in climate conditions in those locations rather than a\ndifference.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e7dc27dc",
@@ -224,7 +276,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. If there were more Gidra readers than there were copies of the newsletter, then the newsletter's\ninfluence would be much greater than its 4,000 monthly copies.\n\nChoice A is incorrect. Information about the newsletter's initial funding doesn't tell us about the influence that the newsletter\neventually had. Choice B is incorrect. While the content of Gidra was undoubtedly related to the newsletter's influence, this\ninformation isn't relevant to the specific hypothesis about monthly circulation numbers. Choice C is incorrect. Where the\npublishers of Gidra were initially based doesn't tell us about the newsletter's overall influence.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "30c3aa98",
@@ -241,7 +297,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text asks us to provide examples of several states that saw rapid growth in copper production\nfrom the 1890s onward. The graph depicts Arizona, Michigan, and Montana all experiencing such rapid growth during this time\nperiod.\n\nChoice A is incorrect. The claim is about states experiencing rapid growth in copper production. This statement only discusses\none state and does not provide evidence of rapid growth—in fact, it discusses a slow-down of growth. Choice B is incorrect. The\nclaim is about states experiencing rapid growth in copper production, and this statement provides a comparison of production\nrates between states, rather than an example of rapid growth. Choice C is incorrect. The claim is about several states experiencing\nrapid growth in copper production. This statement only discusses one state and does not provide evidence of growth in copper\nproduction.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c4d43991",
@@ -257,7 +317,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The passage tells us that Shang dynasty bronze artifacts contained \"a rare form of lead,\" but that\nbronze artifacts after this time did not contain that lead. Although we don't know where that specific type of bronze came from, we\ncan conclude that that source was not used after the end of the Shang dynasty—otherwise, post-Shang dynasty pieces would also\ncontain that rare form of lead.\n\nChoice A is incorrect. Despite these pieces containing \"a rare form of lead,\" there is no direct claim in the passage that Shang\ndynasty bronze is itself more rare or valuable than bronze pieces from other periods. Therefore, there's no basis for this inference.\nChoice C is incorrect. Although the passage mentions that the nature of the bronze in Chinese artifacts changed after the Shang\ndynasty, bronze was still used to create artifacts after this time. The passage in fact explicitly states \"bronze artifacts from China\ndated after the Shang dynasty…,\" indicating that bronze was still used in China after the Shang dynasty. Choice D is incorrect.\nThere's no mention in the passage of methods used to analyze bronze artifacts, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4042ff0b",
@@ -274,7 +338,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text describes the comfort rating scale: from −3 (very cold) to +3 (very hot), with 0 being neutral.\nParticipant 20 gave a −2 comfort rating, a full three points colder on the scale than the other two participants.\n\nChoice A is incorrect. This choice misreads the table. Participant 1 and participant 21 reported the same level of comfort, but\nparticipant 20's comfort level was three points lower. Choice B is incorrect. This choice doesn't use data from the table. The table\nonly shows us one survey, so we don't know if the participants' ratings varied throughout the day. Choice D is incorrect. This choice\nmisreads the table. Participant 1 and participant 21 reported the same level of comfort.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "40578580",
@@ -290,7 +358,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. If female giraffes feed nonoffspring young, that's direct evidence that \"giraffes may even help each\nother care for one another's newborns.\"\n\nChoice B is incorrect. Confrontations between males doesn't tell us anything about whether giraffes help each other care for\nnewborns. Choice C is incorrect. While this option does mention newborn offspring, it only discusses a mother's behavior toward\nher own child, not another giraffe's child. Choice D is incorrect. Whether or not giraffes are observed communicating with each\nother doesn't tell us anything about whether they help each other care for newborns.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a9ac31e4",
@@ -307,7 +379,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The claim is that measurements such as total area can be used to compare glaciers. The graph\nshows us the area measurements for three glaciers. Of those, Gorner has the largest area.\n\nChoice B is incorrect. This choice misreads the graph. The graph shows that Gorner has the largest area of the three. Choice C is\nincorrect. This choice misreads the graph. The graph shows that Gorner has the largest area of the three. Choice D is incorrect.\nThis choice misreads the graph. The graph shows that Gorner has the largest area of the three.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "dbbbc5dd",
@@ -323,7 +399,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text says that off-off-Broadway theaters allowed artists to create more experimental shows, and\nthen discusses how Fornés was free to direct her own \"strange\" plays however she wanted. This suggests that Fornés exemplifies\nthe artistic freedom of off-off Broadway theaters.\n\nChoice A is incorrect. This inference isn't supported. The text never discusses the costs of production, so we can't logically make\nthis claim. Choice B is incorrect. This inference isn't supported. The text never discusses the complexity of staging plays either on\nBroadway or off-off Broadway, so there's no basis to make this inference. Choice C is incorrect. This inference isn't supported. The\ntext never discusses fame at all, so there's no basis to make this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "8a3ecac6",
@@ -339,7 +419,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text tells us that the black-furred wolves are more common in areas with regular outbreaks of\ndistemper virus and are more likely to be immune to distemper than the gray-furred wolves. This suggests that the gene variant\nthat results in black fur may be linked to immunity to the distemper virus.\n\nChoice A is incorrect. The text never compares North American gray wolves to other wolf species—in fact, it never discusses other\nwolf species at all, so there's no basis for this inference. Choice C is incorrect. The life span of gray wolves is never mentioned in\nthis text, so we have no basis for this inference. Choice D is incorrect. This is too extreme. The text says that \"black-furred wolves\nare more likely to be immune to distemper than the gray-furred wolves,\" but that alone doesn't mean that black-furred wolves will\nreplace gray-furred wolves across North America.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4025e00c",
@@ -355,7 +439,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice A is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2592e0de",
@@ -371,7 +459,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text discusses how the mass production of bicycles in the late nineteenth century allowed people\nto travel longer distances, live farther from their workplaces, visit neighboring towns, and participate in new activities and social\nclubs. All of these are new opportunities that were provided by the widespread adoption of the bicycle.\n\nChoice B is incorrect. The text never says this. It does say that the bicycle was \"affordable,\" and that the \"freedom to travel longer\ndistances quickly and comfortably\" made the bicycle \"popular,\" but it never says that the bicycle was more popular than any other\nway of traveling (like cars or trains or horses). Choice C is incorrect. This is a detail mentioned in the text, but not the main idea.\nCycling clubs are only one of the new opportunities that arose from the popularity of the mass-produced bicycle. A \"main idea\"\nshould capture more of the information in the text. Choice D is incorrect. The text never says this. It doesn't mention the safety of\nthe mass-produced bicycle at all.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "89961e26",
@@ -387,7 +479,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text describes Favela's approach to sculpture, and then describes the lowrider car that he\ndepicted in 2017.\n\nChoice A is incorrect. This isn't what the text says. The Petersen Automotive Museum is located in Los Angeles, but Favela's\nartwork isn't a painting, and it doesn't depict L.A. Choice C is incorrect. This isn't what the text says. Favela makes sculptures\nsimilar to piñatas, not paintings of them. Choice D is incorrect. This isn't what the text says. Jesse Valadez owned the lowrider car\nthat Favela depicted in sculpture.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "628e1305",
@@ -403,7 +499,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because this quotation most effectively illustrates the claim that the author emphasizes the near\nsilence of the setting where the character Valia is reading. In the quotation, the author highlights the near silence of the setting by\ntwice using the word \"quiet\" to describe the room. The author also calls attention to the fact that Valia is reading in a nearly silent\nsetting by noting that the only sound to be heard is that of the pages being turned.\n\nChoice A is incorrect because this quotation suggests that Valia is in a chilly setting that causes his hand to become cold, not that\nhe's in a nearly silent setting. Choice B is incorrect because this quotation emphasizes the size of the book Valia is reading, not a\nquality of the setting where he's reading it. Choice C is incorrect because this quotation describes Valia approaching a window and\nlooking at toys, not reading in a quiet setting.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "25b70215",
@@ -420,7 +520,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it most effectively uses data from the table to complete the example of a neighboring\nspecies that has a negative effect value. The table lists neighboring species, target species, and effect values. The table shows\nthat only one neighboring species, the common dandelion, has a negative effect value (−0.6254).\n\nChoice A is incorrect because the table shows that the neighboring species Himalayan balsam has a positive effect value, 0.7905,\nso it isn't an example of a neighboring species with a negative effect value. Choice C is incorrect because the table shows that star\nchickweed is a target species, so it isn't an example of a neighboring species with a negative effect value. Choice D is incorrect\nbecause the table shows that the neighboring species Virginia spring beauty has a positive effect value, 0.4853, so it isn't an\nexample of a neighboring species with a negative effect value.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "08b28c1a",
@@ -436,7 +540,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. This choice illustrates both \"feeling frightened in controlled situations\" (the haunted house) and the\nbenefit of a boosted mood (\"less stressed\") and confidence (\"very accomplished\").\n\nChoice B is incorrect. This choice isn't the best illustration of the claim. While laughing may indicate a good mood, this choice\nprovides no evidence of \"feeling frightened\" or boosted confidence. Another choice provides better evidence. Choice C is incorrect.\nThis choice isn't the best illustration of the claim. This choice demonstrates \"feeling frightened\" in a controlled environment, but it\ndoesn't provide strong evidence of boosted mood or confidence. Another choice provides better evidence. Choice D is incorrect.\nThis choice isn't the best illustration of the claim. While a \"sense of relief\" could be interpreted as a boosted mood, this choice\ndoesn't provide direct evidence of \"feeling frightened\" or of increased confidence. This choice simply suggests that haunted\nhouses and scary movies have a similar effect. Another choice provides better evidence for the researcher's claim.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "de0a5b4e",
@@ -452,7 +560,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text describes the very low ceiling of the cave, making it impossible to photograph the very wide\nglyphs all at once.\n\nChoice A is incorrect. The text doesn't say this. It never suggests that the cave was remote or difficult to access, just that the cave\nitself was difficult to photograph well. Choice B is incorrect. The text doesn't say this. The glyphs were so wide that they couldn't\nbe photographed completely. Choice C is incorrect. The text states the opposite of this. The researchers \"used a technique called\nphotogrammetry to assemble numerous photos of the walls into a 3D model.\"",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6675c5c3",
@@ -468,7 +580,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text states that the narrator couldn't remember what his Radha Aunty looked like, so he went to\nlook at the family photographs she was in.\n\nChoice A is incorrect. There's no mention of any story that the narrator is writing. Rather, we're told that the narrator couldn't\nremember what his aunt looked like, so he went to look at the family photographs she was in. Choice B is incorrect. The text\ndoesn't mention how the narrator's father dressed. Rather, we're told that the narrator couldn't remember what his aunt looked like,\nso he went to look at the family photographs she was in. Choice D is incorrect. The text doesn't mention any events shown in the\nphotographs. Rather, we're told that the narrator couldn't remember what his aunt looked like, so he went to look at the family\nphotographs she was in.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "25893fc7",
@@ -484,7 +600,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text says that handshakes create trust, and that the engineers' goal is to \"improve human-robot\ninteractions.\" This suggests that they want the robot's handshake to feel real because they want humans to trust the robot.\n\nChoice B is incorrect. This inference isn't supported. The text never discusses any other types of greetings, so there is no basis to\nmake this inference. Choice C is incorrect. This inference isn't supported. The text never discusses the appearance of this robot or\nany other robots, so there is no basis to make this inference. Choice D is incorrect. This inference isn't supported. The text never\ndiscusses any uses for the robot other than interacting with humans, so there is no basis to make this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "787729be",
@@ -500,7 +620,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text says that N.pudica's prey-catching pitchers are underground. It also says that the ridges\nwhere N. pudica lives don't have many plants and animals on the surface. This suggests that N. pudica evolved underground\npitchers in order to catch more prey.\n\nChoice A is incorrect. This inference isn't supported. The text never mentions the possibility of other undiscovered carnivorous\nplant species in Indonesia, so there's no basis to make this inference. Choice B is incorrect. This inference isn't supported. The text\ndoes say that the ridges where N. pudica lives are dry, but it also says that the purpose of carnivorous plant pitchers is to capture\nprey. It never suggests that these pitchers also absorb moisture, so there's no basis to make this inference. Choice C is incorrect.\nThis inference isn't supported. The text never suggests that N. pudica's underground pitcher can catch animals on the surface, so\nthere's no basis to make this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e441da80",
@@ -517,7 +641,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. By comparing the number of investigative articles in 2010 to the number in 2019, we can see that the\nnumber has fallen overall.\n\nChoice B is incorrect. This choice misreads the graph. The 1,600 articles published in 2013 was the largest annual number of\ninvestigative articles published during the period. Also, notice that the claim focuses on an overall change, while this choice just\nfocuses on one year. We can't determine an overall increase or decrease by looking at just one year. Choice C is incorrect. The\n1,000 articles published in 2017 wasn't the largest number published during the period. Also, notice that the claim focuses on an\noverall change, while this choice just focuses on one year. We can't determine an overall increase or decrease by looking at just\none year. Choice D is incorrect. This choice doesn't justify the claim. The claim is about a decrease in articles published between\n2010 and 2019. This data shows an increase in articles published over a different period (2010-2013).",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "08ff903e",
@@ -533,7 +661,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. This choice clearly states that Yao Drum was inspired by a ceremonial dance of the Yao people. This\ndirectly supports the curator's claim that some of Dai's pieces \"represent the dances of local communities\" she visited.\n\nChoice A is incorrect. This choice discusses the sound and music in Yao Drum, but it doesn't connect these elements to \"the\ndances of local communities,\" which is the focus of the claim. Choice B is incorrect. This choice doesn't mention the dances of\nlocal communities, but instead discusses how Yao Drum is different from some of Dai's earlier works. Choice D is incorrect. This\nchoice describes the choreography of Yao Drum, but it doesn't connect these elements to \"the dances of local communities,\"\nwhich is the focus of the claim.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "47f2cddd",
@@ -549,7 +681,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. This quotation focuses on the rock, which yells at the sea and announces its intent to \"limit [the sea's]\npower.\" This matches the idea of confrontation and restraint in the claim we're trying to support.\n\nChoice A is incorrect. This choice doesn't illustrate the claim. While this quotation does focus on the rock, it suggests that the rock\nfears the sea. It lacks the sense of boldness and strength implied by the phrase \"confront and restrain the sea.\" Choice B is\nincorrect. This choice doesn't illustrate the claim. This quotation focuses on the sea, not the rock. Choice D is incorrect. This\nchoice doesn't illustrate the claim. This quotation focuses on the sea, not the rock.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2edd7ffe",
@@ -565,7 +701,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it presents a statement about Veronica Waweru's thinking that is supported by the text. The\ntext begins by discussing Waweru's discovery of evidence that ancient versions of the board game mancala had been played at a\nsite in the Lewa Wildlife Conservancy. The evidence consisted of many rows of shallow pits carved into stone. The text goes on to\nstate that some newer pits were carved on top of older pits, suggesting that people may have continued to play the game there\nover multiple generations, creating new pits over time. The text then explicitly states that the presence of newer pits carved on top\nof older pits was precisely what caused Waweru to think that mancala had been played at the site for a long time.\n\nChoice B is incorrect. While the text does state that Waweru \"noticed many rows of shallow pits carved into stone,\" this\nobservation led her to believe that the pits could have been used as game boards for ancient versions of mancala but did not\nspecifically suggest to her that the game had been played at the site for a long time. The multiple rows of pits merely suggest that\nthese pits functioned as part of a game board; they don't necessarily indicate how long the site had been used for that purpose.\nRather, it was the fact that there appeared to be newer pits carved on top of older pits that led Waweru to think that mancala had\nbeen played at the site for a long time. Choice C is incorrect. Although the text states that Waweru found the pits at the Lewa\nWildlife Conservancy, this isn't the reason the text gives for why she thought that mancala had been played at the site for a long\ntime. The location of the discovery only provides information about where the game was played, not how long the game had been\nplayed there. Choice D is incorrect because the text doesn't mention any variation in the depth of the pits. The text only describes\nthe pits collectively as shallow and doesn't indicate that the depth of the pits factored into Waweru's thinking about how long the\nsite had been used for playing mancala.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "26ee16ba",
@@ -581,7 +721,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. Enrollment and attendance are logical ways to measure whether students are interested and\nengaged. High enrollment and attendance suggests a high level of interest and engagement.\n\nChoice A is incorrect. This choice doesn't support the claim. Students' preferences between hip-hop and rap aren't relevant to the\nclaim, which is focused on whether or not students like classes that use hip-hop pedagogy (which includes the educational use of\nboth hip-hop and rap). Choice B is incorrect. This choice doesn't support the claim. While the first part of the sentence discusses\nsocial justice, the underlined claim focuses on student success, which is unrelated. Choice C is incorrect. This choice doesn't\nsupport the claim. This tells us about teacher enjoyment, which isn't relevant to a claim about student interest and engagement.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0b696a0c",
@@ -597,7 +741,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The study isn't definitive, but it says that Mimas's wobbly rotation could be explained by the hidden\nocean.\n\nChoice A is incorrect. This choice goes too far beyond the information in the text. Rhoden's team proposed that one moon of\nSaturn could have a liquid ocean beneath its surface, and that other moons should also be examined, but no one has confirmed\nanything. Choice B is incorrect. This choice conflicts with the text. Research has identified at least one sign—the unusual wobble\nin Mimas's rotation—that might be due to a hidden ocean beneath its surface. Choice C is incorrect. This choice doesn't reflect the\ntext. The computer model studies \"gravitational interactions,\" which seem to account for the wobbly rotation of Mimas.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0113152f",
@@ -613,7 +761,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. This quotation draws a direct connection between the use of buttons and Kelly's stylish female\nrelatives.\n\nChoice A is incorrect. This choice mentions Kelly's use of buttons, but it doesn't connect that design choice to the influence of\nwomen in Kelly's family. Choice B is incorrect. This choice discusses how other designers were inspired by Kelly, which doesn't\nprovide evidence that Kelly was inspired by his family. Choice D is incorrect. While this choice does refer to fashionable women in\nKelly's family, it doesn't connect their influence to Kelly's use of buttons.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f38b40ac",
@@ -629,7 +781,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. This choice supports the claim of Coleman's intentional defiance of social norms: female pilots were\nexpected to wear skirts, but Coleman wore pants and leather jackets instead.\n\nChoice A is incorrect. Coleman flew a well-known, common plane, which would not have defied social norms among pilots. Choice\nB is incorrect. Her complicated relationship with managers and staff would not have been a component of Coleman's public\npersona. This choice also fails to mention any \"social norms of the time.\" Choice C is incorrect. While this quotation suggests that\nColeman was careful and purposeful about her public image, it doesn't directly mention anything about \"social norms of the time.\"",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "89f71526",
@@ -645,8 +801,12 @@ const questionBank_II = [
       "D. Maule."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer. Pacaya had a deformation rate of almost 3.5 centimeters per month, while Sierra Negra had a\ndeformation rate of less than 3 centimeters per month. Therefore, Sierra Negra's deformation rate was lower than Pacaya's.\n\fChoice A is incorrect. Alcedo has a lower rate of deformation than Sierra Negra. Choice C is incorrect. Fernandina has a lower rate\nof deformation than Sierra Negra. Choice D is incorrect. Maule has a lower rate of deformation than Sierra Negra.",
-    "strategy": "Support Check"
+    "explanation": "Choice B is the best answer. Pacaya had a deformation rate of almost 3.5 centimeters per month, while Sierra Negra had a\ndeformation rate of less than 3 centimeters per month. Therefore, Sierra Negra's deformation rate was lower than Pacaya's.\n Choice A is incorrect. Alcedo has a lower rate of deformation than Sierra Negra. Choice C is incorrect. Fernandina has a lower rate\nof deformation than Sierra Negra. Choice D is incorrect. Maule has a lower rate of deformation than Sierra Negra.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "23a7038f",
@@ -662,7 +822,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text describes a study about how giant honeybees use shimmering to defend against hornets, but\nnot other predators. The researchers conclude that shimmering could be a specialized defense response to hornets.\n\nChoice A is incorrect. The text says that giant honeybees don't appear to use shimmering against other, larger predators. However,\nit never suggests that researchers don't know which other defenses giant honeybees do use for those predators. Choice C is\nincorrect. The text says that hornets are one predator of giant honeybees, but it doesn't say that hornets are the main predator of\ngiant honeybees. This choice also fails to mention \"shimmering,\" which is a major focus of the text. Choice D is incorrect. The text\nonly discusses the shimmering of giant honeybees—it doesn't discuss other insects' defense responses at all.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7a895def",
@@ -678,7 +842,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The passage tells us that attendees at Johnson's get-togethers \"would read and discuss one\nanother's work.\" This suggests that the gatherings could provide an opportunity for Johnson to get feedback on her plays. Notice\nhow the text foreshadows this conclusion by the mention of Johnson learning \"what other people thought of her plays.\"\n\nChoice A is incorrect. The passage doesn't mention theater companies attending the get-togethers, so there is no basis for this\ninference. Choice C is incorrect. The passage doesn't mention learning about plays from other cities, so there is no basis for this\ninference. Choice D is incorrect. The passage doesn't mention Johnson using the get-togethers as inspiration for future plays, so\nthere is no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "73c091d2",
@@ -694,7 +862,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it presents a detail that, if true, would most directly support the researcher's claim about the\ndifficulty of determining olive tree age by ring counting. The text explains that for many trees, counting the dark rings visible in a\ntree stump is a reliable method for determining the tree's age. However, if olive trees have growth rings that are difficult to see, it\nwould be hard to count the individual rings. Therefore, the ring-counting method would be challenging or impossible to use for\nolive trees. This directly supports the researcher's claim that the ring-counting method often can't be used for olive trees because\nit identifies a specific characteristic of olive trees that could render this approach impracticable.\n\nChoice A is incorrect because the probable age of the oldest olive tree doesn't explain why counting rings wouldn't work for\ndetermining olive tree age. The older age of some olive trees might make counting more tedious but doesn't pose an\ninsurmountable obstacle to adopting the method. The researcher's claim is about the feasibility of the ring-counting method for\nolive trees, not about the potential impracticality of employing this method for particularly long-lived trees. Choice B is incorrect\nbecause the fact that narrow growth rings might indicate harsh growing conditions has no direct bearing on the claim that\ncounting rings often can't be used to determine olive tree age. It is possible that growth rings that are too narrowly spaced might\nbe difficult to count, but the researcher's claim relates to the inapplicability of the ring-counting method to olive trees in general\nrather than to olive trees that have experienced harsh conditions. Moreover, as long as they are visible, even narrow growth rings\nmight permit the ring-counting method to be used to determine tree age. Choice D is incorrect because the ideal climate\nconditions for olive trees don't explain why counting rings wouldn't work as a method for determining their age. While growing\nconditions might affect ring formation patterns, the simple fact that olive trees thrive in hot, dry environments doesn't directly\naddress why the conventional method of counting rings would be ineffective for determining their age.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "145da981",
@@ -711,7 +883,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The conclusion is that paywalls are more beneficial for large newspapers. This data supports that\nconclusion by comparing the revenue increase of a large newspaper to the revenue decrease of a small newspaper.\n\nChoice A is incorrect. This choice doesn't support the conclusion. It doesn't include any small newspapers for comparison. Choice\nB is incorrect. This choice doesn't support the conclusion. It doesn't include any small newspapers for comparison. Choice D is\nincorrect. This choice doesn't support the conclusion. It doesn't include any large newspapers for comparison.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "ede3f942",
@@ -728,7 +904,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Strategy: Support Check\nWatch for: Out-of-Scope · Partial Support · Contradicts Claim · Irrelevant Detail\n────────────────────────────────────────\nChoice D is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7921b86b",
@@ -744,7 +924,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it describes a reason that Moejoh and team founded U-recycle Initiative Africa. The text\nmentions two reasons the initiative was founded: to teach young people about how they affect the environment and to teach them\n\"why recycling is important.\" Thus, teaching the importance of recycling to young people accurately describes a motivation that\nthe text cites as a reason for the initiative's founding.\n\nChoice A is incorrect. Although art is mentioned in the text, there are no details about artists or whether they are being overlooked.\nChoice C is incorrect because the text is explicitly about young people and their relationship to the environment and recycling.\nThere is no mention of adults or outdoor skills. Choice D is incorrect. Although the text discusses young people, which likely\nincludes teenagers, there is no mention of starting businesses.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "46e45728",
@@ -761,7 +945,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. Females only traveled 9.28 km per day in the cold-dry season, versus 12.64 and 12.48 km per day in\nthe monsoon and hot-dry seasons, respectively. Males only traveled 15.81 km per day per day in the cold-dry season, versus 18.93\nand 18.87 km per day in the monsoon and hot-dry seasons, respectively. So, the cold-dry season was the season where both\nmales and females had the least daily travel.\n\nChoice B is incorrect. Although females traveled least in the cold-dry season, males didn't travel least in the hot-dry season.\nInstead, they traveled less per day in the cold-dry season as well. Choice C is incorrect. Females had less daily travel in the cold-dry\nseason than in the hot-dry season (9.28 versus 12.48 km per day), and males had less daily travel in the cold-dry season than in\nthe monsoon season (15.81 versus 18.93 km per day). Choice D is incorrect. In fact, both females and males traveled the most\nkilometers per day in the monsoon season.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "9077be25",
@@ -777,7 +965,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text tells us that \"actors tended to highly exaggerate their actions and expressions\" in films\nproduced from 1896 to 1920. This suggests that the natural style of acting in Guy-Blaché's films was very unusual for the time.\n\nChoice A is incorrect. The text never discusses any other directors copying the style of acting found in Guy-Blaché's films, and in\nfact suggests the opposite—that it was unusual for directors to suggest this style of acting at the time. Choice B is incorrect. The\ntext never discusses actors' familiarity with the style of acting found in Guy-Blaché's films, so there isn't much basis for this\ninference. But since the text tells us that other films of the period used a highly exaggerated form of acting, we might predict that\nthe natural style in Guy-Blachés films would have been unfamiliar to these actors. Choice D is incorrect. The text never discusses\nfilm acting today, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "1e85caa9",
@@ -793,7 +985,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text lists complaints about the house made by the mother and father, but then it says that the\nchildren thought the house was a \"Fairy Palace\" and \"Earthly Paradise.\"\n\nChoice B is incorrect. The text states the opposite of this. It describes how the mother and father dislike the house and says the\nchildren think the house seems like paradise. Choice C is incorrect. This isn't what the text says. Only the children are said to\nadmire the house; mother and father both complain about the house. Choice D is incorrect. The text states the opposite of this. It\ntells us the house was ugly and poorly built (\"an architect's nightmare\") and suggests the children were tired of London.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a842db60",
@@ -809,7 +1005,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The last sentence states that the linocut process \"supported her [Catlett's] aim to unite Black women\nthrough her art.\"\n\nChoice A is incorrect. The text briefly describes the linocut printing process but doesn't discuss the availability of the materials\nused in the process. Choice C is incorrect. The text says that the linocut process \"enabled Catlett's work to reach a wide audience,\"\nbut that doesn't mean that linocuts made her \"commercially successful.\" In other words, we don't know how much money she\nmade off her linocuts—we only know that more people were able to see her work. Choice D is incorrect. The text says that Catlett\ndepicted Black women in her linocuts, but not that she was one of the first Black artists to use linocut printing.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "ee41d7e0",
@@ -825,7 +1025,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it most accurately states the main idea of the text. The text states that researchers have\nused fossils to learn about the nervous systems of ancient arthropods. It then provides a specific example of researchers studying\nfossils of Mollisonia symmetrica and finding evidence of a nerve cord and possibly a synganglion (a brain-like mass of nerves). The\ntext concludes by noting that researchers hope to discover more features of prehistoric arthropods' nervous systems \"as\nadditional fossils are found.\" Thus, the main idea of the text is that fossil evidence can contribute to the understanding of the\nnervous system in ancient arthropods.\n\nChoice A is incorrect because the text doesn't compare the brains of hawk moths and brine shrimp. These animals are merely\nmentioned as examples of arthropods in the opening sentence, and the text doesn't go on to discuss any similarities between their\nbrains. Choice C is incorrect because the text discusses nervous systems, not spines, in ancient arthropods, and it doesn't\nspecifically mention findings about ancient hawk moths or brine shrimp. Choice D is incorrect. While the text concludes by noting\nthat researchers aim to discover additional characteristics of prehistoric arthropods' nervous systems as more fossils are\nuncovered, this statement doesn't suggest that researchers need to focus on finding more fossils. Rather, it simply indicates that\nresearchers expect to learn more about this topic as additional fossils are discovered. Moreover, the statement is just a detail that\nsupports the main idea; it's not the main idea itself.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0e3b4967",
@@ -841,7 +1045,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is correct. The text describes how Alspaugh's scrapbook is both a record of her life and a historical record of nineteenth-\ncentury textiles and dressmaking.\n\nChoice A is incorrect. The text says that it was common for American women to keep scrapbooks of fabric pieces in the\nnineteenth century, and it says that Alspaugh was one of these women. However, it never says that other women were inspired by\nAlspaugh. Choice B is incorrect. This is too general and too strong. The text says that Alspaugh's scrapbook is a historical record\nof nineteenth-century textiles and dressmaking, but it never says that historians rely on such scrapbooks in general to understand\nhow fashions changed throughout that time period. This choice also fails to even mention Alspaugh, who is the real focus of the\ntext. Choice C is incorrect. The text does say this, but it's a detail—not the main idea. The text is mainly about one woman's\nscrapbook (Alspaugh's), and this choice doesn't even mention her.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d8758c3b",
@@ -857,7 +1065,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text describes a study assessing how children think of rewards and fairness and its results. It\nconcludes that the children in the study may have thought that a teacher who counted out loud when giving rewards cared more\nabout fairness than a teacher who did not count out loud.\n\nChoice A is incorrect. The children in the study are described as being \"four to six,\" and the text doesn't mention any differences\namong the different ages. Choice B is incorrect. The experiment wasn't about teaching math—rather, it was about how counting\nout loud affected the children's perception of fairness. Choice C is incorrect. The experiment doesn't focus on whether the children\ncare about fairness, and the text never mentions the children's expectations of being rewarded.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "dc5edbf6",
@@ -873,7 +1085,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text describes a study about how reef-building corals capture microplastics from ocean waters,\nwhich found that these corals are storing 20 million kilograms of microplastics in their skeletons and tissues.\n\nChoice A is incorrect. While the researchers are studying \"reef-building corals,\" the focus of their study isn't how the corals build\nthe reefs. Rather, they're studying how corals may be storing microplastics from ocean waters. Choice B is incorrect. The text\ndoesn't mention any unanswered questions about the impact of corals on ocean ecosystems—rather, the study assesses one\ninteraction between corals and microplastics. Choice C is incorrect. The text does say this, but it's a detail—not the main idea. The\nmain idea of the text is about the study that found that corals may be storing microplastics from ocean waters in their skeletons\nand tissues.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5b4829d2",
@@ -889,7 +1105,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The passage tells us that participants who had seen a less detailed ad for a product beforehand had\na higher opinion of the store than those who had seen a more detailed ad. This suggests that reactions to an ad may be affected\nby the amount of detail viewed in previous ads.\n\nChoice A is incorrect. The passage doesn't mention the number of people who viewed the ad, so there's no basis for this inference.\nChoice B is incorrect. The passage doesn't mention the length of time viewing previous ads, so there's no basis for this inference.\nChoice D is incorrect. The passage doesn't mention the time of day that the ad is viewed, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0014477f",
@@ -906,7 +1126,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it most effectively uses data from the table to complete the comparison between Pueblo\ntribal nations. The student identifies that the total area of Taos Pueblo is 156.2 square miles and needs to complete the\ncomparison with the total area of Nambé Pueblo. According to the table, Nambé Pueblo has a total area of 32.4 square miles.\n\nChoice A is incorrect because according to the table, 47.3 square miles is the area of Pueblo de San Ildefonso, not of Nambé\nPueblo. Choice B is incorrect because according to the table, 77.1 square miles is the area of Santa Clara Pueblo, not of Nambé\nPueblo. Choice D is incorrect because according to the table, 595.7 square miles is the area of Pueblo of Acoma, not of Nambé\nPueblo.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5ff1ba73",
@@ -923,7 +1147,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The claim we're trying to prove is that guilds were much more numerous relative to population in\nsome cities than others. This choice describes the guilds per number of inhabitants in two cities (Rouen and Paris), showing\nsignificant differences between guilds relative to population in these cities.\n\nChoice A is incorrect. This choice misreads the table. Bordeaux had 80,000 inhabitants, according to the table, while Lyon had\n143,000, so it isn't correct to say that they had \"nearly equal numbers of inhabitants.\" Lyon had almost twice as many inhabitants.\nChoice B is incorrect. This choice misreads the table. Although Lyon did have fewer inhabitants than Paris, it didn't have more\nguilds—Paris had 133 guilds versus Lyon's 72. Choice D is incorrect. This choice doesn't support the claim. To show that guilds\nwere more numerous relative to population in some cities than others, we would need to compare at least two cities, and this\nchoice only mentions one.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "94c726fb",
@@ -939,8 +1167,12 @@ const questionBank_II = [
       "D. 2.49 million metric tons of copper in 1995."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it most effectively uses data from the table to complete the statement about copper mining.\nThe table shows the amount of copper mined in each of four countries in 1995 and 2020. According to the text, a student who\nconsults the table notes that the country that mined 0.55 million metric tons of copper in 2020 had mined a different amount in\n1995. The table indicates that Kazakhstan is the country that mined 0.55 million metric tons of copper in 2020 and 0.26 million\nmetric tons of copper in 1995.\n\nChoice A is incorrect because it doesn't provide the amount of copper mined in 1995 by Kazakhstan, the country that mined 0.55\nmillion metric tons of copper in 2020. According to the table, Canada mined 0.73 million metric tons of copper in 1995 and 0.59\nmillion metric tons in 2020. It didn't mine 0.55 million metric tons in either year. Choice B is incorrect because it doesn't provide the\namount of copper mined in 1995 by Kazakhstan, the country that mined 0.55 million metric tons of copper in 2020. According to\nthe table, Indonesia mined 0.44 million metric tons of copper in 1995 and 0.51 million metric tons in 2020. It didn't mine 0.55\nmillion metric tons in either year. Choice D is incorrect because it doesn't provide the amount of copper mined in 1995 by\n\fKazakhstan, the country that mined 0.55 million metric tons of copper in 2020. According to the table, Chile mined 2.49 million\nmetric tons of copper in 1995 and 5.73 million metric tons in 2020. It didn't mine 0.55 million metric tons in either year.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice C is the best answer because it most effectively uses data from the table to complete the statement about copper mining.\nThe table shows the amount of copper mined in each of four countries in 1995 and 2020. According to the text, a student who\nconsults the table notes that the country that mined 0.55 million metric tons of copper in 2020 had mined a different amount in\n1995. The table indicates that Kazakhstan is the country that mined 0.55 million metric tons of copper in 2020 and 0.26 million\nmetric tons of copper in 1995.\n\nChoice A is incorrect because it doesn't provide the amount of copper mined in 1995 by Kazakhstan, the country that mined 0.55\nmillion metric tons of copper in 2020. According to the table, Canada mined 0.73 million metric tons of copper in 1995 and 0.59\nmillion metric tons in 2020. It didn't mine 0.55 million metric tons in either year. Choice B is incorrect because it doesn't provide the\namount of copper mined in 1995 by Kazakhstan, the country that mined 0.55 million metric tons of copper in 2020. According to\nthe table, Indonesia mined 0.44 million metric tons of copper in 1995 and 0.51 million metric tons in 2020. It didn't mine 0.55\nmillion metric tons in either year. Choice D is incorrect because it doesn't provide the amount of copper mined in 1995 by\n Kazakhstan, the country that mined 0.55 million metric tons of copper in 2020. According to the table, Chile mined 2.49 million\nmetric tons of copper in 1995 and 5.73 million metric tons in 2020. It didn't mine 0.55 million metric tons in either year.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7254379e",
@@ -956,7 +1188,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. This choice shows how volunteers have been interacting with nonvolunteer neighbors and benefiting\nfrom their gardening expertise: proof of the connections enabled by the garden.\n\nChoice A is incorrect. This volunteer describes the challenges of developing the garden, which isn't connected to the conclusion\nabout the garden fostering connections between volunteers and neighbors. Choice C is incorrect. While the volunteer expresses\nenthusiasm for the garden, they don't mention any interactions with other people, which is what the students need to show for\ntheir conclusion. Choice D is incorrect. The respondent enjoys and takes pride in the garden, but they don't mention interacting\nwith neighbors or other volunteers.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7fdba7ad",
@@ -972,7 +1208,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. A consistent age difference of 2 billion years between certain stars within the thick disk would\nsupport the claim that the thick disk formed in two phases instead of one, with the second phase beginning 2 billion years after\nthe first phase.\n\nChoice A is incorrect. This choice doesn't support the claim. The researchers base their claim on their study of stars inside the\nthick disk of the Milky Way. This choice makes a comparison to stars in other galaxies, which isn't relevant. Choice C is incorrect.\nThis choice doesn't support the claim. The researchers base their claim on their study of stars inside the thick disk. This choice\nmakes a comparison to the thin disk, which isn't relevant. Choice D is incorrect. This choice doesn't support the claim. It's too\ngeneral. The claim is specifically about the thick disk.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "faaf484f",
@@ -989,7 +1229,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Strategy: Support Check\nWatch for: Out-of-Scope · Partial Support · Contradicts Claim · Irrelevant Detail\n────────────────────────────────────────\nChoice A is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "87023f34",
@@ -1005,7 +1249,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it presents the quotation that most effectively illustrates the claim that the speaker of the\npoem describes experiencing an ongoing cycle of anticipation followed by regretful reflection. In this quotation, the speaker notes\nthat as years go by, \"Each, coming\"—that is, each new year as it comes—\"brings ambitions high.\" In other words, the speaker\nbegins each new year with large goals. But the speaker goes on to say that as each year ends (\"each, departing\"), it \"leaves a sigh /\nLinked to the past.\" A sigh is an expression of longing or regret, so in the context of the whole quotation, this portion suggests that\nat the end of each year, the speaker regretfully reflects on not having achieved the ambitions formed at the beginning of the year.\nThe phrases \"the years go swiftly by,\" \"Each, coming,\" and \"each, departing\" indicate that this experience happens over and over\nagain: the speaker experiences a cycle of anticipation followed by regretful reflection.\n\nChoice A is incorrect because this quotation does not describe an ongoing cycle of anticipation followed by regretful reflection.\nInstead, the speaker describes experiencing a sensation similar to fright as a result of something that has occurred at midnight.\nSpecifically, the speaker has heard a \"brazen tongue,\" a figurative way of saying that the speaker has heard the clang of a bronze\nbell being rung. Choice B is incorrect because although this quotation does convey a sense of anticipation through its reference to\n\"ominous stillness,\" there is no suggestion of regretful reflection or any indication that the speaker is describing an ongoing cycle\nof anticipation followed by such reflection. Instead, the speaker is describing a particular moment when a winter storm appears to\nhave momentarily calmed. Choice C is incorrect because although this quotation does convey a sense of regret (\"many a\nsquandered day\"), nothing in the quotation suggests an ongoing cycle of anticipation followed by regret. Instead, the speaker is\nsimply lamenting wasted time and opportunities.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "923ebfe3",
@@ -1021,7 +1269,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it most accurately states the main idea of the text. The text explains that fashion retailers\nface challenges in forecasting product demand due to rapidly changing tastes and lengthy manufacturing times. It then presents\nresearch by Fu and Fisher showing that combining retailers' own data with social media information significantly improves\nforecast accuracy. The text concludes by noting that better predictions help retailers meet demand without becoming\noverstocked. Thus, the main idea is that using multiple data sources (retailers' own data combined with social media information)\ncan enhance fashion retailers' ability to anticipate demand.\n\nChoice B is incorrect because the text doesn't claim that social media is revolutionizing, or fundamentally changing, how sellers\nand researchers view the fashion industry. The text never addresses the way the fashion industry is viewed; rather, it discusses a\npractical approach sellers in the industry can take to better match production with demand. Choice C is incorrect. Although\navoiding overstocking is mentioned as a benefit of an approach that can help fashion sellers better predict demand, the text\ndoesn't focus on overstocking or characterize it as the main concern of sellers. Rather, the text is focused on discussing the\napproach itself. Choice D is incorrect because the text suggests that fashion sellers encounter obstacles when using their own\ndata to try to forecast demand as tastes and styles change; the text focuses on the idea that instead of using their own data alone,\nretailers should combine their own data with social media information to more accurately forecast demand.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7afdcca2",
@@ -1037,7 +1289,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice D is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "cac82f9b",
@@ -1053,7 +1309,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. Both explanations suggest that the bacteria come from the same place: either they come from the\nground and make their way to the leaves, or they come from above the ground and make their way to the roots.\n\nChoice A is incorrect. This inference isn't supported. The text never discusses any benefits of any kind of bacteria. Choice C is\nincorrect. This conflicts with the text. One of the theories is that the bacteria in the leaves were deposited by rain splashing off soil.\nChoice D is incorrect. This inference isn't supported. The text only discusses \"naturally occurring\" bacteria. It never mentions either\nthe harms or benefits of these bacteria.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "73d457b6",
@@ -1069,7 +1329,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The archeologist bases their claim on the fact that the hyena bone features unevenly spaced parallel\nnotches. But if unevenly spaced parallel lines were found on \"decorative art\" at another Neanderthal site, it would suggest that the\nhyena bone is probably decorative art as well—not a counting tool.\n\nChoice A is incorrect. This choice doesn't weaken the underlined claim. If anything, it might actually strengthen the claim:\nassuming we can make an inference about Neanderthals using a fact about early humans, it provides more support for the idea\nthat the person who made the notches was counting something. Choice B is incorrect. This choice doesn't weaken the underlined\nclaim. The fact that another artifact had parallel notches made with a different stone tool doesn't tell us anything about the use of\neither artifact. For all we know, they could both have been used for counting. Choice C is incorrect. This choice doesn't weaken the\nunderlined claim. The fact that it took effort to make the lines doesn't tell us anything about what the lines were for.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "fbb84fb0",
@@ -1085,7 +1349,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it most effectively illustrates the claim in the text that Hedda seeks to influence another\ncharacter's fate. In the quotation, Hedda says that she wants \"to have power to mould a human destiny,\" or shape a person's fate,\njust as the text indicates. Additionally, the phrase \"for once in my life\" suggests that Hedda feels that she has never been able to\nshape anyone's life, including her own, supporting the text's assertion that she \"is unable to freely determine her own future.\"\n\nChoice A is incorrect because this quotation shows Hedda being uncertain about what to do with her own life, not wanting to\ninfluence another person's fate. Choice C is incorrect because while this quotation shows Hedda's interest in finding out whether\nshe has any power over another character, it doesn't clearly show that she wants to influence that person's fate. In this quotation,\nHedda seems to have inferred or concluded (\"then\") that she doesn't have any influence over the person to whom she's speaking,\nand she's asking that person to confirm her lack of influence. Choice D is incorrect because this quotation expresses Hedda's\nbelief that a man should be true to his principles, not her desire to influence another person's fate.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "299c5303",
@@ -1101,7 +1369,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. Dramaturges help playwrights with storytelling and characterization. Choreographers often tell stories\nthrough dance, so they are also concerned with storytelling and characterization. This suggests that the fact that choreographers\nseek the help of dramaturges with the storytelling aspects of their dances should be \"unsurprising.\"\n\nChoice A is incorrect. This inference isn't supported. The beginning of the text does imply that this is true, but the end is leading to\na conclusion about how choreographers use dramaturges. Choice C is incorrect. This inference isn't supported. The text never\nmentions dances by choreographers who don't incorporate narrative elements. Choice D is incorrect. This inference isn't\nsupported. The text mentions in passing that directors use dramaturges to conduct research, but it never suggests that directors\nand actors are too reliant on them. Also, the text is leading to a conclusion about how choreographers use dramaturges.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "409058ee",
@@ -1117,7 +1389,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text first describes hagfish slime and its properties, then it transitions to talking about the\npossibilities of using lab-made equivalents to use in eco-friendly fabrics.\n\nChoice B is incorrect. The text says the opposite of this choice. The researchers are developing an alternative to petroleum-based\nfabric. Choice C is incorrect. This choice is too narrow to be the main point of the text. Only one line describes how farming would\nbe \"potentially harmful\" to the hagfish. Choice D is incorrect. This choice isn't supported by the text. We don't know from the text\nwhether being jawless makes the hagfish more vulnerable.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "98fd50f2",
@@ -1133,7 +1409,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it presents a finding that, if true, would most directly support the museum administrators'\nclaim that concerns about virtual tours replacing in-person visits were unjustified. The text explains that after the Galleria\ndell'Accademia began offering online tours, there were concerns that if people viewed these virtual tours, they would consider an\nin-person visit to be unnecessary. The finding that many visitors who were surveyed indicated that the virtual tours actually\nconvinced them to plan an in-person visit directly contradicts these concerns. Rather than deterring in-person visits, virtual tours\nactively encouraged them, providing strong support for the administrators' claim that the initial concerns were unfounded.\n\nChoice B is incorrect. The finding that most surveyed visitors were unaware of the virtual tours before their first in-person visit\nwouldn't directly address whether virtual tours affect decisions about in-person visits. This finding would only indicate that these\nparticular visitors didn't have the opportunity to be influenced by virtual tours when making their decision to visit. Choice C is\nincorrect because the geographic location of visitors wouldn't address the impact of virtual tours on people's decisions to visit the\nmuseum in person. Whether visitors live in Florence or elsewhere would suggest nothing about whether virtual tours influenced\ntheir choice. This information is irrelevant to the administrators' claim about the relationship between virtual tours and in-person\nvisits. Choice D is incorrect because visitors' intentions to view virtual tours after their in-person visit wouldn't address the initial\nconcerns that virtual tours might make in-person visits seem unnecessary. This finding indicates that some visitors plan to use\nvirtual tours as a way to remember their visit, but it provides no information about whether virtual tours influenced their decision to\nvisit in person in the first place, which is what the administrators' claim addresses.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d8b78a2b",
@@ -1149,7 +1429,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice B is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "485962a6",
@@ -1165,7 +1449,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it presents the conclusion that most logically follows from the text's discussion of the Arabia\nTerra region of Mars. According to the text, there are craters in Arabia Terra that could be the result of volcanic activity, and\nresearchers have found evidence of ash deposits consistent with a large eruption. The text goes on to note, however, that erosion\nand other events could have altered the surface of Mars. This observation suggests that current conditions on Mars's surface are\nnot necessarily a reliable guide to past events—some signs of past events could have been transformed or erased entirely—and\nthus the current makeup of Arabia Terra may not accurately reflect past volcanic activity.\n\nChoice B is incorrect because the text suggests only that past events could have changed Mars's surface such that its current\nappearance isn't a reliable guide to past activity, not that it's likely that past eruptions were not as massive as astronomers\npreviously believed. Nothing in the text supports a conclusion about the likely size of past eruptions. Choice C is incorrect because\nthe observation that resurfacing events could have changed the appearance of Mars doesn't imply that the ash discussed in the\ntext likely came from multiple volcanoes. Although it's possible that the ash came from different volcanoes, there's no information\nin the text supporting a conclusion about how likely that possibility is. Choice D is incorrect because nothing in the text suggests\nthat the Arabia Terra craters had to have been created by something other than volcanic eruptions. Although the text does suggest\nthat the evidence consistent with volcanic eruptions shouldn't be taken as definitive proof of past eruptions, that doesn't mean that\nthe craters couldn't have been created by eruptions, only that we can't be certain they were.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "95146ebb",
@@ -1181,7 +1469,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. A \"particularly warm summer\" revealed the sandal, and centuries of ice kept it \"well preserved.\"\n\nChoice B is incorrect. This choice doesn't reflect the information in the text. The sandal is similar to Roman sandals, but there is no\nindication that it was a result of Roman influence. Choice C is incorrect. The text doesn't support this choice. We don't have\nenough information to know whether or not archaeologists would have found the sandal without people like the treasure-hunting\nmountaineer. Choice D is incorrect. The text says the opposite of this choice. The sandal was preserved by the ice for centuries.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "1db1a9a6",
@@ -1197,8 +1489,12 @@ const questionBank_II = [
       "D. The yield for plants treated with the nitrogen fertilizer increased from 2017 to 2018."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer because it describes data from the graph that support the researchers' conclusion that using nitrogen\nfertilizer increases cantaloupe production. The bar graph shows the cantaloupe yield for plants grown with nitrogen fertilizer and\nfor those grown with a control fertilizer (without nitrogen) for three consecutive years (2017–2019). For each year in the graph, the\n\fyield for the nitrogen group is greater than the yield for the control group. In pounds per acre, the value in 2017 for the nitrogen-\ngroup yield is greater than 30 while the control-group yield is less than 25; in 2018 the nitrogen-group yield is greater than 40 while\nthe control-group yield is less than 35; and in 2019 the nitrogen-group yield is greater than 25 while the control-group yield is less\nthan 20. Thus, these data from the graph strongly support the conclusion that using nitrogen fertilizer increases cantaloupe yield.\n\nChoice A is incorrect because the bar graph shows that in 2019 the nitrogen group had a yield below 30 pounds per acre. Choice C\nis incorrect. Although this choice accurately describes data in the bar graph—in 2018, the control-group yield is greater than 30\npounds per acre, and in 2019 the nitrogen-group yield is less than 30 pounds per acre—a claim that the control-group yield exceeds\nthat of the nitrogen group strongly conflicts with the researchers' conclusion that nitrogen fertilizer produces larger yields. Choice\nD is incorrect. Although it is true that the bar graph shows a higher yield for the nitrogen group in 2018 than in 2017, without the\ncontrol to compare against, it is impossible to know whether the increase is due to the fertilizer and not, for example, more\nfavorable weather in 2018 than in 2017.",
-    "strategy": "Support Check"
+    "explanation": "Choice B is the best answer because it describes data from the graph that support the researchers' conclusion that using nitrogen\nfertilizer increases cantaloupe production. The bar graph shows the cantaloupe yield for plants grown with nitrogen fertilizer and\nfor those grown with a control fertilizer (without nitrogen) for three consecutive years (2017–2019). For each year in the graph, the\n yield for the nitrogen group is greater than the yield for the control group. In pounds per acre, the value in 2017 for the nitrogen-\ngroup yield is greater than 30 while the control-group yield is less than 25; in 2018 the nitrogen-group yield is greater than 40 while\nthe control-group yield is less than 35; and in 2019 the nitrogen-group yield is greater than 25 while the control-group yield is less\nthan 20. Thus, these data from the graph strongly support the conclusion that using nitrogen fertilizer increases cantaloupe yield.\n\nChoice A is incorrect because the bar graph shows that in 2019 the nitrogen group had a yield below 30 pounds per acre. Choice C\nis incorrect. Although this choice accurately describes data in the bar graph—in 2018, the control-group yield is greater than 30\npounds per acre, and in 2019 the nitrogen-group yield is less than 30 pounds per acre—a claim that the control-group yield exceeds\nthat of the nitrogen group strongly conflicts with the researchers' conclusion that nitrogen fertilizer produces larger yields. Choice\nD is incorrect. Although it is true that the bar graph shows a higher yield for the nitrogen group in 2018 than in 2017, without the\ncontrol to compare against, it is impossible to know whether the increase is due to the fertilizer and not, for example, more\nfavorable weather in 2018 than in 2017.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "dd349efc",
@@ -1214,8 +1510,12 @@ const questionBank_II = [
       "D. 62% of participants believe that it is somewhat or very unlikely that a robot could work effectively as a firefighter."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it effectively uses data from the table to complete the example of variations in participants'\nevaluations. The table shows participants' evaluations of the likelihood that robots could work effectively in different occupations.\nThe text asserts that participants' evaluations varied widely depending on the occupation being considered and introduces an\nexample supporting that assertion. The data from the table showing that 82% of participants believe that it is somewhat or very\nlikely that a robot could work effectively as a tour guide but only 16% of participants believe that it is somewhat or very likely that a\nrobot could work effectively as a surgeon illustrate this assertion: those data show participants' views changing substantially with\nthe occupation being considered.\n\fChoice A is incorrect because it does not describe data that illustrate the assertion that participants' evaluations varied widely\ndepending on which occupation was being considered. Although this choice accurately describes data in the table, data about\nparticipants' responses when considering a single occupation—teaching—could not be an example of people's views changing\nsubstantially depending on the occupation being considered. Choice B is incorrect because it identifies a similarity in participants'\nresponses when considering two different occupations, but the assertion that the example is intended to illustrate is that\nparticipants' evaluations varied widely depending on the occupation being considered. Although this choice accurately describes\ndata in the table, those data do not illustrate the assertion in the text. Choice D is incorrect because it does not describe data that\nillustrate the assertion that participants' evaluations varied widely depending on which occupation was being considered.\nAlthough this choice accurately describes data in the table, data showing participants' evaluation of just one occupation could not\nbe an example of participants' evaluations changing depending on the occupation under evaluation.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice C is the best answer because it effectively uses data from the table to complete the example of variations in participants'\nevaluations. The table shows participants' evaluations of the likelihood that robots could work effectively in different occupations.\nThe text asserts that participants' evaluations varied widely depending on the occupation being considered and introduces an\nexample supporting that assertion. The data from the table showing that 82% of participants believe that it is somewhat or very\nlikely that a robot could work effectively as a tour guide but only 16% of participants believe that it is somewhat or very likely that a\nrobot could work effectively as a surgeon illustrate this assertion: those data show participants' views changing substantially with\nthe occupation being considered.\n Choice A is incorrect because it does not describe data that illustrate the assertion that participants' evaluations varied widely\ndepending on which occupation was being considered. Although this choice accurately describes data in the table, data about\nparticipants' responses when considering a single occupation—teaching—could not be an example of people's views changing\nsubstantially depending on the occupation being considered. Choice B is incorrect because it identifies a similarity in participants'\nresponses when considering two different occupations, but the assertion that the example is intended to illustrate is that\nparticipants' evaluations varied widely depending on the occupation being considered. Although this choice accurately describes\ndata in the table, those data do not illustrate the assertion in the text. Choice D is incorrect because it does not describe data that\nillustrate the assertion that participants' evaluations varied widely depending on which occupation was being considered.\nAlthough this choice accurately describes data in the table, data showing participants' evaluation of just one occupation could not\nbe an example of participants' evaluations changing depending on the occupation under evaluation.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "adbcbce0",
@@ -1231,7 +1531,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The speaker says that they wish they could remember when they first met someone, but they can't\nremember the meeting at all, because they didn't know at the time that the relationship would \"blossom\" later on.\n\nChoice A is incorrect. The speaker does say that the relationship has \"blossomed\" over time, but only briefly at the end—and they\ndon't really \"celebrate\" that fact. Rather, the text has a more regretful tone: it's about how the speaker can't remember first meeting\nthis person, and they wish they could. Choice C is incorrect. The speaker doesn't mention an anniversary—in fact, the speaker can't\nremember when they met the person they're talking about. Choice D is incorrect. The speaker doesn't say that they neglected the\nrelationship. In fact, the speaker suggests that the relationship has become very important to them—that's why the speaker wishes\nthat they could remember their first meeting.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "1d08c7ee",
@@ -1247,7 +1551,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The example of Tobar approaching his subject \"like a reporter,\" including conducting \"interviews\" and\n\"research,\" shows Tobar applying journalism techniques to his fiction-writing.\n\nChoice B is incorrect. This choice doesn't support the claim. It tells us about Tobar's initial career as a journalist, but it doesn't say\nanything about him \"applying journalism techniques\" to his fiction-writing. Choice C is incorrect. This choice doesn't support the\nclaim. It tells us that Tobar applied fiction techniques to his nonfiction writing, but we're looking for evidence of the other way\naround: that Tobar applied journalism techniques to his fiction-writing. Choice D is incorrect. This choice doesn't support the claim.\nIt tells us that a character in one of Tobar's novels applied a journalism technique to his fiction-writing, but it doesn't tell us that\nTobar did that himself.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5d6ab069",
@@ -1263,7 +1571,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. This finding would most strongly support the hypothesis. The hypothesis is that the sail improved the\ndinosaur's ability to chase quick, evasive prey. This finding suggests that the sail helped the dinosaur make sharp turns more\nquickly, which supports that hypothesis.\n\nChoice B is incorrect. This finding wouldn't necessarily support the hypothesis. The hypothesis is that the sail improved the\ndinosaur's ability to chase quick, evasive prey. It's unclear how the sail displacing more water would relate to that hypothesis—it\ndoesn't seem to be relevant. Choice C is incorrect. This finding wouldn't necessarily support the hypothesis. The hypothesis is that\nthe sail improved the dinosaur's ability to chase quick, evasive prey. It's unclear how the difference in battery power between the\nmodels would relate to that hypothesis—it doesn't seem to be relevant. Choice D is incorrect. This finding would actually weaken\nthe hypothesis. The hypothesis is that the sail improved the dinosaur's ability to chase quick, evasive prey. This finding suggests\nthat the sail slowed the dinosaur down—which would probably make it worse at catching quick, evasive prey.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "659c6c1d",
@@ -1279,7 +1591,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The narrator says that, at first, they thought Bill asked regularly about other seafarers because he\nwanted their company, but eventually they realized that Bill actually wanted to avoid them.\n\nChoice A is incorrect. This isn't the reason the text gives for why Bill regularly asks about \"seafaring men.\" The narrator says that,\nat first, they thought Bill asked regularly about other seafarers because he wanted their company, but eventually they realized that\nBill wanted to avoid them. Choice B is incorrect. This isn't the reason the text gives for why Bill regularly asks about \"seafaring\nmen.\" The narrator says that, at first, they thought Bill asked regularly about other seafarers because he wanted their company, but\neventually they realized that Bill wanted to avoid them. Choice C is incorrect. This isn't the reason the text gives for why Bill\nregularly asks about \"seafaring men.\" The narrator says that, at first, they thought Bill asked regularly about other seafarers\nbecause he wanted their company, but eventually they realized that Bill wanted to avoid them.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "3f05e40f",
@@ -1295,7 +1611,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it most accurately states the main idea of the text. According to the text, many of Richard\nHunt's sculptures \"use broad forms rather than extreme accuracy\"—in other words, they are more abstract than realistic. To\nillustrate Hunt's abstract approach, the text characterizes his sculpture of Arachne as \"vaguely human\" and his work in honor of Ida\nB. Wells as \"using mainly flowing, curved pieces of metal that create stylized flame.\" Thus, the main idea is that Hunt often depicts\nthe subjects of his sculptures using an unrealistic style.\n\nChoice B is incorrect. Although the text indicates that one of Hunt's sculptures is made of steel and another of bronze, there is no\nmention of why he chose these materials. Choice C is incorrect because the text says nothing about how Hunt chose the subjects\nfor his sculptures. Furthermore, of the two examples provided in the text, only Ida B. Wells is an important historical figure;\nArachne is a \"mythical character.\" Choice D is incorrect because the text says nothing about how Hunt's style changed over time.\nIn fact, although the two examples of Hunt's work discussed in the text were created 65 years apart, they are both described as\nheavily stylized rather than realistic, which may suggest that some aspects of Hunt's style haven't changed over that time.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f8befe75",
@@ -1311,7 +1631,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. It best describes the main idea of the text. The text starts by saying that historians of the Black Power\nmovement are too reliant on openly ideological works, which were written mostly by men, as sources. The text then describes\nFarmer's research: she has shown that including other kinds of sources leads to a better understanding of the Black Power\nmovement and the role Black women played in it.\n\nChoice B is incorrect. This doesn't describe the main idea of the text. In fact, it conflicts with the text. The text says that historians\nhave relied on \"essays and other explicitly ideological works,\" which suggests that they have studied at least some of the\nintellectual dimensions of the Black Power movement. Choice C is incorrect. This doesn't describe the main idea of the text. The\ntext never mentions how other historians of the Black Power movement view Farmer's use of unconventional sources. In fact, the\ntext itself argues in favor of Farmer's research, claiming that it has led to a \"much better understanding of the movement.\" Choice\nD is incorrect. This doesn't describe the main idea of the text. The text never mentions what any figures in the Black Power\nmovement thought about women's roles in the movement.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "350e2336",
@@ -1327,7 +1651,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The passage tells us that the declaration was written in a language important to European diplomacy\nbut not most Haitians, states that the declaration included \"a reassurance to the United States,\" and made implicit references to\ncolonies in the Americas. Because of the messages within the declaration that were largely irrelevant to the Haitian people, we can\nassume that the Haitian people were not the only audience for this document.\n\nChoice A is incorrect. There's no mention in the passage of similar documents in other countries, so there's no basis for this\ninference. Choice B is incorrect. Although there's an implicit reference to European governments when the passage discusses how\nthe declaration was written in French, \"which was used throughout Europe as the language of international diplomacy,\" there is no\ndiscussion of the French government's response to the declaration. Therefore, there's no basis for this inference. Choice C is\nincorrect. The passage doesn't mention the popularity of the revolution and declaration among the Haitian people, so there's no\nbasis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "99fdf71c",
@@ -1343,7 +1671,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it presents a quotation illustrating the claim that the poem conveys McKay's contrasting\nfeelings about New York City and Jamaica. McKay first presents a somewhat negative view of New York City, describing watching\n\"dark figures\" who \"sadly shuffle\" to work at dawn, and then indicates that he would instead like to be \"in the heart of the island of\nthe sea.\"\n\nChoice A is incorrect because the quotation focuses on a description of only one place (New York City, with its \"lonely newsboy\"\nand \"red streaks\" in the sky at dawn) rather than on different feelings about two places. Choice C is incorrect because the\nquotation focuses on a description of only one place (which isn't named) rather than on McKay's different feelings about two\nplaces. Choice D is incorrect because though McKay presents a negative image of an unnamed place with \"tired cars\" that\ngrumble, moan, and groan, and \"old milk carts\" that rumble by under \"dull stars,\" the quotation focuses on McKay's feelings about\nonly one place rather than on different feelings about two places.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7ae8065c",
@@ -1358,8 +1690,12 @@ const questionBank_II = [
       "D. although contemporary Kwakwaka'wakw people have a deep understanding of and appreciation for the fishing and farming practices used by their ancestors, they no longer implement those methods."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer because it most logically completes the text's discussion of the use of songs by the Kwakwaka'wakw\npeople to record and communicate ecological knowledge. The text indicates that some songs of the Kwakwaka'wakw people of\nCanada's Pacific Northwest region document how the people used terraced gardens in intertidal zones to cultivate clams for food.\nThe text also explains that archaeological evidence shows increases in \"clam size and abundance\" that occurred along with the\nimplementation of this cultivation method, suggesting the method's efficacy in not just supporting clam yields but also improving\nthem. It follows, then, that the use of intertidal terraced gardens, as described in the songs, allowed the ancestors of modern\nKwakwaka'wakw people to maintain clams as a food source and to cultivate larger and more numerous clams.\n\nChoice B is incorrect because the text doesn't mention anything about cultivation practices among non-Indigenous people in the\nPacific Northwest coastal region. Though the text conveys that archaeological evidence suggests that the clam cultivation\npractice mentioned in Kwakwaka'wakw people's songs was efficacious when implemented, it gives no indication that people other\nthan the Kwakwaka'wakw adopted that practice. Choice C is incorrect because the text provides no information about the\narchaeological record as it pertains to Sakha and Kaluli songs and doesn't suggest that there is less corroboration of practices\ndescribed in those songs than there is of the clam cultivation practice described in Kwakwaka'wakw songs. The Sakha and Kaluli\nsongs are mentioned early in the text only as examples of Indigenous songs that contain ecological knowledge. Choice D is\nincorrect because archaeological evidence that clam size and abundance both increased when Kwakwaka'wakw ancestors\n\fimplemented intertidal terraced gardens provides information only about the past use of that method and doesn't suggest\nanything about present practices. The text indicates that knowledge of a past clam cultivation method is maintained in\nKwakwaka'wakw songs but doesn't indicate whether modern Kwakwaka'wakw people use that or other fishing and farming\npractices used by their ancestors.",
-    "strategy": "Inference Ceiling"
+    "explanation": "Choice A is the best answer because it most logically completes the text's discussion of the use of songs by the Kwakwaka'wakw\npeople to record and communicate ecological knowledge. The text indicates that some songs of the Kwakwaka'wakw people of\nCanada's Pacific Northwest region document how the people used terraced gardens in intertidal zones to cultivate clams for food.\nThe text also explains that archaeological evidence shows increases in \"clam size and abundance\" that occurred along with the\nimplementation of this cultivation method, suggesting the method's efficacy in not just supporting clam yields but also improving\nthem. It follows, then, that the use of intertidal terraced gardens, as described in the songs, allowed the ancestors of modern\nKwakwaka'wakw people to maintain clams as a food source and to cultivate larger and more numerous clams.\n\nChoice B is incorrect because the text doesn't mention anything about cultivation practices among non-Indigenous people in the\nPacific Northwest coastal region. Though the text conveys that archaeological evidence suggests that the clam cultivation\npractice mentioned in Kwakwaka'wakw people's songs was efficacious when implemented, it gives no indication that people other\nthan the Kwakwaka'wakw adopted that practice. Choice C is incorrect because the text provides no information about the\narchaeological record as it pertains to Sakha and Kaluli songs and doesn't suggest that there is less corroboration of practices\ndescribed in those songs than there is of the clam cultivation practice described in Kwakwaka'wakw songs. The Sakha and Kaluli\nsongs are mentioned early in the text only as examples of Indigenous songs that contain ecological knowledge. Choice D is\nincorrect because archaeological evidence that clam size and abundance both increased when Kwakwaka'wakw ancestors\n implemented intertidal terraced gardens provides information only about the past use of that method and doesn't suggest\nanything about present practices. The text indicates that knowledge of a past clam cultivation method is maintained in\nKwakwaka'wakw songs but doesn't indicate whether modern Kwakwaka'wakw people use that or other fishing and farming\npractices used by their ancestors.",
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "25290c8d",
@@ -1375,7 +1711,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it most effectively illustrates the claim that Wheatley addresses her poem \"On Virtue\" to the\nquality of virtue, imploring it to assist her in reaching a future goal. In the quotation, Wheatley begs virtue to accompany her, or\n\"attend [her],\" through her youth and to \"guide [her] steps to\" the future goal of \"endless life and bliss.\"\n\nChoice B is incorrect because this quotation suggests the difficulty of fully comprehending virtue. Rather than asking virtue for\nhelp, Wheatley presents it as a quality that is impossible to entirely understand because it is so grand and deep. Choice C is\nincorrect because this quotation describes Wheatley's effort to comprehend virtue despite virtue itself declaring that such wisdom\nis beyond her grasp, or \"higher than a fool can reach.\" Choice D is incorrect because rather than asking virtue for help in this\nquotation, Wheatley urges herself to \"sink not into despair\" because virtue is always nearby.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2584bcfb",
@@ -1391,7 +1731,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. This choice weakens the student's conclusion by suggesting that the emotionality of movie reviews is\nrelated to box office success: the higher the emotionality score, the better the movie performs at the box office.\n\nChoice A is incorrect. While this choice does mention emotionality scores, it only connects them to star ratings, not to box office\nsuccess. Choice C is incorrect. The fact that many movies received an average star rating doesn't tell us anything about the\nrelationship between emotionality and box office success. Choice D is incorrect. While this choice suggests that star ratings can\npredict box office success, it doesn't address the issue of emotionality in written reviews, which is the focus of the student's\nconclusion.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "3882ddf6",
@@ -1407,7 +1751,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. Because researchers found \"Acasta rocks dating to about 3.75 bya\" were similar to \"modern rocks\nformed in a subduction setting,\" we can infer that subduction-like processes must have begun occurring in the Acasta Gneiss\nComplex by this time.\n\nChoice B is incorrect. We only know about geological processes at the Acasta Gneiss Complex, so we do not have information to\nmake inferences about geological processes in general. Also, notice that the rocks dated to 4.02 bya were found to still be formed\nin a plume setting, so the transition must have happened after this time. Choice C is incorrect. There's no mention in the passage\nof what proportion of the rocks within Acasta Gneiss Complex were formed through subduction, so there's no basis for this\ninference. Choice D is incorrect. The passage discusses various rocks in the Acasta Gneiss Complex that are dated to different\nperiods of time, but nothing in the passage suggests that these dates are or were wrong.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5432d1de",
@@ -1423,7 +1771,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The passage tells us that participants were \"more than seven times likelier to characterize the\nmodified songs as having swing than to characterize the original versions as having swing.\" Because the modified songs had been\nchanged by altering the timing of the downbeats and offbeats, this suggests that the timing of downbeats and offbeats may play a\ncrucial role in giving a song swing.\n\nChoice A is incorrect. Although the passage mentions that the researchers \"synchronized the offbeats\" in the modified songs, they\nalso \"delayed the downbeats\" in those songs. Because we can't disentangle whether it was the synchronized offbeats, the delayed\ndownbeats, or the combination of both that increased the song's swing, we don't have enough information to make this inference.\nChoice B is incorrect. The passage doesn't mention whether or not it's difficult for a jazz musician to give a song swing, so there's\nno basis for this inference. Choice C is incorrect. The passage doesn't compare jazz songs that feature piano to those that don't,\nso there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e1546fd6",
@@ -1439,8 +1791,12 @@ const questionBank_II = [
       "D. in the seawater outside of the lava-affected area, there was little change in the average concentration of nitrate from 75–125 meters below the surface to 5–45 meters below the surface."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer. The claim is that the lava freed the deep nitrate, allowing it to float upward. The table supports this by\nshowing that there was more nitrate in the lava-affected seawater at various depths above 300 meters (the depth to which the lava\n\fplunged) than in unaffected seawater.\n\nChoice A is incorrect. This choice doesn't complete the statement in a way that supports the claim. The claim is about nitrate, not\nphosphate. Choice C is incorrect. This choice doesn't complete the statement in a way that supports the claim. The claim is only\nabout nitrate—the concentrations of phosphate aren't relevant. Choice D is incorrect. This choice doesn't complete the statement\nin a way that supports the claim. It doesn't say anything about the seawater inside the lava-affected area.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice B is the best answer. The claim is that the lava freed the deep nitrate, allowing it to float upward. The table supports this by\nshowing that there was more nitrate in the lava-affected seawater at various depths above 300 meters (the depth to which the lava\n plunged) than in unaffected seawater.\n\nChoice A is incorrect. This choice doesn't complete the statement in a way that supports the claim. The claim is about nitrate, not\nphosphate. Choice C is incorrect. This choice doesn't complete the statement in a way that supports the claim. The claim is only\nabout nitrate—the concentrations of phosphate aren't relevant. Choice D is incorrect. This choice doesn't complete the statement\nin a way that supports the claim. It doesn't say anything about the seawater inside the lava-affected area.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6409016a",
@@ -1456,7 +1812,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it most logically completes the text's discussion of the costs of studies. The text indicates\nthat HILDA is a longitudinal study—it involves repeated observations over a long time—and that the \"need for years of data\ncollection\" is what causes it and most other longitudinal studies to have high costs. The text then contrasts such studies with\nmore straightforward studies, using the example of a fitness study that wants only to find out how many regular exercisers in a\nparticular location do weight training, that may not demand a large budget. The contrast emphasized in the text most directly\nsuggests that the fitness study may cost less than a study like HILDA because the fitness study aims only to determine a current\npercentage and thus can be completed well without extending data collection over years.\n\nChoice A is incorrect because the text explicitly introduces the idea of a less expensive, straightforward fitness study as a contrast\nto many longitudinal studies that, like HILDA, have high costs because they require data collection over many years. The fitness\nstudy is described as trying merely to gather information about a current behavior (how many regular exercisers do weight\ntraining) rather than track trends over time, which suggests that costs could remain low because expensive longitudinal methods\nwould not be needed, not because they would be suitable. Choice B is incorrect because the idea that HILDA researchers could\neasily add questions to their study might be relevant to the costs of that survey but would be completely irrelevant as an\nexplanation for why an unrelated fitness study may not need a large budget; the studies have no direct bearing on each other.\nChoice C is incorrect because the idea that HILDA involves more people than necessary would be relevant to the costs of that\nsurvey but would be completely irrelevant as an explanation for why an unrelated fitness study may not need a large budget; the\nstudies have no direct bearing on each other.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "81af81d4",
@@ -1472,7 +1832,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it presents the quotation that best illustrates the claim that the speaker is determined to\nexperience the countryside around her. In the quotation, the speaker makes it clear that she plans to walk somewhere based on\nher own wishes (\"where my own nature would be leading\") rather than follow anything else (\"another guide\"), and that she'll walk\n\"in ferny glens\" alongside the mountain.\n\nChoice A is incorrect because this quotation suggests that the speaker wants to avoid pursuing money and education (\"busy\nchase of wealth and learning\") and instead return to some earlier interests (her \"first feelings\"); the quotation doesn't address her\ndetermination to experience the countryside. Choice B is incorrect because the speaker is describing the circumstances under\nwhich she won't walk, which doesn't address her determination to experience the countryside. Choice D is incorrect because rather\nthan conveying her determination to experience the countryside, the speaker is explaining a particular thing she won't do (\"seek\nnot the shadowy region\").",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "55688b3c",
@@ -1488,7 +1852,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text tells us that lemons—an expensive imported product—feature in Dutch paintings of the\nperiod more frequently than dairy products do. Since it's unlikely lemons were eaten more often than dairy, this fact casts doubt on\nthe theory that these paintings realistically depicted Dutch diets.\n\nChoice A is incorrect. In fact, the text suggests the opposite: it says that dairy products were a \"major component of the Dutch\ndiet,\" while lemons were an expensive import item, so we can infer that lemons were eaten much more rarely than dairy products.\nChoice B is incorrect. The passage doesn't mention painters from other countries, so there's no basis to make this inference.\nChoice D is incorrect. In fact, the text suggests that Dutch painters do have reasons for depicting foods other than to show what\nDutch people typically ate. For example, lemons in a painting could indicate wealth or prosperity.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "dc3ea63e",
@@ -1504,7 +1872,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. It best states the main idea of the text. The text opens with the statement that Taylor uses local\nplants and vegetables to dye wool. The rest of the text describes how she does this.\n\nChoice A is incorrect. This doesn't state the main idea of the text. The text only mentions one rug: In the Path of the Four Seasons,\nin which reds and browns are featured. It never mentions whether or not these colors are featured in her other rugs. Choice C is\nincorrect. This doesn't state the main idea of the text. The text never says that Taylor finds it difficult to locate Arizona dock roots.\nChoice D is incorrect. This doesn't state the main idea of the text. The text never says that In the Path of the Four Seasons is\nwidely acclaimed. Rather, it discusses the rug to illustrate the point made earlier in the passage: that Taylor uses local plants and\nvegetables to dye wool.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "29cde5fa",
@@ -1520,7 +1892,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. This quote most effectively illustrates the claim. The claim is that the narrator describes Mr. Johnson\nas arrogant and self-important. This basically says that Mr. Johnson always looks like he's congratulating himself for something,\nwhich definitely supports the idea that Mr. Johnson is arrogant! .\n\nChoice B is incorrect. This quote doesn't illustrate the claim. The claim is that the narrator describes Mr. Johnson's appearance as\nconveying his arrogance. This describes his appearance, but the description doesn't suggest a sense of arrogance. Choice C is\nincorrect. This quote doesn't illustrate the claim. The claim is that the narrator describes Mr. Johnson's appearance as conveying\nhis arrogance. This doesn't describe Mr. Johnson's appearance very much, and it doesn't suggest a sense of arrogance. Choice D\nis incorrect. This quote doesn't effectively illustrate the claim. It describes Mr. Johnson's tone of voice as \"large and important,\" but\nit doesn't describe his appearance as conveying a sense of self-importance.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f8244f7c",
@@ -1537,7 +1913,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it most effectively uses data from the table to support Probst and colleagues' conclusion\nabout the hypothesis regarding the relationship between birds' bill size and habitat temperature. The text states that although it\nhas been hypothesized that birds' bill size should increase with habitat temperature (an adaptation that reflects the fact that birds\ncan release excess heat through their bills), Probst and colleagues concluded after studying mean bill surface area in North\nAmerican thrashers that this hypothesis was not fully supported. In other words, Probst and colleagues did not observe the\npredicted positive relationship between mean bill surface area and habitat temperature in the thrashers they studied. The data in\nthe table about the ocellated thrasher support Probst and colleagues' conclusion because this species has the greatest mean bill\nsurface area (3.26 cm2), but its habitat has the lowest mean maximum temperature in the warmest month (27.56°C). If the\nhypothesis were fully supported, species such as the ocellated thrasher that have colder habitats would likely also have smaller\nbills. Similarly, the data about the Bendire's thrasher support Probst and colleagues' conclusion because this species has the\nsecond-smallest mean bill surface area (1.98 cm2), yet its habitat has the highest mean maximum temperature in the warmest\nmonth (36.57°C). If the hypothesis were fully supported, the Bendire's thrasher and other species with warmer habitats would also\nhave larger bills. Because data in the table show that the ocellated thrasher and the Bendire's thrasher have the opposite or near\nopposite of the hypothesized relationship between bill size and habitat temperature, these examples support Probst and\ncolleagues' conclusion that this hypothesis isn't fully supported.\n\nChoice A is incorrect because it misrepresents the data in the table. Although the Bendire's thrasher has the second-smallest\nmean bill surface area of the species that are included in the table and although its habitat has the second-lowest mean minimum\ntemperature in the coldest month, this habitat has the highest (rather than the lowest) mean maximum temperature in the\nwarmest month. Moreover, the data about this species' bill surface area and mean minimum temperature suggest that smaller\nbills are associated with colder habitats, supporting rather than challenging the hypothesis that bill size increases with habitat\ntemperature. Choice B is incorrect because it misrepresents the data in the table. Although the Cozumel thrasher has the second-\ngreatest mean bill surface area of the species that are included in the table, its habitat's mean maximum temperature in the\nwarmest month is not \"significantly higher\" than the mean maximum temperatures of the other habitats. On the contrary, the mean\nmaximum temperature of the Cozumel thrasher's habitat is lower than that observed for the habitats of both the Bendire's thrasher\nand the long-billed thrasher. Choice C is incorrect because it misrepresents the data in the table. Although this choice accurately\ndescribes the brown thrasher's mean bill surface area and habitat temperature, it incorrectly states that the long-billed thrasher\nhas the second-largest (rather than the third-largest) mean bill surface area of the species included. In addition, instead of\nrevealing a lack of support for the hypothesis that bill size increases with habitat temperature, the data in this choice broadly\nreflect the hypothesized relationship.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c538954d",
@@ -1553,7 +1933,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. By showing that \"any difference\" in taste was quickly overcome by \"the force of [Marianne's]\narguments,\" this choice effectively demonstrates Marianne's \"ability to persuade others.\"\n\nChoice A is incorrect. This choice doesn't effectively illustrate the claim. This choice shows that Marianne and John share an\ninterest in music and dancing, but it doesn't provide evidence of Marianne's \"ability to persuade others.\" Choice C is incorrect. This\nchoice doesn't effectively illustrate the claim. This choice shows that Marianne enjoys talking about her interests, but it doesn't\nprovide evidence of Marianne's \"ability to persuade others.\" Choice D is incorrect. This choice doesn't effectively illustrate the\nclaim. This choice shows that Marianne and John share many interests and generally agree on music and dancing, but it doesn't\nprovide evidence of Marianne's \"ability to persuade others.\"",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "db876fd5",
@@ -1569,7 +1953,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. Because \"song preference plays a role in songbird mate selection,\" and because F. hypoleuca\nnestlings display a preference for local dialects, we can infer that they will be more likely to choose mates from local populations.\n\nChoice A is incorrect. We don't have any information suggesting that this preference disappears, so there's no basis for this\ninference. Choice B is incorrect. Although the passage discusses the number of begging calls made in response to various F.\nhypoleuca dialects, no mention is made about the amount of food received based on dialect preference. Therefore, there's no\nbasis for this inference. Choice D is incorrect. There's no mention in the passage of methods of other types of local songbirds, so\nthere's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5fb6ed10",
@@ -1585,7 +1973,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because. This quotation specifically describes a \"sense of detachment from ordinary day,\" which\nmatches the claim's focus on \"escape from everyday life.\"\n\nChoice A is incorrect. While this quotation describes new opportunities associated with Whiting's experience, it doesn't frame\nthese opportunities as \"an escape,\" and it doesn't directly compare Whiting's journey with \"everyday life.\" Choice B is incorrect.\nWhile this quotation includes a positive characterization of Whiting's journey, it doesn't specifically address the idea of an \"escape\nfrom everyday life,\" which is the focus of the claim. Choice C is incorrect. This quotation focuses on where the journey begins, not\non how it feels like an \"escape from everyday life.\"",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0c622cfb",
@@ -1601,7 +1993,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. This choice provides direct support for the researchers' conclusion. If the basin once held an ocean of\nliquid water for \"an extended time,\" that supports the \"wet and warm scenario\" on Mars, which involved a \"prolonged\" period of\ntemperate conditions (and not just a \"brief period of melting\").\n\nChoice A is incorrect. This choice doesn't provide support for the researchers' conclusions. The dimensions of the basin have little\nbearing on whether or not it was filled with liquid water, and for how long, and that's the evidence that would support the \"wet and\nwarm\" theory. Similarly, whether or not the basin was formed by an asteroid or a comet is irrelevant to the question of whether or\nnot there was water in the basin for a long period. Choice C is incorrect. This choice does not provide support for the researchers'\nconclusions, but rather the opposite. A \"massive but short lived influx\" of liquid water is not the same as a \"prolonged phase of\nwarm, wet conditions.\" It more reflects the opposing theory, a \"brief period of melting.\" Choice D is incorrect. This choice does not\nsupport Cardenas and Lamb's conclusion. Both theories about liquid water on Mars (\"wet and warm\" and \"brief period of melting\")\ninvolve flowing water, but lava isn't mentioned at all in the text. Therefore, this choice doesn't provide exclusive support for either\ntheory.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7edfb2c5",
@@ -1618,7 +2014,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. Campfires typically reach over 400°C, so human artifacts that were exposed to temperatures higher\nthan this may indicate some human control over fire.\n\nChoice A is incorrect. This choice misreads the graph. Neither artifact K3_9 nor K5_106 was exposed to temperatures above even\n200°C. Choice C is incorrect. This choice doesn't support the claim. Campfires typically reach over 400°C, so exposure to\ntemperatures of 100°C wouldn't demonstrate exposure to fire. Choice D is incorrect. This choice doesn't support the claim. Both\nartifacts K3_9 and K5_106 were exposed to temperatures of less than 200°C. Since campfires typically reach over 400°C, this\nwouldn't demonstrate exposure to fire.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "67b59a67",
@@ -1634,7 +2034,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. This choice provides evidence that directly links the presence of R. solanacearum-inhibiting microbes\nin the soil to the health of tomato plants.\n\nChoice B is incorrect. This choice would weaken the team's conclusion. It suggests that the presence of the disease-causing\nbacteria had no effect on the health of the tomato plants. Choice C is incorrect. This choice doesn't support the team's conclusion.\nThe conclusion is about microbes, not soil moisture. Choice D is incorrect. This choice would weaken the team's conclusion. It\nsuggests that the presence of the bacteria-inhibiting microbe in soil had no effect on the health of the tomato plants.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b38935ab",
@@ -1649,8 +2053,12 @@ const questionBank_II = [
       "D. Historians find the orally transmitted stories affirming the existence of Mieszko II Lambert to be more convincing than similar stories about Siemomysł."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer because it presents a statement about how historians view Siemomysł and Mieszko II Lambert that is\nsupported by the text. The text states that the Piast dynasty had a number of different members. The text refers to two of the\nrulers in the Piast dynasty by name: Mieszko II Lambert, whose rule was known to have occurred from 1025 to 1031 CE, and\nSiemomysł (\"whose historical actuality is disputed\"), for whom less is known and who therefore is the subject of debate among\nhistorians. The text further casts doubt about Siemomysł by stating that he is \"said to have ruled\" during the 10th century, or the\n900s, which suggests the possibility that he didn't rule. The text also mentions that the chronicle's documentation of Siemomysł\nrelies on oral tradition, unlike its records of later rulers, including Mieszko II Lambert. This indicates that historians agree that\nMieszko II Lambert was an actual historical figure, but they disagree about whether Siemomysł existed.\n\nChoice B is incorrect because the text states that the Gesta principum Polonorum's documentation of Siemomysł comes from oral\ntradition—spoken rather than written documentation—unlike its records of rulers who came after Siemomysł. This suggests that\nthe chronicle provides less reliable evidence rather than more evidence for Siemomysł's existence in the 900s (or the 10th century)\nthan it does for later rulers like Mieszko II Lambert, who ruled from 1025 to 1031 CE. Choice C is incorrect because the text\nindicates the opposite: Siemomysł supposedly ruled earlier in the 10th century, while Mieszko II Lambert ruled from 1025 to 1031\nCE. The 10th century spans the years from 901 to 1000 CE, so Siemomysł is believed to have ruled earlier than Mieszko II Lambert\ndid, not later as this choice states. Choice D is incorrect. Although the text mentions that information in the written chronicle Gesta\nprincipum Polonorum draws its information about Siemomysł from the oral tradition, it doesn't mention orally transmitted stories\nabout Mieszko II Lambert. Instead, it states that the chronicle's documentation of Siemomysł relies on oral tradition unlike the\n\frecords of later rulers do, which suggests that the documentation of later rulers such as Mieszko II Lambert did not rely on oral\ntradition. Thus, no comparison can be made about how convincing the orally transmitted stories of each ruler are to historians.",
-    "strategy": "Main Idea Drill"
+    "explanation": "Choice A is the best answer because it presents a statement about how historians view Siemomysł and Mieszko II Lambert that is\nsupported by the text. The text states that the Piast dynasty had a number of different members. The text refers to two of the\nrulers in the Piast dynasty by name: Mieszko II Lambert, whose rule was known to have occurred from 1025 to 1031 CE, and\nSiemomysł (\"whose historical actuality is disputed\"), for whom less is known and who therefore is the subject of debate among\nhistorians. The text further casts doubt about Siemomysł by stating that he is \"said to have ruled\" during the 10th century, or the\n900s, which suggests the possibility that he didn't rule. The text also mentions that the chronicle's documentation of Siemomysł\nrelies on oral tradition, unlike its records of later rulers, including Mieszko II Lambert. This indicates that historians agree that\nMieszko II Lambert was an actual historical figure, but they disagree about whether Siemomysł existed.\n\nChoice B is incorrect because the text states that the Gesta principum Polonorum's documentation of Siemomysł comes from oral\ntradition—spoken rather than written documentation—unlike its records of rulers who came after Siemomysł. This suggests that\nthe chronicle provides less reliable evidence rather than more evidence for Siemomysł's existence in the 900s (or the 10th century)\nthan it does for later rulers like Mieszko II Lambert, who ruled from 1025 to 1031 CE. Choice C is incorrect because the text\nindicates the opposite: Siemomysł supposedly ruled earlier in the 10th century, while Mieszko II Lambert ruled from 1025 to 1031\nCE. The 10th century spans the years from 901 to 1000 CE, so Siemomysł is believed to have ruled earlier than Mieszko II Lambert\ndid, not later as this choice states. Choice D is incorrect. Although the text mentions that information in the written chronicle Gesta\nprincipum Polonorum draws its information about Siemomysł from the oral tradition, it doesn't mention orally transmitted stories\nabout Mieszko II Lambert. Instead, it states that the chronicle's documentation of Siemomysł relies on oral tradition unlike the\n records of later rulers do, which suggests that the documentation of later rulers such as Mieszko II Lambert did not rely on oral\ntradition. Thus, no comparison can be made about how convincing the orally transmitted stories of each ruler are to historians.",
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "356ad646",
@@ -1665,8 +2073,12 @@ const questionBank_II = [
       "D. Waterbird communities at Curtis, a site with equal percentages of shoreline consisting of bulkheads and riprap, had higher average IWCI scores than did waterbird communities at Miles, a site with different percentages of shoreline consisting of bulkheads and riprap."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer because it presents a finding that, if true, would most directly illustrate the researchers' finding about\nwaterbird responses to shoreline hardening structures. The text explains that using the IWCI, an index on which higher scores\nindicate higher community integrity, researchers found that bulkheads are more strongly negatively correlated with waterbird\ncommunity integrity than riprap is—that is, that bulkheads reduce the integrity of waterbird communities more than riprap does.\nThe finding that waterbird communities at a site with a relatively high percentage of bulkheads along the shoreline (Old Road) had\nlower average IWCI scores than waterbird communities at a site with a relatively high percentage of riprap along the shoreline\n(Miles) did would illustrate the researchers' finding, since it would be an example of lower waterbird community integrity in a\nlocation with substantial bulkhead presence than in a location with substantial riprap presence.\n\nChoice A is incorrect because a finding of similar waterbird community integrity in two sites predominated by bulkheads wouldn't\nreveal anything about waterbird community integrity at sites predominated by riprap or how waterbird community integrity\ncompares between the two types of sites. Thus, the finding wouldn't illustrate the discovery of a difference in how bulkheads and\nriprap correlate with waterbird community integrity. Choice C is incorrect because it presents a finding that compares waterbird\n\fcommunity integrity at sites with different overall amounts of shoreline hardening but without distinguishing between bulkheads\nand riprap. Such a distinction would be necessary to illustrate the researchers' finding of a difference in how bulkheads and riprap\neach correlate with waterbird community integrity. Choice D is incorrect because it presents a finding that addresses a difference\nin waterbird community integrity between one site with equal percentages of bulkheads and riprap along its shoreline (Curtis) and\none site with unequal percentages of bulkheads and riprap (Miles) but without indicating whether bulkheads or riprap were more\nprevalent at Miles. This finding wouldn't provide any clear information about how bulkheads and riprap each correlate with\nwaterbird community integrity, so it wouldn't illustrate the researchers' finding of a difference between those correlations.",
-    "strategy": "Support Check"
+    "explanation": "Choice B is the best answer because it presents a finding that, if true, would most directly illustrate the researchers' finding about\nwaterbird responses to shoreline hardening structures. The text explains that using the IWCI, an index on which higher scores\nindicate higher community integrity, researchers found that bulkheads are more strongly negatively correlated with waterbird\ncommunity integrity than riprap is—that is, that bulkheads reduce the integrity of waterbird communities more than riprap does.\nThe finding that waterbird communities at a site with a relatively high percentage of bulkheads along the shoreline (Old Road) had\nlower average IWCI scores than waterbird communities at a site with a relatively high percentage of riprap along the shoreline\n(Miles) did would illustrate the researchers' finding, since it would be an example of lower waterbird community integrity in a\nlocation with substantial bulkhead presence than in a location with substantial riprap presence.\n\nChoice A is incorrect because a finding of similar waterbird community integrity in two sites predominated by bulkheads wouldn't\nreveal anything about waterbird community integrity at sites predominated by riprap or how waterbird community integrity\ncompares between the two types of sites. Thus, the finding wouldn't illustrate the discovery of a difference in how bulkheads and\nriprap correlate with waterbird community integrity. Choice C is incorrect because it presents a finding that compares waterbird\n community integrity at sites with different overall amounts of shoreline hardening but without distinguishing between bulkheads\nand riprap. Such a distinction would be necessary to illustrate the researchers' finding of a difference in how bulkheads and riprap\neach correlate with waterbird community integrity. Choice D is incorrect because it presents a finding that addresses a difference\nin waterbird community integrity between one site with equal percentages of bulkheads and riprap along its shoreline (Curtis) and\none site with unequal percentages of bulkheads and riprap (Miles) but without indicating whether bulkheads or riprap were more\nprevalent at Miles. This finding wouldn't provide any clear information about how bulkheads and riprap each correlate with\nwaterbird community integrity, so it wouldn't illustrate the researchers' finding of a difference between those correlations.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "66c47028",
@@ -1682,7 +2094,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it most accurately states the main idea of the text. According to the text, Eugene Wigner\nhypothesized that a crystal could exist that would be composed of electrons and have a honeycomb-like shape. The text goes on\nto say that the existence of the Wigner crystal remained unconfirmed until Feng Wang and colleagues were able to make an\nimpression of one using two semiconductors and an ultrathin sheet of graphene. Thus, the main idea is that researchers have\nobtained the most definitive evidence to date of the existence of the Wigner crystal.\n\nChoice B is incorrect because the text focuses on one kind of crystal—the Wigner crystal— and doesn't discuss crystalline\nstructures in general. And although the text conveys that Wang and colleagues figured out a way to capture an image of a Wigner\ncrystal, it doesn't address the idea of applying this approach to other types of crystals. Choice C is incorrect because the text\ndescribes in general the process Wang and colleagues followed to obtain an impression of the Wigner crystal; it doesn't address\nthe relative importance of each component in that process. Choice D is incorrect because the text doesn't state that researchers\nhad a hard time getting an impression of the Wigner crystal because of its honeycomb structure. Nothing in the text indicates why\nit took so long to prove the existence of this crystal or take an impression of it.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e677fa6c",
@@ -1698,7 +2114,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The narrator is \"embarrassed\" about the route he took, which ends up leaving him lost and confused\nabout how to get to his destination for the evening.\n\nChoice B is incorrect. This choice doesn't match the passage. The narrator is embarrassed, rather than fond, and he doesn't\ndescribe the beauty of the place. Choice C is incorrect. This choice doesn't match the passage. We don't know from this excerpt\nwhether or not the narrator has visited this part of New York multiple times. Choice D is incorrect. This choice doesn't match the\npassage. The narrator doesn't explain how he overcame being lost in this excerpt.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2312021b",
@@ -1714,7 +2134,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it presents a statement about the difference between the proportions of Quito residents and\nLima residents using parks that is supported by the text. The text states that 82.9% of surveyed Quito residents and 72.7% of\nsurveyed Lima residents reported using their city's parks. The text then notes that compared to Lima respondents, a much smaller\npercentage of Quito respondents said they live within a 10-minute walk of a park. The text concludes that because a greater\nproportion of Quito respondents used parks despite generally living farther from them than Lima respondents did, \"greater\nproximity\"—being closer to a park—\"can't explain the difference in park use.\" That is, the text makes the point that the difference\nbetween the proportions of Quito residents and Lima residents using parks is caused by something other than the distance of the\nparks from city residents.\n\nChoice A is incorrect because the text doesn't address whether the researchers had expected a particular result and doesn't\nindicate that they were surprised by the difference in park usage between the two cities' residents. The text simply presents the\nsurvey findings without stating the researchers' expectations. Choice C is incorrect because the text gives no indication that there\nmight be inaccuracies in the survey results; the text presents the findings as factual information and uses them as the basis for a\nconclusion that a certain factor doesn't explain differences in park usage between Quito and Lima residents. Choice D is incorrect\nbecause the text doesn't mention any sources that predate the survey or suggest that the difference in proportions was calculated\nusing such sources. According to the text, the information about park usage came directly from the survey of residents in Quito\nand Lima.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "11a9f635",
@@ -1730,7 +2154,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text says that the formation at Mistaken Point contains fossils of \"the earliest multicellular\norganisms,\" which implies that these fossils are from an older time period than the fossils of \"prehistoric human ancestors\" found\nin the Minatogawa quarry.\n\nChoice A is incorrect. The text says that the formation at Mistake Point contains \"more than 10,000 fossils,\" but it doesn't compare\nthis number to the number of fossils in the Minatogawa quarry. It also doesn't say anything about the variety of species in either\nformation. Choice B is incorrect. The text says that the formation at Mistaken Point contains fossils of \"the earliest multicellular\norganisms,\" but it never says that the site contains early human fossils too. Rather, the early human fossils mentioned in the text\nwere found in the formation at Minatogawa quarry. Choice C is incorrect. The text says that the fossils at Mistaken Point\n\"document a critical moment in evolutionary history,\" but it never says that Mistaken Point is the most valuable source of\ninformation about prehistoric life forms.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "602b47c7",
@@ -1746,7 +2174,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text describes how Barve found an association between habitat temperature and feather\nstructure among Himalayan songbirds, which supports the general prediction that birds' feather structures vary with habitat\ntemperature.\n\nChoice A is incorrect. Barve's study isn't said to contradict previous predictions. In fact, the study supports the prediction\ndescribed in the first sentence, which is that birds' feather structures vary with habitat temperature. Choice C is incorrect. Barve's\nstudy isn't said to \"complicate an earlier hypothesis.\" In fact, the study supports the earlier prediction described in the first\nsentence, which is that birds' feather structures vary with habitat temperature. Choice D is incorrect. The text doesn't compare the\nimportance of feather length and feather structure, and it doesn't say that Barve's study challenges any established beliefs. In fact,\nthe study supports the prediction described in the first sentence, which is that birds' feather structures vary with habitat\ntemperature.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "22e4d633",
@@ -1762,7 +2194,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text says that LINE transposons are important in the human hippocampus, which supports\ncomplex cognition. If the LINE transposon found in octopuses is active in a similar part of their brain, that would suggest that LINE\ntransposons support complex cognition in octopuses too, which in turn supports the hypothesis that LINE transposons are linked\nto advanced cognition in general.\n\nChoice B is incorrect. This choice doesn't support the hypothesis. It doesn't include anything about how LINE transposons function\nin species other than humans. Choice C is incorrect. This choice doesn't support the hypothesis. It doesn't include anything about\nhow the LINE transposon in octopuses might support advanced cognition. Choice D is incorrect. This choice doesn't support the\nhypothesis. It doesn't include anything about how the LINE transposon in octopuses might support advanced cognition.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d748c3fd",
@@ -1778,7 +2214,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. Johnson collected \"ephemera,\" or things that are meant to be thrown away. Scholars thought his\ncollection was worthless to them, then later realized that it was potentially valuable. This suggests that scholars went from\ndisregarding ephemera to recognizing their usefulness.\n\nChoice A is incorrect. This inference isn't supported. The text tells us that the Bodleian Library acquired Johnson's large collection\nof ephemera back in 1968, so we can assume that contemporary historians conducting research there do have access to that\ncollection. Choice B is incorrect. This inference isn't supported. The text tells us that \"Oxford University's Bodleian Library acquired\nthe collection,\" but it never suggests that it was a challenge to do so. Choice C is incorrect. This inference isn't supported. The text\nactually suggests the opposite: the example of Johnson's collection lends support to arguments that ephemera does hold value\nfor scholars.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "87aa7bab",
@@ -1794,7 +2234,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text says that the impact of photography on the portrait miniature might be \"overstated,\" as some\nrecords show a decrease in the number of portrait miniatures before the invention of photography. From this, we can conclude that\nfactors other than the rise of photography may be more directly responsible for the portrait miniature's decline.\n\nChoice B is incorrect. The text never discusses the \"artistic merit\" of either art form. Choice C is incorrect. The text never suggests\nthat the portrait miniature was popular for longer than historians thought—if anything, it suggests that the portrait miniature\nstarted losing its popularity earlier than historians thought. Choice D is incorrect. The text never suggests that portrait painters\nshifted to become photographers.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f1bfbed3",
@@ -1809,8 +2253,12 @@ const questionBank_II = [
       "D. the absence of clarity regarding how to differentiate among species of microorganisms may have resulted in Coll and colleagues underestimating the number of microorganism species."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer because it presents the conclusion that most logically completes the text's discussion of the different\ncounts of species in the Mediterranean Sea. The text states that Coll and colleagues reported almost double the number of\nspecies that Bianchi and Morri reported in their study ten years earlier. According to the text, this difference can only be partly\nattributed to new invertebrate species being described in the years between the two studies, which means there must be an\nadditional factor that made Coll and colleagues' count so much higher than Bianchi and Morri's count. The text goes on to explain\nthat factor: researchers have a relatively poor understanding of microorganisms' morphological variability, or the differences in\nmicroorganisms' structure and form. This poor understanding makes it hard to classify microorganisms by species and means\nthat researchers' decisions about classifying microorganisms can have a large effect on the overall species counts that\nresearchers report. Additionally, the text says that the two censuses reported similar numbers of vertebrate, plant, and algal\nspecies, which means that the difference in overall species did not come from differences in those categories. Given all this\ninformation, it most logically follows that Coll and colleagues may have treated some of the differences among microorganisms\nas indicative of the microorganisms being different species, whereas Bianchi and Morri treated those differences as variations\nwithin species, resulting in Coll and colleagues reporting many more species than Bianchi and Morri did.\n\nChoice A is incorrect because the text explicitly addresses this issue by stating that the description of new invertebrate species in\nthe years between the two studies can explain only part of the difference in the number of species reported by the studies. The\nfocus of the text is on explaining the difference between Coll and colleagues' count and Bianchi and Morri's count that cannot be\n\faccounted for by the inclusion of invertebrate species that had not been described at the time of Bianchi and Morri's study. Choice\nC is incorrect because nothing in the text suggests that Bianchi and Morri may have been less sensitive to how much the form and\nstructure of microorganisms vary within the same species than Coll and colleagues were. If Bianchi and Morri had been less\nsensitive to within-species variation than Coll and colleagues were, Bianchi and Morri would likely have reported more species\nthan Coll and colleagues did, since less sensitivity to within-species variation would lead researchers to classify as different\nspecies microorganisms that more sensitive researchers would classify as variations within the same species. The text indicates,\nhowever, that Bianchi and Morri reported far fewer species than Coll and colleagues did; since the text also excludes other\nexplanations for this difference, it suggests that in fact Bianchi and Morri were more sensitive to within-species variation than Coll\nand colleagues were, leading Bianchi and Morri to report fewer overall species. Choice D is incorrect because the text is focused\non explaining why Coll and colleagues reported many more species than Bianchi and Morri did, and an underestimate of the\nnumber of microorganism species by Coll and colleagues would not explain that difference—it would suggest, in fact, that the\ndifference in the number of species should have been even larger.",
-    "strategy": "Inference Ceiling"
+    "explanation": "Choice B is the best answer because it presents the conclusion that most logically completes the text's discussion of the different\ncounts of species in the Mediterranean Sea. The text states that Coll and colleagues reported almost double the number of\nspecies that Bianchi and Morri reported in their study ten years earlier. According to the text, this difference can only be partly\nattributed to new invertebrate species being described in the years between the two studies, which means there must be an\nadditional factor that made Coll and colleagues' count so much higher than Bianchi and Morri's count. The text goes on to explain\nthat factor: researchers have a relatively poor understanding of microorganisms' morphological variability, or the differences in\nmicroorganisms' structure and form. This poor understanding makes it hard to classify microorganisms by species and means\nthat researchers' decisions about classifying microorganisms can have a large effect on the overall species counts that\nresearchers report. Additionally, the text says that the two censuses reported similar numbers of vertebrate, plant, and algal\nspecies, which means that the difference in overall species did not come from differences in those categories. Given all this\ninformation, it most logically follows that Coll and colleagues may have treated some of the differences among microorganisms\nas indicative of the microorganisms being different species, whereas Bianchi and Morri treated those differences as variations\nwithin species, resulting in Coll and colleagues reporting many more species than Bianchi and Morri did.\n\nChoice A is incorrect because the text explicitly addresses this issue by stating that the description of new invertebrate species in\nthe years between the two studies can explain only part of the difference in the number of species reported by the studies. The\nfocus of the text is on explaining the difference between Coll and colleagues' count and Bianchi and Morri's count that cannot be\n accounted for by the inclusion of invertebrate species that had not been described at the time of Bianchi and Morri's study. Choice\nC is incorrect because nothing in the text suggests that Bianchi and Morri may have been less sensitive to how much the form and\nstructure of microorganisms vary within the same species than Coll and colleagues were. If Bianchi and Morri had been less\nsensitive to within-species variation than Coll and colleagues were, Bianchi and Morri would likely have reported more species\nthan Coll and colleagues did, since less sensitivity to within-species variation would lead researchers to classify as different\nspecies microorganisms that more sensitive researchers would classify as variations within the same species. The text indicates,\nhowever, that Bianchi and Morri reported far fewer species than Coll and colleagues did; since the text also excludes other\nexplanations for this difference, it suggests that in fact Bianchi and Morri were more sensitive to within-species variation than Coll\nand colleagues were, leading Bianchi and Morri to report fewer overall species. Choice D is incorrect because the text is focused\non explaining why Coll and colleagues reported many more species than Bianchi and Morri did, and an underestimate of the\nnumber of microorganism species by Coll and colleagues would not explain that difference—it would suggest, in fact, that the\ndifference in the number of species should have been even larger.",
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6b8a7c74",
@@ -1825,8 +2273,12 @@ const questionBank_II = [
       "D. gift givers likely perceive digital gift cards as requiring relatively low effort to obtain and thus wrongly assume gift recipients will appreciate them less than they do physical gift cards."
     ],
     "answer": "D",
-    "explanation": "Choice D is the best answer because it most logically completes the text's discussion of perceptions of digital versus physical gift\ncards. The text begins by explaining that the perception of \"the time spent obtaining a gift…as a reflection of the gift's\nthoughtfulness\" is a social norm of gift giving. The text then explains that although those who receive digital gift cards view them\nas easier to use than physical gift cards, a marketing study nonetheless showed that 94.8% of participants found physical gift\ncards more \"socially acceptable\" to give. The text specifically contrasts the ease with which digital gift cards \"can be purchased\nonline from anywhere\" with the fact that physical gift cards \"sometimes must be purchased in person\"—suggesting the greater\ndifficulty of obtaining physical cards. Given the text's initial premise that gift-giving norms equate the thoughtfulness of a gift with\nthe effort involved in acquiring that gift, it is reasonable to infer that people perceive digital gift cards as requiring less effort to\nobtain and thus assume recipients will appreciate them less, even though recipients actually prefer gift cards in the more usable\ndigital format.\n\nChoice A is incorrect. Although the text does discuss recipients' preference of digital versus physical gift cards and the relative\nease with which the two formats can be used, it doesn't consider the misconceptions that gift givers may have of these factors.\nMoreover, the text establishes that recipients regard digital gift cards as easier to use and therefore preferable to physical gift\ncards. Choice B is incorrect because the text doesn't consider whether recipients of gift cards feel a sense of ownership toward\nthem, nor does the text touch on the greater tangibility of physical versus digital gift cards. Instead, the text contrasts the two\n\fformats of gift cards in terms of their respective usability and the difficulty involved in acquiring them and discusses how those\nfactors influence people's perceptions of the two formats. Choice C is incorrect because it contradicts the text, which explains that\nrecipients regard digital gift cards as superior to physical ones because they are easier to use than physical cards, not because\nphysical gift cards require greater effort to obtain than digital gift cards do. Moreover, the text doesn't characterize the effort\nrequired to obtain physical gift cards as \"unnecessary.\"",
-    "strategy": "Inference Ceiling"
+    "explanation": "Choice D is the best answer because it most logically completes the text's discussion of perceptions of digital versus physical gift\ncards. The text begins by explaining that the perception of \"the time spent obtaining a gift…as a reflection of the gift's\nthoughtfulness\" is a social norm of gift giving. The text then explains that although those who receive digital gift cards view them\nas easier to use than physical gift cards, a marketing study nonetheless showed that 94.8% of participants found physical gift\ncards more \"socially acceptable\" to give. The text specifically contrasts the ease with which digital gift cards \"can be purchased\nonline from anywhere\" with the fact that physical gift cards \"sometimes must be purchased in person\"—suggesting the greater\ndifficulty of obtaining physical cards. Given the text's initial premise that gift-giving norms equate the thoughtfulness of a gift with\nthe effort involved in acquiring that gift, it is reasonable to infer that people perceive digital gift cards as requiring less effort to\nobtain and thus assume recipients will appreciate them less, even though recipients actually prefer gift cards in the more usable\ndigital format.\n\nChoice A is incorrect. Although the text does discuss recipients' preference of digital versus physical gift cards and the relative\nease with which the two formats can be used, it doesn't consider the misconceptions that gift givers may have of these factors.\nMoreover, the text establishes that recipients regard digital gift cards as easier to use and therefore preferable to physical gift\ncards. Choice B is incorrect because the text doesn't consider whether recipients of gift cards feel a sense of ownership toward\nthem, nor does the text touch on the greater tangibility of physical versus digital gift cards. Instead, the text contrasts the two\n formats of gift cards in terms of their respective usability and the difficulty involved in acquiring them and discusses how those\nfactors influence people's perceptions of the two formats. Choice C is incorrect because it contradicts the text, which explains that\nrecipients regard digital gift cards as superior to physical ones because they are easier to use than physical cards, not because\nphysical gift cards require greater effort to obtain than digital gift cards do. Moreover, the text doesn't characterize the effort\nrequired to obtain physical gift cards as \"unnecessary.\"",
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "ed314256",
@@ -1842,7 +2294,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text says that the production's use of its large, winding space has a very specific effect on the\naudience. Given that the space itself is so important to creating this effect, it would be difficult to reproduce the production in a\ndifferent space.\n\nChoice A is incorrect. The fact that the venue is in New York City isn't connected to the experimental nature of the performance.\nIt's the size of the venue, not its location in New York, that affects the theatrical experience. Choice B is incorrect. The text never\nsuggests that audience members are disappointed because they can't see the entire production. In fact, it suggests that that's an\nimportant part of the experience. Choice D is incorrect. The text doesn't mention a recommended itinerary for audience members.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "068f939b",
@@ -1857,8 +2313,12 @@ const questionBank_II = [
       "D. Although Plato's writings typically characterize representational art as an inferior reflection of the physical world, Aristotle suggests that mimesis can refer to art's capacity to envision hypothetical conditions that could, but don't yet, exist."
     ],
     "answer": "D",
-    "explanation": "Choice D is the best answer because it presents a statement that would support Halliwell's claim that \"imitation\" is an overly\nsimplified translation of the word \"mimesis\" in the context of ancient Greek philosophical discussions of representational art and\nthat, because it suggests a view of art as merely copying things that exist in reality, the translation obscures the fact that Plato,\nAristotle, and other ancient Greeks understood the relationship between art and reality in varied ways. If Plato's works tend to treat\nrepresentational art as an inferior or inadequate reflection of the physical world (consistent with the idea of mere imitation), while\nAristotle's works suggest that the term \"mimesis\" can refer to art's ability to show conditions that don't currently exist but could\nexist (going beyond imitation into novel creation), that evidence would support the claim that the term \"mimesis\" means more than\njust \"imitation\" and that ancient Greek philosophers held different views of the relationship between art and reality.\n\nChoice A is incorrect because information about the root word mimos first being used in drama and the root mim- coming to be\nassociated with music and poetry wouldn't indicate anything about the meaning of the specific term \"mimesis\" as it was used by\nancient Greek philosophers in discussions of representational art; thus, the information would have no bearing on Halliwell's claim\nthat a common translation of the specific term is an oversimplification. Choice B is incorrect because the issue of art's\npsychological effects on audiences gets at how people respond to works of art instead of how art itself is related to reality, so the\nidea that Plato and Aristotle both addressed such effects in their considerations of mimesis wouldn't have any bearing on\n\fHalliwell's claim that a common translation of that term oversimplifies the relationship between art and reality. Further, this idea\nwould touch on one general similarity in approaches to mimesis instead of illustrating the multifaceted, or varied, ways Halliwell\nclaims ancient Greek philosophers understood art's relation to reality. Choice C is incorrect because the idea that Plato discussed\naesthetics in his early works but didn't use the term \"mimesis\" until later doesn't give any indication of how Plato or any other\nancient Greek philosophers understood the relation between art and reality, so it would have no bearing on Halliwell's claim that a\ncommon translation of the term \"mimesis\" is oversimplified and fails to reflect the varied ways the philosophers understood that\nrelationship.",
-    "strategy": "Support Check"
+    "explanation": "Choice D is the best answer because it presents a statement that would support Halliwell's claim that \"imitation\" is an overly\nsimplified translation of the word \"mimesis\" in the context of ancient Greek philosophical discussions of representational art and\nthat, because it suggests a view of art as merely copying things that exist in reality, the translation obscures the fact that Plato,\nAristotle, and other ancient Greeks understood the relationship between art and reality in varied ways. If Plato's works tend to treat\nrepresentational art as an inferior or inadequate reflection of the physical world (consistent with the idea of mere imitation), while\nAristotle's works suggest that the term \"mimesis\" can refer to art's ability to show conditions that don't currently exist but could\nexist (going beyond imitation into novel creation), that evidence would support the claim that the term \"mimesis\" means more than\njust \"imitation\" and that ancient Greek philosophers held different views of the relationship between art and reality.\n\nChoice A is incorrect because information about the root word mimos first being used in drama and the root mim- coming to be\nassociated with music and poetry wouldn't indicate anything about the meaning of the specific term \"mimesis\" as it was used by\nancient Greek philosophers in discussions of representational art; thus, the information would have no bearing on Halliwell's claim\nthat a common translation of the specific term is an oversimplification. Choice B is incorrect because the issue of art's\npsychological effects on audiences gets at how people respond to works of art instead of how art itself is related to reality, so the\nidea that Plato and Aristotle both addressed such effects in their considerations of mimesis wouldn't have any bearing on\n Halliwell's claim that a common translation of that term oversimplifies the relationship between art and reality. Further, this idea\nwould touch on one general similarity in approaches to mimesis instead of illustrating the multifaceted, or varied, ways Halliwell\nclaims ancient Greek philosophers understood art's relation to reality. Choice C is incorrect because the idea that Plato discussed\naesthetics in his early works but didn't use the term \"mimesis\" until later doesn't give any indication of how Plato or any other\nancient Greek philosophers understood the relation between art and reality, so it would have no bearing on Halliwell's claim that a\ncommon translation of the term \"mimesis\" is oversimplified and fails to reflect the varied ways the philosophers understood that\nrelationship.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "ce4448b7",
@@ -1874,7 +2334,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. It most logically completes the text. The text tells us that disruptions to an enjoyable experience\nincrease viewers' enjoyment. It also says that researchers suspect the opposite is true for disruptions to an unpleasant\nexperience. Thus, we can infer that the researchers expect to find that the interrupted unpleasant experience was worse for\nlisteners than the uninterrupted unpleasant experience.\n\nChoice A is incorrect. It doesn't logically complete the text. The text never makes any claims about how irritating the disruptions\nthemselves are perceived to be. Rather, the text says that pleasant experiences are perceived as more enjoyable with interruptions,\nand that the opposite is suspected to be true of unpleasant experiences. Choice C is incorrect. It doesn't logically complete the\ntext. The text never makes any claims about how long any experience is perceived to be. Rather, the text says that pleasant\nexperiences are perceived as more enjoyable with interruptions, and that the opposite is suspected to be true of unpleasant\nexperiences. Choice D is incorrect. It doesn't logically complete the text. The text never makes any claims about how interruptions\naffect the perceived volume of the unpleasant or pleasant experience. Rather, the text says that pleasant experiences are\nperceived as more enjoyable with interruptions, and that the opposite is suspected to be true of unpleasant experiences.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "040583a5",
@@ -1891,7 +2355,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it most effectively uses data from the graph to complete the student's conclusion about\nbanana ripening time with and without ethylene at different temperatures. The graph shows that at 20°C, the gap between the two\nbars showing ripening times for ethylene-treated bananas and untreated bananas crosses fewer than 2 gridlines (from about 4\ndays for ethylene-treated bananas to about 5.5 days for untreated bananas). Meanwhile, the graph shows that at 14°C, 16°C, and\n18°C, the gap between the bars crosses more than 2 gridlines (from about 8 days for treated bananas to about 11 days for\nuntreated bananas at 14°C; from about 6 days for treated bananas to about 9.5 days for untreated bananas at 16°C; and from\nabout 5.5 days for treated bananas to about 8.5 days for untreated bananas at 18°C). Since the gap between the bars at each of\nthese temperatures crosses more than 2 gridlines, and since each of these gaps is larger than the gap between the bars at 20°C, it\ncan be concluded that ethylene was associated with a greater absolute change in ripening time at 14°C, 16°C, and 18°C than at\n20°C.\n\nChoice A is incorrect because the graph shows that ethylene-treated bananas stored at 20°C ripen more quickly than ethylene-\ntreated bananas stored at the other temperatures do (about 4 days at 20°C vs. about 5.5, 6, and 8 days at 18°C, 16°C, and 14°C,\nrespectively) and that untreated bananas stored at 20°C ripen more quickly than untreated bananas stored at the other\ntemperatures do (about 5.5 days at 20°C vs. about 8.5, 9.5, and 11 days at 18°C, 16°C, and 14°C, respectively). The information in\nthe graph therefore indicates that storing bananas at 20°C speeds up ripening time relative to storing bananas at the other\ntemperatures shown, not that this storage temperature slows ripening time. Choice B is incorrect because the graph shows that as\ntemperature increases, the ripening time of untreated bananas decreases, from about 11 days at 14°C to about 5.5 days at 20°C,\nwith no exceptions to this trend. The graph therefore shows that differences in temperature were associated with absolute\ndifferences in ripening time, not that there was no association between differences in temperature and differences in ripening\ntime. Choice C is incorrect because the graph shows that ripening times of ethylene-treated bananas at 14°C and 16°C were about\n8 and 6 days, respectively, which is greater than, not less than, ripening times of ethylene-treated bananas at 18°C and 20°C, which\nwere about 5.5 and 4 days, respectively. In other words, bananas treated with ethylene ripen more slowly, not faster, at 14°C and\n16°C than at 18°C and 20°C.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4b3d6062",
@@ -1907,7 +2375,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice D is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "58e9e497",
@@ -1923,7 +2395,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice A is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "1a2b29c9",
@@ -1939,7 +2415,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text describes a saying in the capital that Malsufrido keeps more secrets than an archbishop. It\nalso says that when he takes off his hat, \"the family secrets do not fly out… but remain nicely bottled up,\" suggesting that he will\nnot betray his confidences.\n\nChoice A is incorrect. This choice doesn't reflect the text. While his hat is large and appears to have been brushed in the wrong\ndirection, Dr. Malsufrido does not seem to be regarded as ill-dressed or disheveled. Choice C is incorrect. This choice is the\nopposite of what the text says. The secrets of families (his and others') remain \"bottled up\" in his head. Choice D is incorrect. This\nchoice isn't supported by the text. His professional expertise is not discussed in the passage.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "04cbeca3",
@@ -1955,7 +2435,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The fact that Henry VIII commissioned a survey of church holdings just before enacting the\nDissolution of the Monasteries suggests that he was interested in the potential profits from claiming their assets. This supports\nthe historians' assertion.\n\nChoice A is incorrect. This choice describes a potential effect of the Dissolution of the Monasteries. The decrease in the\nproportion of monks in England isn't relevant to the question of Henry VIII's motivations. Choice B is incorrect. Details about how\nthe monks were treated during the dissolution don't address Henry VIII's motivations for enacting the policy in the first place. That\nthe monks could keep the content of their cells (their rooms) and sell off the timber they'd harvested has no impact on the value of\nthe monasteries' estates—their land holdings. Choice D is incorrect. This choice mentions one impact that the Dissolution of the\nMonasteries contributed to, two years after it happened. But it doesn't help explain why Henry VIII might have wanted to enact the\npolicy in the first place.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2fdfe002",
@@ -1971,7 +2455,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text metaphorically likens humans to animals in a zoo, suggesting that humans have dreams that\nthey cannot fulfill because they are trapped.\n\nChoice A is incorrect. The speaker says that the lion has an \"untamed heart,\" but the speaker doesn't actually mention anything\nabout humans taming wild animals or a lack of compassion. Choice B is incorrect. The speaker doesn't suggest that humans lack\nmotivation. Rather, the speaker thinks that humans are \"trapped\" and prevented from achieving their dreams. Choice C is incorrect.\nThe speaker doesn't mention anything about humans becoming frustrated or lacking self-control. Rather, the speaker thinks that\nhumans are \"trapped\" and prevented from achieving their dreams.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c83e0b43",
@@ -1987,7 +2475,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it most effectively uses a quotation from O Pioneers! to illustrate the claim that Alexandra\nBergson takes comfort in understanding the world around her. In the quotation, Alexandra is described as enjoying looking at the\nstars and feeling a \"sense of personal security\" when she contemplates nature's order and its governing laws. This suggests that\nAlexandra takes comfort in understanding the world around her.\n\nChoice A is incorrect because the quotation expresses how Alexandra Bergson attempts to meet difficult situations with\ndetermination, not how she takes comfort in understanding the world around her. Choice B is incorrect because the quotation\nexpresses \"how much the country meant to\" Alexandra Bergson, not how she takes comfort in understanding the world around\nher. In detailing some of the wildlife surrounding Alexandra, the quotation conveys that nature is important to her but not\nnecessarily that it gives her comfort. Choice C is incorrect because the quotation describes Alexandra driving her wagon down a\nhighway at night; it doesn't describe how she takes comfort in understanding the world around her or address how she's feeling as\nshe drives off.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "dd1757fd",
@@ -2003,7 +2495,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. While many networks can perform navigation tasks, or even mimic grid cells, it doesn't mean they're\nactually behaving like biological brains—this finding suggests that the rules that govern neural network behavior are completely\nunlike the way real brains work.\n\nChoice B is incorrect. Although it mentions the rules that are programmed into the networks, this finding wouldn't clarify whether\nor not these rules have anything to do with the function of biological brains. Choice C is incorrect. This choice suggests that neural\nnetworks are modeled after multiple types of brain cells, which sidesteps the question of whether these rule-based networks are\ngenuinely similar to biological brains. Choice D is incorrect. This choice doesn't address the key point of the claim, which is that\nthe apparent similarity between neural networks and biological brains is only due to the rules programmed into the networks. It\nfocuses on training tasks, not the originally programmed rules.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e185a21f",
@@ -2019,7 +2515,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it most logically completes the text's discussion of the evolution of bipedalism in humans.\nAccording to the text, one potential explanation for humans walking upright on two legs is that the behavior evolved from an\nancestor that mostly stayed on the ground and walked on four limbs, as modern chimpanzees and gorillas do. However, the\nfinding that orangutans, also a relative of humans, sometimes stand on two legs in trees while using their arms to balance and\nreach for fruits suggests another possible explanation: perhaps a tree-dwelling ancestor of humans began moving on two legs\nbecause it offered an advantage, such as access to certain foods.\n\nChoice B is incorrect because the finding that modern orangutans (a relative of humans) sometimes stand on two legs in trees\ndoesn't offer any insight into when either bipedalism or tree-climbing behavior emerged in human ancestors. Additionally, the text\nindicates that one theory is that bipedalism evolved from a mostly ground-based ancestor that was already practicing knuckle-\nwalking, not that bipedalism and knuckle-walking developed at the same time. Choice C is incorrect because the finding that\norangutans (a relative of humans) sometimes stand on two legs in trees doesn't offer any insight into how difficult it would've been\nto move between the ground and the trees without bipedalism; there's no suggestion that climbing or moving in trees depends on\nthe ability to walk on two legs rather than four, even if that ability might be helpful in certain circumstances. Choice D is incorrect\nbecause the finding that orangutans (a relative of humans) sometimes stand on two legs in trees doesn't suggest that a knuckle-\nwalking human ancestor could've easily moved on two legs in trees. Although the text indicates that bipedalism may have evolved\nfrom a human ancestor that mostly stayed on the ground and walked on four limbs, it gives no indication of how easy it would've\nbeen for such an ancestor to move bipedally in trees.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "09f9edb0",
@@ -2035,7 +2535,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. Zheng's claim is that the idea of world music \"homogenizes\" (meaning makes similar) distinct kinds\nof music by reducing them to one category. In other words, Zheng thinks the concept of world music is a harmful\noversimplification of diverse musical forms. To support this claim, we need evidence that these musical traditions are so different\nfrom one another that they should not fall into the same category. If it's true that mbaqanga and quan họ developed separately and\nhave little in common musically, then it wouldn't make sense to lump them into the same category.\n\nChoice B is incorrect. If true, this wouldn't affect the claim. To support the claim, we need evidence that these musical traditions\nare so different from one another that they should not fall into the same category. A difference in popularity doesn't necessarily\nmean that the two musical traditions shouldn't be categorized together: instead, we need to know if the music itself is similar or\ndifferent. Choice C is incorrect. If true, this wouldn't affect the claim. To support the claim, we need evidence that these musical\ntraditions are so different from each other that they should not fall into the same category. This choice doesn't do that. Choice D is\nincorrect. If true, this would actually weaken the claim. Zheng thinks it's reductive or oversimplifying to put distinct musical\ntraditions into a single category. But if mbaqanga and quan họ are similar to each other, then it would make sense to put them in\nthe same category.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f9bd4e61",
@@ -2051,7 +2555,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. Churchill's play was influenced by Brecht's belief that theater should elicit an intellectual rather than\nan emotional response from audiences, making them think about social and political issues that also exist outside of the play.\nTherefore, it makes sense that Churchill would strive to have audiences think dispassionately (i.e., without emotion) and critically\nabout the social and political questions raised by the play.\n\nChoice A is incorrect. The passage mentions that Churchill was influenced by Brecht's belief that plays should provoke audience\nmembers \"to consider social and political realities that extend beyond the characters and events depicted onstage,\" so there's no\nbasis for an inference about audience members deeply engaging with characters' beliefs and actions. Choice B is incorrect.\nReflecting on things that aren't related to patriarchy and colonialism wouldn't \"engage audiences in an interrogation of patriarchy\nand colonialism.\" That creates a confusing contradiction. Choice C is incorrect. No mention is made of social and political issues\nin Germany during Brecht's time, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "96802cc0",
@@ -2067,7 +2575,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text says that the cerebellum has long been thought to regulate motor functioning, but new\nresearch shows that it may also have other functions—including regulating emotion and social behavior and some connection to\nmotivation and rewards processing.\n\nChoice A is incorrect. The VTA is described as \"a center for motivation and reward processing,\" and the discovery of the pathway\nbetween the VTA and the cerebellum supports the theory that the cerebellum is involved in functions other than motor\ncoordination. Choice B is incorrect. The text says that recent research has identified this pathway, but it doesn't discuss any\nprevious \"widely accepted claims\" about the pathway's function. The \"widespread acknowledgement\" mentioned early in the\npassage is about the cerebellum alone, not its connection to the VTA. Choice D is incorrect. The text never discusses any\ntechnological limitations or any new technologies.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "35b46381",
@@ -2082,8 +2594,12 @@ const questionBank_II = [
       "D. Before 2023, researchers' inordinate focus on theoretical considerations hindered the development of the experimental regimen for direct antihydrogen ballistics observations."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer because it most accurately states the main idea of the text. The text begins by acknowledging that in\n2022, Dimopoulos et al. were justified in arguing for antigravity on theoretical grounds because although there was no\nexperimental evidence supporting its existence at that time, there was no evidence contradicting its existence either. The text then\nintroduces the 2023 report describing an experiment that produced observations \"thoroughly inconsistent with antigravity.\" Thus,\nthe main idea is that while the study of antigravity was theoretically justified before the 2023 report (due to lack of evidence\nagainst it), the report's findings undermine the rationale for such theoretical consideration since there is now evidence against this\nhypothetical phenomenon.\n\nChoice A is incorrect. Although antihydrogen ballistics observations were conducted at CERN, the text provides no evidence that\nthey were conducted to test conclusions in Dimopoulos et al.'s 2022 paper. Rather, the text presents the 2023 report as new\nevidence that contradicts the existence of the hypothetical phenomenon that Dimopoulos et al. had considered. Choice C is\nincorrect because the text doesn't suggest that Dimopoulos et al. assumed that unambiguous proof of antigravity would be\nunattainable. Rather, the text states that they argued antigravity was worth considering theoretically because evidence against it\nwas lacking at that time. At the same time, the results in the 2023 report do not undermine but strengthen the idea that the proof\nof antigravity might not be achievable. Choice D is incorrect because the text doesn't suggest that there was an \"inordinate focus\non theoretical considerations\" before 2023 or that such a focus hindered the development of experimental methods. In fact, the\n\ftext describes Dimopoulos et al.'s position regarding the theoretical consideration of antigravity as \"rightly argued,\" indicating\napproval of their approach given the absence of experimental evidence at that time.",
-    "strategy": "Main Idea Drill"
+    "explanation": "Choice B is the best answer because it most accurately states the main idea of the text. The text begins by acknowledging that in\n2022, Dimopoulos et al. were justified in arguing for antigravity on theoretical grounds because although there was no\nexperimental evidence supporting its existence at that time, there was no evidence contradicting its existence either. The text then\nintroduces the 2023 report describing an experiment that produced observations \"thoroughly inconsistent with antigravity.\" Thus,\nthe main idea is that while the study of antigravity was theoretically justified before the 2023 report (due to lack of evidence\nagainst it), the report's findings undermine the rationale for such theoretical consideration since there is now evidence against this\nhypothetical phenomenon.\n\nChoice A is incorrect. Although antihydrogen ballistics observations were conducted at CERN, the text provides no evidence that\nthey were conducted to test conclusions in Dimopoulos et al.'s 2022 paper. Rather, the text presents the 2023 report as new\nevidence that contradicts the existence of the hypothetical phenomenon that Dimopoulos et al. had considered. Choice C is\nincorrect because the text doesn't suggest that Dimopoulos et al. assumed that unambiguous proof of antigravity would be\nunattainable. Rather, the text states that they argued antigravity was worth considering theoretically because evidence against it\nwas lacking at that time. At the same time, the results in the 2023 report do not undermine but strengthen the idea that the proof\nof antigravity might not be achievable. Choice D is incorrect because the text doesn't suggest that there was an \"inordinate focus\non theoretical considerations\" before 2023 or that such a focus hindered the development of experimental methods. In fact, the\n text describes Dimopoulos et al.'s position regarding the theoretical consideration of antigravity as \"rightly argued,\" indicating\napproval of their approach given the absence of experimental evidence at that time.",
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4ba0695d",
@@ -2098,8 +2614,12 @@ const questionBank_II = [
       "D. if they were subjected to genetic testing, modern populations of guanacos and vicuñas would likely show traces of ancient interbreeding as well."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it presents the inference that most logically follows from the text's discussion of the genetic\nmaterial of alpacas. The text states that modern alpacas get only 64 percent of their genetic material from their wild ancestor (the\nvicuña), while llamas get 95.5 percent of their genetic material from their wild ancestor (the guanaco). These data imply that\nrelative to llamas, alpacas have experienced a much greater genetic shift away from their wild ancestors (36 percent of their\ngenetic material derives from another source, compared to 4.5 percent of llamas' genetic material). Moreover, the text establishes\nthat the remainder of alpacas' genetic material derives from llamas, and the remainder of llamas' genetic material derives from\nalpacas, reflecting a period of interbreeding. Taken together, these details support the inference that the period of interbreeding\nhad a more significant impact on the genetic material of alpacas than on that of llamas, thereby reducing the percentage of\nalpacas' genetic material that derives from wild ancestors and placing alpacas at a greater remove from these ancestors.\n\nChoice A is incorrect because the text doesn't provide information about genetic diversity within modern llama and alpaca\npopulations. While the text discusses the percentage of genetic material each domesticated species inherited from its wild\nancestor and from interbreeding, it does not address the level of genetic variation within each species. Therefore, it isn't logical to\ninfer that modern llama populations have a greater degree of genetic diversity than modern alpaca populations do. Choice B is\nincorrect because it contradicts the chronology presented in the text. The text states that alpacas were domesticated about 7,000\nyears ago, but the interbreeding with llamas occurred \"between 400 and 600 years ago.\" The genetic mixing happened thousands\nof years after domestication, not during it; in addition, the text does not provide details about what the process of domestication\nmight entail. Therefore, it isn't logical to infer that llama genetic material was introduced during the domestication process of\n\falpacas. Choice D is incorrect because though the text notes that guanacos and vicuñas contributed to the genetic material of\nalpacas and llamas, it only discusses alpacas' and llamas' genetic composition. Therefore, the text does not support the inference\nthat modern populations of guanacos and vicuñas would likely show traces of ancient interbreeding.",
-    "strategy": "Inference Ceiling"
+    "explanation": "Choice C is the best answer because it presents the inference that most logically follows from the text's discussion of the genetic\nmaterial of alpacas. The text states that modern alpacas get only 64 percent of their genetic material from their wild ancestor (the\nvicuña), while llamas get 95.5 percent of their genetic material from their wild ancestor (the guanaco). These data imply that\nrelative to llamas, alpacas have experienced a much greater genetic shift away from their wild ancestors (36 percent of their\ngenetic material derives from another source, compared to 4.5 percent of llamas' genetic material). Moreover, the text establishes\nthat the remainder of alpacas' genetic material derives from llamas, and the remainder of llamas' genetic material derives from\nalpacas, reflecting a period of interbreeding. Taken together, these details support the inference that the period of interbreeding\nhad a more significant impact on the genetic material of alpacas than on that of llamas, thereby reducing the percentage of\nalpacas' genetic material that derives from wild ancestors and placing alpacas at a greater remove from these ancestors.\n\nChoice A is incorrect because the text doesn't provide information about genetic diversity within modern llama and alpaca\npopulations. While the text discusses the percentage of genetic material each domesticated species inherited from its wild\nancestor and from interbreeding, it does not address the level of genetic variation within each species. Therefore, it isn't logical to\ninfer that modern llama populations have a greater degree of genetic diversity than modern alpaca populations do. Choice B is\nincorrect because it contradicts the chronology presented in the text. The text states that alpacas were domesticated about 7,000\nyears ago, but the interbreeding with llamas occurred \"between 400 and 600 years ago.\" The genetic mixing happened thousands\nof years after domestication, not during it; in addition, the text does not provide details about what the process of domestication\nmight entail. Therefore, it isn't logical to infer that llama genetic material was introduced during the domestication process of\n alpacas. Choice D is incorrect because though the text notes that guanacos and vicuñas contributed to the genetic material of\nalpacas and llamas, it only discusses alpacas' and llamas' genetic composition. Therefore, the text does not support the inference\nthat modern populations of guanacos and vicuñas would likely show traces of ancient interbreeding.",
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "aaddd60f",
@@ -2115,7 +2635,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. Cooling magma would create basalt, but \"a planetary surface that formed in a mostly basaltic\nenvironment would be unlikely to contain large amounts of silica.\" Since Mars's crust does contain large amounts of silica, it is\nunlikely that Mars's crust was formed exclusively by cooling magma. Therefore, there were likely other major geological events\nthat created the high silica concentrations.\n\nChoice A is incorrect. Although the passage discusses these two methods of collecting data about Mars's crust, it never compares\ntheir reliability, so there's no basis for this inference. Choice B is incorrect. The passage never mentions anything about the crusts\nof other planets, so there's no basis for this inference. Choice C is incorrect. The passage never mentions Earth's crust, so there's\nno basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "39e440e4",
@@ -2131,7 +2655,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. This finding, if true, would support the archaeologists' conclusion. Dense central settlements linked to\nsmaller ones would provide evidence of cities and suburbs—in other words, \"a form of urbanism.\"\n\nChoice A is incorrect. This finding, if true, would weaken the archaeologists' conclusion. Widely separated, small settlements with\njungle in between would support the long-held belief that the Casarabe culture \"was characterized by a sparse, widely distributed\npopulation and little intervention in the surrounding wilderness.\" Choice B is incorrect. This choice wouldn't support the\nresearchers' conclusion. These large cities are located outside Casarabe territory, which doesn't show evidence of Casarabe\nurbanism. Choice C is incorrect. This finding wouldn't support the archaeologists' conclusion. Scattered small farms in jungle\nclearings are not good evidence to support the existence of cities (\"a form of urbanism\").",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d0fbf1ae",
@@ -2147,7 +2675,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The text says that corals produce bright colors to block sunlight and encourage algae to recolonize\nafter \"an environmental stressor.\" From this, we can infer that corals that produce bright colors have probably been subjected to an\nenvironmental stressor.\n\nChoice B is incorrect. The text says that corals produce bright colors to block intense sunlight, which protects the light-sensitive\nalgae that keep the coral healthy. In other words, bright colors make the coral's health less vulnerable to intense sunlight. Choice C\nis incorrect. The text says that corals produce bright colors to encourage algae to recolonize, not that they have recovered without\nthe assistance of algae colonies. Choice D is incorrect. The text never compares the likelihood of differently colored corals\nsurviving without algae colonies.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "08395130",
@@ -2163,7 +2695,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. The HST will operate until at least 2030, but it's only observing stuff inside our solar system 6% of the\ntime. If we could get a different telescope to observe stuff inside our solar system 100% of the time and take more extensive\nimages of certain things, then the HST could continue to be used mainly for observing stuff outside the solar system.\n\nChoice B is incorrect. This inference is too strong to be supported by the text. Even if the new telescope is deployed, the HST might\nstill be used as it's being used now. Based on the text, the new telescope would just be used for more extensive and long-term\nimaging of solar system bodies, which doesn't necessarily overlap with the HST. Choice C is incorrect. This inference isn't\nsupported. The text never mentions the possibility of modifying the HST, so there is no basis to make this inference. Rather, the\nresearchers suggest using a different telescope to more closely observe certain objects. Choice D is incorrect. This inference is\ntoo strong to be supported. The text doesn't give us enough info to assume that the HST lacks any particular sensors.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "14189fbb",
@@ -2179,7 +2715,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text describes how Miranda circulated, edited, and added footnotes to \"Letter to the Spanish\nAmericans,\" and it claims that the letter and its author would have \"remained insignificant\" if it weren't for Miranda's efforts.\n\nChoice A is incorrect. The text only says that Viscardo wrote the letter and that Miranda edited it: it never suggests that the original\nauthorship of the letter is up for debate. Choice B is incorrect. This contradicts the text. The text says that Miranda edited and\nfootnoted the letter, but it identifies Viscardo as the letter's author. It also never identifies certain arguments as more eloquent than\nothers. Choice D is incorrect. This is outside the scope of the text. The paragraph describes Miranda's role in the creation and\ndistribution of the letter, but it doesn't get into the effects of the letter on other people.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "156ff681",
@@ -2195,7 +2735,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. This would weaken the explanation. If the recipients of electronic money immediately withdrew it all\nas physical money, then both kinds of recipients ended up spending physical money on food. So there must be some other\nexplanation why those who initially received electronic money ate different kinds of food.\n\nChoice A is incorrect. This wouldn't weaken the explanation. If anything, it actually supports it: it demonstrates that recipients of\nelectronic money and recipients of physical money have different spending habits. Choice C is incorrect. This wouldn't weaken the\nexplanation. The explanation we're testing this choice against is about the way that people might \"conceive of and allocate\"\nphysical and electronic funds differently. This choice only focuses on the timing, not what they spend the money on. Choice D is\nincorrect. This would have no impact on the explanation. It doesn't tell us anything about possible differences between the\nspending habits of those who spend physical money and those who spend money electronically.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e946a32e",
@@ -2211,7 +2755,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it presents the quotation that best supports the student's claim about Braschi. By describing\nhow Braschi's blending of genres invites her audience to think about how other art forms could also engage with literature, the\nquotation supports the idea that the diversity of responses to Braschi's work reflects Braschi's own approach to creating literature.\n\nChoice A is incorrect because the quotation describes scholars from different countries writing essays about Braschi's use of\nlanguage in her writings; it doesn't address how Braschi's creation of cross-genre literature inspires diverse types of responses,\nwhich is the claim the student makes. Choice C is incorrect because the quotation focuses on the fact that Braschi studied in\nseveral different cities, which doesn't address the student's claim that Braschi's creation of cross-genre literature inspires diverse\ntypes of responses. Choice D is incorrect because the quotation lists some of the authors who Braschi has written academic\nworks about, which is irrelevant to the student's claim that Braschi's creation of cross-genre literature inspires diverse types of\nresponses.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "dc87adf4",
@@ -2227,7 +2775,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. In this quotation, Dr. Proudie is described as \"fondly flatter[ing] himself\" that he has gifts that \"must be\nsure to recommend him to a yet higher notice.\" In other words, he expects his skills to push him to greater fame and success. This\nimplies an exaggerated sense of his own abilities, which matches the claim we're trying to support.\n\nChoice A is incorrect. This quotation doesn't describe Proudie's view of himself, nor does it paint him in an especially flattering\nlight. Instead, by saying his mental powers and business skill are not \"proved,\" it implies that he is actually dim-witted and bad at\nbusiness. Choice C is incorrect. This choice describes Proudie's closeness to power and importance, but it doesn't show what\nProudie thinks of himself. Proudie is not describing himself or his abilities here. The narrator is. Choice D is incorrect. While this\nquotation offers Proudie very mild praise, it doesn't show what Proudie thinks of himself or his own abilities, which is what the\nclaim focuses on.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "df91532e",
@@ -2242,8 +2794,12 @@ const questionBank_II = [
       "D. As they complete secondary and higher education, former students of the school experience no loss of fluency or cultural pride."
     ],
     "answer": "D",
-    "explanation": "Choice D is the best answer because it presents a finding that, if true, would support the researchers' prediction about the\nlanguage nest model of education. The text states that Morcom and Roy studied the effects of the language nest model of\neducation on students at an Anishinaabe school, and they found that the model—which is used with students during pre-K or\nelementary school—increased students' fluency in the Anishinaabe language and pride in Anishinaabe culture. The researchers\npredicted that the students' positive early experiences with the Anishinaabe language would lead them to be more likely to later\nshare the language with younger generations. If former students maintain full fluency and cultural pride after finishing secondary\nand higher education, it follows that they would be both able and motivated to share what they know with others; this would likely\nresult in a higher probability of transmitting the language to younger generations, as the researchers predict.\n\nChoice A is incorrect because finding that Anishinaabe adults who didn't attend the school feel approximately the same degree of\ncultural pride as those adults who did attend wouldn't support the researchers' prediction that former students will be more likely\nto share their knowledge with younger generations. This finding would identify a similarity between the groups rather than a factor\nthat might make former students more likely than other adults to transmit the language to younger people. Choice B is incorrect\nbecause finding that new students experience increased performance in language fluency and academics would suggest that the\nschool has a positive effect on students when they attended but wouldn't reveal anything about those students' later actions as\nadults (such as their likelihood of sharing their knowledge with younger generations). Choice C is incorrect because finding that\nAnishinaabe adults who attended the school are equally likely to stay in the community as adults who didn't attend the school\n\fwouldn't support the researchers' prediction that former students will be more likely to share their knowledge with younger\ngenerations. This finding would identify a similarity between the groups rather than a factor that might make former students more\nlikely than other adults to transmit the language to younger people.",
-    "strategy": "Support Check"
+    "explanation": "Choice D is the best answer because it presents a finding that, if true, would support the researchers' prediction about the\nlanguage nest model of education. The text states that Morcom and Roy studied the effects of the language nest model of\neducation on students at an Anishinaabe school, and they found that the model—which is used with students during pre-K or\nelementary school—increased students' fluency in the Anishinaabe language and pride in Anishinaabe culture. The researchers\npredicted that the students' positive early experiences with the Anishinaabe language would lead them to be more likely to later\nshare the language with younger generations. If former students maintain full fluency and cultural pride after finishing secondary\nand higher education, it follows that they would be both able and motivated to share what they know with others; this would likely\nresult in a higher probability of transmitting the language to younger generations, as the researchers predict.\n\nChoice A is incorrect because finding that Anishinaabe adults who didn't attend the school feel approximately the same degree of\ncultural pride as those adults who did attend wouldn't support the researchers' prediction that former students will be more likely\nto share their knowledge with younger generations. This finding would identify a similarity between the groups rather than a factor\nthat might make former students more likely than other adults to transmit the language to younger people. Choice B is incorrect\nbecause finding that new students experience increased performance in language fluency and academics would suggest that the\nschool has a positive effect on students when they attended but wouldn't reveal anything about those students' later actions as\nadults (such as their likelihood of sharing their knowledge with younger generations). Choice C is incorrect because finding that\nAnishinaabe adults who attended the school are equally likely to stay in the community as adults who didn't attend the school\n wouldn't support the researchers' prediction that former students will be more likely to share their knowledge with younger\ngenerations. This finding would identify a similarity between the groups rather than a factor that might make former students more\nlikely than other adults to transmit the language to younger people.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "44da37eb",
@@ -2258,8 +2814,12 @@ const questionBank_II = [
       "D. Exposure to C. granosus venom also inhibits the growth of nonpathogenic bacteria species common in the native environment of C. granosus."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer because it presents a finding that, if true, would most directly support Dumas Gálvez and colleagues'\nconclusion that the venom produced by the scorpion species Centruroides granosus helps mitigate, or reduce, risk during feeding\nin addition to enhancing predation success. According to the text, Gálvez and colleagues found that the venom used by C.\ngranosus both subdues prey and inhibits the growth of Escherichia coli, a pathogen that, if ingested by C. granosus, would\npresumably cause disease unless neutralized in some way. If it were true that E. coli is commonly found in species preyed on by C.\ngranosus and, moreover, can withstand C. granosus's digestive juices after ingestion, this would suggest that C. granosus likely\nrelies on another mechanism to neutralize E. coli to make E. coli-infected prey safe for consumption by the scorpion species.\nGiven that, as the text states, C. granosus's venom was found to inhibit the pathogen's growth, it therefore follows that the venom\nprovides protection for C. granosus against E. coli that its digestive system wouldn't otherwise provide, making it reasonable to\nconclude that the trait may have spread through the species because it mitigates risk during feeding.\n\nChoice A is incorrect because a finding that E. coli doesn't appear to be virulent, or dangerous, for C. granosus even when venom\nisn't used would weaken rather than strengthen Gálvez and colleagues' conclusion that a particular form of venom production\nspread in C. granosus in part because it helps reduce risk during feeing, since this finding would suggest that E. coli isn't actually a\nrisk to C. granosus when consuming prey. Choice C is incorrect because a finding that C. granosus can detect and avoid\nconsuming E. coli-infected prey in the first place would suggest that an ability other than venom production is the primary factor\nthat reduces C. granosus's risk when feeding, which would suggest there has been less evolutionary pressure to develop venom\nthat provides protection; thus, this finding wouldn't clearly support the conclusion that C. granosus's form of venom production\n\fspread in the species in part because it helps reduce risk during feeding. Choice D is incorrect because Gálvez and colleagues'\nconclusion focuses on C. granosus venom in relation to the risk of E. coli, and a finding that the venom also inhibits\nnonpathogenic (not disease-causing) bacteria species, which presumably don't pose a risk if consumed, wouldn't be relevant to\nthe conclusion that C. granosus's particular form of venom production spread in the species in part because it helps reduce risk\nduring feeding.",
-    "strategy": "Support Check"
+    "explanation": "Choice B is the best answer because it presents a finding that, if true, would most directly support Dumas Gálvez and colleagues'\nconclusion that the venom produced by the scorpion species Centruroides granosus helps mitigate, or reduce, risk during feeding\nin addition to enhancing predation success. According to the text, Gálvez and colleagues found that the venom used by C.\ngranosus both subdues prey and inhibits the growth of Escherichia coli, a pathogen that, if ingested by C. granosus, would\npresumably cause disease unless neutralized in some way. If it were true that E. coli is commonly found in species preyed on by C.\ngranosus and, moreover, can withstand C. granosus's digestive juices after ingestion, this would suggest that C. granosus likely\nrelies on another mechanism to neutralize E. coli to make E. coli-infected prey safe for consumption by the scorpion species.\nGiven that, as the text states, C. granosus's venom was found to inhibit the pathogen's growth, it therefore follows that the venom\nprovides protection for C. granosus against E. coli that its digestive system wouldn't otherwise provide, making it reasonable to\nconclude that the trait may have spread through the species because it mitigates risk during feeding.\n\nChoice A is incorrect because a finding that E. coli doesn't appear to be virulent, or dangerous, for C. granosus even when venom\nisn't used would weaken rather than strengthen Gálvez and colleagues' conclusion that a particular form of venom production\nspread in C. granosus in part because it helps reduce risk during feeing, since this finding would suggest that E. coli isn't actually a\nrisk to C. granosus when consuming prey. Choice C is incorrect because a finding that C. granosus can detect and avoid\nconsuming E. coli-infected prey in the first place would suggest that an ability other than venom production is the primary factor\nthat reduces C. granosus's risk when feeding, which would suggest there has been less evolutionary pressure to develop venom\nthat provides protection; thus, this finding wouldn't clearly support the conclusion that C. granosus's form of venom production\n spread in the species in part because it helps reduce risk during feeding. Choice D is incorrect because Gálvez and colleagues'\nconclusion focuses on C. granosus venom in relation to the risk of E. coli, and a finding that the venom also inhibits\nnonpathogenic (not disease-causing) bacteria species, which presumably don't pose a risk if consumed, wouldn't be relevant to\nthe conclusion that C. granosus's particular form of venom production spread in the species in part because it helps reduce risk\nduring feeding.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "626a1308",
@@ -2275,8 +2835,12 @@ const questionBank_II = [
       "D. 2003 using LWS at the W.M. Keck Observatory."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it effectively completes the text's discussion of Moses and colleagues' analysis of changes\nin Neptune's temperature by using data from the table to identify the source of the earliest example of spectroscopy data included\nin this analysis. The text indicates that Moses and colleagues analyzed infrared imaging and spectroscopy data about Neptune\nobtained in different years by various instruments. The table lists the observatories where these instruments are housed, the type\nof data each instrument collected (infrared imaging or spectroscopy), and the years in which the instruments' observations were\nmade. According to the table, only two of these instruments obtained spectroscopy data: VISIR at the European Southern\nObservatory, which made its observations in 2006, and TEXES at the Gemini Observatory, which made its observations in later\n\fyears (2007 and 2019). Although two other instruments are also included in the table, they obtained infrared imaging data, not\nspectroscopy data. Therefore, the earliest example of spectroscopy data included in the researchers' analysis is the data obtained\nby VISIR at the European Southern Observatory in 2006.\n\nChoice A is incorrect. Although the table indicates that TEXES at the Gemini Observatory collected spectroscopy data in 2007 and\n2019, the table also indicates that this type of data was collected in 2006 by VISIR at the European Southern Observatory. Because\nthe VISIR data were collected in the previous year, the data obtained in 2007 by TEXES are not the earliest example of\nspectroscopy data included in Moses and team's analysis of Neptune's temperature. Choice B is incorrect because the table\nindicates that T-ReCS at the Gemini Observatory collected infrared imaging data, not spectroscopy data. T-ReCS therefore cannot\nbe the source of the earliest example of spectroscopy data that is included in Moses and colleagues' analysis of Neptune's\ntemperature. Additionally, the T-ReCS data were collected in 2007, meaning that these data were obtained later than any type of\ndata collected in 2006. Choice D is incorrect. Although the table indicates that data from LWS at the W.M. Keck Observatory were\nobtained in 2003, making these data the earliest example of any type of data included in the analysis, the table also indicates that\nLWS collected infrared imaging data, not spectroscopy data. LWS therefore cannot be the source of the earliest example of\nspectroscopy data included in Moses and team's analysis of Neptune's temperature.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice C is the best answer because it effectively completes the text's discussion of Moses and colleagues' analysis of changes\nin Neptune's temperature by using data from the table to identify the source of the earliest example of spectroscopy data included\nin this analysis. The text indicates that Moses and colleagues analyzed infrared imaging and spectroscopy data about Neptune\nobtained in different years by various instruments. The table lists the observatories where these instruments are housed, the type\nof data each instrument collected (infrared imaging or spectroscopy), and the years in which the instruments' observations were\nmade. According to the table, only two of these instruments obtained spectroscopy data: VISIR at the European Southern\nObservatory, which made its observations in 2006, and TEXES at the Gemini Observatory, which made its observations in later\n years (2007 and 2019). Although two other instruments are also included in the table, they obtained infrared imaging data, not\nspectroscopy data. Therefore, the earliest example of spectroscopy data included in the researchers' analysis is the data obtained\nby VISIR at the European Southern Observatory in 2006.\n\nChoice A is incorrect. Although the table indicates that TEXES at the Gemini Observatory collected spectroscopy data in 2007 and\n2019, the table also indicates that this type of data was collected in 2006 by VISIR at the European Southern Observatory. Because\nthe VISIR data were collected in the previous year, the data obtained in 2007 by TEXES are not the earliest example of\nspectroscopy data included in Moses and team's analysis of Neptune's temperature. Choice B is incorrect because the table\nindicates that T-ReCS at the Gemini Observatory collected infrared imaging data, not spectroscopy data. T-ReCS therefore cannot\nbe the source of the earliest example of spectroscopy data that is included in Moses and colleagues' analysis of Neptune's\ntemperature. Additionally, the T-ReCS data were collected in 2007, meaning that these data were obtained later than any type of\ndata collected in 2006. Choice D is incorrect. Although the table indicates that data from LWS at the W.M. Keck Observatory were\nobtained in 2003, making these data the earliest example of any type of data included in the analysis, the table also indicates that\nLWS collected infrared imaging data, not spectroscopy data. LWS therefore cannot be the source of the earliest example of\nspectroscopy data included in Moses and team's analysis of Neptune's temperature.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a44bbd6b",
@@ -2292,7 +2856,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. This finding would support the conclusion. If stream banks are collapsing into the water at multiple\npoints, then sediment is getting into the water at those various points. This supports the conclusion that the inflow of sediment is\nvery spread out.\n\nChoice B is incorrect. This finding wouldn't support the conclusion. The conclusion is about the influx of sediment being \"spatially\ndiffuse,\" meaning spread out over a large area. The type of sediment wouldn't have an impact on the conclusions. Choice C is\nincorrect. This finding wouldn't support the conclusion. It doesn't say anything about the influx of sediment being \"spatially\ndiffuse\" (spread out). Choice D is incorrect. This finding wouldn't support the conclusion. Any sediment that enters downstream of\nthe sampling sites wouldn't end up in the samples, so it wouldn't affect the findings or the conclusion.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "3f236877",
@@ -2308,7 +2876,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it most logically completes the argument about an unintended effect of the Nagoya Protocol.\nThe text explains that the Nagoya Protocol is an agreement ensuring that Indigenous communities are compensated when their\nagricultural resources and knowledge are used by corporations. The text then states that the protocol allows corporations to keep\ntheir agreements with Indigenous communities confidential, about which some Indigenous advocates express concern. Choice C,\nwhen inserted into the blank, gives a good justification for the advocates' concern: such secrecy could mean that the public is\nunable to determine whether participating Indigenous communities were properly compensated under these agreements.\n\nChoice A is incorrect. The text suggests that because corporations can keep their agreements with Indigenous communities\nconfidential, Indigenous communities, not corporations, might not be compensated fairly. Choice B is incorrect because the text\ndoesn't suggest that the ability of corporations to keep their agreements with Indigenous communities confidential would place\nlimits on how much research corporations can undertake. Choice D is incorrect because the text doesn't indicate that Indigenous\ncommunities aim to learn new harvesting methods from their corporate partners. Rather, the text suggests that corporations use\nthe knowledge of Indigenous communities for their research.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4d3e3c52",
@@ -2324,7 +2896,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. Conventional solar cell fabrication increases \"the cost of manufacturing at scale,\" but spray coating\nmight get rid of that problem.\n\nChoice B is incorrect. This is not completely supported by the text. While it's true that conventional ETL fabrication is expensive at\nscale, there's nothing in the text that mentions other perovskite solar cell architectures. Choice C is incorrect. This choice does not\nmatch the text. Only one conventional method of ETL fabrication is described, so we can't compare the solution loss in this\nmethod to that of other conventional methods. Choice D is incorrect. This choice isn't supported by the text. The text never\nsuggests that the effectiveness of solar cells changes based on their method of fabrication.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d1b8a9ad",
@@ -2340,7 +2916,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The text argues that disco is \"far less superficial\" than its popular perception might indicate, and that\nlove and heartbreak are \"subjects hardly unique to disco.\"\n\nChoice A is incorrect. This choice conflicts with the text, which says that scholars argue that disco \"is far less superficial than\nmany people believe.\" Choice B is incorrect. This choice says the opposite of what the text suggests. The writer argues that the\ngenre is not as superficial as commonly believed, but that it always reflected \"concerns about community and identity.\" Choice D is\nincorrect. The text doesn't support this choice. There's nothing in the text about disco giving rise to an enduring Black women's\nmusical tradition.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "95dbdf51",
@@ -2356,7 +2936,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. We're told that point-of-view shots and \"invisible editing\" make audiences identify with a character.\nWe're also told that obvious editing and a lack of point-of-view shots have the opposite effect. Since the sequence in The Birds\nfalls into this second category, it should have the effect of reducing the audience's connection with the protagonist.\n\nChoice A is incorrect. The passage doesn't mention viewers' awareness of artifice (i.e., camera trickery) in films, so there's no\nbasis for this inference. Choice C is incorrect. The passage doesn't mention the director at all, so there's no basis for this\ninference. Choice D is incorrect. The passage doesn't discuss whether a film's \"stylistic attributes\" may distract viewers from the\nfilm's story, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "63e7799d",
@@ -2372,7 +2956,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. If there are parasites that feed on both snakes and frogs, they could carry BovB from snakes to frogs.\nHT could occur \"indirectly\" through those encounters, which frogs are more likely to survive than snake encounters.\n\nChoice A is incorrect. The team's conclusion specifically argues that BovB is transmitted from snakes to frogs via HT, and this\nchoice doesn't mention snakes. Choice C is incorrect. The team argues that BovB is transmitted from snakes to frogs via HT, and\nthis answer choice discusses a scenario in which the gene is not transmitted. Choice D is incorrect. Whether or not frog species\nwith BovB are advantaged isn't relevant to the team's conclusion about how the gene is transmitted.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0dba14e6",
@@ -2388,7 +2976,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer because it presents the conclusion that most logically follows from the text's discussion of how\ndigital technologies affected the process of book creation. The text explains that in the late 20th and early 21st centuries digital\ntechnologies lowered book production costs most significantly in manufacturing and distribution. The text goes on to point out\nthat authoring, editing, and book design are distinct steps in the process that occur before manufacturing and distribution.\nBecause the savings connected to digital technologies have been most significant in manufacturing and distribution, it's\nreasonable to infer that those technologies had less of an effect on writing, editing, and designing books.\n\nChoice A is incorrect because the text focuses on lowered book production costs that occur after authoring has taken place;\nthere's no indication in the text whether digital technologies made writing and publishing lengthy books easier. Choice B is\nincorrect. Although it's logical to conclude that customers would expect the cost of books to decline if production costs have\ndeclined, the text doesn't address customer expectations for the cost of books or any other consumer goods. Choice C is incorrect\nbecause the text focuses broadly on how digital technologies have affected the cost of the publishing process; it doesn't address\nthe kinds of books being published or how many copies are printed.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e80ba20d",
@@ -2403,8 +2995,12 @@ const questionBank_II = [
       "D. Pallikkathayil's argument shows that if our intuition that circumstances may make lying permissible is correct, then it is unclear whether there are any grounds for an opposition to lying in the first place."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer because it most accurately states the main idea of the text. The text begins by noting a common\nintuition that lying might sometimes be permissible, which raises the question of what is the reason for being against lying. The\ntext then presents Pallikkathayil's answer to this question: we have a duty to respect others' agential interests (that is, we have an\nobligation to allow people to exercise their free will in order to best serve their own ends), false beliefs constrain agency (the\nimplication here being that people who are deceived about what is true are impeded in acting in their own best interests), and so\nwe should not hinder the formation of true beliefs (we should not deliberately deceive a person) unless doing so prevents a greater\nlimitation on someone's agency or prevents some otherwise impermissible end (for example, it might be morally permissible to lie\nto someone in the rare circumstance where a false belief would lead a person to act in their own best interest, and where they\nwould not do so if they knew the truth). Thus, the main idea of the text is that Pallikkathayil offers a potential justification for\nopposing lying based on respecting agency, while still allowing for exceptions in specific circumstances.\n\nChoice B is incorrect because the text doesn't focus on people's lack of a principled way to identify circumstances where lying is\npermissible or indicate that Pallikkathayil's argument resolves this specific problem. Rather, the text presents Pallikkathayil's\nargument that lies limit agency but may be permitted in very specific situations (to prevent a greater limitation on someone's\nagency or an otherwise unacceptable outcome) as one of a number of possible arguments about why lies are undesirable but\nsometimes permissible. Choice C is incorrect because it directly contradicts the text. Pallikkathayil's argument, as described in the\ntext, wouldn't lead to an \"inviolable duty to speak truthfully.\" On the contrary, the text explicitly states that Pallikkathayil's position is\n\fthat interfering with people developing accurate beliefs is wrong, except when such interference prevents either a more significant\nlimitation on someone's agency or an outcome that would be unacceptable for other reasons. This indicates that Pallikkathayil's\nargument allows for some exceptions to the duty to speak truthfully, making it not inviolable. Choice D is incorrect because\nPallikkathayil's argument doesn't suggest that if it is permissible to lie in at least some circumstances, then it is unclear whether\nthere are good reasons for opposing lying in any circumstances. Instead, the text presents Pallikkathayil as offering a specific\nground for opposing lying (respecting others' ability to act in their own best interests) while qualifying that assertion by presenting\na situation in which lying might sometimes be morally permissible.",
-    "strategy": "Main Idea Drill"
+    "explanation": "Choice A is the best answer because it most accurately states the main idea of the text. The text begins by noting a common\nintuition that lying might sometimes be permissible, which raises the question of what is the reason for being against lying. The\ntext then presents Pallikkathayil's answer to this question: we have a duty to respect others' agential interests (that is, we have an\nobligation to allow people to exercise their free will in order to best serve their own ends), false beliefs constrain agency (the\nimplication here being that people who are deceived about what is true are impeded in acting in their own best interests), and so\nwe should not hinder the formation of true beliefs (we should not deliberately deceive a person) unless doing so prevents a greater\nlimitation on someone's agency or prevents some otherwise impermissible end (for example, it might be morally permissible to lie\nto someone in the rare circumstance where a false belief would lead a person to act in their own best interest, and where they\nwould not do so if they knew the truth). Thus, the main idea of the text is that Pallikkathayil offers a potential justification for\nopposing lying based on respecting agency, while still allowing for exceptions in specific circumstances.\n\nChoice B is incorrect because the text doesn't focus on people's lack of a principled way to identify circumstances where lying is\npermissible or indicate that Pallikkathayil's argument resolves this specific problem. Rather, the text presents Pallikkathayil's\nargument that lies limit agency but may be permitted in very specific situations (to prevent a greater limitation on someone's\nagency or an otherwise unacceptable outcome) as one of a number of possible arguments about why lies are undesirable but\nsometimes permissible. Choice C is incorrect because it directly contradicts the text. Pallikkathayil's argument, as described in the\ntext, wouldn't lead to an \"inviolable duty to speak truthfully.\" On the contrary, the text explicitly states that Pallikkathayil's position is\n that interfering with people developing accurate beliefs is wrong, except when such interference prevents either a more significant\nlimitation on someone's agency or an outcome that would be unacceptable for other reasons. This indicates that Pallikkathayil's\nargument allows for some exceptions to the duty to speak truthfully, making it not inviolable. Choice D is incorrect because\nPallikkathayil's argument doesn't suggest that if it is permissible to lie in at least some circumstances, then it is unclear whether\nthere are good reasons for opposing lying in any circumstances. Instead, the text presents Pallikkathayil as offering a specific\nground for opposing lying (respecting others' ability to act in their own best interests) while qualifying that assertion by presenting\na situation in which lying might sometimes be morally permissible.",
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4a07be59",
@@ -2419,8 +3015,12 @@ const questionBank_II = [
       "D. Compared with shorter-headed dogs, longer-headed dogs showed a greater difference in brain activity when hearing the language they were accustomed to than when hearing the other language."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer because it presents a finding that, if true, would most directly support the research team's conclusion\nabout anatomical features and speech detection in dogs. The text explains that a team of researchers monitored the brain activity\nof dogs while the dogs listened to three recordings: one of spoken Spanish, one of spoken Hungarian, and one of scrambled\nfragments that weren't recognizable as human speech. The text then states that the team concluded that differences in dogs'\nanatomical features may affect their ability to distinguish speech from nonspeech. The finding that longer-headed dogs exhibited\na greater difference in brain activity when listening to the speech recordings (in Spanish or Hungarian) versus the nonspeech\n(scrambled) recording compared with shorter-headed dogs would establish an association between an anatomical feature (head\nlength) and responses (as measured by brain activity) to speech versus nonspeech. This observed relationship between head\nlength and brain activity patterns during exposure to speech and nonspeech would support the team's conclusion.\n\nChoice A is incorrect because it describes a finding about dogs' responses (as indicated by brain activity) to hearing their\nrespective familiar languages rather than dogs' ability to distinguish speech from nonspeech, which is what the team's conclusion\nspecifically addresses. Moreover, this finding pertains to only one anatomical type (long-headed dogs), so it wouldn't support the\nconclusion that anatomical differences may affect dogs' ability to distinguish speech from nonspeech. Choice C is incorrect\nbecause it describes a finding involving a comparison between long-headed dogs listening to nonspeech and short-headed dogs\nlistening to speech, which wouldn't provide enough information to support the researchers' conclusion that anatomical differences\n\fmay affect dogs' ability to distinguish speech from nonspeech. To support that conclusion, the finding would need to show how\ndogs with different anatomical features (for example, long-headed and short-headed dogs) respond to recordings of speech as\nwell as recordings of nonspeech. Choice D is incorrect because it describes a finding about dogs' ability to distinguish between a\nfamiliar language and an unfamiliar one, not between speech and nonspeech. While this finding does compare dogs with different\nanatomical features (longer-headed vs. shorter-headed ones), it focuses on language recognition (Spanish vs. Hungarian) rather\nthan the ability to distinguish speech from nonspeech, which is what the team's conclusion specifically addresses.",
-    "strategy": "Support Check"
+    "explanation": "Choice B is the best answer because it presents a finding that, if true, would most directly support the research team's conclusion\nabout anatomical features and speech detection in dogs. The text explains that a team of researchers monitored the brain activity\nof dogs while the dogs listened to three recordings: one of spoken Spanish, one of spoken Hungarian, and one of scrambled\nfragments that weren't recognizable as human speech. The text then states that the team concluded that differences in dogs'\nanatomical features may affect their ability to distinguish speech from nonspeech. The finding that longer-headed dogs exhibited\na greater difference in brain activity when listening to the speech recordings (in Spanish or Hungarian) versus the nonspeech\n(scrambled) recording compared with shorter-headed dogs would establish an association between an anatomical feature (head\nlength) and responses (as measured by brain activity) to speech versus nonspeech. This observed relationship between head\nlength and brain activity patterns during exposure to speech and nonspeech would support the team's conclusion.\n\nChoice A is incorrect because it describes a finding about dogs' responses (as indicated by brain activity) to hearing their\nrespective familiar languages rather than dogs' ability to distinguish speech from nonspeech, which is what the team's conclusion\nspecifically addresses. Moreover, this finding pertains to only one anatomical type (long-headed dogs), so it wouldn't support the\nconclusion that anatomical differences may affect dogs' ability to distinguish speech from nonspeech. Choice C is incorrect\nbecause it describes a finding involving a comparison between long-headed dogs listening to nonspeech and short-headed dogs\nlistening to speech, which wouldn't provide enough information to support the researchers' conclusion that anatomical differences\n may affect dogs' ability to distinguish speech from nonspeech. To support that conclusion, the finding would need to show how\ndogs with different anatomical features (for example, long-headed and short-headed dogs) respond to recordings of speech as\nwell as recordings of nonspeech. Choice D is incorrect because it describes a finding about dogs' ability to distinguish between a\nfamiliar language and an unfamiliar one, not between speech and nonspeech. While this finding does compare dogs with different\nanatomical features (longer-headed vs. shorter-headed ones), it focuses on language recognition (Spanish vs. Hungarian) rather\nthan the ability to distinguish speech from nonspeech, which is what the team's conclusion specifically addresses.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a13c1c66",
@@ -2436,7 +3036,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. It most logically completes the text. The text says that some scientists can't explain why prolonged\ndeep sleep is so widespread, given that the known benefits of sleep don't seem to make up for how vulnerable it leaves an animal.\nThis suggests that prolonged deep sleep probably has unknown evolutionary benefits that make up for the vulnerability.\n\nChoice B is incorrect. It doesn't logically complete the text. The text only discusses the benefits and risks of one trait: sleep. So\nthere's no basis for an inference about \"most traits.\" Choice C is incorrect. It doesn't logically complete the text. The text says that\nit is already known that prolonged deep sleep is widespread in the animal kingdom. Rather, what some scientists can't explain is\nWHY prolonged deep sleep is so widespread, given that the known benefits of sleep don't seem to make up for how vulnerable it\nleaves an animal. Choice D is incorrect. It doesn't logically complete the text. The text only discusses the benefits and risks of one\ntrait: sleep. So there's no basis for an inference about \"many traits.\"",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f942646f",
@@ -2452,7 +3056,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. Air travel usually requires much more \"lead time\" than train travel, so short flights end up taking the\nsame amount of time as a train trip to the same destination. But train travel starts to need more \"lead time\" when the trains\napproach their capacity limits. This suggests that train companies should add more trains for these routes if they want to\nencourage travelers to take a train instead of a plane.\n\nChoice A is incorrect. This inference isn't supported. The text never discusses \"long-haul routes\" for either air travel or rail travel, so\nthere is no basis to make this inference. Choice C is incorrect. This inference isn't supported. The text only mentions these\nprocedures to explain why the \"lead time\" is so long for air travel. It never suggests that trains need to start implementing these\nprocedures too. Choice D is incorrect. This inference isn't supported. The goal is to make sure that trains \"remain a viable\nalternative\" to short flights, which suggests that anything that makes train travel take longer should be avoided.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "16025337",
@@ -2468,7 +3076,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer it most accurately states the main idea of the text. The speaker describes going to bed for \"repose\"\n(rest) but finding that his thoughts are focused on the friend the speaker is addressing, and the thoughts are keeping the speaker\nawake.\n\nChoice A is incorrect because the speaker isn't asleep; the thoughts about the friend are keeping the speaker awake. Choice B is\nincorrect because the speaker isn't talking about taking a literal trip; rather, the speaker uses the metaphor of a journey to describe\ninternal thoughts. Choice C is incorrect because the speaker isn't having a discussion with the friend.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "03701ef3",
@@ -2484,7 +3096,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. Since resin casting \"inevitably requires destroying the burrow,\" it would be impossible to make\nmultiple castings of the same burrow over time.\n\nChoice A is incorrect. The passage doesn't discuss size requirements for completing resin casting, so there's no basis for this\ninference. Choice C is incorrect. The passage never mentions how long the casting process takes nor how long A. bellulus takes to\nconstruct a borrow, so there's no basis for this inference. Choice D is incorrect. The passage never states that recovering the\nmodel distorts the resin's shape, only that it destroys the burrow. Therefore, there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "124fdcd7",
@@ -2499,8 +3115,12 @@ const questionBank_II = [
       "D. A survey of archaeologists showed that few of them received dedicated training in how to properly categorize pottery fragments."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it presents a finding that, if true, would support the researchers' claim that archaeologists are\nunlikely to be replaced by certain computer models. The text explains that although archaeologists hold that categorizing pottery\nfragments relies on both objective criteria and instinct developed through direct experience, researchers have found that a\ncomputer model can categorize the fragments with the same degree of accuracy as the humans can—a finding that has caused\nsome archaeologists to worry that their own work won't be needed any longer. If survey results indicate that categorizing pottery\nfragments limits the amount of time archaeologists can dedicate to other important tasks that only human experts can do, that\nwould mean that computer models aren't able to do all of the important things archaeologists do, thus supporting the researchers'\nclaim that computer models are unlikely to replace human archaeologists.\n\nChoice A is incorrect because if it were true that the computer model could categorize the pottery fragments much more quickly\nthan the archaeologists could, that would weaken the researchers' claim that archaeologists are unlikely to be replaced by certain\ncomputer models, since it would demonstrate that the models could conduct the archaeologists' work not only with equal\naccuracy but also at a faster pace. Choice B is incorrect because the inability of both the computer model and the archaeologists\nto accurately categorize all of the pottery fragments presented wouldn't support the researchers' claim that archaeologists are\nunlikely to be replaced by certain computer models. The text indicates that some archaeologists are worried because the\ncomputer model's accuracy is equal to their own, and that could be the case whether both were perfectly accurate or were unable\nto achieve complete accuracy. Choice D is incorrect because survey results showing that few archaeologists received special\n\ftraining in properly categorizing pottery fragments wouldn't support the researchers' claim that archaeologists are unlikely to be\nreplaced by certain computer models. The amount of special training in categorizing pottery fragments that archaeologists have\nreceived has no direct bearing on whether computer models' success at categorizing fragments will lead to the models replacing\nthe archaeologists.",
-    "strategy": "Support Check"
+    "explanation": "Choice C is the best answer because it presents a finding that, if true, would support the researchers' claim that archaeologists are\nunlikely to be replaced by certain computer models. The text explains that although archaeologists hold that categorizing pottery\nfragments relies on both objective criteria and instinct developed through direct experience, researchers have found that a\ncomputer model can categorize the fragments with the same degree of accuracy as the humans can—a finding that has caused\nsome archaeologists to worry that their own work won't be needed any longer. If survey results indicate that categorizing pottery\nfragments limits the amount of time archaeologists can dedicate to other important tasks that only human experts can do, that\nwould mean that computer models aren't able to do all of the important things archaeologists do, thus supporting the researchers'\nclaim that computer models are unlikely to replace human archaeologists.\n\nChoice A is incorrect because if it were true that the computer model could categorize the pottery fragments much more quickly\nthan the archaeologists could, that would weaken the researchers' claim that archaeologists are unlikely to be replaced by certain\ncomputer models, since it would demonstrate that the models could conduct the archaeologists' work not only with equal\naccuracy but also at a faster pace. Choice B is incorrect because the inability of both the computer model and the archaeologists\nto accurately categorize all of the pottery fragments presented wouldn't support the researchers' claim that archaeologists are\nunlikely to be replaced by certain computer models. The text indicates that some archaeologists are worried because the\ncomputer model's accuracy is equal to their own, and that could be the case whether both were perfectly accurate or were unable\nto achieve complete accuracy. Choice D is incorrect because survey results showing that few archaeologists received special\n training in properly categorizing pottery fragments wouldn't support the researchers' claim that archaeologists are unlikely to be\nreplaced by certain computer models. The amount of special training in categorizing pottery fragments that archaeologists have\nreceived has no direct bearing on whether computer models' success at categorizing fragments will lead to the models replacing\nthe archaeologists.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "65502c46",
@@ -2515,8 +3135,12 @@ const questionBank_II = [
       "D. conferred greater social status when the recipient belonged to one of London's largest guilds than when the recipient belonged to a craft guild."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it logically completes the text's discussion of the role of gift giving among members of guilds\nin early modern London. According to the text, members of these guilds participated in a culture where giving gifts \"both signaled\nand conferred social status\"—that is, it indicated people's social standing and also gave them social standing—and occurred in the\nforms of both philanthropic gifting (donations for humanitarian purposes) by large guilds, which much research has focused on,\nand the gifting of handmade items between craft guild members, which Kilburn-Toppin focuses on. The text indicates that Kilburn-\nToppin characterizes craft guild members as people who made and consumed items and were \"highly discerning,\" or were careful\njudges of quality. Because gift giving benefited one's status and if craft guild members were particularly attentive to quality, it\nfollows that gifting handmade items within the guilds—between people who had high standards for items they made and for items\nthey received—may have been a way for members to maintain and enhance their professional reputations, or their professional\nstatuses, among their peers.\n\nChoice A is incorrect because the text emphasizes the idea that members of guilds participated in gift giving both to display and\nreceive social status, suggesting that the gifting of handmade items between the \"highly discerning\" members of craft guilds had\nto do with the members' interest in quality and status; nothing in the text suggests that the practice of gifting those items within\nthe craft guilds was intended to limit knowledge of materials and techniques to the members of those guilds. Choice B is incorrect\nbecause the text doesn't distinguish between \"ostentatious,\" or very showy, and \"prosaic,\" or ordinary, gifts and because the\ncharacterization at the end of the text pertains specifically to the gifting of handmade items indicative of great taste, not prosaic\nitems, between members of craft guilds. And while the text indicates that London's largest guilds gave philanthropic gifts\n(donations for humanitarian purposes), it doesn't indicate whether these gifts would have been considered ostentatious. Choice D\n\fis incorrect because the characterization presented at the end of the text pertains specifically to the \"highly discerning\" members\nof craft guilds giving their handmade items as gifts to one another within the craft guilds; the text doesn't suggest anything about\ngifting those items to members of London's largest guilds or how that might affect status differently from giving them to other\ncraft guild members.",
-    "strategy": "Inference Ceiling"
+    "explanation": "Choice C is the best answer because it logically completes the text's discussion of the role of gift giving among members of guilds\nin early modern London. According to the text, members of these guilds participated in a culture where giving gifts \"both signaled\nand conferred social status\"—that is, it indicated people's social standing and also gave them social standing—and occurred in the\nforms of both philanthropic gifting (donations for humanitarian purposes) by large guilds, which much research has focused on,\nand the gifting of handmade items between craft guild members, which Kilburn-Toppin focuses on. The text indicates that Kilburn-\nToppin characterizes craft guild members as people who made and consumed items and were \"highly discerning,\" or were careful\njudges of quality. Because gift giving benefited one's status and if craft guild members were particularly attentive to quality, it\nfollows that gifting handmade items within the guilds—between people who had high standards for items they made and for items\nthey received—may have been a way for members to maintain and enhance their professional reputations, or their professional\nstatuses, among their peers.\n\nChoice A is incorrect because the text emphasizes the idea that members of guilds participated in gift giving both to display and\nreceive social status, suggesting that the gifting of handmade items between the \"highly discerning\" members of craft guilds had\nto do with the members' interest in quality and status; nothing in the text suggests that the practice of gifting those items within\nthe craft guilds was intended to limit knowledge of materials and techniques to the members of those guilds. Choice B is incorrect\nbecause the text doesn't distinguish between \"ostentatious,\" or very showy, and \"prosaic,\" or ordinary, gifts and because the\ncharacterization at the end of the text pertains specifically to the gifting of handmade items indicative of great taste, not prosaic\nitems, between members of craft guilds. And while the text indicates that London's largest guilds gave philanthropic gifts\n(donations for humanitarian purposes), it doesn't indicate whether these gifts would have been considered ostentatious. Choice D\n is incorrect because the characterization presented at the end of the text pertains specifically to the \"highly discerning\" members\nof craft guilds giving their handmade items as gifts to one another within the craft guilds; the text doesn't suggest anything about\ngifting those items to members of London's largest guilds or how that might affect status differently from giving them to other\ncraft guild members.",
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "8391a002",
@@ -2532,7 +3156,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Strategy: Support Check\nWatch for: Out-of-Scope · Partial Support · Contradicts Claim · Irrelevant Detail\n────────────────────────────────────────\nChoice B is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "cae97f58",
@@ -2548,7 +3176,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer because it most logically completes the text. The text explains that while desert moss species need\nsufficient sunlight for photosynthesis, exposure to sunlight can also affect the plants negatively by drying them out. Ekwealor and\nFisher's team found specimens of S. caninervis moss growing under quartz crystals that were semitransparent, allowing some but\nnot all sunlight to pass through them, and the shoot tissue of these specimens was longer than that of S. caninervis specimens\nfound growing on the surface that were unprotected by such crystals. Since, as the text explains, the length of shoot tissue is an\nindicator of plant growth, and since greater exposure to sunlight results in greater loss of moisture, it can be inferred that S.\ncaninervis growing under quartz crystals experience lower light intensity and are thus able to retain more moisture.\n\nChoice A is incorrect because the text doesn't mention another moss species besides S. caninervis or discuss whether other such\nspecies are able to grow under transparent crystals, as S. caninervis is. Choice B is incorrect because, as the text explains,\nspecimens of S. caninervis were found growing under quartz crystals and exhibited more plant growth than specimens growing\non the soil surface. This wouldn't have been the case if the crystals transmitted insufficient light for the moss's\nphotosynthesis. Choice D is incorrect. The text contrasts the growth of S. caninervis specimens found beneath semitransparent\nquartz crystals with that of specimens found on the soil surface absent such crystals, but it doesn't make a comparison among\nspecimens growing beneath crystals of different degrees of thickness or consider how the relative thickness of the crystals\naffects the growth of the moss.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e503ae04",
@@ -2564,7 +3196,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice A is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "09775cbf",
@@ -2579,8 +3215,12 @@ const questionBank_II = [
       "D. When jewelry was spaced far apart, participants judged the jewelry at Tiffany & Co. to be more valuable than the jewelry at Forever 21, but when jewelry was spaced close together, participants judged the jewelry at Tiffany & Co. to be less valuable than the jewelry at Forever 21."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer because it presents a finding that, if true, would support the text's conclusion about the results of the\nexperiment with Tiffany & Co. and Forever 21. According to the text, Sevilla and Townsend found in several experiments that when\nproducts in a generic retail setting are displayed with a low product-to-space ratio (that is, with lots of space between them),\nconsumers view those products as significantly more valuable than when the same products are displayed with a higher product-\nto-space ratio (less space between them). The text then states that the results of an experiment specifically using the contexts of\nan inexpensive store (Forever 21) and an upscale one (Tiffany & Co.) suggest that an inexpensive store context may moderate, or\nlessen, that effect. If Sevilla and Townsend found that participants in the experiment with Tiffany & Co. and Forever 21 judged the\nsame jewelry items as substantially more valuable when there was lots of space between them than when there was little space\nbetween them in the upscale store (Tiffany & Co.) but judged the same jewelry items as only slightly more valuable when there\nwas lots of space between them than when there was little space between them in the inexpensive store (Forever 21), that finding\n\fwould demonstrate that increased space between products was associated with less of an increase in those products' perceived\nvalue at the inexpensive store than at the upscale store. Thus, the finding would support the text's conclusion that a store context\nassociated with inexpensive goods moderates the effect Sevilla and Townsend observed in their earlier experiments.\n\nChoice B is incorrect because if Sevilla and Townsend found that at both upscale and inexpensive stores, participants judged\njewelry spaced far apart to be less valuable than jewelry spaced close together, that would show the opposite of the effect the\nresearchers observed in their earlier experiments, not show that an inexpensive store context merely moderates, or lessens, that\neffect. Choice C is incorrect because this finding wouldn't show that the effect Sevilla and Townsend observed in their initial\nexperiments (that products spaced far apart were perceived as more valuable than the same products spaced close together) is\npresent but lessened in inexpensive retail contexts, as the text suggests. The conclusion in the text rests on determining the\ndifference in jewelry items' perceived value between two spacing conditions within each store and then comparing the difference\nfor the inexpensive store (Forever 21) to the difference for the upscale store (Tiffany & Co.); a finding that compares perceptions of\nthe jewelry items' value between the two stores but for only one type of spacing condition at a time wouldn't provide information\nabout the degree of difference between spacing conditions within each type of store context. Choice D is incorrect because this\nfinding wouldn't show that the effect Sevilla and Townsend observed in their initial experiments (that products spaced far apart\nwere perceived as more valuable than the same products spaced close together) is present but lessened in inexpensive retail\ncontexts, as the text suggests. The conclusion in the text rests on determining the difference in jewelry items' perceived value\nbetween two spacing conditions within each store and then comparing the difference for the inexpensive store (Forever 21) to the\ndifference for the upscale store (Tiffany & Co.); a finding that compares perceptions of the relative value of jewelry items between\nthe two stores and for only one type of spacing condition at a time wouldn't provide information about the degree of difference\nbetween spacing conditions within each type of store context.",
-    "strategy": "Support Check"
+    "explanation": "Choice A is the best answer because it presents a finding that, if true, would support the text's conclusion about the results of the\nexperiment with Tiffany & Co. and Forever 21. According to the text, Sevilla and Townsend found in several experiments that when\nproducts in a generic retail setting are displayed with a low product-to-space ratio (that is, with lots of space between them),\nconsumers view those products as significantly more valuable than when the same products are displayed with a higher product-\nto-space ratio (less space between them). The text then states that the results of an experiment specifically using the contexts of\nan inexpensive store (Forever 21) and an upscale one (Tiffany & Co.) suggest that an inexpensive store context may moderate, or\nlessen, that effect. If Sevilla and Townsend found that participants in the experiment with Tiffany & Co. and Forever 21 judged the\nsame jewelry items as substantially more valuable when there was lots of space between them than when there was little space\nbetween them in the upscale store (Tiffany & Co.) but judged the same jewelry items as only slightly more valuable when there\nwas lots of space between them than when there was little space between them in the inexpensive store (Forever 21), that finding\n would demonstrate that increased space between products was associated with less of an increase in those products' perceived\nvalue at the inexpensive store than at the upscale store. Thus, the finding would support the text's conclusion that a store context\nassociated with inexpensive goods moderates the effect Sevilla and Townsend observed in their earlier experiments.\n\nChoice B is incorrect because if Sevilla and Townsend found that at both upscale and inexpensive stores, participants judged\njewelry spaced far apart to be less valuable than jewelry spaced close together, that would show the opposite of the effect the\nresearchers observed in their earlier experiments, not show that an inexpensive store context merely moderates, or lessens, that\neffect. Choice C is incorrect because this finding wouldn't show that the effect Sevilla and Townsend observed in their initial\nexperiments (that products spaced far apart were perceived as more valuable than the same products spaced close together) is\npresent but lessened in inexpensive retail contexts, as the text suggests. The conclusion in the text rests on determining the\ndifference in jewelry items' perceived value between two spacing conditions within each store and then comparing the difference\nfor the inexpensive store (Forever 21) to the difference for the upscale store (Tiffany & Co.); a finding that compares perceptions of\nthe jewelry items' value between the two stores but for only one type of spacing condition at a time wouldn't provide information\nabout the degree of difference between spacing conditions within each type of store context. Choice D is incorrect because this\nfinding wouldn't show that the effect Sevilla and Townsend observed in their initial experiments (that products spaced far apart\nwere perceived as more valuable than the same products spaced close together) is present but lessened in inexpensive retail\ncontexts, as the text suggests. The conclusion in the text rests on determining the difference in jewelry items' perceived value\nbetween two spacing conditions within each store and then comparing the difference for the inexpensive store (Forever 21) to the\ndifference for the upscale store (Tiffany & Co.); a finding that compares perceptions of the relative value of jewelry items between\nthe two stores and for only one type of spacing condition at a time wouldn't provide information about the degree of difference\nbetween spacing conditions within each type of store context.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b69d821d",
@@ -2595,8 +3235,12 @@ const questionBank_II = [
       "D. The contrast between the peacefulness of a port at night and its activity during the day reflects the contrast between the calm of old age and the vibrancy of youth."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer because it best states the main idea of the text. The speaker describes an evening scene observed\nfrom a boat: \"little lights in little ports come out\" and are reflected in the water's surface \"with the stars,\" fishing boats are moored,\n\"sails are furled\" (rolled up), and the riding-light is shining. The speaker emphasizes the calmness of the scene, noting that the\n\"race of wind is stilled\" and the atmosphere is sleepy (\"slumbrous waters pool a slumbrous world\"), and then indicates that the\ncalmness prompts thoughts of how old age might be \"sweet\" and \"quiet\" and \"gracious in retreat\" after \"a windy youth\" with\n\"storms.\" Thus, the main idea is that the tranquility of a port in the evening can lead a person to appreciate the potential stillness of\nold age.\n\fChoice B is incorrect because the speaker isn't discussing the difficulty of bringing a ship into port but describing the calmness of\nthe port at night. And rather than suggesting that old age involves struggles, the speaker suggests that after \"a windy youth\" with\n\"storms\" to be weathered, old age will be \"sweet,\" \"quiet,\" and \"gracious\"—that is, old age will be tranquil like a port at night. Choice\nC is incorrect because the speaker isn't suggesting that a person who has lived a varied and active life might find it difficult to stay\nin a calm place in old age. On the contrary, the speaker suggests that after a \"windy youth\" with \"storms,\" old age can be welcomed\nas something \"sweet,\" \"quiet,\" and \"gracious,\" just like a calm port at night. Choice D is incorrect. Although the speaker does touch\non the idea of a \"windy youth\" followed by \"sweet old age,\" the speaker doesn't tie that idea to a contrast between daytime activity\nand nighttime peacefulness at a port. The speaker doesn't address any activity during the day at a port, only briefly mentioning\nthat the \"race of wind is stilled\" at the end of the day, and instead focuses on the tranquility of the port at night and how it prompts\nthoughts of \"quiet\" and \"gracious\" old age.",
-    "strategy": "Main Idea Drill"
+    "explanation": "Choice A is the best answer because it best states the main idea of the text. The speaker describes an evening scene observed\nfrom a boat: \"little lights in little ports come out\" and are reflected in the water's surface \"with the stars,\" fishing boats are moored,\n\"sails are furled\" (rolled up), and the riding-light is shining. The speaker emphasizes the calmness of the scene, noting that the\n\"race of wind is stilled\" and the atmosphere is sleepy (\"slumbrous waters pool a slumbrous world\"), and then indicates that the\ncalmness prompts thoughts of how old age might be \"sweet\" and \"quiet\" and \"gracious in retreat\" after \"a windy youth\" with\n\"storms.\" Thus, the main idea is that the tranquility of a port in the evening can lead a person to appreciate the potential stillness of\nold age.\n Choice B is incorrect because the speaker isn't discussing the difficulty of bringing a ship into port but describing the calmness of\nthe port at night. And rather than suggesting that old age involves struggles, the speaker suggests that after \"a windy youth\" with\n\"storms\" to be weathered, old age will be \"sweet,\" \"quiet,\" and \"gracious\"—that is, old age will be tranquil like a port at night. Choice\nC is incorrect because the speaker isn't suggesting that a person who has lived a varied and active life might find it difficult to stay\nin a calm place in old age. On the contrary, the speaker suggests that after a \"windy youth\" with \"storms,\" old age can be welcomed\nas something \"sweet,\" \"quiet,\" and \"gracious,\" just like a calm port at night. Choice D is incorrect. Although the speaker does touch\non the idea of a \"windy youth\" followed by \"sweet old age,\" the speaker doesn't tie that idea to a contrast between daytime activity\nand nighttime peacefulness at a port. The speaker doesn't address any activity during the day at a port, only briefly mentioning\nthat the \"race of wind is stilled\" at the end of the day, and instead focuses on the tranquility of the port at night and how it prompts\nthoughts of \"quiet\" and \"gracious\" old age.",
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "56f477fb",
@@ -2612,8 +3256,12 @@ const questionBank_II = [
       "D. The greatest percentage shown for provisioning services is 88% for the North region, and the least shown for provisioning services is 33% for the Central region."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer. The finding that all the regions reported at least some effects on provisioning services supports the\nfirst part of the assertion. And the fact that provisioning services comprise 75% of the reported services overall supports the\nsecond part of the assertion.\n\nChoice A is incorrect. This choice doesn't fully support the assertion. It doesn't include the finding that all the regions (not just\nCentral and West) reported at least some effects on provisioning services. Choice C is incorrect. This choice doesn't fully support\n\fthe assertion. It doesn't demonstrate that provisioning services represent the majority of the reported services overall. Choice D is\nincorrect. This choice doesn't fully support the assertion. It doesn't demonstrate that provisioning services represent the majority\nof the reported services overall.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice B is the best answer. The finding that all the regions reported at least some effects on provisioning services supports the\nfirst part of the assertion. And the fact that provisioning services comprise 75% of the reported services overall supports the\nsecond part of the assertion.\n\nChoice A is incorrect. This choice doesn't fully support the assertion. It doesn't include the finding that all the regions (not just\nCentral and West) reported at least some effects on provisioning services. Choice C is incorrect. This choice doesn't fully support\n the assertion. It doesn't demonstrate that provisioning services represent the majority of the reported services overall. Choice D is\nincorrect. This choice doesn't fully support the assertion. It doesn't demonstrate that provisioning services represent the majority\nof the reported services overall.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "35ec767c",
@@ -2629,8 +3277,12 @@ const questionBank_II = [
       "D. words for corn in the languages of the Muskogean family evolved from a common root, with the Muscogee word having lost certain consonant sounds still present in the Chickasaw and Choctaw words."
     ],
     "answer": "A",
-    "explanation": "Choice A is the best answer. The table provides evidence that the words for corn in the Cherokee and Muskogean languages\nappear unrelated to those in Caddo language, which is described as closely related to the Totozoquean language family. This\nsupports the claim that corn cultivation spread across the Southeast without necessarily spreading Totozoquean vocabulary along\nwith it.\n\fChoice B is incorrect. This choice emphasizes the diversity of Southeastern languages in general, but we're specifically looking for\ninformation about words associated with corn. Choice C is incorrect. This choice shows how words for corn can change and\nevolve, but we're looking for an example that shows how some words for corn can be completely unrelated. Choice D is incorrect.\nThis choice shows words for corn that share a common root, but we're looking for an example that shows how some words for\ncorn can be unrelated.",
-    "strategy": "Support Check"
+    "explanation": "Choice A is the best answer. The table provides evidence that the words for corn in the Cherokee and Muskogean languages\nappear unrelated to those in Caddo language, which is described as closely related to the Totozoquean language family. This\nsupports the claim that corn cultivation spread across the Southeast without necessarily spreading Totozoquean vocabulary along\nwith it.\n Choice B is incorrect. This choice emphasizes the diversity of Southeastern languages in general, but we're specifically looking for\ninformation about words associated with corn. Choice C is incorrect. This choice shows how words for corn can change and\nevolve, but we're looking for an example that shows how some words for corn can be completely unrelated. Choice D is incorrect.\nThis choice shows words for corn that share a common root, but we're looking for an example that shows how some words for\ncorn can be unrelated.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "22b3da87",
@@ -2646,7 +3298,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. We're told that people needed to pay \"at least 300 francs in direct taxes\" to be able to vote. We're also\ntold that, while \"relatively few people paid the tax on real estate,\" real estate taxes were both the main way people qualified to vote\nand the main source of revenue for the government. Based on this, we can infer that those who did qualify to vote likely had\nsignificant French real estate holdings.\n\nChoice B is incorrect. The passage doesn't mention the voting habits of artisans and merchants nor any reduction in tax burdens\non businesses, so there's no basis for this inference. Choice C is incorrect. Although we know that doors and windows were taxed\nduring the Bourbon Restoration, we don't have enough information to infer if doors and windows increased after this time. Choice\nD is incorrect. Although we know that foreign investments were only minimally taxed, we don't have enough information to\ndetermine if those with significant foreign investments were unlikely to have voting rights. For example, it's possible that those\nwith significant foreign investments were likely to also be people with significant domestic investments which they did pay taxes\non, so we don't have the information necessary to make this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "378c66d5",
@@ -2662,7 +3318,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. This critic challenges the claim by arguing that A History of Mexico is not so idiosyncratic (unique) as\nto resist classification because its use of Maya-style human profiles actually \"invites classification as Indigenous art.\" Therefore,\naccording to this critic, the work can be viewed, at least partially, through a lens of national or cultural identity.\n\nChoice A is incorrect. While it describes the Maya influence on a particular aspect of A History of Mexico, this quotation doesn't\npush back on Medellín's \"idiosyncratic\" (unique) style, nor does it try to categorize the entire work into a single cultural tradition.\nChoice B is incorrect. This choice doesn't directly challenge the underlined claim, but rather supports it. It suggests that the work\neffectively blends a variety of artistic products to create a single work that can't be defined by any one tradition. Instead, the work\nrecalls many centuries of history and culture all at once. Choice C is incorrect. This choice supports rather than challenges the\nunderlined claim. The quotation argues that other critics focus too much on Indigenous influences on the artwork instead of\nviewing all of the influences equally—that they should instead be viewing the work as an idiosyncratic whole instead of through\none or two narrow cultural lenses.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5c7e0d62",
@@ -2678,7 +3338,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Strategy: Inference Ceiling\nWatch for: Too Strong · Contradicts Text · Outside Scope · Plausible But Unsupported\n────────────────────────────────────────\nChoice D is the correct answer. (Full official explanation unavailable for this question — use the strategy cue and trap set above to reason through the answer choices.)",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7c9a65bb",
@@ -2694,7 +3358,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text says that the glass beads get the \"focus\" of the light beams so that the particles don't\noverheat. From this, we can infer that the beads allow the particles to be manipulated without being directly heated by the light\nbeams.\n\nChoice A is incorrect. The text never says that attaching the glass beads saves time in any way. Choice C is incorrect. The text\nnever says that attaching the glass beads allows researchers to use weaker light beams. Choice D is incorrect. The text doesn't\nsay that the particles can transfer heat to the glass beads—rather, it says the heat from the light focuses on the glass beads\ninstead of the particles.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "9abc3ba5",
@@ -2710,7 +3378,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. ​Whitten thinks the tool made \"one gesture\" paintings, while historians think the tool \"removed\ngesture\" from the process completely. But putting that debate aside, both Whitten and the historians would agree that the\npaintings he made with the tool in the '70s have way fewer gestures than his paintings from the '60s, in which gestures are\n\"prevalent,\" meaning widely and extensively present.\n\nChoice A is incorrect. This inference isn't supported. The text only discusses the \"developer\"—it never mentions other tools. Choice\nC is incorrect. This inference isn't supported. If anything, the text suggests the opposite: that Whitten became more interested in\nexploring the role of gesture in his work as his career progressed, as his earlier paintings had many gestures, and his '70s\npaintings only had \"one gesture.\" Choice D is incorrect. This inference isn't supported. The text never discusses the \"realism\" of\nWhitten's art.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d2e0cba5",
@@ -2726,7 +3398,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. The passage begins by describing the study, and concludes with its results: \"many users employed\ncognitive mechanisms to mitigate those feelings [of negative disconfirmation].\"\n\nChoice A is incorrect. This is the opposite of what the text claims. Rather, the researchers found that \"many users\" reversed \"their\ninitial sense of disappointment.\" Choice B is incorrect. This choice doesn't reflect the text. What the expectations of smart home\ntech users are is not discussed. Choice D is incorrect. This choice doesn't reflect the text. How often these topics have been\nstudied is not mentioned.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d1539546",
@@ -2742,7 +3418,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The text says that crab burrowing in the pannes enables plants to grow there again. It also says that\ncrab burrowing at the edges of the marsh speeds up marsh loss. This suggests that burrowing crabs can either help or hurt\nmarshes, depending on where they're located.\n\nChoice A is incorrect. This inference isn't supported. The text never discusses pannes of different sizes. Choice C is incorrect. This\ninference isn't supported. The text never suggests that crabs do more burrowing in the pannes (the areas with standing water)\nthan they do at the edges. Rather, the text says that the burrowing that happens in the pannes is beneficial, while the burrowing\nthat happens at the edges is harmful. Choice D is incorrect. This inference isn't supported. The text never discusses the intensity\nof crab burrowing, nor does it discuss the size of the panne relative to the size of the marsh.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f27559d4",
@@ -2758,7 +3438,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer because it most logically completes the text's discussion of volunteering. The text asserts that\nvolunteering benefits both the community in which one volunteers and society as a whole. It then states that in a survey of young\npeople, a majority of respondents said that volunteering helps individuals, but only 6% of respondents said that volunteering helps\nsociety as a whole. If volunteering does in fact help society as a whole, as the text says, but only 6% of young people believe it\ndoes, then it's reasonable to conclude that volunteering is more helpful than many young people think it is.\n\nChoice A is incorrect because the text discusses young people's beliefs about the benefits of volunteering, not where young people\nbelieve they are able to volunteer. Nothing in the text suggests that many young people believe they are only able to volunteer in\ntheir own communities. Choice C is incorrect. Although the text indicates that volunteering is beneficial for society as a whole,\nnothing in the text suggests that volunteering can benefit society more than it can benefit individual people. The text doesn't\ncompare the benefits to society with the benefits to individuals. Choice D is incorrect because the text discusses young people's\nbeliefs about the benefits of volunteering, not how to find volunteering opportunities. There's nothing in the text to suggest that\nmany young people don't know how to volunteer.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "cca6fae9",
@@ -2774,8 +3458,12 @@ const questionBank_II = [
       "D. In Akumal Bay and Tulum, delta 15-N values fluctuated considerably across the three measurements made from October 2016 to October 2017."
     ],
     "answer": "D",
-    "explanation": "Choice D is the best answer because it describes data from the table that support the underlined conclusion. The text\naccompanying the table states that delta 15-N values (a measure of the ratio of two nitrogen isotopes) can be used as an indirect\nmeans of measuring the ratio of human wastewater to water from uncontaminated sources—the higher the delta 15-N values, the\ngreater the presence of human wastewater. The text goes on to mention an experiment conducted by Camacho-Cruz and\ncolleagues measuring delta 15-N values in seagrass on the Yucatan peninsula at several sites, four of which are presented in the\n\ftable accompanying the text. Two of the sites noted in the table, Akumal Bay and Tulum, had intermediate tourism development,\nand two others, Mahahual and Xahuayxol, had low tourism development. It is reasonable to infer that sites with intermediate\ntourism have a greater human presence than those with low tourism and therefore are subject to greater amounts of wastewater\nand exhibit higher delta 15-N values in seagrass. However, Camacho-Cruz and colleagues found that the increase in delta 15-N\nvalues was not constant. The table supports this conclusion because the two intermediate-tourism sites (Akumal Bay and Tulum)\nhad delta 15-N values that fluctuated considerably—both had higher delta 15-N values than the two low-tourism sites (Mahahual\nand Xahuayxol) in October 2016 and October 2017, but in February 2017 the delta 15-N values for the intermediate-tourism sites\ndropped significantly (in fact, Mahahual, a low-tourism site, had a higher delta 15-N value for that period). The fluctuations in\nvalues in Akumal Bay and Tulum support the conclusion that these sites experienced influxes of human wastewater intermittently.\n\nChoice A is incorrect because it inaccurately describes data from the table: in February 2017 the delta 15-N value in Akumal Bay\nwas higher than the delta 15-N value in Xahuayxol, not lower. Choice B is incorrect because the absence of data for delta 15-N\nlevels in Akumal Bay in February 2016 would neither prove nor disprove that the presence of human wastewater at Akumal Bay\nand Tulum was not constant. Despite the unavailable data, there is still enough information to conclude that delta 15-N levels at\nboth sites fluctuated significantly and that influxes of human wastewater therefore happened intermittently. Choice C is incorrect\nbecause a constancy in delta 15-N values would not indicate that the influx of human wastewater was intermittent, but rather the\nopposite. Moreover, the two periods selected are not indicative of general trends in the whole table (for example, the values\nfluctuated significantly in Akumal Bay between February 2017 and October 2017, and in Tulum between October 2016 and\nFebruary 2017).",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice D is the best answer because it describes data from the table that support the underlined conclusion. The text\naccompanying the table states that delta 15-N values (a measure of the ratio of two nitrogen isotopes) can be used as an indirect\nmeans of measuring the ratio of human wastewater to water from uncontaminated sources—the higher the delta 15-N values, the\ngreater the presence of human wastewater. The text goes on to mention an experiment conducted by Camacho-Cruz and\ncolleagues measuring delta 15-N values in seagrass on the Yucatan peninsula at several sites, four of which are presented in the\n table accompanying the text. Two of the sites noted in the table, Akumal Bay and Tulum, had intermediate tourism development,\nand two others, Mahahual and Xahuayxol, had low tourism development. It is reasonable to infer that sites with intermediate\ntourism have a greater human presence than those with low tourism and therefore are subject to greater amounts of wastewater\nand exhibit higher delta 15-N values in seagrass. However, Camacho-Cruz and colleagues found that the increase in delta 15-N\nvalues was not constant. The table supports this conclusion because the two intermediate-tourism sites (Akumal Bay and Tulum)\nhad delta 15-N values that fluctuated considerably—both had higher delta 15-N values than the two low-tourism sites (Mahahual\nand Xahuayxol) in October 2016 and October 2017, but in February 2017 the delta 15-N values for the intermediate-tourism sites\ndropped significantly (in fact, Mahahual, a low-tourism site, had a higher delta 15-N value for that period). The fluctuations in\nvalues in Akumal Bay and Tulum support the conclusion that these sites experienced influxes of human wastewater intermittently.\n\nChoice A is incorrect because it inaccurately describes data from the table: in February 2017 the delta 15-N value in Akumal Bay\nwas higher than the delta 15-N value in Xahuayxol, not lower. Choice B is incorrect because the absence of data for delta 15-N\nlevels in Akumal Bay in February 2016 would neither prove nor disprove that the presence of human wastewater at Akumal Bay\nand Tulum was not constant. Despite the unavailable data, there is still enough information to conclude that delta 15-N levels at\nboth sites fluctuated significantly and that influxes of human wastewater therefore happened intermittently. Choice C is incorrect\nbecause a constancy in delta 15-N values would not indicate that the influx of human wastewater was intermittent, but rather the\nopposite. Moreover, the two periods selected are not indicative of general trends in the whole table (for example, the values\nfluctuated significantly in Akumal Bay between February 2017 and October 2017, and in Tulum between October 2016 and\nFebruary 2017).",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b2e54b50",
@@ -2792,7 +3480,11 @@ const questionBank_II = [
     ],
     "answer": "D",
     "explanation": "Choice D is the best answer. The text tells us that the farther the correlation is from 0, the \"stronger\" it is (doesn't matter if it's\nnegative or positive). The table shows that the correlations with velocity are farther from zero than the correlations with density,\nwhich supports the conclusion that the correlations with velocity are stronger.\n\nChoice A is incorrect. This choice doesn't support the conclusion. It makes an \"apples to oranges\" comparison by comparing\ndensity and velocity correlations across features instead of comparing them for each feature. Choice B is incorrect. This choice\ndoesn't support the conclusion. It doesn't include the density correlations for comparison. Choice C is incorrect. This choice\ndoesn't support the conclusion. The text tells us that the farther the correlation is from 0, the \"stronger\" it is: it doesn't matter for\n\"strength\" whether it's negative or positive.",
-    "strategy": "Data-to-Claim Match"
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "31ad8024",
@@ -2807,8 +3499,12 @@ const questionBank_II = [
       "D. A study using obstructions that created medium-sized vortices in low-visibility conditions found that the narrower-headed dusky smooth-hound (Mustelus canis) bumped into the obstructions just as often as the wider-headed bristlemouth (Chaetostoma yurubiense) did."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it presents a finding that, if true, would most directly support the second research team's\nhypothesis about how a fish's head shape affects the fish's ability to detect obstructions. The text explains that fish detect\nobstructions using water vortices and that testing by Yanagisuru, Akanyeti, and Liao showed that fish with wide heads struggle to\ndistinguish medium-sized vortices from general turbulence in the water. Based on this finding, a second research team\nhypothesized that in low-visibility conditions, wider-headed fish would be less effective at detecting obstructions than narrower-\nheaded fish. The finding that wider-headed bristlemouth fish bumped into obstructions more often than narrower-headed dusky\nsmooth-hound fish did under the specified conditions (low visibility with medium-sized vortices) would directly support the second\nteam's hypothesis.\n\nChoice A is incorrect because it would provide only partial support for the second research team's hypothesis. While this finding\nshows that wide-headed bristlemouth fish bumped into many obstructions, it provides no comparison with narrow-headed fish.\nThe hypothesis specifically predicts a difference in detection ability between fish with wider heads and those with narrower heads,\nso supporting evidence would need to include data from both head types to allow for this comparison. Choice B is incorrect\n\fbecause it would not support the second research team's hypothesis comparing obstruction detection between fish with wide\nheads and those with narrow heads. Instead, it examines variation within a single narrow-headed species, which would not\naddress the hypothesis about differences between fish with wider and narrower head shapes. Choice D is incorrect because this\nfinding would contradict rather than support the second research team's hypothesis. The hypothesis predicts that wider-headed\nfish will be less likely to detect obstructions than narrower-headed fish in low-visibility conditions, which would result in wider-\nheaded fish bumping into obstructions more frequently. A finding showing equal bumping rates between fish with the two head\nshapes would indicate no relationship between head width and detection ability, directly contradicting the hypothesis.",
-    "strategy": "Support Check"
+    "explanation": "Choice C is the best answer because it presents a finding that, if true, would most directly support the second research team's\nhypothesis about how a fish's head shape affects the fish's ability to detect obstructions. The text explains that fish detect\nobstructions using water vortices and that testing by Yanagisuru, Akanyeti, and Liao showed that fish with wide heads struggle to\ndistinguish medium-sized vortices from general turbulence in the water. Based on this finding, a second research team\nhypothesized that in low-visibility conditions, wider-headed fish would be less effective at detecting obstructions than narrower-\nheaded fish. The finding that wider-headed bristlemouth fish bumped into obstructions more often than narrower-headed dusky\nsmooth-hound fish did under the specified conditions (low visibility with medium-sized vortices) would directly support the second\nteam's hypothesis.\n\nChoice A is incorrect because it would provide only partial support for the second research team's hypothesis. While this finding\nshows that wide-headed bristlemouth fish bumped into many obstructions, it provides no comparison with narrow-headed fish.\nThe hypothesis specifically predicts a difference in detection ability between fish with wider heads and those with narrower heads,\nso supporting evidence would need to include data from both head types to allow for this comparison. Choice B is incorrect\n because it would not support the second research team's hypothesis comparing obstruction detection between fish with wide\nheads and those with narrow heads. Instead, it examines variation within a single narrow-headed species, which would not\naddress the hypothesis about differences between fish with wider and narrower head shapes. Choice D is incorrect because this\nfinding would contradict rather than support the second research team's hypothesis. The hypothesis predicts that wider-headed\nfish will be less likely to detect obstructions than narrower-headed fish in low-visibility conditions, which would result in wider-\nheaded fish bumping into obstructions more frequently. A finding showing equal bumping rates between fish with the two head\nshapes would indicate no relationship between head width and detection ability, directly contradicting the hypothesis.",
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2c06139b",
@@ -2824,8 +3520,12 @@ const questionBank_II = [
       "D. Tadpoles produced approximately the same number of different bufadienolide toxins per individual across the population density conditions, but average tadpole body mass decreased as population density increased."
     ],
     "answer": "B",
-    "explanation": "Choice B is the best answer. This data shows that the tadpoles in the high-density pond (meaning those with the most\ncompetition) didn't grow as big as the other two groups but produced more bufadienolide.\n\nChoice A is incorrect. This doesn't fully support the conclusion. It doesn't include any data about bufadienolide production. Choice\nC is incorrect. This doesn't fully support the conclusion. It doesn't include any data about growth. Choice D is incorrect. This\n\fdoesn't fully support the conclusion. It doesn't demonstrate that the tadpoles in the high-density pond produced more\nbufadienolide overall. The fact that they didn't produce more kinds of bufadienolide isn't relevant to the conclusion.",
-    "strategy": "Data-to-Claim Match"
+    "explanation": "Choice B is the best answer. This data shows that the tadpoles in the high-density pond (meaning those with the most\ncompetition) didn't grow as big as the other two groups but produced more bufadienolide.\n\nChoice A is incorrect. This doesn't fully support the conclusion. It doesn't include any data about bufadienolide production. Choice\nC is incorrect. This doesn't fully support the conclusion. It doesn't include any data about growth. Choice D is incorrect. This\n doesn't fully support the conclusion. It doesn't demonstrate that the tadpoles in the high-density pond produced more\nbufadienolide overall. The fact that they didn't produce more kinds of bufadienolide isn't relevant to the conclusion.",
+    "strategy": "Data-to-Claim Match",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5eda42a3",
@@ -2841,7 +3541,11 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer because it most accurately states the main purpose of the text. In the first part of the text, the speaker\naddresses Paul Laurence Dunbar's ability to understand people (he has \"read the hearts and souls of men\" and written of their \"joy\nand mirth\"). In the second part of the text, the speaker describes Dunbar's thorough understanding of the natural world (he has\nread \"the language of the flowers\" and engaged with \"the little brook\"). Thus, the text mainly praises Dunbar for being especially\nperceptive about people and nature.\n\nChoice B is incorrect because the speaker describes Dunbar as having read the \"hearts and souls of men\" and the \"language of\nflowers\" to convey Dunbar's ability to comprehend people and nature, not to suggest that Dunbar has literally read any of these\nthings or has read a great deal about them. Choice C is incorrect because the text notes how well Dunbar has made sense of the\ntopics he's written about but doesn't address any specific parts of Dunbar's writing process beyond the suggestion that he used a\npen. Choice D is incorrect because the text focuses on Dunbar's understanding of people and nature as expressed in his writing.\nNothing in the text suggests that the speaker is recalling a particular afternoon actually spent in nature with Dunbar; even if there\nhad been a shared experience, the text isn't focused on reminiscing.",
-    "strategy": "Main Idea Drill"
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7812801f",
@@ -2856,8 +3560,12 @@ const questionBank_II = [
       "D. The root systems of fynbos plants enhance the soil immediately surrounding the plants, allowing them to thrive in an otherwise harsh habitat."
     ],
     "answer": "C",
-    "explanation": "Choice C is the best answer because it presents a conclusion about the role of fynbos roots in maintaining the border with the\nAfro-temperate forest that can be reasonably inferred from the text. The text states that plants in the fynbos have \"uniquely thin\nand long root systems that spread out over large distances to absorb nutrients from the soil.\" The text then describes an\nexperiment where forest tree seedlings grown in plots isolated from fynbos roots grew at a rate five times greater than seedlings\nin areas near fynbos roots. This strongly suggests that fynbos roots are depleting soil nutrients to such an extent that forest plants\ncan't get enough nutrients from that soil to flourish, thereby hindering the formation of any significant \"transition space\" between\nthe habitats and helping keep the border between them sharp.\n\nChoice A is incorrect because there is no evidence in the text that fynbos roots physically damage the root systems of forest\nplants. Instead, the text explicitly describes fynbos plants as having \"uniquely thin and long root systems that spread out over large\ndistances to absorb nutrients from the soil.\" This description establishes that fynbos roots are specialized for efficient nutrient\nabsorption. The experiment then confirms this function of the roots by showing that forest seedlings \"isolated from the roots of\nfynbos plants exhibited a growth rate five times greater\" than those near fynbos roots. This result demonstrates that when forest\nseedlings don't have to compete with the nutrient-absorbing fynbos roots, they grow much better. Choice B is incorrect. Although\nthe text does indicate that the fynbos and the Afro-temperate forest are distinct from, and adjacent to, each other and that there is\n\"almost no transition space\" (area of mixed fynbos and forest plants), the experiment shows that forest plants can grow in soil\noccupied by fynbos roots, just not very well. So, the idea that the fynbos roots physically obstruct forest plants is unsupported by\n\fthe text. Choice D is incorrect because it directly contradicts the text's claim that fynbos roots absorb nutrients from, and therefore\ndeplete, the soil they're in, and furthermore, nothing in the text suggests that the habitat of the fynbos is harsh in general.",
-    "strategy": "Main Idea Drill"
+    "explanation": "Choice C is the best answer because it presents a conclusion about the role of fynbos roots in maintaining the border with the\nAfro-temperate forest that can be reasonably inferred from the text. The text states that plants in the fynbos have \"uniquely thin\nand long root systems that spread out over large distances to absorb nutrients from the soil.\" The text then describes an\nexperiment where forest tree seedlings grown in plots isolated from fynbos roots grew at a rate five times greater than seedlings\nin areas near fynbos roots. This strongly suggests that fynbos roots are depleting soil nutrients to such an extent that forest plants\ncan't get enough nutrients from that soil to flourish, thereby hindering the formation of any significant \"transition space\" between\nthe habitats and helping keep the border between them sharp.\n\nChoice A is incorrect because there is no evidence in the text that fynbos roots physically damage the root systems of forest\nplants. Instead, the text explicitly describes fynbos plants as having \"uniquely thin and long root systems that spread out over large\ndistances to absorb nutrients from the soil.\" This description establishes that fynbos roots are specialized for efficient nutrient\nabsorption. The experiment then confirms this function of the roots by showing that forest seedlings \"isolated from the roots of\nfynbos plants exhibited a growth rate five times greater\" than those near fynbos roots. This result demonstrates that when forest\nseedlings don't have to compete with the nutrient-absorbing fynbos roots, they grow much better. Choice B is incorrect. Although\nthe text does indicate that the fynbos and the Afro-temperate forest are distinct from, and adjacent to, each other and that there is\n\"almost no transition space\" (area of mixed fynbos and forest plants), the experiment shows that forest plants can grow in soil\noccupied by fynbos roots, just not very well. So, the idea that the fynbos roots physically obstruct forest plants is unsupported by\n the text. Choice D is incorrect because it directly contradicts the text's claim that fynbos roots absorb nutrients from, and therefore\ndeplete, the soil they're in, and furthermore, nothing in the text suggests that the habitat of the fynbos is harsh in general.",
+    "strategy": "Main Idea Drill",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "af9e3240",
@@ -2873,7 +3581,11 @@ const questionBank_II = [
     ],
     "answer": "C",
     "explanation": "Choice C is the best answer. Electra states that she \"knows her own passion,\" which shows that she's aware of the intensity of her\ngrief. But she also claims that the \"causes are so dire\"—meaning the reasons for her grief are so awful—that she can't let it go,\nwhich shows that she believes her grief is justified.\n\nChoice A is incorrect. This quotation doesn't show that Electra believes her grief is justified. It shows that Electra is aware of its\nintensity, but it doesn't suggest that she believes she has a legitimate reason for feeling that way. Choice B is incorrect. This\nquotation doesn't show that Electra believes her grief is justified. It shows that Electra is aware of its intensity, but it doesn't\nsuggest that she believes she has a legitimate reason for feeling that way. Choice D is incorrect. This quotation doesn't show that\nElectra believes her grief is justified. It shows that Electra is aware of the intensity of her grief, but it doesn't suggest that she has a\nlegitimate reason for feeling that way.",
-    "strategy": "Support Check"
+    "strategy": "Support Check",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "61228830",
@@ -2889,7 +3601,11 @@ const questionBank_II = [
     ],
     "answer": "B",
     "explanation": "Choice B is the best answer. The passage explains that heliographs \"were largely effective only during the daytime\" and that \"the\nrange of the device depended on factors such as the opacity of the air and line of sight.\" These constraints would have greatly\nlimited the use of the heliograph, so we can infer that this would have been a reason to replace it with new technology.\n\nChoice A is incorrect. The passage doesn't discuss the production and maintenance of heliographs, so there's no basis for this\ninference. Choice C is incorrect. The passage doesn't mention any \"other purposes\" that a heliograph wouldn't work for, so there's\nno basis for this inference. Choice D is incorrect. The passage doesn't mention knowledge of Morse code as a particular problem\nwith the use of heliographs, so there's no basis for this inference.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0dccbf17",
@@ -2905,6 +3621,10 @@ const questionBank_II = [
     ],
     "answer": "A",
     "explanation": "Choice A is the best answer. It most logically completes the text. The text argues that Tanner and his contemporaries may have\nbeen unfamiliar with modern beliefs and values. This suggests that scholars who attribute those modern values to Tanner's\npainting are risking judging the painting by standards that are not historically accurate.\n\nChoice B is incorrect. It doesn't logically complete the text. The text argues that Tanner AND his contemporaries may have been\nunfamiliar with modern views. It never suggests that Tanner's views were different from his contemporaries' views. Choice C is\nincorrect. It doesn't logically complete the text. The text never suggests that scholars should analyze Tanner's political activity\ninstead of his painting. Rather, the text argues that Tanner and his contemporaries may have been unfamiliar with modern beliefs\nand values. Choice D is incorrect. It doesn't logically complete the text. The text never suggests that Tanner wanted to critique his\ncontemporaries with his painting. Rather, the text argues that Tanner AND his contemporaries may have been unfamiliar with\nmodern beliefs and values.",
-    "strategy": "Inference Ceiling"
+    "strategy": "Inference Ceiling",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   }
 ];

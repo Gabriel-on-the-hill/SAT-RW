@@ -74,6 +74,51 @@ ok('there are questions', QB.length > 0, `${QB.length} questions`);
 ok('every question has a skill', QB.every(q => !!q.skill));
 ok('every question has a difficulty', QB.every(q => ['Easy', 'Medium', 'Hard'].includes(q.difficulty)));
 
+section('Merge metadata and content identity are sound');
+{
+    const clean = value => String(value || '').normalize('NFKD').toLowerCase()
+        .replace(/[^a-z0-9]/g, '');
+    // Image-only questions legitimately share boilerplate stems; include the
+    // image's alt text (or its path as a last resort) in the drawable-content key.
+    const contentKey = q => clean(q.passage || q.alt || q.image) + clean(q.question);
+    const seenContent = new Map();
+    const duplicateContent = [];
+    for (const q of QB) {
+        const key = contentKey(q);
+        if (seenContent.has(key)) duplicateContent.push([seenContent.get(key), q.id]);
+        else seenContent.set(key, q.id);
+    }
+    ok('every question has merge provenance', QB.every(q =>
+        ['cb-psat89', 'cb-sat', 'book-ugsg'].includes(q.origin) &&
+        [undefined, 'official', 'provisional'].includes(q.difficultyStatus) &&
+        ['native', 'mapped-from-sat'].includes(q.psatDifficultyFrom)));
+    ok('every question has a drawable PSAT difficulty', QB.every(q =>
+        ['Easy', 'Medium', 'Hard'].includes(q.psatDifficulty)));
+    ok('no normalized drawable passage + stem appears twice', duplicateContent.length === 0,
+        duplicateContent.slice(0, 8).map(pair => pair.join(' / ')).join(', '));
+
+    const canonicalIds = new Set(QB.map(q => q.id));
+    const aliases = QB.flatMap(q => (q.altIds || []).map(id => [id, q.id]));
+    ok('retired ids are aliases, never competing drawable ids', aliases.every(([id, canonical]) =>
+        id !== canonical && !canonicalIds.has(id)));
+}
+
+section('Underline references have one coherent target');
+{
+    const broken = QB.filter(q => {
+        const passage = String(q.passage || '');
+        const question = String(q.question || '');
+        if (!/underlin/i.test(question) && !/<u>/i.test(passage)) return false;
+        const opens = (passage.match(/<u>/gi) || []).length;
+        const closes = (passage.match(/<\/u>/gi) || []).length;
+        const singular = /underlined\s+(?:sentence|claim|portion|phrase|line)\b/i.test(question);
+        return (!q.image && opens === 0) || opens !== closes || opens > 3 ||
+            (singular && opens > 1) || /<u>[\s\S]*<u>/i.test(passage);
+    });
+    ok('no underline target is missing, scattered, nested, or unbalanced', broken.length === 0,
+        broken.map(q => q.id).join(', '));
+}
+
 // ── The id is the spine of everything ────────────────────────────────────────
 // `id` is not a label. It is the only thing joining a question to the student:
 // the mastery ledger, the review ladder, the retention counter and the saved

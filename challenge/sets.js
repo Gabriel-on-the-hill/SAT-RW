@@ -446,8 +446,9 @@ window.CHALLENGE_SETS = {
         //   Words in Context / Medium (4) — in every one the defining phrase sits
         //     in the NEXT clause or the next sentence, and a topic-plausible
         //     option is available to anyone who answers from the subject matter
-        //     instead. 340b33cd and bce627d9 additionally turn on a second sense
-        //     of a common word. The twin ids 9c35759f and 86fbc64d are duplicate
+        //     instead. 340b33cd and f1be2bd1 additionally turn on a second sense
+        //     of a common word. The twin records now canonicalized as eb59336c and
+        //     e1474ac4 are duplicate
         //     items and are excluded; take only one of a pair.
         //   Inferences / Hard (4) — one per failure shape, deliberately: a13c1c66
         //     offers two true generalities that answer a different question;
@@ -505,7 +506,7 @@ window.CHALLENGE_SETS = {
                 // Form, Structure & Sense, Hard, Mod — appositive list before the subject (1)
                 '5b8f9cf2',
                 // Words in Context, Medium — second sense of a common word (2)
-                '1fbf276a', 'bce627d9',
+                '3067b065', 'f1be2bd1',
                 // Inferences, Hard — incomplete vs complete, and which party (2)
                 '4b3d6062', '6b8a7c74',
                 // Rhetorical Synthesis, Hard — a RELATIVE quantity, and one accomplishment (2)

@@ -40,10 +40,10 @@ Seeds derived from `data-challenge-jeffrey-p8.js` (16 misses). Edit the tags the
 
 | keep | id | domain | skill | diff | ruleType | via |
 |:---:|---|---|---|:--:|---|---|
-| [ ] | `105ea6de` | Craft & Structure | Cross-Text Connections | Hard | — |  |
-| [ ] | `17bf10de` | Craft & Structure | Cross-Text Connections | Hard | — |  |
-| [ ] | `03080769` | Craft & Structure | Cross-Text Connections | Medium | — |  |
-| [ ] | `0b5ecf0e` | Craft & Structure | Text Structure and Purpose | Hard | — |  |
+| [ ] | `b72d0320` | Craft & Structure | Cross-Text Connections | Hard | — |  |
+| [ ] | `1e7c4c03` | Craft & Structure | Cross-Text Connections | Hard | — |  |
+| [ ] | `e2d13873` | Craft & Structure | Cross-Text Connections | Medium | — |  |
+| [ ] | `1ff56d95` | Craft & Structure | Text Structure and Purpose | Hard | — |  |
 | [ ] | `0c61d9c0` | Craft & Structure | Text Structure and Purpose | Hard | — |  |
 | [ ] | `032fd227` | Craft & Structure | Text Structure and Purpose | Medium | — |  |
 | [ ] | `0094f813` | Craft & Structure | Words in Context | Hard | — |  |
@@ -74,8 +74,8 @@ Seeds derived from `data-challenge-jeffrey-p8.js` (16 misses). Edit the tags the
 ```js
 ids: [
     '0094f813', '084e8a77', '0252e6a1', '133abbda',
-    '0b5ecf0e', '032fd227', '0c61d9c0', '105ea6de',
-    '03080769', '17bf10de', '040583a5', '0c622cfb',
+    '1ff56d95', '032fd227', '0c61d9c0', 'b72d0320',
+    'e2d13873', '1e7c4c03', '040583a5', '0c622cfb',
     '04cbeca3', '1d08c7ee', '03701ef3', '299c5303',
     '08395130', '350e2336', '0dba14e6', '3882ddf6',
     '10cd0327', '0778b4ac', 'c468db1c', 'c101fc44',

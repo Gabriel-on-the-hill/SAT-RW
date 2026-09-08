@@ -115,15 +115,15 @@
 <!-- FIRST. Migrates the legacy wayne_* keys before anything reads them. -->
 <script src="ns-migrate.js?v=20260717"></script>
 <script src="gate.js?v=20260822"></script>
-<script src="data-craft-structure.js?v=20260906"></script>
-<script src="data-craft-structure-ext.js?v=20260906"></script>
-<script src="data-expression-of-ideas.js?v=20260903"></script>
-<script src="data-expression-of-ideas-ext.js?v=20260904"></script>
-<script src="data-info-ideas.js?v=20260903"></script>
-<script src="data-info-ideas-ext.js?v=20260904"></script>
-<script src="data-conventions.js?v=20260903"></script>
-<script src="data-conventions-ext.js?v=20260904"></script>
-<script src="progress.js?v=20260904"></script>
+<script src="data-craft-structure.js?v=20260909"></script>
+<script src="data-craft-structure-ext.js?v=20260909"></script>
+<script src="data-expression-of-ideas.js?v=20260909"></script>
+<script src="data-expression-of-ideas-ext.js?v=20260909"></script>
+<script src="data-info-ideas.js?v=20260909"></script>
+<script src="data-info-ideas-ext.js?v=20260909"></script>
+<script src="data-conventions.js?v=20260909"></script>
+<script src="data-conventions-ext.js?v=20260909"></script>
+<script src="progress.js?v=20260909"></script>
 <script src="sheet-sync.js?v=20260825"></script>
 <script src="homework/assignments.js?v=20260908"></script>
 </head>
@@ -193,7 +193,12 @@
     typeof questionBank_EOI!=='undefined'?questionBank_EOI:[],
     typeof questionBank_II!=='undefined'?questionBank_II:[],
     typeof questionBank_CON!=='undefined'?questionBank_CON:[]);
-  function byId(id){ for(var i=0;i<QB.length;i++) if(QB[i].id===id) return QB[i]; return null; }
+  var QB_ID_MAP={};
+  QB.forEach(function(q){
+    QB_ID_MAP[q.id]=q;
+    (q.altIds||[]).forEach(function(id){ if(id) QB_ID_MAP[id]=q; });
+  });
+  function byId(id){ return QB_ID_MAP[id]||null; }
   function _pick(pool,n){ var ordered=(typeof prioritizePool==='function')?prioritizePool(pool,{missesFirst:_missesFirst}):pool.slice().sort(function(){return Math.random()-0.5;}); return ordered.slice(0, n); }
   function _shuf(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
 
@@ -242,7 +247,16 @@
   var RECS_KEY = 'satrw_hwrec_'+student+'_'+plan.start+'_'+dayN;
   var records = [];
   function saveRecs(){ try{ localStorage.setItem(RECS_KEY, JSON.stringify({at:Date.now(), recs:records})); }catch(e){} }
-  function loadRecs(){ try{ var o=JSON.parse(localStorage.getItem(RECS_KEY)); return (o&&o.recs&&o.recs.length)?o.recs:null; }catch(e){ return null; } }
+  function loadRecs(){
+    try{
+      var o=JSON.parse(localStorage.getItem(RECS_KEY));
+      if(!(o&&o.recs&&o.recs.length)) return null;
+      var changed=false;
+      o.recs.forEach(function(r){ var q=byId(r.id); if(q&&q.id!==r.id){r.id=q.id; changed=true;} });
+      if(changed) localStorage.setItem(RECS_KEY,JSON.stringify(o));
+      return o.recs;
+    }catch(e){ return null; }
+  }
 
   // Reopened from the hub's "Review your misses" link.
   if (reviewOnly) {

@@ -20,7 +20,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 21,
       "keyPage": 201,
       "ref": "grammar_p022_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2f3d636b",
@@ -43,7 +47,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 21,
       "keyPage": 201,
       "ref": "grammar_p022_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7a6c573b",
@@ -66,7 +74,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 21,
       "keyPage": 201,
       "ref": "grammar_p022_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "18167811",
@@ -89,7 +101,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 21,
       "keyPage": 201,
       "ref": "grammar_p022_q04"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c6c2a7bb",
@@ -112,7 +128,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 22,
       "keyPage": 201,
       "ref": "grammar_p023_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6260dc4f",
@@ -135,7 +155,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 22,
       "keyPage": 201,
       "ref": "grammar_p023_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e7bb0c46",
@@ -158,7 +182,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 22,
       "keyPage": 201,
       "ref": "grammar_p023_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f4b10544",
@@ -181,7 +209,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 22,
       "keyPage": 201,
       "ref": "grammar_p023_q04"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c7bb6033",
@@ -204,7 +236,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 23,
       "keyPage": 201,
       "ref": "grammar_p024_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d8a97f0c",
@@ -227,7 +263,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 23,
       "keyPage": 201,
       "ref": "grammar_p024_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "d5331170",
@@ -250,7 +290,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 24,
       "keyPage": 201,
       "ref": "grammar_p025_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "848d5a83",
@@ -273,7 +317,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 24,
       "keyPage": 201,
       "ref": "grammar_p025_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "094b6500",
@@ -296,7 +344,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 24,
       "keyPage": 201,
       "ref": "grammar_p025_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "bb938122",
@@ -319,7 +371,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 24,
       "keyPage": 201,
       "ref": "grammar_p025_q04"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "47bfd930",
@@ -342,7 +398,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 25,
       "keyPage": 201,
       "ref": "grammar_p026_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f30ccfc0",
@@ -365,7 +425,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 25,
       "keyPage": 201,
       "ref": "grammar_p026_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "8d08cd6a",
@@ -388,7 +452,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 25,
       "keyPage": 201,
       "ref": "grammar_p026_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "fd4b25eb",
@@ -411,7 +479,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 25,
       "keyPage": 201,
       "ref": "grammar_p026_q04"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5fb71c6b",
@@ -434,7 +506,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 26,
       "keyPage": 201,
       "ref": "grammar_p027_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "760df910",
@@ -457,7 +533,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 26,
       "keyPage": 201,
       "ref": "grammar_p027_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0116938a",
@@ -480,7 +560,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 113,
       "keyPage": 205,
       "ref": "grammar_p114_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "75825ec6",
@@ -503,7 +587,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 114,
       "keyPage": 205,
       "ref": "grammar_p115_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b9ac0469",
@@ -526,7 +614,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 115,
       "keyPage": 205,
       "ref": "grammar_p116_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "009470bd",
@@ -549,7 +641,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 178,
       "keyPage": 206,
       "ref": "grammar_p179_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5e374830",
@@ -572,7 +668,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 178,
       "keyPage": 207,
       "ref": "grammar_p179_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c0e2314c",
@@ -595,7 +695,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 178,
       "keyPage": 207,
       "ref": "grammar_p179_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "33afce26",
@@ -618,7 +722,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 181,
       "keyPage": 208,
       "ref": "grammar_p182_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "1f1558f0",
@@ -641,7 +749,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 181,
       "keyPage": 208,
       "ref": "grammar_p182_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b8f59e07",
@@ -664,7 +776,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 181,
       "keyPage": 208,
       "ref": "grammar_p182_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "aca9aa7d",
@@ -687,7 +803,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 184,
       "keyPage": 209,
       "ref": "grammar_p185_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b581dcd2",
@@ -710,7 +830,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 184,
       "keyPage": 209,
       "ref": "grammar_p185_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c5b5cc68",
@@ -733,7 +857,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 184,
       "keyPage": 209,
       "ref": "grammar_p185_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4cf3720a",
@@ -756,7 +884,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 184,
       "keyPage": 210,
       "ref": "grammar_p185_q04"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "30942390",
@@ -779,7 +911,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 187,
       "keyPage": 211,
       "ref": "grammar_p188_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "56948207",
@@ -802,7 +938,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 187,
       "keyPage": 211,
       "ref": "grammar_p188_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "3534cb75",
@@ -825,7 +965,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 189,
       "keyPage": 212,
       "ref": "grammar_p190_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "aff667fc",
@@ -848,7 +992,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 190,
       "keyPage": 212,
       "ref": "grammar_p191_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b0a33163",
@@ -871,7 +1019,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 190,
       "keyPage": 212,
       "ref": "grammar_p191_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "4f412342",
@@ -894,7 +1046,11 @@ const questionBank_EOI_EXT = [
       "questionPage": 190,
       "keyPage": 212,
       "ref": "grammar_p191_q03"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "ad7012da",
@@ -917,7 +1073,12 @@ const questionBank_EOI_EXT = [
       "questionPage": 190,
       "keyPage": 212,
       "ref": "grammar_p191_q04"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   }
 ];
+
 questionBank_EOI.push(...questionBank_EOI_EXT);

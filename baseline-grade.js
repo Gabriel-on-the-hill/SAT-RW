@@ -224,13 +224,16 @@ function projectBaseline(items) {
 //
 // On this bank that gives Boundaries 13.2%, Form/Structure/Sense 12.8%, Words in
 // Context 12.5%, Rhetorical Synthesis 11.8% at the top, and Cross-Text 6.5% and
-// Command of Evidence — Quantitative 4.0% at the bottom. Derived at run time, so
-// it stays honest as the bank grows.
+// Command of Evidence — Quantitative 4.0% at the bottom. Derive from trusted
+// College Board records only: provisional book volume expands practice
+// availability, but is not evidence about exam frequency.
 let _skillWeightCache = null;
 
 function skillWeights(bank) {
     const all = bank || (typeof questionBank !== 'undefined' ? questionBank : []);
-    const src = all.filter(q => typeof baselineEligibleQuestion !== 'function' || baselineEligibleQuestion(q));
+    const src = all.filter(q =>
+        (typeof baselineEligibleQuestion !== 'function' || baselineEligibleQuestion(q)) &&
+        q.difficultyStatus !== 'provisional');
 
     // Key the cache on a cheap fingerprint, not on length alone. Two different
     // banks of equal size are common in tests — a fixture and the real bank

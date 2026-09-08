@@ -20,7 +20,11 @@ const questionBank_II_EXT = [
       "questionPage": 87,
       "keyPage": 90,
       "ref": "critical_reader_p087_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "cd13e8eb",
@@ -43,7 +47,11 @@ const questionBank_II_EXT = [
       "questionPage": 87,
       "keyPage": 90,
       "ref": "critical_reader_p087_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a63c5ae8",
@@ -66,7 +74,11 @@ const questionBank_II_EXT = [
       "questionPage": 88,
       "keyPage": 90,
       "ref": "critical_reader_p088_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5fd7c918",
@@ -89,7 +101,11 @@ const questionBank_II_EXT = [
       "questionPage": 88,
       "keyPage": 90,
       "ref": "critical_reader_p088_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "cc9e19b9",
@@ -112,7 +128,11 @@ const questionBank_II_EXT = [
       "questionPage": 89,
       "keyPage": 90,
       "ref": "critical_reader_p089_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "67528a8e",
@@ -135,7 +155,11 @@ const questionBank_II_EXT = [
       "questionPage": 95,
       "keyPage": 100,
       "ref": "critical_reader_p095_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a7b7d7d4",
@@ -158,7 +182,11 @@ const questionBank_II_EXT = [
       "questionPage": 95,
       "keyPage": 100,
       "ref": "critical_reader_p095_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "b9124dd7",
@@ -181,7 +209,11 @@ const questionBank_II_EXT = [
       "questionPage": 96,
       "keyPage": 100,
       "ref": "critical_reader_p096_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "99b5a4e9",
@@ -204,7 +236,11 @@ const questionBank_II_EXT = [
       "questionPage": 96,
       "keyPage": 100,
       "ref": "critical_reader_p096_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "02b0a647",
@@ -227,7 +263,11 @@ const questionBank_II_EXT = [
       "questionPage": 97,
       "keyPage": 100,
       "ref": "critical_reader_p097_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f264ed96",
@@ -250,7 +290,11 @@ const questionBank_II_EXT = [
       "questionPage": 97,
       "keyPage": 100,
       "ref": "critical_reader_p097_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "fdb6aef6",
@@ -273,7 +317,11 @@ const questionBank_II_EXT = [
       "questionPage": 98,
       "keyPage": 101,
       "ref": "critical_reader_p098_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "93f01e69",
@@ -296,7 +344,11 @@ const questionBank_II_EXT = [
       "questionPage": 128,
       "keyPage": 131,
       "ref": "critical_reader_p128_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0ff3b28e",
@@ -319,7 +371,11 @@ const questionBank_II_EXT = [
       "questionPage": 128,
       "keyPage": 131,
       "ref": "critical_reader_p128_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c8464288",
@@ -342,7 +398,11 @@ const questionBank_II_EXT = [
       "questionPage": 129,
       "keyPage": 131,
       "ref": "critical_reader_p129_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "2d3bfaba",
@@ -365,7 +425,11 @@ const questionBank_II_EXT = [
       "questionPage": 129,
       "keyPage": 131,
       "ref": "critical_reader_p129_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "5b967b08",
@@ -388,7 +452,11 @@ const questionBank_II_EXT = [
       "questionPage": 130,
       "keyPage": 131,
       "ref": "critical_reader_p130_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "46adb770",
@@ -411,7 +479,11 @@ const questionBank_II_EXT = [
       "questionPage": 130,
       "keyPage": 132,
       "ref": "critical_reader_p130_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "773f7adb",
@@ -434,7 +506,11 @@ const questionBank_II_EXT = [
       "questionPage": 138,
       "keyPage": 143,
       "ref": "critical_reader_p138_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f745e1c5",
@@ -457,7 +533,11 @@ const questionBank_II_EXT = [
       "questionPage": 138,
       "keyPage": 143,
       "ref": "critical_reader_p138_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "04c49e9a",
@@ -480,7 +560,11 @@ const questionBank_II_EXT = [
       "questionPage": 139,
       "keyPage": 143,
       "ref": "critical_reader_p139_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "e5d9ba88",
@@ -503,7 +587,11 @@ const questionBank_II_EXT = [
       "questionPage": 139,
       "keyPage": 143,
       "ref": "critical_reader_p139_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "86d01b5e",
@@ -526,7 +614,11 @@ const questionBank_II_EXT = [
       "questionPage": 140,
       "keyPage": 143,
       "ref": "critical_reader_p140_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "ba4c5c68",
@@ -549,7 +641,11 @@ const questionBank_II_EXT = [
       "questionPage": 140,
       "keyPage": 144,
       "ref": "critical_reader_p140_q02"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "a5fe7800",
@@ -572,7 +668,11 @@ const questionBank_II_EXT = [
       "questionPage": 141,
       "keyPage": 144,
       "ref": "critical_reader_p141_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "18d224de",
@@ -595,7 +695,11 @@ const questionBank_II_EXT = [
       "questionPage": 142,
       "keyPage": 144,
       "ref": "critical_reader_p142_q01"
-    }
+    },
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "002cf820",
@@ -625,7 +729,11 @@ const questionBank_II_EXT = [
       "Eastern Red Bat",
       "Big Brown Bat",
       "Average cries per night"
-    ]
+    ],
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "6dddb109",
@@ -657,7 +765,11 @@ const questionBank_II_EXT = [
       "Jan",
       "Feb",
       "Mar"
-    ]
+    ],
+    "origin": "book-ugsg",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "7fb75bfb",
@@ -688,7 +800,11 @@ const questionBank_II_EXT = [
       "UV absorption",
       "Ultraviolet",
       "Red"
-    ]
+    ],
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "f64bbbe3",
@@ -720,7 +836,11 @@ const questionBank_II_EXT = [
       "Erickson",
       "Takeushi",
       "240"
-    ]
+    ],
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "fc7da36a",
@@ -751,7 +871,12 @@ const questionBank_II_EXT = [
       "Seal F",
       "No Noise",
       "High Noise"
-    ]
+    ],
+    "origin": "book-ugsg",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
   }
 ];
+
 questionBank_II.push(...questionBank_II_EXT);

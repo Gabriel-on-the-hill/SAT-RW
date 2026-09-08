@@ -111,7 +111,7 @@ t('the page is gated', () => {
 });
 
 t('page boots with no script errors', () => eq(pageErrors, []));
-t('bank assembled in the page', () => eq(ev('questionBank.length'), 957));
+t('bank assembled in the page', () => eq(ev('questionBank.length'), 809));
 t('form built to 22 items', () => eq(ev('Q.length'), 22));
 t('the clock is the SAT sitting, not the sister app\'s', () =>
     eq(ev('remaining'), 22 * 71));

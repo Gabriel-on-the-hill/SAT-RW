@@ -102,8 +102,17 @@ function clearSessionState() {
     try { localStorage.removeItem(STORAGE.SESSION); } catch (e) {}
 }
 
+function _sessionQuestionMap() {
+    const idMap = {};
+    questionBank.forEach(q => {
+        idMap[q.id] = q;
+        (q.altIds || []).forEach(id => { if (id) idMap[id] = q; });
+    });
+    return idMap;
+}
+
 function restoreSession(state) {
-    const idMap     = Object.fromEntries(questionBank.map(q => [q.id, q]));
+    const idMap     = _sessionQuestionMap();
     activeQuestions = state.questionIds.map(id => idMap[id]).filter(Boolean);
     if (activeQuestions.length === 0) { clearSessionState(); return false; }
 
@@ -136,7 +145,7 @@ function checkForSavedSession() {
     const state = loadSessionState();
     if (!state) { banner.style.display = 'none'; return; }
 
-    const idMap   = Object.fromEntries(questionBank.map(q => [q.id, q]));
+    const idMap   = _sessionQuestionMap();
     const valid   = state.questionIds.filter(id => idMap[id]).length;
     if (valid === 0) { clearSessionState(); banner.style.display = 'none'; return; }
 

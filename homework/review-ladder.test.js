@@ -64,9 +64,10 @@ const BANK = [
 
 // Fresh window with progress.js loaded and a ledger seeded. `traps` optionally seeds
 // the per-skill trap buckets, which is where difficulty calibration reads accuracy from.
-function withLedger(ledger, traps) {
+function withLedger(ledger, traps, bank) {
     const dom = new JSDOM('<!doctype html><body>', { runScripts: 'dangerously', url: 'https://x.test' });
     const w   = dom.window;
+    w.questionBank = bank || BANK;
     w.localStorage.setItem(LEDGER_KEY, JSON.stringify(ledger));
     if (traps) w.localStorage.setItem(TRAP_KEY, JSON.stringify(traps));
     const s = w.document.createElement('script');
@@ -368,6 +369,58 @@ section('Calibration reads accuracy and points at the ~85% band');
         provisional.recommendDifficulty('Inferences') === 'hold' &&
         provisional.getSkillAccuracy()['Inferences'].total === 0,
         JSON.stringify(provisional.getSkillAccuracy()['Inferences']));
+}
+
+section('Retired duplicate ids carry their progress to the canonical question');
+{
+    const aliasBank = BANK.concat([{
+        id: 'canonical', altIds: ['retired'], skill: 'Boundaries', difficulty: 'Hard'
+    }]);
+    const w = withLedger({
+        canonical: { correct: 2, wrong: 1, streak: 2, lastSeen: ago(3), lastResult: 'correct' },
+        retired:   { correct: 1, wrong: 2, streak: 0, lastSeen: ago(1), lastResult: 'wrong' },
+    }, null, aliasBank);
+    let ledger = w.getProgress();
+    ok('the retired key is removed', !ledger.retired);
+    ok('attempt counts merge without losing either record',
+        ledger.canonical.correct === 3 && ledger.canonical.wrong === 3,
+        JSON.stringify(ledger.canonical));
+    ok('the most recent outcome survives the merge',
+        ledger.canonical.lastResult === 'wrong' && ledger.canonical.streak === 0);
+    ok('the migrated ledger is saved immediately',
+        !JSON.parse(w.localStorage.getItem(LEDGER_KEY)).retired);
+
+    w.recordAnswer('retired', true, 'homework');
+    ledger = w.getProgress();
+    ok('future writes through an old id land on the canonical id',
+        !ledger.retired && ledger.canonical.correct === 4);
+}
+
+section('Unseen College Board questions lead unseen provisional questions');
+{
+    const provenanceBank = [
+        { id: 'official1', skill: 'Boundaries', difficulty: 'Hard' },
+        { id: 'provisional1', difficultyStatus: 'provisional', skill: 'Boundaries', difficulty: 'Hard' },
+        { id: 'official2', skill: 'Boundaries', difficulty: 'Hard' },
+        { id: 'provisional2', difficultyStatus: 'provisional', skill: 'Boundaries', difficulty: 'Hard' },
+    ];
+    let w = withLedger({}, null, provenanceBank);
+    let ordered = w.prioritizePool(provenanceBank);
+    ok('provisional items remain drawable',
+        ordered.some(q => q.id === 'provisional1') && ordered.length === provenanceBank.length);
+    ok('trusted unseen items come before every provisional unseen item',
+        ordered.slice(0, 2).every(q => q.difficultyStatus !== 'provisional') &&
+        ordered.slice(2).every(q => q.difficultyStatus === 'provisional'),
+        ordered.map(q => q.id).join(', '));
+
+    w = withLedger({
+        official1: { correct: 0, wrong: 1, streak: 0, lastSeen: ago(2), lastResult: 'wrong' },
+    }, null, provenanceBank);
+    ordered = w.prioritizePool(provenanceBank, { missesFirst: true });
+    ok('misses-first still leads with needsWork and preserves the unseen partition behind it',
+        ordered[0].id === 'official1' && ordered[1].id === 'official2' &&
+        ordered.slice(2).every(q => q.difficultyStatus === 'provisional'),
+        ordered.map(q => q.id).join(', '));
 }
 
 console.log('\n' + '─'.repeat(64));
