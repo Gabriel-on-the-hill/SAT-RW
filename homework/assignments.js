@@ -835,112 +835,120 @@ const HOMEWORK = {
   }
   */
 
-  // ── 15–17 SEP 2026 · consolidate the habit, then one set on a clock ─────
+  // ── 21–24 SEP 2026 · four sets, authored as two pairs ───────────────────
   //
-  // Re-authored; replaces the 6–11 Sep block, which closed with all three sets
-  // returned. Three evenings this week, not five, so the block is smaller.
+  // Replaces the 15–17 Sep block, which returned nothing. The block before it
+  // carried MORE new questions and was returned in full, so the count is not
+  // what failed and the count is not what changed here — this block is larger.
+  // What changed is the shape, the window and where set 1 gets opened.
   //
-  // `sequential` again, and safe for the same reason: hwDayOpen() falls through
-  // to a CALENDAR FLOOR when an earlier set is unsubmitted, so a stalled set
-  // costs its own night and never deadlocks the ones behind it.
+  // SHAPE — 20 new, up to 28 served:
+  //   1  Inferences + RS + TS&P        Medium only      5 + 2   untimed, typed
+  //   2  Central Ideas + Inf + RS      M×3 H×2          5 + 2   untimed, typed
+  //   3  Inferences + Transitions + CI M×3 H×2          5 + 2   untimed, typed
+  //   4  all five types, mixed         M×2 H×3          5 + 2   untimed, typed
+  //   Ratio across the block: 13 Medium / 7 Hard.
   //
-  // SHAPE — 18 new, 24 served:
-  //   1  RS + TS&P          Hard           5 + 2   untimed, typed prediction
-  //   2  Central Ideas + Cross-Text  Medium 5 + 2   untimed, typed prediction
-  //   3  all four, mixed tiers          8 + 2   TIMED, 15 min
+  // AUTHORED AS TWO PAIRS, AND THE PAIRING IS THE POINT. Sets 1+2 are one
+  // sitting; 3+4 are another, on a different day. The day between is what makes
+  // the review slots work: REVIEW_LADDER_DAYS opens at 1 day, so an item
+  // answered in set 1 is not due until the following day. Four sets run in one
+  // evening produce four scores and zero delayed retrievals. Split across two,
+  // sets 3 and 4 can draw review from sets 1 and 2 — which is the only way this
+  // plan generates a retention count from homework at all.
   //
-  // DAYS 1 AND 2 STAY AT minutes:0, AND THAT IS LOAD-BEARING. minutes:0 is the
+  // The pairing is asked for in `tip`, not enforced. `sequential` deliberately
+  // does not gate on the calendar beyond the floor in hwDayOpen(), because a
+  // student with a free evening should not be locked out of the next set.
+  //
+  // THE DIFFICULTY RAMPS ACROSS THE BLOCK RATHER THAN SITTING FLAT. Set 1 is
+  // Medium throughout — it is the first unassisted reading of a method taught
+  // in the last session, and a first solo run belongs at the tier below the
+  // ceiling. Hard enters at set 2 and set 4 is majority Hard. Authoring the
+  // ramp inside one block means the stabilising happens this week instead of
+  // being deferred to the next one.
+  //
+  // ALL FOUR SETS STAY AT minutes:0, AND THAT IS LOAD-BEARING. minutes:0 is the
   // only state in which predictMode() returns 'type'; above zero it returns
   // 'commit' and the prediction becomes a one-click gate with no text. The
-  // typed prediction is the most informative field this plan produces, so two
-  // of the three sets keep it.
+  // typed prediction is the most informative field this plan produces and the
+  // last block produced none of it. Nothing here goes on a clock. The next
+  // timed set is a measurement and it belongs on a fresh instrument.
   //
-  // DAY 3 IS DELIBERATELY TIMED, and it is the first timed set in this plan.
-  // Three things change at once when minutes > 0, all in homework-run.html:
-  // predictMode() -> 'commit' (gate kept, text lost), navMode() -> 'exam'
-  // (move around, flag, change answers) and feedback defers to the review
-  // screen. The redo phase afterwards is untimed, so it types again.
-  //
-  // WHY 15 MINUTES FOR 10 SERVED, AND NOT 12. The real section allows ~71 s a
-  // question and that is the eventual target, but pace on this plan's untimed
-  // sets has been running well above it once a typed prediction and Hard items
-  // are in play. A first clock set at exact section pace would measure the
-  // novelty of the clock rather than the work. 90 s a question is a step toward
-  // 71 from where the untimed sets actually sit, and it is still slower than
-  // the section — nothing here trains anyone faster than the test. Tighten the
-  // next one.
-  //
-  // DAY 2 OPENS A NEW METHOD FAMILY, AT MEDIUM, ON PURPOSE. Central Ideas and
-  // Details and Cross-Text Connections turn on tracking a text's direction and
-  // its claims, which is a prediction habit rather than a rule to apply. A
-  // skill whose fix is a discrete rule (agreement, punctuation) needs the rule
-  // taught before a set can ask for a prediction at all, or the prediction box
-  // just gets the stem typed back into it. That is why nothing from the rule
-  // family is in this block. Medium, not Hard, because the habit is new on this
-  // ground.
-  //
-  // INFERENCES IS NOT HERE AND MUST NOT BE ADDED until it has had its method
-  // lesson. Its Easy pool is the cleanest in the bank at 13 confirmed and it is
-  // reserved for immediately after that lesson.
+  // TRANSITIONS IS NEW GROUND AND IT IS HERE ON PURPOSE. It is the one skill in
+  // this cluster whose whole operation is already inside the method the other
+  // four sets run: name what each side of the blank does, state the
+  // relationship, then sort the options into families. Cross-Text Connections
+  // is NOT here for the opposite reason — two passages and a position map is a
+  // different operation and it gets taught before it is set.
   //
   // A RATIO IS AUTHORED AS SECTIONS, NEVER AS `diffs`. A single section with
   // diffs:["Medium","Hard"] does not give a ratio — it draws n from a pooled
   // shuffle and the split is chance. Worse, _calibratedPick() only engages on a
   // section carrying two or more difficulties, so once a skill passes
   // MIN_CALIBRATION_ATTEMPTS above CALIBRATE_UP_ABOVE the draw starts leaning
-  // away from whatever was authored. That threshold is no longer hypothetical
-  // on Rhetorical Synthesis in this plan. One difficulty per section is the
-  // only way a ratio holds, and every section below carries exactly one.
+  // away from whatever was authored. That threshold is live on Rhetorical
+  // Synthesis in this plan. One difficulty per section is the only way a ratio
+  // holds, and every section below carries exactly one.
   //
   // SECTIONS CONCATENATE IN AUTHOR ORDER and shuffle only WITHIN a section, so
-  // one-question sections are the only way to interleave. Days 1 and 3 are
-  // written that way deliberately — grouping them would block the set by skill,
-  // which is the one thing those two days exist to prevent.
+  // one-question sections are the only way to interleave. Every set below is
+  // written that way — grouping any of them would block the set by skill, and
+  // deciding which type is on the screen is part of what each set is for.
   //
-  // POOL CHECK, counted against the bank on 15 Sep (confirmed labels):
-  //   RS Hard 21 · RS Medium ample · TS&P Hard 21 · TS&P Medium 16
-  //   Central Ideas Medium 15 · Cross-Text Medium 12  <- shallowest here
-  // Cross-Text Medium is the one to watch; three draws is comfortable, a block
-  // built on it would not be. Note the pool tables in the older planning files
-  // no longer match the bank — re-count before authoring, do not trust them.
+  // POOL CHECK, counted against the bank on 21 Sep (confirmed labels, unseen,
+  // with the two-per-skill reserved by each baseline form already removed):
+  //   Inferences Medium 7  <- shallowest here, 4 drawn, 3 left after this block
+  //   Text Structure Medium 5, 1 drawn                 Inferences Hard 24
+  //   Central Ideas Medium 11 / Hard 16                Transitions Medium 12
+  //   RS Medium 16 / Hard 16                           TS&P Hard 17
+  // Inferences Medium is the pool to watch — after this block the skill runs at
+  // Hard, where there is depth and no collision with either baseline form.
+  // Re-count before authoring; the tables in the older planning files are stale.
   //
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser and this repo is public. Keep it
   // free of assessment of him — shapes, pools and guardrails only.
   "Ayodeji": {
-    title: "This week: keep naming the job — and once, against a clock",
-    start: "2026-09-15",
-    through: "2026-09-17",
+    title: "This week: four sets, two sittings — run the steps yourself",
+    start: "2026-09-21",
+    through: "2026-09-24",
     unlock: "sequential",
     days: [
-      { n:1, focus:"Both types, mixed, no warning which is which", minutes:0, review:2,
-        tip:"Five questions, no clock, typed prediction on every one. Both question types are in here and they are shuffled, so the first thing to do on each one is work out which of the two you are looking at.\n\n• The question NAMES a goal — \"wants to emphasise\", \"wants to introduce\" — then the job is already written down for you. Copy it and test against it.\n• The question asks what a part of the text is DOING — its function, its purpose, why it is there — then you work the job out yourself, from the words on the page, before you look down.\n\nBoth end the same way: name the job, test each choice against it, throw out anything true but off-task.\n\nTHE PREDICTION IS THE WORK, NOT A WARM-UP. What you type has to say what the answer must DO, in words you could only have got from this passage. \"Explains the function\" and \"why the line is there\" are the question typed back at itself — they are true of every question on the screen, so they cannot help you choose between four options. \"Explains why the second method failed where the first did not\" can.\n\nIf you cannot write that sentence yet, you have not finished reading. Go back to the text — that is where the time belongs.",
+      { n:1, focus:"Where is the text going? — on your own this time", minutes:0, review:2,
+        tip:"TWO SETS TONIGHT: this one and set 2, back to back. About twenty-five minutes. Then sets 3 and 4 on a different night — they bring these questions back, and that only works if a night has passed.\n\nFive questions, no clock, typed prediction on every one. Most are the type with a blank at the end and no question telling you what to look for. THE TEXT HAS TO TELL YOU THE JOB.\n\nRUN THE STEPS. Write them at the top of the page first:\n1. READ THE WORDS TOUCHING THE BLANK. \"Therefore\", \"However\", \"This suggests\", \"because\" — a constraint handed to you free, and it often settles the direction before you have read a line.\n2. LABEL EACH SENTENCE, ONE WORD. Claim · Evidence · Qualifier · Contrast · Example. No interpretation yet. No contrast is fine. Two, label both.\n3. NAME THE SHAPE. \"The text says X, then Y, so the gap is ___.\"\n4. TYPE WHAT THE MISSING PIECE MUST DO — in this text's own words, not what it is about.\n5. DIRECTION CHECK, twenty seconds. Is the text ending up FOR or AGAINST the thing it started with? Wherever a contrast sits, the side after it is the side the text is now on.\n\nTHEN the options. Four questions, this order, stop at the first failure:\n• Is it supported by the text?\n• Is it the thing THIS text was building toward? — accurate and off-task is still wrong\n• Is it exactly as strong as the text and no stronger? Watch: always, never, all, only, proves, cannot\n• Does it point the way the text points?\n\nTwo survive? Take the one that uses EVERY part of the text. An option that ignores the qualifier is the wrong one.\n\nIN THE LAST SESSION I WAS DOING STEP 4 WITH YOU. Tonight nobody will ask you to be more specific — so ask yourself before you press on: could this sentence have been written about any other passage? If it could, it is not finished.\n\nTwo of these five are not inference questions. Work out which before you answer them.",
         sections:[
-          { skills:["Rhetorical Synthesis"],       diffs:["Hard"], count:1 },
-          { skills:["Text Structure and Purpose"], diffs:["Hard"], count:1 },
-          { skills:["Rhetorical Synthesis"],       diffs:["Hard"], count:1 },
-          { skills:["Text Structure and Purpose"], diffs:["Hard"], count:1 },
-          { skills:["Rhetorical Synthesis"],       diffs:["Hard"], count:1 }
-        ] },
-      { n:2, focus:"New question types — where is the text going?", minutes:0, review:2,
-        tip:"Five questions, no clock, typed prediction. These are question types you have not had a set on before, so read this before you start.\n\nTWO NEW SHAPES:\n• MAIN IDEA / DETAILS — what is the text as a whole saying? The trap is a real detail from the passage promoted into the main point. A sentence can be perfectly true and still be one brick rather than the building.\n• TWO TEXTS — you get two passages and a question about how the second author would respond to the first. The trap is a position that sounds balanced or cautious but that neither author actually takes.\n\nSAME HABIT, NEW TARGET. On the sets you have done, you named what the answer had to DO. Here you name where the text is GOING before you look at the options:\n1. Find the claim. What is this author actually asserting?\n2. Find the turn. \"But\", \"however\", \"by contrast\", \"although\" — these are hinges, and the sentence after one often outranks everything before it. Read past one and you can end up arguing the opposite of the text.\n3. On a two-text question, say in one line what EACH author holds, and where exactly they part company, before you read a single option.\n\nThen test the choices against what you wrote. Accurate but not what this text is doing is still wrong — that part does not change.",
-        sections:[
-          { skills:["Central Ideas and Details"],  diffs:["Medium"], count:1 },
-          { skills:["Cross-Text Connections"],     diffs:["Medium"], count:1 },
-          { skills:["Central Ideas and Details"],  diffs:["Medium"], count:1 },
-          { skills:["Cross-Text Connections"],     diffs:["Medium"], count:1 },
-          { skills:["Central Ideas and Details"],  diffs:["Medium"], count:1 }
-        ] },
-      { n:3, focus:"All four types, on the clock — 15 minutes", minutes:15, review:2,
-        tip:"Ten questions in fifteen minutes. This is the first set on a clock and it is a measurement, not a test — the number it produces is information for the next few weeks, so run it honestly and do not look anything up.\n\nFOUR THINGS ARE DIFFERENT WHEN THE TIMER IS ON:\n1. You do not type the prediction. You still make it — there is a one-click gate before the options — but there is no box, because you will not have one in December.\n2. You can move around. Skip, come back, change an answer, flag anything you are unsure of. The real section works this way.\n3. You will not see whether you were right until the end. The review screen has all of it, with the explanations.\n4. The redo afterwards is untimed, and it goes back to typing. That is where the thinking gets written down.\n\nBEFORE YOU START: one sitting, phone in another room, and go to the END — a set only counts once you are past the last question.\n\nHOW TO SPEND THE TIME. Ninety seconds a question on average, and they will not cost the same. If one is not coming, flag it and move — two questions lost to one stubborn text is the most expensive mistake available on a timed section. Come back with whatever is left.\n\nAND THE HABIT STILL COMES FIRST. Name the job in your head before the options appear, every time. Under a clock the temptation is to read the four choices and pick the one that sounds most like the passage. That is the exact move the last three weeks have been about not making.",
-        sections:[
-          { skills:["Rhetorical Synthesis"],       diffs:["Hard"],   count:1 },
-          { skills:["Central Ideas and Details"],  diffs:["Medium"], count:1 },
-          { skills:["Text Structure and Purpose"], diffs:["Hard"],   count:1 },
-          { skills:["Cross-Text Connections"],     diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                 diffs:["Medium"], count:1 },
           { skills:["Rhetorical Synthesis"],       diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                 diffs:["Medium"], count:1 },
           { skills:["Text Structure and Purpose"], diffs:["Medium"], count:1 },
-          { skills:["Central Ideas and Details"],  diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                 diffs:["Medium"], count:1 }
+        ] },
+      { n:2, focus:"The same steps, pointed at the whole text", minutes:0, review:2,
+        tip:"Straight on from set 1. Five questions, no clock, typed prediction.\n\nSAME STEPS, ONE CHANGE OF TARGET. Set 1 asked what comes NEXT. Three of these ask what the whole text SAYS. You still label the sentences, still check the direction, still write what the answer must do before looking down. What changes is the size of the thing you are describing.\n\nMAIN IDEA — AND THIS IS THE TRAP THE BASELINE CAUGHT. A real detail from the passage, promoted into the main point. It will be perfectly true. It will be one brick rather than the building. Ask it straight: is that the building, or one brick?\n\nThe test that catches it is one you already have: was it TRUE, or did it DO THE JOB? A main idea has to account for the whole text — including the sentence that qualifies it and the sentence that turns against it. An option covering only the first half is a detail wearing a main idea's clothes.\n\nTwo of these are harder than anything in set 1. That is on purpose — you were nine out of ten at the hard end, and you asked for harder. The steps do not change at that end. What changes is that two options will both look right, and the sentence you typed is the only fixed thing you have to separate them.",
+        sections:[
+          { skills:["Central Ideas and Details"], diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                diffs:["Hard"],   count:1 },
+          { skills:["Central Ideas and Details"], diffs:["Medium"], count:1 },
+          { skills:["Rhetorical Synthesis"],      diffs:["Hard"],   count:1 },
+          { skills:["Central Ideas and Details"], diffs:["Medium"], count:1 }
+        ] },
+      { n:3, focus:"Connectors — the whole skill is one step you already have", minutes:0, review:2,
+        tip:"Different night from sets 1 and 2. Two sets tonight: this one and set 4. Some questions in here you have seen before — that is deliberate, and it is the only way to find out what you have actually kept.\n\nNEW QUESTION TYPE, and you already know how to do it. TRANSITIONS give you two sentences and ask which word joins them. That is the labelling step and the direction check with nothing else attached.\n\nHOW TO WORK ONE:\n1. Cover the choices. Read the sentence BEFORE the blank and say what it does in one word.\n2. Read the sentence AFTER. Say what that one does.\n3. Say the RELATIONSHIP out loud before you look: does the second agree, contradict, give an example, draw a consequence, or narrow what came before?\n4. Only then look. Sort the options into families — also/moreover are additions, however/by contrast are reversals, therefore/thus are consequences, for example/for instance are illustrations — and throw out every family that is not yours.\n\nThe trap is a word that sounds academic and points the wrong way. \"Nevertheless\" is not a fancy \"furthermore\". If you named the relationship first, that trap cannot reach you.\n\nTHE INFERENCE QUESTIONS IN HERE ARE BOTH HARD. Read to the blank, predict into it, and spend the time in the passage — your own numbers say that when you do, you are right nineteen times in twenty.",
+        sections:[
+          { skills:["Inferences"],                diffs:["Hard"],   count:1 },
+          { skills:["Transitions"],               diffs:["Medium"], count:1 },
+          { skills:["Central Ideas and Details"], diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                diffs:["Hard"],   count:1 },
+          { skills:["Transitions"],               diffs:["Medium"], count:1 }
+        ] },
+      { n:4, focus:"All five types, no warning which is which", minutes:0, review:2,
+        tip:"Last set. Straight on from set 3. Five questions, no clock, typed prediction, mostly hard.\n\nFIVE DIFFERENT QUESTION TYPES ARE IN HERE AND NOTHING TELLS YOU WHICH. The paper gives no warning either, and that is the skill this set exists for. FIRST MOVE, EVERY TIME: which am I looking at?\n\n• Blank at the end, no real question — INFERENCE. The text tells you the job.\n• Two sentences and a missing joining word — TRANSITION. Name the relationship before you look.\n• \"Main idea\", or what the text SAYS — the whole thing, not one part. Building, not brick.\n• The question NAMES a goal — \"wants to emphasise\", \"wants to introduce\" — the job is written down for you. Copy it.\n• The question asks what a part is DOING — its function, why it is there — work the job out yourself first.\n\nALL FIVE END THE SAME WAY: name the job, test each choice against it, throw out anything true but off-task.\n\nThis is the set that decides what next week looks like, so run it properly — one sitting, phone somewhere else, and go all the way to the end. A set only counts once you are past the last question.",
+        sections:[
+          { skills:["Central Ideas and Details"],  diffs:["Hard"],   count:1 },
+          { skills:["Inferences"],                 diffs:["Medium"], count:1 },
+          { skills:["Text Structure and Purpose"], diffs:["Hard"],   count:1 },
+          { skills:["Transitions"],                diffs:["Medium"], count:1 },
           { skills:["Rhetorical Synthesis"],       diffs:["Hard"],   count:1 }
         ] },
     ]
