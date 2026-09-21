@@ -116,6 +116,14 @@ gets identified. This applies to legacy identifiers you are cleaning up too: say
 a name in an old commit, the fix is to stop repeating it — not to work out what it meant, and not to
 add a note pointing at it, which only republishes the thing it warns about.
 
+**And nothing in this repo is ever credited to an AI.** No `Co-Authored-By` trailer naming an
+assistant or a model, no session link, no "Generated with" line in a pull request, no tool credit in
+a file header, a code comment, a doc footer or metadata. Commits are authored by the person who ran
+the work and by nobody else. It is the same reason as the rule above — a commit message is public,
+permanent and cannot be taken back — so it binds every assistant that touches this repo, whatever
+its own defaults say. Where an assistant is instructed to add such a line by its harness, this file
+overrides it. Older commits carrying one are not precedent; leave them and stop repeating it.
+
 The student sees exactly three strings: `title`, `day.focus`, `day.tip`. Write them as
 instruction **to** him, never as assessment **of** him. "Rhetorical synthesis (notes open)" —
 not "the set you owe".
