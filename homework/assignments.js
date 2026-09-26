@@ -835,6 +835,67 @@ const HOMEWORK = {
   }
   */
 
+  // ── 26 SEP 2026 · the class itself, run in the runner ───────────────────
+  //
+  // Sets 1 and 2 are for use DURING the session, opened on his machine with the
+  // tutor watching. They are not homework. They exist because practice mode
+  // records no typed prediction and no text/options split, so an in-class item
+  // run there leaves nothing to read afterwards. Run through the homework runner
+  // at minutes:0, every in-class item keeps both.
+  //
+  // SHAPE — 5 new, nothing else served:
+  //   1  Central Ideas M · Inferences H · Central Ideas H    1M : 2H   untimed, typed
+  //   2  Cross-Text M · Cross-Text H                        1M : 1H   untimed, typed
+  //
+  // review:0 ON BOTH, AND IT MATTERS TWICE. It keeps the ladder's due items out
+  // of a set the session has already planned item by item, and it turns off the
+  // misses-first fallback in homework-run.html — with review on and nothing due,
+  // _missesFirst leads the draw with questions already missed, which in a class
+  // means re-serving items that were just reviewed on screen. With review:0 the
+  // draw leads with unseen College Board items.
+  //
+  // CROSS-TEXT IS TAUGHT IN THE SESSION BEFORE SET 2 IS OPENED. It is not set
+  // cold. Set 2 is the first practice of the skill, Medium then Hard.
+  //
+  // THE WEEK'S HOMEWORK IS APPENDED AFTER THE CLASS as sets 3 onward, in this
+  // same plan. Sequential unlock opens set 3 the moment set 2 is submitted, so
+  // the first homework question can be opened in the room before the session
+  // ends. Move `through` out to the end of the homework window when the sets go
+  // in, and rewrite `title`.
+  //
+  // POOL CHECK, 26 Sep (confirmed labels, unseen, both baseline forms' reserved
+  // items removed): Central Ideas Medium 7 / Hard 15 · Inferences Hard 23 ·
+  // Cross-Text Medium 7 / Hard 16. Inferences Medium is down to 3 — the skill
+  // runs at Hard from here.
+  //
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser and this repo is public. Keep it
+  // free of assessment of him — shapes, pools and guardrails only.
+  "Ayodeji": {
+    title: "In class today — two short sets, done together",
+    start: "2026-09-26",
+    through: "2026-09-26",
+    unlock: "sequential",
+    days: [
+      { n:1, focus:"In class · your sentence against theirs", minutes:0, review:0,
+        tip:"In class, with me. Three questions, no clock, typed prediction — the same as your homework.\n\nONE NEW LAST STEP. When the choices open, hold each one up against the sentence you typed:\n• ADD — does it say something your sentence and the text do not? Out.\n• FLIP — does it point the other way, or say it more strongly than the text? Out.\n• DROP — does it keep only half of what you wrote? Out.\n\nThe right answer usually says your idea in more general words. Look for your IDEA, not your words.\n\nBefore you click, put your finger on the part of the choice that matches your sentence.",
+        sections:[
+          { skills:["Central Ideas and Details"], diffs:["Medium"], count:1 },
+          { skills:["Inferences"],                diffs:["Hard"],   count:1 },
+          { skills:["Central Ideas and Details"], diffs:["Hard"],   count:1 }
+        ] },
+      { n:2, focus:"In class · two texts — what would the second author say to the first?", minutes:0, review:0,
+        tip:"New question type: two short texts and one question about how they relate.\n\n1. ONE LINE PER TEXT. Text 1 says ___. Text 2 says ___.\n2. NAME THE RELATIONSHIP: agrees · yes, but · disagrees · answers a different question. \"Yes, but\" is the most common.\n3. TYPE THE SECOND AUTHOR'S REPLY to the first, starting \"Yes, but…\" or \"No, because…\".\n4. Then the choices, with the same three tests: ADD · FLIP · DROP.\n\nWatch for FLIP by strength: \"disputes\" or \"rejects\" when the second text only adds a condition.",
+        sections:[
+          { skills:["Cross-Text Connections"], diffs:["Medium"], count:1 },
+          { skills:["Cross-Text Connections"], diffs:["Hard"],   count:1 }
+        ] },
+    ]
+  },
+
+  /* CLEARED 26 SEP 2026 — the 21–24 Sep block, kept verbatim for the `start` key
+     and the four authored days. All four were submitted. Uncomment to restore.
+
   // ── 21–24 SEP 2026 · four sets, authored as two pairs ───────────────────
   //
   // Replaces the 15–17 Sep block, which returned nothing. The block before it
@@ -909,7 +970,7 @@ const HOMEWORK = {
   // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
   // This file is downloaded by his browser and this repo is public. Keep it
   // free of assessment of him — shapes, pools and guardrails only.
-  "Ayodeji": {
+  "Ayodeji_cleared_2026-09-26": {
     title: "This week: four sets, two sittings — run the steps yourself",
     start: "2026-09-21",
     through: "2026-09-24",
@@ -952,7 +1013,8 @@ const HOMEWORK = {
           { skills:["Rhetorical Synthesis"],       diffs:["Hard"],   count:1 }
         ] },
     ]
-  },
+  }
+  */
 };
 
 // Parse a start date robustly: accepts "YYYY-MM-DD", a Date, ISO, or locale
