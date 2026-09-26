@@ -26,7 +26,7 @@ const CFG_DEFAULTS = {
     // getExamDateStr() prefers the localStorage value whenever it parses, so a
     // device carrying an older date keeps it and this edit does not reach it.
     // Setting it on HIS device, from the progress panel, is a separate action.
-    EXAM_DATE: '2026-09-12',
+    EXAM_DATE: '2026-12-05',
     Q_BUDGET:  100,
 };
 
