@@ -37,7 +37,15 @@ const HOMEWORK_SRC = (() => {
     return new Function(src + '; return HOMEWORK;')();
 })();
 const SETS_SRC = (() => { const w = {}; new Function('window', read('challenge/sets.js'))(w); return w.CHALLENGE_SETS; })();
-const PLAN = HOMEWORK_SRC.Jeffrey;
+// The live plan on this key may be a days plan (the hub then shows the newest set
+// under the days, not as the whole page). This suite tests the CHALLENGE-ONLY
+// card, so when the live plan has no `challenge` field it builds a fixture plan
+// that names the newest set, and build() injects it for this key.
+const LIVE = HOMEWORK_SRC.Jeffrey;
+const PLAN = LIVE.challenge ? LIVE : {
+    title: 'Fixture \u2014 challenge only', start: '2026-01-01', unlock: 'sequential',
+    challenge: SETS_SRC.Jeffrey[SETS_SRC.Jeffrey.length - 1].setId, days: [],
+};
 const SET  = SETS_SRC.Jeffrey.filter(s => s.setId === PLAN.challenge)[0];
 const N    = SET.ids.length;
 const esc  = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -66,6 +74,7 @@ function build(student, ledger, plan, seed) {
         if (seed) for (const k of Object.keys(seed)) w.localStorage.setItem(k, seed[k]);
         for (const f of DECLARED) {
             const s = w.document.createElement('script');
+            if (!plan && student === 'Jeffrey' && PLAN !== LIVE) plan = PLAN;
             s.textContent = read(f) + (f === 'homework/assignments.js' && plan
                 ? `\nHOMEWORK[${JSON.stringify(student)}] = ${JSON.stringify(plan)};`
                 : '');

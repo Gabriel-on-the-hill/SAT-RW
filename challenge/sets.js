@@ -338,6 +338,121 @@ window.CHALLENGE_SETS = {
                 '95dbdf51',
             ],
         },
+
+        // ══════════════════════════════════════════════════════════════
+        // kill-word-1 — one procedure, a teaching layer, then prior attempts
+        // ══════════════════════════════════════════════════════════════
+        //
+        // TWO LAYERS, AND THE ORDER IS THE DESIGN (the shape of the sister app's
+        // ci-claim-1):
+        //
+        //   `review` — 7 AUTHORED items, UNSCORED, never recorded. One worked example
+        //     of the four steps (target · kill · split · clock), then one drill per
+        //     rule. Written for this set, so none of them is in the bank and none can
+        //     be drawn by a homework day. No personal names in any of them.
+        //
+        //   `ids` — 12 bank items, SCORED. Command of Evidence (textual 5, quantitative 1),
+        //     Inferences 2, Words in Context 2, Central Ideas 2; Hard 8 : Medium 4. All
+        //     twelve have an earlier attempt on this key, so they sit in the needsWork
+        //     tier: homework days draw unseen questions first and will not reach them
+        //     while a cell still has unseen supply. That is why this set spends none of
+        //     the thin unseen Hard pools the days need.
+        //
+        // RULE 3 HOLDS: no id below appears in p8-rw, p11-rw, bnd-trn-aug or
+        // ii-claim-aug23. Selection read by hand; ordered by skill, never shuffled.
+        {
+            setId:  'kill-word-1',
+            title:  'KILL-WORD — one dead word kills the option',
+            source: 'earlier sets \u2014 with seven teaching items to work first',
+            date:   '2026-09-27',
+            reviewLabel: 'Start here — the four steps',
+            reviewIntro: 'Seven short items that teach the routine this set is built on: target, kill, split, clock. Work them first, with your tutor. Nothing here counts toward mastery.',
+            reviewCta:   'Work the 7 teaching items',
+            review: [
+              {
+                source: "Worked example — the four steps, with your tutor",
+                skill: "Words in Context",
+                passage: "The committee's report was notably ______: it listed the three budget options, noted the cost of each, and made no recommendation, leaving the choice entirely to the council.",
+                question: "Which choice completes the text with the most logical and precise word?",
+                options: ["A. partisan", "B. evasive", "C. impartial", "D. exhaustive"],
+                answer: "C",
+                strategy: "1 TARGET: before the options, say what the answer must do — here, a word for a report that lays out options and takes no side. 2 KILL: for each option, find one word the text cannot prove and cross it out. 3 SPLIT: if two survive, write the two words where they differ and find the line that decides. 4 CLOCK: a hard question answered in under a minute goes back to step 1 once.",
+                explanation: "Choice C is correct. TARGET: a report that sets out options and takes no side. KILL: A, partisan, means taking a side — \"made no recommendation\" rules it out. D, exhaustive, means covering everything — the text says three options and nothing about all of them. SPLIT: B and C remain. Evasive means avoiding something you should answer; impartial means favouring no side. The deciding line is \"leaving the choice entirely to the council\": the choice belonged to the council, so the report dodged nothing. Impartial survives.",
+              },
+              {
+                source: "Drill — rule 2: on-topic is not support",
+                skill: "Command of Evidence — Textual",
+                passage: "An ecologist studying hedgerows—rows of shrubs planted between farm fields—in western Kenya hypothesizes that hedgerows increase crop yields in nearby fields mainly because they shelter insects that pollinate the crops, rather than because they reduce wind damage.",
+                question: "Which finding, if true, would most directly support the ecologist's hypothesis?",
+                options: ["A. Fields bordered by hedgerows had higher yields than fields without hedgerows, whether or not the crops in them required insect pollination.", "B. In fields bordered by hedgerows, yields rose for crops that require insect pollination but did not rise for wind-pollinated crops grown under the same conditions.", "C. Hedgerows reduced wind speed in nearby fields by roughly 30 percent.", "D. Many species of pollinating insects were observed nesting in the hedgerows."],
+                answer: "B",
+                strategy: "Say the claim's prediction before the options: if pollinators are the reason, yields should rise for crops that need pollinators and not for crops that don't. Then finish this sentence for each option: \"If this is true, the claim is more likely because ___.\" If you cannot finish it, the option is dead, however on-topic it sounds.",
+                explanation: "Choice B is correct: yields rose only for insect-pollinated crops, which is what the pollinator explanation predicts and the wind explanation does not. A kills itself with \"whether or not the crops required insect pollination\" — that points away from pollinators. C supports the rival cause, wind. D is the trap: insects nesting in hedgerows is on topic, but it says nothing about yield, so it cannot make the claim more likely.",
+              },
+              {
+                source: "Drill — rule 1: paraphrase yes, new facts no",
+                skill: "Inferences",
+                passage: "A sociologist found that residents of towns that built public swimming pools in the 1950s reported stronger ties to their neighbors decades later than did residents of similar towns that did not build pools. But the sociologist also found that the towns that built pools had, even before construction, more active civic associations, which often led the campaigns for the pools. Therefore, the sociologist's findings ______",
+                question: "Which choice most logically completes the text?",
+                options: ["A. show that public pools weaken civic associations over time.", "B. suggest that the stronger neighborly ties may reflect the towns' existing civic activity rather than the pools alone.", "C. prove that swimming pools had no effect on residents' ties to their neighbors.", "D. indicate that towns without pools lacked civic associations entirely."],
+                answer: "B",
+                strategy: "The right completion is the smallest thing that must follow from the text. \"May\" and \"suggest\" are not weak words; they are exactly as strong as the evidence. Kill \"prove\", \"entirely\", and any cause or effect the text never gave.",
+                explanation: "Choice B is correct. The pool towns already had more civic activity, so that earlier activity could explain the stronger ties — the text supports \"may reflect\" and no more. A invents an effect (\"weaken\"). C says \"prove … no effect\", far stronger than the text, which only raises a second explanation. D's \"entirely\" has no line behind it.",
+              },
+              {
+                source: "Drill — step 3: two survivors",
+                skill: "Words in Context",
+                passage: "Although the novelist's early reviewers dismissed her plots as thin, later critics argued that the apparent simplicity was ______: beneath the uneventful surface, each chapter carefully planted details whose significance emerged only at the novel's end.",
+                question: "Which choice completes the text with the most logical and precise word?",
+                options: ["A. deceptive", "B. accidental", "C. tedious", "D. transparent"],
+                answer: "A",
+                strategy: "When two options survive, write the two words side by side and ask what each needs the text to say. \"Transparent\" needs the simplicity to be easy to see through; \"deceptive\" needs it to hide something. Then find the line that decides.",
+                explanation: "Choice A is correct: \"beneath the uneventful surface, each chapter carefully planted details\" — the simple surface hid a design, so the simplicity was deceptive. D, transparent, means obvious, which is the opposite of hidden. B, accidental, is killed by \"carefully planted\". C, tedious, is the early reviewers' view, not the later critics'.",
+              },
+              {
+                source: "Drill — both halves, right person",
+                skill: "Command of Evidence — Textual",
+                passage: "The following text is from a story written for this exercise. The narrator's younger brother is about to leave home to work on a merchant ship. In the text, the narrator suggests that she regards her brother's confidence as admirable but naive.",
+                question: "Which quotation from the text most effectively illustrates the claim?",
+                options: ["A. \"My brother spoke of the voyage as though the sea had already agreed to his plans, and I could not help loving him for it, though I knew the sea agreed to nothing.\"", "B. \"He had packed his trunk a full week before the ship was due, folding each shirt with great care.\"", "C. \"Our mother worried aloud that he was too young to go so far alone.\"", "D. \"I told him that I would write every Sunday, and he promised to answer every letter.\""],
+                answer: "A",
+                strategy: "A claim with two parts needs a quotation that shows both parts, held by the right person. Split the claim first: admirable (the narrator approves) and naive (the narrator sees he is wrong). One half, or the right feeling in the wrong person's mouth, is dead.",
+                explanation: "Choice A shows both halves: \"I could not help loving him for it\" (admirable) and \"though I knew the sea agreed to nothing\" (naive). B shows him eager but gives no judgement by the narrator. C is the mother's worry, not the narrator's view. D shows no attitude toward his confidence at all.",
+              },
+              {
+                source: "Drill — a level is not a change",
+                skill: "Command of Evidence — Quantitative",
+                passage: "Germination rate of two tomato varieties, by soil temperature — Red Pearl: 62% at 18°C, 91% at 26°C. Coastal: 78% at 18°C, 84% at 26°C. Researchers concluded that Red Pearl's germination depends more strongly on soil temperature than Coastal's does.",
+                question: "Which choice most effectively uses the data to support the researchers' conclusion?",
+                options: ["A. At 26°C, Red Pearl had a higher germination rate than Coastal did.", "B. At 18°C, Coastal had a higher germination rate than Red Pearl did.", "C. Raising soil temperature from 18°C to 26°C increased Red Pearl's germination rate by 29 percentage points but increased Coastal's by only 6 percentage points.", "D. Both varieties germinated at higher rates at 26°C than at 18°C."],
+                answer: "C",
+                strategy: "Name the comparison the claim needs before reading the options. \"Depends more strongly on temperature\" is about the change between conditions, compared across the two varieties — not about which is higher at one temperature.",
+                explanation: "Choice C gives both changes: up 29 points for Red Pearl, up 6 for Coastal. A and B each report one level at one temperature, which cannot show dependence. D is true of both varieties, so it compares nothing.",
+              },
+              {
+                source: "Drill — one link, and every fact must allow it",
+                skill: "Inferences",
+                passage: "Archaeologists excavating a ninth-century settlement found bones of fish species that live only in deep ocean water, although the settlement lies 40 kilometers inland and no boats or fishing equipment were found at the site. The researchers concluded that the settlement's residents most likely ______",
+                question: "Which choice most logically completes the text?",
+                options: ["A. built boats that have since decayed completely.", "B. obtained deep-sea fish from people living elsewhere, perhaps through trade.", "C. lived on the coast before moving inland.", "D. preferred deep-sea fish to freshwater fish."],
+                answer: "B",
+                strategy: "When the answer has to add something, it may add one link that every fact requires, and nothing a fact rules out. List the facts first, then test each option against every one of them.",
+                explanation: "Choice B fits every fact: deep-sea fish bones, 40 kilometers inland, no boats, no fishing gear — the fish came from somewhere else. A needs boats, and none were found at an inland site. C and D invent a past move and a preference that no line mentions.",
+              },
+            ],
+            ids: [
+                // Command of Evidence — Textual: support, on-topic traps (5)
+                '124fdcd7', 'dd1757fd', '44da37eb', '22e4d633', '29cde5fa',
+                // Command of Evidence — Quantitative (1)
+                'f8244f7c',
+                // Inferences: invented cause, smallest conclusion (2)
+                'f27559d4', 'f942646f',
+                // Words in Context: two close survivors (2)
+                '697dcd7e', 'da80d2c1',
+                // Central Ideas: detail vs claim, wrong comparison (2)
+                '4d3e3c52', '409058ee',
+            ],
+        },
     ],
 
     'Bruce': [

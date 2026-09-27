@@ -193,10 +193,21 @@
         }
 
         if (reviewN) {
-            html += '<div class="cbox"><label>Before you drill</label>' +
-                '<div class="cnote" style="margin:0 0 .7rem">Read back through the ' + reviewN + ' questions you actually missed. ' +
-                'This is a review of the test itself &mdash; nothing here counts toward mastery.</div>' +
-                '<button class="cbtn ghost" id="cDebriefBtn">Review your ' + reviewN + ' misses</button></div>';
+            // A set's `review` array is not always a miss debrief. When it carries a
+            // TEACHING layer — authored drills the student has never seen, whose job is
+            // to land a rule before the scored half asks for it — the miss-review copy
+            // is simply false to the student, and worse, it makes the one screen that
+            // must be read look like the one screen that can be skipped. A set may
+            // therefore override the three strings. Defaults are the original copy, so
+            // any set without them is untouched. Ported from the sister app.
+            var rLabel = state.set.reviewLabel || 'Before you drill';
+            var rIntro = state.set.reviewIntro ||
+                ('Read back through the ' + reviewN + ' questions you actually missed. ' +
+                 'This is a review of the test itself \u2014 nothing here counts toward mastery.');
+            var rCta   = state.set.reviewCta   || ('Review your ' + reviewN + ' misses');
+            html += '<div class="cbox"><label>' + esc(rLabel) + '</label>' +
+                '<div class="cnote" style="margin:0 0 .7rem">' + esc(rIntro) + '</div>' +
+                '<button class="cbtn ghost" id="cDebriefBtn">' + esc(rCta) + '</button></div>';
         }
 
         if (g === 'done') {

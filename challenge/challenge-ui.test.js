@@ -158,7 +158,10 @@ section('2 · The start screen and its gates');
     ok('tally rendered', new RegExp('Mastered 0 of '+N+' \\(0%\\)').test(txt(scr)));
     ok('segments rendered', new RegExp('not attempted '+N).test(txt(scr)));
     eq('default session size', $(w, 'cHowMany').value, '10');
-    if (HAS_DEBRIEF) ok('debrief offered for '+REVIEW_N+' misses', new RegExp('Review your '+REVIEW_N+' misses').test(txt(scr)));
+    // A set may carry its own button text (`reviewCta`) when its review layer teaches
+    // rather than debriefs; the default copy is unchanged for every set without it.
+    const REVIEW_CTA = SET.reviewCta || ('Review your '+REVIEW_N+' misses');
+    if (HAS_DEBRIEF) ok('debrief offered: '+REVIEW_CTA, txt(scr).includes(REVIEW_CTA));
     else { skipNoDebrief('debrief offered'); ok('no debrief button when there is no review layer', !$(w, 'cDebriefBtn')); }
     ok('Begin offered (gate=normal)', !!$(w, 'cBeginBtn'));
 

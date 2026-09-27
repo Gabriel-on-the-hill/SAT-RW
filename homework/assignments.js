@@ -376,7 +376,100 @@ const HOMEWORK = {
   // the LAST entry there, or the hub advertises one set and the runner serves
   // another. assignments.test.js asserts that a plan with no days carries this
   // field; without it the hub renders empty.
+  // ── 27 SEP – 1 OCT 2026 · five sets, two of them sat in class ─────────────
+  //
+  // Replaces the challenge-only plan below (kept, commented, for its `start`
+  // key). `start` MOVES to today, as the other re-authored plans in this file
+  // do: done flags are keyed by start date, so the new set 1 cannot inherit an
+  // old set 1's flag, and the old records stay reachable by restoring the block.
+  //
+  // SHAPE — 23 new, up to 29 served:
+  //   1  in class · timed    CoE-T ×2, Inf, WiC, CI            Hard   5      review 0
+  //   2  in class · typed    CoE-T, Inf, WiC, CoE-Q            Hard   4      review 0
+  //   3  untimed · typed     CoE-T, WiC, Inf, CI               Hard   4 + 2
+  //   4  timed               WiC ×2, Inf, CoE-T, CI            Hard   5 + 2
+  //   5  timed               CoE-T, Inf, WiC, CI, CoE-Q        Hard   5 + 2
+  //
+  // SETS 1 AND 2 ARE THE CLASS'S TWO MEASUREMENTS. Set 1 is sat before the
+  // routine is taught, on the clock, so the time-on-text column is honest. Set 2
+  // is sat after the teaching layer of kill-word-1 (challenge/sets.js), untimed,
+  // because minutes:0 is the only state in which the prediction is TYPED — and
+  // the typed prediction is step 1 of the routine. review:0 on both, so each is
+  // exactly the questions authored.
+  //
+  // ONE DIFFICULTY PER SECTION, ONE QUESTION PER SECTION. A ratio is never a
+  // `diffs` range (_calibratedPick leans it), and one-question sections are the
+  // only way to interleave: sections concatenate in author order.
+  //
+  // POOL CHECK, 27 Sep, official Hard items with no record on this key and in no
+  // challenge set: CoE-T 7 · Inferences 7 · Central Ideas 9 · Words in Context 16
+  // · CoE-Q 0 (3 provisional). This block draws CoE-T 6, Inf 5, CI 4, WiC 6, and
+  // CoE-Q 2 from the provisional tier. CoE-T and Inferences at Hard are nearly
+  // spent after this week; the next block needs new supply before it is written.
+  //
+  // kill-word-1's twelve scored ids all have earlier attempts on this key, so
+  // they sit behind the unseen tier and these days will not draw them while
+  // unseen supply lasts.
+  //
+  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
+  // This file is downloaded by his browser. Keep it free of assessment of him.
   "Jeffrey": {
+    title: "KILL-WORD week — one set a day, the app sends it in",
+    start: "2026-09-27",
+    through: "2026-10-01",
+    unlock: "sequential",
+    days: [
+      { n:1, focus:"In class · five questions on the clock, on your own", minutes:8, review:0,
+        tip:"In class, with me, but on your own — I will not help during the set.\nFive Hard questions, eight minutes. Answer the way you normally would. This is the starting point for the week, so there is nothing to prepare.\nWhen the score screen comes up, STOP before reading any explanation. For each question you missed, write one line on paper: \"I chose __ because __.\"",
+        sections:[
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:1 },
+          { skills:["Inferences"],                         diffs:["Hard"], count:1 },
+          { skills:["Words in Context"],                   diffs:["Hard"], count:1 },
+          { skills:["Central Ideas and Details"],          diffs:["Hard"], count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:1 },
+        ] },
+      { n:2, focus:"In class · KILL-WORD, typed — after the teaching items", minutes:0, review:0,
+        tip:"Do this AFTER the seven teaching items in your challenge (\"Start here\").\nFour Hard questions, no clock. Run all four steps on every one:\n1 TARGET — type what the answer must do, in eight words or fewer, before the choices open.\n2 KILL — for each choice, find one word the text cannot prove. Write it on paper next to the letter.\n3 SPLIT — two left? Write the two words where they differ and find the line that decides.\n4 CLOCK — Hard question, chosen in under a minute? Go back to step 1 once.",
+        sections:[
+          { skills:["Command of Evidence — Textual"],      diffs:["Hard"], count:1 },
+          { skills:["Inferences"],                              diffs:["Hard"], count:1 },
+          { skills:["Words in Context"],                        diffs:["Hard"], count:1 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Hard"], count:1 },
+        ] },
+      { n:3, focus:"Set 3 · Monday — the four steps, no clock", minutes:0, review:2,
+        tip:"Monday. About 20 minutes. Finish by 9 PM.\nSame four steps as in class, on every question: TARGET (type it), KILL (one word per choice, on paper), SPLIT, CLOCK.\nRule 1 — paraphrase yes, new facts no.\nRule 2 — on-topic is not support.\nRule 3 — one dead word kills the whole choice.\nTwo of the questions may be ones you have seen before. That is on purpose.",
+        sections:[
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:1 },
+          { skills:["Words in Context"],                   diffs:["Hard"], count:1 },
+          { skills:["Inferences"],                         diffs:["Hard"], count:1 },
+          { skills:["Central Ideas and Details"],          diffs:["Hard"], count:1 },
+        ] },
+      { n:4, focus:"Set 4 · Wednesday — the same steps on the clock", minutes:11, review:2,
+        tip:"Wednesday. Eleven minutes for seven questions. Finish by 9 PM.\nThe steps are the same; the typing goes. Say the target in your head before the choices, kill with one word, split the last two on the word where they differ.\nFor Words in Context: any choice word you cannot define goes on your word list with its meaning.\nHard question answered in under a minute? Back to step 1 once.\nTuesday is maths plus six questions from your challenge.",
+        sections:[
+          { skills:["Words in Context"],                   diffs:["Hard"], count:1 },
+          { skills:["Inferences"],                         diffs:["Hard"], count:1 },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], count:1 },
+          { skills:["Words in Context"],                   diffs:["Hard"], count:1 },
+          { skills:["Central Ideas and Details"],          diffs:["Hard"], count:1 },
+        ] },
+      { n:5, focus:"Set 5 · Thursday — mixed, on the clock", minutes:11, review:2,
+        tip:"Thursday. Eleven minutes for seven questions. Finish by 9 PM.\nNo labels this time — decide what kind of question it is, then run the four steps.\nFor the data question: name the comparison the claim needs (a level, or a change?) before you read the choices.\nAfterwards, for any question where you were stuck between two, write the two words where they differed.",
+        sections:[
+          { skills:["Command of Evidence — Textual"],      diffs:["Hard"], count:1 },
+          { skills:["Inferences"],                              diffs:["Hard"], count:1 },
+          { skills:["Words in Context"],                        diffs:["Hard"], count:1 },
+          { skills:["Central Ideas and Details"],               diffs:["Hard"], count:1 },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Hard"], count:1 },
+        ] },
+    ]
+  },
+
+  /* CLEARED 27 SEP 2026 — the challenge-only plan (ii-claim-aug23), kept for its
+     `start` key. It had no days, so no day flag was ever written against it.
+     Uncomment to restore; it must then be the only "Jeffrey" key.
+
+  "Jeffrey_cleared_2026-09-27": {
     title: "This week: your punctuation and transitions challenge",
     start: "2026-08-11",
     through: "2026-08-21",
@@ -384,6 +477,7 @@ const HOMEWORK = {
     challenge: "ii-claim-aug23",
     days: [],
   },
+  */
 
   /* CLEARED 18 AUG 2026 — the 11–15 Aug block, kept verbatim for the `start` key
      and the two authored days. Uncomment to restore.
