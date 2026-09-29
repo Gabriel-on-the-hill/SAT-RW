@@ -75,9 +75,170 @@
         ? TUTOR_HASHES
         : Object.assign({}, ACCEPTED_HASHES, TUTOR_HASHES);
 
+    // ── One login at a time ──────────────────────────────────────────
+    // A student password opens the app in ONE tab, on ONE device, at a time.
+    // When the password is accepted the gate asks the tutor-sheet Apps Script
+    // for a LEASE on the student's name, beats it once a minute, and releases
+    // it when the tab closes. A second tab or device asking for a name that is
+    // already live is refused. A tab whose lease is lost (another screen took
+    // the name after this one slept past the TTL) signs itself out.
+    //
+    //   • Same tab, new page: same token (sessionStorage), so it walks back in.
+    //   • A DUPLICATED tab copies sessionStorage, token and all, so a token alone
+    //     cannot tell it apart — a BroadcastChannel hello does: if a live page in
+    //     this browser already answers for the token, the newcomer is the second
+    //     login and signs out.
+    //   • Tutor sessions never take a lease.
+    //   • FAILS OPEN. If the script cannot be reached (offline, not redeployed,
+    //     slow), the student is let in and the next beat tries again. A script
+    //     outage must never lock a class out mid-lesson.
+    //
+    // This is a deterrent, not security: it runs in the browser, and a student
+    // who edits the page can skip it. The Login Log tab is the useful half.
+    // The server side is in tutor-sheet/rw-apps-script.md (lease_).
+    //
+    // Must equal SHEET_SYNC_ENDPOINT in sheet-sync.js — gate.js loads first, so
+    // it cannot read that one. gate.test.js asserts the two match.
+    const LEASE_ENDPOINT  =
+        'https://script.google.com/macros/s/AKfycbzR0dumI5CEeyhDmsH_Yx57wHO7hK4xA953a4SMWxt9_CI3cw66Vs9ppa2DxkUPO2Bj/exec';
+    const LEASE_APP       = 'SAT R&W';
+    const LEASE_TOKEN_KEY = 'mastery_lease';
+    const LEASE_MSG_KEY   = 'mastery_lease_msg';
+    const LEASE_BEAT_MS   = 60000;
+    const LEASE_WAIT_MS   = 8000;
+    const LEASE_CHANNEL   = 'mastery-lease';
+
+    const MSG_REFUSED = 'This account is already open on another screen or tab. Close it there first. '
+                      + 'If you have just closed it, wait a minute and try again.';
+    const MSG_DUPLICATE = 'This account is already open in another tab. Use that tab, or close it and sign in here.';
+    const MSG_LOST = 'This account was opened on another screen, so this one has been signed out. '
+                   + 'Your answers so far are saved on this device.';
+
+    function ss(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
+    function newToken() {
+        const b = new Uint8Array(12);
+        try { crypto.getRandomValues(b); } catch (e) { for (let i = 0; i < b.length; i++) b[i] = Math.random() * 256; }
+        return [...b].map(x => x.toString(16).padStart(2, '0')).join('');
+    }
+
+    // JSONP: a static page on another origin can only READ a reply from Apps
+    // Script through a <script> tag. Resolves null when the script cannot be
+    // reached or does not answer in time — never rejects.
+    function jsonp(params) {
+        return new Promise(resolve => {
+            if (!LEASE_ENDPOINT) { resolve(null); return; }
+            const cb = '__gateLease' + Math.random().toString(36).slice(2);
+            const s = document.createElement('script');
+            let done = false;
+            const finish = v => {
+                if (done) return; done = true;
+                clearTimeout(timer);
+                try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+                if (s.parentNode) s.parentNode.removeChild(s);
+                resolve(v);
+            };
+            const timer = setTimeout(() => finish(null), LEASE_WAIT_MS);
+            window[cb] = data => finish(data && typeof data === 'object' ? data : null);
+            s.onerror = () => finish(null);
+            s.src = LEASE_ENDPOINT + '?' + Object.keys(params)
+                .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&')
+                + '&callback=' + cb + '&_=' + Date.now();
+            (document.head || document.documentElement).appendChild(s);
+        });
+    }
+
+    function leaseCall(op, student, token) {
+        const params = { action: 'lease', op: op, student: student, token: token, app: LEASE_APP };
+        // Tests replace the network with a function; nothing else sets this.
+        if (typeof window.__gateLeaseTransport === 'function') {
+            return Promise.resolve().then(() => window.__gateLeaseTransport(op, params)).catch(() => null);
+        }
+        return jsonp(params);
+    }
+
+    // On the way out there is no time to wait for a reply — sendBeacon is the
+    // one request a closing page is guaranteed to get out.
+    function leaseRelease(student, token) {
+        const params = { action: 'lease', op: 'release', student: student, token: token, app: LEASE_APP };
+        if (typeof window.__gateLeaseTransport === 'function') {
+            try { window.__gateLeaseTransport('release', params); } catch (e) {}
+            return;
+        }
+        try {
+            if (LEASE_ENDPOINT && navigator.sendBeacon) navigator.sendBeacon(LEASE_ENDPOINT, JSON.stringify(params));
+        } catch (e) {}
+    }
+
+    const lease = { student: null, token: null, timer: null, lastBeat: 0, dead: false, id: newToken(), ch: null };
+
+    function signOut(msg, keepToken) {
+        lease.dead = true;
+        if (lease.timer) clearInterval(lease.timer);
+        try { if (lease.ch) lease.ch.close(); } catch (e) {}
+        try {
+            sessionStorage.removeItem(STORAGE_KEY);
+            sessionStorage.removeItem(USER_KEY);
+            sessionStorage.removeItem(ROLE_KEY);
+            if (!keepToken) sessionStorage.removeItem(LEASE_TOKEN_KEY);
+            sessionStorage.setItem(LEASE_MSG_KEY, msg);
+        } catch (e) {}
+        (window.__gateReload || function () { location.reload(); })();
+    }
+
+    function beat() {
+        if (lease.dead || !lease.token) return Promise.resolve(null);
+        lease.lastBeat = Date.now();
+        return leaseCall('beat', lease.student, lease.token).then(r => {
+            // Only an explicit refusal signs out. null (unreachable) keeps working.
+            if (r && r.ok === false && r.reason === 'held' && !lease.dead) signOut(MSG_LOST);
+            return r;
+        });
+    }
+
+    // Keep the lease alive for as long as this page is open.
+    //   announce — this page loaded already unlocked, so it may be a DUPLICATED
+    //   tab. It says hello on the channel; an established page holding the same
+    //   token answers "here", and whenever that answer arrives — however late,
+    //   a heavy page can block the main thread for a second — the newcomer signs
+    //   out. Only a page alive for over a second answers, so two tabs booting at
+    //   the same instant do not sign each other out.
+    function holdLease(student, token, firstBeatMs, announce) {
+        lease.student = student; lease.token = token; lease.born = Date.now();
+        try { sessionStorage.setItem(LEASE_TOKEN_KEY, token); } catch (e) {}
+        lease.timer = setInterval(beat, LEASE_BEAT_MS);
+        // Two early beats, not one: this page's first beat can reach the script
+        // BEFORE the previous page's release beacon does, and that late release
+        // would age the lease. The second beat, ten seconds on, renews it.
+        if (firstBeatMs != null) { setTimeout(beat, firstBeatMs); setTimeout(beat, firstBeatMs + 10000); }
+        document.addEventListener('visibilitychange', () => {
+            // A laptop waking up: check straight away rather than on the next tick.
+            if (document.visibilityState === 'visible' && Date.now() - lease.lastBeat > 10000) beat();
+        });
+        window.addEventListener('pageshow', e => { if (e.persisted) beat(); });
+        window.addEventListener('pagehide', () => { if (!lease.dead) leaseRelease(lease.student, lease.token); });
+        try {
+            lease.ch = new BroadcastChannel(LEASE_CHANNEL);
+            lease.ch.onmessage = e => {
+                const m = e.data || {};
+                if (lease.dead || m.token !== lease.token) return;
+                if (m.t === 'hello' && m.id !== lease.id && Date.now() - lease.born > 1000) {
+                    lease.ch.postMessage({ t: 'here', token: lease.token, to: m.id });
+                } else if (m.t === 'here' && m.to === lease.id) {
+                    signOut(MSG_DUPLICATE, true);    // keep the token: it belongs to the other tab
+                }
+            };
+            if (announce) lease.ch.postMessage({ t: 'hello', token: token, id: lease.id });
+        } catch (e) { /* no BroadcastChannel: duplicated tabs go undetected, nothing else changes */ }
+    }
+
+    // Test hook. Read-only view plus a way to force a beat without waiting a minute.
+    window.__gateLease = { beat: beat, state: () => ({ student: lease.student, token: lease.token, dead: lease.dead }) };
+
     // Expose a global lock function so the hub can offer a "Lock" button.
     // Defined unconditionally so it works whether or not the gate fired.
     window.lockMastery = function () {
+        if (lease.token && !lease.dead) { lease.dead = true; leaseRelease(lease.student, lease.token); }
+        sessionStorage.removeItem(LEASE_TOKEN_KEY);
         sessionStorage.removeItem(STORAGE_KEY);
         sessionStorage.removeItem(USER_KEY);
         sessionStorage.removeItem(ROLE_KEY);
@@ -88,9 +249,19 @@
     // The session flag alone said "somebody typed a valid password", which let a
     // student who had unlocked the app walk straight into a tutor page. On a
     // tutor page the ROLE must match; anything else re-prompts.
+    //
+    // A student page that is already unlocked still owes the lease a check: a
+    // beat, which re-claims a free lease and signs this page out if another
+    // screen holds it, and a hello in case this is a duplicated tab. The page
+    // renders meanwhile.
     try {
         if (sessionStorage.getItem(STORAGE_KEY) === SESSION_FLAG) {
-            if (REQUIRE !== 'tutor' || sessionStorage.getItem(ROLE_KEY) === 'tutor') return;
+            if (REQUIRE !== 'tutor' || sessionStorage.getItem(ROLE_KEY) === 'tutor') {
+                if (ss(ROLE_KEY) === 'student' && ss(USER_KEY)) {
+                    holdLease(ss(USER_KEY), ss(LEASE_TOKEN_KEY) || newToken(), 0, true);
+                }
+                return;
+            }
         }
     } catch (e) { /* sessionStorage unavailable — fall through to gate */ }
 
@@ -180,6 +351,8 @@
         const btn   = document.getElementById('__gateBtn');
 
         input.focus();
+        const pending = ss(LEASE_MSG_KEY);
+        if (pending) { errEl.textContent = pending; try { sessionStorage.removeItem(LEASE_MSG_KEY); } catch (e) {} }
         input.addEventListener('focus', () => { input.style.borderColor = '#2563eb'; });
         input.addEventListener('blur',  () => { input.style.borderColor = '#e2e8f0'; });
         btn.addEventListener('mouseenter', () => { btn.style.background = '#1d4ed8'; });
@@ -200,11 +373,28 @@
             // TABLE, not ACCEPTED_HASHES: on a tutor page it holds only the
             // tutor passphrase, so a student password does not open it.
             if (TABLE[hash]) {
+                const isTutor = !!TUTOR_HASHES[hash];
+                const token = newToken();
+                if (!isTutor) {
+                    // One login at a time. Only an explicit refusal keeps the
+                    // gate shut; no answer at all lets the student in.
+                    btn.textContent = 'Checking\u2026';
+                    const r = await leaseCall('acquire', TABLE[hash], token);
+                    btn.textContent = 'Unlock';
+                    if (r && r.ok === false && r.reason === 'held') {
+                        errEl.textContent = MSG_REFUSED;
+                        input.value = '';
+                        input.focus();
+                        btn.disabled = false;
+                        return;
+                    }
+                }
                 try {
                     sessionStorage.setItem(STORAGE_KEY, SESSION_FLAG);
                     sessionStorage.setItem(USER_KEY, TABLE[hash]);
-                    sessionStorage.setItem(ROLE_KEY, TUTOR_HASHES[hash] ? 'tutor' : 'student');
+                    sessionStorage.setItem(ROLE_KEY, isTutor ? 'tutor' : 'student');
                 } catch (e) {}
+                if (!isTutor) holdLease(TABLE[hash], token, 5000, false);
                 overlay.remove();
             } else {
                 errEl.textContent = 'Incorrect password';

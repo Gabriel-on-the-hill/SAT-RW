@@ -101,7 +101,7 @@ function makeCtx(code, seedTabs) {
             getUi: () => { throw new Error('no ui'); },
         },
         ContentService: {
-            MimeType: { JSON: 'json' },
+            MimeType: { JSON: 'json', JAVASCRIPT: 'javascript' },
             createTextOutput: s => ({ _s: s, setMimeType() { return this; }, getContent() { return this._s; } }),
         },
         LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
@@ -111,6 +111,12 @@ function makeCtx(code, seedTabs) {
     vm.runInContext(code, ctx, { filename: 'apps-script' });
     ctx.__tabs = tabs;
     ctx.__post = body => JSON.parse(ctx.doPost({ postData: { contents: JSON.stringify(body) } }).getContent());
+    // JSONP: the reply is `cb({...});` — strip the wrapper back to the object.
+    ctx.__get = params => {
+        const out = ctx.doGet({ parameter: params }).getContent();
+        const m = out.match(/^[A-Za-z_$][\w$]*\(([\s\S]*)\);$/);
+        return { raw: out, body: JSON.parse(m ? m[1] : out) };
+    };
     ctx.__rows = name => (tabs.get(name) || { _rows: [] })._rows;
     ctx.__byName = (name, rowIdx) => {
         const rows = ctx.__rows(name);
@@ -593,6 +599,88 @@ sec('7 · The tutor dashboard can actually read the sheet this script writes');
     }
 }
 
+
+// ══════════════════════════════════════════════════════════════════
+sec('11 · R&W: one login at a time (the lease gate.js asks for)');
+{
+    const c = makeCtx(RW);
+    const lease = (op, token, extra) => c.__get(Object.assign(
+        { action: 'lease', op, student: 'Jeffrey', token, callback: 'cb1' }, extra || {})).body;
+
+    const a = lease('acquire', 'tokA');
+    ok('the first login is granted', a.ok === true && a.granted === true, JSON.stringify(a));
+    const raw = c.__get({ action: 'lease', op: 'beat', student: 'Jeffrey', token: 'tokA', callback: 'cb1' }).raw;
+    ok('the reply is JSONP the gate can read', /^cb1\(\{/.test(raw), raw.slice(0, 40));
+
+    const b = lease('acquire', 'tokB');
+    ok('a second tab or device is REFUSED while the first is live', b.ok === false && b.reason === 'held',
+        JSON.stringify(b));
+    ok('...and told how long the lease lasts', b.ttlSecs === c.LEASE_TTL_SEC);
+
+    ok('the holder can still beat', lease('beat', 'tokA').ok === true);
+    ok('a new page in the SAME tab (same token) is let straight back in', lease('acquire', 'tokA').ok === true);
+    ok('a beat from the refused token is refused too', lease('beat', 'tokB').ok === false);
+
+    const rel = lease('release', 'tokB');
+    ok('a release from a token that does not hold it frees nothing', rel.released === false);
+    ok('...so the second device is still refused', lease('acquire', 'tokC').ok === false);
+
+    const logLen = () => c.__rows('Login Log').length;
+    const before = logLen();
+    ok('the holder can release', lease('release', 'tokA').released === true);
+    ok('a release writes no log row (it is sent on every page change)', logLen() === before);
+    ok('the same tab walks straight back in after its own release', lease('acquire', 'tokA').ok === true);
+    ok('...and that writes no log row either', logLen() === before);
+    lease('release', 'tokA');
+    ok('another device is still refused inside the grace window', lease('acquire', 'tokC').ok === false);
+    {
+        const rows = c.__rows('Active Logins'), h = rows[0];
+        const r = rows.findIndex((x, i) => i > 0 && x[h.indexOf('Student')] === 'Jeffrey');
+        rows[r][h.indexOf('Last seen')] = new Date(rows[r][h.indexOf('Last seen')].getTime() - (c.LEASE_GRACE_SEC + 1) * 1000);
+    }
+    ok('once the grace window passes, a closed tab has freed the name', lease('acquire', 'tokC').ok === true);
+
+    // A laptop that sleeps never beats again: its lease must die on its own.
+    const rows = c.__rows('Active Logins');
+    const h = rows[0], r = rows.findIndex((x, i) => i > 0 && x[h.indexOf('Student')] === 'Jeffrey');
+    rows[r][h.indexOf('Last seen')] = new Date(Date.now() - (c.LEASE_TTL_SEC + 5) * 1000);
+    const d = lease('acquire', 'tokD');
+    ok('a lease not beaten for the TTL has expired and is granted to the next login', d.ok === true, JSON.stringify(d));
+    ok('...and the stale tab loses it on its next beat', lease('beat', 'tokC').ok === false);
+
+    // The tutor frees a stuck login by clearing the Token cell.
+    rows[r][h.indexOf('Token')] = '';
+    ok('clearing the Token cell frees the login', lease('acquire', 'tokE').ok === true);
+
+    ok('names are case-insensitive, one row per student',
+        lease('acquire', 'tokF', { student: 'jeffrey' }).ok === false
+        && c.__rows('Active Logins').filter((x, i) => i > 0).length === 1);
+
+    ok('students do not block each other',
+        lease('acquire', 'tokG', { student: 'Bruce' }).ok === true);
+
+    const log = c.__rows('Login Log');
+    const events = log.slice(1).map(x => x[log[0].indexOf('Event')]);
+    ok('refusals are logged', events.indexOf('refused') >= 0, events.join(','));
+    ok('grants are logged', events.indexOf('granted') >= 0);
+    ok('a lost lease is logged', events.indexOf('lost') >= 0);
+    ok('the log keeps only a token prefix', log.slice(1).every(x => String(x[log[0].indexOf('Token')]).length <= 6));
+
+    // Bad input never touches the sheet.
+    ok('an unknown op is rejected', lease('steal', 'x').ok === false);
+    ok('a missing token is rejected', c.__get({ action: 'lease', op: 'acquire', student: 'Jeffrey', callback: 'cb1' }).body.ok === false);
+    const evil = c.doGet({ parameter: { action: 'lease', op: 'beat', student: 'Jeffrey', token: 'tokE', callback: 'alert(1);x' } }).getContent();
+    ok('a callback that is not a plain name gets plain JSON, never script', /^\{/.test(evil), evil.slice(0, 30));
+
+    // The release rides sendBeacon to doPost, with no secret.
+    const c2 = makeCtx(RW);
+    c2.__get({ action: 'lease', op: 'acquire', student: 'Segun', token: 'tokS', callback: 'cb' });
+    const pr = c2.__post({ action: 'lease', op: 'release', student: 'Segun', token: 'tokS' });
+    ok('doPost accepts the beacon release', pr.ok === true && pr.released === true, JSON.stringify(pr));
+    ok('...and writes no session row', c2.__rows('Sessions').length === 0);
+
+    ok('a plain GET still answers as before', c2.__get({}).body.ok === true);
+}
 // ══════════════════════════════════════════════════════════════════
 console.log('\n' + '─'.repeat(64));
 console.log(fail === 0 ? `ALL ${pass} ASSERTIONS PASSED` : `${pass} passed, ${fail} FAILED:\n  - ` + fails.join('\n  - '));

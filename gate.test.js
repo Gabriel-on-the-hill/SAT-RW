@@ -125,7 +125,12 @@ t('the header does not spell out the passwords', () => {
 });
 
 // ── driving the real pages ────────────────────────────────────────
-function boot(file) {
+// Every boot gets a lease transport, because gate.js now asks the tutor-sheet
+// script for a lease on every student login. The default answers "granted", so
+// the password checks above run exactly as they did before the lease existed.
+// Tests of the lease itself pass their own transport, seed, or channel.
+function boot(file, opts) {
+    opts = opts || {};
     const vc = new VirtualConsole();
     const errs = [];
     vc.on('jsdomError', e => errs.push(e.message.split('\n')[0]));
@@ -145,7 +150,16 @@ function boot(file) {
         runScripts: 'dangerously',
         url: 'http://localhost/' + file,           // a real origin, or sessionStorage throws
         virtualConsole: vc,
-        beforeParse(w) { w.scrollTo = () => {}; w.alert = () => {}; w.confirm = () => true; },
+        beforeParse(w) {
+            w.scrollTo = () => {}; w.alert = () => {}; w.confirm = () => true;
+            w.__calls = [];
+            const answer = opts.transport || (() => ({ ok: true, granted: true }));
+            w.__gateLeaseTransport = (op, params) => { w.__calls.push({ op, params }); return answer(op, params); };
+            w.__reloads = 0;
+            w.__gateReload = () => { w.__reloads++; };
+            if (opts.channel) w.BroadcastChannel = opts.channel;
+            for (const [k, v] of Object.entries(opts.seed || {})) w.sessionStorage.setItem(k, v);
+        },
     });
     const w = dom.window;
     // This jsdom build ships no crypto.subtle; the gate needs SHA-256.
@@ -240,6 +254,161 @@ for (const [pwd] of STUDENT_PASSWORDS) {
         eq(w.sessionStorage.getItem('mastery_role'), null);
     });
     w.close();
+}
+
+
+console.log('\nONE LOGIN AT A TIME (the lease)\n-------------------------------');
+
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const MSG = name => gate.split('const ' + name + ' = ')[1].split(';')[0]
+    .split('+').map(x => x.trim().replace(/^'|'$/g, '')).join('');
+
+t('the lease endpoint is the tutor sheet the app already posts to', () => {
+    const sync = fs.readFileSync(path.join(__dirname, 'sheet-sync.js'), 'utf8');
+    const want = (sync.match(/SHEET_SYNC_ENDPOINT\s*=\s*'([^']+)'/) || [])[1];
+    const have = (gate.match(/LEASE_ENDPOINT\s*=\s*'([^']+)'/) || [])[1];
+    ok(want, 'no SHEET_SYNC_ENDPOINT in sheet-sync.js');
+    eq(have, want, 'LEASE_ENDPOINT drifted from SHEET_SYNC_ENDPOINT:');
+});
+
+{
+    const w = await boot('index.html');
+    const unlocked = await tryPwd(w, SAMPLE_PWD);
+    const acq = w.__calls.find(c => c.op === 'acquire');
+    t('a student login asks for a lease on its own name', () => {
+        ok(unlocked, 'still locked');
+        ok(acq, 'no acquire was sent');
+        eq(acq.params.student, SAMPLE_LABEL);
+        ok(/^[0-9a-f]{24}$/.test(acq.params.token), 'token is not 24 hex chars: ' + acq.params.token);
+    });
+    t('...and keeps the token for the rest of this tab', () =>
+        eq(w.sessionStorage.getItem('mastery_lease'), acq && acq.params.token));
+    w.lockMastery();
+    t('Lock releases the lease it holds', () => {
+        const rel = w.__calls.find(c => c.op === 'release');
+        ok(rel, 'no release on Lock');
+        eq(rel.params.token, acq && acq.params.token);
+        eq(w.sessionStorage.getItem('mastery_lease'), null);
+    });
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { transport: op => op === 'acquire'
+        ? { ok: false, reason: 'held', idleSecs: 12, ttlSecs: 150 } : { ok: true } });
+    const unlocked = await tryPwd(w, SAMPLE_PWD);
+    t('a second login while the name is live is REFUSED', () => {
+        ok(!unlocked, 'the second login got in');
+        eq(w.document.getElementById('__gateError').textContent, MSG('MSG_REFUSED'));
+        eq(w.sessionStorage.getItem('mastery_unlocked'), null);
+        eq(w.sessionStorage.getItem('mastery_user'), null);
+    });
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { transport: () => null });
+    const unlocked = await tryPwd(w, SAMPLE_PWD);
+    t('if the script cannot be reached the student is let in (fails open)', () => {
+        ok(unlocked, 'an unreachable script locked a student out');
+        eq(w.sessionStorage.getItem('mastery_user'), SAMPLE_LABEL);
+    });
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { transport: () => { throw new Error('network'); } });
+    const unlocked = await tryPwd(w, SAMPLE_PWD);
+    t('...and a transport that throws is treated the same way', () => ok(unlocked, 'a thrown error locked the student out'));
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { seed: {
+        mastery_unlocked: '1', mastery_user: SAMPLE_LABEL, mastery_role: 'student', mastery_lease: 'abc123' } });
+    await wait(400);
+    t('an already-unlocked page beats the lease it holds', () => {
+        ok(!locked(w), 'an unlocked session was re-prompted');
+        const b = w.__calls.find(c => c.op === 'beat');
+        ok(b, 'no beat on page load');
+        eq(b.params.token, 'abc123');
+        eq(b.params.student, SAMPLE_LABEL);
+    });
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { seed: {
+        mastery_unlocked: '1', mastery_user: SAMPLE_LABEL, mastery_role: 'student', mastery_lease: 'abc123' },
+        transport: op => op === 'beat' ? { ok: false, reason: 'held' } : { ok: true } });
+    await wait(400);
+    t('a page whose lease was taken by another screen signs itself out', () => {
+        eq(w.__reloads, 1, 'did not reload to the gate');
+        eq(w.sessionStorage.getItem('mastery_unlocked'), null);
+        eq(w.sessionStorage.getItem('mastery_user'), null);
+        eq(w.sessionStorage.getItem('mastery_lease_msg'), MSG('MSG_LOST'));
+    });
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { seed: {
+        mastery_unlocked: '1', mastery_user: SAMPLE_LABEL, mastery_role: 'student', mastery_lease: 'abc123' },
+        transport: () => null });
+    await wait(400);
+    t('an unanswered beat never signs anyone out', () => {
+        eq(w.__reloads, 0);
+        eq(w.sessionStorage.getItem('mastery_unlocked'), '1');
+    });
+    w.close();
+}
+
+{
+    const w = await boot('index.html', { seed: { mastery_lease_msg: 'signed out elsewhere' } });
+    t('the gate tells a signed-out student why', () => {
+        ok(locked(w), 'not gated');
+        eq(w.document.getElementById('__gateError').textContent, 'signed out elsewhere');
+        eq(w.sessionStorage.getItem('mastery_lease_msg'), null);
+    });
+    w.close();
+}
+
+{
+    // A duplicated tab copies sessionStorage — token included — so the server
+    // cannot tell the two apart. The pages can: one bus shared by both windows.
+    const listeners = new Set();
+    class Bus {
+        constructor() { this.onmessage = null; listeners.add(this); }
+        postMessage(data) { for (const l of listeners) if (l !== this && l.onmessage)
+            setTimeout(() => l.onmessage && l.onmessage({ data }), 5); }
+        close() { listeners.delete(this); this.onmessage = null; }
+    }
+    const seed = { mastery_unlocked: '1', mastery_user: SAMPLE_LABEL, mastery_role: 'student', mastery_lease: 'dup777' };
+    const until = async (cond, ms) => { const end = Date.now() + ms; while (!cond() && Date.now() < end) await wait(25); };
+    const first = await boot('index.html', { seed, channel: Bus });
+    await until(() => first.__calls.some(c => c.op === 'beat'), 3000);   // first is now holding
+    await wait(1100);                                                     // ...and established
+    const second = await boot('index.html', { seed, channel: Bus });
+    await until(() => second.__reloads > 0, 3000);
+    t('a duplicated tab (same token, same browser) is signed out', () => {
+        eq(second.__reloads, 1, 'the duplicate stayed in');
+        eq(second.sessionStorage.getItem('mastery_lease_msg'), MSG('MSG_DUPLICATE'));
+    });
+    t('...and the original tab is untouched', () => {
+        eq(first.__reloads, 0);
+        eq(first.sessionStorage.getItem('mastery_unlocked'), '1');
+    });
+    first.close(); second.close();
+}
+
+{
+    // The passphrase is not in this repo, so drive the tutor path by seeding it.
+    const w2 = await boot('index.html', { seed: { mastery_unlocked: '1', mastery_user: 'Tutor', mastery_role: 'tutor' } });
+    await wait(400);
+    t('a tutor session never takes a lease', () => {
+        eq(w2.__calls.length, 0, 'tutor sent: ' + w2.__calls.map(c => c.op).join(','));
+    });
+    w2.close();
 }
 
 console.log('\n' + '='.repeat(48));

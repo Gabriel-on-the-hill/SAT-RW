@@ -16,6 +16,22 @@ It prints the same block the test reads, and refuses if that block is missing, t
 
 Redeploy is required for this. `ensureHeaders_` adds the columns to the right of the existing schema on the next POST, so nothing is reordered and no existing row loses data.
 
+## v2.2 — one login at a time
+
+A student password now opens the app in **one tab, on one device, at a time.** `gate.js` asks this
+script for a lease on the student's name when the password is accepted (`doGet`, `action=lease`,
+JSONP), beats it once a minute, and releases it when the tab closes (`doPost` via `sendBeacon`; a released name frees 20 seconds later, so moving between pages never drops it). A
+second tab or device asking for a name that is already live is **refused** — there is no takeover.
+A lease nobody has beaten for 150 seconds is dead, so a laptop that sleeps frees the name by itself.
+
+Two new tabs, created by `setup` or on first use: **Active Logins** (one row per student; a blank
+Token means not logged in — **clear a student's Token cell to free a stuck login**) and **Login
+Log** (granted / refused / released / lost). Tutor logins never take a lease.
+
+**Redeploy is required** (Deploy → Manage deployments → edit → New version). Until then the old
+`doGet` answers without a `callback`, the gate cannot read it, and it lets the student in — the
+gate fails open by design, so a script outage can never lock a class out.
+
 ## What changed, and why
 
 **It captures what the app was already sending and the sheet was throwing away.**
@@ -143,6 +159,9 @@ var LEGACY_RENAMES = { 'Total': 'Max', '%': 'Percent', 'Skill Stats': 'Breakdown
 function doPost(e) {
   try {
     var body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+    // gate.js releases its login with navigator.sendBeacon when the tab closes.
+    // It writes no session data, so it does not carry (or need) the secret.
+    if (body.action === 'lease') return json_(lease_(body));
     if (SHARED_SECRET && body.secret !== SHARED_SECRET) {
       return json_({ ok: false, error: 'bad secret' });
     }
@@ -154,7 +173,11 @@ function doPost(e) {
   }
 }
 
-function doGet() {
+function doGet(e) {
+  var p = (e && e.parameter) || {};
+  // gate.js: acquire / beat a login lease. JSONP, because a static page on
+  // another origin can only READ a reply from here through a <script> tag.
+  if (p.action === 'lease') return jsonp_(lease_(p), p.callback);
   return json_({ ok: true, message: 'SAT R&W session sync. POST sessions here.' });
 }
 
@@ -162,6 +185,136 @@ function doGet() {
 function setup() {
   ensureHeaders_(tab_(SESSIONS_TAB), SESSION_COLUMNS.concat(EXTRA_COLUMNS), LEGACY_RENAMES);
   ensureHeaders_(tab_(QUESTIONS_TAB), QUESTION_COLUMNS, null);
+  ensureHeaders_(tab_(LEASE_TAB), LEASE_COLUMNS, null);
+  ensureHeaders_(tab_(LEASE_LOG_TAB), LEASE_LOG_COLUMNS, null);
+}
+
+// ── One login at a time ───────────────────────────────────────────
+// gate.js asks this script for a LEASE on a student's name the moment a
+// student password is accepted, and keeps it alive with a beat once a minute.
+// One live lease per name: a second tab, browser or device asking for the same
+// name while a lease is live is REFUSED, not given a takeover. A lease that has
+// not been beaten for LEASE_TTL_SEC is dead, so a laptop that sleeps or loses
+// Wi-Fi frees the name on its own within a few minutes.
+//
+// State lives in two tabs you can read and edit:
+//   Active Logins — one row per student. A blank Token means "not logged in".
+//                   To free a stuck login, clear that student's Token cell.
+//   Login Log     — granted / refused / lost, with the time.
+//
+// Tutor sessions never ask for a lease. This is a deterrent against sharing a
+// login, not security: the gate runs in the browser, so a student who edits
+// the page can skip it. The log is the useful part — a refusal is a timestamped
+// record that the name was being used somewhere else.
+var LEASE_TAB         = 'Active Logins';
+var LEASE_LOG_TAB     = 'Login Log';
+var LEASE_TTL_SEC     = 150;          // two missed beats (gate.js beats every 60s)
+var LEASE_GRACE_SEC   = 20;           // how long a released lease still answers to its own token
+var LEASE_COLUMNS     = ['Student', 'Token', 'Since', 'Last seen', 'App'];
+var LEASE_LOG_COLUMNS = ['Timestamp', 'Student', 'Event', 'Token', 'Detail'];
+
+function lease_(p) {
+  var op      = String(p.op || '');
+  var student = String(p.student || '').replace(/[^A-Za-z '\-]/g, '').trim().slice(0, 24);
+  var token   = String(p.token || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 64);
+  if (['acquire', 'beat', 'release'].indexOf(op) < 0) return { ok: false, error: 'bad op' };
+  if (!student || !token) return { ok: false, error: 'missing student or token' };
+
+  var lock = LockService.getScriptLock();
+  lock.waitLock(10000);                       // two tabs asking at once must not both win
+  try {
+    var sheet   = tab_(LEASE_TAB);
+    var headers = ensureHeaders_(sheet, LEASE_COLUMNS, null);
+    var col = {};
+    headers.forEach(function (h, i) { col[h] = i; });
+    var now = new Date();
+
+    // Find this student's row (one per student, reused forever).
+    var last = sheet.getLastRow(), rowNo = 0, row = null;
+    if (last >= 2) {
+      var vals = sheet.getRange(2, 1, last - 1, headers.length).getValues();
+      for (var i = 0; i < vals.length; i++) {
+        if (String(vals[i][col['Student']]).trim().toLowerCase() === student.toLowerCase()) {
+          rowNo = i + 2; row = vals[i]; break;
+        }
+      }
+    }
+    var heldBy = row ? String(row[col['Token']] || '').trim() : '';
+    var seen   = row ? leaseTime_(row[col['Last seen']]) : 0;
+    var live   = !!heldBy && seen > 0 && (now.getTime() - seen) < LEASE_TTL_SEC * 1000;
+    var mine   = live && heldBy === token;
+
+    function write(tok, since) {
+      var r = row ? row.slice() : headers.map(function () { return ''; });
+      while (r.length < headers.length) r.push('');
+      r[col['Student']]   = row ? r[col['Student']] : student;
+      r[col['Token']]     = tok;
+      r[col['Since']]     = since;
+      r[col['Last seen']] = tok ? now : '';
+      r[col['App']]       = tok ? String(p.app || APP_NAME).slice(0, 40) : '';
+      if (!rowNo) rowNo = sheet.getLastRow() + 1;
+      sheet.getRange(rowNo, 1, 1, headers.length).setValues([r]);
+    }
+
+    // A release is sent on EVERY pagehide, including moving from one page of the
+    // app to the next, so it must not free the name outright or write a log row:
+    // the next page's first beat would re-claim it a second later and the log
+    // would fill with release/grant pairs. Instead the lease is aged so that it
+    // dies LEASE_GRACE_SEC from now. The same tab walks straight back in within
+    // that window; a closed tab frees the name for another device shortly after.
+    if (op === 'release') {
+      if (live && heldBy === token) {
+        var r2 = row.slice();
+        r2[col['Last seen']] = new Date(now.getTime() - (LEASE_TTL_SEC - LEASE_GRACE_SEC) * 1000);
+        sheet.getRange(rowNo, 1, 1, headers.length).setValues([r2]);
+        return { ok: true, released: true };
+      }
+      return { ok: true, released: false };   // not ours: never free someone else's login
+    }
+
+    if (mine) {                               // a beat, or a new page in the same tab
+      write(token, row[col['Since']] || now);
+      return { ok: true, since: String(row[col['Since']] || '') };
+    }
+
+    if (live) {                               // somebody else holds it — refuse
+      var idle = Math.round((now.getTime() - seen) / 1000);
+      leaseLog_(student, op === 'beat' ? 'lost' : 'refused', token,
+                'held by ' + heldBy.slice(0, 6) + ', last seen ' + idle + 's ago');
+      return { ok: false, reason: 'held', idleSecs: idle, ttlSecs: LEASE_TTL_SEC };
+    }
+
+    // Free, or the old lease went stale: this token takes it.
+    write(token, now);
+    leaseLog_(student, 'granted', token,
+              op === 'beat' ? 're-claimed on a beat' : (heldBy ? 'previous login had expired' : ''));
+    return { ok: true, granted: true };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function leaseTime_(v) {
+  if (!v) return 0;
+  var t = (v instanceof Date) ? v.getTime() : new Date(v).getTime();
+  return isNaN(t) ? 0 : t;
+}
+
+function leaseLog_(student, event, token, detail) {
+  var sheet   = tab_(LEASE_LOG_TAB);
+  var headers = ensureHeaders_(sheet, LEASE_LOG_COLUMNS, null);
+  sheet.appendRow(rowFrom_(headers, {
+    'Timestamp': new Date(), 'Student': student, 'Event': event,
+    'Token': String(token || '').slice(0, 6), 'Detail': detail || ''
+  }));
+}
+
+/** JSONP, so the gate can READ the reply. The callback name is validated. */
+function jsonp_(obj, callback) {
+  var cb = String(callback || '');
+  if (!/^[A-Za-z_$][A-Za-z0-9_$]{0,63}$/.test(cb)) return json_(obj);
+  return ContentService.createTextOutput(cb + '(' + JSON.stringify(obj) + ');')
+    .setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
 
 // ── Normalisation ─────────────────────────────────────────────────

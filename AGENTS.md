@@ -295,6 +295,28 @@ a common word.
 login is a published mapping. `gate.test.js` derives the roster from the labels already in the file
 and asserts the header stays quiet.
 
+## One login at a time
+
+A student password opens the app in **one tab, on one device, at a time.** `gate.js` asks the tutor
+sheet's Apps Script for a lease on the student's name when the password is accepted, beats it every
+60 seconds, and releases it with `sendBeacon` on `pagehide`. A second tab or device asking for a live
+name is **refused** (no takeover). A duplicated tab copies `sessionStorage`, token included, so the
+pages also check each other over a `BroadcastChannel`. Tutor sessions never take a lease.
+
+- **It fails open.** No reply (offline, script not redeployed, slow) lets the student in; only an
+  explicit `held` keeps the gate shut or signs a page out. A script outage must never lock a class out.
+- **A release ages the lease rather than freeing it** — it is sent on every page change, so it
+  leaves 20 seconds of grace for the same tab and writes no log row. A closed tab frees the name for
+  another device about 20 seconds later; a sleeping laptop, after 150 seconds without a beat.
+- **The tutor frees a stuck login** by clearing that student's Token cell in the **Active Logins** tab.
+  Refusals and lost leases go to **Login Log**.
+- `LEASE_ENDPOINT` in `gate.js` must equal `SHEET_SYNC_ENDPOINT` in `sheet-sync.js` (gate.js loads
+  first and cannot read it); `gate.test.js` asserts it. The server half is `lease_()` in
+  `tutor-sheet/rw-apps-script.md`, tested in `apps-script.test.js` §11. **Redeploy the script** after
+  changing it — until then the gate gets no readable reply and simply lets everyone in.
+- **Deterrent, not security**, like the gate itself: it runs in the browser. Tests replace the network
+  with `window.__gateLeaseTransport`; nothing in the shipped app sets it.
+
 ## The baseline screener
 
 `baseline.html`, plus `baseline-spec.js` (form construction), `baseline-grade.js` (routing, bands,
