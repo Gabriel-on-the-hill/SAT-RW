@@ -634,3 +634,57 @@ window.CHALLENGE_SETS = {
         },
     ],
 };
+
+// Fixed class questions. Models and conditional extensions retain their roles.
+(function () {
+  var sets=window.CHALLENGE_SETS.Ayodeji || (window.CHALLENGE_SETS.Ayodeji=[]);
+  sets.push({
+    setId:'target-evidence-20261002',
+    title:'Find the target. Prove the choice.',
+    source:'Ordered reading class route',date:'2026-10-02',
+    tileIntro:'Two opening checks, a short model, then fresh applications. Keep the clock off.',
+    ids:['3f05e40f','50894857','5d6ab069','dd1757fd','040583a5','87023f34','d9a6817c'],
+    learningPath:{
+      route:'target-evidence',transfer:[],
+      intro:'Commit your own prediction before the choices. Commit your first answer and explanation before feedback. Keep notes closed on silent attempts. Tell your tutor if you recognise a question.',
+      order:'Silent opening → precise target → short model → supported application → fresh application → graph evidence if ready → exit and practice decision.',
+      graphTextStarts:{'7edfb2c5':'Flint artifacts','040583a5':'A student is conducting'},
+      graphAlts:{'7edfb2c5':'Bar chart: estimated exposure temperatures in degrees Celsius for Evron Quarry artifacts.','040583a5':'Bar chart: banana ripening time in days at different temperatures, with and without ethylene treatment.'},
+      blocks:[
+        {key:'opening',title:'Two silent opening checks',batchFeedback:true,
+          intro:'Use your usual method. Work without tutor hints. Both first answers will be committed before feedback.',
+          review:'With your tutor, check whether your prediction captured the exact task. A related idea may still miss the required relationship or viewpoint. Repair only the missing part.',
+          items:[{id:'3f05e40f',role:'silent opening'},{id:'50894857',role:'silent opening'}]},
+        {key:'model',title:'One short model',
+          intro:'Work with your tutor on one example. State what the evidence would have to show; then compare the strongest rival.',
+          review:'The claim is journalism methods used to write fiction. Reporting and interviews for a novel meet it. Fiction techniques used in nonfiction reverse the direction; a fictional character is the wrong subject. Restate the distinction in your own words.',
+          items:[{id:'1d08c7ee',role:'modelled',cue:'Name the actor, the relationship and any limit the claim requires. What observation would establish that relationship?',reasonPrompt:'Point to the deciding words. Explain why the closest rival fails to meet the claim.'}]},
+        {key:'application',title:'Apply it on a different example',
+          intro:'Finish your attempt before the tutor helps. If help is used, record what kind after commitment.',
+          review:'For an “if true” question, treat each finding as true, then test its consequence for this claim. New evidence is allowed. A measured difference without the required link is insufficient.',
+          items:[{id:'5d6ab069',role:'supported application',cue:'Target → evidence and its link → decisive difference. Your prediction is a hypothesis; the passage and task decide.',reasonPrompt:'Which finding meets the target, and why does your closest rival fail?'}]},
+        {key:'fresh',title:'Retrieve the method on a fresh Medium question',
+          intro:'Close the checklist. Work silently on a different example before increasing difficulty. If you need help, record it after commitment and arrange another fresh check.',
+          review:'Check the exact support relationship, not just matching words. Compare the complete cycle in the claim with a quotation showing only one part. Record any help; a correct letter alone does not establish independent reasoning.',
+          items:[{id:'87023f34',role:'silent fresh Medium application'}]},
+        {key:'hard',title:'Planned next step: Hard transfer',optional:true,
+          intro:'Proceed to Hard when the fresh Medium target, evidence and decisive difference are sound without directional help. If more teaching is needed or time is short, defer this step rather than rush it. Leave time for the practice decision.',
+          review:'Test the specific reason for the apparent similarity, rather than matching the topic. One successful Hard item earns a delayed check, not a mastery claim.',
+          items:[{id:'dd1757fd',role:'silent fresh Hard application'}]},
+        {key:'graph-model',title:'Read the data against the claim',optional:true,
+          intro:'Start this only if there is time. This is a previously attempted model. First name the threshold or comparison, then read the units and relevant bars.',
+          review:'Some artifacts exceeded 400°C. A true statement about temperatures above 100°C would not establish that claim. Check both numerical accuracy and relevance.',
+          items:[{id:'7edfb2c5',role:'previously attempted model',cue:'What numerical evidence would support this exact claim?',reasonPrompt:'Give the relevant bars and units, and the difference from a true but insufficient answer.'}]},
+        {key:'graph-transfer',title:'Fresh graph application',optional:true,
+          intro:'Use this only after the graph model is secure. Close the method cue and work silently. If graph reading still needs support, defer and teach that prerequisite.',
+          review:'Compare the treated–untreated gap at each temperature. An accurate statement about just one series may fail to establish the requested difference.',
+          items:[{id:'040583a5',role:'silent fresh graph application'}]},
+        {key:'exit',title:'A fresh exit check',exit:true,
+          intro:'Use a question not already encountered in this route. No method checklist or tutor hints. Explain your decision in your own words.',
+          review:'Did you retrieve the method yourself? Assess the target, the evidence and the deciding difference. Record help honestly and agree a delayed check on a different day.',
+          items:[{id:'d9a6817c',role:'silent exit'}]}
+      ],
+      schedule:'Agree one realistic independent practice window before leaving. Homework is decided after class from the reasoning and help recorded. Return to the method after a delay, mixed with older skills. If a full practice test occupies the available window, adjust the short-set workload.'
+    }
+  });
+})();

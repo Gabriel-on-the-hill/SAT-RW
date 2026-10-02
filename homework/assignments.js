@@ -966,6 +966,16 @@ const HOMEWORK = {
   // This file is downloaded by his browser and this repo is public. Keep it
   // free of assessment of him — shapes, pools and guardrails only.
   "Ayodeji": {
+    title: "Find the target. Prove the choice.",
+    start: "2026-10-02",
+    through: "2026-10-02",
+    unlock: "sequential",
+    challenge: "target-evidence-20261002",
+    days: []
+  },
+
+  /* CLEARED 2 OCT 2026 — previous class sets retained for reference.
+  "Ayodeji": {
     title: "In class today — two short sets, done together",
     start: "2026-09-26",
     through: "2026-09-26",
@@ -986,6 +996,8 @@ const HOMEWORK = {
         ] },
     ]
   },
+
+  */
 
   /* CLEARED 26 SEP 2026 — the 21–24 Sep block, kept verbatim for the `start` key
      and the four authored days. All four were submitted. Uncomment to restore.

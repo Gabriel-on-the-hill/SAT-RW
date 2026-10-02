@@ -37,7 +37,7 @@
     if (typeof ChallengeCore === 'undefined' || !window.CHALLENGE_SETS) return;
     var CC = ChallengeCore;
 
-    var state = { set: null, questions: [], missing: [], sessionActive: false, modeLocked: false, guardWired: false };
+    var state = { set: null, questions: [], missing: [], sessionActive: false, modeLocked: false, guardWired: false, transferActive: false };
 
     function $(id) { return document.getElementById(id); }
     function studentName() { try { return sessionStorage.getItem('mastery_user') || ''; } catch (e) { return ''; } }
@@ -79,8 +79,20 @@
         if (!sel) return;
         var opt = sel.querySelector('option[value="exam"]');
         if (opt) { opt.disabled = false; opt.hidden = false; }
+        sel.querySelectorAll('option').forEach(function (o) { o.disabled = false; });
     }
-    function endChallengeSession() { state.sessionActive = false; unlockMode(); }
+    function lockTransferMode() {
+        var sel = $('modeSelect');
+        if (!sel) return;
+        sel.querySelectorAll('option').forEach(function (o) { o.disabled = o.value !== 'exam'; });
+        sel.value = 'exam';
+        sel.addEventListener('change', function () {
+            if (!state.transferActive) return;
+            sel.value = 'exam';
+            try { userMode = 'exam'; } catch (e) {}
+        });
+    }
+    function endChallengeSession() { state.sessionActive = false; state.transferActive = false; unlockMode(); }
 
     // ── Styles ───────────────────────────────────────────────────
     function injectCss() {
@@ -139,12 +151,18 @@
     function refreshTile() {
         var b = $('challengeTile');
         if (!b || !state.set) return;
+        if (state.set.learningPath) {
+            b.innerHTML = '<span class="hub-quick-icon">&#9876;</span>' +
+                '<span class="hub-quick-title">Challenge &mdash; ' + esc(state.set.title) + '</span>' +
+                '<span class="hub-quick-sub">' + esc(state.set.tileIntro || state.set.source) + '</span>';
+            return;
+        }
         var c = counts();
         var pct = c.total ? Math.round(c.mastered / c.total * 100) : 0;
         b.innerHTML =
             '<span class="hub-quick-icon">&#9876;</span>' +
             '<span class="hub-quick-title">Challenge &mdash; ' + esc(state.set.title) + '</span>' +
-            '<span class="hub-quick-sub">Built from the questions you missed on ' + esc(state.set.source) +
+            '<span class="hub-quick-sub">' + esc(state.set.tileIntro || ('Built from the questions you missed on ' + state.set.source)) +
             ' &middot; <b>Mastered ' + c.mastered + ' of ' + c.total + '</b> (' + pct + '%)</span>';
     }
 
@@ -182,7 +200,43 @@
                    : '');
     }
 
+    function isTransferSession() {
+        if (!state.set || !state.set.learningPath || typeof activeQuestions === 'undefined') return false;
+        var path = state.set.learningPath;
+        if (!path.transfer || !path.transfer.length) return false;
+        var ids = path.transfer.slice();
+        if (path.transferOriginal) ids.splice(1, 0, path.transferOriginal.id);
+        return activeQuestions.map(function(q) { return q.id; }).join('|') === ids.join('|') &&
+            typeof userMode !== 'undefined' && userMode === 'exam';
+    }
+    function learningContext() {
+        return { student: studentName(), set: state.set, bank: theBank(), paint: paint,
+            header: header, back: function () { goToHub(); },
+            practice: function (n) { begin(n, false, false); },
+            transfer: function (questions, seconds) {
+                unlockMode();
+                screenEl().style.display = 'none';
+                state.transferActive = true;
+                if (!launchSession(questions, 'exam', { mode: 'countdown', total: seconds })) {
+                    state.transferActive = false;
+                    screenEl().style.display = 'block';
+                    return false;
+                }
+                lockTransferMode();
+                return true;
+            }
+        };
+    }
+
     function renderStart() {
+        if (state.set.learningPath) {
+            if (window.ChallengeLearning) ChallengeLearning.render(learningContext());
+            else {
+                paint(header() + '<div class="cbanner">The class route did not load. Reload the page before starting.</div>' + backRow());
+                wire('cHubBtn', function () { goToHub(); });
+            }
+            return;
+        }
         var c = counts(), g = CC.gate(c);
         var reviewN = (state.set.review || []).length;
         var html = header() + tallyHtml(c);
@@ -372,9 +426,9 @@
         var orig = window.syncSessionToSheet;
         if (typeof orig !== 'function') return;
         window.syncSessionToSheet = function (record) {
-            if (state.sessionActive && record && state.set) {
+            if ((state.sessionActive || state.transferActive || isTransferSession()) && record && state.set) {
                 record = Object.assign({}, record, {
-                    source:          'challenge',
+                    source:          (state.transferActive || isTransferSession()) ? 'class-transfer' : 'challenge',
                     assignmentId:    state.set.setId,
                     assignmentTitle: state.set.title,
                 });
@@ -410,6 +464,23 @@
         }
         if (!state.questions.length) return;          // empty ids: the debrief alone is not a challenge
 
+        // Authored transfer questions stay outside the practice bank but must survive Resume.
+        if (state.set.learningPath && state.set.learningPath.transferOriginal) {
+            var originalMap = window._sessionQuestionMap;
+            if (typeof originalMap === 'function') window._sessionQuestionMap = function () {
+                var map = originalMap();
+                var q = state.set.learningPath.transferOriginal;
+                map[q.id] = q;
+                return map;
+            };
+        }
+        wrap('restoreSession', null, function () {
+            if (isTransferSession()) {
+                state.transferActive = true;
+                lockTransferMode();
+            }
+        });
+
         injectCss();
         injectTile();
         stampSheetUploads();
@@ -417,7 +488,19 @@
         // Any navigation away from the challenge ends the session and unlocks Exam.
         wrap('goToHub', function () { var el = $('challengeScreen'); if (el) el.style.display = 'none'; endChallengeSession(); }, refreshTile);
         wrap('showSetup', function () { var el = $('challengeScreen'); if (el) el.style.display = 'none'; endChallengeSession(); });
-        wrap('showCompletion', null, function () { if (state.sessionActive) decorateCompletion(); });
+        wrap('showCompletion', null, function () {
+            if (state.sessionActive) decorateCompletion();
+            if ((state.transferActive || isTransferSession()) && window.ChallengeLearning) {
+                ChallengeLearning.completeTransfer(learningContext());
+                var actions = document.querySelector('#completionScreen .completion-actions');
+                if (actions && !$('cReturnToRoute')) {
+                    var b = document.createElement('button');
+                    b.id = 'cReturnToRoute'; b.className = 'btn btn-primary completion-action-btn';
+                    b.textContent = 'Review with tutor, then exit checks'; b.onclick = openChallenge;
+                    actions.insertBefore(b, actions.firstChild);
+                }
+            }
+        });
 
         // Browser back/forward: teach the screen switcher about 'challenge'.
         var origShow = window._showScreenOnly;

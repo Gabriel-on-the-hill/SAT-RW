@@ -53,13 +53,13 @@
 <script src="ns-migrate.js?v=20260717"></script>
 <script src="gate.js?v=20260929"></script>
 <script src="sheet-sync.js?v=20260825"></script>
-<script src="homework/assignments.js?v=20260927"></script>
+<script src="homework/assignments.js?v=20261002"></script>
 <!-- Challenge card. progress.js supplies the ledger, challenge-core the segments.
      No question banks are loaded: segmentOf() reads only q.id, so "Mastered N of M"
      is computable from the frozen ids alone. sets.js tolerates a missing
      CHALLENGE_P8 — the debrief payload is not needed on this page. -->
 <script src="progress.js?v=20260909"></script>
-<script src="challenge/sets.js?v=20260927"></script>
+<script src="challenge/sets.js?v=20261002"></script>
 <script src="challenge/challenge-core.js?v=20260722"></script>
 </head>
 <body>
@@ -95,6 +95,11 @@
   // The card, as a STRING. Split out from renderChallengeCard so a days-plan can
   // append it under the sets instead of replacing them — a plan may now have both.
   function challengeCardHTML(set){
+    if (set.learningPath) {
+      return '<div class="day"><div class="top"><span class="focus">' + esc(set.title) +
+        '</span><span class="state open">Class route</span></div><div class="tip">' +
+        esc(set.learningPath.order) + '</div><div class="go"><a class="btn" href="index.html?challenge=1">Open the class route</a></div></div>';
+    }
     // segmentOf() only ever reads q.id, so the tally needs the ids and the ledger.
     var stubs = set.ids.map(function(id){ return { id: id }; });
     var c     = ChallengeCore.counts(stubs, getProgress());
@@ -141,7 +146,7 @@
       list.innerHTML = '<div class="empty">Your challenge set is not ready yet.</div>'; return;
     }
     list.innerHTML = challengeCardHTML(set);
-    if (note) note.textContent = 'There are no daily sets this week. Work through the challenge whenever you like, ' +
+    if (note) note.textContent = set.learningPath ? 'Work through this route with your tutor. Homework is decided after class.' : 'There are no daily sets this week. Work through the challenge whenever you like, ' +
       'as often as you like. It is done when every question is mastered — not when you have been through it once.';
   }
 
