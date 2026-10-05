@@ -123,9 +123,9 @@
 <script src="data-info-ideas-ext.js?v=20260909"></script>
 <script src="data-conventions.js?v=20260909"></script>
 <script src="data-conventions-ext.js?v=20260909"></script>
-<script src="progress.js?v=20260909"></script>
+<script src="progress.js?v=20261005"></script>
 <script src="sheet-sync.js?v=20260825"></script>
-<script src="homework/assignments.js?v=20261002"></script>
+<script src="homework/assignments.js?v=20261005"></script>
 </head>
 <body>
 <div class="wrap">
@@ -281,8 +281,12 @@
   var reviewN = (typeof spec.review === 'number') ? spec.review
               : (plan && typeof plan.review === 'number') ? plan.review
               : 2;
+  // `reviewClassMisses` (day, then plan) lets a question MISSED in a class route
+  // come back as review. Off unless the tutor asks — see dueForReview().
+  var _reviewOpts = { classMisses: !!((typeof spec.reviewClassMisses === 'boolean') ? spec.reviewClassMisses
+                                     : (plan && plan.reviewClassMisses)) };
   var _missesFirst = reviewN > 0 &&
-      !(typeof dueForReview === 'function' && dueForReview(QB, 1, {}).length > 0);
+      !(typeof dueForReview === 'function' && dueForReview(QB, 1, {}, _reviewOpts).length > 0);
 
   // Section-aware build: each section draws an exact count from its own
   // filtered pool (skill + difficulty + optional ruleType), no repeats across
@@ -330,7 +334,7 @@
   // the point: spacing should be what happens when the tutor does nothing.
   // `reviewN` is resolved before the build — see the _missesFirst block above.
   var _inSet   = {}; set.forEach(function(q){ _inSet[q.id] = true; });
-  var reviewQs = (typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet) : [];
+  var reviewQs = (typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet, _reviewOpts) : [];
   reviewQs.forEach(function(q){ set.splice(Math.floor(Math.random() * (set.length + 1)), 0, q); });
 
   // These — and nothing else in the set — are delayed retrievals: questions he has

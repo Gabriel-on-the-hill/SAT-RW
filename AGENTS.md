@@ -32,6 +32,7 @@ npm install jsdom --prefix /tmp/j
 NODE_PATH=/tmp/j/node_modules node homework/homework-run.test.js   # the learning loop
 NODE_PATH=/tmp/j/node_modules node homework/review-ladder.test.js  # spacing, retention, calibration
 NODE_PATH=/tmp/j/node_modules node homework/assignments.test.js    # the plans are sane
+node exposure.test.js                                               # met elsewhere is not unseen
 NODE_PATH=/tmp/j/node_modules node homework/bank.test.js           # the bank is classified right
 NODE_PATH=/tmp/j/node_modules node challenge/*.test.js             # the challenge feature
 NODE_PATH=/tmp/j/node_modules node ns-migrate.test.js              # nobody loses their work
@@ -183,6 +184,25 @@ it exists to prevent: for months, a question the student had *learned* was demot
 sat behind `unseen`, and with hundreds of questions in the bank and 6 to a set, **it was never
 drawn again.** Nothing taught in April came back in May. Not because anyone decided that — because
 a tier was in the wrong place and no test looked.
+
+## Met is not the same as mastered — the exposure record
+
+The ledger does two jobs: a row makes a question **seen** (so `prioritizePool()` stops calling it
+unseen) and puts it on the **review ladder**. The baseline and the class route stay out of the ledger
+on purpose — the baseline misses untaught skills by design, and class answers earn no mastery credit.
+Before 5 Oct 2026 that also meant nothing met there counted as seen: homework served baseline items as
+new, could spend an item kept back for class, and "never seen" accuracy included items already answered.
+
+`progress.js` now keeps a separate **exposure** record, `satrw_seen_<student>`. `baseline.html` and
+`challenge/evidence-route.js` write to it; history is filled in once per page from the baseline records
+and class routes already in the browser. It changes one thing: met-elsewhere items sit **behind** the
+truly unseen ones in `prioritizePool()`, still ahead of misses and resting items. It never writes the
+ledger, and `dueForReview()` ignores it — **unless a plan or day sets `reviewClassMisses: true`**, which
+lets a question *missed in a class route* return as review once the miss cooldown clears. Baseline
+misses never do. `exposure.test.js` holds all of it. It cannot see work done on another device.
+
+**A new surface that shows bank questions outside the ledger must call `recordExposure(id, source,
+isCorrect)`**, or its items go back to being served as new.
 
 ## The homework runner is a learning loop, not a quiz
 

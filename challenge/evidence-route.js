@@ -81,6 +81,8 @@
         committed=true;
         s.rows.push({block:block.key,id:q.id,role:item.role,prediction:draft.prediction,reason:draft.reason,chosen:skip?null:draft.chosen,isCorrect:skip?null:draft.chosen===q.answer,recognised:draft.recognised,help:item.role==='modelled'?'model':'unrecorded',date:new Date().toISOString()});
         s.draft=null;save();
+        // Met, not mastered: the exposure record keeps this item out of the unseen tier of later draws. No ledger row.
+        if(typeof recordExposure==='function') recordExposure(q.id,'class',skip?null:draft.chosen===q.answer);
         // Opening answers are both committed before either explanation appears.
         if(block.batchFeedback && firstRows(block).length<list.length) run(block);else review(block);
       }

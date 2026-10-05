@@ -106,6 +106,137 @@ function _saveProgress(ledger) {
     try { localStorage.setItem('satrw_progress_' + _hwUser(), JSON.stringify(ledger)); } catch(e) {}
 }
 
+// ── Exposure: questions he has MET, kept apart from the ledger ────
+// Storage key: 'satrw_seen_<student>'
+// Shape: { [questionId]: { at: firstMetMs, by: { [source]: { at, result } } } }
+//   source: 'baseline' | 'class'      result: 'correct' | 'wrong' | 'seen'
+//
+// The ledger above answers two questions at once: "has he seen this?" (no row →
+// prioritizePool calls it unseen) and "when does it come back?" (a row → the
+// review ladder). Two surfaces stay out of it ON PURPOSE. The baseline is built
+// to miss across all eleven skills, and a ledger row would put every one of
+// those misses on rung zero — tomorrow's review dose, from skills nobody has
+// taught (see baseline.html). The class route is teaching, and teaching answers
+// earn no mastery credit.
+//
+// Both reasons are right, and both had the same side effect: an item met there
+// had no row, so every draw treated it as never seen. A homework day served a
+// baseline question as "new"; a question kept back for a class could be spent
+// by homework first; and "never seen" accuracy quietly included items he had
+// already answered. Nothing errored — it only showed when someone matched the
+// export row by row.
+//
+// So exposure is its own record. It changes ONE thing: prioritizePool() puts a
+// question met elsewhere behind the truly unseen ones, still ahead of misses
+// and resting items. It never creates a ledger row, never moves the ladder, and
+// dueForReview() ignores it — unless a plan opts in with `reviewClassMisses`,
+// and even then only for CLASS misses, never baseline ones.
+//
+// History is filled in from what the browser already holds: every baseline
+// record (satrw_baseline_<student>) and every class route
+// (satrw_sat_class_route:<student>:<setId>). It runs once per page, per student,
+// and only ever adds. It cannot see work done on another device.
+var _exposureSynced = {};
+
+function _exposureKey() { return 'satrw_seen_' + _hwUser(); }
+
+function _readExposure() {
+    try { return JSON.parse(localStorage.getItem(_exposureKey())) || {}; }
+    catch (e) { return {}; }
+}
+
+function _saveExposure(map) {
+    try { localStorage.setItem(_exposureKey(), JSON.stringify(map)); } catch (e) {}
+}
+
+// Adds one meeting to `map`. The FIRST meeting per source is the one kept: a
+// class answer reopened after feedback is a re-read, not new evidence. Returns
+// true when the map changed.
+function _noteExposure(map, id, source, isCorrect, at) {
+    if (!id || !source) return false;
+    id = _canonicalQuestionId(id);
+    at = (typeof at === 'number' && isFinite(at) && at > 0) ? at : Date.now();
+    var result = isCorrect === true ? 'correct' : (isCorrect === false ? 'wrong' : 'seen');
+    var rec = map[id] || (map[id] = { at: at, by: {} });
+    if (!rec.by) rec.by = {};
+    var changed = false;
+    if (at < rec.at) { rec.at = at; changed = true; }
+    var prev = rec.by[source];
+    if (!prev) {
+        rec.by[source] = { at: at, result: result };
+        changed = true;
+    } else if (prev.result === 'seen' && result !== 'seen') {
+        // Seen on screen first, answered later in the same route: keep the answer.
+        prev.result = result;
+        changed = true;
+    }
+    return changed;
+}
+
+// Call where an item is met outside the ledger. Never writes the ledger.
+function recordExposure(id, source, isCorrect) {
+    var map = getExposure();
+    if (_noteExposure(map, id, source, isCorrect, Date.now())) _saveExposure(map);
+}
+
+function _syncExposure(map) {
+    var user = _hwUser(), changed = false;
+    try {
+        var baselines = JSON.parse(localStorage.getItem('satrw_baseline_' + user)) || [];
+        baselines.forEach(function (b) {
+            (b && Array.isArray(b.items) ? b.items : []).forEach(function (i) {
+                if (i && i.id && _noteExposure(map, i.id, 'baseline',
+                        i.chosen ? !!i.correct : null, b.takenAt || b.savedAt)) changed = true;
+            });
+        });
+    } catch (e) {}
+    try {
+        var prefix = 'satrw_sat_class_route:' + user + ':', keys = [];
+        for (var k = 0; k < localStorage.length; k++) {
+            var name = localStorage.key(k);
+            if (name && name.indexOf(prefix) === 0) keys.push(name);
+        }
+        keys.forEach(function (name) {
+            var s = JSON.parse(localStorage.getItem(name));
+            if (!s) return;
+            (Array.isArray(s.rows) ? s.rows : []).forEach(function (r) {
+                if (r && r.id && _noteExposure(map, r.id, 'class',
+                        r.chosen === null || r.chosen === undefined ? null : !!r.isCorrect,
+                        Date.parse(r.date) || 0)) changed = true;
+            });
+            // An item open on screen when the route was left has been read.
+            if (s.draft && s.draft.id && _noteExposure(map, s.draft.id, 'class', null, 0)) changed = true;
+        });
+    } catch (e) {}
+    return changed;
+}
+
+function getExposure() {
+    var map = _readExposure(), user = _hwUser();
+    if (!_exposureSynced[user]) {
+        _exposureSynced[user] = true;
+        if (_syncExposure(map)) _saveExposure(map);
+    }
+    return map;
+}
+
+// The record for bank question `q`, under its id or any alias it was met under.
+function _exposureFor(map, q) {
+    if (!q || !map) return null;
+    if (map[q.id]) return map[q.id];
+    var alts = q.altIds || [];
+    for (var i = 0; i < alts.length; i++) if (map[alts[i]]) return map[alts[i]];
+    return null;
+}
+
+// A class miss due back, for a plan that opted in. Same timing as a ledger miss:
+// it returns once the cooldown clears. Baseline misses never qualify.
+function _classMissOverdueBy(rec) {
+    var c = rec && rec.by && rec.by['class'];
+    if (!c || c.result !== 'wrong') return -Infinity;
+    return Date.now() - (c.at + REVIEW_COOLDOWN_MS);
+}
+
 // Call after every answered question.
 // source: 'practice' | 'exam' | 'homework'  — exam answers count double.
 // meta:   { skill, review } — optional. `review: true` means the ladder chose this
@@ -256,13 +387,28 @@ function _overdueBy(record) {
 // something the student has actually been taught and has actually attempted;
 // handing them a cold skill under the banner of "review" is the fastest way to
 // lose them (`CD-2` — never assign what has not been taught).
-function dueForReview(bank, n, excludeIds) {
+//
+// `opts.classMisses` (a plan's `reviewClassMisses`) is the one exception, and it
+// is opt-in: a question MISSED in a class route, with no ledger row yet, counts
+// as due once the miss cooldown clears. It was attempted, so it is not cold. It
+// is a teaching decision, so it is off unless the plan asks. Baseline misses
+// never qualify — the baseline tests untaught skills by design. Once he answers
+// the item in homework it has a ledger row and the ladder takes over.
+function dueForReview(bank, n, excludeIds, opts) {
     if (!bank || !bank.length || !n) return [];
     const ledger = getProgress();
     const skip   = excludeIds || {};
+    const exposure = (opts && opts.classMisses) ? getExposure() : null;
     return bank
-        .filter(q => !skip[q.id] && ledger[q.id] && _isDue(ledger[q.id]))
-        .map(q => ({ q, over: _overdueBy(ledger[q.id]) }))
+        .map(q => {
+            if (skip[q.id]) return null;
+            const r = ledger[q.id];
+            if (r) return _isDue(r) ? { q, over: _overdueBy(r) } : null;
+            if (!exposure) return null;
+            const over = _classMissOverdueBy(_exposureFor(exposure, q));
+            return over >= 0 ? { q, over } : null;
+        })
+        .filter(Boolean)
         .sort((a, b) => b.over - a.over)
         .slice(0, n)
         .map(x => x.q);
@@ -292,7 +438,9 @@ function _isResting(record) {
 }
 
 // Reorder pool with THREE tiers:
-//   1. unseen    — never answered. COVERAGE FIRST.
+//   1. unseen    — never answered. COVERAGE FIRST. Items with no ledger row that
+//                  were met in a baseline or class route (getExposure) come last
+//                  within this tier: never-met material is served first.
 //   2. needsWork — seen, has had at least one wrong answer, not yet mastered.
 //   3. resting   — owes nothing right now: never missed, or missed and since
 //                  mastered. Sorted by how OVERDUE it is (see the review ladder),
@@ -320,14 +468,18 @@ function _isResting(record) {
 // channel at all that day.
 function prioritizePool(pool, opts) {
     const ledger    = getProgress();
+    const exposure  = getExposure();
     const needsWork = [];
     const unseenOfficial = [];
     const unseenProvisional = [];
+    const metElsewhere = [];   // no ledger row, but met in a baseline or class route
     const resting   = [];
 
     pool.forEach(q => {
         const r = ledger[q.id];
-        if (!r) {
+        if (!r && _exposureFor(exposure, q)) {
+            metElsewhere.push(q);
+        } else if (!r) {
             const provisional = q.difficultyStatus === 'provisional';
             (provisional ? unseenProvisional : unseenOfficial).push(q);
         } else if ((r.wrong || 0) > 0 && !_isMastered(r)) {
@@ -341,9 +493,13 @@ function prioritizePool(pool, opts) {
 
     // Both groups stay drawable, but trusted College Board items lead the unseen
     // tier. Shuffle inside each group, never across the provenance boundary.
+    // Items met elsewhere follow the truly unseen ones. They are not new to him,
+    // so they must not be served as new while new material remains — but they
+    // carry no ledger history, so they still lead misses and resting items.
     const unseen = [
         ..._fyShuffle(unseenOfficial),
         ..._fyShuffle(unseenProvisional),
+        ..._fyShuffle(metElsewhere),
     ];
 
     const missesFirst = !!(opts && opts.missesFirst);

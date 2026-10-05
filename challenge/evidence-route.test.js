@@ -23,7 +23,9 @@ let assertions=0;function ok(c,m){assert.ok(c,m);assertions++;}
 async function main(){
  if(w.document.readyState==='loading')await new Promise(r=>w.document.addEventListener('DOMContentLoaded',r));
  const plans={};new Function('window',read('homework/assignments.js'))(plans);
- ok(plans.HOMEWORK.Ayodeji.challenge===set.setId&&plans.HOMEWORK.Ayodeji.days.length===0,'old homework is replaced by the exact class route');
+ // homework-hub.html renders a plan carrying `challenge` as the challenge card alone and never draws its days.
+ ok(Object.values(plans.HOMEWORK).every(p=>!(p.challenge&&p.days&&p.days.length)),'no plan carries both days and a challenge key — the hub would hide the days');
+ ok(set.setId==='target-evidence-20261002','the class route is still the newest set, so the hub shows it under any sets');
  const bank=w.__bank();
  const refs=set.learningPath.blocks.flatMap(b=>b.items||b.alternatives.flatMap(a=>a.items));
  ok(refs.every(r=>bank.some(q=>q.id===r.id)),'every model, fresh question and exit resolves against the real bank');
@@ -58,6 +60,10 @@ async function main(){
  $('erSkip').click();ok(saved().rows.at(-1).chosen===null&&saved().rows.at(-1).isCorrect===null,'unattempted exit is a blank, never a wrong answer');$('erContinue').click();
  ok($('challengeScreen').textContent.includes('Class record')&&!$('erStart'),'completed route shows the retained record');
  ok(Object.keys(w.getProgress()).length===0,'teaching and class checks grant no mastery credit');
+ const met=w.getExposure(),first=saved().rows[0];
+ ok(saved().rows.every(r=>met[r.id]&&met[r.id].by.class),'every committed class item is recorded as met, outside the ledger');
+ ok(met[first.id].by.class.result===(first.isCorrect?'correct':'wrong'),'the exposure keeps the first answer\'s result');
+ ok(met['d9a6817c'].by.class.result==='seen','a left-unanswered item is met, not wrong');
  w.openChallenge();ok(saved().rows[0].chosen==='B'&&$('challengeScreen').textContent.includes('Class record'),'reopening keeps the first answer and completed route');
  ok(posts.length===7&&posts.every(p=>!p.avgSecs&&!p.duration),'every completed block posts once, without fabricated independent pace');
  ok(posts.at(-1).total===0&&posts.at(-1).questions[0].isCorrect===null,'blank is excluded from attempted total in uploads');

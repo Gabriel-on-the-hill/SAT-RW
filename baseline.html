@@ -94,7 +94,7 @@
 <script src="data-info-ideas-ext.js?v=20260909"></script>
 <script src="data-conventions.js?v=20260909"></script>
 <script src="data-conventions-ext.js?v=20260909"></script>
-<script src="progress.js?v=20260909"></script>
+<script src="progress.js?v=20261005"></script>
 <script src="sheet-sync.js?v=20260825"></script>
 <script src="baseline-spec.js?v=20260909"></script>
 <script src="baseline-grade.js?v=20260909"></script>
@@ -335,6 +335,13 @@ function finishScreener(){
   // with the chosen letter, the correct letter and the elapsed seconds, which
   // is strictly more than the ledger kept. The record is the right home for
   // baseline data; the ledger is for questions that have been taught.
+  //
+  // What IS written is exposure (progress.js): a note that each item has been
+  // MET. It creates no ledger row and dueForReview() never reads a baseline
+  // entry, so none of the above changes. It only stops a later draw serving
+  // these items as unseen.
+  if (typeof recordExposure === 'function')
+    screenerItems.forEach(function (i) { recordExposure(i.id, 'baseline', i.chosen ? !!i.correct : null); });
 
   reportBaseline();
 
