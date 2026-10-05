@@ -50,6 +50,7 @@
           '<div class="cq">'+esc(q.passage).replace(/\n/g,'<br>')+'</div><div class="cq"><b>'+esc(q.question)+'</b></div>'+
           '<label for="lpReason">Before choosing, give your deciding clue or structure (a short phrase is enough).</label><textarea id="lpReason" rows="2" style="display:block;width:100%;box-sizing:border-box;font:inherit;margin:.5rem 0;padding:.65rem" aria-describedby="lpPrompt"></textarea><div id="lpPrompt" class="cnote">Your tutor checks this reason. It is not graded automatically.</div>'+
           button('lpCommit','Commit the clue',true,true)+'<div id="lpOptions" style="display:none">'+q.options.map(function(o,j){return '<button class="copt" data-i="'+j+'">'+esc(o)+'</button>';}).join('')+'</div><div id="lpFeedback" aria-live="polite"></div><div class="crow">'+button('lpNext','Continue',false,true)+'</div>');
+        if(typeof Eliminator!=='undefined')Eliminator.decorate(el('lpOptions'),{ns:'path:'+ctx.student+':'+ctx.set.setId+(exit?':exit':':learn')+(follow?':f':''),id:q.id||('s'+i),selector:'.copt'});
         el('lpReason').oninput=function(){el('lpCommit').disabled=el('lpReason').value.trim().length<2;};
         wire('lpCommit',function(){if(el('lpReason').value.trim().length<2)return;el('lpReason').disabled=true;el('lpCommit').style.display='none';el('lpOptions').style.display='block';});
         Array.prototype.forEach.call(document.querySelectorAll('#lpOptions button'),function(b){b.onclick=function(){
@@ -79,7 +80,8 @@
       function show() {
         var q=qs[i];
         paint('<div class="cnote"><b>Fresh check '+(i+1)+' of '+qs.length+'</b> · notes closed · no hints</div><div class="cq">'+esc(q.passage)+'</div><div class="cq"><b>'+esc(q.question)+'</b></div><div id="lpOptions">'+q.options.map(function(o,j){return '<button class="copt" data-i="'+j+'">'+esc(o)+'</button>';}).join('')+'</div><div class="crow">'+button('lpNext',i===qs.length-1?'Submit all four':'Commit and continue',false,true)+'</div>');
-        Array.prototype.forEach.call(document.querySelectorAll('#lpOptions button'),function(b){b.onclick=function(){answers[i]=Number(b.dataset.i);document.querySelectorAll('#lpOptions button').forEach(function(x){x.style.borderColor=x===b?'#7c3aed':'';});el('lpNext').disabled=false;};});
+        if(typeof Eliminator!=='undefined')Eliminator.decorate(el('lpOptions'),{ns:'path:'+ctx.student+':'+ctx.set.setId+':gate'+s.form,id:q.id||('g'+i),selector:'.copt'});
+        Array.prototype.forEach.call(document.querySelectorAll('#lpOptions button'),function(b){b.onclick=function(){answers[i]=Number(b.dataset.i);document.querySelectorAll('#lpOptions button').forEach(function(x){x.style.borderColor=x===b?'#7c3aed':'';x.classList.toggle('sel',x===b);});el('lpNext').disabled=false;};});
         wire('lpNext',function(){if(answers[i]===undefined)return;i++;if(i<qs.length){show();return;}
           var score=answers.filter(function(a,j){return a===qs[j].answer;}).length;
           s.form++;s.passed=score===qs.length;

@@ -148,7 +148,7 @@ var EXTRA_COLUMNS = ['Skills', 'Difficulties', 'Retention',
 var QUESTION_COLUMNS = [
   'Timestamp', 'Student', 'Subject', 'Session ID', '#', 'Question ID',
   'Skill', 'Difficulty', 'Chosen', 'Correct', 'Right', 'Seconds', 'Trap',
-  'Prediction', 'On text', 'On options'
+  'Prediction', 'On text', 'On options', 'Crossed out'
 ];
 
 // Old header → new header. Applied in place, so existing rows keep their data.
@@ -361,7 +361,8 @@ function normalise_(b) {
       id: q.id, skill: q.skill, difficulty: q.difficulty,
       chosen: q.chosen, correct: q.correct, right: q.isCorrect,
       secs: q.secs, trap: q.trap,
-      prediction: q.prediction, onText: q.onText, onOpts: q.onOpts
+      prediction: q.prediction, onText: q.onText, onOpts: q.onOpts,
+      elim: q.elim, elimAnswer: q.elimAnswer
     };
   });
   return row;
@@ -509,7 +510,10 @@ function appendQuestions_(norm, qs) {
       'Trap':        q.trap || '',
       'Prediction':  q.prediction || '',
       'On text':     present_(q.onText),
-      'On options':  present_(q.onOpts)
+      'On options':  present_(q.onOpts),
+      // eliminator.js (5 Oct 2026): letters crossed out, flagged when the RIGHT answer
+      // was among them at any point — eliminating on "sounds wrong", not on the task.
+      'Crossed out': (q.elim || '') + (q.elimAnswer ? ' (crossed out the answer)' : '')
     });
   });
   sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, headers.length).setValues(rows);

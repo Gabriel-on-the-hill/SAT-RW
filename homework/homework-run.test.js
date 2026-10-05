@@ -116,6 +116,10 @@ function build(day) {
     const probe = w.document.createElement('script');
     probe.textContent = PROBE;
     w.document.body.appendChild(probe);
+    const pinned = w.__QB().filter(q => q.skill === 'Inferences' && q.difficulty === 'Medium').slice(-1)[0];
+    PLAN.days[5] = {n:6, focus:'selected passage', minutes:0, review:0,
+        sections:[{skills:['Inferences'],diffs:['Medium'],questionIds:[pinned.id],count:1}],
+        explanations:{[pinned.id]:'Selected passage feedback.'},tip:'x'};
     w.HOMEWORK['__TEST__'] = JSON.parse(JSON.stringify(PLAN));
     freezeDraw(w);
     installClock(w);
@@ -153,6 +157,10 @@ function reopen(day, store, mode) {
     const probe = w.document.createElement('script');
     probe.textContent = PROBE;
     w.document.body.appendChild(probe);
+    const pinned = w.__QB().filter(q => q.skill === 'Inferences' && q.difficulty === 'Medium').slice(-1)[0];
+    PLAN.days[5] = {n:6, focus:'selected passage', minutes:0, review:0,
+        sections:[{skills:['Inferences'],diffs:['Medium'],questionIds:[pinned.id],count:1}],
+        explanations:{[pinned.id]:'Selected passage feedback.'},tip:'x'};
     w.HOMEWORK['__TEST__'] = JSON.parse(JSON.stringify(PLAN));
     freezeDraw(w);
     installClock(w);
@@ -590,6 +598,114 @@ function finish() {
 
         // And the exact-count guarantee that `sections` exists for survives all of it.
         eq('a calibrated sections day still draws its exact count', runDay(3, { [TRAP]: traps(0.95) }).length, 3);
+    }
+
+    {
+        const w = build(6);
+        const chosen = PLAN.days[5].sections[0].questionIds[0];
+        const q = w.__QB().find(q => q.id === chosen);
+        w.__setAnswers = [q.answer];
+        commit(w); pickRight(w); grade(w); finishSet(w);
+        eq('a selected passage is actually served by the runner', recs(w)[0].id, chosen);
+        ok('selected feedback is visible in review', $(w,'finish').textContent.includes('Selected passage feedback.'));
+        ok('feedback does not mutate the shared bank', q.explanation !== 'Selected passage feedback.');
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    section('13 · Cross out (Bluebook eliminator), the timed-set lock, and review logging');
+    {
+        const w = build(1);
+        setAnswersFor(w, 0);
+        commit(w, 'cross out test');
+        const opts = all(w, '#opts .opt');
+        eq('still exactly four options (the strike control is not a button)', opts.length, 4);
+        ok('a Cross out toggle sits above the choices', !!w.document.querySelector('.elim-toggle'));
+        ok('the tool is off until she turns it on', !w.document.documentElement.classList.contains('elim-on'));
+        w.document.querySelector('.elim-toggle').click();
+        ok('the toggle turns it on', w.document.documentElement.classList.contains('elim-on'));
+        const ans = w.__setAnswers[0];
+        const wrongs = opts.filter(b => b.dataset.l !== ans);
+        // Cross out one wrong choice AND the right one, then choose the right one.
+        wrongs[0].querySelector('.elim-x').click();
+        ok('crossing out marks the choice', wrongs[0].classList.contains('elim-out'));
+        ok('crossing out does NOT select it', !wrongs[0].classList.contains('sel'));
+        const right = opts.find(b => b.dataset.l === ans);
+        right.querySelector('.elim-x').click();
+        ok('the right answer can be crossed out too', right.classList.contains('elim-out'));
+        right.click();
+        ok('choosing a crossed-out choice restores it', !right.classList.contains('elim-out'));
+        ok('and selects it as normal', right.classList.contains('sel'));
+        right.querySelector('.elim-x').click();
+        ok('the selected choice cannot be crossed out', !right.classList.contains('elim-out'));
+        grade(w);
+        ok('a graded question locks its choices', opts.every(b => b.disabled));
+        $(w, 'next').click(); commit(w); pickRight(w); $(w, 'next').click(); commit(w); pickRight(w); $(w, 'next').click();
+        const post = (w.__posts || []).find(p => p.type === 'homework');
+        const q0 = (post && post.questions && post.questions[0]) || {};
+        eq('what she crossed out is sent', q0.elim, wrongs[0].dataset.l);
+        eq('and that she crossed out the RIGHT answer at some point', q0.elimAnswer, true);
+        eq('a question with nothing crossed out sends an empty string', (post.questions[1] || {}).elim, '');
+    }
+    {
+        // Timed day 2, submitted, then reopened: no second sitting.
+        const w = build(2);
+        setAnswersFor(w, 1);
+        for (let i = 0; i < 3; i++) { commit(w); pickRight(w); if (i < 2) $(w, 'next').click(); }
+        finishSet(w);
+        const store = dump(w);
+        ok('the timed set is marked done', Object.keys(store).some(k => k.startsWith(CFG.hwPrefix) && store[k] === '1'));
+        const again = reopen(2, store);
+        ok('a submitted TIMED set does not run again', !again.document.querySelector('#opts'));
+        ok('it offers the review instead', /mode=review/.test(again.document.getElementById('run').innerHTML));
+        const rev = reopen(2, store, 'review');
+        ok('review of the timed set stays open', /review/.test(rev.document.getElementById('finish').textContent));
+        const w1 = build(1);
+        setAnswersFor(w1, 0);
+        for (let i = 0; i < 3; i++) { commit(w1); pickRight(w1); $(w1, 'next').click(); }
+        const again1 = reopen(1, dump(w1));
+        ok('an UNTIMED set can still be done again', !!again1.document.querySelector('#predict'));
+    }
+    {
+        // Review mode reports itself: opened, redo results, and her notes.
+        const w = build(1);
+        setAnswersFor(w, 0);
+        for (let i = 0; i < 3; i++) { commit(w); pickWrong(w); $(w, 'next').click(); }
+        const store = dump(w);
+        const posts = [];
+        const dom = new JSDOM(HTML, {
+            runScripts: 'dangerously',
+            url: 'http://localhost/homework-run.html?student=__TEST__&day=1&mode=review',
+            beforeParse(x) { x.fetch = (u, o) => { try { posts.push(JSON.parse(o.body)); } catch (e) {} return Promise.resolve({ ok: true }); }; x.scrollTo = () => {}; },
+        });
+        const r = dom.window;
+        r.sessionStorage.setItem('mastery_unlocked', '1');
+        r.sessionStorage.setItem(CFG.userKey, '__TEST__');
+        for (const [k, v] of Object.entries(store)) r.localStorage.setItem(k, v);
+        for (const f of SRCS) { const sc = r.document.createElement('script'); sc.textContent = read(f); r.document.body.appendChild(sc); }
+        const pr = r.document.createElement('script'); pr.textContent = PROBE; r.document.body.appendChild(pr);
+        r.HOMEWORK['__TEST__'] = JSON.parse(JSON.stringify(PLAN));
+        freezeDraw(r); installClock(r);
+        const sc = r.document.createElement('script'); sc.textContent = INLINE; r.document.body.appendChild(sc);
+        const opened = posts.find(p => p.type === 'review' && /review opened/.test(p.focus));
+        ok('opening the review posts a `review` row', !!opened);
+        eq('it reports how many misses there are', opened && opened.total, 3);
+        const tag = r.document.querySelector('.tag'); tag.click();
+        r.dispatchEvent(new r.Event('pagehide'));
+        const notes = posts.find(p => p.type === 'review' && /review notes/.test(p.focus));
+        ok('her "what went wrong" tag is posted when she leaves', !!notes && /What went wrong/.test(notes.questions[0].prediction));
+        r.document.getElementById('redo').click();
+        r.__setAnswers = w.__setAnswers;
+        for (let i = 0; i < 3; i++) {
+            commit(r, 'redo reason');
+            const want = recs(r).filter(x => !x.ok && !x.redoOk)[0].answer;
+            all(r, '.opt').find(b => b.dataset.l === want).click();
+            grade(r); $(r, 'next').click();
+        }
+        const redo = posts.find(p => p.type === 'review' && /— redo$/.test(p.focus));
+        ok('a finished redo posts its own `review` row', !!redo);
+        eq('with one question per redone item', redo && redo.questions.length, 3);
+        ok('carrying the redo prediction', redo && redo.questions.every(q => q.prediction === 'redo reason'));
+        ok('and never a `homework` row', !posts.some(p => p.type === 'homework'));
     }
 
     console.log('\n' + '─'.repeat(64));

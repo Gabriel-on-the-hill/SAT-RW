@@ -107,15 +107,15 @@ function captureHomework() {
             // A spaced review, remembered.
             { id: 'inf-h-01', skill: 'Inferences', difficulty: 'Hard', chosen: 'B', correct: 'B',
               isCorrect: true, secs: 74, onText: 41, onOpts: 33,
-              prediction: 'the author is about to concede a point' },
+              prediction: 'the author is about to concede a point', elim: 'BD', elimAnswer: false },
             // A spaced review, forgotten — this is what retention exists to show.
             { id: 'inf-m-04', skill: 'Inferences', difficulty: 'Medium', chosen: 'A', correct: 'C',
               isCorrect: false, secs: 52, onText: 30, onOpts: 22,
-              prediction: 'a contrast is coming' },
+              prediction: 'a contrast is coming', elim: '', elimAnswer: false },
             // A first meeting: acquisition, and deliberately NOT in `retention`.
             { id: 'tra-m-09', skill: 'Transitions', difficulty: 'Medium', chosen: 'D', correct: 'D',
               isCorrect: true, secs: 38, onText: 19, onOpts: 19,
-              prediction: 'the second sentence gives the result' },
+              prediction: 'the second sentence gives the result', elim: '', elimAnswer: false },
         ],
     };
 }

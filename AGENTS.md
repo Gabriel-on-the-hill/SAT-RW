@@ -607,3 +607,20 @@ it. `prioritizePool` and `recordAnswer` are function declarations, so they *are*
 which is how tests stub them. `challenge/challenge-ui.test.js` explains this too.
 
 ## Imported Claude Cowork project instructions
+
+## Cross out, the timed-set lock, and review logging (5 Oct 2026)
+
+- **`eliminator.js` is the Bluebook cross-out tool, on every surface that shows A–D**: the
+  practice/exam runner (`app.js`), the homework runner, the baseline, the challenge review,
+  the class path and the evidence route. The strike control is a `<span>` *inside* each option button, so no
+  surface's DOM changes — `box.children`, `.opt`, `.copt`, `.option-btn` and `#xOptions
+  button` all still find exactly four options. A new surface that shows options should call
+  `Eliminator.decorate(container, {ns, id, selector})` and, if it logs, add
+  `Eliminator.report(ns, id, answer)` (`elim`, `elimAnswer`) to its per-question payload.
+  Guarded by `eliminator.test.js`, `homework/homework-run.test.js` §13 and
+  `challenge/evidence-route.test.js`.
+- **A submitted TIMED homework day is one sitting.** The hub stops offering "Do it again" and
+  `homework-run.html` refuses a fresh run; review stays open. Untimed days are unchanged.
+- **Review is logged.** Opening a review, finishing a redo, and leaving with new "what went
+  wrong" notes each post a `review` row (Sessions tab). None of these
+  touch mastery or the first-attempt record.

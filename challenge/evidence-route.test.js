@@ -8,7 +8,7 @@ const {VirtualConsole}=require('jsdom');const vc=new VirtualConsole();vc.on('jsd
 const dom=new JSDOM(html,{url:'http://localhost/index.html',runScripts:'dangerously',virtualConsole:vc,beforeParse(w){w.fetch=()=>Promise.resolve({ok:true});w.alert=()=>{};w.scrollTo=()=>{};}});
 const w=dom.window,$=id=>w.document.getElementById(id);
 function inject(text){const s=w.document.createElement('script');s.textContent=text;w.document.body.appendChild(s);}
-for(const file of ['config.js','progress.js','sheet-sync.js','session-responses.js','storage.js','timer.js','history.js','data-craft-structure.js','data-expression-of-ideas.js','data-info-ideas.js','data-conventions.js','app.js','challenge/sets.js','challenge/challenge-core.js','challenge/class-path.js','challenge/evidence-route.js'])inject(read(file));
+for(const file of ['config.js','progress.js','sheet-sync.js','session-responses.js','storage.js','timer.js','history.js','data-craft-structure.js','data-expression-of-ideas.js','data-info-ideas.js','data-conventions.js','eliminator.js','app.js','challenge/sets.js','challenge/challenge-core.js','challenge/class-path.js','challenge/evidence-route.js'])inject(read(file));
 inject('window.__bank=function(){return questionBank;};window.__setExamMode=function(){userMode="exam";};');
 w.syncSessionToSheet=record=>posts.push(record);
 w.sessionStorage.setItem('mastery_user','Ayodeji');
@@ -35,7 +35,10 @@ async function main(){
  w.openChallenge();$('erStart').click();
  ok($('erChoices').hidden&&$('erCommit').disabled,'blank prediction cannot reveal choices or submit');
  choose('A');ok(saved().draft.chosen===null,'hidden choices cannot be selected by a click');
- type('erPrediction','An abstract style shared by the examples.');$('erReveal').click();choose('B');
+ type('erPrediction','An abstract style shared by the examples.');$('erReveal').click();
+ ok(w.document.querySelectorAll('#erChoices [data-answer]').length===4&&w.document.querySelectorAll('#erChoices .elim-x').length===4,'route choices carry the cross-out control without adding answer buttons');
+ w.document.querySelector('#erChoices [data-answer="A"] .elim-x').click();ok(w.document.querySelector('#erChoices [data-answer="A"]').classList.contains('elim-out')&&!w.document.querySelector('#erChoices [data-answer][aria-pressed="true"]'),'crossing out in the route does not choose');
+ choose('B');
  ok($('erCommit').disabled,'answer alone cannot reveal feedback');
  type('erReason','The strongest rival makes a claim about change over time.');
  w.openChallenge();

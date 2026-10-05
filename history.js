@@ -51,6 +51,14 @@ function setSessionId(id, opts) {
     return _sessionId;
 }
 function getSessionId()     { return _sessionId; }
+
+// What the student crossed out on each question, from eliminator.js, for the tutor:
+// `elim` is what was struck at the end; `elimAnswer` says the CORRECT answer was
+// struck at some point. Empty when the tool was never used.
+function _elimFields(q) {
+    if (typeof Eliminator === 'undefined' || !q) return { elim: '', elimAnswer: false };
+    return Eliminator.report('app:' + _sessionId, q.id, q.answer);
+}
 function wasPartialLogged() { return _partialLogged; }
 
 function logSession(skills, diffs, sessionScore, total) {
@@ -76,6 +84,7 @@ function logSession(skills, diffs, sessionScore, total) {
         isCorrect:  r.isCorrect,
         secs:       r.secs || 0,
         trap:       r.q.trapName || '',
+        ..._elimFields(r.q),
     }));
     const blurCount = (typeof getBlurCount === 'function') ? getBlurCount() : 0;
 
@@ -177,6 +186,7 @@ function logPartialSession() {
             id: r.q.id, skill: r.q.skill, difficulty: r.q.difficulty,
             chosen: r.selected, correct: r.correct, isCorrect: r.isCorrect,
             secs: r.secs || 0, trap: r.q.trapName || '',
+            ..._elimFields(r.q),
         })),
     });
 

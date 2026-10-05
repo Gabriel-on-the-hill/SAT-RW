@@ -324,6 +324,8 @@
                 '</div>' +
                 '<div class="crow"><button class="cbtn ghost" id="cBackBtn">&larr; Back to challenge</button></div>';
             paint(html);
+            if (typeof Eliminator !== 'undefined')
+                Eliminator.decorate($('cOpts'), { ns: 'chreview:' + state.set.setId, id: q.id || ('r' + i), selector: '.copt' });
 
             function reveal(chosen) {
                 if (answered) return;

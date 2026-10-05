@@ -230,7 +230,11 @@
       + (open? '<div class="tip">'+day.tip+'</div>' : '')
       + (open? '<div class="go" style="display:flex;gap:.5rem;flex-wrap:wrap">'
           + (reviewable(day.n)? '<a class="btn" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'&mode=review">Review your misses</a>' : '')
-          + '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':started?'Finish set '+day.n:'Start set '+day.n)+'</a>'
+          // A TIMED set is one sitting, like the real module. Once submitted it is not
+          // offered again: on 29 Sep a finished 27-question module was re-run a minute
+          // later in 77 seconds, which drew 27 fresh questions, spent them, and logged a
+          // score that meant nothing. Untimed sets keep "Do it again".
+          + ((isDone && day.minutes>0) ? '' : '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':started?'Finish set '+day.n:'Start set '+day.n)+'</a>')
           + '</div>' : '')
       + '</div>';
   });

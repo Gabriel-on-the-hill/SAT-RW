@@ -1324,6 +1324,14 @@ function loadQuestion(index) {
         btn.addEventListener('click', () => handleOptionClick(btn, letter, q));
         optionsContainer.appendChild(btn);
     });
+    // Bluebook's cross-out tool (eliminator.js). One namespace per sitting, so going
+    // Back shows what was crossed out and a later sitting of this question starts clean.
+    if (typeof Eliminator !== 'undefined') {
+        Eliminator.decorate(optionsContainer, {
+            ns: 'app:' + (typeof getSessionId === 'function' ? getSessionId() : ''),
+            id: q.id, selector: '.option-btn'
+        });
+    }
 
     // Coming back to a question shows what was chosen, and — if it was already
     // graded — the feedback that went with it. Returning to a blank slate would

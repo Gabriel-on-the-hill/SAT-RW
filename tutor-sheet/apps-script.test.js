@@ -266,6 +266,8 @@ sec('4 · R&W: the homework runner posts a different shape and still lands');
     // Homework's per-question rows carry the predictions the class reviews together.
     eq('homework writes one row per question',
         c.__rows('Questions').length, 1 + FIX.rw_homework.questions.length);
+    ok('the Crossed out column carries what was struck (eliminator.js)',
+        c.__rows('Questions')[0].includes('Crossed out') && c.__rows('Questions').some(r => r.includes('BD')));
     const q1 = c.__byName('Questions', 1);
     eq('the prediction lands in the sheet', q1['Prediction'], FIX.rw_homework.questions[0].prediction);
     eq('time-on-text lands separately from time-on-options', q1['On text'], FIX.rw_homework.questions[0].onText);

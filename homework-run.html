@@ -126,6 +126,7 @@
 <script src="progress.js?v=20261005"></script>
 <script src="sheet-sync.js?v=20260825"></script>
 <script src="homework/assignments.js?v=20261005"></script>
+<script src="eliminator.js?v=20261005"></script>
 </head>
 <body>
 <div class="wrap">
@@ -185,6 +186,20 @@
       +'<div class="nav" style="justify-content:center;margin-top:1rem"><a class="btn" href="homework-hub.html">Back to homework</a></div></div>';
     document.getElementById('tip').style.display='none'; return; }
   var spec=plan.days[dayN-1];
+  // A submitted TIMED set is not run again (see the note on the hub card). Review stays
+  // open. Checked here as well as on the hub, because a bookmark or the browser's Back
+  // button walks straight past the hub.
+  var _timedDone=false;
+  try{ _timedDone = spec.minutes>0 && localStorage.getItem('satrw_hw_'+student+'_'+plan.start+'_'+dayN)==='1'; }catch(e){}
+  if(!reviewOnly && _timedDone){
+    run.innerHTML='<div class="done-card"><div class="big">Done</div>'
+      +'<p style="margin-top:.6rem;color:var(--muted)">This was a timed set, and like the real test it is one sitting. Your answers are saved. Go through your misses instead &mdash; that is where the points are now.</p>'
+      +'<div class="nav" style="justify-content:center;margin-top:1rem;gap:.5rem">'
+      +'<a class="btn" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+dayN+'&mode=review">Review your misses</a>'
+      +'<a class="btn sec" href="homework-hub.html">Back to homework</a></div></div>';
+    document.getElementById('tip').style.display='none';
+    return;
+  }
   var hwTimer=null;
   document.getElementById('hdr').textContent='Day '+dayN+' · '+spec.focus;
   document.getElementById('tip').textContent=spec.tip;
@@ -193,6 +208,13 @@
     typeof questionBank_EOI!=='undefined'?questionBank_EOI:[],
     typeof questionBank_II!=='undefined'?questionBank_II:[],
     typeof questionBank_CON!=='undefined'?questionBank_CON:[]);
+  // Per-set feedback uses copies so shared bank entries and other plans stay intact.
+  if(spec.explanations) QB = QB.map(function(q) {
+    var explanation = spec.explanations[q.id];
+    if(typeof explanation !== 'string') return q;
+    return Object.assign({}, q, {explanation:explanation});
+  });
+
   var QB_ID_MAP={};
   QB.forEach(function(q){
     QB_ID_MAP[q.id]=q;
@@ -246,6 +268,10 @@
   // We store ids and rehydrate from the bank, so the record stays small.
   var RECS_KEY = 'satrw_hwrec_'+student+'_'+plan.start+'_'+dayN;
   var records = [];
+  var _elimSitting=Date.now();   // cross-out namespace for this page's sitting (eliminator.js)
+  // Review logging state (see postReviewEvent). Declared here, above the review-only
+  // early return, so a review-only page has it initialised too.
+  var _reviewOpenLogged=false, _redoRows=[], _notesSent=null, _notesArmed=false;
   function saveRecs(){ try{ localStorage.setItem(RECS_KEY, JSON.stringify({at:Date.now(), recs:records})); }catch(e){} }
   function loadRecs(){
     try{
@@ -257,6 +283,53 @@
       return o.recs;
     }catch(e){ return null; }
   }
+
+  // ── What "predict first" actually asks, per skill ──────────────────────────
+  //
+  // The app used to ask one question for all eleven skills: "In your own words,
+  // what should the answer say?" That is right for the paraphrase family — Words
+  // in Context, Central Ideas, Inferences, Text Structure, Cross-Text, Evidence —
+  // and it is WRONG twice over:
+  //
+  //   • BOUNDARIES: all four choices are the SAME WORDS and differ only in
+  //     punctuation. "What should the answer say?" has no meaning. The real
+  //     prediction is a verdict — does each side stand alone, and which mark does
+  //     that force? Ask that instead.
+  //   • RHETORICAL SYNTHESIS: the answer is a sentence assembled from notes, and a
+  //     dozen phrasings are valid. Taken literally the old prompt invites the
+  //     student to compose it, which is impossible; the honest prediction is what
+  //     the answer must DO. A student who attempts the literal task, fails, and
+  //     finds the box accepts three characters types "abc".
+  //
+  // The prediction is never graded — the app cannot judge free text and should not
+  // try. Its whole job is to make him COMMIT before the choices can anchor him.
+  var PREDICT_PROMPTS = {
+    'Words in Context':                   { q:'Cover the choices. What word would you put in the blank?',
+                                            ph:'One word, in your own language…' },
+    'Central Ideas and Details':          { q:'In one sentence, what is this text mainly saying?',
+                                            ph:'The text is mainly about…' },
+    'Inferences':                         { q:'Finish the thought. What must be true, based only on the text?',
+                                            ph:'The text forces the conclusion that…' },
+    'Text Structure and Purpose':         { q:'What job does this part do in the text? Say the function, not the topic.',
+                                            ph:'Its function is to…' },
+    'Cross-Text Connections':             { q:'How would the second author respond to the first? Name the relationship.',
+                                            ph:'Author 2 would agree / disagree / qualify, because…' },
+    'Command of Evidence — Textual':      { q:'What would the right evidence have to show? Describe it before you look.',
+                                            ph:'The evidence must show that…' },
+    'Command of Evidence — Quantitative': { q:'Read the figure first. Which data supports the claim, and what does it show?',
+                                            ph:'The data must show that…' },
+    'Transitions':                        { q:'What is the relationship between the two sentences? Name it before you look.',
+                                            ph:'Contrast, continuation, cause–effect, example or sequence — and why…' },
+    'Rhetorical Synthesis':               { q:'What must the correct answer DO? Name the goal — do not try to write the sentence.',
+                                            ph:'It must compare / define / emphasise / introduce / present findings…' },
+    'Boundaries':                         { q:'What does the blank separate: list items, an interruption, or clauses? State the deciding structure.',
+                                            ph:'e.g. “Internal commas → semicolons between list items”, “close the paired mark”, or “two independent clauses → sentence boundary”' },
+    'Form, Structure, and Sense':         { q:'What form does the sentence require? Say the rule, not the choice.',
+                                            ph:'e.g. “plural verb — the subject is ‘studies’”' },
+  };
+  // (Declared above the review-only return on 5 Oct 2026: a redo started from the hub's
+  // "Review your misses" page renders through predictPrompt(), and with this below the
+  // return it was undefined there, so that redo crashed on its first question.)
 
   // Reopened from the hub's "Review your misses" link.
   if (reviewOnly) {
@@ -298,6 +371,7 @@
       var pool=QB.filter(function(q){
         if(_used[q.id]) return false;
         if(sec.skills && sec.skills.length && sec.skills.indexOf(q.skill)<0) return false;
+        if(sec.questionIds && sec.questionIds.length && sec.questionIds.indexOf(q.id)<0) return false;
         if(sec.diffs && sec.diffs.length && sec.diffs.indexOf(q.difficulty)<0) return false;
         if(sec.ruleType && q.ruleType!==sec.ruleType) return false;
         return true;
@@ -371,6 +445,10 @@
   function navMode(){ return (!isRedo && spec.minutes > 0) ? 'exam' : 'practice'; }
 
   var idx=0, started=Date.now(), answered=false, isRedo=false;
+  // Cross-out state (eliminator.js) is kept per sitting: this day's first attempt,
+  // or its redo. A redo starts with nothing crossed out.
+  function elimNs(){ return 'hw:'+student+':'+plan.start+':'+dayN+':'+_elimSitting+(isRedo?':redo':''); }
+  function elimOf(id, answer){ return (typeof Eliminator!=='undefined') ? Eliminator.report(elimNs(), id, answer) : {elim:'', elimAnswer:false}; }
   var qStart=null, revealTs=null, prediction='', readTimer=null;
 
   // Per-question navigation state, parallel to daySet. records[] holds the
@@ -387,49 +465,6 @@
   function resetNav(n){ nav=[]; for(var i=0;i<n;i++) navOf(i); }
   resetNav(daySet.length);
 
-  // ── What "predict first" actually asks, per skill ──────────────────────────
-  //
-  // The app used to ask one question for all eleven skills: "In your own words,
-  // what should the answer say?" That is right for the paraphrase family — Words
-  // in Context, Central Ideas, Inferences, Text Structure, Cross-Text, Evidence —
-  // and it is WRONG twice over:
-  //
-  //   • BOUNDARIES: all four choices are the SAME WORDS and differ only in
-  //     punctuation. "What should the answer say?" has no meaning. The real
-  //     prediction is a verdict — does each side stand alone, and which mark does
-  //     that force? Ask that instead.
-  //   • RHETORICAL SYNTHESIS: the answer is a sentence assembled from notes, and a
-  //     dozen phrasings are valid. Taken literally the old prompt invites the
-  //     student to compose it, which is impossible; the honest prediction is what
-  //     the answer must DO. A student who attempts the literal task, fails, and
-  //     finds the box accepts three characters types "abc".
-  //
-  // The prediction is never graded — the app cannot judge free text and should not
-  // try. Its whole job is to make him COMMIT before the choices can anchor him.
-  var PREDICT_PROMPTS = {
-    'Words in Context':                   { q:'Cover the choices. What word would you put in the blank?',
-                                            ph:'One word, in your own language…' },
-    'Central Ideas and Details':          { q:'In one sentence, what is this text mainly saying?',
-                                            ph:'The text is mainly about…' },
-    'Inferences':                         { q:'Finish the thought. What must be true, based only on the text?',
-                                            ph:'The text forces the conclusion that…' },
-    'Text Structure and Purpose':         { q:'What job does this part do in the text? Say the function, not the topic.',
-                                            ph:'Its function is to…' },
-    'Cross-Text Connections':             { q:'How would the second author respond to the first? Name the relationship.',
-                                            ph:'Author 2 would agree / disagree / qualify, because…' },
-    'Command of Evidence — Textual':      { q:'What would the right evidence have to show? Describe it before you look.',
-                                            ph:'The evidence must show that…' },
-    'Command of Evidence — Quantitative': { q:'Read the figure first. Which data supports the claim, and what does it show?',
-                                            ph:'The data must show that…' },
-    'Transitions':                        { q:'What is the relationship between the two sentences? Name it before you look.',
-                                            ph:'Contrast, continuation, cause–effect, example or sequence — and why…' },
-    'Rhetorical Synthesis':               { q:'What must the correct answer DO? Name the goal — do not try to write the sentence.',
-                                            ph:'It must compare / define / emphasise / introduce / present findings…' },
-    'Boundaries':                         { q:'Does each side stand alone as a sentence? Then say which mark that forces.',
-                                            ph:'e.g. “Both complete → semicolon or period”, or “second half is not complete → no mark”' },
-    'Form, Structure, and Sense':         { q:'What form does the sentence require? Say the rule, not the choice.',
-                                            ph:'e.g. “plural verb — the subject is ‘studies’”' },
-  };
   function predictPrompt(q){
     return (q && PREDICT_PROMPTS[q.skill]) || {
       q:'In your own words, what should the answer say? Write it before you see the choices.',
@@ -487,6 +522,7 @@
     var predGoEl=document.getElementById('predGo');
     if(predGoEl) predGoEl.onclick=function(){ commit(); };
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){b.onclick=function(){choose(b,q);};});
+    if(typeof Eliminator!=='undefined') Eliminator.decorate(document.getElementById('opts'),{ns:elimNs(),id:q.id,selector:'.opt'});
     document.getElementById('next').onclick=function(){ advance(); };
     document.getElementById('back').onclick=function(){ bankQ(); if(idx>0){ idx--; render(); } };
     document.getElementById('skip').onclick=function(){ navOf(idx).chosen=null; advance(); };
@@ -685,6 +721,8 @@
       secs: n.secs,
       tag:r.tag||null, fix:r.fix||''
     };
+    var _el=elimOf(q.id, q.answer);
+    records[idx].elim=_el.elim; records[idx].elimAnswer=_el.elimAnswer;
     saveRecs();
   }
 
@@ -701,6 +739,9 @@
       // time, which is what the tutor is actually reading.
       var rr=recOf(q.id);
       if(rr){ rr.redoOk=okk; rr.redoAt=Date.now(); saveRecs(); }
+      var _re=elimOf(q.id, q.answer);
+      _redoRows.push({id:q.id, skill:q.skill, difficulty:q.difficulty, chosen:n.chosen, correct:q.answer,
+        isCorrect:okk, secs:n.secs, prediction:n.prediction||'', elim:_re.elim, elimAnswer:_re.elimAnswer});
     } else {
       writeRec(q, true);
     }
@@ -816,11 +857,18 @@
           onText:null, onOpts:null, secs:null, tag:(expired?"I ran out of time":null), fix:''
         };
       }
+      // What she crossed out can change after she chose (under a clock she can go back),
+      // so take the final picture of it at submission.
+      records.forEach(function(r){ if(r&&r.id){ var e=elimOf(r.id, r.answer); if(e.elim||e.elimAnswer){ r.elim=e.elim; r.elimAnswer=e.elimAnswer; } } });
       saveRecs();
       try{ localStorage.setItem('satrw_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){}
       postLog(Math.round((Date.now()-started)/1000));
     } else {
       saveRecs();
+      if(_redoRows.length){
+        postReviewEvent('redo', _redoRows, _redoRows.filter(function(r){ return r.isCorrect; }).length, _redoRows.length);
+        _redoRows=[];
+      }
     }
     showReview(false, expired);
   }
@@ -884,6 +932,7 @@
     };
 
     wireReview();
+    armReviewLog(reopened);
     window.scrollTo(0,0);
   }
 
@@ -1034,7 +1083,8 @@
             questions:rows.map(function(r){
               return {id:r.id, skill:r.skill, difficulty:r.difficulty,
                       chosen:r.chosen, correct:r.answer, isCorrect:r.ok,
-                      secs:r.secs, onText:r.onText, onOpts:r.onOpts, prediction:r.prediction};
+                      secs:r.secs, onText:r.onText, onOpts:r.onOpts, prediction:r.prediction,
+                      elim:r.elim||'', elimAnswer:!!r.elimAnswer};
             })})});
         if(partial) _hwPartialLogged=true; else _hwLogged=true;
       }
@@ -1074,6 +1124,47 @@
       }catch(e){}
     });
   }
+  // ── Review is evidence too (5 Oct 2026). ────────────────────────────────────
+  // Until today nothing done on the review screen reached the tutor: postLog() skips
+  // review mode and redos on purpose, so "has he gone through his misses?" could only
+  // be answered from the student's own device. Three small rows now go to the
+  // Sessions tab, typed `review` so they never count as homework:
+  //   • "review opened"  — score = misses already put right, total = misses;
+  //   • "redo"           — one Questions row per redone question, prediction included;
+  //   • "review notes"   — on leaving the page, the "what went wrong" tag and the
+  //                        corrected prediction for each miss, if they changed.
+  // The first attempt stays the honest record; none of these touch it.
+  function postReviewEvent(kind, rows, score, total){
+    try{
+      if(typeof SHEET_SYNC_ENDPOINT!=='string' || !SHEET_SYNC_ENDPOINT) return;
+      fetch(SHEET_SYNC_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},keepalive:true,
+        body:JSON.stringify({type:'review', student:student, day:dayN,
+          focus:(spec.focus||'')+' — '+kind,
+          score:(score==null?'':score), total:(total==null?'':total),
+          at:new Date().toISOString(), questions:rows||[]})});
+    }catch(e){}
+  }
+  function notesSig(){ return JSON.stringify(records.map(function(r){ return r ? [r.id, r.tag||'', r.fix||''] : null; })); }
+  function armReviewLog(reopened){
+    if(reopened && !_reviewOpenLogged){
+      _reviewOpenLogged=true;
+      var miss=records.filter(function(r){ return r && !r.ok; });
+      postReviewEvent('review opened', [], miss.filter(function(r){ return r.redoOk; }).length, miss.length);
+    }
+    if(_notesArmed) return;
+    _notesArmed=true; _notesSent=notesSig();
+    window.addEventListener('pagehide', function(){
+      try{
+        var now=notesSig(); if(now===_notesSent) return; _notesSent=now;
+        var rows=records.filter(function(r){ return r && !r.ok && (r.tag||r.fix); }).map(function(r){
+          return {id:r.id, skill:r.skill, difficulty:r.difficulty, chosen:r.chosen, correct:r.answer, isCorrect:false,
+                  prediction:'[review] '+(r.tag?'What went wrong: '+r.tag:'')+(r.tag&&r.fix?' | ':'')+(r.fix?'Should have predicted: '+r.fix:'')};
+        });
+        if(rows.length) postReviewEvent('review notes', rows, '', rows.length);
+      }catch(e){}
+    });
+  }
+
   (function(){
     var rb=document.getElementById('hwRevBack'), rs=document.getElementById('hwRevSubmit');
     if(rb) rb.onclick=function(){ closeHwReview(); };

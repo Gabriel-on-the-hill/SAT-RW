@@ -42,7 +42,7 @@
     function post(block) {
       if(s.posted[block.key] || typeof syncSessionToSheet!=='function') return;
       var rows=firstRows(block), answered=rows.filter(function(r){return r.chosen!==null;}), qs=rows.map(function(r){
-        var q=question(r); return {id:r.id,skill:q.skill,difficulty:q.difficulty,chosen:r.chosen||'',correct:q.answer,isCorrect:r.chosen===null?null:r.isCorrect,secs:0,trap:q.trapName||'',prediction:r.prediction+'\nExplanation: '+r.reason+'\nConditions: '+r.role+'; help: '+r.help+'; recognised: '+r.recognised};
+        var q=question(r); return {id:r.id,skill:q.skill,difficulty:q.difficulty,chosen:r.chosen||'',correct:q.answer,isCorrect:r.chosen===null?null:r.isCorrect,secs:0,trap:q.trapName||'',elim:r.elim||'',elimAnswer:!!r.elimAnswer,prediction:r.prediction+'\nExplanation: '+r.reason+'\nConditions: '+r.role+'; help: '+r.help+'; recognised: '+r.recognised};
       });
       // Teaching/discussion time is deliberately not reported as independent pace.
       syncSessionToSheet({student:ctx.student,date:new Date().toISOString(),sessionId:s.sessionId+'_'+block.key,source:'class-practice',assignmentId:ctx.set.setId,assignmentTitle:ctx.set.title+' · '+block.title,mode:'untimed-class',score:answered.filter(function(r){return r.isCorrect;}).length,total:answered.length,skills:Array.from(new Set(qs.map(function(q){return q.skill;}))),diffs:Array.from(new Set(qs.map(function(q){return q.difficulty;}))),questions:qs});
@@ -69,6 +69,7 @@
         '<div id="erChoices"'+(draft.revealed?'':' hidden')+'>'+q.options.map(function(o,j){var letter=String.fromCharCode(65+j);return '<button class="copt" data-answer="'+letter+'"'+(draft.chosen===letter?' aria-pressed="true"':' aria-pressed="false"')+'>'+esc(o)+'</button>';}).join('')+
         '<label for="erReason">'+esc(item.reasonPrompt||'Explain your decision in your own words.')+'</label><textarea id="erReason" rows="3" style="width:100%;box-sizing:border-box;font:inherit">'+esc(draft.reason)+'</textarea>'+btn('erCommit','Commit first answer',!(draft.chosen&&draft.reason.trim()))+'</div>'+
         '<p><label><input id="erRecognised" type="checkbox"'+(draft.recognised?' checked':'')+'> I recognise this question</label></p>'+btn('erSkip','Leave unanswered'));
+      if(typeof Eliminator!=='undefined')Eliminator.decorate(el('erChoices'),{ns:'er:'+ctx.student+':'+ctx.set.setId+':'+block.key,id:q.id,selector:'.copt'});
       el('erPrediction').disabled=draft.revealed;el('erReveal').hidden=draft.revealed;
       function update() { draft.prediction=el('erPrediction').value;draft.reason=el('erReason').value;draft.recognised=el('erRecognised').checked;save();el('erReveal').disabled=!draft.prediction.trim();el('erCommit').disabled=!(draft.chosen&&draft.reason.trim()); }
       el('erPrediction').oninput=update;el('erReason').oninput=update;el('erRecognised').onchange=update;
@@ -79,7 +80,8 @@
         if(committed)return;
         update();if(!skip&&(!draft.revealed||!draft.chosen||!draft.reason.trim()))return;
         committed=true;
-        s.rows.push({block:block.key,id:q.id,role:item.role,prediction:draft.prediction,reason:draft.reason,chosen:skip?null:draft.chosen,isCorrect:skip?null:draft.chosen===q.answer,recognised:draft.recognised,help:item.role==='modelled'?'model':'unrecorded',date:new Date().toISOString()});
+        var _el=(typeof Eliminator!=='undefined')?Eliminator.report('er:'+ctx.student+':'+ctx.set.setId+':'+block.key,q.id,q.answer):{elim:'',elimAnswer:false};
+        s.rows.push({elim:_el.elim,elimAnswer:_el.elimAnswer,block:block.key,id:q.id,role:item.role,prediction:draft.prediction,reason:draft.reason,chosen:skip?null:draft.chosen,isCorrect:skip?null:draft.chosen===q.answer,recognised:draft.recognised,help:item.role==='modelled'?'model':'unrecorded',date:new Date().toISOString()});
         s.draft=null;save();
         // Met, not mastered: the exposure record keeps this item out of the unseen tier of later draws. No ledger row.
         if(typeof recordExposure==='function') recordExposure(q.id,'class',skip?null:draft.chosen===q.answer);
