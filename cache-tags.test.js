@@ -40,12 +40,14 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
 
-const APP = __dirname;
+// The import verifier checks staged pages against this checkout's commit dates.
+const APP = process.env.CACHE_TAG_APP_DIR || __dirname;
+const GIT_DIR = process.env.CACHE_TAG_GIT_DIR || APP;
 
 function lastCommitDate(file) {
   try {
     const out = execFileSync('git', ['log', '-1', '--format=%ad',
-      '--date=format:%Y%m%d', '--', file], { cwd: APP, encoding: 'utf8' }).trim();
+      '--date=format:%Y%m%d', '--', file], { cwd: GIT_DIR, encoding: 'utf8' }).trim();
     return out || null;   // untracked: nothing to compare against
   } catch (e) { return undefined; }   // git missing or not a repo
 }
@@ -55,7 +57,7 @@ if (lastCommitDate('AGENTS.md') === undefined) {
   process.exit(0);
 }
 
-const REF = /(?:src|href)="([^"?]+)\?v=(\d{8})"/g;
+const REF = /(?:src|href)="([^"?]+)\?v=(\d{8})(?:&(?:amp;)?rev=[^"\s<>]+)?"/g;
 const htmls = fs.readdirSync(APP)
   .filter(f => f.endsWith('.html'))
   .concat(fs.readdirSync(path.join(APP, 'challenge'))

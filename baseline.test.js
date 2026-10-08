@@ -76,16 +76,16 @@ pre.errors.forEach(e => console.log('  ERROR   ' + e));
 pre.warnings.forEach(w => console.log('  warn    ' + w));
 t('preflight passes with zero errors', () => ok(pre.ok, pre.errors.join(' | ')));
 
-// The constraint that sets the form count. If this ever stops being true the
-// warning in preflight will say so, and the constant should be revisited.
-t('the confirmed bank genuinely cannot supply a third form', () => {
+// Keep the two-form design while checking the real bank capacity. The expanded
+// SAT bank can supply another form; preflight must report that rather than
+// silently changing the sitting or allowing a short form.
+t('two forms remain configured and preflight reports available capacity', () => {
     eq(ctx.BASELINE_FORMS, ['A', 'B']);
-    const need = 3 * ctx.BASELINE_ITEMS_PER_SKILL;
+    const nextCount = ctx.BASELINE_FORMS.length + 1;
+    const need = nextCount * ctx.BASELINE_ITEMS_PER_SKILL;
     const thin = ctx.BASELINE_SKILLS.filter(s =>
         bank.filter(q => ctx.baselineEligibleQuestion(q) && q.skill === s && q.difficulty === 'Medium').length < need);
-    ok(thin.length > 0,
-       'the confirmed bank now supports three forms — revisit BASELINE_FORMS, do not leave it at two by inertia');
-    ok(thin.includes('Command of Evidence — Quantitative'), 'Quantitative is no longer a limiting skill');
+    eq(pre.warnings.includes(`the bank can now supply ${nextCount} forms — consider adding one`), thin.length === 0);
 });
 
 // Quantitative was once THREE Medium in the original bank, because the parser

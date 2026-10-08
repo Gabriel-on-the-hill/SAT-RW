@@ -1,0 +1,68 @@
+{
+  "e3bbf2bf": {
+    "why": "The source PDF prints the final answer as a nested bullet without D.; its rationale explicitly identifies that sentence as Choice D. Visually checked on PDF page 361.",
+    "block_replace": [
+      [
+        "\nThe Choctaw Code Talkers, not the Navajo Code Talkers, served in World War I.",
+        "\nD. The Choctaw Code Talkers, not the Navajo Code Talkers, served in World War I."
+      ]
+    ]
+  },
+  "2fd05c15": {
+    "why": "Raw extraction separates italic option text from the A/B/D label and adds two invisible soft hyphens. Visually checked the exact word and punctuation against PDF page 638.",
+    "block_replace": [
+      [
+        "A.\n­­\nGingerbread—",
+        "A. Gingerbread—"
+      ],
+      [
+        "B.\n­­\nGingerbread,",
+        "B. Gingerbread,"
+      ],
+      [
+        "D.\n­­\nGingerbread:",
+        "D. Gingerbread:"
+      ]
+    ]
+  },
+  "eb03096e": {
+    "why": "The export font omits the okina and renders missing-glyph boxes. Restore Hawaiʻi and aloha ʻāina using the university source cited by the question: https://manoa.hawaii.edu/wp/wp-content/uploads/2020/12/manoa-2025-strategic-plan-word.pdf . The damaged export was visually checked on PDF page 618.",
+    "passage_replace": [
+      [
+        "Hawai i",
+        "Hawaiʻi"
+      ],
+      [
+        "aloha āina",
+        "aloha ʻāina"
+      ]
+    ]
+  },
+  "2c84f96a": {
+    "why": "Visually checked Medium PDF page 600: choices A and C have a space between italic Nutcracker and according. Raw extraction joins these words at the font boundary; restore only the missing whitespace.",
+    "block_replace": [
+      [
+        "A. Nutcrackeraccording,",
+        "A. Nutcracker according,"
+      ],
+      [
+        "C. Nutcrackeraccording\n",
+        "C. Nutcracker according\n"
+      ]
+    ]
+  },
+  "b603f00b": {
+    "why": "Visually checked Hard PDF page 215: the entire passage is one paragraph. Superscript 2 in the mW/cm units causes false layout breaks. Preserve the source numeral 2 in plain text and join the units by whitespace-only repair.",
+    "layout_single_paragraph": true,
+    "layout_replace": [
+      [
+        "mW/cm 2 )",
+        "mW/cm2)"
+      ],
+      [
+        "mW/cm 2.",
+        "mW/cm2."
+      ]
+    ]
+  }
+}

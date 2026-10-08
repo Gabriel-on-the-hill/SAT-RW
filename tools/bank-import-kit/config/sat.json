@@ -1,0 +1,1387 @@
+{
+  "_comment": "SAT R&W app. Paths are relative to this config file. Retirement authorized by owner; repository facts independently audited.",
+  "app_dir": "../../..",
+  "pdf_dir": "../../..",
+  "work_dir": "../../../_bank-import-work",
+  "pdfs": [
+    "SAT R&W EASY.pdf",
+    "SAT R&W MEDIUM.pdf",
+    "SAT R&W HARD.pdf"
+  ],
+  "overrides": "sat.overrides.json",
+  "assessment_label": "SAT",
+  "origin_field": "origin",
+  "origin_value": "cb-sat",
+  "banks": {
+    "CS": {
+      "file": "data-craft-structure.js",
+      "var": "questionBank_CS"
+    },
+    "EOI": {
+      "file": "data-expression-of-ideas.js",
+      "var": "questionBank_EOI"
+    },
+    "II": {
+      "file": "data-info-ideas.js",
+      "var": "questionBank_II"
+    },
+    "CON": {
+      "file": "data-conventions.js",
+      "var": "questionBank_CON"
+    },
+    "CS_EXT": {
+      "file": "data-craft-structure-ext.js",
+      "var": "questionBank_CS_EXT"
+    },
+    "EOI_EXT": {
+      "file": "data-expression-of-ideas-ext.js",
+      "var": "questionBank_EOI_EXT"
+    },
+    "II_EXT": {
+      "file": "data-info-ideas-ext.js",
+      "var": "questionBank_II_EXT"
+    },
+    "CON_EXT": {
+      "file": "data-conventions-ext.js",
+      "var": "questionBank_CON_EXT"
+    }
+  },
+  "skill_prefixes": [
+    [
+      "Words in Context",
+      "Words in Context"
+    ],
+    [
+      "Text Structure",
+      "Text Structure and Purpose"
+    ],
+    [
+      "Cross-Text",
+      "Cross-Text Connections"
+    ],
+    [
+      "Central Ideas",
+      "Central Ideas and Details"
+    ],
+    [
+      "Command of Evidence",
+      "Command of Evidence"
+    ],
+    [
+      "Inferences",
+      "Inferences"
+    ],
+    [
+      "Rhetorical Synthesis",
+      "Rhetorical Synthesis"
+    ],
+    [
+      "Transitions",
+      "Transitions"
+    ],
+    [
+      "Boundaries",
+      "Boundaries"
+    ],
+    [
+      "Form, Structure",
+      "Form, Structure, and Sense"
+    ]
+  ],
+  "cross_text_skill": "Cross-Text Connections",
+  "evidence_skill": "Command of Evidence",
+  "figure_skill": "Command of Evidence — Quantitative",
+  "textual_skill": "Command of Evidence — Textual",
+  "prompt_regex": "Information in the text best supports|Which choice|Which finding|Which quotation|Which statement|Which survey|Which detail|Which question|Which completion|Which response|Which of the following|What choice|What does|What feature|What is the|As used in the text|According to the|Based on the|It can (?:most )?reasonably be inferred|In the text, which|Taken together",
+  "skill_bank": {
+    "Words in Context": "CS",
+    "Text Structure and Purpose": "CS",
+    "Cross-Text Connections": "CS",
+    "Rhetorical Synthesis": "EOI",
+    "Transitions": "EOI",
+    "Central Ideas and Details": "II",
+    "Command of Evidence — Textual": "II",
+    "Command of Evidence — Quantitative": "II",
+    "Inferences": "II",
+    "Boundaries": "CON",
+    "Form, Structure, and Sense": "CON"
+  },
+  "record": [
+    [
+      "id",
+      "id"
+    ],
+    [
+      "skill",
+      "skill"
+    ],
+    [
+      "difficulty",
+      "difficulty"
+    ],
+    [
+      "passage",
+      "passage"
+    ],
+    [
+      "question",
+      "question"
+    ],
+    [
+      "options",
+      "options"
+    ],
+    [
+      "answer",
+      "answer"
+    ],
+    [
+      "explanation",
+      "explanation"
+    ],
+    [
+      "strategy",
+      "strategy"
+    ],
+    [
+      "ruleType",
+      "ruleType?"
+    ],
+    [
+      "image",
+      "image?"
+    ],
+    [
+      "alt",
+      "alt?"
+    ],
+    [
+      "origin",
+      "const:cb-sat"
+    ],
+    [
+      "psatDifficulty",
+      "psatDifficulty"
+    ],
+    [
+      "altIds",
+      "altIds"
+    ],
+    [
+      "psatDifficultyFrom",
+      "const:mapped-from-sat"
+    ]
+  ],
+  "asset_dir": "assets",
+  "asset_prefix": "coeq_",
+  "ruletype": {
+    "field": "ruleType",
+    "skills": [
+      "Boundaries",
+      "Form, Structure, and Sense"
+    ],
+    "vocabulary": {
+      "Boundaries": [
+        "Commas",
+        "Semi",
+        "Colon",
+        "Dash",
+        "NoPunct"
+      ],
+      "Form, Structure, and Sense": [
+        "SVA",
+        "VTense",
+        "VForm",
+        "Pron",
+        "Poss",
+        "Mod"
+      ]
+    }
+  },
+  "pages": [
+    "*.html",
+    "challenge/*.html"
+  ],
+  "mirrors": [
+    {
+      "dir": "../../../../RW-Search",
+      "pages": [
+        "*.html"
+      ],
+      "tests": [
+        "smoke.test.js"
+      ],
+      "test_overlays": {
+        "smoke.test.js": "../mirror-tests/smoke.test.js"
+      }
+    }
+  ],
+  "test_command": [
+    "C:/Users/DELL/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "tools/bank-import-kit/kit/run_tests.py",
+    "."
+  ],
+  "today": "2026-10-08",
+  "release_tag": "20261008&rev=sat-import-1",
+  "node": "C:/Users/DELL/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+  "node_modules": "C:/Antigravity/SAT GUIDES/node_modules",
+  "source_checkout": "C:/Antigravity/SAT GUIDES/MasteryApp",
+  "strategies": {
+    "Words in Context": "Context Clues",
+    "Text Structure and Purpose": "Structure Analysis",
+    "Cross-Text Connections": "Compare Views",
+    "Central Ideas and Details": "Main Idea",
+    "Command of Evidence — Textual": "Evidence Match",
+    "Command of Evidence — Quantitative": "Data Analysis",
+    "Inferences": "Logical Inference",
+    "Boundaries": "Run-On Radar",
+    "Form, Structure, and Sense": "Agreement Check",
+    "Transitions": "Logical Flow",
+    "Rhetorical Synthesis": "Goal Match"
+  },
+  "existing_repairs": {
+    "2bca654a": {
+      "fields": [
+        "options"
+      ],
+      "why": "The existing options A-C are truncated; restore the complete options from the new SAT export, visually checked against PDF page 645."
+    },
+    "3f9c1be4": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for e459076b, SAT R&W EASY.pdf page 169; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e459076b",
+      "derive_psat_difficulty": true
+    },
+    "d377baf4": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 6f5fc289, SAT R&W EASY.pdf page 224; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "6f5fc289",
+      "derive_psat_difficulty": true
+    },
+    "f1be2bd1": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for bce627d9, SAT R&W MEDIUM.pdf page 315; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "bce627d9",
+      "derive_psat_difficulty": true
+    },
+    "74e7cada": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for eae66bf9, SAT R&W MEDIUM.pdf page 284; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "eae66bf9",
+      "derive_psat_difficulty": true
+    },
+    "733d2605": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for dcd9ad50, SAT R&W MEDIUM.pdf page 355; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "dcd9ad50",
+      "derive_psat_difficulty": true
+    },
+    "17ecac52": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 81da17d3, SAT R&W MEDIUM.pdf page 236; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "81da17d3",
+      "derive_psat_difficulty": true
+    },
+    "2b18fad1": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for ac5bf490, SAT R&W EASY.pdf page 287; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "ac5bf490",
+      "derive_psat_difficulty": true
+    },
+    "236404af": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 27d9bb69, SAT R&W HARD.pdf page 418; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "27d9bb69",
+      "derive_psat_difficulty": true
+    },
+    "7b434da9": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 54804e10, SAT R&W MEDIUM.pdf page 248; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "54804e10",
+      "derive_psat_difficulty": true
+    },
+    "74ce749a": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for ab1bd603, SAT R&W MEDIUM.pdf page 252; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "ab1bd603",
+      "derive_psat_difficulty": true
+    },
+    "8ece0047": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for e7247766, SAT R&W EASY.pdf page 339; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e7247766",
+      "derive_psat_difficulty": true
+    },
+    "4259636f": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for aa5897b8, SAT R&W MEDIUM.pdf page 242; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "aa5897b8",
+      "derive_psat_difficulty": true
+    },
+    "da80d2c1": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for e4f312c5, SAT R&W MEDIUM.pdf page 295; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e4f312c5",
+      "derive_psat_difficulty": true
+    },
+    "d60941bc": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for a318c1ef, SAT R&W EASY.pdf page 319; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "a318c1ef",
+      "derive_psat_difficulty": true
+    },
+    "3cd6524f": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 34d7bb25, SAT R&W MEDIUM.pdf page 281; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "34d7bb25",
+      "derive_psat_difficulty": true
+    },
+    "e36419af": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 764331f8, SAT R&W EASY.pdf page 349; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "764331f8",
+      "derive_psat_difficulty": true
+    },
+    "8f0cc7a7": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for d8d1ecaa, SAT R&W EASY.pdf page 312; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d8d1ecaa",
+      "derive_psat_difficulty": true
+    },
+    "0094f813": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 62a18353, SAT R&W EASY.pdf page 309; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "62a18353",
+      "derive_psat_difficulty": true
+    },
+    "f5d735e4": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for a68239ed, SAT R&W EASY.pdf page 249; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "a68239ed",
+      "derive_psat_difficulty": true
+    },
+    "b2e31abc": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Hard using the SAT export header for c106b9f7, SAT R&W HARD.pdf page 426; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c106b9f7",
+      "derive_psat_difficulty": true
+    },
+    "8a991dc8": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for b4d29611, SAT R&W MEDIUM.pdf page 342; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "b4d29611",
+      "derive_psat_difficulty": true
+    },
+    "cdbc0f69": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for a70cbc53, SAT R&W MEDIUM.pdf page 303; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "a70cbc53",
+      "derive_psat_difficulty": true
+    },
+    "8c5a6863": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 159ef46d, SAT R&W EASY.pdf page 331; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "159ef46d",
+      "derive_psat_difficulty": true
+    },
+    "c93c43dc": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 4eee64fa, SAT R&W MEDIUM.pdf page 301; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "4eee64fa",
+      "derive_psat_difficulty": true
+    },
+    "67aeed94": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for e0656211, SAT R&W MEDIUM.pdf page 243; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e0656211",
+      "derive_psat_difficulty": true
+    },
+    "b2bd1f67": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for c14daa3c, SAT R&W MEDIUM.pdf page 272; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c14daa3c",
+      "derive_psat_difficulty": true
+    },
+    "c8b920ee": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 190857f0, SAT R&W EASY.pdf page 184; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "190857f0",
+      "derive_psat_difficulty": true
+    },
+    "5888a6f4": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 757077f9, SAT R&W MEDIUM.pdf page 218; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "757077f9",
+      "derive_psat_difficulty": true
+    },
+    "697dcd7e": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 3566120b, SAT R&W EASY.pdf page 264; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "3566120b",
+      "derive_psat_difficulty": true
+    },
+    "34135282": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 066a3295, SAT R&W EASY.pdf page 173; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "066a3295",
+      "derive_psat_difficulty": true
+    },
+    "9c0c8da4": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 3f753a8e, SAT R&W EASY.pdf page 326; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "3f753a8e",
+      "derive_psat_difficulty": true
+    },
+    "0b016420": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 2903a041, SAT R&W EASY.pdf page 172; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "2903a041",
+      "derive_psat_difficulty": true
+    },
+    "6fae7757": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for c4737d6a, SAT R&W MEDIUM.pdf page 229; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c4737d6a",
+      "derive_psat_difficulty": true
+    },
+    "608d9ef2": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 5a278f24, SAT R&W MEDIUM.pdf page 239; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "5a278f24",
+      "derive_psat_difficulty": true
+    },
+    "a5831311": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 9d73c9eb, SAT R&W EASY.pdf page 260; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "9d73c9eb",
+      "derive_psat_difficulty": true
+    },
+    "df561d13": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 809addda, SAT R&W EASY.pdf page 228; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "809addda",
+      "derive_psat_difficulty": true
+    },
+    "9c0074c0": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 97e5bf55, SAT R&W MEDIUM.pdf page 221; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "97e5bf55",
+      "derive_psat_difficulty": true
+    },
+    "0c61d9c0": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for b4887dae, SAT R&W MEDIUM.pdf page 253; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "b4887dae",
+      "derive_psat_difficulty": true
+    },
+    "340b33cd": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for d3ca5d59, SAT R&W HARD.pdf page 375; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d3ca5d59",
+      "derive_psat_difficulty": true
+    },
+    "f01cb598": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for de2c2f57, SAT R&W MEDIUM.pdf page 325; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "de2c2f57",
+      "derive_psat_difficulty": true
+    },
+    "fad0e654": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for eb89dcc8, SAT R&W EASY.pdf page 155; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "eb89dcc8",
+      "derive_psat_difficulty": true
+    },
+    "3067b065": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 1fbf276a, SAT R&W MEDIUM.pdf page 316; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "1fbf276a",
+      "derive_psat_difficulty": true
+    },
+    "45c02aa9": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 1374a9fa, SAT R&W MEDIUM.pdf page 302; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "1374a9fa",
+      "derive_psat_difficulty": true
+    },
+    "a68eb278": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for f2c48e47, SAT R&W MEDIUM.pdf page 277; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f2c48e47",
+      "derive_psat_difficulty": true
+    },
+    "df9f6fc6": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for f0be91b2, SAT R&W MEDIUM.pdf page 215; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f0be91b2",
+      "derive_psat_difficulty": true
+    },
+    "d3898d32": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for d3898d32, SAT R&W MEDIUM.pdf page 540; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d3898d32",
+      "derive_psat_difficulty": true
+    },
+    "d7f31e68": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for d7f31e68, SAT R&W MEDIUM.pdf page 528; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d7f31e68",
+      "derive_psat_difficulty": true
+    },
+    "2df7b582": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 2df7b582, SAT R&W MEDIUM.pdf page 431; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "2df7b582",
+      "derive_psat_difficulty": true
+    },
+    "fdd9a360": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for fdd9a360, SAT R&W MEDIUM.pdf page 452; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "fdd9a360",
+      "derive_psat_difficulty": true
+    },
+    "00460c13": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 00460c13, SAT R&W MEDIUM.pdf page 402; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "00460c13",
+      "derive_psat_difficulty": true
+    },
+    "00221c00": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 00221c00, SAT R&W EASY.pdf page 362; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "00221c00",
+      "derive_psat_difficulty": true
+    },
+    "296801d2": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 296801d2, SAT R&W MEDIUM.pdf page 386; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "296801d2",
+      "derive_psat_difficulty": true
+    },
+    "db3ad406": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for db3ad406, SAT R&W MEDIUM.pdf page 491; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "db3ad406",
+      "derive_psat_difficulty": true
+    },
+    "afec1a70": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for afec1a70, SAT R&W MEDIUM.pdf page 360; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "afec1a70",
+      "derive_psat_difficulty": true
+    },
+    "01c8c433": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 01c8c433, SAT R&W MEDIUM.pdf page 387; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "01c8c433",
+      "derive_psat_difficulty": true
+    },
+    "6c9df5d1": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 6c9df5d1, SAT R&W MEDIUM.pdf page 381; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "6c9df5d1",
+      "derive_psat_difficulty": true
+    },
+    "9f1a0d91": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 9f1a0d91, SAT R&W MEDIUM.pdf page 471; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "9f1a0d91",
+      "derive_psat_difficulty": true
+    },
+    "0c13dea9": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 0c13dea9, SAT R&W EASY.pdf page 429; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "0c13dea9",
+      "derive_psat_difficulty": true
+    },
+    "f4b63a04": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for f4b63a04, SAT R&W MEDIUM.pdf page 425; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f4b63a04",
+      "derive_psat_difficulty": true
+    },
+    "63c73b50": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 63c73b50, SAT R&W MEDIUM.pdf page 503; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "63c73b50",
+      "derive_psat_difficulty": true
+    },
+    "97e2e364": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 97e2e364, SAT R&W EASY.pdf page 370; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "97e2e364",
+      "derive_psat_difficulty": true
+    },
+    "ff3865b3": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for ff3865b3, SAT R&W MEDIUM.pdf page 449; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "ff3865b3",
+      "derive_psat_difficulty": true
+    },
+    "f07570bb": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for f07570bb, SAT R&W MEDIUM.pdf page 382; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f07570bb",
+      "derive_psat_difficulty": true
+    },
+    "16631d34": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 16631d34, SAT R&W MEDIUM.pdf page 370; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "16631d34",
+      "derive_psat_difficulty": true
+    },
+    "fbffb352": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for fbffb352, SAT R&W MEDIUM.pdf page 469; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "fbffb352",
+      "derive_psat_difficulty": true
+    },
+    "64e88c58": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 64e88c58, SAT R&W MEDIUM.pdf page 418; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "64e88c58",
+      "derive_psat_difficulty": true
+    },
+    "10cd0327": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 10cd0327, SAT R&W MEDIUM.pdf page 458; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "10cd0327",
+      "derive_psat_difficulty": true
+    },
+    "11df9b99": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 11df9b99, SAT R&W HARD.pdf page 457; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "11df9b99",
+      "derive_psat_difficulty": true
+    },
+    "ba263620": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for ba263620, SAT R&W MEDIUM.pdf page 514; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "ba263620",
+      "derive_psat_difficulty": true
+    },
+    "0778b4ac": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 0778b4ac, SAT R&W EASY.pdf page 427; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "0778b4ac",
+      "derive_psat_difficulty": true
+    },
+    "ad729337": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for ad729337, SAT R&W MEDIUM.pdf page 495; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "ad729337",
+      "derive_psat_difficulty": true
+    },
+    "85439572": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 85439572, SAT R&W MEDIUM.pdf page 24; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "85439572",
+      "derive_psat_difficulty": true
+    },
+    "a9040290": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for a9040290, SAT R&W MEDIUM.pdf page 26; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "a9040290",
+      "derive_psat_difficulty": true
+    },
+    "01989d77": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 01989d77, SAT R&W MEDIUM.pdf page 28; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "01989d77",
+      "derive_psat_difficulty": true
+    },
+    "4603d1f7": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 4603d1f7, SAT R&W MEDIUM.pdf page 37; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "4603d1f7",
+      "derive_psat_difficulty": true
+    },
+    "e7dc27dc": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for e7dc27dc, SAT R&W MEDIUM.pdf page 54; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e7dc27dc",
+      "derive_psat_difficulty": true
+    },
+    "c4d43991": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for c4d43991, SAT R&W MEDIUM.pdf page 59; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c4d43991",
+      "derive_psat_difficulty": true
+    },
+    "08b28c1a": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 08b28c1a, SAT R&W MEDIUM.pdf page 108; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "08b28c1a",
+      "derive_psat_difficulty": true
+    },
+    "787729be": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 787729be, SAT R&W MEDIUM.pdf page 134; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "787729be",
+      "derive_psat_difficulty": true
+    },
+    "08ff903e": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 08ff903e, SAT R&W MEDIUM.pdf page 139; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "08ff903e",
+      "derive_psat_difficulty": true
+    },
+    "0113152f": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 0113152f, SAT R&W MEDIUM.pdf page 157; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "0113152f",
+      "derive_psat_difficulty": true
+    },
+    "f38b40ac": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for f38b40ac, SAT R&W MEDIUM.pdf page 158; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f38b40ac",
+      "derive_psat_difficulty": true
+    },
+    "145da981": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 145da981, SAT R&W MEDIUM.pdf page 164; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "145da981",
+      "derive_psat_difficulty": true
+    },
+    "9077be25": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 9077be25, SAT R&W MEDIUM.pdf page 172; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "9077be25",
+      "derive_psat_difficulty": true
+    },
+    "5ff1ba73": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 5ff1ba73, SAT R&W MEDIUM.pdf page 187; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "5ff1ba73",
+      "derive_psat_difficulty": true
+    },
+    "7254379e": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 7254379e, SAT R&W MEDIUM.pdf page 180; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "7254379e",
+      "derive_psat_difficulty": true
+    },
+    "7fdba7ad": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 7fdba7ad, SAT R&W MEDIUM.pdf page 175; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "7fdba7ad",
+      "derive_psat_difficulty": true
+    },
+    "7afdcca2": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 7afdcca2, SAT R&W EASY.pdf page 139; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "7afdcca2",
+      "derive_psat_difficulty": true
+    },
+    "cac82f9b": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for cac82f9b, SAT R&W HARD.pdf page 272; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "cac82f9b",
+      "derive_psat_difficulty": true
+    },
+    "299c5303": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 299c5303, SAT R&W HARD.pdf page 263; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "299c5303",
+      "derive_psat_difficulty": true
+    },
+    "98fd50f2": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 98fd50f2, SAT R&W EASY.pdf page 121; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "98fd50f2",
+      "derive_psat_difficulty": true
+    },
+    "2584bcfb": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 2584bcfb, SAT R&W HARD.pdf page 133; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "2584bcfb",
+      "derive_psat_difficulty": true
+    },
+    "3882ddf6": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 3882ddf6, SAT R&W HARD.pdf page 126; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "3882ddf6",
+      "derive_psat_difficulty": true
+    },
+    "e1546fd6": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for e1546fd6, SAT R&W HARD.pdf page 117; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e1546fd6",
+      "derive_psat_difficulty": true
+    },
+    "55688b3c": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 55688b3c, SAT R&W HARD.pdf page 107; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "55688b3c",
+      "derive_psat_difficulty": true
+    },
+    "c538954d": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for c538954d, SAT R&W HARD.pdf page 71; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c538954d",
+      "derive_psat_difficulty": true
+    },
+    "0c622cfb": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 0c622cfb, SAT R&W HARD.pdf page 56; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "0c622cfb",
+      "derive_psat_difficulty": true
+    },
+    "e677fa6c": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for e677fa6c, SAT R&W EASY.pdf page 9; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "e677fa6c",
+      "derive_psat_difficulty": true
+    },
+    "11a9f635": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 11a9f635, SAT R&W HARD.pdf page 25; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "11a9f635",
+      "derive_psat_difficulty": true
+    },
+    "22e4d633": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 22e4d633, SAT R&W HARD.pdf page 8; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "22e4d633",
+      "derive_psat_difficulty": true
+    },
+    "2fdfe002": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 2fdfe002, SAT R&W MEDIUM.pdf page 22; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "2fdfe002",
+      "derive_psat_difficulty": true
+    },
+    "96802cc0": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 96802cc0, SAT R&W MEDIUM.pdf page 50; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "96802cc0",
+      "derive_psat_difficulty": true
+    },
+    "d0fbf1ae": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for d0fbf1ae, SAT R&W MEDIUM.pdf page 60; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d0fbf1ae",
+      "derive_psat_difficulty": true
+    },
+    "14189fbb": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 14189fbb, SAT R&W EASY.pdf page 42; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "14189fbb",
+      "derive_psat_difficulty": true
+    },
+    "95dbdf51": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 95dbdf51, SAT R&W MEDIUM.pdf page 94; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "95dbdf51",
+      "derive_psat_difficulty": true
+    },
+    "f942646f": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for f942646f, SAT R&W MEDIUM.pdf page 114; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f942646f",
+      "derive_psat_difficulty": true
+    },
+    "03701ef3": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 03701ef3, SAT R&W MEDIUM.pdf page 211; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "03701ef3",
+      "derive_psat_difficulty": true
+    },
+    "22b3da87": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 22b3da87, SAT R&W MEDIUM.pdf page 198; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "22b3da87",
+      "derive_psat_difficulty": true
+    },
+    "d2e0cba5": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for d2e0cba5, SAT R&W MEDIUM.pdf page 177; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d2e0cba5",
+      "derive_psat_difficulty": true
+    },
+    "31ad8024": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 31ad8024, SAT R&W MEDIUM.pdf page 148; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "31ad8024",
+      "derive_psat_difficulty": true
+    },
+    "61228830": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for 61228830, SAT R&W MEDIUM.pdf page 131; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "61228830",
+      "derive_psat_difficulty": true
+    },
+    "603755a5": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Hard using the SAT export header for 603755a5, SAT R&W HARD.pdf page 655; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "603755a5",
+      "derive_psat_difficulty": true
+    },
+    "4c9a2aee": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 4c9a2aee, SAT R&W MEDIUM.pdf page 634; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "4c9a2aee",
+      "derive_psat_difficulty": true
+    },
+    "b1e8b87f": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for b1e8b87f, SAT R&W MEDIUM.pdf page 630; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "b1e8b87f",
+      "derive_psat_difficulty": true
+    },
+    "c21df211": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for c21df211, SAT R&W MEDIUM.pdf page 610; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c21df211",
+      "derive_psat_difficulty": true
+    },
+    "f4fd123c": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Hard using the SAT export header for f4fd123c, SAT R&W HARD.pdf page 585; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "f4fd123c",
+      "derive_psat_difficulty": true
+    },
+    "69f031ab": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 69f031ab, SAT R&W MEDIUM.pdf page 581; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "69f031ab",
+      "derive_psat_difficulty": true
+    },
+    "1724dac2": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Hard using the SAT export header for 1724dac2, SAT R&W HARD.pdf page 571; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "1724dac2",
+      "derive_psat_difficulty": true
+    },
+    "333b2b65": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Easy to Medium using the SAT export header for 333b2b65, SAT R&W MEDIUM.pdf page 564; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "333b2b65",
+      "derive_psat_difficulty": true
+    },
+    "b74f676f": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for b74f676f, SAT R&W HARD.pdf page 577; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "b74f676f",
+      "derive_psat_difficulty": true
+    },
+    "b0a525be": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for b0a525be, SAT R&W EASY.pdf page 537; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "b0a525be",
+      "derive_psat_difficulty": true
+    },
+    "eef91a50": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for eef91a50, SAT R&W EASY.pdf page 538; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "eef91a50",
+      "derive_psat_difficulty": true
+    },
+    "67667d72": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 67667d72, SAT R&W HARD.pdf page 604; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "67667d72",
+      "derive_psat_difficulty": true
+    },
+    "6b49f5f1": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 6b49f5f1, SAT R&W EASY.pdf page 557; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "6b49f5f1",
+      "derive_psat_difficulty": true
+    },
+    "c52652c9": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for c52652c9, SAT R&W EASY.pdf page 562; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c52652c9",
+      "derive_psat_difficulty": true
+    },
+    "20a6a4ed": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for 20a6a4ed, SAT R&W EASY.pdf page 569; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "20a6a4ed",
+      "derive_psat_difficulty": true
+    },
+    "c101fc44": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for c101fc44, SAT R&W HARD.pdf page 646; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c101fc44",
+      "derive_psat_difficulty": true
+    },
+    "0bcb4417": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for 0bcb4417, SAT R&W HARD.pdf page 647; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "0bcb4417",
+      "derive_psat_difficulty": true
+    },
+    "db2e480a": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Easy using the SAT export header for db2e480a, SAT R&W EASY.pdf page 596; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "db2e480a",
+      "derive_psat_difficulty": true
+    },
+    "a30567fd": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for a30567fd, SAT R&W HARD.pdf page 652; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "a30567fd",
+      "derive_psat_difficulty": true
+    },
+    "c04e9136": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Medium to Hard using the SAT export header for c04e9136, SAT R&W HARD.pdf page 678; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "c04e9136",
+      "derive_psat_difficulty": true
+    },
+    "d46ac7e7": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for d46ac7e7, SAT R&W EASY.pdf page 586; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "d46ac7e7",
+      "derive_psat_difficulty": true
+    },
+    "de3dd17d": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for de3dd17d, SAT R&W MEDIUM.pdf page 614; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "de3dd17d",
+      "derive_psat_difficulty": true
+    },
+    "aecdb820": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for aecdb820, SAT R&W MEDIUM.pdf page 587; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "aecdb820",
+      "derive_psat_difficulty": true
+    },
+    "a14eef71": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Medium using the SAT export header for a14eef71, SAT R&W MEDIUM.pdf page 641; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "a14eef71",
+      "derive_psat_difficulty": true
+    },
+    "50801257": {
+      "fields": [
+        "difficulty"
+      ],
+      "why": "Update SAT difficulty from Hard to Easy using the SAT export header for 50801257, SAT R&W EASY.pdf page 603; its canonical ID or retained alias identifies the same question, with unchanged skill and answer key. Refresh only the derived legacy difficulty mapping alongside it.",
+      "source_id": "50801257",
+      "derive_psat_difficulty": true
+    }
+  },
+  "alias_additions": {
+    "0f92b9f5": [
+      "e386a11d"
+    ],
+    "6fae7757": [
+      "c4737d6a"
+    ],
+    "e65f9b81": [
+      "e8fb0744"
+    ],
+    "8c5a6863": [
+      "159ef46d"
+    ]
+  },
+  "retire": {
+    "origins": [
+      "book-ugsg",
+      "cb-psat89"
+    ],
+    "plan_files": [
+      "homework/assignments.js",
+      "challenge/sets.js"
+    ],
+    "follow_up_days": 0,
+    "retired_file": "data-retired.js",
+    "retired_var": "questionBank_RETIRED",
+    "note": "Book/provisional and PSAT-source questions retained here for reference; this file is not loaded by the app."
+  },
+  "owner_confirmation": {
+    "date": "2026-10-08",
+    "confirmed_by": "owner",
+    "answers": {
+      "pdfs_complete": "Import the three files specified by the owner: SAT R&W EASY.pdf, SAT R&W MEDIUM.pdf, SAT R&W HARD.pdf.",
+      "retire": "Owner instructed retirement of book/provisional and PSAT-source questions. Audit found 238 book-ugsg provisional records and no PSAT-source records.",
+      "plan_files": "Repository audit: homework/assignments.js and challenge/sets.js name bank IDs. No retirement candidate is referenced by production code.",
+      "follow_up_days": "Not applicable: no held retirement candidates. Config uses 0 days only because there are no holds.",
+      "ruletype": "Repository vocabulary: Boundaries uses Commas, Semi, Colon, Dash, NoPunct; Form, Structure, and Sense uses SVA, VTense, VForm, Pron, Poss, Mod.",
+      "mirrors": "Repository audit: C:/Antigravity/SAT GUIDES/RW-Search keeps separate bank copies."
+    },
+    "basis": "PDF scope and retirement are explicit owner instructions. Technical inventory answers were deduced from repository files as requested."
+  },
+  "cache_tag_repairs": [
+    "eliminator.js",
+    "history.js",
+    "app.js",
+    "challenge/class-path.js",
+    "challenge/challenge.js",
+    "challenge/evidence-route.js"
+  ]
+}

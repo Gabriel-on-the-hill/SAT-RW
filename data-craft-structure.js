@@ -96,7 +96,7 @@ const questionBank_CS = [
   {
     "id": "3f9c1be4",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from George Eliot’s 1871–72 novel Middlemarch. [Mr. Brooke] had travelled in his younger years, and was held in this part of the country to have contracted a too rambling habit of mind. Mr. Brooke’s conclusions were as difficult to predict as the weather.",
     "question": "As used in the text, what does the word “contracted” most nearly mean?",
     "options": [
@@ -110,7 +110,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "e459076b"
     ],
@@ -120,7 +120,7 @@ const questionBank_CS = [
     "id": "d377baf4",
     "skill": "Text Structure and Purpose",
     "ruleType": "Purpose",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Charles Dickens’s 1854 novel Hard Times. Coketown is a fictional town in England. [Coketown] contained several large streets all very like one another, and many small streets still more like one another, inhabited by people equally like one another, who all went in and out at the same hours, with the same sound upon the same pavements, to do the same work, and to whom every day was the same as yesterday and tomorrow, and every year the counterpart of the last and the next.",
     "question": "Which choice best states the main purpose of the text?",
     "options": [
@@ -134,7 +134,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "6f5fc289"
     ],
@@ -259,7 +259,7 @@ const questionBank_CS = [
   {
     "id": "f1be2bd1",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Mineralogical differences are detectable in samples collected from two locations on the near-Earth asteroid Ryugu, but such differences may not indicate substantial compositional variations in the asteroid. Cosmochemist Kazuhide Nagashima and colleagues note that at the small scale of the samples, the distribution of minerals is unlikely to be ______.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -375,7 +375,7 @@ const questionBank_CS = [
   {
     "id": "74e7cada",
     "skill": "Cross-Text Connections",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Text 1 In 2021, a team led by Amir Siraj hypothesized that the Chicxulub impactor—the object that struck the Yucatán Peninsula sixty-six million years ago, precipitating the mass extinction of the dinosaurs—was likely a member of the class of long-period comets. As evidence, Siraj cited the carbonaceous chondritic composition of samples from the Chicxulub impact crater as well as of samples obtained from long-period comet Wild 2 in 2006.\n\nText 2 Although long-period comets contain carbonaceous chondrites, asteroids are similarly rich in these materials. Furthermore, some asteroids are rich in iridium, as Natalia Artemieva points out, whereas long-period comets are not. Given the prevalence of iridium at the crater and, more broadly, in geological layers deposited worldwide following the impact, Artemieva argues that an asteroid is a more plausible candidate for the Chicxulub impactor.",
     "question": "Based on the texts, how would Artemieva likely respond to Siraj’s hypothesis, as presented in Text 1?",
     "options": [
@@ -422,7 +422,7 @@ const questionBank_CS = [
     "id": "733d2605",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "The following text is adapted from George Eliot’s 1857 short story “The Sad Fortunes of the Rev. Amos Barton.” Mr. Ely is a clergyman in the town of Milby.\n\nBy the laity of Milby and its neighbourhood [Mr. Ely] was regarded as a man of quite remarkable powers and learning, who must make a considerable sensation in London pulpits and drawing-rooms on his occasional visit to the metropolis; and by his brother clergy he was regarded as a discreet and agreeable fellow. Mr. Ely never got into a warm discussion; he suggested what might be thought, but rarely said what he thought himself; he never let either men or women see that he was laughing at them, and he never gave any one an opportunity of laughing at him.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -445,7 +445,7 @@ const questionBank_CS = [
   {
     "id": "17ecac52",
     "skill": "Cross-Text Connections",
-    "difficulty": "Easy",
+    "difficulty": "Medium",
     "passage": "Text 1 Italian painters in the 1500s rarely depicted themselves in their work. Even more rare were self-portrait paintings that portrayed the artist as a painter. At the time, painting was not yet respected as a profession, so painters mostly chose to emphasize other qualities in their self-portraits, like their intellect or social status. <u>In the city of Bologna, the first artist to depict themself painting was a man named Annibale Carracci.</u> A painting of his from around 1585 shows Carracci in front of an easel holding a palette.\n\nText 2 In their self-portraits, Bolognese artists typically avoided referring to the act of painting until the mid-1600s. However, Lavinia Fontana’s 1577 painting, Self-Portrait at the Keyboard, stands out as the earliest example of such a work by an artist from Bologna. Although the artist is depicted playing music, in the background, one can spot a painting easel by a window.",
     "question": "Based on the texts, how would the author of Text 2 most likely respond to the underlined claim in Text 1?",
     "options": [
@@ -459,7 +459,7 @@ const questionBank_CS = [
     "strategy": "Perspective Synthesis",
     "trapName": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement",
     "origin": "cb-sat",
-    "psatDifficulty": "Medium",
+    "psatDifficulty": "Hard",
     "altIds": [
       "81da17d3"
     ],
@@ -563,7 +563,7 @@ const questionBank_CS = [
     "id": "2b18fad1",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is from Reyna Grande’s 2012 memoir The Distance Between Us. In the text, Grande reflects on a time when she and her older sister Mago were children. A Barbie is a type of doll.\n\nI begged Mago to come play with me. She wasn’t as interested in my Barbie as she had been just two months before, which <u>made me sad because that was the only thing Mago had envied me for.</u> Usually, it was me doing the envying. After I pestered her relentlessly, she finally put her notebook down and came over to me.\n\n©2012 by Reyna Grande",
     "question": "Which choice best describes the function of the underlined portion in the text?",
     "options": [
@@ -577,7 +577,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "ac5bf490"
     ],
@@ -609,7 +609,7 @@ const questionBank_CS = [
   {
     "id": "236404af",
     "skill": "Cross-Text Connections",
-    "difficulty": "Medium",
+    "difficulty": "Hard",
     "passage": "Text 1 Many studies in psychology have shown that people seek out information even when they know in advance that they have no immediate use for it and that they won’t directly benefit from it. Such findings support the consensus view among researchers of curiosity: namely, that curiosity is not instrumental but instead represents a drive to acquire information for its own sake. Text 2 While acknowledging that acquiring information is a powerful motivator, Rachit Dubey and colleagues ran an experiment to test whether emphasizing the usefulness of scientific information could increase curiosity about it. They found that when research involving rats and fruit flies was presented as having medical applications for humans, participants expressed greater interest in learning about it than when the research was not presented as useful.",
     "question": "Based on the texts, how would Dubey and colleagues (Text 2) most likely respond to the consensus view discussed in Text 1?",
     "options": [
@@ -679,7 +679,7 @@ const questionBank_CS = [
   {
     "id": "7b434da9",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "While scholars believe many Mesoamerican cities influenced each other, direct evidence of such influence is difficult to ascertain. However, recent excavations in a sector of Tikal (Guatemala) unearthed a citadel that shows ______ Teotihuacán (Mexico) architecture—including a near replica of a famed Teotihuacán temple—providing tangible evidence of outside influence in portions of Tikal.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -725,7 +725,7 @@ const questionBank_CS = [
   {
     "id": "74ce749a",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "The following text is adapted from Upton Sinclair’s 1906 novel The Jungle. Marija is helping to manage her sister’s wedding. It was [Marija’s] task to see that all things went in due form, and after the best home traditions; and, flying wildly hither and thither, bowling every one out of the way, and scolding and exhorting all day with her tremendous voice, Marija was too eager to see that others conformed to the proprieties to consider them herself.",
     "question": "As used in the text, what does the word “consider” most nearly mean?",
     "options": [
@@ -749,7 +749,7 @@ const questionBank_CS = [
     "id": "8ece0047",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "Horizontal gene transfer occurs when an organism of one species acquires genetic material from an organism of another species through nonreproductive means. The genetic material can then be transferred “vertically” in the second species—that is, through reproductive inheritance. Scientist Atma Ivancevic and her team have hypothesized infection by invertebrate parasites as a mechanism of horizontal gene transfer between vertebrate species: <u>while feeding, a parasite could acquire a gene from one host, then relocate to a host from a different vertebrate species and transfer the gene to it in turn.</u>",
     "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
     "options": [
@@ -763,7 +763,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "e7247766"
     ],
@@ -820,7 +820,7 @@ const questionBank_CS = [
     "id": "4259636f",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "<u>In Jane Austen’s novel Mansfield Park, an almost imperceptible smile from potential suitor Henry Crawford causes the protagonist Fanny Price to blush; her embarrassment grows when she suspects that he is aware of it.</u> This moment—in which Fanny not only infers Henry’s mental state through his gestures, but also infers that he is drawing inferences about her mental state—illustrates what literary scholar George Butte calls “deep intersubjectivity,” a technique for representing interactions between consciousnesses through which Austen’s novels derive much of their social and psychological drama.",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
     "options": [
@@ -1052,7 +1052,7 @@ const questionBank_CS = [
   {
     "id": "da80d2c1",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "While most animals are incapable of passing somatic mutations—genetic alterations that arise in an organism’s nonreproductive cells—on to their offspring, elkhorn coral (Acropora palmata) presents an intriguing ______: in a 2022 study, researchers found that elkhorn coral produced offspring that inherited somatic mutations from a parent.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1145,7 +1145,7 @@ const questionBank_CS = [
   {
     "id": "d60941bc",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The Cambrian explosion gets its name from the sudden appearance and rapid diversification of animal remains in the fossil record about 541 million years ago, during the Cambrian period. Some scientists argue that this ______ change in the fossil record might be because of a shift in many organisms to body types that were more likely to be preserved.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1159,7 +1159,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "a318c1ef"
     ],
@@ -1193,7 +1193,7 @@ const questionBank_CS = [
     "id": "3cd6524f",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "According to Indian economist and sociologist Radhakamal Mukerjee (1889–1968), the Eurocentric concepts that informed early twentieth-century social scientific methods—for example, the idea that all social relations are reducible to struggles between individuals—had little relevance for India. Making the social sciences more responsive to Indians’ needs, Mukerjee argued, required constructing analytical categories informed by India’s cultural and ecological circumstances. Mukerjee thus proposed the communalist “Indian village” as the ideal model on which to base Indian economic and social policy.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -1217,7 +1217,7 @@ const questionBank_CS = [
     "id": "e36419af",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is from Louise Erdrich’s 1986 novel The Beet Queen. The narrator discusses her relationship with her young niece, Dot. Celestine, the narrator’s sister-in-law, is Dot’s mother.\n\nDot was as impatient with babyhood as I. She tried at once to grow out of it. Celestine never saw that, because she, and only she, took pleasure in Dot’s helpless softness. Only Celestine was saddened by her daughter’s fierce progress. Day by day, Dot grew stronger. <u>In her shopping-cart stroller she exercised to exhaustion, bouncing for hours to develop her leg muscles.</u>\n\n©1986 by Louise Erdrich",
     "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
     "options": [
@@ -1231,7 +1231,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "764331f8"
     ],
@@ -1332,7 +1332,7 @@ const questionBank_CS = [
   {
     "id": "8f0cc7a7",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "Business researcher Melanie Brucks and colleagues found that remote video conference meetings may be less conducive to brainstorming than in-person meetings are. The researchers suspect that video meeting participants are focused on staring at the speaker on the screen and don’t allow their eyes or mind to wander as much, which may ultimately ______ creativity.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1346,7 +1346,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "d8d1ecaa"
     ],
@@ -1416,13 +1416,15 @@ const questionBank_CS = [
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
     "psatDifficulty": "Medium",
-    "altIds": [],
+    "altIds": [
+      "e386a11d"
+    ],
     "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "0094f813",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Zora Neale Hurston’s 1921 short story “John Redding Goes to Sea.” John wants to travel far beyond the village where he lives near his mother, Matty.\n\n[John] had on several occasions attempted to reconcile his mother to the notion, but found it a difficult task. Matty always took refuge in self-pity and tears. Her son’s desires were incomprehensible to her, that was all.",
     "question": "As used in the text, what does the phrase “reconcile his mother to” most nearly mean?",
     "options": [
@@ -1436,7 +1438,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "62a18353"
     ],
@@ -1446,7 +1448,7 @@ const questionBank_CS = [
     "id": "f5d735e4",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Oscar Wilde’s 1897 nonfiction work De Profundis. People whose desire is solely for self-realisation never know where they are going. They can’t know. In one sense of the word it is of course necessary to know oneself: that is the first achievement of knowledge. But to recognise that the soul of a man is unknowable, is the ultimate achievement of wisdom. The final mystery is oneself. When one has weighed the sun in the balance, and measured the steps of the moon, and mapped out the seven heavens star by star, there still remains oneself. <u>Who can calculate the orbit of his own soul?</u>",
     "question": "Which choice best describes the function of the underlined question in the text as a whole?",
     "options": [
@@ -1460,7 +1462,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "a68239ed"
     ],
@@ -1539,7 +1541,7 @@ const questionBank_CS = [
   {
     "id": "b2e31abc",
     "skill": "Cross-Text Connections",
-    "difficulty": "Easy",
+    "difficulty": "Hard",
     "passage": "Text 1 American sculptor Edmonia Lewis is best known for her sculptures that represent figures from history and mythology, such as The Death of Cleopatra and Hagar. Although Lewis sculpted other subjects, her career as a sculptor is best represented by the works in which she depicted these historical and mythical themes.\n\nText 2 Art historians have typically ignored the many portrait busts Edmonia Lewis created. Lewis likely carved these busts (sculptures of a person’s head) frequently throughout her long career. She is known for her sculptures that represent historical figures, but Lewis likely supported herself financially by carving portrait busts for acquaintances who paid her to represent their features. Thus, Lewis’s portrait busts are a central aspect of her career as a sculptor.",
     "question": "Based on the texts, both authors would most likely agree with which statement?",
     "options": [
@@ -1553,7 +1555,7 @@ const questionBank_CS = [
     "strategy": "Perspective Synthesis",
     "trapName": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement",
     "origin": "cb-sat",
-    "psatDifficulty": "Medium",
+    "psatDifficulty": "Hard",
     "altIds": [
       "c106b9f7"
     ],
@@ -1563,7 +1565,7 @@ const questionBank_CS = [
     "id": "8a991dc8",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Michelene Pesantubbee, a historian and citizen of the Choctaw Nation, has identified a dilemma inherent to research on the status of women in her tribe during the 1600s and 1700s: the primary sources from that era, travel narratives and other accounts by male European colonizers, underestimate the degree of power conferred on Choctaw women by their traditional roles in political, civic, and ceremonial life. Pesantubbee argues that the Choctaw oral tradition and findings from archaeological sites in the tribe’s homeland supplement the written record by providing crucial insights into those roles.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -1658,7 +1660,7 @@ const questionBank_CS = [
     "id": "cdbc0f69",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Raymond Antrobus, an accomplished poet and writer of prose, recently released his debut spoken word poetry album, The First Time I Wore Hearing Aids, in collaboration with producer Ian Brennan. The album contains both autobiographical and reflective pieces combining Antrobus’s spoken words with Brennan’s fragmented audio elements and pieces of music to convey how people who are deaf may experience sound, both its presence and absence. Some critics suggest that the album questions the function of sound in the world, highlighting that the experience of sound is multifaceted.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -1727,7 +1729,7 @@ const questionBank_CS = [
   {
     "id": "8c5a6863",
     "skill": "Cross-Text Connections",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "Text 1 Although food writing is one of the most widely read genres in the United States, literary scholars have long neglected it. And within this genre, cookbooks attract the least scholarly attention of all, regardless of how well written they may be. This is especially true of works dedicated to regional US cuisines, whose complexity and historical significance are often overlooked.\n\nText 2 With her 1976 cookbook The Taste of Country Cooking, Edna Lewis popularized the refined Southern cooking she had grown up with in Freetown, an all-Black community in Virginia. She also set a new standard for cookbook writing: the recipes and memoir passages interspersing them are written in prose more elegant than that of most novels. <u>Yet despite its inarguable value as a piece of writing, Lewis’s masterpiece has received almost no attention from literary scholars.</u>",
     "question": "Based on the two texts, how would the author of Text 1 most likely regard the situation presented in the underlined sentence in Text 2?",
     "options": [
@@ -1741,15 +1743,17 @@ const questionBank_CS = [
     "strategy": "Perspective Synthesis",
     "trapName": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
-    "altIds": [],
+    "psatDifficulty": "Medium",
+    "altIds": [
+      "159ef46d"
+    ],
     "psatDifficultyFrom": "mapped-from-sat"
   },
   {
     "id": "c93c43dc",
     "skill": "Text Structure and Purpose",
     "ruleType": "Purpose",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Space scientists Anna-Lisa Paul, Stephen M. Elardo, and Robert Ferl planted seeds of Arabidopsis thaliana in samples of lunar regolith—the surface material of the Moon—and, serving as a control group, in terrestrial soil. They found that while all the seeds germinated, the roots of the regolith-grown plants were stunted compared with those in the control group. Moreover, unlike the plants in the control group, the regolith-grown plants exhibited red pigmentation, reduced leaf size, and inhibited growth rates— indicators of stress that were corroborated by postharvest molecular analysis.",
     "question": "Which choice best states the main purpose of the text?",
     "options": [
@@ -1795,7 +1799,7 @@ const questionBank_CS = [
   {
     "id": "67aeed94",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "In Nature Poem (2017), Kumeyaay poet Tommy Pico portrays his ______ the natural world by honoring the centrality of nature within his tribe’s traditional beliefs while simultaneously expressing his distaste for being in wilderness settings himself.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1818,7 +1822,7 @@ const questionBank_CS = [
   {
     "id": "b2bd1f67",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Close analysis of the painting Girl with a Flute, long attributed to the seventeenth-century Dutch painter Johannes Vermeer, has revealed subtle deviations from the artist’s signature techniques. These variations suggest that the work may be that of a student under Vermeer’s tutelage—potentially ______ our understanding of Vermeer as a solitary artist.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -1865,7 +1869,7 @@ const questionBank_CS = [
     "id": "c8b920ee",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "Why do sand cats purr but lions roar? Researchers hypothesize that this difference between the two feline species may be partly due to a U-shaped bone in their throats called the hyoid. Sand cats, which are much smaller than lions, have a rigid hyoid that rumbles when the cat’s larynx vibrates, resulting in a purr. By contrast, lions have a somewhat flexible hyoid, and the bone is attached to the skull with a stretchy ligament that sand cats lack. These traits allow lions and most other species of big cats to produce powerful roars. The same traits may also prevent most big cats from purring.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -1879,7 +1883,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "190857f0"
     ],
@@ -1934,7 +1938,7 @@ const questionBank_CS = [
   {
     "id": "5888a6f4",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "During a 2014 archaeological dig in Spain, Vicente Lull and his team uncovered the skeleton of a woman from El Algar, an Early Bronze Age society, buried with valuable objects signaling a high position of power. This finding may persuade researchers who have argued that Bronze Age societies were ruled by men to ______ that women may have also held leadership roles.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -2261,7 +2265,7 @@ const questionBank_CS = [
   {
     "id": "697dcd7e",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "The following text is adapted from Oscar Wilde’s 1895 play The Importance of Being Earnest. CECILY: Have we got to part? ALGERNON: I am afraid so. It’s a very painful parting. CECILY: It is always painful to part from people whom one has known for a very brief space of time. The absence of old friends one can endure with equanimity. But even a momentary separation from anyone to whom one has just been introduced is almost unbearable.",
     "question": "As used in the text, what does the word “endure” most nearly mean?",
     "options": [
@@ -2275,7 +2279,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "3566120b"
     ],
@@ -2310,7 +2314,7 @@ const questionBank_CS = [
     "id": "34135282",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "Researchers have found a nearly 164,000-year-old molar from a member of the archaic human species known as Denisovans in a cave in Laos, suggesting that Denisovans lived in a wider range of environments than indicated by earlier evidence. <u>Before the discovery, Denisovans were thought to have lived only at high altitudes in relatively cold climates in what are now Russia and</u> China, but the discovery of the tooth in Laos suggests that they may have lived at low altitudes in relatively warm climates in Southeast Asia as well.",
     "question": "Which choice best states the function of the underlined portion in the text as a whole?",
     "options": [
@@ -2324,7 +2328,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "066a3295"
     ],
@@ -2333,7 +2337,7 @@ const questionBank_CS = [
   {
     "id": "9c0c8da4",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Easy",
     "passage": "Investigating whether shared false visual memories—specific but inaccurate and widely held recollections of images such as product logos—are caused by people’s previous ______ incorrect renditions of the images, researchers Deepasri Prasad and Wilma Bainbridge found that, in fact, such memories are often not explained by familiarity with erroneous versions of the images.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -2347,7 +2351,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "3f753a8e"
     ],
@@ -2543,7 +2547,7 @@ const questionBank_CS = [
     "id": "0b016420",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "Using NASA’s powerful James Webb Space Telescope (JWST), Mercedes López-Morales and colleagues measured the wavelengths of light traveling through the atmosphere of WASP-39b, an exoplanet, or planet outside our solar system. Different molecules absorb different wavelengths of light, and the wavelength measurements showed the presence of carbon dioxide (CO₂) in WASP-39b’s atmosphere. This finding not only offers the first decisive evidence of CO₂ in the atmosphere of an exoplanet but also illustrates the potential for future scientific breakthroughs held by the JWST.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -2557,7 +2561,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "2903a041"
     ],
@@ -2590,7 +2594,7 @@ const questionBank_CS = [
   {
     "id": "6fae7757",
     "skill": "Cross-Text Connections",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Text 1 Africa’s Sahara region—once a lush ecosystem—began to dry out about 8,000 years ago. A change in Earth’s orbit that affected climate has been posited as a cause of desertification, but archaeologist David Wright also attributes the shift to Neolithic peoples. He cites their adoption of pastoralism as a factor in the region drying out: the pastoralists’ livestock depleted vegetation, prompting the events that created the Sahara Desert. Text 2 Research by Chris Brierley et al. challenges the idea that Neolithic peoples contributed to the Sahara’s desertification. Using a climate-vegetation model, the team concluded that the end of the region’s humid period occurred 500 years earlier than previously assumed. The timing suggests that Neolithic peoples didn’t exacerbate aridity in the region but, in fact, may have helped delay environmental changes with practices (e.g., selective grazing) that preserved vegetation.",
     "question": "Based on the texts, how would Chris Brierley (Text 2) most likely respond to the discussion in Text 1?",
     "options": [
@@ -2605,7 +2609,9 @@ const questionBank_CS = [
     "trapName": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement",
     "origin": "cb-sat",
     "psatDifficulty": "Hard",
-    "altIds": [],
+    "altIds": [
+      "c4737d6a"
+    ],
     "psatDifficultyFrom": "mapped-from-sat"
   },
   {
@@ -2750,7 +2756,7 @@ const questionBank_CS = [
   {
     "id": "608d9ef2",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "The work of molecular biophysicist Enrique M. De La Cruz is known for ______ traditional boundaries between academic disciplines. The university laboratory that De La Cruz runs includes engineers, biologists, chemists, and physicists, and the research the lab produces makes use of insights and techniques from all those fields.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -2821,7 +2827,7 @@ const questionBank_CS = [
   {
     "id": "a5831311",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "Osage Nation citizen Randy Tinker-Smith produced and directed the ballet Wahzhazhe, which vividly chronicles Osage history and culture. Telling Osage stories through ballet is ______ choice because two of the foremost ballet dancers of the twentieth century were Osage: sisters Maria and Marjorie Tallchief.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -2835,7 +2841,7 @@ const questionBank_CS = [
     "strategy": "Two-Filter Method",
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "9d73c9eb"
     ],
@@ -2915,7 +2921,7 @@ const questionBank_CS = [
     "id": "df561d13",
     "skill": "Text Structure and Purpose",
     "ruleType": "Function",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "The following text is from Ameen Rihani’s 1921 poem “The Wanderer.” I wander among the hills of alien lands Where Nature her prerogative resigns To Man; where Comfort in her shack reclines And all the arts and sciences commands. <u>But in my soul The eastern billows roll— I hear the voices of my native strands.</u>",
     "question": "Which choice best describes the function of the underlined lines in the text as a whole?",
     "options": [
@@ -2929,7 +2935,7 @@ const questionBank_CS = [
     "strategy": "Function Map",
     "trapName": "Topic Match Function Miss · Part-for-Whole · Intensity Mismatch",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "809addda"
     ],
@@ -3024,7 +3030,9 @@ const questionBank_CS = [
     "trapName": "Familiar Definition · Fancy Synonym · Connotation Mismatch",
     "origin": "cb-sat",
     "psatDifficulty": "Hard",
-    "altIds": [],
+    "altIds": [
+      "e8fb0744"
+    ],
     "psatDifficultyFrom": "mapped-from-sat"
   },
   {
@@ -3053,7 +3061,7 @@ const questionBank_CS = [
   {
     "id": "9c0074c0",
     "skill": "Cross-Text Connections",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Text 1 In 1916, H. Dugdale Sykes disputed claims that The Two Noble Kinsmen was coauthored by William Shakespeare and John Fletcher. Sykes felt Fletcher’s contributions to the play were obvious—Fletcher had a distinct style in his other plays, so much so that lines with that style were considered sufficient evidence of Fletcher’s authorship. But for the lines not deemed to be by Fletcher, Sykes felt that their depiction of women indicated that their author was not Shakespeare but Philip Massinger. Text 2 Scholars have accepted The Two Noble Kinsmen as coauthored by Shakespeare since the 1970s: it appears in all major one- volume editions of Shakespeare’s complete works. Though scholars disagree about who wrote what exactly, it is generally held that on the basis of style, Shakespeare wrote all of the first act and most of the last, while John Fletcher authored most of the three middle acts.",
     "question": "Based on the texts, both Sykes in Text 1 and the scholars in Text 2 would most likely agree with which statement?",
     "options": [
@@ -3100,7 +3108,7 @@ const questionBank_CS = [
     "id": "0c61d9c0",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Mathematician Claude Shannon is widely regarded as a foundational figure in information theory. His most important paper, “A Mathematical Theory of Communication,” published in 1948 when he was employed at Bell Labs, utilized a concept called a “binary digit” (shortened to “bit”) to measure the amount of information in any signal and determine the fastest rate at which information could be transmitted while still being reliably decipherable. Robert Gallagher, one of Shannon’s colleagues, said that the bit was “[Shannon’s] discovery, and from it the whole communications revolution has sprung.”",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -3146,7 +3154,7 @@ const questionBank_CS = [
   {
     "id": "340b33cd",
     "skill": "Words in Context",
-    "difficulty": "Medium",
+    "difficulty": "Hard",
     "passage": "Stephen Hannock’s luminous landscape paintings are appealing to viewers but have elicited little commentary from contemporary critics, a phenomenon that may be due to the very fact that the paintings seem so ______. Many critics focus their attention on art that is cryptic or overtly challenging.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -3169,7 +3177,7 @@ const questionBank_CS = [
   {
     "id": "f01cb598",
     "skill": "Cross-Text Connections",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Text 1 The fossil record suggests that mammoths went extinct around 11 thousand years (kyr) ago. In a 2021 study of environmental DNA (eDNA)—genetic material shed into the environment by organisms—in the Arctic, Yucheng Wang and colleagues found mammoth eDNA in sedimentary layers formed millennia later, around 4 kyr ago. To account for this discrepancy, Joshua H. Miller and Carl Simpson proposed that arctic temperatures could preserve a mammoth carcass on the surface, allowing it to leach DNA into the environment, for several thousand years. Text 2 Wang and colleagues concede that eDNA contains DNA from both living organisms and carcasses, but for DNA to leach from remains over several millennia requires that the remains be perpetually on the surface. Scavengers and weathering in the Arctic, however, are likely to break down surface remains well before a thousand years have passed.",
     "question": "Which choice best describes how Text 1 and Text 2 relate to each other?",
     "options": [
@@ -3215,7 +3223,7 @@ const questionBank_CS = [
   {
     "id": "fad0e654",
     "skill": "Cross-Text Connections",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "passage": "Text 1 <u>Imagine you and your friend are trying to decide where to eat lunch.</u> When people try to make joint decisions like this, they often don’t reveal their true preferences. Instead, they say they would be happy with all options because they think this response will help them appear more easygoing and likable to the other person.\n\nText 2 Research shows that people who don’t state their preferences when making a decision with others aren’t more likable in the eyes of others. In fact, stating that you have no preference actually makes the decision more difficult for other people. It can also cause them to feel less happy with their ultimate decision and with you.",
     "question": "Based on the texts, what response would the author of Text 2 most likely suggest for someone in the situation described in the underlined sentence in Text 1?",
     "options": [
@@ -3229,7 +3237,7 @@ const questionBank_CS = [
     "strategy": "Perspective Synthesis",
     "trapName": "One-Sided Focus · Qualification as Disagreement · Shared Topic = Agreement",
     "origin": "cb-sat",
-    "psatDifficulty": "Hard",
+    "psatDifficulty": "Medium",
     "altIds": [
       "eb89dcc8"
     ],
@@ -3284,7 +3292,7 @@ const questionBank_CS = [
   {
     "id": "3067b065",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Interruptions in the supply chain for microchips used in personal electronics have challenged an economist’s assertion that retailers can expect robust growth in sales of those devices in the coming months. The delays are unlikely to ______ her projection entirely but will almost certainly extend its time frame.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -3353,7 +3361,7 @@ const questionBank_CS = [
   {
     "id": "45c02aa9",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Austin McCoy has argued that historians have tended to ______ rank-and-file workers in analyses of changes in organized labor in the United States in the decades following the Second World War, presenting political, business, and labor leaders as the major actors and ordinary workers as nearly devoid of agency.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -3424,7 +3432,7 @@ const questionBank_CS = [
     "id": "a68eb278",
     "skill": "Text Structure and Purpose",
     "ruleType": "Structure",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "The following text is from Charlotte Perkins Gilman’s 1910 poem “The Earth’s Entail.” No matter how we cultivate the land, Taming the forest and the prairie free; No matter how we irrigate the sand, Making the desert blossom at command, We must always leave the borders of the sea; The immeasureable reaches Of the windy wave-wet beaches, The million-mile-long margin of the sea.",
     "question": "Which choice best describes the overall structure of the text?",
     "options": [
@@ -3516,7 +3524,7 @@ const questionBank_CS = [
   {
     "id": "df9f6fc6",
     "skill": "Words in Context",
-    "difficulty": "Hard",
+    "difficulty": "Medium",
     "passage": "Drivers who strongly believe that the toll they must pay to use the Lewis and Clark Bridge, which spans the Ohio River to connect Indiana and Kentucky, is currently too high are unlikely to be ______ a proposal to increase the toll. Advocates for a higher toll are likely to have more success if they instead direct their arguments toward a more persuadable segment of the population.",
     "question": "Which choice completes the text with the most logical and precise word or phrase?",
     "options": [
@@ -3534,6 +3542,6386 @@ const questionBank_CS = [
     "altIds": [
       "f0be91b2"
     ],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "84b5125b",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Artist Marilyn Dingle’s intricate, coiled baskets are ______ sweetgrass and palmetto palm. Following a Gullah technique that originated in West Africa, Dingle skillfully winds a thin palm frond around a bunch of sweetgrass with the help of a “sewing bone” to create the basket’s signature look that no factory can reproduce.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. indicated by",
+      "B. handmade from",
+      "C. represented by",
+      "D. collected with"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Marilyn Dingle’s baskets. In this context, to say that Dingle’s baskets are “handmade from” particular plants means that Dingle creates baskets herself using those plants but without using machines. The text says that Dingle “skillfully winds” parts of palmetto palm plants around sweetgrass plants to make baskets with an appearance that “no factory can reproduce.” This context suggests that Dingle’s baskets are handmade from sweetgrass and palmetto palm. Choice A is incorrect because the text describes how Dingle uses sweetgrass and palmetto palm to create her baskets, not how her baskets are “indicated by,” or signified by, sweetgrass and palmetto palm. Choice C is incorrect. Although Dingle’s baskets are described as being made using sweetgrass and palm, there’s nothing in the text to suggest that the baskets are “represented by,” or exemplified or portrayed by, sweetgrass and palmetto palm. Instead, the focus of the text is on Dingle’s use of sweetgrass and palmetto palm and the impossibility of replicating the appearance of her baskets using machines. Choice D is incorrect because there’s nothing in the text to suggest that Dingle’s baskets are “collected with,” or brought together in a group with, sweetgrass and palmetto palm. Instead, the text describes how Dingle uses those plants to make her baskets.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "fa014d2d",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The invention in 1958 of the integrated circuit (or microchip) radically altered the semiconductor industry. In fact, some historians argue that it fundamentally ______ the industry by enabling it to take advantage of mass production methods for the first time.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. overwhelmed",
+      "B. bypassed",
+      "C. obstructed",
+      "D. transformed"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the invention of the integrated circuit. As used in this context, \"transformed\" means substantially changed in some way. The text states that the invention radically altered the semiconductor industry, with some historians claiming that it had a fundamental effect on the industry by allowing for mass production for the first time. This context conveys that the invention of the integrated circuit transformed the semiconductor industry. Choice A is incorrect. Although the text indicates that the invention of the integrated circuit significantly affected (\"radically altered\") the semiconductor industry, it doesn’t indicate that the invention \"overwhelmed\" the industry, which in this context would mean that it overcame the industry such that the industry struggled or was defeated. Instead, the text conveys that the invention’s effect was positive, since it allowed the semiconductor industry to begin making use of mass production methods. Choice B is incorrect because it wouldn’t make sense in context to say that the invention of the integrated circuit \"bypassed\" the semiconductor industry, which would mean it intentionally avoided the industry. The text indicates that the invention directly affected the semiconductor industry, since it made it possible for the industry to begin engaging in mass production methods. Choice C is incorrect because the text doesn’t indicate that the invention of the integrated circuit \"obstructed\" the semiconductor industry, which would mean that it blocked or hindered the industry in some way. Instead, the text indicates that the invention’s effect was positive, since it made it possible for the semiconductor industry to begin engaging in mass production methods.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5fe53347",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Botanist Al Kovaleski has pointed out that maple trees already thrive in a wide variety of climates and thus may ______ changes in climate better than some other tree species do. The alterations maples may undergo in response to a changing climate are likely to be relatively small and easily achieved.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. relocate from",
+      "B. refer to",
+      "C. originate from",
+      "D. adapt to"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of how maple trees may respond to changes in climate. As used in this context, \"adapt to\" means to adjust to new conditions. The text first notes that maple trees already thrive in a wide variety of climates and then goes on to say that alterations maples may undergo are likely to be relatively small and easily achieved. This context supports the idea that maple trees will more easily adjust or adapt to a changing climate. Choice A is incorrect. Although the text discusses how maple trees adjust to change, the trees do not \"relocate from,\" or physically move from one place to another. Choice B is incorrect because \"refer to\" means to mention or allude to something, and the trees are not doing either of these actions. Choice C is incorrect because the text is discussing how maple trees may respond to changes in climate, not where they \"originate from,\" or came from originally.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "45a109a3",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Bram Stoker’s 1897 novel Dracula. The narrator is being driven in a carriage through a remote region at night.\n\nThe baying of the wolves sounded nearer and nearer, as though they were closing round on us from every side. I grew dreadfully afraid, and the horses shared my fear. The driver, however, was not in the least disturbed; he kept turning his head to left and right, but I could not see anything through the darkness.",
+    "question": "As used in the text, what does the word “disturbed” most nearly mean?",
+    "options": [
+      "A. Disorganized",
+      "B. Alarmed",
+      "C. Offended",
+      "D. Interrupted"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because as used in the text, “disturbed” most nearly means alarmed. The text portrays the narrator traveling in a carriage as wolves howl in the surrounding darkness. The text contrasts the reaction of both the narrator and the horses pulling the carriage with that of the driver of the carriage: the narrator and horses are “dreadfully afraid,” but the driver is “not in the least disturbed.” In other words, the driver is not alarmed by the wolves nearby. Choice A is incorrect. Although in some contexts, “disturbed” can mean disorganized, the text doesn’t portray a character acting in a disorganized manner; instead, the driver continues to drive the carriage, even though the horses pulling it are alarmed. Choice C is incorrect. Although in some contexts, “disturbed” can mean offended, the text doesn’t portray one character feeling offended, or upset, by another’s actions; instead, it contrasts the fear felt by the narrator with another character’s lack of fear. Choice D is incorrect. Although in some contexts, “disturbed” can mean interrupted, the text doesn’t portray an action being interrupted; indeed, the travel depicted in the scene continues despite the threat of the wolves outside the carriage.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "95f037ad",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The works of Chicana artist Ester Hernandez are now ______ in museums both in the United States and abroad, but the murals she contributed to as a member of Las Mujeres Muralistas early in her artistic career were displayed in outdoor public spaces across San Francisco.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. invented",
+      "B. adjusted",
+      "C. featured",
+      "D. recommended"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Ester Hernandez’s art. In this context, \"featured\" means shown prominently. The text focuses on where Hernandez’s works have been and continue to be displayed, explaining that her early works, which consisted of murals, could be viewed in outdoor spaces in San Francisco. The central contrast developed in the text is between where her early works could be viewed and where her works can be viewed now, which is in museums across the United States and around the world. The context therefore supports the idea that Hernandez’s works are now shown, or featured, in museums globally. Choice A is incorrect because in this context \"invented\" would mean created something for the first time, which isn’t supported since the text doesn’t discuss where Hernandez creates her works or whether they’re original or innovative. Choice B is incorrect because \"adjusted\" in this context would mean adapted. Although the text mentions that many of Hernandez’s early works were outdoor murals and thus it may be reasonable to infer that Hernandez altered her approach to creating art so that her works could be displayed in indoor venues instead, the text makes no mention of how Hernandez’s works might have been adapted for such venues. The text focuses on where Hernandez’s works have been and continue to be displayed, not on how she or anyone else may have adapted, or adjusted, her works. Choice D is incorrect because \"recommended\" in this context would mean endorsed or put forth as a suggestion for something that is worth seeing. Although it may be reasonable to say that in choosing to display certain works, museum curators believe such works are worth seeing, the text doesn’t discuss the reasons why museums display Hernandez’s works. Instead, the text mainly develops a contrast between where Hernandez’s early works could once be viewed and where her work can be viewed now.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a1139ff8",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In the 1990s, conservationists began planting more than 500,000 native trees in the habitat of the Azores bullfinch to boost the bird’s numbers. This approach was apparently ______: the Azores bullfinch’s population size increased from as few as 100 birds at the end of the 1980s to around 1,300 in 2023.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. amusing",
+      "B. costly",
+      "C. successful",
+      "D. disastrous"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the conservationists’ efforts to increase Azores bullfinch’s numbers. In this context, \"successful\" means accomplishing a goal or purpose. According to the text, conservationists planted more than 500,000 native trees in an Azores bullfinch habitat in order to boost the bird’s population size. The text then indicates that the population size did indeed grow as a result of the planted trees. Thus, in this context, the conservationists’ approach of planting native trees was successful because it achieved the goal of increasing the bird’s population size. Choice A is incorrect because the text gives no indication that the conservationists’ approach of planting native trees to increase Azores bullfinch’s numbers was \"amusing,\" or comical or entertaining. Instead, the approach was seriously undertaken and ultimately accomplished. Choice B is incorrect because the text doesn’t address how much it cost to achieve the goal of planting native trees to increase Azores bullfinch’s numbers. The text indicates that the approach was beneficial and successful rather than \"costly,\" or expensive or harmful. Choice D is incorrect. According to the text, the conservationists’ approach of planting native trees to increase Azores bullfinch’s numbers was beneficial and successful rather than \"disastrous,\" or damaging or unsuccessful.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "97ab5669",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Former astronaut Ellen Ochoa says that although she doesn’t have a definite idea of when it might happen, she ______ that humans will someday need to be able to live in other environments than those found on Earth. This conjecture informs her interest in future research missions to the moon.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. demands",
+      "B. speculates",
+      "C. doubts",
+      "D. establishes"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Ochoa’s prediction that humans will one day need to live in places other than Earth. As used in this context, “speculates” would mean puts forward an idea without firm evidence. The text states that Ochoa “doesn’t have a definite idea” about when humans might need to live in other environments and characterizes Ochoa’s prediction as a “conjecture,” or a conclusion presented without convincing evidence. This context indicates that Ochoa speculates when she makes this prediction. Choice A is incorrect because saying that Ochoa “demands,” or insists or requires, that humans will one day need to live in other environments than Earth’s would not make sense in context. The text indicates that she’s unsure about the timing but hypothesizes that it will someday happen. Choice C is incorrect because saying that Ochoa “doubts,” or questions or disbelieves, that humans will one day need to live in other environments than Earth’s would not make sense in context. The text indicates that although Ochoa is unsure about the timing, she hypothesizes that humans will need to live in places other than Earth and encourages research into future travel to the moon. Choice D is incorrect because saying that Ochoa “establishes,” or proves, that humans will one day need to live in other environments than Earth’s would not make sense in context. Rather than stating that Ochoa discusses her idea with certainty and supports it with evidence, the text indicates that Ochoa is unsure about when humans might need to live in other environments.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a0777403",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Anita Desai’s 2011 novella Translator Translated. While working on her translation of a novel written in Odia (a language of India) into English, the narrator looks out her window at night to clear her mind.\n\nI tried to distract myself with these sights of the ordinary world, but in my mind it was the lines I had been translating and the lines that I had been writing that remained in the forefront. I longed for sleep to obliterate them but it eluded me. Perhaps everything would be normal again once I had sent off the manuscript, I thought, and looked forward to completing the work.\n\n©2011 by Anita Desai",
+    "question": "As used in the text, what does the word “completing” most nearly mean?",
+    "options": [
+      "A. Destroying",
+      "B. Finishing",
+      "C. Advertising",
+      "D. Rejecting"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because as used in the text, \"completing\" most nearly means finishing. In the text, the narrator conveys that the task of translating a novel has been an all-consuming one and that she hopes things will \"be normal again\" once she has \"sent off the manuscript.\" In other words, the narrator is looking forward to finishing her work on the manuscript and returning to other things. Choice A is incorrect because in this context, \"completing\" doesn’t mean destroying, or ruining. The narrator addresses her desire to send off the manuscript she’s focused on and her hope that things will be \"normal again\" once she does, conveying that she is looking forward to finishing the work, not to ruining it. Choice C is incorrect because in this context, \"completing\" doesn’t mean advertising, or publicly promoting. The narrator addresses her complete focus on the translation and her hope that things will be \"normal again\" once she has \"sent off the manuscript,\" conveying that she is looking forward to finishing the task, not to promoting the resulting manuscript. Choice D is incorrect because in this context, \"completing\" doesn’t mean rejecting, or refusing or repelling. The narrator makes it clear that she is absorbed in working on the translation and plans to send off the manuscript, suggesting that instead of refusing to do the work, she is continuing to do it (even if she looks forward to things being \"normal again\" when she’s done).",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "06b96bfc",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "A musician and member of the Quechua of Peru, Renata Flores Rivera was eager to promote the Quechua language in her music, but she was ______ speaking it. She met this challenge by asking her grandmother, a native speaker of Quechua, to help her pronounce words in her song lyrics and also by taking classes in the language.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. prepared for",
+      "B. inexperienced with",
+      "C. skilled in",
+      "D. excited about"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Renata Flores Rivera’s use of Quechua in her music. In this context, “inexperienced with”means not accustomed to. The text indicates that Flores Rivera wanted to promote the Quechua language in her music and overcame a challenge by seeking help with pronunciation from her grandmother and by taking language classes. This context conveys the idea that Flores Rivera was not sufficiently familiar with Quechua to use it in her music without help. Thus, she was inexperienced with speaking the language, which she addressed by seeking help. Choice A is incorrect because describing Flores Rivera as “prepared for”—or ready for—speaking Quechua wouldn’t make sense in context. The text indicates that speaking Quechua presented a challenge, but if she were ready to speak the language, then there would be no challenge. Choice C is incorrect because describing Flores Rivera as “skilled in”—meaning good at or capable of—speaking Quechua wouldn’t make sense in context. The text indicates that speaking Quechua presented a challenge, but if she were capable of speaking the language, then there would be no challenge. Choice D is incorrect. Flores Rivera was likely “excited about”—or thrilled or delighted with—speaking Quechua, but this wouldn’t make sense in context. The text indicates that speaking Quechua presented a challenge, but if she were delighted with speaking the language, then there would be no challenge.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e1d5d5df",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "According to botanists, a viburnum plant experiencing insect damage may develop erineum—a discolored, felty growth—on its leaf blades. A ______ viburnum plant, on the other hand, will have leaves with smooth surfaces and uniformly green coloration.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. struggling",
+      "B. beneficial",
+      "C. simple",
+      "D. healthy"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of damage to viburnum plants. In this context, “healthy” would mean not distressed or diseased. The text states that insect damage may cause viburnum plants to be discolored and have abnormal growths. In the next sentence, the phrase “on the other hand”indicates a contrast with the description of plants suffering from damage. Thus, the context contrasts the appearance of healthy, undamaged plants with the appearance of damaged plants. Choice A is incorrect because in this context, “struggling”would mean working against difficulties. The text first describes viburnum plants experiencing damage by insects, and the phrase “on the other hand”then establishes a contrast with that description. It wouldn’t make sense to contrast struggling viburnum plants with those being damaged by insects, because in both cases the plants would be experiencing difficulties. Choice B is incorrect because in this context, “beneficial”would mean producing good or helpful effects. The text doesn’t discuss how viburnum plants affect other things or suggest that the plants are helpful in some way; rather, it focuses on how viburnum plants are affected by certain conditions. Choice C is incorrect because in this context “simple”would mean plain or uncomplicated. The text doesn’t discuss whether certain viburnum plants are complicated or uncomplicated; rather, it focuses on how viburnum plants are affected by certain conditions.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9e501aaf",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Research conducted by planetary scientist Katarina Miljkovic suggests that the Moon’s surface may not accurately ______ early impact events. When the Moon was still forming, its surface was softer, and asteroid or meteoroid impacts would have left less of an impression; thus, evidence of early impacts may no longer be present.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. reflect",
+      "B. receive",
+      "C. evaluate",
+      "D. mimic"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the Moon’s surface. In this context, “reflect” means show or make apparent. The text states that because the surface of the Moon was softer when the Moon was still forming than it is now, early asteroid and meteoroid impacts “would have left less of an impression” and, as a result, evidence of them may no longer exist. This context supports the idea that the surface of the Moon may not accurately show signs of early impact events. Choice B is incorrect because it wouldn’t make sense to say that the surface of the Moon may not accurately “receive,” or acquire or experience, early impacts from asteroids or meteoroids. The text indicates that the impacts have already occurred, and it isn’t clear how the Moon’s surface could be accurate or inaccurate in experiencing them. Choice C is incorrect because it wouldn’t make sense to say that the surface of the Moon may not accurately “evaluate,” or determine the significance or condition of, early impacts from asteroids or meteoroids, since that would suggest that it’s possible for the Moon’s surface to make a decision of any kind. Choice D is incorrect. In this context, “mimic” would mean to deliberately simulate or closely imitate something. It wouldn’t make sense to say that the surface of the Moon may not accurately mimic early asteroid and meteoroid impacts, since that would suggest that it’s possible for the Moon to deliberately imitate something.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "eaea6f8f",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Ordinary soap bubbles usually exist for a minute or less before popping due to either a rupture forced by gravity-induced drainage or the evaporation of the liquid from which the bubble is composed. But physicist Aymeric Roux and colleagues discovered ways to mitigate these factors, resulting in bubbles that can last for a year or more. For example, glycerol tends to adhere to water molecules, so <u>a bubble with a shell that contains both water and glycerol is able to draw additional water molecules from the surrounding air and thereby compensate for evaporation.</u>",
+    "question": "Which choice best states the purpose of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It describes the effects of a process devised by researchers that increases the longevity of an object discussed in the text.",
+      "B. It details the circumstances that prompted the research discussed in the text.",
+      "C. It presents a reason why the phenomenon discussed in the text that the researchers wanted to avoid will inevitably occur.",
+      "D. It mentions a method discussed in the text that researchers intend to test in future experiments."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it describes how the underlined portion of the sentence functions in the text as a whole. The text begins by discussing ordinary soap bubbles, objects that usually exist for less than a minute before popping due to either evaporation or gravity-induced drainage. The text then goes on to mention work by researchers Aymeric Roux and colleagues, who have discovered how to increase the longevity of bubbles by altering their chemical composition. Finally, the underlined portion of the text describes how this process works: since the bubble contains both water and glycerol, it can draw water molecules from the surrounding air to replace those lost to evaporation. Therefore, the underlined portion of the sentence describes the effects of a process devised by researchers that increases the longevity of an object described in the text. Choice B is incorrect because the circumstance that prompted the research is discussed in the first sentence of the text, not the underlined portion. Choice C is incorrect because the underlined portion of the text does not address why soap bubbles must eventually rupture. Rather, it explains how the longevity of soap bubbles can be extended. Choice D is incorrect because the underlined portion of the text does not mention any future experiments.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3ec184af",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Many ancient sculptures of people’s heads are missing their noses. This is because the nose is the most ______ part of a sculpture of a person’s head. It is delicate and sticks out from the rest of the sculpture, making it especially easy to break.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. recognizable",
+      "B. fragile",
+      "C. common",
+      "D. sophisticated"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of noses on ancient sculptures. In this context, \"fragile\" means weak or delicate. This matches the text’s description of noses on ancient sculptures, which are often missing from sculptures’ heads because they are \"especially easy to break.\" Therefore, this context indicates that noses on ancient sculptures are the most fragile part of the sculptures’ heads. Choice A is incorrect. In this context, \"recognizable\" would mean identifiable, and since the text indicates that noses are often missing from ancient statues, they therefore cannot be the most recognizable part of the statue. Choice C is incorrect because the text indicates that many ancient statues are missing noses, so noses wouldn’t be \"common,\" or frequent, aspects of ancient statues; they would conversely be uncommon. Choice D is incorrect because the text only indicates that noses on ancient statues often stick out and end up missing from the heads, which doesn’t relate to the noses being \"sophisticated,\" or knowledgeable or refined.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e3f05561",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In the 1970s, video cameras became increasingly affordable for ordinary consumers and gave Ulysses Jenkins and other artists capabilities that were previously unavailable except to television broadcasters. Jenkins recognized and took full advantage of this ______ access to powerful technology to create groundbreaking works of video art, such as Mass of Images (1978).",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. newfound",
+      "B. delicate",
+      "C. inevitable",
+      "D. habitual"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Ulysses Jenkins’s video art. As used in this context, “newfound” means recently discovered or established. The text indicates that in the 1970s, video cameras became cheaper and therefore more widely available than they had been in the past. The text goes on to say that this development provided Jenkins and other artists with capabilities that they previously didn’t have. As a result, Jenkins began producing groundbreaking works of video art. This context supports the idea that Jenkins took advantage of newfound access to video cameras. Choice B is incorrect because “delicate” means fine in texture or structure or easily broken, neither of which would make sense in this context. The text doesn’t focus on describing what video art looks like or whether it’s breakable. Choice C is incorrect because “inevitable” means impossible to avoid, which wouldn’t make sense in this context. The text doesn’t discuss the likelihood of artists, or anyone else, gaining access to video cameras. Choice D is incorrect because “habitual” means doing something regularly or repeatedly. Although the text does suggest that Jenkins created multiple pieces of video art, its focus is on the fact that video cameras had only just become widely available to artists in the 1970s. Jenkins’s ability to take advantage of video cameras to make art was therefore newfound, not habitual, at the time.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4a2b2535",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "A brief book review cannot fully convey the ______ of Olga Tokarczuk’s novel The Books of Jacob, with its enormous cast of characters, its complicated, wandering plot, and its page numbers that count backward (beginning at 965 and ending at 1).",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. accuracy",
+      "B. inactivity",
+      "C. complexity",
+      "D. restraint"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Olga Tokarczuk’s novel The Books of Jacob. As used in this context, “complexity” means having many complicated parts that when taken as a whole are difficult to follow or explain. The text indicates that The Books of Jacob has a large cast of characters, a complicated and wandering plot (that is, a plot that is difficult to follow), and reverse page numbering. Together, these features make up a novel that’s challenging to read and summarize. This context supports the idea that a brief book review can’t do justice to the novel’s complexity. Choice A is incorrect. Although the word “accuracy,” or being free from error or falsehood, can sometimes be used to describe a novel, the text doesn’t discuss whether Tokarczuk’s novel has this quality. Instead, the text describes the novel as having a large cast of characters, a difficult- to-follow plot, and reverse page numbering. These features suggest complexity, not accuracy. Choice B is incorrect because “inactivity” means being in a state of idleness or doing nothing, neither of which would make sense in this context. The text describes Tokarczuk’s novel, and although it’s possible the novel could portray its characters as inactive, it wouldn’t make sense to describe the novel itself as such. Choice D is incorrect because in this context “restraint” would mean holding back or showing self-control, and the text doesn’t indicate that Tokarczuk’s novel has either of these qualities. In fact, the features of the novel that the text describes, such as a large cast of characters, a complicated and wandering plot, and reverse page numbering, suggest excess and complexity, not restraint.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9ccf463e",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Nella Larsen’s 1928 novel Quicksand.\n\nThe trees in their spring beauty sent through her restive mind a sharp thrill of pleasure. Seductive, charming, and beckoning as cities were, they had not this easy unhuman loveliness.",
+    "question": "As used in the text, what does the word “beckoning” most nearly mean?",
+    "options": [
+      "A. Demanding",
+      "B. Signaling",
+      "C. Inviting",
+      "D. Shifting"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because as used in the text, “beckoning” most nearly means “inviting,” or attractive. The text portrays a woman who is looking at “trees in their spring beauty.” She compares them to cities, which have their own pleasures even if they do not have the “easy unhuman loveliness” of trees: she thinks of cities as “seductive” and “charming,” both adjectives that signify something that is enticing, or attractive. Therefore, cities that are seductive and charming would also be described as inviting people closer to them. Choice A is incorrect because there is no indication in this context that cities are “demanding,” or requiring effort. Choice B is incorrect. Though “signaling,” or communicating something, might be considered a key feature of the act of “beckoning,” in the context here, “beckoning” suggests that cities have attractive qualities that naturally draw people to them. Such attractive qualities are not described by the word “signaling” alone. Therefore, “signaling” is an incorrect answer because it is insufficiently precise. Choice D is incorrect because there is no reason to think in this context that the cities are “shifting,” or changing shape.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "69a6d050",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In the early 1800s, the Cherokee scholar Sequoyah created the first script, or writing system, for an Indigenous language in the United States. Because it represented the sounds of spoken Cherokee so accurately, his script was easy to learn and thus quickly achieved ______ use: by 1830, over 90 percent of the Cherokee people could read and write it.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. widespread",
+      "B. careful",
+      "C. unintended",
+      "D. infrequent"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the writing system created by Sequoyah. In this context, “widespread” means widely accepted or practiced. The text indicates that because Sequoyah’s script accurately represented the spoken sounds of the Cherokee language and was easy to learn, nearly all Cherokee people were able to read and write it soon after it was created. This context demonstrates that the script was widely used by the Cherokee people. Choice B is incorrect. In this context, “careful” would mean exercised with care and attentive concern. Although the work of creating a writing system likely involved great care, the text indicates that the system was “easy to learn,” which conflicts with the idea that using this system requires a noteworthy amount of care. Choice C is incorrect because in this context “unintended” means not deliberate. The idea that using Sequoyah’s script was unintentional conflicts directly with the claim that it was easy to learn and used by “over 90% of the Cherokee people” by 1830. In fact, because one had to learn this system, it’s not clear how one could use it unintentionally. Choice D is incorrect because in this context “infrequent” means rare or not occurring often, which conflicts directly with the claim that “over 90% of the Cherokee people” were using Sequoyah’s script by 1830.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "805e361d",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Companies are providing consumers with more opportunities to purchase customized products than ever before. Whether buying customized sneakers, jewelry, or clothing, consumers can participate in the design of products to meet their specific needs and tastes. In turn, companies profit too: studies have shown that consumers are willing to pay more and wait longer for a customized product. Still, it can be difficult for companies to offer customization while keeping costs low, as the standard methods of mass production may not be able to accommodate making a unique product each time.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It discusses several recent innovations in product manufacturing and then suggests some potential applications of those innovations.",
+      "B. It describes a company’s recent success with new products and then explains multiple factors that may have contributed to that success.",
+      "C. It introduces a trend in consumer products and then explains how the trend both benefits and poses a challenge to companies.",
+      "D. It presents two contrasting product-marketing techniques and then provides examples of one of those techniques."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it presents the best description of the overall structure of the text. The text begins by stating that companies are increasingly giving consumers opportunities to customize products, allowing them to make design choices when buying certain sneakers, jewelry, and clothing. The text then indicates that although this trend benefits companies because they can successfully charge buyers more for customized products and don’t have to rush production, it also poses a challenge because producing unique items may require different and more expensive methods than the ones typically used for mass production, raising the companies’costs. Thus, the text first introduces a trend in consumer products and then explains how the trend both benefits and poses a challenge to companies. Choice A is incorrect because the text doesn’t present the customization of various products as a recent innovation—the fact that there are \"more opportunities\" now indicates that there were opportunities before—and no other innovations, in product manufacturing or otherwise, are discussed. Choice B is incorrect because the text doesn’t discuss any particular company or example and instead speaks broadly about the trend of companies providing customizable products. Choice D is incorrect. Although the text discusses companies offering something that consumers like and are willing to pay more for—the ability to customize products—it doesn’t characterize this as a product-marketing technique and doesn’t compare it to any other kind of offering or technique.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7d60a322",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Zygomorphic (bilaterally symmetric) flowers remain open and functional on average 1.1 days longer than actinomorphic (radially symmetric) flowers do. Ruby E. Stephens and colleagues claim that this extended period could be ______ the relatively small pool of potential pollinators available to zygomorphic flowers and the greater chance at successful pollination that remaining open affords them.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. analogous to",
+      "B. converted by",
+      "C. attributed to",
+      "D. magnified by"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of why zygomorphic flowers (those with bilateral symmetry) remain open longer than actinomorphic flowers (those with radial symmetry). In this context, “attributed to” means explained as a consequence of. The text indicates that compared with actinomorphic flowers, zygomorphic flowers have a small pool of potential pollinators and that remaining open therefore increases their chances of being pollinated successfully. This would be a reasonable explanation for why zygomorphic flowers remain open on average 1.1 days longer than actinomorphic flowers do. Thus, in context it would be most logical to say that zygomorphic flowers’ extended opening period can likely be attributed to the factors discussed in the text. Choice A is incorrect because saying that the extended period in which zygomorphic flowers remain open could be “analogous to,” or comparable to, these flowers’ limited pollinator pool and the fact that remaining open increases their chances of pollination wouldn’t make sense in context. The text presents these factors as a possible explanation for the extended period, not as something that the extended period resembles in some way. Choice B is incorrect because saying that the extended period could be “converted by,” or transformed by, the limited pollinator pool and the increased pollination chances wouldn’t make sense in context. The text presents these factors as a possible cause of the extended period, not as forces that change the period into something else. Choice D is incorrect because in this context, “magnified by” would mean exaggerated by or made more extreme or intense by, neither of which would make sense. The text presents zygomorphic flowers’ limited pollinator pool and the fact that this might require remaining open for longer to increase chances of pollination as factors that could explain why these flowers remain open for extended periods; nothing in the text suggests these are factors that could exaggerate an already-extended period (that is, make the period seem greater or more important than it actually is), or that the extended period is in some way extreme or intense.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e41dfaab",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In 1929 the Atlantic Monthly published several articles based on newly discovered letters allegedly exchanged between President Abraham Lincoln and a woman named Ann Rutledge. Historians were unable to ______ the authenticity of the letters, however, and quickly dismissed them as a hoax.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. validate",
+      "B. interpret",
+      "C. relate",
+      "D. accommodate"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of letters allegedly exchanged between President Lincoln and Rutledge. In this context, “validate” means to confirm that something is real or correct. According to the text, it was alleged, or claimed, that the newly discovered letters had been written by Lincoln and Rutledge. The text also indicates that historians ultimately decided the letters were a hoax, or fraudulent. This context suggests that the historians couldn’t confirm that the letters were authentic. Choice B is incorrect. The text focuses on the authenticity of the letters, which were claimed to have been written by Lincoln and Rutledge and were then quickly dismissed as fraudulent by historians. Rather than conveying that the historians simply weren’t able to “interpret,” or explain in an understandable way, the letters’ authenticity, the text suggests that the historians decided the letters lacked authenticity altogether. Choice C is incorrect. The text states that the historians quickly dismissed the letters claimed to have been written by Lincoln and Rutledge as fraudulent; this suggests that rather than being unable to “relate,” or tell others about, the letters’ authenticity, the historians were able to share what they’d decided about the letters. Choice D is incorrect because it wouldn’t make sense to suggest that the historians couldn’t “accommodate,” or give consideration to, the authenticity of the letters claimed to have been written by Lincoln and Rutledge; the text states that the historians decided that the letters were fraudulent, which indicates that they did consider whether the letters were authentic.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5effa190",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The process of mechanically recycling plastics is often considered ______ because of the environmental impact and the loss of material quality that often occurs. But chemist Takunda Chazovachii has helped develop a cleaner process of chemical recycling that converts superabsorbent polymers from diapers into a desirable reusable adhesive.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. resilient",
+      "B. inadequate",
+      "C. dynamic",
+      "D. satisfactory"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion about recycling plastics. In this context, “inadequate” means not satisfactory. The text indicates that the mechanical plastic-recycling process affects the environment and causes “the loss of material quality.” The text contrasts that with Chazovachii’s chemical plastic-recycling process, which is cleaner and produces a desirable product. The text’s emphasis on the negative aspects of mechanical recycling suggests that it is inadequate in terms of environmental impact and the quality of the material the process yields. Choice A is incorrect because in this context “resilient” would mean able to withstand difficulty and the text does not characterize the plastic- recycling process as having this quality or describe any difficulties that these processes might need to overcome. Choice C is incorrect because in this context “dynamic” would mean constantly changing. Although the text suggests that there have been changes in the field of recycling, as is the case with the advent of Chazovachii’s chemical recycling process, there is nothing to suggest that the mechanical process itself has changed or is prone to change. Choice D is incorrect because in this context “satisfactory” would mean acceptable but not perfect. The text mentions only shortcomings of the mechanical process (environmental effects and lower material quality), so the text more strongly supports a negative view of this process and provides no evidence that it would be considered satisfactory.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a49500cc",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Predatory animals differ widely in how they ______ food for their young. Some leave dead prey nearby for their young to consume, some bring live prey to their young, and some feed their young directly from their own mouths.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. avoid",
+      "B. guess",
+      "C. provide",
+      "D. describe"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of how predators feed their young. As used in this context, \"provide\" means supply or make something that’s needed available. The text indicates that some predators supply prey for their young by either leaving dead prey nearby or by bringing live prey to them. Other predators, the text states, feed their young directly from their own mouths. This context supports the idea that predatory animals have various ways to provide food for their young. Choice A is incorrect because in this context, \"avoid\" would mean keep away from or refrain from, neither of which would make sense in context. Nothing in the text suggests that predators refrain from food for their young. Choice B is incorrect because in this context, \"guess\" would mean speculate or suppose, and it’s unclear what it would mean for predators to speculate food for their young. Choice D is incorrect because in this context, \"describe\" would mean explain, and it’s unclear what it would mean for predators to explain food for their young.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f3fac04f",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Bioluminescent beetles called fireflies may seem to create flashes of light randomly, but each species of firefly actually has its own special series of repeated flashes and pauses. These unique ______ allow fireflies of the same species to find each other.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. quantities",
+      "B. decorations",
+      "C. patterns",
+      "D. agreements"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the flashes created by fireflies. In this context, “patterns”means distinct and predictable sequences. The text indicates that although the flashes that fireflies produce appear to occur randomly—that is, without any particular sequence or rhythm—each species actually produces its own special series of flashes and pauses. Indeed, these series of flashes are so unique that fireflies can use them to find other members of their species. Therefore, this context supports the idea that fireflies produce flashes in distinct and recognizable patterns. Choice A is incorrect because “quantities”means certain amounts or numbers of something. Although the text discusses how different firefly species produce flashes and pauses in unique sequences that help other members of their species to find them, it doesn’t mention the number of flashes that are used in these sequences. Choice B is incorrect because in this context, “decorations”would mean things that make an object more beautiful. Although it may be reasonable to say that firefly flashes are beautiful, the text focuses on the fact that fireflies use these unique sequences of flashes to find other members of their own species, not that the flashes make fireflies more beautiful. Choice D is incorrect because in this context, “agreements”would refer to deals that individuals have discussed and come to a consensus about. Since fireflies aren’t capable of making such agreements, it wouldn’t make sense to use this word to refer to the signals they send each other with their flashes.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6d5ddea4",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "According to Potawatomi ecologist Robin Wall Kimmerer, the Indigenous method of harvesting Hierochloe odorata, or sweetgrass, by snapping the plant off at the root actually ______ wild populations: it may seem counterintuitive, she says, but this method of removal allows new sweetgrass plants to repopulate the space, with an overall increase in number and vigor.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. selects",
+      "B. originates",
+      "C. conditions",
+      "D. replenishes"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the Indigenous method of harvesting Hierochloe odorata. As used in this context, “replenishes” means helps increase the population or helps it recover. The text explains that although snapping off a wild plant at the root might seem detrimental to the wild population, it actually helps Hierochloe odorata, increasing both their “number and vigor.” This context conveys the idea that even though it seems counterintuitive, the Indigenous method of harvesting Hierochloe odorata actually replenishes the wild population. Choice A is incorrect. Although a harvesting method could be used to select for certain traits in plants, it’s not clear what it would mean for a harvesting method to select “wild populations” of plants. Choice B is incorrect because as used in this context, “originates” means creates. The text doesn’t address the origin of Hierochloe odorata, but rather how the Indigenous harvesting method affects it. Choice C is incorrect because in this context, “conditions” means to influence someone or something to behave in a certain way, and the text doesn’t suggest the new plants that replace the harvested ones differ in any meaningful way, or in any way that could be the result of conditioning.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4b8244ca",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "One challenge of generating electricity from ocean waves is that wave power isn’t ______: it varies in unpredictable ways that pose technological and planning problems for electricity generation.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. accidental",
+      "B. confident",
+      "C. expensive",
+      "D. consistent"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the challenge of generating electricity from ocean waves. In this context, \"consistent\" means steady or unchanging over time. The text introduces a challenge and then explains that wave power varies, or changes, unpredictably in ways that cause problems for electricity generation. This context conveys that the challenge being described is a lack of consistency. Choice A is incorrect because the text introduces a challenge and then elaborates on it by emphasizing that the unpredictable nature of variations in ocean waves causes problems, which doesn’t indicate that wave power isn’t \"accidental,\" or isn’t happening unintentionally. It wouldn’t make sense to describe waves—a natural occurrence—as happening intentionally. Choice B is incorrect because \"confident\" means having a feeling of self-assurance, and it wouldn’t make sense to describe wave power itself in terms of either having or lacking a sense of confidence. Choice C is incorrect because the text introduces a challenge and then elaborates on it by emphasizing that the unpredictable nature of variations in ocean waves causes problems, which doesn’t indicate that wave power isn’t \"expensive,\" or isn’t costly. If anything, technological and planning problems might actually increase the expense of generating electricity from waves.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d529c1ad",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Ezra Pound’s poetry can be hard to ______: it is dense, experimental, and so full of references and allusions that many readers have a difficult time even identifying the poems’ subjects.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. comprehend",
+      "B. dislike",
+      "C. interrupt",
+      "D. overlook"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Ezra Pound’s poetry. In this context, “comprehend” would mean to understand or grasp the meaning of something. The text describes Pound’s poetry as “dense” and “experimental,” with many references that readers may not understand. The text also states that many readers may not even be able to identify a poem’s subject. This context clearly suggests that readers struggle to understand Pound’s poetry as a result of its complexity and obscure references. Choice B is incorrect. To say that Pound’s poetry is “hard to dislike” would suggest that people generally like it, but the text doesn’t focus on how likeable or enjoyable the poems are; rather, it focuses on how challenging many readers find it to understand them. Choice C is incorrect. To say that Pound’s poetry is “hard to interrupt” would mean that it is hard to stop or break into it while it’s being read or recited, but the text doesn’t discuss any such breaks; instead, the text focuses on the challenge of understanding the content of Pound’s poems. Choice D is incorrect. In this context, “overlook” would mean look past or fail to notice, so to say that Pound’s poetry is “hard to overlook” would mean that it is very likely to be noticed. The text focuses on the difficulty people have in understanding Pound’s poems when reading them, not how noticeable his poetry is in the first place.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "37219ba2",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from John Muir’s 1913 autobiography The Story of My Boyhood and Youth. Muir describes being on a boat.\n\nThe water was so clear that it was almost invisible, and when we floated slowly out over the plants and fishes, we seemed to be miraculously sustained in the air while exploring a veritable fairyland.",
+    "question": "As used in the text, what does the word “clear” most nearly mean?",
+    "options": [
+      "A. Simple",
+      "B. Understandable",
+      "C. Obvious",
+      "D. Transparent"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because as used in the text, \"clear\" most nearly means transparent, or see-through. Muir states that the water beneath the boat \"was so clear that it was almost invisible,\" suggesting that those on the boat were able to see through the water and easily observe plants and fish below the surface. Choice A is incorrect. In some contexts \"clear\" can mean \"simple,\" or uncomplicated, but Muir is describing the water, and water isn’t typically described as either simple or complicated. Muir emphasizes the water’s transparency, not its simplicity. Choice B is incorrect. In some contexts \"clear\" can mean \"understandable,\" or reasonable or easily comprehended, but Muir is describing the water, and it doesn’t make much sense to describe water as understandable. Muir emphasizes the water’s transparency, not how easily the water can be understood. Choice C is incorrect. Although \"clear\" can mean \"obvious,\" or easily seen or understood, in some contexts, Muir’s description emphasizes that the water \"was almost invisible\" and that the boat seemed to be \"sustained in the air,\" suggesting that the water was almost impossible to see, not that it was obvious.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "089b0b41",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Bing Xie and her team have discovered that plains zebras make at least four types of vocalizations: “snorts,” “soft snorts,” “squeals,” and “quagga quagga” calls. The researchers used machine-learning algorithms to ______ recorded vocalizations according to type, finding that snorts vary across individual zebras, while squeals are more uniform across zebra populations.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. categorize",
+      "B. extend",
+      "C. collapse",
+      "D. suppress"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of how Bing Xie and her team analyzed plains zebra vocalizations. In this context, “categorize” means to sort into groups based on shared characteristics. The text states that Xie and her team discovered that the vocalizations of plains zebras can be grouped into at least four distinct types: “snorts,” “soft snorts,” “squeals,” and “quagga quagga” calls. According to the text, the team also found that whereas snorts vary from zebra to zebra, squeals are more consistent across zebra populations. The text indicates that the researchers used machine-learning algorithms to arrive at these findings. This context supports the idea that the researchers used the algorithms to categorize recorded vocalizations. Choice B is incorrect because in this context, “extend” would mean to make longer or greater in size. The text discusses the researchers’ use of machine-learning algorithms to study recorded zebra vocalizations and identify patterns among the different types of calls that the researchers had recorded, not to lengthen or increase the size of the recordings. Choice C is incorrect because in this context, “collapse” would mean to break down or combine into a smaller form. The text indicates that the researchers used machine-learning algorithms as part of a process that yielded findings about distinct types of zebra vocalizations, suggesting that the researchers used the algorithms to distinguish among vocalization types, not to combine them. Choice D is incorrect because in this context, “suppress” would mean to hold back or eliminate. The text indicates that the researchers used machine-learning algorithms as part of a process that yielded findings that zebra vocalizations can be classified into four distinct types, not that the researchers used the algorithms to hold back or eliminate the vocalizations themselves.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a4ca92fd",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Beginning in the 1950s, Navajo Nation legislator Annie Dodge Wauneka continuously worked to promote public health; this ______ effort involved traveling throughout the vast Navajo homeland and writing a medical dictionary for speakers of Diné bizaad, the Navajo language.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. impartial",
+      "B. offhand",
+      "C. persistent",
+      "D. mandatory"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Annie Dodge Wauneka’s work as a Navajo Nation legislator. As used in this context, “persistent” means existing continuously. The text states that Wauneka “continuously worked to promote public health,” traveling extensively and authoring a medical dictionary; this indicates that Wauneka’s effort was persistent. Choice A is incorrect because describing Wauneka’s effort related to public health as “impartial,” or not partial or biased and treating all things equally, wouldn’t make sense in context. The text suggests that Wauneka’s continuous work was partial in one way, as she focused specifically on promoting public health throughout the Navajo homeland and to speakers of the Navajo language. Choice B is incorrect because the text emphasizes that Wauneka’s effort to promote public health as a Navajo Nation legislator was continuous and extensive, involving wide travels and the authoring of a medical dictionary. Because this work clearly involved care and dedication, it wouldn’t make sense to describe it as “offhand,” or casual and informal. Choice D is incorrect because nothing in the text suggests that Wauneka’s effort to promote public health was “mandatory,” or required by law or rule, even though Wauneka was a Navajo Nation legislator. Rather than suggesting that Wauneka’s effort was required for any reason, the text emphasizes the continuous and extensive nature of her work.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d91e5499",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "A team of paleontologists has found a rich fossil deposit near Gulgong, Australia. The fossils are so well preserved that the team has been able to ______ detailed information about the life forms that left them behind, such as color patterns and how they interacted with other species.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. occupy",
+      "B. hoard",
+      "C. reserve",
+      "D. obtain"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the fossil deposit. In this context, \"obtain\" means gain or acquire. According to the text, a team of paleontologists has found fossils that are very well preserved. For this reason, the text suggests, the paleontologists have been able to gain detailed information from the fossils, such as the color patterns of the life forms that left them behind. Choice A is incorrect because \"occupy\" means engage or inhabit, neither of which would make sense in context. It’s unclear what it would mean for detailed information revealed by fossils to be engaged or inhabited. Choice B is incorrect because the text gives no indication that the paleontologists wanted to \"hoard,\" or collect and hide, the detailed information revealed by the well-preserved fossils. Choice C is incorrect because the text gives no indication that the paleontologists wanted to \"reserve,\" or withhold, the detailed information revealed by the well- preserved fossils.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9421ed62",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "In 2007, computer scientist Luis von Ahn was working on converting printed books into a digital format. He found that some words were distorted enough that digital scanners couldn’t recognize them, but most humans could easily read them. Based on that finding, von Ahn invented a simple security test to keep automated “bots” out of websites. The first version of the reCAPTCHA test asked users to type one known word and one of the many words scanners couldn’t recognize. Correct answers proved the users were humans and added data to the book-digitizing project.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To discuss von Ahn’s invention of reCAPTCHA",
+      "B. To explain how digital scanners work",
+      "C. To call attention to von Ahn’s book-digitizing project",
+      "D. To indicate how popular reCAPTCHA is"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately states the main purpose of the text. After providing a brief introduction to computer scientist Luis von Ahn, the text focuses on discussing how von Ahn’s digitization work led to the invention of a digital security test known as reCAPTCHA. Choice B is incorrect because the text doesn’t address how digital scanners work. Choice C is incorrect. Although the text mentions von Ahn’s book-digitizing project, that information is provided as a detail, not as the main purpose of the text. Choice D is incorrect because the text doesn’t provide any indication of reCAPTCHA’s popularity; instead, it describes reCAPTCHA’s origin.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c502943e",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Cynthia Kadohata’s 2004 novel Kira-Kira.\n\n[<u>Uncle Katsuhisa] was as loud as my father was quiet.</u> Even when he wasn’t talking, he made a lot of noise, clearing his throat and sniffing and tapping his fingers.\n\n©2004 by Cynthia Kadohata",
+    "question": "Which choice best describes the function of the underlined sentence?",
+    "options": [
+      "A. It lists the kinds of topics Uncle Katsuhisa enjoys discussing.",
+      "B. It suggests that Uncle Katsuhisa dislikes meeting new people.",
+      "C. It contrasts Uncle Katsuhisa with the narrator’s father.",
+      "D. It describes a conversation between the narrator and the narrator’s father."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes how the underlined sentence functions in the text as a whole. The underlined sentence establishes a difference between Uncle Katsuhisa and the narrator’s father by describing Uncle Katsuhisa as \"loud\" and the narrator’s father as \"quiet.\" The text then elaborates on that contrast, describing some ways Uncle Katsuhisa is very noisy even when he isn’t speaking. Choice A is incorrect because the text doesn’t indicate what kinds of topics Uncle Katsuhisa enjoys discussing, only that he is loud even when he isn’t speaking. Choice B is incorrect because the text never indicates how Uncle Katsuhisa feels about meeting new people, only how loud he is. Choice D is incorrect because the text never describes a conversation occurring between any people; it refers to talking only when stating that Uncle Katsuhisa is loud even when he isn’t speaking.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7d84fe2b",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Particle physicists like Ayana Holloway Arce and Aida El-Khadra spend much of their time ______ what is invisible to the naked eye: using sophisticated technology, they closely examine the behavior of subatomic particles, the smallest detectable parts of matter.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. selecting",
+      "B. inspecting",
+      "C. creating",
+      "D. deciding"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the work of particle physicists. In this context, “inspecting” means viewing closely in order to examine. The text indicates that as particle physicists, Arce and El-Khadra’s work involves using advanced technology to “closely examine” subatomic particles. In other words, they use technology to inspect small parts of matter that can’t be seen by the naked eye. Choice A is incorrect because nothing in the text suggests that Arce and El-Khadra spend time “selecting,” or choosing, subatomic particles for some purpose; the text simply states that the particle physicists use advanced technology to see and study the behavior of those tiny parts of matter. Choice C is incorrect because nothing in the text suggests that Arce and El-Khadra spend time “creating” subatomic particles, or bringing them into existence; the text simply states that the particle physicists use advanced technology to see and study the behavior of those tiny parts of matter. Choice D is incorrect. In this context, “deciding” would mean making a final choice or judgment about something. It wouldn’t make sense to say that particle physicists get to choose what is and isn’t visible to the naked eye, especially when the text presents it as fact that subatomic particles are “the smallest detectable parts of matter” and would therefore be invisible. The text focuses on Arce and El-Khadra’s close observation of those particles, not on any decisions they might make.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "cb526866",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The recent discovery of a carved wooden figure dating to around 2,000 years ago in a ditch in England was truly surprising. Wooden objects ______ survive for so long due to their high susceptibility to rot, but archaeologists suspect layers of sediment in the ditch preserved the figure by creating an oxygen-free environment.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. sturdily",
+      "B. carelessly",
+      "C. rarely",
+      "D. simply"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the discovery of a carved wooden figure dating to around 2,000 years ago. In this context, “rarely” means infrequently. The text states that the discovery of the figure was “truly surprising” and notes that wooden objects are highly prone to rot. This context conveys the idea that wooden objects infrequently survive for as long as the carved figure has survived. Choice A is incorrect because “sturdily” means strongly, which wouldn’t make sense in context. If wooden objects in general could strongly survive for long periods of time, then the discovery of a wooden figure that’s around 2,000 years old wouldn’t be surprising. Choice B is incorrect because “carelessly” means accidentally. The text conveys the idea that wooden objects in general don’t survive for very long because they rot, not that wooden objects in general accidentally survive despite this. Choice D is incorrect because the text conveys the idea that wooden objects in general don’t survive for very long because they rot, not that wooden objects in general “simply,” or merely, survive for long periods of time. If wooden objects in general could merely survive for as long as the figure has survived, then the discovery of the figure wouldn’t have been surprising.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "fb8b56bc",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from George Bernard Shaw’s 1912 play Pygmalion. Henry Higgins has just arrived at the house of his mother (Mrs. Higgins). She is expecting her friends to visit soon.\n\nMRS. HIGGINS: I’m serious, Henry. You offend all my friends: they stop coming whenever they meet you. HIGGINS: Nonsense! I know I have no small talk; but people don’t mind.\n\nMRS. HIGGINS: Oh! don’t they? Small talk indeed! What about your large talk? Really, dear, you mustn’t stay.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To describe what Henry’s mother does when she goes out with her friends",
+      "B. To show that Henry’s mother wants him to leave",
+      "C. To present a detailed account of what Henry’s home looks like",
+      "D. To explain why Henry often visits his mother"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately states the main purpose of the text, which is to show that Henry’s mother, Mrs. Higgins, wants Henry to leave her house. In the text, Mrs. Higgins complains that Henry offends all her friends and that they stop coming when he’s also visiting. She then tells him directly, \"you mustn’t stay.\" The overall exchange conveys Mrs. Higgins’s intention for Henry to leave so as not to drive away her friends with his behavior. Choice A is incorrect because the text doesn’t indicate what Henry’s mother does when she’s out with her friends. Instead, it focuses on what goes on when Henry and her friends visit her at the same time, indicating that since her friends find Henry’s company disagreeable, she wishes him to leave before they arrive. Choice C is incorrect because the text doesn’t contain an account of what Henry’s home looks like. The setting is established as the house of Henry’s mother, and the dialogue focuses solely on her wish that Henry should depart before her friends arrive. Choice D is incorrect because the text doesn’t mention how often Henry visits his mother nor does it provide any explanation for why he visits his mother. Instead, it indicates that she thinks her friends dislike Henry and that she therefore wants him to depart before they arrive.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "83687083",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Due to their often strange images, highly experimental syntax, and opaque subject matter, many of John Ashbery’s poems can be quite difficult to ______ and thus are the object of heated debate among scholars.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. delegate",
+      "B. compose",
+      "C. interpret",
+      "D. renounce"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of John Ashbery’s poems. As used in this context, “interpret” would mean decipher the meaning of. The text indicates that Ashbery’s poems have many unusual features, that it’s difficult to tell what exactly the poems’ subject matter is, and that scholars strongly disagree about the poems. This context conveys the idea that it’s difficult to interpret Ashbery’s poems. Choice A is incorrect because “delegate” means to assign someone as a representative of another person or to entrust something to someone else, neither of which would make sense in context. The text is focused only on the difficulty that readers have interpreting Ashbery’s poems due to their many unusual features; it doesn’t suggest anything about the poems being difficult to delegate. Choice B is incorrect because describing Ashbery’s poems as difficult to “compose,” or put together or produce, would make sense only if the text were about Ashbery’s experience of writing the poems. It could be true that it was difficult for Ashbery to compose his poems, but the text doesn’t address this; it instead discusses how readers interpret and engage with the poems. Choice D is incorrect because describing Ashbery’s poems as being difficult to “renounce,” or give up or refuse, wouldn’t make sense in context. The text focuses on the idea that features of Ashbery’s poems are odd or unclear and have caused heated scholarly debate. This context suggests that the poems are difficult to interpret, not that the poems are difficult to renounce.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ed52a093",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Easy",
+    "passage": "Text 1\n\nFlamingos are known for their vibrant pink coloring, but they’re actually born with gray feathers. Their pink color comes from eating brine shrimp, but brine shrimp aren’t naturally pink either. Animals can’t produce carotenoids, the pigments that provide the pink hue. The algae that brine shrimp feed on, however, can produce these pigments. Thus, the pinker the flamingo, the more shrimp it has eaten.\n\nText 2\n\nEcologist Juan Amat has found that flamingos apply a kind of makeup to make themselves appear pinker. A gland near their tail contains pigments that come from the food they eat. When the flamingos groom themselves using the pigments, their feathers become pinker. Flamingos may do this to improve their success during mating season, when they would benefit from looking pinker.",
+    "question": "Based on the texts, how would the ecologist in Text 2 most likely respond to the author’s conclusion in Text 1?",
+    "options": [
+      "A. By emphasizing that flamingos’ tail feathers are pinker than their other feathers are",
+      "B. By claiming that the coloring of flamingos’ feathers doesn’t change significantly enough for most observers to notice",
+      "C. By pointing out that the amount of shrimp eaten isn’t the only thing that influences flamingos’ coloring",
+      "D. By arguing that flamingos’ diet doesn’t include much shrimp except during mating season"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it describes how the ecologist in Text 2 would most likely respond to the author’s conclusion in Text 1 based on the information provided. The author of Text 1 states that the pink color of flamingo feathers comes from pigments carried by the brine shrimp flamingos consume. The author of Text 1 concludes that this means that a flamingo that is pinker than another flamingo must have eaten more shrimp. However, according to Text 2, ecologist Juan Amat has found that flamingos can also affect how pink they look through grooming, when they move ingested pigments from a gland near the tail to their feathers. This indicates that not all the pigments available from the shrimp a flamingo has eaten automatically end up coloring the flamingo’s feathers; some may or may not be applied later. Since grooming is also a factor, the ecologist (Amat) in Text 2 would most likely respond to the conclusion in Text 1 that pinker flamingos have eaten more shrimp by pointing out that the amount of shrimp eaten isn’t the only thing that influences flamingos’ coloring. Choice A is incorrect. Although Text 2 states that the ecologist has found that flamingos can move pigments to their feathers from a gland near their tail, there is no indication that their tail feathers are pinker than their other feathers. Moreover, the point that tail feathers are pinker than other feathers wouldn’t logically address the idea that the quantity of shrimp eaten is what determines a flamingo’s coloring. Choice B is incorrect because Text 2 indicates that the ecologist has found that flamingos’ feathers do sometimes look pinker and gives no indication that this change in color is particularly subtle. Moreover, the point that most observers wouldn’t notice a change wouldn’t logically address the idea that the quantity of shrimp eaten is what determines a flamingo’s coloring. Choice D is incorrect because nothing in Text 2 suggests that the ecologist would argue about flamingos’ shrimp consumption. Although Text 2 indicates that the ecologist has found that flamingos may make themselves look pinker during mating season, this is addressed in terms of grooming habits; apart from referring to food as a source of pigments, Text 2 doesn’t discuss the diet of flamingos at all.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2aaee77f",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Some bird species don’t raise their own chicks. Instead, adult females lay their eggs in other nests, next to another bird species’ own eggs. <u>Female cuckoos have been seen quickly laying eggs in the nests of other bird species when those birds are out looking for food.</u> After the eggs hatch, the noncuckoo parents will typically raise the cuckoo chicks as if they were their own offspring, even if the cuckoos look very different from the other chicks.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It introduces a physical feature of female cuckoos that is described later in the text.",
+      "B. It describes the appearance of the cuckoo nests mentioned earlier in the text.",
+      "C. It offers a detail about how female cuckoos carry out the behavior discussed in the text.",
+      "D. It explains how other birds react to the female cuckoo behavior discussed in the text."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes how the underlined sentence functions in the text as a whole. The first two sentences establish that birds of some species don’t raise their own young; instead, they lay their eggs in the nests of birds of other species. The underlined sentence then states that female cuckoo birds engage in this behavior, having been observed specifically laying their eggs in other nests while the other birds are out finding food. According to the text, the cuckoo chicks are then raised by the other birds. Thus, the underlined sentence provides a particular detail about how female cuckoos carry out the behavior of laying eggs for other birds to raise. Choice A is incorrect. Rather than mentioning a physical feature of female cuckoos, the underlined sentence introduces a specific behavior of female cuckoos: laying eggs in the nests of birds of other species when the other birds are away. The only reference to physical features is the last sentence’s general mention of cuckoo chicks looking different from chicks of other species. Choice B is incorrect because the underlined sentence refers to the nests of birds other than cuckoos and doesn’t describe how any nests look, cuckoo or otherwise. Instead, the sentence addresses how female cuckoos use other birds’ nests. Choice D is incorrect because the underlined sentence describes only female cuckoo behavior (laying eggs in the nests of birds of other species when the other birds are away); it’s the last sentence of the text that addresses the other birds’ reaction, indicating that those birds usually raise the cuckoo chicks once they’ve hatched.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6cf906fc",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from José Martí’s 1891 poem “At the Salon” (translated by Cecil Charles in 1898). The speaker describes a painting featuring a female figure.\n\nFrom the sterile soil no ray\n\nOf hope in a blade of green,\n\nNor sheltering roof is seen—\n\nThough the skies are heavy and gray.\n\nAh, this is the woman fair\n\nWho stole away my heart\n\nIn the splendid halls of art\n\nYester-e’en as I wandered there!",
+    "question": "As used in the text, what does the word “sheltering” most nearly mean?",
+    "options": [
+      "A. Protective",
+      "B. Restrictive",
+      "C. Affectionate",
+      "D. Suspicious"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, \"sheltering\" most nearly means protective. In the text, the speaker describes a painting featuring a female figure. The speaker ultimately confesses to falling in love with the woman in the painting, who has \"stole[n] away\" the speaker’s heart, but first the speaker describes elements of the painting’s setting. These include sterile soil, barren fields with \"no ray / Of hope in a blade of green\"—a description that conveys a mood of melancholy and forlornness, possibly reflecting the speaker’s own sadness at falling in love with an image that can’t return the speaker’s love. The text continues by stating that there’s no \"sheltering roof\" in the painting, even though the \"skies are heavy and gray,\" showing signs of an impending storm. Generally, a roof’s intended purpose is to provide protection from the elements, and in this context, a roof would offer shelter and protection from the gathering storm. Choice B is incorrect because nothing in the text suggests that a roof would be restrictive—that is, that it would limit or restrain something in some way. Although a roof would provide some cover from stormy winds and rain, it wouldn’t limit the wind and rain, only deflect them. Choice C is incorrect because there’s nothing in the text to suggest that if a \"sheltering roof\" were present in the painting, it would be affectionate, or loving and tender. In the text, the immediate context in which the word \"sheltering\" appears refers to the absence of a roof that would provide protection from the oncoming storm depicted in the painting, not to the idea that such a shelter would be loving and tender if it were present. Choice D is incorrect because in this context, suspicious would mean questionable or dubious, and there’s nothing in the text to suggest that if any roofs were present in the painting, they would be questionable or cause any suspicion.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4480fae9",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Sui Sin Far’s 1912 short story “Mrs. Spring Fragrance.” Mr. and Mrs. Spring Fragrance immigrated to the United States from China.\n\nMrs. Spring Fragrance was unaware that Mr. Spring Fragrance, tired with the day’s business, had thrown himself down on the bamboo settee on the veranda, and that although his eyes were engaged in scanning the pages of the Chinese World, his ears could not help receiving the words which were borne to him through the open window.",
+    "question": "As used in the text, what does the word “receiving” most nearly mean?",
+    "options": [
+      "A. Denying",
+      "B. Entering",
+      "C. Carrying",
+      "D. Hearing"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because as used in the text, “receiving” most nearly means hearing, or perceiving sound. The text describes Mr. Spring Fragrance as he reads a newspaper, focusing on his eyes and ears. While his eyes look at the newspaper, he is unwillingly distracted by words coming through a nearby open window (that is, “his ears could not help receiving the words”). The words are being perceived specifically by his ears and not his eyes, and ears are the organs of sense with which one hears, so therefore Mr. Spring Fragrance is hearing the words through the open window. Choice A is incorrect because there is no indication in the text that Mr. Spring Fragrance is denying, or refusing the truth of, the words coming to him through the window. He is merely distracted by them. Choice B is incorrect because it wouldn’t make sense to say that Mr. Spring Fragrance’s ears couldn’t help entering, or coming into, the words coming to him through the window. Instead, the text indicates that the opposite occurs: that is, when Mr. Spring Fragrance hears the words, they enter his ears, but his ears don’t enter the words. Choice C is incorrect because it doesn’t make sense in this context to think of Mr. Spring Fragrance as carrying the words coming to him through the window, even though the word “carry” can have a number of different meanings depending on context: for example, he is not lifting them, he is not supporting them, and he is not accepting blame for them (as one “carries the blame” for a mistake).",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5d2fd27d",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "While we can infer information about climate activity in Earth’s distant past from physical evidence, we of course cannot observe past climates directly. To study early Earth’s climate in action, we must ______ that climate using computer models that represent various climate conditions consistent with the physical evidence.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. invent",
+      "B. simulate",
+      "C. exaggerate",
+      "D. preserve"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of climate activity in Earth’s distant past. In this context, to “simulate” most nearly means to represent a natural process using computer models. According to the text, understanding Earth’s early climate is difficult because we cannot make direct observations of the distant past. Instead, scientists must create computer models that approximate early climate conditions, based on the physical evidence that those conditions left behind on Earth’s surface. This context supports the idea that computer models simulate Earth’s climate in the distant past. Choice A is incorrect because scientists use existing physical evidence as a basis for developing computer models that describe what Earth’s actual past climate might have been like. The models are not being used to “invent,” or imagine, a completely fictional climate. Choice C is incorrect because the computer models are being used in an attempt to describe as accurately as possible what Earth’s past climate might have been like. They are not attempting to “exaggerate,” or distort, those features. Choice D is incorrect because the computer models do not “preserve,” or protect from deterioration, Earth’s early climate; instead, they attempt to reproduce the characteristics of that climate, based on the remaining physical evidence of that climate.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "afd48140",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In 1877, 85% of California’s railways were already controlled by the Southern Pacific Railroad. The company further solidified its ______ in rail access to the state’s Pacific coast when it completed the Sunset Route in 1883: running from Louisiana to Southern California, the route established the first transcontinental rail line across the southern United States.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. dominance",
+      "B. creativity",
+      "C. insignificance",
+      "D. neutrality"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically and precisely completes the text’s discussion of the Southern Pacific Railroad. As used in this context, \"dominance\" means the state of being more successful than others. The text states that the Southern Pacific Railroad already controlled 85% of California’s railways in 1877, and that the Sunset Route it constructed in 1883 was the first transcontinental rail line across the southern United States. Therefore, the Southern Pacific Railroad would be more successful than other railroads in the area, and the construction of the Sunset Route would further solidify its dominance in rail access to California’s coast. Choice B is incorrect. Although the construction of the Sunset Route must have required some creativity, or use of imagination, the word \"creativity\" would not also encompass the fact that the Southern Pacific Railroad already controlled 85% of California’s railways. The text is more focused on the railroad’s control of the field and overall success rather than its imaginative thought processes. Choice C is incorrect because if the Southern Pacific Railroad controlled the majority of California’s railways, it would not make sense to refer to its \"insignificance,\" or the state of being unimportant. Rather, the opposite would be true. Choice D is incorrect because in context it would not make sense to refer to the Southern Pacific Railroad’s \"neutrality,\" or absence of strong opinion on a matter, since no opinions are mentioned. Nor would \"neutrality\" in the sense of impartiality in a conflict be a logical or precise choice since no conflict is explicitly described. There might be an implied conflict between the Southern Pacific Railroad and other railroads doing business in California, but that is not a conflict in which the Southern Pacific Railroad would take an impartial position.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "29741ebc",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "In the past, historians who wanted to examine Frederick Douglass’s diary and other personal papers had to visit the Library of Congress in Washington, DC, to view them on microfilm (<u>film containing scaled-down reproductions of documents).</u> But traveling to the library often added time and costs to research projects. Now, by going to the library’s website, researchers can access digitized versions of Douglass’s papers without physically going anywhere.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It gives information about a famous person.",
+      "B. It explains the meaning of a word.",
+      "C. It describes a debate among historians.",
+      "D. It summarizes an unexpected finding."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The underlined portion is a parenthetical phrase directly following the word “microfilm,” and it describes film containing small (“scaled-down”) images; the placement and focus of the portion indicate that it is serving to define the term “microfilm.” Choice A is incorrect. Although the text is about accessing the writings of a famous historical figure (Douglass), the underlined portion doesn’t give information about Douglass or any other person. Instead, it explains what microfilms are. Choice C is incorrect because the text never describes any kind of debate or disagreement; it simply describes a change in how researchers can access historical documents, with the underlined portion defining an important term. Choice D is incorrect because the text never makes any mention of a particular finding, unexpected or otherwise; it simply describes a change in how researchers do some of their work, with the underlined portion defining an important term.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6e3fdd1a",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "During film’s early years, those who worked in the industry had a vested interest in convincing the public to embrace the new medium. As Sumiko Higashi argues, some filmmakers relied on film critics to influence the public’s ______ the world of cinema. Critics who drew similarities between film and traditional art forms, like drama, could help legitimize film as an art form.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. reproduction of",
+      "B. contribution to",
+      "C. application to",
+      "D. perception of"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the early years of film. In this context, “perception of” means understanding of or view of. The text states that people in the film industry had a personal stake (“a vested interest”) in getting the public to embrace film when the medium was new and indicates that some film critics helped legitimize film as an art form—that is, that they helped to make film something people accepted as a type of art. This context conveys that it was the critics’ability to influence the public’s view of the world of cinema that some early filmmakers relied on. Choice A is incorrect because in this context, “reproduction of”would refer to a copy of something or the act of copying something, and it wouldn’t make sense to describe the general public as reproducing the world of cinema, or copying film as an entire art form. Choice B is incorrect. In this context, “contribution to”would refer to playing a significant part in causing something to happen. Although the text indicates that people in the early film industry had reasons to want the public to embrace film, it wouldn’t make sense to suggest that filmmakers relied on film critics to influence how the public contributed to the world of cinema; the text focuses on the public’s view of film once the world of cinema existed (embracing it, regarding it as legitimate art) and doesn’t suggest the general public was responsible for the medium’s existence. Choice C is incorrect because in this context, “application to”would refer to putting something to direct use, and it wouldn’t make sense to say that the general public needed to be used in a practical way in the world of cinema. The text focuses on the importance of the public’s view of film when the medium was new but not on the idea that the public needed to be directly involved in film.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "daaed806",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Mônica Lopes-Ferreira and others at Brazil’s Butantan Institute are studying the freshwater stingray species Potamotrygon rex to determine whether biological characteristics such as the rays’age and sex have ______ effect on the toxicity of their venom—that is, to see if differences in these traits are associated with considerable variations in venom potency.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. a disconcerting",
+      "B. an acceptable",
+      "C. an imperceptible",
+      "D. a substantial"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the research that Lopes-Ferreira and her colleagues are conducting on the stingray species Potamotrygon rex. As used in this context, “a substantial”effect means an effect that is sizable or noteworthy. The text indicates that the researchers are seeking to determine whether there are “considerable variations”in the potency of stingray venom that are associated with variation in the stingrays’age and sex. This context suggests that the researchers want to find out whether stingray age and sex have a substantial effect on venom toxicity. Choice A is incorrect because there’s nothing in the text that suggests that the researchers have been studying whether the stingrays’age and sex have “a disconcerting,”or an unsettling and disturbing, effect on the stingrays’venom. The text indicates that the researchers wish to determine if stingray age and sex cause large variations in the toxicity of stingray venom, not if the effect of age and sex is disconcerting. Choice B is incorrect because the text indicates that researchers want to find out whether differences in stingray age and sex produce differences in stingray venom, not that the researchers want to find out whether age and sex have “an acceptable,”or a satisfactory, effect on venom. The text makes no mention of what would make an effect on venom toxicity acceptable and gives no indication that the researchers are interested in that question. Choice C is incorrect because it wouldn’t make sense in context for the researchers to be looking for “an imperceptible,”or an unnoticeable, effect of age and sex on stingray venom. The text says that the researchers are trying to determine if there are “considerable variations”in venom toxicity linked to age and sex, not that the researchers are trying to find effects that they can’t perceive.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d2a90d4f",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The majority of plastics today wind up in landfills or are, at best, recycled into materials that have a very limited range of applications. To address this problem, chemist Guoliang Liu and colleagues designed a reactor that melts polyethylene and polypropylene—two widely used plastics—into a wax. The wax can then be transformed into a surfactant (<u>a chemical compound usable as a detergent).</u> With this promising new method, plastic waste could be turned into a range of useful cleaning products.",
+    "question": "Which choice best states the function of the underlined portion of the text?",
+    "options": [
+      "A. It clarifies the meaning of a scientific term.",
+      "B. It describes an environmental concern.",
+      "C. It explains the significance of a scientific discovery.",
+      "D. It identifies a result that confused the team."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined phrase functions in the text as a whole. The text states that the wax produced by Liu and colleagues’reactor can be turned into a surfactant. The underlined phrase, which is set off with parentheses, then provides a definition for the term \"surfactant,\" explaining that it’s a chemical compound that can be used as a detergent. Thus, the underlined portion of the text functions to clarify the meaning of a scientific term. Choice B is incorrect. Though the text as a whole focuses broadly on an environmental concern, the underlined phrase does not; it simply indicates what a surfactant is. Choice C is incorrect. Though the text as a whole focuses on a scientific discovery (Liu and colleagues’solution to the problem of plastic recycling), the underlined phrase does not explain its significance; it simply defines a scientific term used in the discussion. Choice D is incorrect. Though the text as a whole includes discussion of the result found by Liu and colleagues, the underlined phrase does not discuss it; it simply defines a scientific term used in the discussion. Additionally, at no point in the text is it mentioned that the team was confused.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5514fd1f",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Archaeologist Erika Karuzas works with the Confederated Salish and Kootenai Tribes of Montana to preserve culturally significant sites. In 2015 they decided that creating a new national trail connecting many of these sites would ______ their preservation efforts, because the US government provides some protections to national trails that aren’t given to other areas.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. inspire",
+      "B. ignore",
+      "C. promote",
+      "D. reduce"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the preservation efforts undertaken by Erika Karuzas and the Confederated Salish and Kootenai Tribes of Montana. In this context, \"promote\" means play a part in the success or growth of something or someone. The text indicates that Karuzas and the Confederated Salish and Kootenai Tribes work to preserve culturally important sites. It goes on to say that their decision to create a national trail connecting the sites was motivated by the fact that such a trail would receive protections from the US government that the sites wouldn’t otherwise receive. Thus, such a decision would promote the preservation efforts. Choice A is incorrect because \"inspire\" means motivate or influence, which wouldn’t make sense in context. The text establishes that Karuzas and the Confederated Salish and Kootenai Tribes of Montana work to preserve culturally significant sites and that their decision to create a new national trail occurred as a result of a desire to add protections to the sites that they wouldn’t otherwise receive. Thus, creating the trail wouldn’t inspire the efforts to preserve the sites; instead, it would promote the efforts. Choice B is incorrect because \"ignore\" means overlook, which wouldn’t make sense in context. The text indicates that Karuzas and the Confederated Salish and Kootenai Tribes of Montana work to preserve culturally significant sites and that they decided to create a national trail connecting the sites because such a trail would receive protections from the US government that the sites wouldn’t otherwise receive. Thus, the creation of the trail would promote, not ignore, the preservation efforts. Choice D is incorrect because \"reduce\" means decrease or restrict, which wouldn’t make sense in context. The text indicates that Karuzas and the Confederated Salish and Kootenai Tribes of Montana work to preserve culturally significant sites and that they decided to create a national trail connecting the sites because such a trail would receive protections from the US government that the sites wouldn’t otherwise receive. The decision would therefore promote, not reduce, the preservation efforts.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "bdab32fc",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Cucurbits, a group of plants that includes squash and melons, relied on mastodons to spread their seeds in the Ice Age. When these animals died out, cucurbits faced extinction in turn, having lost their means of seed dispersal. Around this time, however, the ancestors of Indigenous peoples in North America began raising cucurbits as crops, thus ______ the plants’ survival.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. verifying",
+      "B. multiplying",
+      "C. comforting",
+      "D. ensuring"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of cucurbits. In this context, “ensuring” means guaranteeing, or making sure of, the cucurbits’ survival. The text states that cucurbits faced extinction in the past because their means of seed dispersal disappeared, but the ancestors of Indigenous peoples in North America began farming cucurbits around that same time, so the crops were no longer threatened. Therefore, the context supports the idea that the ancestors of Indigenous peoples in North America helped with ensuring the cucurbits’ survival. Choice A is incorrect because in this context verifying means making sure that something is accurate. In the text, the ancestors of Indigenous peoples in North America were ensuring the survival, not the accuracy of, the cucurbits. Choice B is incorrect. Although the cucurbit crops themselves were multiplying, or growing in number, as a result of the work of the ancestors of Indigenous peoples in North America, it wouldn’t make sense in context to say that the survival of the plants was multiplying. Choice C is incorrect because according to the text, in raising cucurbits as crops, the ancestors of Indigenous peoples in North America were attempting to help the plants grow and survive; they weren’t attempting to comfort, or free the plants from pain.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "631a1b64",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Since the Hubble Space Telescope was launched into space in 1990, astronauts have needed to complete regular missions to repair the telescope and keep it working smoothly. Researchers hope that robots will soon be able to make these repairs. Employing robots instead of humans to make repairs will be helpful, as ______ astronauts to maintain the telescope can be expensive.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. straightening",
+      "B. forgetting about",
+      "C. relying on",
+      "D. reducing"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of repairing the Hubble Space Telescope. In this context, “relying on”means depending on. The text states that astronauts have regularly had to go on missions to repair the Hubble Space Telescope but that robots might soon be able to make the repairs, which would be helpful because involving astronauts in the process is expensive. It is most reasonable to assume that it is the need to send astronauts on missions that is expensive; thus, the context suggests that employing robots for repairs will be helpful because depending on repeatedly sending humans to space is costly. Choice A is incorrect. In this context, “straightening”would mean physically aligning or removing curves and bends. It’s not clear how astronauts would be physically straightened to maintain the telescope or why that would be expensive. Choice B is incorrect because the text suggests that it is the ongoing involvement of astronauts—the need to send them to space regularly—that is expensive. Nothing in the text indicates that astronauts have been forgotten about or that forgetting about them would be expensive. Choice D is incorrect. In this context, “reducing”would most likely mean lowering in status, and nothing in the text suggests that astronauts are diminished in any way by repairing the telescope (indeed, they have regularly done repairs for years). Further, it isn’t clear how a decrease in status would be expensive.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "74ee7737",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Whether Carmen Lomas Garza is creating small paintings and illustrations or large public artworks—such as Baile, a copper cutout of traditional Mexican dance in the San Francisco International Airport—she is ______ direct experience, drawing from memories of her childhood in Texas or details of her current surroundings in California.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. complimented by",
+      "B. uncertain about",
+      "C. unbothered by",
+      "D. inspired by"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Carmen Lomas Garza’s artistic process. In this context, \"inspired by\" means influenced by or motivated by. The text refers to how, regardless of the scale of the work, Garza uses her memories of Texas and details from California to create her art. If Garza is basing her work on her direct experiences, then they play a part in her artistic process. This context thus suggests that Garza’s art is inspired by the experiences of her childhood in Texas and her current life in California. Choice A is incorrect because it wouldn’t make logical sense to indicate that Garza is \"complimented by\"—or praised by—something inanimate such as direct experience. Choice B is incorrect because describing Garza as \"uncertain about\"—or unsure or doubtful of—direct experience would suggest that she had misgivings about it. If Garza were unsure of her experiences, that would suggest that she couldn’t recall them, and Garza wouldn’t be able to represent direct experience in her art if she were uncertain of the memories or details. Choice C is incorrect because describing Garza as \"unbothered by\"—or uninterested in—her experience would imply the opposite of what the text suggests about Garza’s artistic process. The text indicates that Garza’s art comes from memories of her childhood in Texas and details of her surroundings in California.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f7d58b53",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Like other tribal nations, the Muscogee (Creek) Nation is self-governing; its National Council generates laws regulating aspects of community life such as land use and healthcare, while the principal chief and cabinet officials ______ those laws by devising policies and administering services in accordance with them.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. implement",
+      "B. presume",
+      "C. improvise",
+      "D. mimic"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of self-government among the Muscogee (Creek) Nation. In this context, “implement” means to carry out or put into effect. The text states that the National Council generates laws, while the principal chief and cabinet officials are responsible for “devising policies and administering services in accordance with” those laws. This context suggests that the principal chief and cabinet officials implement the laws: they put the laws into effect by creating policies and administering services that accord with those laws. Choice B is incorrect because “presume” in this context would mean to assume based on incomplete information, and the text does not suggest that the principal chief and cabinet officials either made assumptions about the content of the laws or had incomplete information about them. Choice C is incorrect because in this context “improvise” would mean to create something without preparation, and the text does not suggest that the principal chief and cabinet officials create policies and administer services without advance preparation. Choice D is incorrect because nothing in the text suggests that the principal chief and cabinet officials “mimic,” or imitate, the laws generated by the National Council. To mimic laws would mean to generate new laws that are imitations of existing laws, but the text indicates that the National Council, not the principal chief and cabinet officials, is responsible for generating laws. Instead of generating laws, the principal chief and cabinet officials put laws into effect by “devising policies and administering services in accordance with” the laws.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6286dd96",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Frances Hodgson Burnett’s 1905 novel A Little Princess. Sara is a young student at a school in London.\n\nSara not only could tell stories, but she adored telling them. When she sat or stood in the midst of a circle and began to invent wonderful things, her green eyes grew big and shining, her cheeks flushed, and, without knowing that she was doing it, she began to act and made what she told lovely or alarming by the raising or dropping of her voice.",
+    "question": "As used in the text, what does the word “invent” most nearly mean?",
+    "options": [
+      "A. Mislead",
+      "B. Disguise",
+      "C. Create",
+      "D. Discover"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because as used in the text, \"invent\" most nearly means create or make up. The text begins by stating that Sara likes to tell stories and thoroughly enjoys telling them. The rest of the text describes how she looks and acts when she invents, or creates, \"wonderful things\" in her stories (\"what she told\"). Choice A is incorrect. Although the text suggests that Sara makes up \"wonderful things,\" nothing suggests that she does so to mislead, or intentionally deceive, others; there is no reason to assume that Sara’s listeners don’t know that she’s creating the stories she shares. Choice B is incorrect because nothing in the text suggests that Sara is disguising, or trying to cover up or conceal, \"wonderful things\" when she tells stories; rather, she is creating them and presenting them in ways that make them \"lovely or alarming\" for her listeners. Choice D is incorrect because nothing in the text suggests that Sara is discovering, or unexpectedly finding, \"wonderful things\" in the stories she loves to tell; rather, that she is making things up as she tells the stories.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "44cc5f75",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Artificially delivering biomolecules to plant cells is an important component of protecting plants from pathogens, but it is difficult to transmit biomolecules through the layers of the plant cell wall. Markita del Carpio Landry and her colleagues have shown that it may be possible to ______ this problem by transmitting molecules through carbon nanotubes, which can cross cell walls.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. conceptualize",
+      "B. neglect",
+      "C. illustrate",
+      "D. overcome"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of delivering biomolecules to plant cells. In this context, “overcome”means to succeed in dealing with an obstacle. The text suggests that although it’s difficult to move biomolecules through plant cell walls, Landry and her colleagues have shown that carbon nanotubes may be useful, since they can cross cell walls. This context conveys that Landry and her colleagues think it’s possible, using carbon nanotubes, to succeed in dealing with the obstacle of transmitting biomolecules to plant cells. Choice A is incorrect because it wouldn’t make sense in context to say that Landry and her colleagues have shown that it may be possible to “conceptualize,”or form an idea of, the difficulty of transmitting biomolecules through the walls of plant cells. The text presents this difficulty as a known problem that Landry and her colleagues think they may have solved, not as a mysterious occurrence that they have yet to form ideas about. Choice B is incorrect because the text suggests that Landry and her colleagues think it may be possible to successfully deal with the problem of transmitting biomolecules through the walls of plant cells, not that Landry and her colleagues think it may be possible to “neglect,”or simply to disregard and ignore the problem. Choice C is incorrect because it wouldn’t make sense in context to say that Landry and her colleagues have shown that it may be possible to “illustrate,”or demonstrate, the difficulty of transmitting biomolecules through the walls of plant cells by using carbon nanotubes. According to the text, carbon nanotubes allow molecules to be transmitted to plant cells—something that is otherwise difficult to do. The text therefore presents carbon nanotubes as a way of possibly solving a problem, not as a means of demonstrating the problem.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "afd2a9eb",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Manul cats are small, shy felines. They live mostly alone in out-of-the-way parts of Asia, such as on Mount Everest. These cats have been difficult to research because their habitats are so ______ large populations of humans.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. full of",
+      "B. drawn to",
+      "C. responsible for",
+      "D. distant from"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of manul cats. The text states that manul cats live in \"out- of-the-way parts of Asia\" (citing the famously remote Mount Everest as an example) and indicates that it is difficult to research the cats because of the location of their habitats. By emphasizing that the habitats are remote in relation to humans, the text conveys that being \"distant from,\" or far from, large groups of humans makes manul cats challenging to study. Choice A is incorrect because saying that the habitats of manul cats are \"full of large populations of humans\" would indicate that the cats cohabitate with many humans, which would directly contradict the text’s claim that the cats live in \"out-of-the-way\" areas. Choice B is incorrect because the missing words describe an aspect of manul cats’ habitats, or the areas where they live, and it wouldn’t make sense to say that areas could be \"drawn to,\" or attracted by, large groups of humans. Choice C is incorrect. In this context, \"responsible for\" would mean either having an obligation to care for something or being the cause of something, and it wouldn’t make sense to say that the habitats of manul cats (the areas where the cats live) would need to care for humans or that the habitats somehow created large human populations.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3654202f",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Radar and sonar can detect objects or people through walls, but they are too costly for consumer use. Researchers Fadel Adib and Dina Katabi have shown, however, that there may be a comparatively ______ alternative: small changes to the Wi-Fi technology used in smartphones can give users a cheap way to count people or even identify their gestures through walls.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. infrequent",
+      "B. inexpensive",
+      "C. unmistakable",
+      "D. impractical"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of ways to detect people through walls. In this context, \"inexpensive\" means less costly or low in price. The passage describes two kinds of methods that can be used to \"detect objects or people through walls\": radar and sonar, and changes to the Wi-Fi technology used in smartphones. The word \"comparatively\" before the blank indicates that the best answer would be one that helps to describe a comparison between the two. Radar and sonar are described as \"costly,\" while the method that uses Wi-Fi technology is described as \"cheap\"; therefore, it would be comparatively affordable, or inexpensive. Choice A is incorrect because the text indicates that a small modification to the smartphones that many consumers already own would presumably result in consumers using that technology to detect objects or people through walls more regularly, or frequently; therefore, it would not be true that such technology would be comparatively infrequent, or uncommon. Choice C is incorrect because there is nothing in the text to indicate that either radar and sonar or changes to smartphone Wi-Fi technology are capable of being misunderstood or mistaken for something else; therefore, it would not make sense to describe changes to Wi-Fi smartphone technology as comparatively unmistakable, or indisputable. Choice D is incorrect because the text indicates that a small modification to the smartphones that many consumers already own and carry with them would be more functional or practical than radar and sonar, not more impractical, or unrealistic.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "644f59cd",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Researchers studying how consumers develop their attitudes toward brands have found that the shapes of the logos used to present brand names are ______. Brand names presented using rounded logos, for example, were found to lead consumers to view brands as significantly more approachable than the same names did when presented using angular logos.",
+    "question": "Which choice completes the text with the most logical and precise phrase?",
+    "options": [
+      "A. a contributing factor",
+      "B. an analogous case",
+      "C. an overlooked effect",
+      "D. a surprising paradox"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of how logo shapes affect consumer attitudes toward brands. In this context, “a contributing factor”means an element that helps produce a particular outcome. The text indicates that researchers studied how consumers develop attitudes toward brands and found that logo shape affects those attitudes: rounded logos led consumers to view brands as “significantly more approachable”than angular logos did, even when the brand names were the same. This context supports the idea that logo shape is a contributing factor to consumer attitudes toward brands—that is, it helps influence how consumers perceive brands. Choice B is incorrect because describing logo shapes as “an analogous case,”or an instance comparable to another instance, wouldn’t make sense in this context. The text doesn’t mention any factor other than logo shape, and thus the text doesn’t provide another case (analogous or otherwise) against which to compare the effect of logo shape. Choice C is incorrect because describing logo shapes as “an overlooked effect,”or a result that has been disregarded, wouldn’t make sense in this context. The text is focused on describing observations about the effect of logo shape on consumer attitudes toward brands, but at no point does it suggest that this effect has been overlooked or disregarded. Choice D is incorrect because describing logo shapes as “a surprising paradox,”or a self-contradictory finding, wouldn’t make sense in this context. The finding that different logo shapes produce different consumer attitudes is straightforward and doesn’t exhibit any internal contradiction.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ea971260",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Louisa May Alcott’s 1869 novel An Old-Fashioned Girl. Polly, a teenager, is visiting her friend Fanny.\n\nFanny’s friends did not interest Polly much; she was rather afraid of them [because] they seemed so much older and wiser than herself, even those younger in years. They talked about things of which she knew nothing and when Fanny tried to explain, she didn’t find them interesting; indeed, some of them rather shocked and puzzled her.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To portray Polly’s reaction to Fanny’s friends",
+      "B. To identify the topics Polly talks about with Fanny’s friends",
+      "C. To explain how Fanny met some of her friends",
+      "D. To illustrate how Fanny’s friends feel about Polly"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the main purpose of the text, which is to show how Polly reacted to some of Fanny’s other friends. The text describes Polly as being frightened of Fanny’s friends because they seemed “much older and wiser” to her and elaborates that they “talked about things of which” Polly was unfamiliar, uninterested, and shocked. Thus, the main purpose of the text is to describe Polly’s impressions of Fanny’s other friends. Choice B is incorrect because the text does not provide any of the topics Polly discussed with Fanny’s friends, stating only that Polly found the topics unfamiliar, uninteresting, and shocking. Choice C is incorrect because the text says nothing about how Fanny and her other friends first met. Choice D is incorrect because the focus of the text is on Polly’s feelings about Fanny’s other friends, not on the other friends’ feelings about Polly.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "03f5a9b7",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "When marine biologist Brittany Williams played different ocean recordings to groups of oyster larvae, groups that heard sounds of a healthy oyster reef were the most ______. They were twice as likely as other groups to show signs of making a permanent home. This suggests that playing recordings of a healthy ocean reef may encourage oysters to create such a reef.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. responsive",
+      "B. inactive",
+      "C. liked",
+      "D. distressed"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of oysters and ocean recordings. As used in this context, \"responsive\" means reacting positively. The text presents a finding and describes it as suggesting that healthy ocean sounds may encourage oyster larvae to establish a reef (a permanent home): groups of oyster larvae that heard recorded sounds of a healthy oyster reef were two times more likely to show signs of forming their own reef than groups that heard different ocean recordings were. This context conveys that the groups that heard healthy reef sounds had a more positive reaction than the other groups did—that is, they were the most responsive. Choice B is incorrect because the text doesn’t indicate that hearing sounds of a healthy oyster reef caused some groups of oyster larvae to become \"inactive,\" or to stop engaging in work or activity. Instead, the text conveys that the groups that heard those sounds were observed engaging in activity: they were two times more likely to create a reef (a permanent home) than groups that heard different ocean sounds were. Choice C is incorrect because describing the groups of oyster larvae that heard sounds of a healthy oyster reef as most \"liked,\" or regarded with pleasure, wouldn’t make sense in context. The text focuses on the idea that a study found that healthy reef sounds may encourage groups of oyster larvae to form reefs (permanent homes), not on the idea that some of the groups in the study were liked more than others. Choice D is incorrect because the text doesn’t indicate that hearing sounds of a healthy oyster reef caused some groups of oyster larvae to be \"distressed,\" or to experience difficulty or begin to decline. Instead, the text indicates that the sounds increased the likelihood that groups of larvae would establish a reef (a permanent home), suggesting that the sounds had a positive effect on the larvae.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "edd64a4a",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Charles Chesnutt’s 1899 story “The Wife of His Youth.”Mr. Ryder is hosting a formal gathering where he will propose marriage to the woman he has been courting.\n\n[A] younger and less cautious man would long since have spoken. But he had made up his mind, and had only to determine the time when he would ask her to be his wife. He decided to give a ball in her honor, and at some time during the evening of the ball to offer her his heart and hand.",
+    "question": "As used in the text, what does the word “determine”most nearly mean?",
+    "options": [
+      "A. Choose",
+      "B. Influence",
+      "C. Demonstrate",
+      "D. Measure"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, \"determine\" most nearly means choose or decide. The text indicates that Mr. Ryder \"had made up his mind\" to ask a woman to marry him but had not yet \"spoken\"—that is, he had not yet asked her. The text also indicates that Mr. Ryder \"decided\" to throw a party for the woman and ask her during it. This context conveys that after making up his mind to propose, what Mr. Ryder had to do was determine, or choose, the time to do it. Choice B is incorrect because in this context, \"determine\" doesn’t mean influence, or affect or control. The text isn’t indicating that Mr. Ryder is controlling time itself; such a thing isn’t possible. Rather, the text conveys that after making up his mind to ask a woman to marry him, Mr. Ryder had to make another decision about his own actions by selecting a time to propose. Choice C is incorrect. The text focuses on Mr. Ryder’s plan to ask a woman to marry him and his decision about when to ask her. This context conveys that after making up his mind to propose, Mr. Ryder had to choose the time, not that he had to demonstrate, or show, the time; it’s not clear what it would mean to demonstrate a time. Choice D is incorrect because in this context, \"determine\" doesn’t mean measure, or control with careful restraint. The text isn’t indicating that Mr. Ryder is carefully controlling time itself; such a thing isn’t possible. Rather, the text conveys that after making up his mind to ask a woman to marry him, Mr. Ryder had to make another decision about his own actions by selecting a time to propose; it’s Mr. Ryder’s decision that is measured, not the time he eventually chooses.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f8ca5766",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Nigerian American author Teju Cole’s ______ his two passions—photography and the written word—culminates in his 2017 book, Blind Spot, which evocatively combines his original photographs from his travels with his poetic prose.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. indifference to",
+      "B. enthusiasm for",
+      "C. concern about",
+      "D. surprise at"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Cole’s book Blind Spot. In this context, “enthusiasm for” means excitement about. The text explains that Blind Spot consists of original photographs as well as poetic prose—two elements that correspond to Cole’s passions, identified in the text, for photography and the written word. This context suggests that Cole’s excitement about photography and writing led him to create a book that successfully combines the two mediums. Choice A is incorrect because describing Cole as feeling “indifference to”his two passions wouldn’t make sense in context. If Cole is indifferent to his passions, that would mean he doesn’t care about photography or writing—in which case they wouldn’t be his passions at all. Choice C is incorrect because there’s nothing in the text to suggest that Cole feels “concern about,”or uneasiness about, his passions. The text’s use of the word “culminates”indicates that Blind Spot represents a triumphant climax of Cole’s passions, not a work that results from his sense of discomfort with photography and writing. Choice D is incorrect because there’s nothing in the text to suggest that Cole feels “surprise at,”or astonished by, his passions. The text indicates that Cole’s feeling about his passions “culminates”in a book that “evocatively”combines photographs and writing, suggesting that Cole has a long-standing and skillful relationship to his passions, not that he is startled by them.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "271a5017",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Akwaeke Emezi’s 2019 novel Pet. Jam is a teenager who lives with her father, Aloe, and her mother, Bitter, who is a painter.\n\nBitter finished the painting in the dark morning of a day—it was well past midnight when Jam heard the studio door creak open. She stared into the velvet black of her room and listened to her mother’s footsteps walking in her [mother] and Aloe’s bedroom. There was a weight thrumming through the floorboards in a low song, and that was how Jam knew the painting was done. <u>Bitter’s feet were singing the news.</u>\n\n©2019 by Akwaeke Emezi",
+    "question": "Which choice best states the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It indicates that Jam is more interested in music than in art.",
+      "B. It adds to the idea that Bitter’s footsteps reveal something to Jam.",
+      "C. It indicates that Bitter always sings when working on a painting.",
+      "D. It describes Aloe’s reaction upon seeing the painting for the first time."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes how the underlined sentence functions in the text as a whole. The text establishes that Jam hears Bitter’s studio door open early in the morning, when it is still dark. Jam then listens to her mother’s footsteps, which seem to create a song that runs through the floorboards. The text indicates that the sound of Bitter’s footsteps convey to Jam that Bitter is done painting. The underlined sentence then builds on this idea, stating explicitly that Bitter’s feet sing the news of her completion of a painting. Thus, the sentence stating that “Bitter’s feet were singing the news”further emphasizes that Bitter’s footsteps themselves reveal information to Jam. Choice A is incorrect because the text provides no evidence that Jam prefers music to art. While the underlined sentence uses musical imagery to describe the vibrations Jam feels, this is figurative language that is describing the footsteps’vibrations; it isn’t an indication of Jam’s personal interests. Choice C is incorrect because the text doesn’t suggest that Bitter herself sings while working on paintings. The references to singing in the text are figurative descriptions of how Bitter’s footsteps sound or feel to Jam, not literal statements about Bitter singing. Choice D is incorrect because the underlined sentence only describes Jam’s perception of her mother’s footsteps. It doesn’t provide any details about Aloe or his reaction to the painting; in fact, the text doesn’t mention Aloe seeing the painting at all.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9671d61d",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Claude McKay’s 1922 poem “Morning Joy.” The speaker is looking out a window and observing a wold, or large area of land.\n\nAt night the wide and level stretch of wold,\n\nWhich at high noon had basked in quiet gold,\n\nFar as the eye could see was ghostly white;\n\nDark was the night save for the snow’s weird light.\n\nI drew the shades far down, crept into bed;\n\nHearing the cold wind moaning overhead\n\nThrough the sad pines, my soul, catching its pain,\n\nWent sorrowing with it across the plain.",
+    "question": "As used in the text, what does the word “drew” most nearly mean?",
+    "options": [
+      "A. Pulled",
+      "B. Drained",
+      "C. Inspired",
+      "D. Sketched"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, “drew” most nearly means pulled. In the text, the speaker stands at a window, looking out on a landscape at night. The speaker then “drew the shades far down, crept into bed.” That is, the speaker pulled down, or lowered, the shades until they were completely shut before going to sleep. Choice B is incorrect. Although in some contexts, “drew” can refer to draining or removing liquid, especially water, as when someone draws water from a well, in this context it refers to the speaker pulling down window shades for the night. Choice C is incorrect. In some contexts, “drew” can be used to describe how a person or thing inspires, or elicits, a response from someone, as when a performer draws applause from an audience. But in this context it refers to the speaker pulling down window shades for the night. Choice D is incorrect. Although “drew” has several meanings, including sketched, or illustrated with a pen or pencil, in this context it refers to the speaker pulling down window shades for the night.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ea9dfe27",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is from Joan Didion’s memoir The Year of Magical Thinking. In the text, the author discusses her home life.\n\n[I]n California we heated our houses by building fires. We built fires even on summer evenings, because the fog came in. <u>Fires said we were home, we had drawn the circle, we were safe through the night.</u>\n\n©2005 by Joan Didion",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It illustrates that a fire provides comfort beyond physical warmth.",
+      "B. It summarizes the information that came before it in the text.",
+      "C. It explains that the house remains cold even in summer.",
+      "D. It suggests that the author feels comfortable in her home with or without a fire."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The first two sentences of the text establish that in California, houses were heated by building fires year-round. The underlined portion then indicates that the fires didn’t merely provide physical warmth: they also represented being \"home\" and feeling protected. The underlined portion thus illustrates that a fire provides comfort beyond physical warmth. Choice B is incorrect because the underlined portion doesn’t summarize information that came before it. Whereas the previous two sentences describe fires’ ability to provide physical warmth to homes, the underlined portion focuses on the psychological comfort the fires offered. Choice C is incorrect. Although the text’s second sentence mentions that fires were built in the summer because fog came in, which may have cooled the house, this detail isn’t the focus of the underlined portion. Instead, the underlined portion indicates that fires were built for reasons beyond physical warmth: to create a sense of being home and safe. Choice D is incorrect because the underlined portion focuses on the emotional significance the author places on having a fire going inside the home. There is no indication that the author feels equally comfortable without a fire present.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c8603ed7",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "San Francisco is known for the colorful murals painted on many of its buildings. The densest collection of murals is found on Balmy Alley in the Mission District neighborhood. In the 1970s, Latina artists painted vivid scenes of community life on walls along this block. As the original murals have faded, later generations of artists have painted new ones over them. As a result, Balmy Alley has become a living showcase of San Francisco’s artistic spirit, with its murals reflecting changes in the cultural life of the city.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To compare the Balmy Alley murals to other murals in San Francisco",
+      "B. To offer an overview of the history and importance of the Balmy Alley murals",
+      "C. To urge people to protect the murals of San Francisco from decay",
+      "D. To describe the rise of mural painting in San Francisco beginning in the 1970s"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best states the main purpose of the text. The text begins by briefly stating that San Francisco is known for its murals, then transitions to a discussion of a single collection of murals, which is found on Balmy Alley in the city’s Mission District. The text explains that the murals in this area were originally created in the 1970s, then observes that they have changed over time: as some have faded through the decades, others have been painted in their place. The text ends by emphasizing that these murals are significant because they reflect San Francisco’s artistic spirit and cultural life. Therefore, the text provides an overview of the history and importance of the Balmy Alley murals. Choice A is incorrect. Although it can be inferred from the text that there are murals in other areas of San Francisco besides Balmy Alley, the text doesn’t specifically discuss murals in other areas or compare the murals of Balmy Alley to those in other areas. Choice C is incorrect. By observing that some of the murals of Balmy Alley have been replaced due to fading, the text implies that murals can decay, but it never urges readers to protect this specific collection of murals—or any murals elsewhere in San Francisco, for that matter. Indeed, by describing the ever- changing murals of Balmy Alley as “a living showcase of San Francisco’s artistic spirit,”the text emphasizes the positive aspects of the fact that the original Balmy Alley murals have faded and been replaced with new murals. Choice D is incorrect because the text doesn’t describe the rise of mural painting in San Francisco generally or note when this occurred. The only historical development of the 1970s mentioned in the text is the origin of the murals in a specific area of the city: Balmy Alley in the Mission District.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9c759a09",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is from Georgia Douglas Johnson’s 1922 poem “Benediction.”\n\nGo forth, my son,\n\nWinged by my heart’s desire! Great reaches, yet unknown, Await\n\nFor your possession.\n\nI may not, if I would, Retrace the way with you, My pilgrimage is through, But life is calling you!",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To express hope that a child will have the same accomplishments as his parent did",
+      "B. To suggest that raising a child involves many struggles",
+      "C. To warn a child that he will face many challenges throughout his life",
+      "D. To encourage a child to embrace the experiences life will offer"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it accurately states the text’s main purpose. The poem begins with the speaker urging a child to “go forth” with her encouragement (“my heart’s desire”). The speaker goes on to suggest that new experiences (“Great reaches, yet unknown”) lie ahead for the son that “life is calling” him to seek out. Thus, the main purpose is to encourage a child to embrace the experiences available to him in his life. Choice A is incorrect because the speaker encourages the child to pursue new experiences (“Great reaches”) without knowing exactly what those experiences will be (“yet unknown”) or suggesting that they should match the speaker’s own accomplishments. Choice B is incorrect because the speaker focuses on positive possibilities for her son (“Great reaches, yet unknown”) and her enthusiastic encouragement to embrace those possibilities (“life is calling you!”), while there is no mention of raising a child or associated struggles. Choice C is incorrect because the speaker frames the possibilities for her son in a positive light when she says that “great reaches, yet unknown” are waiting for him, and this positive outlook for the son is consistent throughout the text.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "05575bca",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Lewis Carroll’s 1871 novel Through the Looking-Glass, and What Alice Found There. Alice, a child, is talking to her cat.\n\n“Do you hear the snow against the window-panes, Kitty? How nice and soft it sounds! Just as if someone was kissing the window all over outside.”",
+    "question": "As used in the text, what does the word “soft” most nearly mean?",
+    "options": [
+      "A. Gentle",
+      "B. Sensitive",
+      "C. Shapeless",
+      "D. Bland"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, \"soft\" most nearly means gentle. The text portrays Alice speaking about the snow falling against the window, describing it as sounding \"nice\" and similar to someone \"kissing the window.\" These details most strongly suggest that Alice thinks the sound made by the snow falling against the window is gentle. Choice B is incorrect. Although in some contexts, \"gentle\" can mean sensitive, or caring about others’ feelings, that isn’t the meaning in this context; it doesn’t make sense to say that Alice thinks the sound of the snow cares about anything. Choice C is incorrect because the text doesn’t suggest that Alice thinks the sound of the snow is shapeless, or lacks a definite shape; she isn’t indicating how anything looks or feels but, rather, is describing how \"nice\" and gentle the snow sounds. Choice D is incorrect because the text doesn’t suggest that Alice thinks the sound of the snow is bland, or uninteresting; rather, she notices the sound and comments on how \"nice\" it is.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1ad04ea0",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In habitats with limited nutrients, certain fungus species grow on the roots of trees, engaging in mutually beneficial relationships known as ectomycorrhizae: in this symbiotic exchange, the tree provides the fungus with carbon, a nutrient necessary for both species, and the fungus ______ by enhancing the tree’s ability to absorb nitrogen, another key nutrient, from the soil.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. overreacts",
+      "B. reciprocates",
+      "C. retaliates",
+      "D. deviates"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of ectomycorrhizae relationships. In this context, “reciprocates” means responds in kind or degree. The text indicates that the relationship between certain fungi and trees in some habitats is “mutually beneficial” and involves a “symbiotic exchange” in which each organism helps the other access an important nutrient. In other words, each organism provides the same kind of benefit it receives: the tree provides a nutrient (carbon) for the fungus and the fungus reciprocates by helping the tree to absorb more of another nutrient (nitrogen). Choice A is incorrect because the text emphasizes that the relationship between certain fungi and trees in some habitats involves a “symbiotic exchange” in which each organism helps the other access an important nutrient. Nothing in the text suggests that the fungus “overreacts,” or responds too strongly, by allowing the tree to be better able to absorb a beneficial nutrient. Choice C is incorrect because “retaliates” means responds to a harmful action with a similarly harmful action. The text indicates that the relationship between certain fungi and trees in some habitats is “mutually beneficial” and involves a “symbiotic exchange” in which each organism helps the other, not that the relationship is one in which the organisms harm one another. Choice D is incorrect. In this context, “deviates” would mean departs from an established course or norm. The text explains that the relationship between certain fungi and trees in some habitats involves a “symbiotic exchange” in which each organism helps the other access an important nutrient. Because the relationship involves benefits for both the fungus and the tree, it wouldn’t make sense to say that the fungus deviates by helping the tree be better able to absorb a beneficial nutrient.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "04e4c51d",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Taking photographs in the mid-1800s was complicated and expensive, but this changed with the 1854 invention of the carte de visite, a small photo that cost little to make. Carte de visite photos helped to ______ photography: they made it easy and enjoyable for everyday people to have their pictures taken, and people at the time loved exchanging these small photos with friends and family.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. weaken",
+      "B. praise",
+      "C. popularize",
+      "D. isolate"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of carte de visite photos. To \"popularize\" a technology is to allow it to be used and appreciated widely. The text explains that unlike the photos produced by earlier forms of photographic technology, carte de visite photos were inexpensive and could easily be obtained by \"everyday people,\" who enjoyed exchanging the images. Therefore, carte de visite photos helped popularize photography. Choice A is incorrect because the text indicates that instead of weakening the emerging technology of photography, carte de visite photos allowed it to be more widely accessed and enjoyed by people. Choice B is incorrect. The text establishes that large numbers of people enjoyed using carte de visite photos, so it can be inferred that these photos caused photography to be praised, or celebrated. However, it wouldn’t make sense to say that inanimate objects—in this case, photos—had praised photography; instead, carte de visite consumers themselves would have praised it. Choice D is incorrect because the text explains that rather than isolating photography, or limiting its availability, carte de visite technology made photography more widely accessible to people.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "479c7e82",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Although critics believed that customers would never agree to pay to pick their own produce on farms, such concerns didn’t ______ Booker T. Whatley’s efforts to promote the practice. Thanks in part to Whatley’s determined advocacy, farms that allow visitors to pick their own apples, pumpkins, and other produce can be found throughout the United States.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. enhance",
+      "B. hinder",
+      "C. misrepresent",
+      "D. aggravate"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Booker T. Whatley. In this context, “hinder” means hold back or obstruct. The text explains that Whatley encouraged farms to allow customers on site to pick their own produce for a fee. He did so despite critics’ concerns that the customers would never pay to do so. This context establishes that the critics’ concerns didn’t hinder Whatley’s efforts to promote the practice. Choice A is incorrect. The text indicates that critics’ skepticism of the idea that customers would pay to pick their own produce didn’t have some effect on Whatley’s promotion of the practice. The text illustrates this assertion by describing Whatley’s “determined advocacy” for the practice. This context suggests that critics’ concerns didn’t obstruct Whatley’s efforts, not that critics’ concerns didn’t “enhance,” or increase or improve, Whatley’s efforts. Choice C is incorrect because in this context, “misrepresent” would mean portray inaccurately, and the text includes no information relevant to the issue of how Whatley’s efforts were portrayed by critics of the practice of charging customers to pick their own produce. Choice D is incorrect. The text indicates that critics’ skepticism of the idea that customers would pay to pick their own produce didn’t have some effect on Whatley’s promotion of the practice. The text illustrates this assertion by describing Whatley’s “determined advocacy” for the practice. This context suggests that critics’ concerns didn’t obstruct Whatley’s efforts, not that critics’ concerns didn’t “aggravate,” or irritate or make more severe, Whatley’s efforts.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "52fe862a",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Researcher Lucy Salazar is using radiocarbon dating to study Machu Picchu, an ancient Incan fortress in the Andes Mountains. She and her colleagues have found that the site’s age differs from the ______ estimate: it is approximately 20 years older than scholars thought when first encountering Machu Picchu in 1911.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. genuine",
+      "B. intentional",
+      "C. independent",
+      "D. original"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the dating of Machu Picchu. In this context, \"original\" means first or initial. The text indicates that Lucy Salazar and her colleagues have determined the age of Machu Picchu and that the age differs from another estimate of the site’s age, explaining that the site is about 20 years older than scholars thought in 1911 when they initially encountered Machu Picchu. In other words, Salazar and her team found that the site’s age differs from the first estimate. Choice A is incorrect. The text’s structure indicates that the missing word describes the estimate made by scholars when they first encountered Machu Picchu in 1911 in relation to the age determined by Salazar and her colleagues. It wouldn’t make sense to suggest that the estimate by earlier scholars was \"genuine,\" or actual and true, while the one by Salazar’s team wasn’t, since the text treats the finding by Salazar’s team as true and as invalidating the earlier estimate (\"it is approximately 20 years older than scholars thought\"). Choice B is incorrect. The text’s structure indicates that the missing word describes the estimate made by scholars when they first encountered Machu Picchu in 1911 in relation to the age determined by Salazar and her colleagues. It wouldn’t make sense to suggest that the estimate by earlier scholars was \"intentional,\" or done on purpose, while the one by Salazar’s team wasn’t; the text indicates that Salazar and her colleagues were deliberately using radiocarbon dating to study Machu Picchu. Choice C is incorrect. The text’s structure indicates that the missing word describes the estimate made by scholars when they first encountered Machu Picchu in 1911 in relation to the age determined by Salazar and her colleagues. There’s no reason to suggest that the estimate by earlier scholars was \"independent,\" or not controlled by or affiliated with others, while the one by Salazar’s team wasn’t; there’s no mention of any outside influence on the work by Salazar and her team or by scholars in 1911.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7a327791",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Novelist Leon Forrest admired William Faulkner’s writing style. Forrest’s novel Divine Days contains a long passage in tribute to Faulkner that is a perfect ______ of Faulkner’s style: anyone familiar with Faulkner’s writing would see the resemblance.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. forgetting",
+      "B. rejection",
+      "C. imitation",
+      "D. opinion"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of novelist Leon Forrest’s admiration of William Faulkner’s writing style. In this context, \"imitation\" means something that resembles or reproduces something else. The text states that Forrest admired Faulkner’s style and that anyone familiar with Faulkner’s style would be able to see the stylistic similarities between a particular passage in Forrest’s novel Divine Days and Faulkner’s writing, a fact that supports the idea that Forrest’s novel pays tribute to Faulkner by reproducing, or imitating, Faulkner’s style. Choice A is incorrect because in this context, a \"forgetting\" would mean an instance in which something is overlooked or not remembered. The text emphasizes Forrest’s admiration for Faulkner’s style and the fact that Forrest’s writing in some instances closely resembles Faulkner’s stylistically. It therefore wouldn’t make sense to say that in trying to pay tribute to Faulkner’s style, Forrest failed to remember it. Choice B is incorrect because in this context, a \"rejection\" would mean a dismissal of something as unworthy. The text emphasizes Forrest’s admiration for Faulkner’s writing style, stating that parts of Forrest’s writings indicate efforts to copy that style. It wouldn’t make sense therefore to suggest that Forrest had rejected or dismissed Faulkner’s style as unworthy. Choice D is incorrect because in this context, an \"opinion\" would mean a view or judgment. Although the text focuses on Forrest’s admiration of Faulkner, which suggests that Forrest had formed a positive judgment of Faulkner’s style, the word opinion wouldn’t make sense in this sentence: the sentence doesn’t say that the passage from Forrest’s novel expresses his view of Faulkner’s style; rather, it suggests that stylistically, the passage closely resembles, or imitates, Faulkner’s writing.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0ee67e09",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Anthropologist Kristian J. Carlson and colleagues examined the fossilized clavicle and shoulder bones of a 3.6-million-year-old early hominin known as “Little Foot.”They found that these bones were ______ the clavicle and shoulder bones of modern apes that are frequent climbers, such as gorillas and chimpanzees, suggesting that Little Foot had adapted to life in the trees.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. surpassed by",
+      "B. comparable to",
+      "C. independent of",
+      "D. obtained from"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the fossilized bones of the hominin known as Little Foot. As used in this context, “comparable to”would mean similar to. The text indicates that the relationship between the fossilized clavicle and shoulder bones of Little Foot and the clavicle and shoulder bones of “frequent climbers,”such as chimpanzees and gorillas, suggests that Little Foot had adapted to moving around in trees. This context suggests that the relationship between the fossilized bones of Little Foot and the bones of chimpanzees and gorillas is one of similarity—the Little Foot fossils are likely comparable to the modern ape bones. Choice A is incorrect because if the fossilized bones of Little Foot were “surpassed by,”or exceeded by or made inferior to, the bones of modern apes that are frequent climbers, it wouldn’t suggest, as the text says, that Little Foot was adapted to moving around in trees. If anything, learning that Little Foot’s clavicle and shoulder bones were surpassed by those of chimpanzees and gorillas would suggest that Little Foot was poorly adapted to climbing. Choice C is incorrect because if Little Foot’s fossilized clavicle and shoulder bones were “independent of,”or not influenced by or affiliated with, the bones of modern apes that climb often, it wouldn’t suggest, as the text says, that Little Foot was adapted to moving around in trees. Choice D is incorrect because the text indicates that Little Foot’s fossilized bones date to 3.6 million years ago, so they couldn’t have been “obtained from,”or acquired from, the bones of modern apes.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "760ee1db",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Although the playwrights hoped that their play would be ______ when performed live, critics generally agreed that the production and performances had the opposite effect, wearying audiences instead of energizing them.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. multifaceted",
+      "B. realistic",
+      "C. rousing",
+      "D. subtle"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the play’s effect on audiences. As used in this context, “rousing” means exciting or energizing. The text indicates that critics found the play to have “the opposite effect” on audiences of what the playwrights hoped for. The critics, the text says, thought the play was wearying rather than energizing to viewers. This context supports the idea that the playwrights hoped live performances of the play would be energizing, or rousing, to audiences. Choice A is incorrect because there’s no information in the text suggesting that the playwrights hoped live performances of the play would be “multifaceted,” or be varied or have many aspects. The text indicates that critics found the play to be wearying to audiences and that this was the opposite of what the playwrights hoped for. Multifaceted is not the opposite of wearying, but rousing is, which suggests that the playwrights hoped the play would be rousing. Choice B is incorrect because there’s no information in the text suggesting that the playwrights hoped live performances of the play would be “realistic,” or lifelike or sensible. The text says that critics found the play to be wearying to audiences and that this was the opposite of what the playwrights hoped for. Realistic is not the opposite of wearying, but rousing is, which suggests that the playwrights hoped the play would be rousing. Choice D is incorrect because there’s no information in the text suggesting that the playwrights hoped live performances of the play would be subtle, or complex or understated. The text says that critics found the play to be wearying to audiences and that this was the opposite of what the playwrights hoped for. Subtle is not the opposite of wearying, but rousing is, which suggests that the playwrights hoped the play would be rousing.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "417f8dfa",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Darcie Little Badger’s 2021 novel A Snake Falls to Earth. Nina is looking at old family photographs.\n\nNina couldn’t stop looking at the sepia-toned photograph in an oak frame. Propped on the window ledge, it featured a portrait of Great-Great-Grandmother Rosita as a young woman.\n\n©2021 by Darcie Little Badger",
+    "question": "As used in the text, what does the word “featured” most nearly mean?",
+    "options": [
+      "A. Displayed",
+      "B. Questioned",
+      "C. Approved",
+      "D. Ignored"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, \"featured\" most nearly means displayed. The text describes Nina’s fascination with a framed photograph. It then goes on to describe what the photograph showed, or displayed, which is a portrait of Nina’s great-great-grandmother Rosita as a young woman. Thus, the text indicates that the photograph displayed a portrait of Rosita. Choice B is incorrect because the text identifies the person shown in the photograph as Nina’s great-great-grandmother; it gives no indication that the contents of the photograph were questioned, or asked about. Choice C is incorrect because approved means expressed a favorable opinion of, and there’s nothing to suggest that the photograph of Nina’s great-great-grandmother has received approval or been viewed favorably, only that Nina is unable to stop looking at it. Choice D is incorrect because nothing in the text suggests that the photograph Nina is fascinated with ignored, or refused to take notice of, Nina’s great-great-grandmother Rosita. Rather, the text indicates that the photograph was a portrait of Rosita.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e5ca7687",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Archaeologists studying the ancient city of Pompeii in Italy recently discovered a well-preserved food shop known as a thermopolium. The site contains food remains, artworks, and decorations. These items give researchers a better understanding of what daily life in Pompeii may have been like. For example, the archaeologists found a ceramic jar that they believe likely contained a meat and seafood stew.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To compare ancient artworks with modern ones",
+      "B. To discuss the political system of Italy",
+      "C. To present a recent archaeological discovery",
+      "D. To describe a region’s climate"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the main purpose of the text. The text states that archaeologists recently discovered a well-preserved food shop, or thermopolium, in Pompeii, Italy. The text then further describes the contents of the discovery and provides an example of what was found. Thus, the overall purpose of the text is to present a recent archaeological discovery. Choice A is incorrect. Although the text states that archaeologists found ancient artworks, it doesn’t compare these artworks to modern ones or to any other artworks. Choice B is incorrect. Although the archaeological discovery discussed in the text was made in Italy, the text doesn’t provide any information about politics or government in Italy. Choice D is incorrect because the text doesn’t discuss the climate where the archaeological discovery was made or in any other region.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "97ca2cda",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "In the early days of television in the 1940s, many people thought that US television programs would rely on the financial support of ad agencies and commercial sponsors, much like radio did. But advertisers hesitated to jump into a new space, <u>particularly at a time when the manufacturing of new television sets was stalled due to the US’s involvement in World War II.</u> Broadcasters, like the National Broadcasting Company (NBC), needed to persuade advertisers to support their programming despite not knowing whether there would be a robust television audience to begin with.",
+    "question": "Which choice best describes the function of the underlined phrase in the text as a whole?",
+    "options": [
+      "A. It compares the beginnings of radio programming with the beginnings of television programming in the United States.",
+      "B. It identifies a specific reason behind some advertisers’ hesitance to support television.",
+      "C. It describes how broadcasters attempted to convince advertisers to support television.",
+      "D. It explains why a type of television programming was popular at the time."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it accurately describes the function of the underlined phrase in the text as a whole. According to the text, advertisers were reluctant to support television in its early days. The underlined phrase then indicates that this reluctance was partly due to the US’s involvement in World War II, which hindered television production. Thus, the underlined phrase identifies a specific reason behind some advertisers’ hesitance to support television. Choice A is incorrect. The text merely mentions that television was expected to be financed through advertising, as radio was at the time. Nothing in the text compares the origins of radio and television. Choice C is incorrect. The underlined phrase focuses on a reason advertisers were reluctant to support television, not measures taken to convince advertisers to support television. Choice D is incorrect. The underlined phrase focuses on a reason advertisers were reluctant to support television, not what types of television programming were popular.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1695391a",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Alice Kaplan’s 1993 memoir French Lessons.\n\nWhen I started to talk on my own, I couldn’t be stopped. When I was in first grade, my sister’s friends could hardly stand to ride to school with me in the car. I was loud and unrelenting.\n\n©1993 by The University of Chicago",
+    "question": "As used in the text, what does the author most nearly mean by “I couldn’t be stopped”?",
+    "options": [
+      "A. She had a hard time sitting still.",
+      "B. She often changed her mind.",
+      "C. She was well liked as a child.",
+      "D. She seemed to talk all the time."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because as used in the text, “I couldn’t be stopped”most nearly means the author seemed to talk all the time. The text establishes that the author is discussing her early speaking habits, stating, “When I started to talk on my own, I couldn’t be stopped.”The following sentences provide context that clarifies the significance of this statement: her sister’s friends “could hardly stand to ride to school” with the author because she “was loud and unrelenting.”This suggests that once the author began speaking, she talked all the time—to the point of annoying others. Choice A is incorrect because although the phrase “I couldn’t be stopped”could potentially refer to physical movement, the context clearly establishes that the author is discussing her talking habits, not her inability to sit still. The text specifically mentions that she “was loud and unrelenting”and that her sister’s friends disliked riding in the car with her, suggesting that the issue was excessive talking, not physical restlessness. Choice B is incorrect because nothing in the text suggests that the author was fickle or frequently changed her mind. In this context, the phrase “I couldn’t be stopped”refers to the author’s persistent talking, as signaled by her characterization as “loud and unrelenting.” Choice C is incorrect because the text doesn’t indicate that the author was popular or well liked as a child. In fact, it suggests the opposite by stating that her sister’s friends “could hardly stand”to ride in the car with her. Because of her excessive talking, in other words, people found the author annoying as a child.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "8d579825",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The printing of Virginia Woolf’s novels featured a creative ______ between Woolf and her sister Vanessa Bell: a talented painter, Bell worked closely with Woolf to create original cover art for most of the novels.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. rebellion",
+      "B. partnership",
+      "C. discovery",
+      "D. disagreement"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the cover art of Virginia Woolf’s novels. In this context, “partnership” means collaboration or joint effort. The text states that Woolf’s sister Vanessa Bell was a talented painter and that Bell worked with Woolf to provide the cover art for most of Woolf’s novels. Thus, this context suggests that Woolf and Bell pursued a creative partnership in order to produce several of Woolf’s novels. Choice A is incorrect because there is no indication that Woolf or Bell were undergoing a “rebellion,” or revolt, against anything in particular. Instead, the text focuses on how they worked together in some aspects of the production of Woolf’s novels. Choice C is incorrect because there is nothing in the text to indicate that Woolf or Bell made a “discovery,” or encountered anything new for the first time as they worked together. The text suggests that Woolf had already written her novels and that Bell then assisted Woolf with the cover art for many of them. Choice D is incorrect because the text implies that Woolf and Bell had a positive relationship. According to the text, the sisters “worked closely” together to produce the cover art for many of Woolf’s novels; the text doesn’t mention whether while working together, Woolf and Bell had a “disagreement,” or conflict.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "79dec1e1",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Art scholars have noted that some colors seem to be more ______ viewers than others. For example, people tend to find paintings featuring blues and greens more appealing than paintings featuring yellows and oranges.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. confusing for",
+      "B. attractive to",
+      "C. corrected by",
+      "D. similar to"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best completes the text’s discussion of how viewers respond to colors. The text presents something art scholars have noted and gives the example of people tending to find paintings with blues and greens more appealing than those with yellows and oranges. This context conveys that certain colors are more \"attractive to\" viewers than other colors are. Choice A is incorrect because the text indicates only that people tend to find some colors more appealing than others and gives no indication that certain colors are ever \"confusing for,\" or puzzling to, viewers. Choice C is incorrect because the text discusses the relative appeal of certain colors in paintings but gives no indication that any colors would ever be \"corrected by\" viewers, or somehow fixed or improved by them. Choice D is incorrect because it wouldn’t make much sense to say that some colors are more \"similar to\" viewers than others, which would suggest that colors and viewers are alike to different degrees. Further, the text primarily emphasizes a difference, not a similarity, in how appealing paintings tend to be based on the colors they contain.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "bcc91b1e",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The spacecraft OSIRIS-REx briefly made contact with the asteroid 101955 Bennu in 2020. NASA scientist Daniella DellaGiustina reports that despite facing the unexpected obstacle of a surface mostly covered in boulders, OSIRIS-REx successfully ______ a sample of the surface, gathering pieces of it to bring back to Earth.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. attached",
+      "B. collected",
+      "C. followed",
+      "D. replaced"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the OSIRIS-REx spacecraft’s contact with the asteroid 101955 Bennu. In this context, “collected” means acquired and took away. The text indicates that although the boulders on the asteroid’s surface caused some unforeseen problems, OSIRIS-REx was able to gather a sample to return to Earth. This context suggests that OSIRIS-REx successfully collected a sample of 101955 Bennu. Choice A is incorrect because in this context “attached” means connected or affixed. The text indicates that OSIRIS-REx gathered pieces of 101955 Bennu to bring to Earth; it doesn’t suggest that the spacecraft attached anything to the asteroid. Choice C is incorrect because in this context “followed” means tracked or traveled behind and the text discusses OSIRIS-REx’s brief encounter with 101955 Bennu during which the spacecraft gathered a sample to bring to Earth. The text doesn’t suggest that the spacecraft tracked the sample, and it’s not clear what it would mean for the spacecraft to travel behind the sample it collected. Choice D is incorrect because in this context “replaced” means put back or returned. The text indicates that OSIRIS-REx gathered pieces of 101955 Bennu to bring to Earth but doesn’t suggest that anything was returned to the asteroid.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7d075fc5",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Oral histories—whether they consist of interviews or recordings of songs and stories—can offer researchers a rich view of people’s everyday experiences. For her book about coal mining communities in Kentucky during the twentieth century, Karida Brown therefore relied in part on interviews with coal miners and their families. <u>By doing so, she gained valuable insights into her subjects’day-to-day lives.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It provides a little-known geographical fact about Kentucky.",
+      "B. It argues that Karida Brown is an expert on United States politics.",
+      "C. It presents a major historical event that took place in the twentieth century.",
+      "D. It describes how Karida Brown benefited from incorporating oral history in her book."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes how the underlined sentence functions in the text as a whole. The text begins by pointing out one of the advantages of oral histories: that they allow researchers to document the daily experiences of people. The text then goes on to describe how Karida Brown utilized interviews with coal miners and their families for her book about twentieth-century coal mining in Kentucky. The underlined sentence affirms that the general advantages of oral histories mentioned earlier in the text were also benefits in Brown’s particular case. Thus, the underlined sentence describes how Karida Brown benefited from incorporating oral history in her book. Choice A is incorrect because though the text mentions coal miners who live in Kentucky, the underlined sentence does not offer a geographical fact about Kentucky. Choice B is incorrect because the underlined sentence does not mention United States politics or that Brown is an expert in this particular area. Choice C is incorrect. Although the text mentions that Brown’s book revolved around coal miners during the twentieth century, the underlined sentence does not focus on a major historical event during this time.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "31d0bd9a",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The parasitic dodder plant increases its reproductive success by flowering at the same time as the host plant it has latched onto. In 2020, Jianqiang Wu and his colleagues determined that the tiny dodder achieves this ______ with its host by absorbing and utilizing a protein the host produces when it is about to flower.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. synchronization",
+      "B. hibernation",
+      "C. prediction",
+      "D. moderation"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of a relationship between the dodder plant and its host plant. As used in this context, “synchronization”means the act of things happening at the same time. The text indicates that the dodder and its host plant flower in unison and that this synchronization occurs because the dodder makes use of a protein produced by the host shortly before flowering. Choice B is incorrect because referring to “hibernation,”or the state of being dormant or inactive, wouldn’t make sense in context. The text focuses on something the dodder plant actively engages in—making use of a protein and producing flowers. Choice C is incorrect because stating that the dodder plant and its host engage together in “prediction,”or the act of declaring or indicating something in advance, wouldn’t make sense in context. Rather than indicating that the dodder plant and its host plant make a prediction about flowering activity, the text suggests that the host produces a protein as part of its regular flowering process and that the dodder then absorbs and uses that protein to flower at the same time. Choice D is incorrect because referring to “moderation,”or the act of causing something to become less intense or extreme, wouldn’t make sense in context. Although the text states that the dodder plant absorbs and uses a protein made by its host plant, it doesn’t suggest that the dodder lessens the host plant’s flowering activity; the two plants simply flower in unison.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "cf9a3f34",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Elizabeth von Arnim’s 1922 novel The Enchanted April. Mrs. Wilkins and her friend Rose are traveling in Italy.\n\n“I’m going to have one of these gorgeous oranges,”said Mrs. Wilkins, staying where she was and reaching across to a black bowl piled with them. “Rose, how can you resist them. Look—have this one. Do have this beauty—”And she held out a big one.",
+    "question": "As used in the text, what does the phrase “reaching across to”most nearly mean?",
+    "options": [
+      "A. Joining with",
+      "B. Gaining on",
+      "C. Stretching toward",
+      "D. Arriving at"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because as used in the text \"reaching across to\" most nearly means stretching toward. The text begins with Mrs. Wilkins stating that she wants to have one of the oranges that she’s admiring. The text then indicates that Mrs. Wilkins, staying where she is, holds out a big orange to her friend. This context suggests that when the text describes Mrs. Wilkins as reaching across to the bowl of oranges, it means that she is stretching toward the bowl. Choice A is incorrect because the text never suggests that Mrs. Wilkins is joining with, or becoming attached to, the bowl of oranges. Rather, the text indicates that she is stretching toward the bowl so she can pick out oranges for herself and her friend Rose to eat. Choice B is incorrect because the text never suggests that Mrs. Wilkins is gaining on, or overtaking in a competition or race, the bowl of oranges. The text suggests instead that the bowl is sitting still on a surface and that Mrs. Wilkins is extending her arm toward the bowl so she can pick out oranges for herself and her friend Rose to eat. Choice D is incorrect because the text doesn’t indicate that Mrs. Wilkins is arriving at the bowl of oranges. In fact, the text states that Mrs. Wilkins stays where she is when reaching across to the bowl, meaning that she remains at a distance from it.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "70612a79",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Following the eradication of the gray wolf in Yellowstone National Park in 1926, the population of elk—a primary prey of the gray wolf—exceeded a healthy size for the park’s ecosystem. Elk overpopulation led to overgrazing of areas that a multitude of other animals relied on for food and shelter. As scientists began to see how essential the gray wolf was to the Yellowstone food chain, ecological restoration strategies were employed to reintroduce the gray wolf to the park in 1996. The rebound effect in the park’s natural ecosystem was noticed almost immediately.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It summarizes a problem that developed in Yellowstone National Park in the 1920s and then offers potential solutions to that problem.",
+      "B. It mentions the elimination of the gray wolf from Yellowstone National Park and then explains why the wolf was eventually restored to the park.",
+      "C. It presents a claim about the health of the Yellowstone National Park gray wolf population and then gives specific examples to support that claim.",
+      "D. It explains why Yellowstone National Park allowed the eradication of the gray wolf and then discusses the consequences of reintroducing the wolf to the park."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the overall structure of the text. The text begins by stating that the gray wolf was eradicated from Yellowstone National Park in 1926. It then explains the consequences of this elimination—namely that the elk population grew too large and overgrazing occurred, negatively affecting other animals in the area. The text then states that once scientists realized the importance of the gray wolf to the Yellowstone food chain, they undertook efforts leading to the wolves’reintroduction to the park in 1996. Thus, the structure of the text can be accurately described as mentioning the elimination of the gray wolf from Yellowstone and then explaining why the wolf was later restored to the park. Choice A is incorrect. While the text does summarize a problem associated with an event in the 1920s (the eradication of gray wolves from Yellowstone in 1926), the problems discussed arose after that event—namely, the subsequent elk overpopulation, resultant overgrazing, and then further impacts to other animals in Yellowstone. Furthermore, the text doesn’t present multiple potential solutions. Instead, it describes one solution that was actually implemented: the reintroduction of gray wolves in 1996. Choice C is incorrect because the text doesn’t make a claim about the health of the gray wolf population apart from pointing out that the wolves had been eradicated from, and then subsequently restored to, Yellowstone. Instead, the text focuses on outcomes associated with the gray wolf’s eradication and reintroduction. Choice D is incorrect. Though the text does mention that the ecosystem of Yellowstone rebounded after the gray wolf was reintroduced in 1996, the text never explains why the park allowed the wolves to be eradicated in 1926. It simply states that this eradication occurred without elaborating on the decision- making process behind it.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1b5d4e3e",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Were penguins always flightless? <u>Theresa Cole and her team argue that penguins could fly at some point, but that they lost that ability more than 60 million years ago as they adapted to marine life.</u> After examining various penguin fossils and genetic information, the researchers concluded that over time penguins developed underwater vision, blood oxygenation, and bone density better suited for swimming than flying. Thus, environmental conditions might have driven penguins to change from flyers to swimmers.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It defines a scientific term used in the sentence that follows.",
+      "B. It contradicts a description in the sentence that follows.",
+      "C. It provides an answer to the question in the previous sentence.",
+      "D. It notes that the question in the previous sentence has not been researched."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes how the underlined sentence functions in the text as a whole. The text begins with a question: have penguins always been unable to fly? The underlined sentence then presents an answer that has been offered by researchers, indicating that Theresa Cole and her team believe that penguins were once able to fly but lost that ability long ago as they began living in the sea. The text then describes the research that led to that answer. Thus, the function of the underlined sentence is to provide an answer to the question in the previous sentence. Choice A is incorrect because none of the terms used in the sentence that follows are defined in the underlined sentence; no definitions are given at all. Instead, the sentence presents Theresa Cole and her team’s answer to the earlier question about penguins’ ability to fly. Choice B is incorrect because there is no contradiction between the underlined sentence and the sentence that follows since both convey that at some point penguins underwent adaptations that limited their ability to fly and helped them swim and live in the sea. Instead of contradicting later information, the underlined sentence presents an answer to the earlier question about penguins’ ability to fly. Choice D is incorrect because the question in the previous sentence is about penguins’ ability to fly and the underlined sentence presents Theresa Cole and her team’s answer to that question based on their research into penguin flight, which is described in the rest of the text.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "47955354",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Sumerian civilization (which lasted from around 3300 to 2000 BCE) ______ many concepts that persist into present-day civilizations: for example, the first description of the seven-day week appears in the Sumerian Epic of Gilgamesh.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. transformed",
+      "B. introduced",
+      "C. inherited",
+      "D. overlooked"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the contributions of the Sumerian civilization. In this context, “introduced” means brought into practice or use. The text states that the first reference to a seven-day week appears in the Sumerian Epic of Gilgamesh. The text presents this information about the seven-day week as an example of a concept introduced by the Sumerian civilization that persists into present-day civilizations. Choice A is incorrect because nothing in the text suggests that the Sumerian civilization “transformed,” or changed the nature of, concepts that persist into present-day civilizations. Instead, the text’s presentation of a Sumerian literary work that contains the first description of the seven- day week is an example of the phenomenon described in the first half of the sentence, suggesting that the Sumerians invented many concepts that still persist. Choice C is incorrect because the information that a Sumerian literary work includes the first description of the seven-day week suggests that Sumerian civilization may have originated the seven-day week and other concepts that persist into present-day civilizations, not that it “inherited” the concepts, or received them from an ancestral figure or culture. Choice D is incorrect because the information that Sumerian civilization produced the first description of the seven-day week is presented as an example of the phenomenon described in the first half of the sentence, suggesting that Sumerian civilization originated this and other concepts that still persist, not that the Sumerians “overlooked,” or failed to notice or consider, such concepts.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a3761c7e",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Physicist Joseph Weber performed ______ work in gravitational wave research in the 1960s and 1970s, conducting key experiments that scientists later used as the basis for their own investigations that led to the first verified detection of a gravitational wave in 2015.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. foundational",
+      "B. supplementary",
+      "C. repetitive",
+      "D. ineffective"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of physicist Joseph Webster’s research on gravitational waves. In this context “foundational” means the basis on which something else develops. The text indicates that Webster’s experiments in the 1960s and 1970s were earlier than, and “key” to, the work of later scientists in the field; thus, Webster’s work was foundational to the later scientists’ experiments and the eventual detection of a gravitational wave in 2015. Choice B is incorrect because the text does not suggest that Webster’s work was supplementary, or an additional element of an existing, larger project, but rather it was “the basis for” later experiments. Choice C is incorrect because the text does not assert that Webster’s work was repetitive, or involved doing something the same way many times. Rather, the text indicates that Webster’s work formed the basis for later investigations in the field of gravitational wave research. Choice D is incorrect because the text does not state that Webster’s work was ineffective, or failed to produce the desired outcome. Rather, the text strongly implies that Webster’s work was productive and extremely important to later work in the field of gravitational wave research.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a086c2cb",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Built in the 1970s, Raccoon Mountain is a pumped-storage hydropower facility (a “water-battery”) located in the United States along the Tennessee River. When energy demand is low, excess power from the regional electric utility’s nuclear plants is used to pump water (from a lower reservoir filled from the Tennessee River) up a shaft to the summit lake, where the water is stored as gravitational potential energy. When energy demand peaks, the water drains down from the summit lake, spinning turbines and generating upward of 1,700 megawatts of power— enough to power one million homes for twenty hours.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To point out the differences between two methods of energy generation",
+      "B. To explain the basics of how a specific energy technology works",
+      "C. To encourage regional electric utilities to build energy storage facilities",
+      "D. To discuss the benefits of a new energy technology"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the main purpose of the text, which is to explain the basics of how a specific energy technology works. The text introduces Raccoon Mountain as a pumped-storage hydropower facility built in the 1970s and then explains how it operates: during periods of low demand, excess power pumps water up to a lake at the mountain’s summit, and when demand for energy peaks, the water flows back down, spinning turbines along the way to generate electricity. The text provides some additional details, like the name of the water source, but the overall focus is on explaining the basics of how pumped-storage hydropower works. Choice A is incorrect because the text focuses on one method of energy generation—pumped-water hydropower—and briefly mentions another type of energy generation (nuclear plants) only to identify it as a source of power for the pumping process. The text never makes any comparison between the two methods. Choice C is incorrect because the text simply gives a factual description of how Raccoon Mountain, a pumped- storage hydropower facility, operates; it never suggests that more energy storage facilities should be built, whether by regional utilities or by any other entity. Choice D is incorrect because the text doesn’t present pumped-storage hydropower as a new technology; it indicates that Raccoon Mountain was built in the 1970s, meaning that, rather than being new, this facility is approximately 50 years old.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a20b7511",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Scholars long thought that the initial spread of silk beyond China occurred in the second century CE, but this view has been ______ by new archaeological evidence from South Asia that reveals that the people of the Indus Civilization made use of silk at least 1,000 years earlier.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. investigated",
+      "B. misinterpreted",
+      "C. anticipated",
+      "D. contradicted"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the initial spread of silk beyond China. In this context, “contradicted” means opposed or challenged. The text indicates that new archaeological evidence about silk use in South Asia has done something to a long-held thought about the initial spread of silk. According to the text, the new evidence reveals that people used silk in South Asia 1,000 years before the second century CE, which directly challenges the previous belief that silk first spread beyond China in the second century CE. Choice A is incorrect because the text indicates that an archaeological finding about silk use has done something to a long-held thought about the initial spread of silk, and it wouldn’t make sense to suggest that the finding could have “investigated,” or examined, a belief; evidence can’t examine anything. Choice B is incorrect because the text indicates that an archaeological finding about silk use has done something to a long- held thought about the initial spread of silk, and it wouldn’t make sense to suggest that the finding could have “misinterpreted,” or incorrectly understood, a belief; evidence can’t try to understand anything. Choice C is incorrect. In this context, “anticipated” would mean expected or predicted. The text indicates that a new archaeological finding about silk use has done something to a long-held thought about the initial spread of silk, and a new finding can’t predict a belief that is already established.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "80ebb189",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "As an architect in Los Angeles in the 1950s, Helen Liu Fong became known for avoiding ______ designs in her buildings. Instead of using standard shapes and colors, she typically explored innovative forms and daring hues.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. creative",
+      "B. bold",
+      "C. traditional",
+      "D. understandable"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Helen Liu Fong’s architectural designs. In this context, “traditional” means conventional. The text states that rather than use “standard shapes and colors,” Fong pursued “innovative” and “daring” design choices in her work. Fong’s style is depicted as inventive, so it therefore makes sense in this context that she avoided mainstream, traditional designs in her buildings. Choice A is incorrect because the text indicates that Fong’s work is innovative and experimental. Thus, Fong’s design choices could reasonably be considered creative, or original. She likely would have pursued creative designs, not avoided them. Choice B is incorrect because the text indicates that Fong used “daring” hues in her designs. Thus, Fong likely would have pursued bold, or brave and vivid design choices; she wouldn’t have avoided them. Choice D is incorrect because the text doesn’t address whether Fong’s designs are understandable, or reasonable or expected. The text focuses on certain characteristics of Fong’s designs, not on how people received or understood them.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b940952c",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "On the basis of extensive calculations and models, astronomers in the 1990s predicted that the collision of two neutron stars or a neutron star and a black hole could release a massive burst of gamma rays in an event called a kilonova. This ______ was confirmed with observations in 2017.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. theory",
+      "B. evidence",
+      "C. constant",
+      "D. experiment"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of a prediction about a kilonova. In this context, a \"theory\" is an explanation that is considered scientifically acceptable. The text states that astronomers predicted in the 1990s that a collision between a black hole and a neutron star or between two neutron stars could release a massive gamma ray burst called a kilonova, explaining that they determined this possibility based on their extensive work with existing data and simulations (\"calculations and models\"). In other words, the prediction was a theory—a well-supported explanation—that, as the text indicates, was later confirmed with observations in 2017. Choice B is incorrect because the text indicates that it is the prediction made by astronomers in the 1990s that was confirmed in 2017, and a prediction of an event isn’t \"evidence,\" or proof, of that event’s existence, even when the prediction is based on extensive study. Further, there would be no need for later confirmation of something that was already recognized as evidence. Choice C is incorrect because in this context, a \"constant\" is a situation or factor that doesn’t change. The text indicates that it is the prediction made by astronomers in the 1990s that was confirmed in 2017, and there is no reason to describe the prediction as a constant because the text doesn’t suggest that the prediction was completely unchanged over time—it addresses only the making of the prediction and its later confirmation. Choice D is incorrect because the text indicates that it is the prediction made by astronomers in the 1990s that was confirmed in 2017; although a prediction might be informed by an \"experiment,\" or a controlled test, a prediction is an idea rather than a test.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "683f66c9",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Though not closely related, the hedgehog tenrecs of Madagascar share basic ______ true hedgehogs, including protective spines, pointed snouts, and small body size—traits the two groups of mammals independently developed in response to equivalent roles in their respective habitats.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. examples of",
+      "B. concerns about",
+      "C. indications of",
+      "D. similarities with"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because in context, sharing \"similarities with\" means having some resemblance to. The text establishes a comparison between two groups of mammals, stating that although they aren’t closely related, hedgehog tenrecs and true hedgehogs play similar roles in their habitats, a circumstance that has resulted in the independent development of some of the same physical traits. This context supports the idea that hedgehog tenrecs resemble, or share basic similarities with, true hedgehogs in some respects. Choice A is incorrect because the text doesn’t suggest that hedgehog tenrecs are \"examples of,\" or representative of, true hedgehogs. The text states that despite some shared physical traits, the two groups of mammals aren’t closely related; therefore, hedgehog tenrecs can’t be examples of true hedgehogs. Choice B is incorrect because in this context, \"concerns about\" would mean worries about or interests in. The text focuses on the various physical traits that hedgehog tenrecs and true hedgehogs share. There’s nothing in the text to suggest why hedgehog tenrecs would be worried about true hedgehogs, or why they would be interested in them. Choice C is incorrect because in this context, \"indications of\" would mean evidence of. By listing a set of traits that hedgehog tenrecs share with true hedgehogs, the text establishes a comparison between the two groups of mammals, and saying that the traits shared within one group of mammals provide evidence of another group of mammals wouldn’t be an effective way to establish the similarities between the two groups.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "10a409bd",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Ida B. Wells’s 1970 autobiography A Crusade for Justice. Mr. Watts is a reference to George Frederic Watts, an English painter.\n\n[Manchester’s] art galleries are so arranged that the name of every picture is plainly seen and one has no need of a catalogue to pick out the name and the artist. This is a convenience to the general public, which other art galleries, which shall be nameless, might copy to advantage. To her treasure of art Manchester has added Mr. Watts’ latest picture, the Good Samaritan.\n\n©1970 by the University of Chicago Press",
+    "question": "As used in the text, what does the word “arranged” most nearly mean?",
+    "options": [
+      "A. Organized",
+      "B. Ranked",
+      "C. Scheduled",
+      "D. Discussed"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, \"arranged\" most nearly means \"organized.\" The text states that a welcome feature of Manchester’s art galleries (as opposed to others) is that the titles of the paintings are easy to see and that a catalogue is therefore unneeded while visitors browse the art galleries. This suggests that the paintings are displayed in a systematic, or organized, way. Choice B is incorrect. \"Ranked\" might mean either classified or placed in orderly rows. Neither of these meanings would necessarily imply that the names of the paintings are easy to see (even if the paintings are placed in rows, their labels might be obscured). Choice C is incorrect because it would not make sense in context to describe the paintings as \"scheduled,\" or planned to take place at a certain time. Choice D is incorrect because if the paintings were \"discussed,\" or talked about, this would have no bearing on whether the names of the paintings could be easily seen.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b0ea8c28",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Sueño de Familia is an exhibition of drawings, paintings, and ceramics that explores the artistic heritage of US-based artist Yolanda González. The exhibition ______ five generations, featuring works by González’s great-grandfather, grandmother, mother, and niece as well as González herself.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. borrows",
+      "B. spans",
+      "C. judges",
+      "D. neglects"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the Sueño de Familia art exhibition. In this context, “spans” means extends across or covers. The text states that the exhibition explores González’s artistic heritage and features artwork by her great-grandfather, grandmother, mother, and niece. This context conveys the idea that the exhibition spans, or extends across, five generations of González’s family. Choice A is incorrect because it wouldn’t make sense to say that the exhibition “borrows,” or acquires, five generations of González’s family. The text indicates that the exhibition features artwork by family members from five generations, not that the five generations themselves have been acquired for inclusion in the exhibition. Choice C is incorrect because the text indicates that the purpose of the exhibition is to highlight artwork, not to “judge,” or give an opinion on, five generations of the artist’s family. Choice D is incorrect because the text doesn’t suggest that the exhibition “neglects,” or gives little attention to, five generations of González’s family. On the contrary, the text indicates that the exhibition is dedicated to exploring González’s artistic heritage and therefore designed to bring attention to her family members and their artwork.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e5e7f264",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The general store was essential to daily life in the rural United States during the 1800s because it provided the supplies that the people living in nearby communities needed. Also, the store was a ______ of information. People socializing at the general store would share news and help spread it throughout their communities.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. source",
+      "B. rival",
+      "C. condition",
+      "D. waste"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the role of the general store in US rural communities during the 1800s. In this context, \"source\" means a place where something originates or is obtained. The text states that people would share news while socializing at the general store. This context supports the idea that the store served as a source of information in rural communities. Choice B is incorrect because \"rival\" would mean competitor or opponent. The text doesn’t indicate that the general store was a rival of anything. Instead, the text describes the general store as a place that enabled the sharing of information within rural communities. Choice C is incorrect because in this context, \"condition\" would mean state, circumstance, or requirement. Although the text implies that visiting the store was helpful for acquiring information since people shared news there, it wouldn’t make sense to say that the general store was a condition of information. Choice D is incorrect because \"waste\" would mean something that is unused, discarded, or spent unnecessarily, which would not make sense in context. The text describes the general store as an essential part of daily life and a place for socializing and information sharing. The store was therefore a source, not a waste, of information.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e5da61f1",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Charles Chesnutt’s 1899 short story “Mars Jeems’s Nightmare.”The narrator and his wife have recently moved to the southern United States, and Julius is their carriage driver.\n\nJulius [was] very useful when we moved to our new residence. He had a thorough knowledge of the neighborhood, was familiar with the roads and the watercourses, knew the qualities of the various soils and what they would produce, and where the best hunting and fishing were to be had. He was a marvelous hand in the management of horses and dogs.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To compare the narrator’s reaction to a new home with his wife’s reaction",
+      "B. To give an example of Julius’s knowledge about soil",
+      "C. To show that the narrator and Julius often hunt and fish together",
+      "D. To explain different ways in which Julius was helpful"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes the main purpose of the text, which is to explain different ways in which Julius was helpful. The text begins with the narrator stating that Julius was very helpful to him and his wife when they moved to their new residence. The narrator then provides a list of examples to illustrate Julius’s helpfulness. For instance, the narrator states that Julius was familiar with the neighborhood’s roads, which suggests that he was helpful in navigating them, and that Julius helped manage the horses and dogs. The text’s many examples of Julius’s usefulness reinforce just how helpful he was and in how many different ways. Choice A is incorrect because the text doesn’t portray either the narrator’s or his wife’s reaction to their new home. Rather, the text focuses on how Julius was useful to the narrator and his wife in their new home. Choice B is incorrect. Although the text states that Julius was knowledgeable about the soil, this is one of several supporting details that illustrate how helpful Julius was. Moreover, the text merely states that Julius was knowledgeable about soil; it doesn’t provide an example of that knowledge. Choice C is incorrect because there’s nothing in the text to suggest the frequency with which the narrator and Julius hunted and fished together. In fact, it’s unclear from the text whether the narrator and Julius hunted and fished together at all. The text merely indicates that Julius knew the best places to hunt and fish—a detail that supports the text’s main purpose by conveying Julius’s usefulness.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "edbc6cca",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is from Bram Stoker’s 1911 novel The Lair of the White Worm. Adam is meeting his great-uncle Richard at a port.\n\nThe meeting so auspiciously begun proceeded well. Adam, seeing that the old man was interested in the novelty of the ship, suggested that he should stay the night on board, and that he would himself be ready to start at any hour and go anywhere that the other suggested. This affectionate willingness to fall in with his own plans quite won the old man’s heart. He warmly accepted the invitation, and at once they became not only on terms of affectionate relationship, but almost like old friends.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. It states the reasons why Adam and his great-uncle Richard decide to sleep on the ship rather than finding lodging on land.",
+      "B. It showcases how Adam’s flexibility and consideration strengthen his relationship with his great-uncle Richard.",
+      "C. It describes why Adam and his great-uncle Richard are excited for their upcoming journey on the ship.",
+      "D. It contrasts great-uncle Richard’s wary first impressions of Adam with his ultimate affection toward him."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the main purpose of the text, which is to showcase how Adam’s flexibility and consideration strengthen his relationship with his great-uncle Richard. The text begins by stating that the meeting between the two characters is proceeding well and then describes Adam’s thoughtful behavior: noticing his great-uncle’s interest in the ship, Adam suggests staying on board overnight and expresses willingness to accommodate his great-uncle’s schedule and destination preferences. The text goes on to describe the positive effect of Adam’s thoughtfulness and flexibility, indicating that Adam’s “affectionate willingness” to accommodate Richard’s preferences “quite won the old man’s heart.” The text concludes by suggesting that Adam’s ability to anticipate his great-uncle’s wishes and willingness to accommodate them result in the rapid development of affection and intimacy between them, stating that they soon became “almost like old friends.” Therefore, the text’s main purpose is to demonstrate how Adam’s flexibility and consideration strengthened his and his great-uncle’s relationship. Choice A is incorrect. Although the text explains Adam’s reason for suggesting that Richard spend the night on the ship rather than finding lodging on land (which is that Adam perceives Richard’s interest in the ship), this isn’t the text’s main purpose. Rather, Adam’s suggestion about where to sleep for the night serves as an example of the consideration Adam shows toward Richard, and the text mentions it mainly to explain how an affectionate relationship developed so quickly between them. Moreover, the text only states that Adam encourages Richard to stay on the ship; it doesn’t specify where Adam plans to spend the night. Choice C is incorrect because the text doesn’t describe why Adam and his great-uncle Richard are excited about their journey. While the text mentions that Adam is willing to “start at any hour and go anywhere,” it provides no details about any planned journey, its destination, or even whether they will be continuing by ship or some other mode of transportation, nor does the text mention anything about either character’s feelings of excitement about their plans. We learn only that Adam is accommodating about potential travel plans, not that either character is particularly eager about the journey itself. The text’s main focus is on Adam and Richard’s developing relationship, not on any anticipated travel experiences. Choice D is incorrect because the text doesn’t show a contrast between initial wariness and later affection. On the contrary, the text begins by stating that the meeting between Adam and his great- uncle Richard has begun in an “auspicious,” or promising, manner and is “proceed[ing] well,” suggesting that Richard’s impression is positive from the outset. There’s no indication of any initial suspicion, caution, or reserve on Richard’s part that later changes to affection. Instead, the text describes a consistently positive interaction that deepens from a good first impression into a stronger, more familiar relationship because of Adam’s considerate behavior.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "bcd924a5",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The unique subak water management system used to irrigate the rice paddy fields of the Indonesian island of Bali has a rich cultural, philosophical, and historical significance dating back to the ninth century. The many elements of subak—terraces, canals, and water temples— are ______: they are joined together into a single cohesive unit.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. outmoded",
+      "B. informal",
+      "C. interconnected",
+      "D. optional"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Bali’s subak water management system. In this context, “interconnected”would mean joined or linked together. The text describes the various components of the subak system—“terraces, canals, and water temples”—and then states that they are “joined together into a single cohesive unit.”This context indicates that these elements are connected with one another in an integrated system. Choice A is incorrect because “outmoded”would mean outdated or no longer in use. While the text does indicate that the subak system has “rich cultural, philosophical, and historical significance,”the text doesn’t suggest that the subak system is obsolete or not currently used. Choice B is incorrect because “informal”would suggest that the subak system lacks structure or organization. The text contradicts this by describing a complex system with specific components (“terraces, canals, and water temples”) that are “joined together into a single cohesive unit,”indicating formal organization rather than informality. Choice D is incorrect because “optional”would suggest that the various elements of the subak system are not necessary or required. The text indicates the opposite by stating that these elements are “joined together into a single cohesive unit,”suggesting that each component plays a necessary role in the functioning of the integrated system.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "16f2d678",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Although the government of the Soviet Union attempted to ______ Georgi Vladimov’s novel Faithful Ruslan, copies of the book circulated in secret among readers in several parts of the country.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. replicate",
+      "B. critique",
+      "C. import",
+      "D. suppress"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Georgi Vladimov’s novel Faithful Ruslan. In this context, “suppress” means to prevent something, such as a book, from being accessed by the public. The text indicates that the novel was circulated secretly within the Soviet Union, a stratagem that was necessary because of the government’s efforts to suppress the book, or prevent it from being circulated and read. Choice A is incorrect because in this context, “replicate” would mean to copy or reproduce a book, and this meaning wouldn’t make sense in the text’s discussion of Faithful Ruslan. If the Soviet government had attempted to replicate Vladimov’s novel, there would be no reason for copies to circulate “in secret,” since the government would be actively making more copies available, not restricting access. Choice B is incorrect. Although a repressive government might well “critique” a novel, or evaluate it negatively, simply critiquing one wouldn’t necessarily lead to copies of it circulating “in secret.” Instead, the text suggests that the Soviet government took decisive action against Faithful Ruslan that necessitated its underground circulation and did not merely offer criticism of the novel. Choice C is incorrect because “import” means to bring a product, such as a book, into a country from elsewhere. However, the text suggests that copies of Faithful Ruslan were already present in the Soviet Union and that the government was trying to restrict their circulation rather than increasing access to the novel by importing copies from another country.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "fa7a89f1",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Studying how workload affects productivity, Maryam Kouchaki and colleagues found that people who chose to do relatively easy tasks first were less ______ compared to those who did hard tasks first. Finishing easy tasks gave participants a sense of accomplishment, but those who tackled hard tasks first actually became more skilled and productive workers over time.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. secretive",
+      "B. efficient",
+      "C. outgoing",
+      "D. unsympathetic"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion about Kouchaki and colleagues’ research into how workload affects productivity. In context, “efficient” means effective or well organized. The text indicates that, according to Kouchaki and colleagues’ research, people who worked on hard tasks first were “more skilled and productive” than those who did easy tasks first. This context conveys the idea that despite their sense of accomplishment, the people who chose to do the easy tasks first were less efficient or productive than those who tackled hard tasks first. Choice A is incorrect because there’s nothing in the text to suggest that workers who do easy tasks first are less “secretive,” or uncommunicative or silent, than those who do hard tasks first. Rather, the text suggests that people are less skillful or efficient if they tackle easy tasks before the hard ones. Choice C is incorrect because “outgoing” means openly friendly, which wouldn’t make sense in this context. The text focuses on Kouchaki and colleagues’ research in which people who worked on hard tasks first were “more skilled and productive” than those who did easy tasks first and were therefore less efficient. Choice D is incorrect because there’s nothing in the text to suggest that workers who do easy tasks first are less “unsympathetic,” or insensitive or unkind, than those who do hard tasks first. Rather, the text suggests that people are less skillful or efficient if they tackle easy tasks before the hard ones.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "faa5696c",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Arturo A. Schomburg was dedicated to preserving books, art, and other materials from peoples of African descent around the world. To get these items, Schomburg ______ friends and colleagues, whom he asked to bring back rare and valuable objects from their international travels. Now, Schomburg’s collection is a valuable resource for scholars of Black history and culture.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. admired",
+      "B. disagreed with",
+      "C. warned",
+      "D. depended on"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Arturo A. Schomburg’s collection. In this context, the phrase “depended on” means relied on. The text explains that Schomburg, wanting to preserve “books, art, and other materials” created by peoples of African descent from around the world, built a large collection of these objects. The text also states that in order to obtain these items, Schomburg asked friends and colleagues who were traveling internationally to bring them back for him. This implies that he wouldn’t have been able to create his collection without help. Thus, the context supports the idea that Schomburg relied on, or depended on, friends and colleagues to build his collection. Choice A is incorrect because “admired” means respected and approved of. Although it’s reasonable to expect that Schomburg respected his friends and colleagues, the text doesn’t discuss any such aspect of their relationships. The text focuses instead on what Schomburg asked his friends and colleagues to do to help build his collection. Choice B is incorrect because “disagreed with” means held an opposing belief, and nothing in the text suggests that Schomburg and his friends or colleagues held opposing views on any subject. In fact, the text strongly implies that Schomburg’s friends and colleagues supported him in his goal of preserving objects of importance for Black history and culture by bringing him such objects from around the world. Choice C is incorrect because “warned” means informed someone in advance about something dangerous, which wouldn’t make sense in this context. Nothing in the text suggests that Schomburg thought his friends and colleagues were in any danger, let alone that he warned them of danger.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b3e145e4",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "In the 1950s, scientists didn’t know much about the ocean floor. <u>Many scientists at the time believed that the ocean floor was mostly flat.</u> But geologist Marie Tharp and her research partner, Bruce Heezen, proved that this idea was wrong. Using sonar data collected from the Atlantic Ocean, Tharp and Heezen showed that the floor was filled with canyons, mountains, and valleys.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It identifies a scientific belief that Tharp and Heezen showed to be wrong.",
+      "B. It describes the design of Tharp and Heezen’s experiment.",
+      "C. It emphasizes a disagreement between Tharp and Heezen.",
+      "D. It presents data to support a claim that Tharp and Heezen made."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined sentence functions in the text as a whole. The first sentence of the text establishes that scientists didn’t know much about the ocean floor in the 1950s. The second sentence, which is underlined, describes what many scientists thought at the time—that the ocean floor was mostly flat. The remainder of the text establishes that the ocean floor is far from flat, citing research conducted by Marie Tharp and Bruce Heezen. Thus, the purpose of the underlined sentence is to identify a scientific belief that Tharp and Heezen showed to be wrong. Choice B is incorrect. Although Tharp and Heezen’s work with sonar data in the Atlantic Ocean is mentioned later in the text, the underlined sentence doesn’t describe the design of their experiment. Instead, it identifies a belief held by scientists that Tharp and Heezen demonstrated to be wrong. Choice C is incorrect because the underlined sentence presents a belief held by many scientists in the 1950s; nowhere does the text mention a disagreement between Tharp and Heezen, whom the text describes as research partners working together to map the ocean floor. Choice D is incorrect because the underlined sentence doesn’t present data in support of a claim; instead, it presents a scientific belief that Tharp and Heezen’s work showed to be wrong.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d8d33cc5",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The early British postal system required the cost of mail delivery to be paid upon receipt, a system which encouraged inventive strategies by the intended recipient to avoid payment. To improve this system, ______ were proposed in 1837, including the use of a postage stamp, a small receipt pasted to the mail indicating that delivery costs had been paid by the sender.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. investigations",
+      "B. expansions",
+      "C. reforms",
+      "D. possessions"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the early British postal system. In this context, \"reforms\" most nearly means attempts at improving something. The text indicates that the pay-upon-delivery postage method led to fee avoidance on the part of recipients. It then says that action was taken to improve the postal system, giving examples such as the move to having the sender pay and affixing stamps to indicate payment had been received. These represent revisions to the system intended to improve its functioning; therefore, \"reforms\" most logically completes the text. Choice A is incorrect. In this context, \"investigations\" most nearly means attempts to understand something. And although it is plausible that an attempt to improve the postal system would involve investigations, nothing in the text provides a logical basis for understanding the example of changes like affixing stamps to letters as an investigation. Choice B is incorrect. In this context, \"expansions\" most nearly means additions to something. Although the text indicates that some new policies were adopted, nothing in the text suggests that the overall number of policies increased, which expansions would seem to entail. Choice D is incorrect. In this context, \"possessions\" most nearly means items of personal property or things that otherwise belong to, or are part of, something. The text provides no logical context for understanding changes like affixing stamps to letters as possessions.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1d9a09c0",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Jason Reynolds’s 2016 novel Ghost. The narrator, who is in middle school, is at a bus stop.\n\nI just go there [to the bus stop] to look at the people working out. See, the gym across the street has this big window—like the whole wall is a window—and they have those machines that make you feel like you walking up steps and so everybody just be facing the bus stop, looking all crazy like they’re about to pass out. And trust me, there ain’t nothing funnier than that. So I check that out for a little while like it’s some kind of movie: The About to Pass Out Show, starring stair-stepper person one through ten.\n\n©2016 by Jason Reynolds",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To give a reason why the narrator is excited to start middle school",
+      "B. To describe an activity that the narrator finds amusing",
+      "C. To explain a problem that the narrator has overcome",
+      "D. To discuss a movie that the narrator saw in a theater"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the main purpose of the text. The text describes how the narrator watches people working out at a gym through a window near a bus stop. The narrator says that \"there ain’t nothing funnier\" than watching people try to work out on the stair climber machine. Thus, the main purpose of the text is to describe an activity that the narrator finds amusing. Choice A is incorrect because the text isn’t about the narrator beginning middle school. The text describes how the narrator finds people working out at a gym amusing and makes no mention of school life. Choice C is incorrect because the text doesn’t mention any problems that the narrator currently has or has overcome. It just describes how the narrator finds watching people work out amusing. Choice D is incorrect because the narrator invents the made-up movie mentioned in the text. The text doesn’t indicate that the narrator has seen a movie in a theater. The focus of the text is on the narrator watching people at the gym, not watching a movie.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "49bbe4d7",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "For painter Jacob Lawrence, being ______ was an important part of the artistic process. Because he paid close attention to all the details of his Harlem neighborhood, Lawrence’s artwork captured nuances in the beauty and vitality of the Black experience during the Harlem Renaissance and the Great Migration.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. skeptical",
+      "B. observant",
+      "C. critical",
+      "D. confident"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Jacob Lawrence’s artistic process. In this context, “observant”means watchful and perceptive. The text emphasizes that the “close attention”Lawrence paid to “all the details”of his neighborhood allowed him to reflect subtle elements of “the beauty and vitality of the Black experience”in his artwork. This context indicates that being observant of his surroundings was an important part of Lawrence’s work as an artist. Choice A is incorrect because the text gives no indication that Lawrence was “skeptical,”or had an attitude of doubt in general or about particular things, let alone that skepticism was important to him as an artist. Rather than indicating that he was skeptical, the text focuses on how Lawrence paid careful attention to everything around him and reflected his observations in his artwork. Choice C is incorrect because the text gives no indication that Lawrence was “critical,”which in this context would mean inclined to criticize harshly or unfairly. Rather than indicating that Lawrence found fault in things, the text suggests that he paid careful attention to everything around him and that his artwork reflects this careful attention. Choice D is incorrect because the text doesn’t suggest that Lawrence was “confident,”or self-assured. Rather than addressing how Lawrence felt about himself and how that feeling affected his artistic process, the text emphasizes the careful attention Lawrence paid to everything around him—attention that allowed him to capture subtle elements of a particular place and time in his artwork.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f6d1f735",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Researchers have struggled to pinpoint specific causes for hiccups, which happen when a person’s diaphragm contracts ______. However, neuroscientist Kimberley Whitehead has found that these uncontrollable contractions may play an important role in helping infants regulate their breathing.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. involuntarily",
+      "B. beneficially",
+      "C. strenuously",
+      "D. smoothly"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of diaphragm contractions and hiccups. In this context, “involuntarily” means done without any control, or by reflex. The text explains that when a person’s diaphragm repeatedly contracts and results in hiccups (which may be beneficial for infants), those muscle contractions are “uncontrollable.” This context indicates that the diaphragm contractions occur without the person’s control. Choice B is incorrect because it wouldn’t support the logical relationship established in the text’s discussion of diaphragm contractions and hiccups. The text indicates that although specific causes for hiccups haven’t been identified, it may be the case that the muscle contractions that occur have an important purpose in infants. It wouldn’t make sense to say that even though the contractions occur “beneficially,” or with a good or helpful effect, they might play a positive role in infants’ breathing regulation. Choice C is incorrect because the text indicates that the diaphragm contractions that result in hiccups are “uncontrollable.” Because those muscle contractions are described as happening automatically and without the person’s control, it wouldn’t make sense to describe them as occurring “strenuously,” or in a way that requires great effort or energy. Choice D is incorrect because the text doesn’t describe the quality of the diaphragm contractions that result in hiccups beyond stating that they are “uncontrollable.” Nothing in the text indicates that those muscle contractions occur “smoothly,” or evenly and continuously.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "fcc328c6",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Streams and rivers carry soil and rocks from one location to another. But there is another way for these geological materials to move. <u>Scientists call this process “aeolian transport.”</u> In aeolian transport, winds move small particles of soil or rock over potentially great distances. Geologist Melisa Diaz and her team studied dust in Antarctica to find out if it was moved by aeolian transport. They discovered that the dust matched geological material in Australia. Aeolian transport had carried it from one continent to another, across thousands of miles of open ocean.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It presents Melisa Diaz’s remarks about difficulties that her team encountered.",
+      "B. It introduces a scientific term that is used in the discussion that follows.",
+      "C. It emphasizes the surprising nature of the findings that are presented.",
+      "D. It explains the difference between two kinds of geological material."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the function of the underlined portion in the text as a whole. The first two sentences introduce the idea that soil and rocks can be moved from one location to another by something other than rivers and streams. The underlined sentence then states that the term used by scientists to refer to this process is “aeolian transport.” The discussion that follows explains what aeolian transport is (the movement of small geological materials over potentially great distances by the wind) and describes an example of a study that found that dust particles had been moved by aeolian transport from Australia to Antarctica. Thus, the underlined portion introduces a scientific term that is used in the discussion that follows. Choice A is incorrect because the underlined portion of the text doesn’t present any remarks from Melisa Diaz, nor does it suggest that Diaz and her team encountered difficulties in their study. Instead, the phrase in quotation marks in the underlined portion simply presents a term that is used by scientists to refer to a specific process discussed in the text. Choice C is incorrect because nothing in either the underlined portion or the text as a whole suggests that the findings of the study presented in the text were surprising or unexpected. In fact, the text suggests that Diaz and her team wanted to see if aeolian transport could explain the appearance of certain geological materials in Antarctica, and their findings did indeed confirm the involvement of aeolian transport. Choice D is incorrect. Although the first sentence of the text mentions soil and rocks, which are two different kinds of geological material, the underlined portion doesn’t refer to these materials, nor does it explain the difference between them. Rather, the underlined portion introduces the scientific term “aeolian transport,” which is used in the discussion that follows.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "01de46bb",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The Menominee and Anishinaabe peoples have been growing wild rice—known as manoomin in the Ojibwe language—in the Great Lakes region of North America for centuries, but climatic changes are causing lakes to get deeper, thereby threatening wild rice. These plants are extremely ______ to water depth during the “floating leaf”stage of development, and if the water is too deep, the buoyancy of the young wild-rice plants can literally uproot them from the lake bottom, destroying them.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. immune",
+      "B. sensitive",
+      "C. limited",
+      "D. receptive"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of wild rice. As used in this context, \"sensitive\" means vulnerable or easily affected. The text indicates that climate change is causing the lakes to get deeper, which consequently threatens the wild rice that grows in the area. The text goes on to state that deep water can cause young wild-rice plants to uproot from the bottom of the lake. This context supports the idea that the plants are sensitive to water depth during early stages of development. Choice A is incorrect because \"immune\" means protected or shielded, which wouldn’t make sense in this context. The text explains that deep water can cause young wild-rice plants to become uprooted and destroyed, indicating that these plants are harmed by deep water, not protected from it. Choice C is incorrect because \"limited\" means confined or restrained, which wouldn’t make sense in this context. The text explains that water depth can negatively affect young wild-rice plants but doesn’t suggest that water depth limits or restrains the plants. Choice D is incorrect because \"receptive\" means open or tolerant, which wouldn’t make sense in this context. The text doesn’t indicate that the wild-rice plants are open to or tolerant of an increase in water depth but rather the opposite: an increase in water depth can harm young wild-rice plants.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a7991da1",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "A unique dialect, or regional variety, of Spanish is spoken in Puerto Rico. It contains many words borrowed from the language of the Taínos, the Indigenous people of Puerto Rico. African languages also made important contributions to the Puerto Rican dialect. For example, the way certain vowel sounds are pronounced in it can be ______ to how they are pronounced in Yoruba, a West African language.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. traced",
+      "B. surrendered",
+      "C. announced",
+      "D. offered"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the origins of the unique dialect of Spanish spoken in Puerto Rico. In this context, \"traced\" means tracked back to. The text notes that the regional variety of Spanish spoken in Puerto Rico has its roots in the language of the Taínos and in the West African language of Yoruba. This context supports the idea that the way certain vowel sounds are pronounced in the Puerto Rican dialect can be traced back to Yoruba. Choice B is incorrect because the text presents the statement about the relationship between vowel pronunciation in the Puerto Rican dialect of Spanish and in Yoruba as an example to support the claim that African languages have contributed to the Puerto Rican dialect. It therefore wouldn’t make sense to say that the pronunciation of certain vowel sounds in the Puerto Rican dialect can be \"surrendered,\" or handed over on demand, to the pronunciation in Yoruba. Choice C is incorrect because the text gives no indication that the way certain vowel sounds are pronounced in the Puerto Rican dialect of Spanish has been \"announced,\" or officially declared or proclaimed. According to the text, elements of the dialect have been inherited or borrowed from African languages, and the relationship between the pronunciation of certain vowels in the Puerto Rican dialect and in Yoruba is an example of this inheritance, suggesting that the pronunciation in the Puerto Rican dialect can be traced to Yoruba. Choice D is incorrect because the text presents the statement about the relationship between vowel pronunciation in the Puerto Rican dialect of Spanish and in Yoruba as an example to support the claim that African languages have contributed to the Puerto Rican dialect. It therefore wouldn’t make sense to say that the pronunciation of certain vowel sounds in the Puerto Rican dialect can be \"offered,\" or presented as a gift, to the pronunciation in Yoruba.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "84a7fbca",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "When Mexican-American archaeologist Zelia Maria Magdalena Nuttall published her 1886 research paper on sculptures found at the ancient Indigenous city of Teotihuacan in present-day Mexico, other researchers readily ______ her work as groundbreaking; this recognition stemmed from her convincing demonstration that the sculptures were much older than had previously been thought.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. acknowledged",
+      "B. ensured",
+      "C. denied",
+      "D. underestimated"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Nuttall’s 1886 research paper. In this context, “acknowledged” means recognized as having a certain status. The text indicates that other researchers recognized Nuttall’s work as groundbreaking because of its “convincing demonstration” related to the age of the ancient sculptures. In other words, the researchers recognized the groundbreaking status of Nuttall’s work. Choice B is incorrect because in this context, “ensured” would mean to have guaranteed or made sure something was the case. The text states that other researchers gave Nuttall’s work recognition after it was published, but there’s no indication that they contributed to the work or had any involvement that would have allowed them to make sure the work would be groundbreaking. Choice C is incorrect because the text doesn’t suggest that other researchers “denied,” or refused to admit or accept, that Nuttall’s work was groundbreaking; on the contrary, it indicates that researchers praised the work, recognizing it as groundbreaking due to its “convincing demonstration” related to the age of the ancient sculptures. Choice D is incorrect because the text doesn’t suggest that other researchers “underestimated,” or undervalued, Nuttall’s work; on the contrary, it indicates that researchers praised the work, recognizing it as groundbreaking due to its “convincing demonstration” related to the age of the ancient sculptures.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5179fd36",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Urban planning expert Francisco Lara-Valencia and colleagues have argued that managing environmental matters along the US-Mexico border ______ coordination between the two countries’ governments. Since ecosystems extend across the border, actions taken on one side can have environmental effects on the other side, making international cooperation essential.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. requires",
+      "B. praises",
+      "C. reports",
+      "D. advises"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of environmental management along the US and Mexican border. In this context, \"requires\" means needs in order to perform a task. The text indicates that because ecosystems span the border, actions taken by the government on one side of the border can affect the environment in the nation on the other side of the border, which makes international cooperation crucial. In other words, because actions on one side of the US and Mexican border can affect the other side of the border, managing environmental matters along the border requires coordination between the two governments. Choice B is incorrect because \"praises\" in this context would mean to express a favorable judgment, but the text doesn’t describe approval expressed by anyone, and it wouldn’t make sense to say that environmental management itself praises intergovernmental coordination. Choice C is incorrect. In this context, \"reports\" would mean gives an account. Although coordination between the US and Mexican governments likely would involve some sort of reporting, the text doesn’t describe any such practice. Choice D is incorrect. In this context, \"advises\" would mean recommends a course of action, and although governments can advise one another, it wouldn’t make sense to say that environmental management itself makes recommendations.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "428cd2c1",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Some people have speculated that two helmets with attached horns discovered in Denmark in 1942 belonged to Vikings, but scholars have long been skeptical. Archaeologist Helle Vandkilde and colleagues recently provided radiocarbon dates for the helmets, and their findings ______ scholars’ skepticism: the helmets date to the Nordic Bronze Age, centuries before the Vikings existed.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. anticipate",
+      "B. inspect",
+      "C. reveal",
+      "D. justify"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the helmets found in Denmark. In this context, “justify” means confirm or give reasons for. The text indicates that scholars have long been skeptical about the supposed Viking origin of two helmets found in Denmark. The radiocarbon dating of the helmets conducted by Vandkilde and colleagues demonstrates that the helmets date from the Nordic Bronze Age, making the helmets too old to have belonged to Vikings. This context supports the idea that the scholars’ skepticism is justified. Choice A is incorrect because “anticipate” means expect or come before, neither of which would make sense in context. The text indicates that scholars have long been skeptical of the idea that the helmets belonged to Vikings. Because the skepticism has existed for a long time, Vandkilde and colleagues’ research couldn’t be said to anticipate it. Instead, the radiocarbon dating results justify or confirm the scholar’s skepticism. Choice B is incorrect because “inspect” means examine or review, which wouldn’t make sense in this context. Research findings are inanimate and therefore unable to inspect scholars’ skepticism. The text focuses on the origin of two helmets, which some people believe belonged to Vikings. Vandkilde and colleagues found that the helmets are from the Nordic Bronze Age and therefore much older than the Vikings. This context suggests that the researchers’ findings justify, not inspect, the scholars’ skepticism. Choice C is incorrect because “reveal” means uncover or report, which wouldn’t make sense in context. The text focuses on the origin of two helmets, which some people believe belonged to Vikings. Vandkilde and colleagues tested the helmets and found that they date to the Nordic Bronze Age and therefore are much older than the Vikings. This context suggests that the researchers’ findings confirm or justify the scholars’ skepticism, which was already known so didn’t need to be revealed.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c2c26e20",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Sadakichi Hartmann’s 1894 short story “Magnolia Blossoms.”The narrator is standing on the deck of a boat.\n\nWhat a night it was! My soul had left its body to lose itself in the wild unrestrained beauty around me—from where it came—and only left a trembling suggestion of its existence within me. The other passengers moved around me like shadows, and again and again my eyes drank in all the glory and wealth of that night.",
+    "question": "As used in the text, what does the word “suggestion”most nearly mean?",
+    "options": [
+      "A. Trace",
+      "B. Opinion",
+      "C. Dispute",
+      "D. Command"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, “suggestion”most nearly means trace. The text portrays the narrator standing on the deck of a boat, admiring the view of nature afforded by this position: “My soul had left its body to lose itself in the wild unrestrained beauty around me,”says the narrator, “and only left a trembling suggestion of its existence within me.”This intense response to beauty is such that the narrator’s soul seems to disengage from its body, leaving behind only a barely detectible indication of its presence there. In other words, the narrator senses only a trace of soul left in the body. Choice B is incorrect. Although in some contexts “suggestion”can refer to an implied or indirectly expressed opinion, the text doesn’t portray the narrator expressing an opinion; instead, the narrator is explaining an experience of intense emotion. Choice C is incorrect. While “suggestion” might be used in some contexts to refer to the tactful expression of a differing viewpoint, it doesn’t refer to the dispute or difference of opinion itself. Moreover, the text doesn’t portray a dispute between characters with differing viewpoints. Choice D is incorrect. Although in some contexts, “suggestion”might be used to refer to a politely worded command, the text doesn’t portray a scenario in which someone receives such a command.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b4c6cff6",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Karel Čapek’s 1920 play R.U.R. (Rossum’s Universal Robots), translated by Paul Selver and Nigel Playfair in 1923. Fabry and Busman are telling Miss Glory why their company manufactures robots.\n\nFABRY: One Robot can replace two and a half workmen. The human machine, Miss Glory, was terribly imperfect. It had to be removed sooner or later.\n\nBUSMAN: It was too expensive.\n\nFABRY: It was not effective. It no longer answers the requirements of modern engineering. Nature has no idea of keeping pace with modern labor.",
+    "question": "As used in the text, what does the word “answers” most nearly mean?",
+    "options": [
+      "A. Explains",
+      "B. Rebuts",
+      "C. Defends",
+      "D. Fulfills"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because as used in the text, “answers” most nearly means fulfills. In the text, Fabry and Busman claim that the robots manufactured by their company are more efficient than human workers, which they refer to as “the human machine.” Fabry observes that the human machine “no longer answers the requirements of modern engineering.” That is, human workers are incapable of meeting the rigorous needs of modern, industrialized workplaces. Choice A is incorrect. Although in some contexts “answers” can mean explains, it doesn’t have that meaning in this context because the topic under discussion is human beings’ inability to perform labor efficiently, not their inability to engage in discussion or explanation. Choice B is incorrect. Although in some contexts “answers” can mean rebuts, or proves a claim or argument to be false, it wouldn’t make sense to speak of proving requirements to be false; requirements might or might not be reasonable, but they can’t be verified as truthful or untruthful, as claims or accusations can. Choice C is incorrect. Although in some contexts, “answers” can mean defends against criticism, or justifies, it doesn’t have that meaning in this context because the opinion that Fabry expresses is that human workers can no longer fulfill the requirements of modern workplaces, not that they have ceased to justify those requirements or to defend them against criticism; indeed, there is no suggestion in the text that workers ever defended those requirements.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f773a56b",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "As Mexico’s first president from an Indigenous community, Benito Juarez became one of the most ______ figures in his country’s history: among the many significant accomplishments of his long tenure in office (1858–1872), Juarez consolidated the authority of the national government and advanced the rights of Indigenous peoples.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. unpredictable",
+      "B. important",
+      "C. secretive",
+      "D. ordinary"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Juarez. In this context, “important”means marked by significant work or consequence. The text indicates that Juarez, who was the first president of Mexico from an Indigenous community, became a certain kind of figure in Mexico’s history. It then supports that claim by describing some of the “many significant accomplishments”from Juarez’s long tenure in office. This context conveys that Juarez is a significant and consequential figure in Mexico’s history. Choice A is incorrect because the text focuses on Juarez’s role as the first president of Mexico from an Indigenous community and on his many major accomplishments during his lengthy time in office; nothing in the text suggests that Juarez was “unpredictable,”or tended to behave in ways that couldn’t be predicted. Choice C is incorrect because nothing in the text suggests that Juarez was a particularly “secretive”figure, or that he tended to keep things private or hidden from others. Instead, the text focuses on things that are known about Juarez: that he was the first president of Mexico from an Indigenous community, that he had a lengthy tenure, and that his many major accomplishments included consolidating the national government’s authority and advancing Indigenous rights. Choice D is incorrect because the text focuses on the idea that Juarez, who was the first president of Mexico from an Indigenous community, had many major accomplishments during his lengthy time in office. Rather than suggesting that Juarez was an “ordinary,”or common and typical, figure in Mexico’s history, this context conveys that Juarez was instead a notable figure.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3118ca93",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The fashion resale market, in which consumers purchase secondhand clothing from stores and online sellers, generated nearly $30 billion globally in 2019. Expecting to see continued growth, some analysts ______ that revenues will more than double by 2028.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. produced",
+      "B. denied",
+      "C. worried",
+      "D. predicted"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the fashion resale market’s continued growth. As used in this context, “predicted” means forecast, or indicated that something would happen in the future. The text indicates that the fashion resale market made a lot of money in 2019 and that some analysts expected the market to continue to grow. This context suggests that the analysts believed that the fashion resale market was going to make more money than it had already made, with the analysts indicating that revenues would more than double by 2028. Choice A is incorrect because it wouldn’t make sense in context to say that some analysts “produced,” or manufactured or brought about, the increase in future revenues of the fashion resale market. The analysts themselves couldn’t have brought about the future revenue growth, since, as the text suggests, they were merely in the position of drawing conclusions about future fashion resale market revenue based on 2019 revenue. Choice B is incorrect because the text indicates that some analysts expected the fashion resale market to continue to grow in the future, not that they “denied,” or rejected, this notion. Nothing in the text supports the idea that these analysts thought the revenues wouldn’t grow. Choice C is incorrect because the text indicates that some analysts expected the fashion resale market to continue to grow in the future, not that they “worried,” or felt concerned, that revenue would significantly increase by 2028. Nothing in the text suggests that the analysts felt concerned about the increase; rather, the text suggests that the increase would represent a favorable outcome, since it would mean that the fashion resale market grew to generate even more revenue.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "21d95d1d",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Ofelia Zepeda’s contributions to the field of linguistics are ______: her many accomplishments include working as a linguistics professor and bilingual poet, authoring the first Tohono O’odham grammar book, and co-founding the American Indian Language Development Institute.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. pragmatic",
+      "B. controversial",
+      "C. extensive",
+      "D. universal"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of how Ofelia Zepeda has contributed to the field of linguistics. As used in this context, “extensive”means having a wide or considerable extent. The text indicates that Zepeda’s many accomplishments in linguistics are varied, including teaching linguistics, writing poetry in more than one language, creating a grammar book, and co-founding a language institute. This context supports the idea that Zepeda’s contributions to the field are extensive. Choice A is incorrect because the sentence presents Zepeda’s accomplishments as examples to support the claim made in the first part of the sentence. It wouldn’t make sense to say that achievements as a professor, poet and author, and co-founder of a language institute demonstrate that Zepeda’s contributions in her field are “pragmatic,”or related to practical matters and not involving intellectual or artistic matters. Choice B is incorrect because the sentence presents Zepeda’s accomplishments as a professor, poet and author, and co-founder of a language institute as examples to support the claim made in the first part of the sentence. There’s no reason to believe that the positive achievements listed demonstrate that Zepeda’s contributions in her field are “controversial,”or have caused disputes and opposing viewpoints. Choice D is incorrect because in this context, “universal”would mean including or covering everything in a group. The sentence presents Zepeda’s accomplishments as examples to support the claim made in the first part of the sentence, and it wouldn’t make sense to say that these specific achievements— particularly as the author of a grammar book specific to the Tohono O’odham language—demonstrate that Zepeda’s contributions relate to everything in the field of linguistics.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b622fb78",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from the 1913 story “The King’s Coin” by Emily Pauline Johnson, a Kanienkahagen (Mohawk) writer also known as Tekahionwake. Fox-Foot, a young Ojibwe man, is guiding a group of fur traders who are traveling by canoe and suspects that they are being followed.\n\nAt supper time, Fox-Foot would allow no fire to be built, no landing to be made, no trace of their passing to be left. They ate canned meat and marmalade, drank again of the stream and pushed on, until just at dusk they reached the edge of a long, still lake, with shores of granite and dense fir forest.",
+    "question": "As used in the text, what does the word “trace” most nearly mean?",
+    "options": [
+      "A. Evidence",
+      "B. Blemish",
+      "C. Amount",
+      "D. Sketch"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because the text indicates that Fox-Foot doesn’t let the group build a fire or create a canoe landing when it’s time for supper. This context suggests that he doesn’t want anyone who might be following the group to see any sign of them or their activities. In other words, Fox-Foot doesn’t want there to be any trace, or evidence, of the group’s movements (\"their passing\") through the area. Choice B is incorrect because the text conveys that Fox-Foot doesn’t want the group to be detected, not that he doesn’t want their presence to create a blemish, or a spoiling flaw, in the area; human activity could disturb a natural environment, but the context emphasizes that Fox-Foot is instead focused on avoiding giving any sign of the group’s movements through a place (\"their passing\") to anyone who might be following them. Choice C is incorrect because the text focuses on Fox-Foot’s desire to avoid detection by those who might be following the group. This context conveys that Fox-Foot doesn’t want to create any signs or evidence of the group moving through a place (\"their passing\"), not that he doesn’t want to leave behind some quantity of their presence; indeed, it isn’t clear what an amount of a group’s movement would be. Choice D is incorrect because nothing in the text suggests that the group has a sketch, or rough drawing, of their movements through that area (\"their passing\") that might be left behind. Rather, the context emphasizes that Fox-Foot is focused on ensuring that the group doesn’t give any kind of indication of their presence, as he wants to avoid detection by anyone who might be following the group.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "be947479",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Jazz tap is a dance form that was first developed in African American communities. Jazz tap was heavily influenced by jazz music, which became widely popular in the United States in the 1920s. Tap dancers were inspired by jazz music’s quick rhythms and by the way jazz musicians would make up melodies as they played. As jazz music continued to develop in the 1930s and 1940s, jazz tap evolved with it. Because of jazz music’s influence, jazz tap quickly developed into a dance form that was very different from earlier kinds of tap dance.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. It explains why audiences prefer some kinds of music over others.",
+      "B. It discusses the development of a dance form.",
+      "C. It describes how to play a musical instrument.",
+      "D. It emphasizes the popularity of a famous dancer."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best describes the main purpose of the text. The text indicates where and when jazz tap first developed (in African American communities in the 1920s) and what influenced it (the quick rhythms and improvisations in jazz music) and then explains that it evolved alongside jazz music in the 1930s and 1940s, resulting in a very different form of tap dance than had existed before. Therefore, the main purpose of the text is to discuss jazz tap’s development. Choice A is incorrect. Although the text indicates that jazz music became widely popular in the US in the 1920s and describes some of jazz music’s qualities, the text never explains why audiences prefer some kinds of music—jazz or otherwise—over others. Choice C is incorrect because the text never mentions any musical instruments and doesn’t describe how to play one. Choice D is incorrect because the text discusses jazz tap generally and never identifies a particular dancer, famous or otherwise.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d5235d39",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The Mule Bone, a 1930 play written by Zora Neale Hurston and Langston Hughes, is perhaps the best-known of the few examples of ______ in literature. Most writers prefer working alone, and given that working together cost Hurston and Hughes their friendship, it is not hard to see why.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. characterization",
+      "B. interpretation",
+      "C. collaboration",
+      "D. commercialization"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it logically and precisely completes the text’s discussion of The Mule Bone, a play that Zora Neale Hurston and Langston Hughes wrote together. In this context, “collaboration” means working together with someone to write a literary work. The text indicates that most writers prefer to work alone and that working together destroyed the friendship between Hurston and Hughes. This establishes that The Mule Bone is a relatively rare example of collaboration in literature. Choice A is incorrect because in this context, “characterization” would mean a literary work’s portrayal of characters’ psychological experiences and motivations, but the text doesn’t discuss characterization in The Mule Bone specifically or in collaborative works more generally. Choice B is incorrect because in this context, “interpretation” would mean the explanation of a literary work’s meaning or significance, but the text doesn’t discuss how readers or critics have interpreted The Mule Bone; instead, the text discusses how the play was written collaboratively and how the writing process affected the two authors. Choice D is incorrect because in this context, “commercialization” would mean writing a literary work in such a way as to ensure its commercial appeal, but the text never discusses commercial appeal as a factor in the writing of The Mule Bone specifically or the writing of collaborative works more generally.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1c6b1fa0",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "In 1801, a Blackfoot chief named Ac Ko Mok Ki drew a finely detailed map of the Upper Missouri region. <u>This work demonstrates a vast amount of topographic knowledge, as the map features specific names of mountains and rivers, as well as the first-known sketch of the drainage network of the Missouri River.</u> The map is especially notable because Ac Ko Mok Ki also included details about the numerous tribes that lived in the area.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It emphasizes Ac Ko Mok Ki’s desire to represent other tribes on the map.",
+      "B. It explains how Ac Ko Mok Ki developed an interest in mapmaking.",
+      "C. It identifies some reasons why the map is impressive.",
+      "D. It details how the map was used for hunting and trading purposes."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes how the underlined sentence functions in the text as a whole. The text presents information about a map drawn by Blackfoot chief Ac Ko Mok Ki in 1801. The underlined sentence states that the map \"demonstrates a vast amount of topographic knowledge\" and mentions that it features the \"specific names of mountains and rivers\" and includes the first-known sketch of the Missouri River’s drainage network. These are all characteristics that indicate that the map was executed with remarkable skill. Thus, the underlined sentence identifies some reasons why the map is impressive. Choice A is incorrect. Though the sentence after the underlined sentence in the text mentions that Ac Ko Mok Ki included information about other tribes on his map, the underlined sentence itself does not address this topic. Choice B is incorrect because nothing in the underlined sentence indicates how Ac Ko Mok Ki became interested in mapmaking, only that his mapmaking skills are impressive. Choice D is incorrect because though the underlined sentence describes several features of the map, it does not specifically describe how the map was used.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9b2fbb2e",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Logically, a damaged fossil should provide less information than an intact one, but for paleontologist Brigitte Schoenemann, a broken area on a fossilized trilobite (a crustacean-like creature) ______ fresh insight, allowing her to view the inner structure of the organism’s eye.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. resolved",
+      "B. adjusted",
+      "C. offered",
+      "D. directed"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion about how, for Schoenemann, a damaged trilobite fossil was informative. In context, “offered” means provided or gave. The text suggests that although it may seem counterintuitive, a broken fossilized trilobite allowed Schoenemann to observe more details of the trilobite’s eye than an intact fossilized trilobite would. This context conveys the idea that a damaged fossil offered, or provided, fresh insight into the structure of a trilobite’s eye. Choice A is incorrect because “resolved” means determined or figured out, which wouldn’t make sense in this context. The text focuses on how Schoenemann was able to get more information from a broken fossil than an intact one. Although the damaged fossil may have allowed her to determine certain information, as an inanimate object the fossil isn’t capable of resolving anything. Choice B is incorrect because saying that the broken part of a trilobite fossil “adjusted,” or changed or modified, fresh insight wouldn’t make sense in this context. The text focuses on how Schoenemann was able to get more information from a broken fossil than an intact one. This context suggests that the fossil offered fresh insight, or understanding, not that it adjusted fresh insight. Choice D is incorrect because “directed” means managed or instructed, which wouldn’t make sense in this context. The text focuses on how Schoenemann was able to get more information from a broken fossil than an intact one. This context suggests that the fossil offered fresh insight, or understanding, not that it directed fresh insight.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "53542eb5",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Shoppers can help keep money cycling within a community by making purchases at small local businesses instead of large retailers. Some cities are ______ programs to encourage this behavior, establishing reward points and other incentives for shopping at small businesses.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. instituting",
+      "B. occupying",
+      "C. underestimating",
+      "D. encountering"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of programs that encourage money to cycle within a community. In this context, \"instituting\" means initiating. The text indicates that making purchases at small local businesses can help keep money cycling within a community. The text goes on to state that some cities are establishing incentives to promote small business shopping. This context supports the idea that some cities are instituting programs to encourage this consumer behavior. Choice B is incorrect because saying that some cities are \"occupying,\" or forcibly holding possession or control of, programs that encourage shoppers to make purchases at small local businesses wouldn’t make sense in context. The text doesn’t discuss who controls these programs but instead indicates that some cities are establishing incentives that encourage shoppers to make purchases at small local businesses. Furthermore, it wouldn’t make sense to say that a city is occupying a program. Choice C is incorrect because nothing in the text suggests that cities are \"underestimating,\" or failing to understand the value of, programs that encourage consumers to shop at small local businesses. The text indicates that some cities are establishing incentives to encourage small business shopping, which suggests that these cities understand the value of such programs. Choice D is incorrect because saying that some cities are \"encountering,\" or coming into contact with, programs that encourage consumers to shop at small local businesses wouldn’t make sense in context. The text indicates that some cities are already establishing incentives to encourage shoppers to make purchases at small businesses. This context suggests that the cities are instituting the programs, not that they are encountering them.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "662892ad",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Wakako Yamauchi is best known for And the Soul Shall Dance, her 1977 play about a Japanese American family in Southern California. The play is based on a short story Yamauchi had published three years earlier. Adapting the story wasn’t easy. Theater relies on dialogue between characters, but the original story features little dialogue and instead describes its characters’ silent thoughts. <u>To transform the story into a play, Yamauchi created situations where characters reveal their thoughts by speaking them aloud during conversations with each other.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It offers information about how Yamauchi adapted her short story into a play.",
+      "B. It argues that Yamauchi’s play influenced later playwrights.",
+      "C. It explains why Yamauchi’s short story is better known than the play adaptation is.",
+      "D. It describes how Yamauchi chose the actors who performed in the play."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it best describes how the underlined sentence functions in the text as a whole. According to the text, it was hard for Yamauchi to adapt her short story into the play And the Soul Shall Dance because the story had included little dialogue, instead describing the characters’ silent thoughts. The underlined sentence offers information about how Yamauchi ultimately succeeded in adapting the story into a play: it explains that Yamauchi created situations where the characters of the play could reveal their internal thoughts while speaking with each other. Choice B is incorrect because neither the underlined sentence nor the text as a whole makes any mention of playwrights other than Yamauchi or how the play might have influenced them. Choice C is incorrect because the text states that Yamauchi is best known for her play And the Soul Shall Dance, which conveys that the play is better known than the short story it’s based on is. Choice D is incorrect because neither the underlined sentence nor the text as a whole mentions the actors who performed in the play or Yamauchi’s approach to choosing them.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d563bf65",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Jean Webster’s 1912 novel Daddy-Long-Legs. The narrator is a young college student writing letters detailing her weekly experiences.\n\n[The college is] organizing the Freshman basket-ball team and there’s just a chance that I shall make it. I’m little of course, but terribly quick and wiry and tough. While the others are hopping about in the air, I can dodge under their feet and grab the ball.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To compare basketball with other sports",
+      "B. To provide details of how to play basketball",
+      "C. To state how players will be chosen for the basketball team",
+      "D. To explain why the narrator thinks she might make the basketball team"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes the main purpose of the text. In the first sentence of the text, the narrator states that she thinks there’s a chance she will become part of the basketball team at her college. She goes on to explain that she is \"quick\" and \"tough.\" Based on these characteristics, she thinks she has a chance to join the team. Thus, the main purpose of the text is to explain why the narrator thinks she might make the basketball team. Choice A is incorrect because the text focuses solely on basketball and doesn’t mention any other kinds of sports. Choice B is incorrect because the text doesn’t describe aspects of the game of basketball. Instead, it provides the narrator’s reasoning for thinking that she might make her school basketball team. Choice C is incorrect. Although the narrator explains why she thinks she will be chosen for the basketball team at her school, the text doesn’t go into the general decision-making process or the requirements for being picked for the team.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e1e89221",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Frances Hodgson Burnett’s 1911 novel The Secret Garden. Mary, a young girl, is outside trying her new jump rope.\n\nThe sun was shining and a little wind was blowing—not a rough wind, but one which came in delightful little gusts and brought a fresh scent of newly turned earth with it. She skipped round the fountain garden, and up one walk and down another.",
+    "question": "As used in the text, what does the word “rough”most nearly mean?",
+    "options": [
+      "A. Harsh",
+      "B. Scratchy",
+      "C. Basic",
+      "D. Vague"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because as used in the text, \"rough\" most nearly means harsh, or forceful and unpleasant. The text describes Mary’s surroundings as she plays: the sun is out and there’s \"a little wind.\" To further illustrate the wind, the narrator contrasts the word \"rough\" with a description of the wind blowing in \"delightful little gusts,\" suggesting that the wind is not unpleasant or harsh at all. Choice B is incorrect. Although in some contexts \"rough\" objects, or objects with irregular surfaces, can sometimes be scratchy, rough doesn’t mean scratchy in this context. The text explains that the wind is not rough but rather gentle, \"delightful little gusts,\" which suggests that the use of \"rough\" here is referring to the degree of force of the wind. Choice C is incorrect because there’s nothing in the text to suggest that the wind wasn’t \"basic,\" or simple and uncomplicated. Instead, the text describes the wind as blowing not roughly or harshly but in \"delightful little gusts.\" Choice D is incorrect because the word \"vague\" means not clearly expressed or seen. Nothing in the text indicates that the wind was barely noticeable to Mary as she played outside, but rather the text states that it was delightful.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b11bb2a3",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Amy Lowell’s 1912 poem “Summer.”\n\nIt is summer, glorious, deep-toned summer, The very crown of nature’s changing year When all her surging life is at its full.\n\nTo me alone it is a time of pause,\n\nA void and silent space between two worlds, When inspiration lags, and feeling sleeps, Gathering strength for efforts yet to come.",
+    "question": "As used in the text, what does the phrase “a void” most nearly mean?",
+    "options": [
+      "A. A useless",
+      "B. An empty",
+      "C. A forgotten",
+      "D. An incomplete"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because as used in the text, a span of time is described as \"a void\" space, which most nearly means an empty or vacant one. In the text, the speaker describes summertime in counterintuitive terms: although nature’s \"surging life is at its full\" during the season, the speaker feels summer to be \"a time of pause, / A void and silent space between two worlds.\" The speaker says further that during summer, \"feeling sleeps / Gathering strength\" for future efforts. Thus, the speaker regards summer as an empty stretch of time, to be followed by a period of greater activity. Choice A is incorrect. Although the text does present summer as a time of inactivity, it doesn’t characterize that inactivity as useless, or as having no purpose; in fact, the speaker regards summer as a time when \"feeling\" gathers \"strength for efforts yet to come.\" Choice C is incorrect. Although the text characterizes summer as a time \"when inspiration lags, and feeling sleeps,\" it doesn’t discuss the season’s relationship to the speaker’s memory or suggest that summer can easily be forgotten. Choice D is incorrect. In some contexts, \"void\" can mean devoid of, or lacking, a particular element, and such a lack could be conceived of as incompleteness. However, the text doesn’t portray summer as not being complete or whole; instead, it characterizes vacancy or inactivity as being an essential quality of the season, as experienced by the speaker.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0afb2ac4",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Ancient Inca inhabiting the Andes Mountains used terraces, rows of flattened land with built-in irrigation systems, to grow crops at different altitudes. This method of farming proved to be highly ______, as evidenced by the great number and variety of crops grown at that time.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. chaotic",
+      "B. uniform",
+      "C. effective",
+      "D. burdensome"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the ancient Inca farming method. In this context, “effective” means successful in producing a desired result. The text describes how the Inca used terraces with built-in irrigation systems to grow crops at different altitudes and then indicates that this farming method produced positive results “as evidenced by the great number and variety of crops grown at that time.” The context clearly suggests that the terraced farming approach was highly productive, or effective. Choice A is incorrect because to describe the Inca farming method as “chaotic” contradicts the text’s description of a systematic approach using deliberately constructed terraces with built-in irrigation systems. Moreover, the “great number and variety of crops” yielded by this method seems unlikely to result from a disorganized, or chaotic, approach. Choice B is incorrect because “uniform” means consistent or the same throughout. It does not make sense in this context to describe a farming method as highly uniform if it produced a “great number and variety of crops.” Moreover, the text indicates that Inca terrace farming was specifically designed to accommodate different crops at different altitudes, highlighting the diversity rather than uniformity of this approach. Choice D is incorrect because the success of the method, “as evidenced by the great number and variety of crops grown,” does not support the claim that the Inca farming method was “burdensome,” or difficult to implement or maintain. In fact, the context clearly emphasizes the advantages, rather than the burdens, of Inca terrace farming.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "051d3065",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Kelp forests grow underwater along the eastern Pacific Coast. These underwater forests are important to fish and other marine animals. Ocean currents can be powerful and rough, making it difficult for animals to find safe places to hide from predators. The underwater forests slow down the currents. This creates a more ______ environment with calmer waters where animals can take shelter.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. tranquil",
+      "B. dangerous",
+      "C. imaginative",
+      "D. surprising"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of how kelp forests help marine animals. In this context, \"tranquil\" means free from disturbance, or calm. The text indicates that ocean currents are powerful and make it difficult for marine animals to hide from predators and that kelp forests slow currents down to create calmer areas. In other words, kelp forests create a more tranquil environment. Choice B is incorrect because the text indicates that kelp forests provide shelter for marine animals, meaning they create environments that are safer, not more \"dangerous.\" Choice C is incorrect because the text discusses how kelp forests affect currents in the ocean, and it isn’t clear how an ocean environment could be \"imaginative,\" or full of imagination. Choice D is incorrect because the text indicates that kelp forests create a calm and safe environment, and an environment that is \"surprising\" would be characterized by unexpected occurrences, not calmness.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "359b891c",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Painter Alma W. Thomas was fascinated by the colors and shapes found in nature. The flowers and trees in the garden at her home in Washington, DC, ______ her work. For example, Thomas’s use of broken brushstrokes was inspired by the way that light would shine through the leaves of a tree in front of her house.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. restricted",
+      "B. announced",
+      "C. distracted",
+      "D. influenced"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of painter Alma W. Thomas’s work. In this context, \"influenced\" means to have had an effect on something’s development. The text indicates that there is a connection between Thomas’s work and the flowers and trees in her home’s garden, giving the example of Thomas’s brushstrokes being inspired by light shining through the leaves of a tree in front of her house. This context conveys that Thomas’s work was influenced by the flowers and trees in the garden. Choice A is incorrect because the text conveys that Thomas drew inspiration for her work from the plants in her garden, which suggests that the flowers and trees contributed positively to her work, not that they \"restricted,\" or limited, her work. Choice B is incorrect because it wouldn’t make sense to suggest that flowers and trees in a garden could have \"announced,\" or made known, a painter’s work. Choice C is incorrect because the text conveys that Thomas drew inspiration for her work from the plants in her garden, which suggests that the flowers and trees contributed positively to her work, not that they were a distraction. Further, it’s not clear how an artist’s work could itself be \"distracted.\"",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e19e8478",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "Understanding juvenile sea turtles’ migratory patterns is crucial for conservation efforts. While adult sea turtles are well studied, little is known about juveniles during their oceanic stage, when they spend most of their time in the open ocean. To learn about this stage, researchers tagged and released six juvenile green sea turtles (Chelonia mydas) into the eastern Caribbean Sea. Their findings revealed that the majority of the turtles passively drifted with ocean currents throughout the region. However, two individuals swam against the currents, possibly in search of foraging grounds off the coast of South America.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To describe successful conservation efforts for sea turtles",
+      "B. To summarize research on an understudied stage of sea turtle development",
+      "C. To compare the behavior of adult and juvenile sea turtles during migration",
+      "D. To suggest reasons why some juvenile sea turtles swim against the ocean currents"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately states the main purpose of the text. The text begins by noting that little is known about juvenile sea turtles during their oceanic stage, establishing this as an understudied area. The text then describes a study in which researchers tagged and released six juvenile green sea turtles and reports the findings: most turtles drifted passively with currents, while two swam against them. Therefore, the main purpose of the text is to summarize research on an understudied stage of sea turtle development. Choice A is incorrect because although the text mentions that understanding migratory patterns is important for conservation, it does not describe any conservation efforts, successful or otherwise; instead, the text summarizes research findings about a stage of sea turtle development. Choice C is incorrect. Although the text notes that adult sea turtles are well studied while juveniles are not, it does not compare the migratory behavior of adults and juveniles; instead, the text focuses solely on findings about juvenile turtles. Choice D is incorrect. Although the text briefly mentions that two turtles swam against currents and speculates that they may have done so in search of foraging grounds, this is a single detail within the text’s broader summary of the study, not the main purpose of the text as a whole.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e7b709fc",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Archaeologists studying an ancient amphitheater in Switzerland believe that it dates back to the fourth century CE. Their discoveries of a coin made between 337 and 341 CE and era-appropriate building materials ______ evidence for this theory.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. dismiss",
+      "B. provide",
+      "C. regulate",
+      "D. refuse"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the archaeologists’ study of the ancient amphitheater in Switzerland. In this context, “provide” means make available or supply. The text states that the archaeologists believe that the amphitheater dates to the fourth century CE. The text goes on to say that the archaeologists discovered a coin made between 337 and 341 CE (that is, made during the fourth century CE) and building materials appropriate to the era in question. This context suggests that these discoveries provide evidence for the archaeologists’ theory about the dating of the amphitheater. Choice A is incorrect because the archaeologists’ discoveries are presented as supplying evidence in favor of their theory about the dating of the amphitheater, not something that would “dismiss,” or reject serious consideration of, evidence for that theory. Choice C is incorrect because nothing in the text suggests that the archaeologists’ discoveries would “regulate,” or govern or bring order to, evidence for the archaeologists’ theory about the dating of the amphitheater. The discoveries are presented as supplying evidence for the archaeologists’ theory, not as changing how evidence for the theory is controlled or ordered. Choice D is incorrect because the archaeologists’ discoveries are presented as supplying evidence in favor of their theory about the dating of the amphitheater, not something that would “refuse,” or be unwilling to accept, evidence for the archaeologists’ theory.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "dc0bca21",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "It would be a mistake to ______ the exhibit that artist and curator Joe Baker, who is a member of the Lenape (Delaware) people, has organized at the Brooklyn Public Library. The exhibit, which includes Lenape beadwork from the 1850s as well as modern works that use traditional patterns, is essential viewing.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. complicate",
+      "B. amplify",
+      "C. overlook",
+      "D. assemble"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of an exhibit at the Brooklyn Public Library. In this context, \"overlook\" means to ignore or to miss. The text states that artist and curator Joe Baker organized an exhibit that features Lenape beadwork in historical and modern works. The text describes the exhibit as \"essential viewing,\" suggesting that it’s an important exhibit that people should make an effort to visit; this context conveys that it would be a mistake to overlook the exhibit. Choice A is incorrect. In this context, \"complicate\" would mean to add difficulty, and there’s no reason to think the text would need to directly caution against complicating Baker’s exhibit; the text focuses on the idea that the exhibit is \"essential viewing,\" not on the idea of a potential difficulty that could be raised. Choice B is incorrect. In this context, \"amplify\" means to increase, and there’s no reason to believe the text would indicate that it would be a mistake to increase an exhibit the text describes as \"essential viewing.\" Choice D is incorrect because it wouldn’t make sense to say that it would be a mistake to \"assemble,\" or put together, Baker’s exhibit: the text makes it clear that the exhibit has already been put together and, further, praises the exhibit as \"essential viewing.\"",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2c82068f",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is from Mark Oshiro’s 2018 novel Anger Is a Gift. In the novel, Moss and his friends are on a subway train in Northern California.\n\nLights from the outside world then filled the train car as it rose out of the ground and climbed the elevated track. As long as Moss had lived in West Oakland, he’d never tired of this specific view, so he pointed toward the windows. “Check it,” he said, and the Port of Oakland began to pass by them.\n\n©2018 by Mark Oshiro",
+    "question": "As used in the text, what does the word “specific” most nearly mean?",
+    "options": [
+      "A. Imaginary",
+      "B. Energetic",
+      "C. Correct",
+      "D. Particular"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because as used in the text, \"specific\" most nearly means particular. The text is referring to the particular view of the Port of Oakland as seen from a subway train as it rises from underground. This specific, or particular, view has always been special to Moss, a lifetime resident of West Oakland. Choice A is incorrect. Although the text itself is a work of fiction, the view is something Moss can point out to his companions on the train, so the view itself is presumably not imaginary. Choice B is incorrect. Although this view of the Port of Oakland is significant to Moss, nothing in the text describes the view as particularly energetic as opposed to calming, for example. Choice C is incorrect. The point of the text is that the view of the Port of Oakland from the subway train as it rises from underground is significant to Moss, not whether it is described as being correct, which the text does not address.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b93428a6",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Animal researcher Amalia P.M. Bastos led a 2021 study about a wild kea parrot that used small stones as tools to preen its feathers. Skeptical colleagues had initially suggested to Bastos that the kea’s interactions with the stones might simply be ______, but Bastos and her team showed that the kea was using the stones deliberately.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. intriguing",
+      "B. obvious",
+      "C. accidental",
+      "D. observable"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Bastos’s study of a wild kea parrot. In this context, \"accidental\" means unplanned or unintentional. The text first describes Bastos’s study, which concerns a kea that is observed using small stones to preen its feathers. The text then mentions colleagues who are skeptical (that is, they have doubt) about Bastos’s findings, and finally describes how Bastos and her team responded to the skepticism of those colleagues. Given that the colleagues mentioned in the text expressed skepticism regarding Bastos’s findings, the best answer choice must be one that completes the text in a manner such that the skeptics’ opinion regarding the kea’s use of stones disagrees with that held by Bastos and her team. Since Bastos and her team showed that the kea’s use of stones was deliberate (that is, intentional), the skeptics’ opinion in this context must be that the kea’s use of stones was unintentional, or accidental. Choice A is incorrect because the best answer choice is one that portrays skepticism, or doubt, of Bastos’s claim that the kea’s usage of stones was deliberate, or intentional. If the skeptics found the kea’s usage of stones \"intriguing,\" or fascinating, this would not be at odds with the position of Bastos and her team; in fact, it is reasonable to believe that someone who agreed that the kea’s stone usage was deliberate would also find it intriguing. Choice B is incorrect because if the skeptics believed that the kea’s usage of small stones was \"obvious,\" or evident, this would not be contrary to the observation of Bastos and her team that the kea’s usage of stones was deliberate: in fact, these opinions would be consistent with each other. Choice D is incorrect because if the skeptics believed that the kea’s usage of small stones was \"observable,\" or visible, this would not conflict with the claim of Bastos and her team that the kea’s usage of stones was deliberate: instead, these positions would agree.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "213248f7",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Lewis Carroll’s 1865 novel Alice’s Adventures in Wonderland.\n\n“The second thing is to find my way into that lovely garden. I think that will be the best plan.” It sounded like an excellent plan, no doubt, and very neatly and simply arranged; the only difficulty was, that Alice had not the smallest idea how to set about it.",
+    "question": "As used in the text, what does the word “simply” most nearly mean?",
+    "options": [
+      "A. Faintly",
+      "B. Hastily",
+      "C. Easily",
+      "D. Foolishly"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because as used in the text, “simply” most nearly means easily, or involving minimal difficulty or effort. The text first provides Alice’s reflections on her plan to gain access to a garden and then offers commentary on her plan by the novel’s narrator. The text indicates that a reason Alice likes her plan despite not being fully thought through is that she nonetheless believes it can be efficiently arranged. In other words, the text indicates that one of the supposed benefits of Alice’s plan is that it can be easily arranged. Choice A is incorrect because the text describes how Alice’s plan can be arranged, and it wouldn’t make sense to say that it can be arranged “faintly,” or with little strength or not strongly. Instead, the text indicates that the plan can be arranged with little difficulty. Choice B is incorrect. Although in some contexts “simply” can mean quickly, hastily, or hurriedly, the word “hastily” indicates that something is done too quickly. Although it may be true that Alice’s plan was made in haste, the text doesn’t focus on this aspect of her plan. Instead, the text focuses on the plan’s seemingly good qualities, saying that Alice thinks of it as “the best,” and the narrator refers to it as “excellent” and “neatly,” or efficiently, arranged. Choice D is incorrect. Although in some contexts “simply” can mean foolishly, or lacking good sense, it doesn’t have this meaning in this context. Although the text says that Alice doesn’t know how to go about her plan, it begins by presenting her plan in a positive light: Alice describes her plan as “the best,” and the narrator refers to the plan as “excellent” and “neatly,” or efficiently, arranged.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5fa165f7",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "In the 1960s, Sam Gilliam, a Black painter from the southern United States, became the first artist to drape painted canvases into flowing shapes. He later explored a different style, ______ quilt-like paintings inspired by the patchwork quilting tradition of Black communities in the South.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. predicting",
+      "B. refusing",
+      "C. hiding",
+      "D. creating"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Sam Gilliam’s artworks. As used in this context, “creating” means producing or bringing something into existence. The text indicates that Gilliam is an artist who made draped canvases and, later, quilt-like paintings. This context supports the idea that Gilliam explored different styles in his art by creating special types of paintings. Choice A is incorrect because the text indicates that Gilliam actually explored and pursued the creation of quilt-like paintings; he wasn’t just “predicting,” or declaring in advance, the existence of these paintings. Choice B is incorrect because in this context “refusing” would mean rejecting, and there is nothing in the text to suggest that Gilliam rejected his quilt-like paintings. Instead, the text indicates that he was exploring and pursuing a new art style in these paintings. Choice C is incorrect because in this context “hiding” would mean concealing from view, and there is nothing in the text to suggest that Gilliam attempted to conceal his quilt-like paintings. Instead, the text indicates that he was exploring and pursuing a new art style in these paintings.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3e63fce0",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "A team of researchers discovered that Matabele ants can identify an infected wound in a member of the colony and then treat the infection by covering the wound with antimicrobial secretions that the ants produce. The team found that the mortality rate for Matabele ants with infected injuries was reduced by 90% with this treatment, and they are hopeful that this discovery could aid in the development of new antibiotics for human use.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It summarizes research findings on Matabele ants and then identifies an area for further research.",
+      "B. It introduces a study of Matabele ants and then explains the research methods used in the study.",
+      "C. It describes unique properties of Matabele ants and then speculates on how those properties evolved.",
+      "D. It identifies an issue concerning Matabele ants and then proposes a solution to address the issue."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the overall structure of the text. The text first presents what researchers found from studying Matabele ants: the ants can tell when colony members have infected wounds and can largely successfully treat those infections with their antimicrobial secretions. The text then indicates that the findings about the ants could help with the future development of antibiotics for humans. Thus, the text summarizes research findings and then identifies an area for further research. Choice B is incorrect. Although the text introduces a study about Matabele ants, it never discusses how the researchers did their work or any methods they used to produce their findings. Choice C is incorrect. Although the text does describe properties of Matabele ants—their ability to detect and largely successfully treat infected wounds in colony members—it never addresses evolution or how these properties might have changed. Choice D is incorrect because the text doesn’t present anything about Matabele ants as an issue or problem to be solved. Instead, it discusses beneficial abilities the ants have (detecting and treating infected wounds) and suggests that understanding those abilities might be useful for human medicine.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d5600e74",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Pam Muñoz Ryan’s 2020 novel Mañanaland. In the village where Max lives, there is an old fortress called La Reina. Children in the village say that the fortress is haunted.\n\nFor as long as he could remember, Max had begged Papá [his father] to take him to see La Reina and the ruins up close. He’d be a hero among his friends if he was the first boy to cross the haunted gates! Just because Papá didn’t believe in ghosts didn’t mean they weren’t there. Maybe this summer Papá would finally take him. He was almost twelve.\n\n©2020 by Pam Muñoz Ryan",
+    "question": "Which choice best describes the overall purpose of the text?",
+    "options": [
+      "A. To portray how proud Max’s father is of Max",
+      "B. To explain why Max doesn’t want to grow up yet",
+      "C. To criticize Max for disliking summer",
+      "D. To show how much Max wants to visit La Reina"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes the overall purpose of the text. The text indicates that \"for as long as he could remember,\" Max had \"begged\" his father to take him to La Reina. This point is later emphasized in the text by indicating that \"this summer\" his father might \"finally take\" Max to visit La Reina. Thus, the purpose of the text as a whole is to show how much Max wants to visit La Reina. Choice A is incorrect. The text does not discuss Papa’s feelings toward Max. Rather, it mentions that Max has long wanted Papa to take him to La Reina and that, unlike Max and some other children, Papa does not believe that La Reina is haunted. Choice B is incorrect. The text mentions that Max is \"almost twelve\" at the time, which suggests anticipation of growing up rather than refusal to. Choice C is incorrect. The text indicates that Max hopes to visit La Reina during the current summer, but nothing suggests that Max dislikes summer.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "441e2b9e",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Researchers and conservationists stress that biodiversity loss due to invasive species is ______. For example, people can take simple steps such as washing their footwear after travel to avoid introducing potentially invasive organisms into new environments.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. preventable",
+      "B. undeniable",
+      "C. common",
+      "D. concerning"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of how biodiversity loss due to invasive species can be avoided. As used in this context, “preventable” means able to be stopped or kept from happening. The text indicates that “people can take simple steps” to avoid bringing possible invasive species into new environments. It presents these steps as an example of how biodiversity loss due to invasive species is preventable. Choice B is incorrect because it wouldn’t make sense to say that a simple step like washing your shoes after traveling is an example of biodiversity loss due to invasive species being “undeniable,” or something that can’t be proved to be wrong. Although the text may suggest that biodiversity loss due to invasive species is something that really happens, the word that completes the text must make the first sentence into an assertion that is illustrated by the second sentence, and the second sentence illustrates the idea that biodiversity loss due to invasive species is preventable, not undeniable. Choice C is incorrect because it wouldn’t make sense to say that a simple step like washing your shoes after traveling is an example of biodiversity loss due to invasive species being “common,” or something that happens regularly. Additionally, the text doesn’t provide any information about how frequently invasive species cause biodiversity loss. Choice D is incorrect because it wouldn’t make sense to say that a simple step like washing your shoes after traveling is an example of biodiversity loss due to invasive species being “concerning,” or something that is troubling or causes worry. Although the text implies that the phenomenon of biodiversity loss due to invasive species is itself a concerning phenomenon, the word that completes the text must make the first sentence into an assertion that is illustrated by the second sentence, and the second sentence illustrates the idea that biodiversity loss due to invasive species is preventable, not concerning.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b507f90f",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Latro, the main character of Gene Wolfe’s novel Soldier of the Mist, is a man in ancient Greece. He completely loses his memory whenever he sleeps. So, before sleeping, Latro records the important experiences of each day on a scroll, carefully choosing which ones to ______.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. suspect",
+      "B. preserve",
+      "C. suggest",
+      "D. imagine"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text about Latro, the main character in Gene Wolfe’s novel Soldier of the Mist. In this context, \"preserve\" means save or keep from destruction or loss. The text describes Latro as a character who loses his memory whenever he sleeps. The text goes on to explain that before going to sleep, Latro records his most important memories to prevent him from forgetting, or losing, them. The context therefore supports the idea that Latro records his most important experiences in an effort to save, or preserve, his memory of them from loss. Choice A is incorrect because \"suspect\" would mean mistrust, which wouldn’t make sense in this context. The text emphasizes that in writing down his experiences, Latro carefully chooses those which are most important to him and thus worth remembering later, not that he is mistrustful or has reason to doubt the experiences he records. Choice C is incorrect because in this context, \"suggest\" would mean propose for consideration. The text emphasizes the fact that Latro actually records those experiences that he has decided are most important to him, not that he merely proposes which experiences to consider for inclusion in his scroll. Choice D is incorrect because in this context, \"imagine\" would either mean form a mental image of or fabricate, neither of which would logically complete the text. Although it’s possible that reviewing records from previous days might enable Latro to reconstruct mental images of what has happened to him in the past, the text emphasizes the fact that Latro carefully selects and writes down his experiences so he will remember them in the future, not so that he can form mental pictures of them as he writes them down. In a similar vein, the text emphasizes that Latro is recording experiences that have actually happened to him, not that he’s fabricating the experiences he records.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5d48f889",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "The following text is adapted from Mercedes de Acosta’s 1921 poem “Spring and You.”\n\nNow, Love and April, and the gold of your hair,\n\nAre all mingled together\n\nLike the blending of an exotic dream plant\n\nWith the fragrant perfume of a strange, frail flower.",
+    "question": "As used in the text, what does the word “mingled” most nearly mean?",
+    "options": [
+      "A. Identified",
+      "B. Combined",
+      "C. Remembered",
+      "D. Celebrated"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because as used in the text, \"mingled\" most nearly means combined. In the text, the speaker refers to several concepts mingling together and then compares this to \"the blending of\" two other things (an exotic plant and the fragrance of a strange flower). This comparison conveys that the speaker views the concepts of love, April, and the gold of someone’s hair as being blended together, or combined. Choice A is incorrect because \"mingled\" means combined, not identified. The speaker names several concepts (love, April, and the gold color of someone’s hair) and then moves to a comparison of their mingling together to \"the blending of\" a plant and the scent of a flower, conveying the idea that the speaker views the concepts as blended together, or combined. Choice C is incorrect. The text as a whole may refer to a memory, but the comparison of the mingling of several concepts (love, April, and the gold color of someone’s hair) to \"the blending of\" a plant and the scent of a flower conveys that the speaker views those concepts as actually blended together, or combined, and not simply remembered at the same time. Choice D is incorrect. The speaker refers to several concepts (love, April, and the gold color of someone’s hair) and then compares the mingling together of those concepts to \"the blending of\" a plant and the scent of a flower; rather than suggesting that the concepts are celebrated, this comparison conveys that the speaker views the concepts as blended together, or combined.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2390e956",
+    "skill": "Words in Context",
+    "difficulty": "Easy",
+    "passage": "Ronyoung Kim creatively captures the Korean American immigrant experience in her novel Clay Walls by writing about a family from three ______ perspectives. The first section of the novel is from the mother Haesu’s perspective, the second is from the father Chun’s perspective, and the last is from the daughter Faye’s perspective.",
+    "question": "Which choice completes the text with the most logical and precise word?",
+    "options": [
+      "A. distinct",
+      "B. required",
+      "C. unintended",
+      "D. unknown"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Ronyoung Kim’s novel Clay Walls. In this context, \"distinct\" means clearly separate and different. The text indicates that the novel consists of three sections and that each section is narrated from the perspective of a different character. This context supports the idea that Kim’s novel features three distinct perspectives. Choice B is incorrect because describing the three perspectives in Kim’s novel as \"required,\" or demanded as necessary to be done or provided, wouldn’t make sense in context. When writing a novel, a novelist is free to choose to narrate the story from any number of perspectives. There’s nothing in the text to indicate that providing three perspectives was demanded of Kim. Instead, the text focuses on identifying the three different perspectives featured in Kim’s novel. Choice C is incorrect because describing the three perspectives in Kim’s novel as \"unintended,\" or not planned as a purpose or goal, wouldn’t make sense in context. Authors make deliberate choices about the perspectives they feature in their works, and the text indicates that Kim chose to incorporate three different perspectives in her novel. Choice D is incorrect because describing the three perspectives in Kim’s novel as \"unknown,\" or not revealed, wouldn’t make sense in context. The text directly identifies the three perspectives that appear in her novel as those of Faye and her two parents, Haesu and Chun, which indicates that the novel’s perspectives are in fact known.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Medium",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "dd0aada1",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Science fiction has long served as a ______ real-world technological advancements. Indeed, from Jules Verne’s 1865 novel From the Earth to the Moon inspiring developments in aerospace engineering to the television show Star Trek sparking the design of the ancestor of today’s smartphones, these narratives have spurred many actual innovations.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. constraint to",
+      "B. sponsor of",
+      "C. catalyst of",
+      "D. diversion from"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of science fiction’s relationship to real-world technological advancements. In this context, “catalyst of” means something that prompts the development of. The text indicates that science fiction narratives have “spurred many actual innovations,” giving as examples Verne’s From the Earth to the Moon “inspiring” aerospace engineering developments and Star Trek “sparking” the design of early analogues of smartphones. Thus, this context supports the idea that science fiction has prompted the development of, or served as a catalyst of, real-world technological advancements. Choice A is incorrect because saying that science fiction has served as a “constraint to,” or limitation on, real-world technological advancements would contradict the text, which indicates that science fiction has inspired technological innovation rather than inhibited it. Choice B is incorrect because describing science fiction as a “sponsor of,” or an entity who takes on responsibility for, real-world technological advancements wouldn’t make sense in context. A sponsor provides material support for an undertaking, often by providing funds for the undertaking or by overseeing its management, but the text describes science fiction as inspiring or sparking ideas for innovation, not as financially backing technological development or taking direct responsibility for overseeing it. Choice D is incorrect because in this context, a “diversion from” would mean either a distraction from or a deviation from, which contradicts the text’s examples of science fiction inspiring real-world technological advancements. It therefore wouldn’t make sense to say that science fiction has distracted people from such advancements or that the innovations science fiction depicts deviate from actual innovations.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c977cfcf",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "According to a team of neuroeconomists from the University of Zurich, ease of decision making may be linked to communication between two brain regions, the prefrontal cortex and the parietal cortex. Individuals tend to be more decisive if the information flow between the regions is intensified, whereas they make choices more slowly when information flow is ______.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. reduced",
+      "B. evaluated",
+      "C. determined",
+      "D. acquired"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of how the flow of information between two regions of the brain may affect the ease of people’s decision making. In this context, \"reduced\" means decreased. The text presents the finding from a team of neuroeconomists that decision making may be connected to communication between the prefrontal cortex and the parietal cortex. In presenting this finding, the text suggests a contrast between people who tend to be more decisive and people who make decisions more slowly. According to the text, people tend to be more decisive when the flow of information between the two brain regions is intensified, or strengthened. On the other hand, this context suggests that people make choices more slowly when the flow of information between the two brain regions is decreased. Choice B is incorrect because \"evaluated\" means assessed, which wouldn’t make sense in context. According to the text, people tend to be more decisive when the flow of information between two brain regions is intensified, or strengthened. This suggests that people’s ease of decision making varies based on the rate of information traveling between the regions, not based on an effort to assess the information. Choice C is incorrect because \"determined\" means judged or influenced, neither of which would make sense in context. According to the text, people tend to be more decisive when the flow of information between two brain regions is intensified, or strengthened. This suggests that people’s ease of decision making varies based on the rate of information traveling between the regions, not based on an effort to judge or influence the information. Choice D is incorrect because \"acquired\" means developed or attained, neither of which would make sense in context. According to the text, people tend to be more decisive when the flow of information between two brain regions is intensified, or strengthened. This suggests that people’s ease of decision making varies based on the rate of information traveling between the regions, not based on the development or attainment of the information.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1c7fe9be",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "At the turn of the twentieth century, Black residents of Richmond, Virginia, had few formal options for banking and other financial services. To ______ this situation, Maggie Lena Walker chartered the St. Luke Penny Savings Bank in 1903. The bank went on to provide home loans and savings opportunities to thousands of Black families over the following decades.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. prolong",
+      "B. rectify",
+      "C. retain",
+      "D. highlight"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of how Maggie Lena Walker addressed the lack of financial services available to Black residents in Richmond, Virginia, at the turn of the twentieth century. In this context, \"rectify\" means to correct or remedy something undesirable. The text indicates that by chartering the St. Luke Penny Savings Bank in 1903, Walker took action to provide local Black residents with greater access to financial services like home loans and savings opportunities. This context supports the idea that she aimed to rectify the undesirable situation affecting these residents. Choice A is incorrect because in this context, \"prolong\" would mean to lengthen something in time. The text indicates that at the turn of the twentieth century, Black residents in Richmond, Virginia, were faced with a lack of formal banking options. The text then states that Walker founded a new bank that provided these residents with financial services. Therefore, instead of prolonging the situation, she took steps to rectify, or correct, it. Choice C is incorrect because in this context, \"retain\" would mean to continue to have or to keep something. According to the text, at the turn of the twentieth century, Black residents in Richmond, Virginia, had few formal banking options, and Walker chartered a new institution to provide these residents with expanded financial services; therefore, she took steps to rectify, not retain, the situation. Choice D is incorrect because in this context, \"highlight\" would mean to emphasize or call attention to something, but the text indicates that Walker took concrete steps beyond merely drawing attention to the situation Black residents were facing in Richmond, Virginia, at the turn of the twentieth century. According to the text, Walker worked to rectify, or correct, the lack of formal banking options that were available to these residents by establishing a bank that provided them with home loans and savings opportunities.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2af2016f",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "A study by Dr. Paul Hanel and colleagues concluded that people are more likely to behave politely when listening to ideas they disagree with if they think about values before they engage in a discussion. Study participants were assigned to one of two groups. The experimental group spent a few minutes writing about one of their personal values before they had a group discussion on a controversial topic. And the control group spent a few minutes writing about a drink (tea, milk, etc.) before their group discussion on that topic. Hanel and colleagues found that the experimental group’s discussion was more civil than the control group’s discussion was.",
+    "question": "Which choice best describes the main purpose of the text?",
+    "options": [
+      "A. To describe a widely held belief and how a study’s results support that belief",
+      "B. To argue that researchers were surprised by the results of a certain study",
+      "C. To suggest ways to improve a certain study’s experimental design",
+      "D. To explain a study’s conclusion and how a research team arrived at that conclusion"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes the main purpose of the text, which is to explain a study’s conclusion and how researchers involved in the study arrived at that conclusion. The text begins by summarizing the main conclusion of the study conducted by Paul Hanel and colleagues: when confronted with ideas they disagree with in discussions about controversial topics, people are more likely to respond politely if they think about their personal values before engaging in such discussions. The text then goes on to describe the design of Hanel and colleagues’experiment. By comparing interactions between members of an experimental group (who had been prompted to write about their personal values beforehand) to those between members of a control group (who had been prompted to write about a beverage), the team found that people in the experimental group behaved more civilly, or politely, than people in the control group did during discussions about a controversial topic. This finding led to the conclusion described at the beginning of the text. Choice A is incorrect. Although the text discusses the results of a study, it doesn’t provide any indication that the conclusion the study supported —that when facing disagreement, people behave more politely when they have thought about their values—is a belief that is widely held. Choice B is incorrect because the text doesn’t indicate that the researchers found the results of their study to be surprising, or contrary to what they expected. In fact, there’s no indication provided in the text about how the researchers felt about the study’s results or that the results should be considered surprising. Choice C is incorrect. Although the text discusses the experimental design of a study, it doesn’t suggest any improvements to that design; instead, it focuses on how the design enabled the researchers to draw a particular conclusion.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b13378c8",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Early in the Great Migration of 1910–1970, which involved the mass migration of Black people from the southern to the northern United States, political activist and Chicago Defender writer Fannie Barrier Williams was instrumental in helping other Black women establish themselves in the North. Many women hoped for better employment opportunities in the North because, in the South, they faced much competition for domestic employment and men tended to get agricultural work. To aid with this transition, Barrier Williams helped secure job placement in the North for many women before they even began their journey.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To introduce and illustrate Barrier Williams’s integral role in supporting other Black women as their circumstances changed during part of the Great Migration",
+      "B. To establish that Barrier Williams used her professional connections to arrange employment for other Black women, including jobs with the Chicago Defender",
+      "C. To demonstrate that the factors that motivated the start of the Great Migration were different for Black women than they were for Black men",
+      "D. To provide an overview of the employment challenges faced by Black women in the agricultural and domestic spheres in the southern United States"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the text’s purpose, which is to discuss the important role Barrier Williams played in supporting many other Black women as they relocated to the northern United States during the early years of the Great Migration. After introducing Barrier Williams, the text describes how she helped find jobs for other Black women, who in many cases relocated in search of better employment prospects than the South could offer at the time. The text indicates that by doing so, she eased these women’s transition as their circumstances changed. Choice B is incorrect. Although the text mentions Barrier Williams’s work as a political activist and writer for the Chicago Defender, it doesn’t discuss any professional connections she made in these roles or indicate that she used any such connections in her work to secure employment for other Black women. Choice C is incorrect. Although the text discusses a factor that caused many women to relocate during the Great Migration, their difficulty finding employment in the South, the text doesn’t indicate that this factor motivated the start of the Great Migration. Moreover, the text doesn’t discuss the factors that motivated Black men to migrate. Choice D is incorrect. Although the text mentions the difficult employment prospects for Black women in the domestic and agricultural sectors in the South during the Great Migration, the text’s main purpose isn’t to provide an overview of the employment challenges Black women faced in these sectors. Rather, it provides this information to show that Barrier Williams played a crucial role in supporting many Black women who relocated to the North by helping them achieve one of their main goals, securing a job.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "be612a26",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Recent measurements of the mass of the W boson (a subatomic particle) were notable not only for the mere fact that the particle’s mass differed from expectations but for the ______ of that difference: the measured mass of the W boson was seven standard deviations higher than predicted by the standard model of particle physics.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. cause",
+      "B. existence",
+      "C. implication",
+      "D. scale"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the W boson. In this context, \"scale\" means size or extent. The text indicates that recent measurements of the W boson were remarkable because they revealed the subatomic particle’s mass to be much greater (\"seven standard deviations higher\") than had been expected based on a standard model. This context conveys not only that the measurements differed from predictions but also that the extent of the difference was very large. Choice A is incorrect. Although the text indicates that there was a very large difference between the predicted mass and the actual measured mass of the subatomic particle, it doesn’t explain the cause of, or reason behind, that difference. Choice B is incorrect because it wouldn’t make sense to say that the measurements of the subatomic particle were notable because they differed from expectations and also because a difference existed between the measurements and what had been predicted; the text would be repeating the idea that there was a difference instead of adding to that idea. Choice C is incorrect because the text doesn’t convey any implications of, or consequences of or conclusions drawn from, the fact that the mass of the subatomic particle differed from expectations; the context indicates only that the actual measured mass was much higher than the predicted mass.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3f37eb3b",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "People sometimes dismiss a claim if it comes from a source they regard as self-interested, but from a strictly logical perspective, the source of a claim is ______: it has no direct bearing on whether the claim is true.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. indistinct",
+      "B. irrelevant",
+      "C. indisputable",
+      "D. implicit"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion about people’s tendency to dismiss claims from sources perceived as self-interested, or acting for their own advantage. In this context, \"irrelevant\" means not applicable to the matter at hand. The text explains that as a matter of logical reasoning, the source of a claim has nothing to do with the claim’s truthfulness—a claim is either true or false in actuality, regardless of where it originates. This context suggests that even though people may distrust a claim based on its source, the source of the claim is actually irrelevant. Choice A is incorrect because in this context, \"indistinct\" would mean uncertain or not clearly recognizable. Instead of suggesting that the source of a claim can’t be determined with certainty, the text suggests that recognizing a source and having an opinion of it simply doesn’t matter because as a matter of logic, a claim is true or false in actuality, regardless of where it originates. Choice C is incorrect because in this context, \"indisputable\" would mean impossible to question or deny. Although the text suggests that it isn’t logical to assume a claim is false just because its source appears to be self-interested, it doesn’t go so far as to suggest that the source of a claim can’t be questioned—the text instead makes the point that from a logical standpoint, the source of a claim doesn’t matter because the claim is either true or false in and of itself. Choice D is incorrect because in this context, \"implicit\" would mean suggested or understood without being directly expressed. Nothing in the text suggests that logically, the source of a claim is only suggested; instead of addressing whether sources can be directly identified, the text focuses on the idea that sources don’t matter because a claim is true or false in actuality, regardless of where it originates.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "cef79fb9",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The Bayeux Tapestry, from eleventh-century France, depicts 75 scenes over 250 feet of fabric. It was likely produced by workers embroidering in sections and then joining the resulting panels together. It’s plausible that the workshop that produced the tapestry had never produced one so large, and some researchers claim that a close examination of the joins—the places where the panels are stitched together—suggests that the workers developed and refined their joining process over the course of production. <u>For example, the first join the workers completed exhibits a clear misalignment of the borders of the two panels, whereas the later joins are virtually invisible.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It identifies the people and events depicted in the Bayeux Tapestry.",
+      "B. It supports an argument about the workers who produced the Bayeux Tapestry.",
+      "C. It compares the Bayeux Tapestry with other tapestries from eleventh-century France.",
+      "D. It describes how researchers determined where the Bayeux Tapestry was produced."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the function of the underlined sentence in the text as a whole. The text discusses the Bayeux Tapestry, making the point that the workers who produced the huge tapestry in the eleventh century might not have ever produced a tapestry so large before. The text goes on to suggest that because of this lack of previous experience, the workers developed and refined the process of joining the tapestry’s panels over time as they worked. The last sentence of the text then provides an example of an observation that suggests the workers’process changed: clear misalignment of the borders of the two panels the workers joined first and virtually invisible joins completed later. Thus, the underlined sentence serves to support an argument about the workers who produced the tapestry. Choice A is incorrect because the example given in the last sentence of the text has to do with how the panels of the Bayeux Tapestry were joined by the workers, not with what is depicted in those panels; the text never identifies any people or places depicted in the tapestry. Choice C is incorrect because the last sentence compares how early panels in the Bayeux Tapestry were joined with how later panels in the same tapestry were joined; it doesn’t make any comparison between the Bayeux Tapestry and other tapestries from the same time in France. Choice D is incorrect because the last sentence doesn’t address the location where the Bayeux Tapestry was created; the first sentence of the text presents it as a given that the tapestry was created in France, but nothing in the text indicates how that origin was determined.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4974b053",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Although science fiction was dominated mostly by white male authors when Octavia Butler, a Black woman, began writing, she did not view the genre as ______: Butler broke into the field with the publication of several short stories and her 1976 novel Patternmaster, and she later became the first science fiction writer to win a prestigious MacArthur Fellowship.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. legitimate",
+      "B. impenetrable",
+      "C. compelling",
+      "D. indecipherable"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the discussion of Octavia Butler’s career. In this context, “impenetrable” means impossible to enter. The text indicates that the field of science fiction was dominated by white males when Butler, a Black woman, started writing, but she published several science fiction short stories and a novel and later won a prestigious award; that is, Butler pursued science fiction writing and had success. This context suggests that Butler didn’t view the genre as impossible to enter. Choice A is incorrect. In this context, “legitimate” would mean genuinely good or valid. Nothing in the text suggests that Butler didn’t think the science fiction genre was good or valid; in fact, it indicates that she pursued and made a successful career of publishing work in that field. Choice C is incorrect. In this context, “compelling” would mean attracting or demanding attention. The text indicates that Butler chose to write science fiction, so it wouldn’t make sense to say that she didn’t see the field as drawing her attention. Choice D is incorrect. To say that Butler didn’t consider science fiction “indecipherable,” or impossible to understand, would suggest that Butler did understand it. However, the text doesn’t address Butler’s ability to interpret works in the genre; rather, it focuses on Butler’s successful pursuit of writing science fiction.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7d8224f9",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "In 1154, Muhammad al-Idrisi completed a collection of maps of the lands known to medieval Arabic and European scholars. This collection was titled Al-Kitāb al-Rujārī (The Book of Roger), after the Norman king Roger II who hired him to create it. To create the collection, al-Idrisi consulted Arabic and Greek maps and interviewed travelers about the lands they visited. He included these travelers’ stories alongside the map illustrations.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To discuss the benefits of studying mapmaking",
+      "B. To explain how travelers created maps",
+      "C. To describe a collection of medieval maps and how it was created",
+      "D. To compare medieval Arabic and Greek mapmaking techniques"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately states the main purpose of the text, which is to describe a collection of medieval maps and how it was created. The text begins by mentioning Muhammad al-Idrisi’s collection of maps of lands known to medieval Arabic and European scholars. It then states that the Norman king Roger II hired al-Idrisi to create the collection and details al-Idrisi’s methods of creation: consulting Arabic and Greek maps and interviewing travelers. In short, the text presents a collection of medieval maps and then goes on to describe how that collection came to be. Choice A is incorrect because the text describes a collection of maps and the process of creating that collection but does not discuss the benefits of studying mapmaking in general. Choice B is incorrect because though the text mentions that al-Idrisi interviewed travelers, the text does not describe how those travelers created maps. Choice D is incorrect because though the text mentions that al-Idrisi consulted Arabic and Greek maps, the text does not offer a comparison of Arabic and Greek mapmaking techniques.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "49d3dc62",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Scientists studying marine ecosystems were surprised by the extent of internal carbon recycling by red coralline algae. While some ______ of carbon was expected, the scientists found that the algae reabsorb nearly 40% of the carbon dioxide they produce during calcification processes and harness it for photosynthesis.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. imitation",
+      "B. supply",
+      "C. examination",
+      "D. reuse"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of internal carbon recycling by red coralline algae. In this context, “reuse” means using something again rather than disposing of it as waste. The text describes scientists’ surprise at “the extent of” internal carbon recycling by the algae, characterizing this finding as a departure from the more limited degree of activity that the scientists had expected to observe. The text goes on to explain that, in contrast to the scientists’ expectation that “some” carbon would be affected by the activity being described, the algae were found to “reabsorb nearly 40% of the carbon dioxide they produce during calcification processes and harness it for photosynthesis,” a specific example of their extensive capacity for taking in carbon and recycling, or reusing, it. Because the scientists thought the algae would use some of their own carbon dioxide again but were surprised by the extent of this activity, the context supports the idea that some reuse of carbon was expected. Choice A is incorrect because it wouldn’t be logical in context to state that some “imitation,” or reproduction of something else, of carbon was expected. The text discusses the algae’s reabsorption and reuse of the carbon dioxide they produce, not any process by which carbon copies or reproduces something. Choice B is incorrect because stating that some “supply,” or available amount, of carbon was expected wouldn’t fit the contrast established within the text. The text contrasts the scientists’ expectations about carbon recycling in algae with their actual observations, noting that the scientists anticipated a more limited version of the recycling process they observed. This context doesn’t suggest that the scientists merely anticipated the presence of some amount of carbon. Choice C is incorrect because it wouldn’t be logical in context to state that some “examination,” or careful inspection, of carbon was expected. The text isn’t discussing scientists’ inspection of carbon, and carbon itself isn’t something that engages in inspection. Rather, the text focuses on the algae’s reabsorption and reuse of the carbon dioxide they produce.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "47598085",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Yawn contagion occurs when one individual yawns in response to another’s yawn. Studies of this behavior in primates have focused on populations in captivity, but biologist Elisabetta Palagi and her colleagues have shown that it can occur in wild primate populations as well. In their study, which focused on a wild population of gelada monkeys (Theropithecus gelada) in Ethiopia, the researchers further reported that yawn contagion most commonly occurred in males and across different social groups instead of within a single social group.",
+    "question": "Which choice best describes the function of the first sentence in the text as a whole?",
+    "options": [
+      "A. It defines a phenomenon that is discussed in the text.",
+      "B. It introduces a problem that is examined in the text.",
+      "C. It makes a claim that is challenged in the text.",
+      "D. It presents a hypothesis that is evaluated in the text."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the first sentence functions in the text as a whole. The first sentence introduces what yawn contagion is, explaining that it occurs when an individual yawns in response to the yawn of another individual. The text goes on to describe Elisabetta Palagi and her colleagues’ study of this phenomenon in a wild population of gelada monkeys. According to the text, the study showed that wild primate populations experience yawn contagion and that the behavior occurs most commonly in male monkeys and across social groups. Thus, the function of the first sentence is to define the phenomenon of yawn contagion that is discussed in the text. Choice B is incorrect. Although the first sentence introduces the text’s discussion of yawn contagion, it doesn’t present this behavior, or anything else, as a problem. Choice C is incorrect because the first sentence doesn’t present a claim but instead explains what yawn contagion is. Moreover, the text doesn’t challenge anything; it’s an informative text that describes the findings of a research study about yawning in wild primate populations. Choice D is incorrect. Although the text describes a scientific study, and most scientific studies are guided by a hypothesis, the text doesn’t say what Palagi and her colleagues’ hypothesis was; the text discusses their findings instead.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "710799ae",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Cuttlefish appear to be surprisingly ______ at exercising self-control: in a 2021 study conducted by behavioral ecologist Alexandra Schnell, these cephalopods routinely demonstrated restraint by delaying gratification, waiting for a favorite treat instead of instantly devouring a readily available meal.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. awkward",
+      "B. imaginative",
+      "C. manageable",
+      "D. competent"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of self-control in cuttlefish. In this context, \"competent\" means capable. The text describes a study in which cuttlefish demonstrated an ability to exercise restraint by waiting for a favorite treat instead of eating a meal that was already available to them. That is, by delaying gratification, the cuttlefish in the study demonstrated that they were capable of, or competent at, exercising self-control. Choice A is incorrect because nothing in the text suggests that in demonstrating self-control, cuttlefish are \"awkward,\" or lacking skill or grace. If anything, the text indicates that cuttlefish appear to be surprisingly skilled at exercising self-control. Choice B is incorrect because in this context, \"imaginative\" would mean creative, and there’s nothing in the text to suggest that cuttlefish demonstrate creativity. Instead, the text focuses on the fact that cuttlefish seem to be capable of exercising restraint and self-control. Choice C is incorrect because in this context, \"manageable\" would mean capable of being controlled. Although the text indicates that the cuttlefish in the study demonstrated restraint by waiting for a favorite treat instead of devouring a readily available meal (which suggests their ability to control themselves), it doesn’t suggest that cuttlefish are thus also able to be managed or controlled by others.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7bf79a90",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nMicrobes are tiny organisms in the soil, water, and air all around us. They thrive even in very harsh conditions. That’s why Noah Fierer and colleagues were surprised when soil samples they collected from an extremely cold, dry area in Antarctica didn’t seem to contain any life. The finding doesn’t prove that there are no microbes in that area, but the team says it does suggest that the environment severely restricts microbes’ survival.\n\nText 2\n\nMicrobes are found in virtually every environment on Earth. So it’s unlikely they would be completely absent from Fierer’s team’s study site, no matter how extreme the environment is. There were probably so few organisms in the samples that current technology couldn’t detect them. But since a spoonful of typical soil elsewhere might contain billions of microbes, the presence of so few in the Antarctic soil samples would show how challenging the conditions are.",
+    "question": "Based on the texts, Fierer’s team and the author of Text 2 would most likely agree with which statement about microbes?",
+    "options": [
+      "A. Most microbes are better able to survive in environments with extremely dry conditions than in environments with harsh temperatures.",
+      "B. A much higher number of microbes would probably be found if another sample of soil were taken from the Antarctic study site.",
+      "C. Microbes are likely difficult to detect in the soil at the Antarctic study site because they tend to be smaller than microbes found in typical soil elsewhere.",
+      "D. Most microbes are probably unable to withstand the soil conditions at the Antarctic study site."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it presents a statement about microbes with which Fierer’s team (Text 1) and the author of Text 2 would most likely agree. Text 1 states that microbes usually thrive in very harsh conditions, and so Fierer’s team was surprised when samples collected from an extremely cold and dry area of Antarctica didn’t appear to contain any life. Fierer’s team says that though this doesn’t conclusively prove there are no microbes in the area, it suggests that microbes would have a notably difficult time surviving in the environment. The author of Text 2 says it’s unlikely that there would be no microbes at all in the Antarctic study site from which Fierer’s team retrieved soil samples and that there may have been hard-to-detect microbes in the samples. However, the presence of only a few microbes in the Antarctic samples rather than the billions found in a typical soil sample (which would presumably be much easier to detect) would illustrate conditions in the Antarctic soil that make it difficult for microbes to thrive. Since Fierer’s team says that the seeming absence of microbes in the Antarctic samples suggests an unusually harsh environment and the author of Text 2 says that even if there are a few undetectable microbes in the samples, the relatively tiny number of microbes would also suggest an unusually harsh environment, then Fierer’s team and the author of Text 2 would most likely agree that most microbes are unable to withstand the soil conditions at the Antarctic study site. Choice A is incorrect. The samples taken by Fierer’s team were from an area of Antarctica that is described in part as extremely dry, and these samples didn’t appear to have any life. Therefore, even though these samples also came from an extremely cold area, Fierer’s team wouldn’t argue based on the evidence available that microbes were better able to survive in dry conditions than in areas with harsh temperatures. Moreover, the author of Text 2 says that microbes are found in virtually every environment on Earth but doesn’t compare dry environments and harsh environments. Choice B is incorrect. Nothing in Text 1 indicates that another collection of samples from the Antarctic study site might yield different results from the samples already taken by Fierer’s team. The author of Text 2 does state that microbes are found in virtually every environment on Earth and suggests that new technology may be better able to detect so few microbes in a soil sample, but the author of Text 2 concludes that the unusual absence of microbes in the Antarctic samples is evidence of the harsh Antarctic environment. Therefore, there is no reason to believe that the author of Text 2 thinks that another sample drawn from that same harsh environment would yield a much higher number of microbes. Choice C is incorrect. The author of Text 2 does speculate that there may have been so few microbes in the Antarctic samples that current technology couldn’t detect them, but the author doesn’t speculate that this is due to the size of the microbes. Moreover, nothing that Fierer’s team says suggests that they are speculating that their samples might have microbes that are smaller than microbes in typical soil samples.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4c4db685",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "On painter William H. Johnson’s return to the United States in 1938 after a decade in Europe, his style underwent an abrupt transformation. <u>Turning away from landscapes painted in an expressionist style—a style that often involves using fluid, distorted shapes and thick, textured brushstrokes to express the artist’s subjective experience of reality—Johnson began painting portraits of Black Americans in a bold new way.</u> Evocative of African sculpture and American and Scandinavian folk art, these portraits feature flat, deliberately oversimplified figures in a vibrant but limited color palette.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It elaborates on the previous sentence’s statement about a transitional moment in Johnson’s artistic career.",
+      "B. It provides information about Johnson’s travels in support of a claim about his artistic influences, which is advanced in the following sentence.",
+      "C. It recounts a moment in Johnson’s personal life that enabled the success of his subsequent career, which is summarized in the following sentence.",
+      "D. It presents evidence that calls into question the previous sentence’s characterization of Johnson’s artistic development."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the function of the underlined sentence in the text as a whole. The first sentence of the text indicates that Johnson returned to the US in 1938 at which time his painting style suddenly changed. The second sentence is underlined and gives more detail about this stylistic change, noting that his earlier work consisted largely of landscapes in an expressionist style and his new works were highly stylized portraits of Black Americans. In other words, the function of the underlined sentence is to elaborate on a transitional moment in Johnson’s painting career. Choice B is incorrect. Although the text does mention that Johnson spent a decade in Europe, it does not discuss what other travel Johnson might have done. Furthermore, although the text mentions African, American, and Scandinavian artistic elements in Johnson’s work, it does not indicate that he traveled to different locations to learn about these practices. Choice C is incorrect because the text does not focus on Johnson’s personal life nor does it address how successful his career was in general. Choice D is incorrect because, rather than call it into question, the underlined sentence continues the discussion of Johnson’s career by adding further relevant detail of Johnson’s artistic transformation.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "617a8a10",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Very little is known about the role nocturnal insects, such as moths, play in flower pollination because it is difficult to monitor insects at night. <u>To address this problem, a team of scientists used time-lapse cameras to record pollinator visits to red clover all day and night.</u> The recordings showed that while most pollinator visits were by bumblebees, one-third of visits were by moths. Additionally, flowers that were visited by both moths and bees produced more seeds than flowers that were only visited by bees.",
+    "question": "Which choice best states the function of the underlined sentence?",
+    "options": [
+      "A. To describe an approach a team of scientists used to study pollinators",
+      "B. To question a claim scientists make about pollinators",
+      "C. To explain why moths prefer red clover to other flowers",
+      "D. To announce an unexpected research finding about red clover"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the function of the underlined sentence. The sentence indicates that scientists used time-lapse photography during both day and night to detect pollinators visiting red clover. Therefore, the underlined sentence has the function of describing an approach scientists used in the pollinator study discussed in the text. Choice B is incorrect because the underlined sentence discusses equipment the scientists used to conduct their study, and the text provides nothing to suggest these elements of their experimental design could, by themselves, question claims resulting from the study. Choice C is incorrect because nothing in either the underlined sentence or the rest of the text addresses whether moths have a preference for red clover or any other flowers. Choice D is incorrect. Although the sentences that follow the underlined sentence discuss research findings, nothing in the text suggests that these findings were unexpected. Moreover, the underlined sentence describes part of the scientists’ experimental design (day and night time-lapse photography), not a finding of the scientists’ study.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "23974d6c",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "There are many famous examples of election pollsters making inaccurate predictions in presidential elections. But neuroscientist and election pollster Sam Wang has said that these prediction failures should not lead campaigns to ______ election polling entirely. Polling is about more than just predicting the winner; throughout campaigns, it helps strategists identify where their efforts are most likely to be effective.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. distort",
+      "B. enact",
+      "C. neglect",
+      "D. supplement"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of election polling. In this context, to “neglect” would mean to disregard or pay insufficient attention to something. The text states that there have been many cases of election pollsters incorrectly predicting presidential elections and then says that neuroscientist and pollster Sam Wang notes that campaigns shouldn’t react to these failures in a certain way. The text then adds that polls are valuable for informing strategists’ efforts throughout campaigns, not just for predicting the outcome. This context conveys that Wang’s advice is not to neglect, or disregard, polling because even though it sometimes fails to predict the winner, it can help improve campaign strategies. Choice A is incorrect. In this context, to “distort” would mean to give a false or misleading account. Though the text states that many election pollsters have failed in their predictions in presidential elections, it gives no indication that Wang would therefore argue that campaigns shouldn’t react to such polling failures by giving inaccurate accounts of election polling. Instead, the text emphasizes that polls have value beyond predicting winners, suggesting that Wang’s point is that campaigns shouldn’t stop polling entirely. Choice B is incorrect because it wouldn’t make sense to suggest that Wang encourages campaigns not to “enact,” or establish, election polling; the text indicates that election polling is something that already takes place and that has value for campaign strategies even if it sometimes leads to inaccurate predictions of winners, suggesting an argument in favor of continuing to use election polling. Choice D is incorrect. Although the text indicates that many election pollsters have failed in their predictions in presidential elections, there’s no reason to think Wang would say that these failures should lead campaigns not to “supplement,” or add to, election polling; it would be reasonable to suggest that campaigns would want to consider more than just election polling information if that information may lead to inaccurate predictions. Moreover, the text’s main point is that polls provide some utility even if their predictions may be inaccurate, which suggests that Wang’s recommendations pertain to whether campaigns should or shouldn’t use polling data, not whether polling data should or shouldn’t be supplemented with other kinds of information.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "acb852e7",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from the 1923 poem “Black Finger” by Angelina Weld Grimké, a Black American writer. A cypress is a type of evergreen tree.\n\nI have just seen a most beautiful thing, Slim and still,\n\nAgainst a gold, gold sky,\n\nA straight black cypress,\n\nSensitive,\n\nExquisite,\n\nA black finger\n\nPointing upwards.\n\nWhy, beautiful still finger, are you black? And why are you pointing upwards?",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. The speaker assesses a natural phenomenon, then questions the accuracy of her assessment.",
+      "B. The speaker describes a distinctive sight in nature, then ponders what meaning to attribute to that sight.",
+      "C. The speaker presents an outdoor scene, then considers a human behavior occurring within that scene.",
+      "D. The speaker examines her surroundings, then speculates about their influence on her emotional state."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the overall structure of the text. First, the speaker describes observing a “most beautiful” sight: a tree (“black cypress”) standing out from the golden sky behind it, looking like a person’s finger “pointing upwards” and appearing “sensitive” and “exquisite.” Then the speaker wonders about the image’s meaning, asking why the finger is black and why it’s pointing upward. Thus, the text moves from the speaker’s description of a distinctive sight in nature to her pondering about what meaning to attribute to that sight. Choice A is incorrect because the speaker assesses a natural sight—a “black cypress” tree standing “against a gold, gold sky” like a pointed finger—but doesn’t question the accuracy of her own assessment. Although she wonders why the finger, which is really a tree, is black and why it’s pointing, the speaker doesn’t suggest that her belief that the tree resembles a finger is wrong. Choice C is incorrect. Although the speaker describes seeing a “black cypress” tree standing “against a gold, gold sky” like a pointed finger, she wonders about that natural image (asking why the finger, which is really a tree, is black and why it’s pointing) and doesn’t give any indication that any people are present in the scene. Choice D is incorrect. Although the speaker examines and wonders about one thing in her surroundings—a “black cypress” tree standing “against a gold, gold sky” like a pointed finger—she doesn’t address her own emotional state or consider how it’s affected by her surroundings.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9107ad5c",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Stars form in cloudlike swirls of gas and dust that cannot be touched‚ but astrophysicist Nia Imara believes these formations need not remain completely ______ to researchers: she uses simulation data and sophisticated 3D printers to produce interactive models of these stellar nurseries.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. repeatable",
+      "B. explicable",
+      "C. regrettable",
+      "D. intangible"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of how Nia Imara facilitates the study of star formations. As used in this context \"intangible\" means unable to be physically handled or touched. The text states that star formations cannot be touched, and then goes on to explain that Imara created a special model to research star formations. In other words, despite the fact that real star formations are intangible, thanks to Imara, researchers can handle models of star formations to better understand them. Choice A is incorrect because \"repeatable\" means can be duplicated or done again, which wouldn’t make sense in context. The text indicates that the swirls of gas and dust in which stars form are untouchable, but that Nia Imara has produced interactive models of them. It would therefore be illogical to suggest that Imara believes that the formations need not be duplicated and then go on to say that she has copied them. Choice B is incorrect because \"explicable\" means explainable or understandable, which wouldn’t make sense in context. The text does not suggest that Nia Imara believes that star formations can be fully explained but rather that she produced interactive models to physically study them because researchers are unable to touch them directly. Choice C is incorrect because \"regrettable\" means distressing or unfortunate, which wouldn’t make sense in context. The text does not suggest that Imara believes the researchers regret the star formations or find them distressing, but rather that she uses interactive models to physically study them.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "059f7201",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nGraphic novels are increasingly popular in bookstores and libraries, but they shouldn’t be classified as literature. By definition, literature tells a story or conveys meaning through language only; graphic novels tell stories through illustrations and use language only sparingly, in captions and dialogue. Graphic novels are experienced as series of images and not as language, making them more similar to film than to literature.\n\nText 2\n\nGraphic novels present their stories through both language and images. Without captions and dialogue, readers would be unable to understand what is depicted in the illustrations: the story results from the interaction of text and image. Moreover, Alison Bechdel’s Fun Home and many other graphic novels feature text that is as beautifully written as the prose found in many standard novels. Therefore, graphic novels qualify as literary texts.",
+    "question": "Based on the texts, how would the author of Text 2 most likely respond to the overall argument presented in Text 1?",
+    "options": [
+      "A. By asserting that language plays a more important role in graphic novels than the author of Text 1 recognizes",
+      "B. By acknowledging that the author of Text 1 has identified a flaw that is common to all graphic novels",
+      "C. By suggesting that the story lines of certain graphic novels are more difficult to understand than the author of Text 1 claims",
+      "D. By agreeing with the author of Text 1 that most graphic novels aren’t as well crafted as most literary works are"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately states how the author of Text 2 would most likely respond to the argument presented in Text 1. In arguing that graphic novels shouldn’t be classified as literature and are more comparable to film, Text 1 claims that language plays a relatively limited role in graphic novels: images, not language, are the primary means by which graphic novels tell their stories, and language is used \"only sparingly\"—that is, comparatively very little—in the form of captions and dialogue. However, the author of Text 2 asserts that language in graphic novels is as equally vital for conveying meaning as images are, since without captions and dialogue, readers wouldn’t be able to make sense of the narrative. Moreover, the author of Text 2 argues that there are many graphic novels that are \"beautifully written\" and whose use of language is as accomplished as any standard novel. Because Text 1 argues that language is subordinate to images in graphic novels, whereas Text 2 highlights how language is an essential component of a graphic novel’s storytelling, it can reasonably be inferred that the author of Text 2 would say that language plays a more important role in graphic novels than the author of Text 1 recognizes. Choice B is incorrect. Although Text 1 indicates that graphic novels shouldn’t be classified as literature based on their limited use of language, there’s no indication that the author of Text 1 considers this limited use of language as a flaw, just that it doesn’t fit the particular definition of \"literature\" proposed in the text. Even if Text 1 had suggested that their use of language was a common flaw of graphic novels, the author of Text 2 emphasizes how many graphic novels are \"beautifully written,\" and would therefore say that their use of language is exemplary, not that it is flawed. Choice C is incorrect because Text 1 doesn’t claim that the story lines of graphic novels are generally relatively easy to understand; in addition, Text 2 argues that given their dependence on the interaction of image and text, the stories of graphic novels would be incomprehensible if their captions and dialogue were removed, not that the story lines of some graphic novels are more difficult to understand than Text 1 acknowledges. Choice D is incorrect because the author of Text 1 doesn’t imply that graphic novels aren’t well crafted, only that they use language too sparingly to fit the definition of \"literature,\" and that their use of images to convey stories makes them more comparable to film than to literature. Even if the author of Text 1 had implied that most graphic novels aren’t well crafted, Text 2 refers to the fact that many graphic novels are as beautifully written—that is, well crafted—as many standard novels; thus, it wouldn’t be accurate to say that the author of Text 2 would agree with the author of Text 1 that most graphic novels aren’t well crafted.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2ec0e43e",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Alternative-history fiction is a subgenre of science fiction in which plots center on “what if?”questions. <u>What if India had started the Industrial Revolution? What if Soviet cosmonauts had been first to land on the moon?</u> Speculative counterfactuals like these can be great fodder for stories, but they’re also commonly deployed by academic historians to better understand factors influencing historical events. Well-realized and coherent alternative-history stories can thus complement historians’speculations about the past.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It illustrates how academic historians have influenced writers of alternative-history fiction.",
+      "B. It acknowledges counterfactual questions that academic historians have largely overlooked.",
+      "C. It provides examples of the types of scenarios addressed in alternative-history fiction.",
+      "D. It indicates specific ideas that were first raised by writers of alternative-history fiction and that subsequently inspired scholarship by academic historians."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes the function of the underlined portion in the text as a whole. The text begins by defining alternative-history fiction as a subgenre centered on “what if?”questions. The underlined portion then poses two such questions—one about India starting the Industrial Revolution and one about Soviet cosmonauts landing on the moon first. The sentence that follows refers to the two questions as “speculative counterfactuals like these,”confirming that the underlined questions serve as examples. Thus, the underlined portion provides examples of the types of scenarios addressed in alternative-history fiction. Choice A is incorrect because the underlined portion provides examples of “what if?”scenarios, not evidence of a line of influence from academic historians to fiction writers; nothing in the text addresses such a relationship. The text mentions academic historians only in the context of how alternative-history stories can supplement their work. Choice B is incorrect because the text states that counterfactuals like the ones presented in the underlined portion are “commonly deployed by academic historians,”indicating engagement with such questions rather than neglect. Instead of acknowledging overlooked questions, the underlined portion provides examples of the types of scenarios addressed in alternative-history fiction. Choice D is incorrect because nothing in the text indicates that the specific questions in the underlined portion originated with fiction writers or that they subsequently inspired academic historians. Instead, the underlined portion simply illustrates the kind of “what if?”questions typical of the alternative-history fiction subgenre.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e1befb41",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nIn a study of the benefits of having free time, Marissa Sharif found that the reported sense of life satisfaction tended to plateau when participants had two hours of free time per day and actually began to fall when they had five hours of free time per day. After further research, Sharif concluded that this dip in life satisfaction mainly occurred when individuals spent all their free time unproductively, such as by watching TV or playing games.\n\nText 2\n\nPsychologist James Maddux cautions against suggesting an ideal amount of free time. The human desire for both free time and productivity is universal, but Maddux asserts that individuals have unique needs for life satisfaction. Furthermore, he points out that there is no objective definition for what constitutes productivity; reading a book might be considered a productive activity by some, but idleness by others.",
+    "question": "Based on the texts, how would Maddux (Text 2) most likely respond to the conclusion Sharif (Text 1) reached after her further research?",
+    "options": [
+      "A. By acknowledging that free time is more likely to enhance life satisfaction when it is spent productively than when it is spent unproductively",
+      "B. By challenging the reasoning in Text 1, as it has not been proved that productivity commonly contributes to individuals’life satisfaction",
+      "C. By warning against making an overly broad assumption, as there is no clear consensus in distinguishing between productive and unproductive activities",
+      "D. By claiming that the specific activities named in Text 1 are actually examples of productive activities rather than unproductive ones"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it characterizes how Maddux would most likely respond to the conclusion Sharif reached after her research. Text 1 describes Sharif’s study of the benefits of free time, saying that the reported sense of satisfaction plateaued at two hours per day and began to decline at five hours per day. Further research led Sharif to conclude that time spent doing tasks she defines as unproductive, such as watching TV or playing games, correlated with a drop in life satisfaction. However, in Text 2 Maddux says that there is no objective definition of what constitutes productive behavior, giving the example that reading a book might be considered productive by some but unproductive by others. It can be inferred that Maddux would also assert that whether watching TV or playing games is productive or unproductive is a matter of subjective judgment. Thus, Maddux would most likely caution against making an overly broad assumption, as there is no clear consensus in distinguishing between productive and unproductive activities. Choice A is incorrect because Maddux asserts that individuals have unique needs for life satisfaction: some may want to spend that time productively, others unproductively, and what counts as productive is subjective. Therefore, Maddux would likely not consider it universally true that free time is more likely to enhance life satisfaction when it is spent productively. Choice B is incorrect because the study described in Text 1 concerns whether free time contributes to life satisfaction, not whether productivity contributes to life satisfaction. The dip in life satisfaction that Sharif claims to observe in Text 1 happens only after five hours, and mainly if the time is spent unproductively—that is, two hours of free time spent productively might increase life satisfaction just as much as two hours spent unproductively. Choice D is incorrect because Maddux holds the opinion that whether an activity is productive or unproductive is subjective and depends on the individual; therefore, he would most likely claim that watching TV or playing games might be productive for some and unproductive for others.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "cf9a00e0",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Chile’s Atacama Desert is one of the driest places on Earth. <u>Mary Beth Wilhelm and other astrobiologists search for life, or its remains, in this harsh place because the desert closely mirrors the extreme environment on Mars.</u> The algae and bacteria found in Atacama’s driest regions may offer clues about Martian life. By studying how these and other microorganisms survive such extreme conditions on Earth, Wilhelm’s team hopes to determine whether similar life might have existed on Mars and to develop the best tools to look for evidence of it.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. To contrast the conditions in the Atacama Desert with those on Mars",
+      "B. To explain why many life-forms cannot survive in the Atacama Desert",
+      "C. To indicate why astrobiologists choose to conduct research in the Atacama Desert",
+      "D. To describe certain limitations to conducting scientific study in the Atacama Desert"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes how the underlined sentence functions in the text as a whole. The first sentence describes a unique location on Earth, the Atacama Desert. The next sentence, which is the underlined sentence, states that the reason why astrobiologists study life, or its remains, in this unique location is that Atacama is a harsh environment that closely resembles the extreme environment of Mars. The remainder of the text explains that the researchers hope their work in Atacama will support inquiry into life on Mars. Thus, the underlined portion functions mainly to indicate why astrobiologists choose to conduct research in the Atacama Desert. Choice A is incorrect because to contrast two things means to show the differences between them, and the phrase \"closely mirrors\" in the underlined sentence indicates that the extreme environment in the Atacama Desert is similar to, not different from, that on Mars. This similarity is why, according to the underlined sentence, astrobiologists conduct research in Atacama. Choice B is incorrect because the underlined sentence doesn’t address forms of life that are unable to survive the harsh environment of the Atacama Desert. Instead, the underlined sentence explains why astrobiologists study life, or its remains, in this environment. Choice D is incorrect because the underlined sentence doesn’t suggest that the scientific research in the Atacama Desert is limited in any way; instead, the sentence explains that the similarity between the environments of Atacama and Mars is the reason why astrobiologists search for life, or its remains, in Atacama.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "735b0776",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Though Chloé Zhao’s films are fictional, she incorporates real events into them in a documentary-like style and casts nonprofessional actors who reside in the places that she aims to portray. She also encourages these actors, whether they are teenagers living on the Pine Ridge Indian Reservation or adults who travel the country for work, to put as much of themselves into their roles as possible. Her approach adds powerful resonance to films that explore the highly personal experiences of place and home, and often the difficult decision to stay or leave.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To argue that Chloé Zhao’s films are best understood as documentaries",
+      "B. To discuss how Chloé Zhao’s background in documentary filmmaking has influenced her storytelling style in films",
+      "C. To emphasize that Chloé Zhao’s decisions during the filmmaking process reinforce the themes of her films",
+      "D. To summarize how Chloé Zhao’s style of filmmaking changed over the course of her career"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately states the main purpose of the text. The text begins by describing Zhao’s filmmaking decisions: incorporating real events, casting nonprofessional actors from the locations she portrays, and encouraging those actors to bring personal experiences to their roles. The text then states that this approach “adds powerful resonance” to films that explore themes of place, home, and the decision to stay or leave. Therefore, the main purpose of the text is to emphasize that Zhao’s filmmaking decisions reinforce the themes of her films. Choice A is incorrect because the text explicitly states that Zhao’s films are fictional. Although the text states that Zhao uses a “documentary-like style,” it does not suggest that the films are best understood as documentaries, or nonfiction movies. Instead, the text describes how her approach strengthens her films’ themes. Choice B is incorrect because the text does not discuss whether Zhao has a background in documentary filmmaking. The text does not mention her background. Instead, the text describes Zhao’s filmmaking approach and its effect on her films’ themes. Choice D is incorrect because the text does not address changes in Zhao’s filmmaking style over time; instead, it describes her consistent approach and how that approach reinforces her films’ themes.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4830ab87",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "The way in which individual elements are balanced within a photographic image tends to affect how viewers perceive it: symmetry tends to give the elements equal importance, asymmetry emphasizes differences, and radial balance (organizing the elements around a central point) emphasizes the center over the periphery. What a photograph conveys is therefore largely ______ how it is balanced.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. inhibited by",
+      "B. contingent on",
+      "C. obligated to",
+      "D. reserved for"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of visual balance in photography. In this context, \"contingent on\" means conditional upon, or determined by. The text indicates that different ways of balancing elements in a photograph convey different ideas to viewers (for example, symmetrical composition tends to emphasize similarity among elements, whereas asymmetry tends to emphasize difference). Thus, there is a strong connection between what a photograph conveys and how its elements are balanced. Therefore, what a photo conveys is contingent on how it is balanced. Choice A is incorrect. In this context, \"inhibited by\" most nearly means hindered or undermined by. The text indicates that different ways of balancing elements in a photograph convey different ideas to viewers, thereby indicating a relationship between image balance and what is conveyed. Although this explanation is consistent with a photographer choosing asymmetrical balance even while intending to convey similarity (associated with symmetrical balance), there is nothing to indicate that messages generally are inhibited by balance. Rather the implication is that balance is a tool photographers can use to craft their messages. Choice C is incorrect. In this context, \"obligated to\" means duty bound toward or answerable to. In context, it would not make sense to assert that a photograph’s message is obligated to how that photograph is balanced. Choice D is incorrect. In this context, \"reserved for\" most nearly means solely available to someone or held aside for some purpose. The text as a whole does not support the claim that a photograph’s message is reserved for how that photograph is balanced.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b44066dc",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Economist Jingting Fan argues that the effects of international trade may display spatial variation at sub-national levels. For instance, imported goods may reduce expenses for a country’s average consumer, but for consumers living far from ports, high intranational transport costs could ______ the price advantages associated with imports.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. nullify",
+      "B. denigrate",
+      "C. underestimate",
+      "D. misconstrue"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it logically completes the text’s discussion of imported goods and consumer prices. In this context, \"nullify\" most nearly means negate or undermine. The text indicates that importing goods to a country can reduce consumer prices in that country, then cautions that the costs of transporting goods within the country is also a factor. These transportation costs likely raise the prices that must be paid by people who live far from the ports of entry. Therefore, the intranational transportation costs could nullify the price advantages to consumers of importing goods. Choice B is incorrect. In this context, \"denigrate\" would most nearly mean disparage or deny the importance of. Since transportation costs would not be capable of denying the importance of price advantages, it would not make sense to state that intranational transportation costs denigrate the price advantages of importing goods. Choice C is incorrect. In this context, \"underestimate\" would most nearly mean predict a lower value for, or to undervalue, someone or something. Though transportation costs might be undervalued, they cannot themselves undervalue something else, so it would not make sense to state that intranational transportation costs underestimate the price advantages of importing goods. Choice D is incorrect. In this context, \"misconstrue\" would most nearly mean misunderstand. Since transport costs are not capable of understanding, it would not make sense to claim that intranational transportation costs misconstrue the price advantages of importing goods.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2b085bc6",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is adapted from Paul Laurence Dunbar’s 1902 novel The Sport of the Gods. Joe and some of his family members have recently moved to New York City.\n\n[Joe] was wild with enthusiasm and with a desire to be a part of all that the metropolis meant. In the evening he saw the young fellows passing by dressed in their spruce clothes, and he wondered with a sort of envy where they could be going. Back home there had been no place much worth going to, except church and one or two people’s houses.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. It illustrates a character’s reaction to a new environment.",
+      "B. It explains why a character has traveled to a city.",
+      "C. It compares a character’s thoughts about an event at two different times of day.",
+      "D. It presents a character feeling regret over leaving home."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the main purpose of the text. The narrator describes how Joe responds to being in “the metropolis”: he’s excited and “wild with enthusiasm.”He also envies the young fellows who walk by because, dressed as they are, they look as if they have somewhere special to go. The text contrasts this new place with the place Joe comes from, where apparently there wasn’t as much to do. Thus, the main purpose of the text is to illustrate Joe’s reaction to a new environment. Choice B is incorrect because the text makes no reference to why Joe has moved. The narrator indicates that Joe is enthusiastic about being in a city, but there’s no explanation provided for the move. Choice C is incorrect because the text makes no reference to how Joe thinks about an event. The narrator describes young men passing by in the evening and then recalls places worth going to at home—church and a few people’s houses—but there’s no explicit comparison made nor is a time of day mentioned for these events back home. Choice D is incorrect because the text doesn’t support the idea that Joe feels regret over leaving home. Instead, Joe is described as “wild with enthusiasm”at being in the city. Joe’s home is mentioned, but only to compare it unfavorably with the city.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "213a25d1",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Paul Laurence Dunbar’s 1913 poem “The Poet and His Song.”\n\nA song is but a little thing,\n\nAnd yet what joy it is to sing!\n\nIn hours of toil it gives me zest,\n\nAnd when at eve I long for rest;\n\nWhen cows come home along the bars,\n\nAnd in the fold I hear the bell,\n\nAs Night, the shepherd, herds his stars,\n\nI sing my song, and all is well.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To convey how engaging in song makes the speaker feel",
+      "B. To compare the speaker to a singing shepherd",
+      "C. To portray the speaker’s excitement about farming",
+      "D. To describe the pieces of music the speaker enjoys hearing"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because is accurately states the main purpose of the text. The text begins by declaring that although a song is \"but a little thing,\" or seemingly insignificant, singing it brings joy and gives the speaker of the text \"zest,\" or excitement, in \"hours of toil.\" The remainder of the text explores the idea that as night is falling, singing allows the speaker to feel that \"all is well.\" Thus, the main purpose of the text is to convey how engaging in song makes the speaker feel. Choice B is incorrect. Although the text mentions a shepherd, it neither indicates that the shepherd is singing nor does it compare the shepherd to the speaker. Choice C is incorrect. The text indicates that the speaker works hard, engaging in \"hours of toil,\" and it can be inferred that the speaker likely lives in a rural area, since cows and a cowbell can be heard nearby. However, the text does not suggest that the speaker is a farmer or feels excited about farming. Moreover, the shepherd in the text is not a literal reference to someone who herds sheep but instead a figurative description of the moon as the shepherd of the stars. Choice D is incorrect because in the text, the speaker is singing a song, not listening to others sing one. Moreover, the text describes the feelings that the speaker has when singing a song, not the song itself.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c7265342",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from the 1895 poem “Marshlands” by Emily Pauline Johnson, a Kanienkahagen (Mohawk) writer also known as Tekahionwake.\n\nAmong the wild rice in the still lagoon,\n\nIn monotone the lizard shrills his tune.\n\nThe wild goose, homing, seeks a sheltering,\n\nWhere rushes grow, and oozing lichens cling.\n\nLate cranes with heavy wing, and lazy flight,\n\nSail up the silence with the nearing night.\n\nAnd like a spirit, swathed in some soft veil,\n\nSteals twilight and its shadows o’er the swale.\n\nHushed lie the sedges, and the vapours creep,\n\nThick, grey and humid, while the marshes sleep.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It names animal species found in a place, then names plant species there.",
+      "B. It sketches a setting by presenting a series of images of nature.",
+      "C. It makes an extended comparison of nature to human emotions.",
+      "D. It identifies a location, then refers to a person living there."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best describes the overall structure of the text. The text first establishes the setting, a \"still lagoon,\" and then goes on to provide more details about the lagoon by presenting several descriptive images of nature, including a lizard that \"shrills his tune,\" \"oozing lichens,\" and \"thick, grey and humid\" vapors. Choice A is incorrect. Instead of simply naming species, the text presents descriptive images of nature; further, instead of naming animals and then moving on to name plants, the text refers first to a plant (\"the wild rice\"), then to two animals (\"the lizard,\" \"the wild goose\"), then to another plant (\"rushes\"), and so on. Choice C is incorrect because the text does not draw any comparison between nature and human emotions; it does not refer to human emotions at all. Choice D is incorrect. While the text does begin by identifying a specific location, a \"still lagoon,\" it makes no mention of a person living there.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "8963273a",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Musician Joni Mitchell, who is also a painter, uses images she creates for her album covers to emphasize ideas expressed in her music. For the cover of her album Turbulent Indigo (1994), Mitchell painted a striking self-portrait that closely resembles Vincent van Gogh’s Self-Portrait with Bandaged Ear (1889). The image calls attention to the album’s title song, in which Mitchell sings about the legacy of the postimpressionist painter. In that song, Mitchell also hints that she feels a strong artistic connection to Van Gogh—an idea that is reinforced by her imagery on the cover.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It presents a claim about Mitchell, then gives an example supporting that claim.",
+      "B. It discusses Van Gogh’s influence on Mitchell, then considers Mitchell’s influence on other artists.",
+      "C. It describes a similarity between two artists, then notes a difference between them.",
+      "D. It describes the songs on Turbulent Indigo, then explains how they relate to the album’s cover."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it accurately describes the organization of the elements within the text. The text begins with the claim that Joni Mitchell’s album covers use images she creates in order to emphasize ideas embedded in her albums. It then goes on to provide an example of how Mitchell’s self-portrait on the cover of Turbulent Indigo resembles a painting by Van Gogh, which the text indicates helps emphasize the strong connection Mitchell feels toward Van Gogh, a connection that is also expressed in the album’s title song. Choice B is incorrect because there are no references in the text to artists other than Joni Mitchell and Van Gogh. Choice C is incorrect because there is nothing in the text that calls attention to any similarities or differences between Joni Mitchell and Van Gogh. Instead, it mentions that Mitchell feels a strong “artistic connection”to Van Gogh. Choice D is incorrect because the text discusses the cover before referring to any songs, and it only references one song from the album not all the songs.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c4900368",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from the 1924 poem “Cycle”by D’Arcy McNickle, who was a citizen of the Confederated Salish and Kootenai Tribes.\n\nThere shall be new roads wending, A new beating of the drum— Men’s eyes shall have fresh seeing, Grey lives reprise their span—\n\nBut under the new sun’s being, Completing what night began, There’ll be the same backs bending, The same sad feet shall drum— When this night finds its ending And day shall have come.....",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To consider how the repetitiveness inherent in human life can be both rewarding and challenging",
+      "B. To question whether activities completed at one time of day are more memorable than those completed at another time of day",
+      "C. To refute the idea that joy is a more commonly experienced emotion than sadness is",
+      "D. To demonstrate how the experiences of individuals relate to the experiences of their communities"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it accurately states the main purpose of the text. The text begins by discussing the promise of the future, with positive references to renewal such as “new roads,”“new beating of the drum,”and “fresh seeing.”But with the “new sun,”the text continues, there will still be “the same backs bending”and “the same sad feet”drumming, indicating that these difficulties will follow people into this new day. The poem thus considers both the rewards and challenges associated with the repetitiveness of human life. Choice B is incorrect because the text doesn’t say anything about how memorable activities are, let alone compare the memorability of activities completed at different times of the day. Choice C is incorrect. Although the text contrasts hope with difficulty, it does not compare the relative frequency of joyful feelings with that of sad feelings. Choice D is incorrect because the text makes no distinction between the experiences of individuals and the experiences of their communities.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "422c5068",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Generally it takes Tule geese about four days to migrate south for the winter. From their summer breeding grounds in Cook Inlet, Alaska, <u>the birds begin by flying over the Gulf of Alaska, keeping about 100 miles from the Canadian shore.</u> They pause to rest on the Pacific Ocean, then fly toward Summer Lake, Oregon, before finally arriving at their winter destination of Sacramento Valley, California. In 2020, however, it took the geese over twice as long to make their way from Cook Inlet to Sacramento Valley. According to researchers, the reason was airborne pollutants.",
+    "question": "Which choice best states the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It illustrates a change in Tule geese’s usual flight behavior.",
+      "B. It suggests an explanation for why Tule geese breed in Alaska.",
+      "C. It describes part of the Tule geese’s typical winter migration journey.",
+      "D. It compares Tule geese to other birds that migrate south for the winter."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best states how the underlined portion functions in the text as a whole. The first sentence states that Tule geese typically take four days to migrate south. Then in the next sentence, which contains the underlined portion, the text describes the first part of that journey, which begins with the geese flying over the Gulf of Alaska while keeping about 100 miles from the Canadian shore. The rest of the text details the remainder of the geese’s typical journey and then mentions circumstances in 2020 that resulted in the geese taking an unusually long time to complete it. Thus, the underlined portion describes part of the Tule geese’s typical winter migration journey. Choice A is incorrect. Although the text concludes by stating that in 2020, Tule geese took twice as long to complete their typical migration, which suggests a change in their usual flight behavior, the underlined portion doesn’t discuss this. Instead, the underlined portion describes the first part of the Tule geese’s typical winter migration journey over the Gulf of Alaska. Choice B is incorrect. Although the sentence containing the underlined portion mentions that Tule geese breed in Alaska, the underlined portion doesn’t explain why the geese breed in that location. Rather, the text mentions Alaska to explain that it’s the starting point of the Tule geese’s typical winter migration. Choice D is incorrect because the underlined portion doesn’t discuss any other birds that migrate south for the winter. In fact, the text is only concerned with the migration of Tule geese.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "dbb56a02",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "<u>People tend to assume that being happy is the ideal emotional state and should be an ongoing aspiration;</u> recently, however, research has suggested that it is at times beneficial to embrace negative emotions. To test whether anger can contribute to problem-solving abilities, researcher Heather Lench led an experiment in which participants were randomly assigned to view images designed to create an emotional condition—either neutral or one of anger, amusement, desire, or sadness. When asked to then solve a series of challenging puzzles, the participants in the anger condition had greater success than those in the other conditions.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It describes a general psychological tendency that the study discussed in the text was designed to explain.",
+      "B. It explains an assumption underlying the hypothesis investigated in the study discussed in the text.",
+      "C. It notes a generally accepted belief that is called into question by a finding of the experiment outlined in the text.",
+      "D. It suggests a psychological basis for the behaviors of the participants in the experiment reported in the text."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes the function of the underlined portion in the text as a whole. The underlined portion states that people commonly believe happiness is the ideal emotional state. However, the text then notes that recent research suggests that negative emotions can be beneficial, as demonstrated by an experiment by Heather Lench in which participants primed to feel anger did better at solving puzzles than did those primed to feel other emotions. This finding calls into question the belief that happiness is always the ideal state. Thus, the underlined portion notes a generally accepted belief that is called into question by a finding from the experiment. Choice A is incorrect because the study does not address why people assume happiness is ideal. Rather, the text indicates the study was designed to test whether anger can contribute to problem-solving abilities. Choice B is incorrect because rather than underlying the study’s hypothesis that anger could be beneficial in some circumstances, the underlined portion presents the widely held belief that happiness is always preferable to negative emotions, which directly conflicts with that hypothesis. Choice D is incorrect because the underlined portion presents a common belief that happiness is the ideal emotional state, not an explanation for the participants’behavior in the experiment. The text reports that participants in the anger condition performed better on the puzzles but does not explain the psychological reason for this outcome.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "74446089",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "For his 1986 album Keyboard Fantasies, Beverly Glenn-Copeland wrote songs grounded in traditional soul and folk music, then accompanied them with futuristic synthesizer arrangements featuring ambient sounds and complex rhythms. The result was so strange, so unprecedented, that the album attracted little attention when first released. In recent years, however, a younger generation of musicians has embraced the stylistic experimentation of Keyboard Fantasies. <u>Alternative R&B musicians Blood Orange and Moses Sumney, among other contemporary recording artists, cite the album as an influence.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It urges contemporary musicians to adopt the unique sound of Keyboard Fantasies.",
+      "B. It responds to criticism of Keyboard Fantasies by some younger musicians.",
+      "C. It offers examples of younger musicians whose work has been impacted by Keyboard Fantasies.",
+      "D. It contrasts Keyboard Fantasies with the recordings of two younger musicians."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the function of the underlined sentence in the text as a whole. The text’s subject is Beverly Glenn-Copeland’s 1986 album Keyboard Fantasies, notable for its innovative, experimental arrangements. According to the text, the album was not initially admired, but in recent years it has become popular among younger musicians. The underlined portion of the text mentions two of those musicians, Blood Orange and Moses Sumney, who “cite the album as an influence.” Therefore, the underlined portion of the text offers examples of younger musicians whose work has been impacted by Keyboard Fantasies. Choice A is incorrect because even though the underlined sentence states that Blood Orange and Moses Sumney were influenced by Keyboard Fantasies, it doesn’t say that all other musicians should also embrace the album’s experimental style. Choice B is incorrect. Although the text states that Keyboard Fantasies was not admired on its first release, the text doesn’t present any criticism of the album by younger musicians: it only presents two younger musicians who cite it as an influence. Choice D is incorrect because the underlined sentence doesn’t mention any differences between Keyboard Fantasies and the work of Blood Orange and Moses Sumney.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2e8ab360",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Eighteenth-century historian Edward Gibbon thought the only character defect of the Roman emperor Marcus Aurelius was his mild temperament —though the emperor was widely considered virtuous, his overly permissive nature led him to ______ the vices of those who surrounded him.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. indulge",
+      "B. despise",
+      "C. moderate",
+      "D. criticize"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the Roman emperor Marcus Aurelius. In this context, \"indulge\" means treat with excessive leniency. The text states that according to historian Edward Gibbon, Marcus Aurelius, who was widely considered virtuous, had only a single character flaw: his mild temperament. The text suggests that because of this flaw, Marcus Aurelius had an overly permissive nature. This context, in turn, supports the idea that Marcus Aurelius treated the vices, or evils, of those around him with excessive leniency, indulging rather than punishing those vices. Choice B is incorrect. While the text does state that Marcus Aurelius was widely considered virtuous, it gives no indication that he was inclined to \"despise,\" or hate, others’vices. Rather, the text suggests that he showed undue tolerance for these vices because of his overly permissive nature —that is, his inclination to allow others to do as they wished. Choice C is incorrect because the text’s description of Marcus Aurelius as overly permissive suggests that he showed undue tolerance for others’vices, not that he tried to \"moderate\" those vices, or lessen their intensity. Choice D is incorrect because the text’s description of Marcus Aurelius as overly permissive suggests that he showed undue tolerance for others’ vices, not that he attempted to \"criticize,\" or speak disapprovingly of, those vices.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c5b1afe5",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Bicycle sharing systems allow users to rent a bicycle at one location within a city and return it to any other designated location in that city, which can cause serious problems of bicycle supply and user demand within the city’s system. Tohru Ikeguchi uses open-source data and statistical modeling to identify when a high number of users making one-way trips is likely to leave some locations within the system ______ bicycles and other areas with insufficient supply.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. susceptible to",
+      "B. contingent on",
+      "C. saturated with",
+      "D. depleted of"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Ikeguchi’s model of bicycle supply. In this context, “saturated with”means thoroughly or completely supplied with. The text explains a problem encountered by some bicycle-sharing programs: users can return bicycles to different locations than where the users picked up the bicycles to start, which can result in a mismatch between bicycle supply (that is, where the bicycles are currently located) and user demand (that is, the locations where users are hoping to pick up bicycles). The text goes on to explain that Ikeguchi developed a way to identify when this mismatch is likely to occur. This context suggests that Ikeguchi’s method will show when it is likely that some locations have an insufficient supply and other locations, by implicit contrast, are saturated with bicycles. Choice A is incorrect because nothing in the text suggests that some locations are “susceptible to,”or sensitive to or easily influenced by, bicycles. The text describes the phenomenon of bicycles being redistributed away from locations where users want them, not anything about those locations being influenced by the bicycles. Choice B is incorrect because the text describes situations in which some locations have an insufficient supply of bicycles because the bicycles have been relocated elsewhere, which suggests that the other locations have many bicycles, not that the other locations are “contingent on,”or dependent on, the bicycles. Nothing in the text suggests that the locations themselves depend on the bicycles for anything. Choice D is incorrect because it would not make sense in context to say that some locations are “depleted of,”or empty of, bicycles while others have an insufficient supply. The text describes situations in which bicycles have been relocated such that there is a mismatch between bicycle supply and user demand—the bicycles are no longer at the locations where users want to pick them up. This means that some locations do not have enough bicycles, while other locations must have many bicycles, not be depleted of bicycles.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "81a3a607",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In the Indigenous intercropping system known as the Three Sisters, maize, squash, and beans form an ______ web of relations: maize provides the structure on which the bean vines grow; the squash vines cover the soil, discouraging competition from weeds; and the beans aid their two “sisters”by enriching the soil with essential nitrogen.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. indecipherable",
+      "B. ornamental",
+      "C. obscure",
+      "D. intricate"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the Three Sisters intercropping system. As used in this context, “intricate”would mean made up of complexly related elements. The text indicates that in the Three Sisters system, maize, squash, and beans form a “web of relations”in which the crops interact in various ways. The text’s description of these interactions—the bean vines growing on the maize stalks, the squash vines keeping weeds away, and the beans adding nutrients that the maize and squash use—provides context suggesting that this “web of relations”is intricate. Choice A is incorrect because describing the relationship among the crops in the Three Sisters system as “indecipherable,”or impossible to comprehend, would not make sense in context. Although the text presents the relationship as complex, the text’s description of the role that each crop plays makes it clear that the relationship is well understood, not indecipherable. Choice B is incorrect because the text discusses the practical benefits that each plant in the Three Sisters system provides to other members of the system, showing that the relationship among the crops that make up the system is not “ornamental,”or mainly serving a decorative purpose. Choice C is incorrect because describing the relationship among the crops in the Three Sisters system as “obscure,”or unknown or poorly understood, would not make sense in context. Although the text presents the relationship as complex, the text’s description of the role that each crop plays makes it clear that the relationship is well understood, not obscure.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "995358b4",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In a 2022 study, Nicolás M. Morato and colleagues attempted to resolve a long-standing paradox: although water is critical to most reactions that enable life, during the earliest stages of Earth’s history—when most of the planet’s surface was covered by oceans—the presence of water likely ______ the formation of proteins and other biomolecules that are found in all living organisms.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. reflected",
+      "B. hampered",
+      "C. imitated",
+      "D. exploited"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of a scientific paradox regarding water and life during Earth’s early history. In this context, “hampered”means hindered or impeded. The text discusses a paradox, or a situation that seems to contradict itself, and indicates that one half of the paradox is that the presence of water is necessary to support most biochemical reactions that enable life. The contradictory idea, then, would be a case of the presence of water not supporting such reactions; this context suggests that the other half of the paradox is that when oceans covered most of the planet, the water likely hindered or impeded a biochemical process (the formation of biomolecules) that is important for all living organisms. Choice A is incorrect. In this context, “reflected”would mean showed or gave an indication. The text focuses on a paradox, or a seemingly self- contradictory situation, having to do with the role of water in supporting life; since the first part of the paradox has to do with water usually being essential for enabling life, the second part of the paradox should have to do with water having a negative effect on life, and water being an indication of a biomolecular process important for life wouldn’t be a negative thing. Choice C is incorrect. In this context, “imitated”would mean mimicked or copied, and it isn’t clear what it would mean to say that water being present on early Earth’s surface somehow copied the creation of biomolecules in living organisms. Choice D is incorrect. In this context, “exploited”would mean used or took advantage of, and it isn’t clear what it would mean to say that the presence of water—the fact of water being present—on early Earth’s surface somehow took advantage of a biomolecular process occurring in living organisms.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "85083d4d",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Disproving the common misconception of Native art as ______, the painters whose work appears in the collection at the National Museum of the American Indian employ a range of styles. There are artists working in the traditional arts of their specific tribal communities, artists working in European modernist or American abstract expressionist art traditions, and artists blending various traditions into something wholly new.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. uncontroversial",
+      "B. individualistic",
+      "C. theoretical",
+      "D. homogeneous"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the art at the National Museum of the American Indian. In this context, \"homogenous\" means uniform or highly similar. The text explains that the painters whose works are included in this museum’s collection employ an array of artistic styles, both Native and non-Native, traditional and new. Given this high degree of stylistic diversity, it is a misconception that Native art is uniform, or homogenous. Choice A is incorrect because the text doesn’t consider whether Native art is controversial, or causes disagreement or discussion; instead, the text discusses the stylistic diversity of the collection of the National Museum of the American Indian. Choice B is incorrect. Although the text indicates that some of the artists whose work is represented in the collection of the National Museum of the American Indian blend various artistic traditions into highly individual styles of their own, this is not the primary focus of the text. Instead, the text is concerned with how Native art is often mistakenly perceived as uniform, when in fact it is stylistically diverse. Choice C is incorrect because the text never implies that people mistakenly conceive of Native art as theoretical, or concerned with philosophical or abstract issues; instead, the text’s discussion of Native art is framed around this art’s stylistic diversity versus the misconception of it as homogenous.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "dc234d74",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "The recently observed gamma ray burst GRB 230307A lasted for 200 seconds, ______ for a burst generated by the merger of neutron stars. Bursts caused by neutron mergers typically last fewer than 2 seconds.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. a coincidence",
+      "B. a reprieve",
+      "C. an incident",
+      "D. an oddity"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the duration of gamma ray burst GRB 230307A. In this context, \"an oddity\" is something that is odd or unusual. The text explains that the burst lasted for 200 seconds and that other bursts generated by neutron mergers have usually lasted fewer than 2 seconds. In other words, the duration of gamma ray burst GRB 230307A was unusual. Choice A is incorrect because the text focuses on a difference between the duration of gamma ray burst GRB 230307A and the typical duration of bursts caused by neutron mergers, not \"a coincidence,\" or a point of correspondence, between them; the text indicates that GRB 230307A lasted much longer than what is typical of other bursts. Choice B is incorrect. In this context, \"a reprieve\" would be either a temporary relief from something or a delay of a punishment, neither of which would make sense as something that the duration of a gamma ray burst could provide to the burst itself. Choice C is incorrect. Although it would make sense to refer to gamma ray burst GRB 230307A itself as \"an incident,\" or a thing that occurred, the missing word describes the duration of the burst, and it doesn’t make much sense to describe a length of time as an incident. Further, the sentence emphasizes that the burst’s duration was very unusual, not simply that the burst occurred.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c8a2af72",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nFrench Impressionist artist Edgar Degas insisted that his paintings be kept in their original frames after they were sold. Like many Impressionist painters, Degas used painted frames that stood in contrast to the gold frames frequently seen at the Paris Salon, a prestigious art exhibition that was sponsored by the French government and promoted traditional painting styles. Impressionist painters likely chose these colorful frames to distinguish themselves from what was considered conventional at the time.\n\nText 2\n\nImpressionist painters often focused on the interplay of color and light in their works. As such, those Impressionists who placed their works in painted frames instead of the more traditional gold ones did so for aesthetic reasons: a frame’s color was likely chosen because it would harmonize with the colors or subjects in a painting. Gold, conversely, could distract from the subtleties in a painted scene.",
+    "question": "Based on the texts, both authors would most likely agree with which statement?",
+    "options": [
+      "A. Gold frames were considered especially desirable by those who purchased works from Impressionist painters.",
+      "B. The colors in an Impressionist painting were often chosen to complement the colors of the frame it would be placed in.",
+      "C. Many Impressionist painters were intentional about the frames they selected for their works.",
+      "D. Degas’s preferred framing style was different from that of most Impressionist painters."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it presents the statement about the use of painted frames in Impressionist painting that both authors would be most likely to agree with. Text 1 discusses painter Edgar Degas’s insistence that his works remain in their original painted frames, which contrasted with the gold frames that were typical of the Paris art scene at the time. The text then argues that the preference of Degas and other French Impressionist painters for colorful frames can likely be attributed to their desire \"to distinguish themselves from what was considered conventional at the time.\" Text 2 also notes that Impressionist painters \"placed their works in painted frames\" but argues that they probably did so for a purely aesthetic reason: to ensure that \"the frame’s color...would harmonize with the colors or subjects in a painting.\" Though differing on Impressionist painters’ rationale for using painted frames, the authors of both texts would agree that many Impressionist painters were intentional about the frames they selected for their works. Choice A is incorrect because neither text suggests that gold frames were considered desirable by those purchasing Impressionist works. Indeed, it can be inferred from the fact that Impressionist painters used painted frames that those who purchased those works wouldn’t have had a strong preference for gold frames. Choice B is incorrect because neither text suggests that Impressionist painters chose colors for their paintings based on planned frame colors. Indeed, Text 2 states that frame colors were chosen to \"harmonize with the colors or subjects in a painting,\" implying that the color scheme of paintings predated and took precedence over the choice of the colors of frames. Choice D is incorrect because Text 1 presents Degas’s preference for painted frames as being typical of Impressionist painters’ attitudes toward the framing of their works. Moreover, although Text 2 doesn’t specifically discuss Degas, it concurs with Text 1’s assertion that these painters preferred painted frames. Thus, both texts position painted frames as a hallmark of French Impressionist painting, not as a deviation from it.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "749f3334",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Charlotte Forten Grimké’s 1888 poem “At Newport.”\n\nOh, deep delight to watch the gladsome waves Exultant leap upon the rugged rocks;\n\n<u>Ever repulsed, yet ever rushing on—\n\nFilled with a life that will not know defeat;</u>\n\nTo see the glorious hues of sky and sea.\n\nThe distant snowy sails, glide spirit like,\n\nInto an unknown world, to feel the sweet Enchantment of the sea thrill all the soul, Clearing the clouded brain, making the heart Leap joyous as it own bright, singing waves!",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It portrays the surroundings as an imposing and intimidating scene.",
+      "B. It characterizes the sea’s waves as a relentless and enduring force.",
+      "C. It conveys the speaker’s ambivalence about the natural world.",
+      "D. It draws a contrast between the sea’s waves and the speaker’s thoughts."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The text presents the speaker’s experience of viewing the sea. In the underlined portion, the speaker focuses on the idea that the waves hitting rocks on the shore are a relentless and enduring force: they are constantly pushed back (“ever repulsed”) but always return (“ever rushing on”), as though they have an energy that can’t be overcome (“a life that will not know defeat”). Choice A is incorrect. Although the underlined portion characterizes the waves as a relentless force (always “repulsed”but still “rushing on”and never being defeated), the speaker doesn’t suggest that the surroundings are intimidating. Instead, the speaker presents the scene in a positive way, describing the “deep delight”of the “gladsome,”or cheerful, waves and feeling “the heart / Leap joyous”while viewing the sea. Choice C is incorrect because the underlined portion doesn’t suggest that the speaker is ambivalent, or has mixed feelings about, the natural world. Instead, it presents a single view of one part of the immediate surroundings: the speaker characterizes the sea’s waves as an unstoppable force, since they are constantly pushed back but always return (“ever repulsed, yet ever rushing on”). Choice D is incorrect. Although the text later suggests the speaker’s view of her own thoughts by referring to a “clouded brain”and a heart that leaps joyously, this reference neither occurs within the underlined portion nor establishes a clear contrast with the relentless determination of the waves. The underlined portion addresses only the speaker’s view of the waves and doesn’t suggest what her own thoughts might be.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d4e8662d",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "The percentage of US forest land that a 2023 federal report identified as being either mature or old growth exceeds other recent estimates. Given how little ______ there is among scientists regarding the scope of these categories, this discrepancy shouldn’t be surprising: forest researchers regularly dispute one another’s classifications.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. deliberation",
+      "B. vigilance",
+      "C. interest",
+      "D. consensus"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of US forest land classifications. In this context, \"consensus\" means agreement. The text indicates that a percentage given in a US forest land report differs from other estimates and that this discrepancy isn’t surprising, given that forest researchers regularly dispute one another’s classifications of parts of US forest land as either mature or old growth. This context conveys that there is little agreement when it comes to these categories. Choice A is incorrect because the text states that there is often dispute among forest researchers about classifications of US forest land as either mature or old growth, which directly indicates that when it comes to these categories, there is much \"deliberation,\" or discussion and consideration, not little deliberation. Choice B is incorrect because the text indicates that there is often dispute among forest researchers about classifications of US forest land as either mature or old growth; this doesn’t imply that there is little \"vigilance,\" or careful attention, among researchers when it comes to these categories but rather conveys that researchers do pay attention to forest land classifications and question one another’s decisions. Choice C is incorrect because the text indicates that there is often dispute among forest researchers about classifications of US forest land as either mature or old growth; this doesn’t imply that there is little \"interest,\" or concern, among researchers when it comes to these categories but rather conveys that researchers are concerned with forest land classifications and pay attention to one another’s classifications.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2d77660e",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "In the late 1800s, Spanish-language newspapers flourished in cities across Texas. San Antonio alone produced eleven newspapers in Spanish between 1890 and 1900. But El Paso surpassed all other cities in the state. This city produced twenty-two newspapers in Spanish during that period. El Paso is located on the border with Mexico and has always had a large population of Spanish speakers. Thus, it is unsurprising that this city became such a rich site for Spanish-language journalism.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To compare Spanish-language newspapers published in Texas today with ones published there during the late 1800s",
+      "B. To explain that Spanish-language newspapers thrived in Texas and especially in El Paso during the late 1800s",
+      "C. To argue that Spanish-language newspapers published in El Paso influenced the ones published in San Antonio during the late 1800s",
+      "D. To explain why Spanish-language newspapers published in Texas were so popular in Mexico during the late 1800s"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the main purpose of the text. The text begins by stating that there were many Spanish-language newspapers in cities across Texas in the late 1800s, citing San Antonio as a city that produced eleven such newspapers. The text then goes on to note that in El Paso, there were twenty-two newspapers published in Spanish in the late 1800s, more than any other Texas city. The text then concludes by explaining that the reason for this large number of Spanish-language newspapers was likely El Paso’s location near Mexico and its large population of Spanish speakers. Therefore, the main purpose of the text is to explain that Spanish-language newspapers thrived in Texas cities, especially in El Paso, in the late 1800s. Choice A is incorrect because the text doesn’t discuss Spanish-language newspapers published in Texas today, let alone compare them with newspapers that were published in the 1800s. Choice C is incorrect. Although the text characterizes El Paso as a particularly rich site for Spanish-language journalism in the late 1800s, the text doesn’t discuss whether newspapers published in El Paso influenced the newspapers published in other cities across Texas, including San Antonio. Choice D is incorrect because the text doesn’t mention whether Spanish-language newspapers published in Texas were also widely read in Mexico. The text only focuses on the popularity of Spanish-language newspapers within Texas, and especially in El Paso.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "af43b0bd",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Researchers have long hypothesized that woolly mammoths were hunted to extinction in North America by humans using spears with grooved tips known as Clovis points. One anthropologist set out to test this hypothesis. Using a mechanical spear-thrower, he launched spears with Clovis points into mounds of clay—substitutes for the animals’large bodies. The projectiles generally penetrated only a few inches into the clay, an amount insufficient to have harmed most woolly mammoths. This led the anthropologist to conclude that hunters using spears with Clovis points likely weren’t the principal drivers of the extinction.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To argue for the significance of new findings amid an ongoing debate among researchers",
+      "B. To discuss the advantages and disadvantages of the method used in an experiment",
+      "C. To summarize two competing hypotheses and a major finding associated with each one",
+      "D. To describe an experiment whose results cast doubt on an established hypothesis"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately states the main purpose of the text, which is to describe an experiment whose results cast doubt on an established hypothesis. The text begins by noting that researchers have long believed that woolly mammoths were hunted to extinction in North America by humans using spears with Clovis points. The text then describes an experiment conducted by an anthropologist to test this hypothesis. According to the text, the results of the experiment led the anthropologist to conclude that hunters using spears with Clovis points likely weren’t the primary cause of the extinction. The anthropologist’s results cast doubt on the long-held hypothesis presented at the beginning of the text and suggest that woolly mammoths may have become extinct in North America due to some other cause. Choice A is incorrect because there’s nothing in the text to suggest that researchers have been involved in an ongoing debate. On the contrary, the text suggests that most researchers agree on the cause of the woolly mammoth’s extinction in North America. Choice B is incorrect because the text never mentions any advantages or disadvantages of the method used in the experiment, focusing instead on the results achieved using that method. Choice C is incorrect because the text addresses only one hypothesis, that mammoths were hunted to extinction in North America by humans using spears with Clovis points. Rather than present a competing hypothesis, the text explains how one anthropologist designed an experiment to test this long-held hypothesis.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "be069e38",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In Habitat Threshold, Chamoru (Chamorro) poet Craig Santos Perez practices what he calls “recycling,”in which he preserves the syntactical and rhetorical structures of canonical poems but replaces their content to evoke current environmental issues. The form of these poems is thus ______ to their meaning, inviting readers to consider how climate change alters ostensibly familiar experiences.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. antithetical",
+      "B. resigned",
+      "C. invulnerable",
+      "D. integral"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Craig Santos Perez’s poetic practice in Habitat Threshold. In this context, “integral”means essential or fundamentally connected. The text describes Perez’s “recycling”technique, in which he retains the syntactical and rhetorical structures (i.e., formal elements) of canonical poems but alters their content to address current environmental issues. The text further indicates that this technique invites readers to recognize how climate change has transformed seemingly familiar experiences—an effect that depends on the contrast between a poem’s recognizable inherited form and its new content. Because meaning derives from the particular way in which form and content interact in Perez’s poems, the context supports the idea that the form of these poems is integral to their meaning—in other words, form is fundamentally bound up with what the poems convey. Choice A is incorrect because it wouldn’t make sense in context to say that the form of Perez’s poems is “antithetical,”or directly opposed, to their meaning. The text indicates that the inherited form and the new content work together to produce the poems’effect, so the form is essential, not opposed, to the poems’meaning. Choice B is incorrect because it wouldn’t make sense in context to say that the form of Perez’s poems is “resigned,”or passively accepting. “Resigned”describes an attitude held by a person, not a relationship between a poem’s form and its meaning. Moreover, the poems’form actively contributes to their meaning; it would contradict the text to suggest that the poems’form merely serves as a passive vehicle for meaning. Choice C is incorrect because it wouldn’t make sense in context to say that the form of Perez’s poems is “invulnerable,”or incapable of being harmed. The text doesn’t characterize the poems’meanings as threats to their form; instead, it discusses how form and meaning relate.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5127fc1e",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The north celestial pole (NCP)—the fixed point around which stars in the Northern Hemisphere (including the Sun) appear to rotate—is discernible only at night. Inspired by the navigational strategies of some insects and birds, researchers devised a method for locating the NCP in daytime using skylight polarization, which occurs as atmospheric particles scatter sunlight. A polarimetric camera captures images of polarization patterns, which rotate as the Sun’s position in the sky changes; temporal variances across images can then be used to determine an observer’s latitude and bearing relative to the NCP.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It illustrates how most navigational tools utilize the NCP, recounts how researchers discovered that certain animals are able to navigate without using the NCP, and then proposes that this discovery could be used to avoid problems in navigation associated with reliance on the NCP.",
+      "B. It presents a celestial-based method of navigation, enumerates the comparative benefits of an alternative method used by certain animals that is based on an unrelated natural occurrence, and then indicates how researchers assessed the relative accuracy of the two methods.",
+      "C. It explains how the NCP is typically located, emphasizes a key difference between how humans and certain animals use the NCP for navigation, and then suggests an alternative way of using the NCP to improve existing navigational instruments.",
+      "D. It notes an obstacle to observing an astronomical phenomenon, mentions a navigational ability of certain animals that inspired a solution to that obstacle, and then explains how researchers used an optical device to mimic that ability."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it accurately describes the overall structure of the text. The text begins by pointing out an obstacle to observing the astronomical phenomenon of the NCP: the NCP is visible only at night. The text then indicates that, inspired by the ability of some insects and birds to navigate using visualizations of polarized sunlight, researchers devised a way to locate the NCP during daylight. The text then indicates that the researchers mimicked the insects’and birds’polarized-light visualization capabilities using a polarimetric camera. Thus, the text notes an obstacle to observing an astronomical phenomenon, mentions a navigational ability of certain animals that inspired a solution to that obstacle, and then explains how researchers used an optical device to mimic that ability. Choice A is incorrect. Although it’s reasonable to conjecture that humans have used the NCP for navigation, the text doesn’t indicate this is the case, let alone that the NCP is relevant to a majority of navigational tools. Furthermore, the text doesn’t state that researchers discovered that insects and birds navigate without the NCP; rather, it indicates that it’s known that some animals navigate by using skylight polarization to locate the NCP during the day and that this knowledge inspired the method the researchers devised. Choice B is incorrect. Although it’s reasonable to conjecture that humans have used the NCP for navigation, the text doesn’t state that this is the case. Furthermore, the text discusses how some animals’use of navigational strategies based on the same celestial occurrence served as the inspiration for the researchers’polarized-light approach, not as the basis for a comparison of the relative effectiveness of animal and human methods of navigation. Choice C is incorrect. Although the text implies that humans have typically been able to locate the NCP visually at night and indicates that some animals use the NCP to navigate, the text doesn’t state that humans use the NCP for navigation. The text therefore doesn’t emphasize a difference between how humans and animals use the NCP for this purpose. Furthermore, the text doesn’t suggest that existing navigational instruments will be augmented with polarimetric technologies.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e37b9e34",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Some researchers believe that the genes that enable groundhogs and certain other mammals to hibernate through the winter by slowing their breathing and heart rates and lowering their body temperature may be ______ in humans: present yet having essentially no effect on our bodily processes.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. decisive",
+      "B. lacking",
+      "C. variable",
+      "D. dormant"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it logically completes the text’s discussion about genes related to hibernation. In this context, “dormant” means inactive. The text explains that the same genes that enable certain nonhuman mammal species to hibernate during the winter by altering their bodily processes are also found in our species but have “essentially no effect”on humans’bodily processes. In other words, these genes don’t function in humans. Choice A is incorrect because in this context, “decisive”means has the power to affect the outcome of something, but the text states that genes related to hibernation are instead inactive in humans—that is, the genes don’t affect humans’bodily processes, although they are present in their bodies. Choice B is incorrect because in this context, “lacking”means missing, but the text states that the genes are present in humans, though inactive. Choice C is incorrect because “variable”means characterized by the potential to change, but the text indicates that these genes don’t change in their effect on humans’bodily processes; instead, the genes are consistently inactive in humans.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f0ae0da3",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nWhen companies in the same industry propose merging with one another, they often claim that the merger will benefit consumers by increasing efficiency and therefore lowering prices. Economist Ying Fan investigated this notion in the context of the United States newspaper market. She modeled a hypothetical merger of Minneapolis-area newspapers and found that subscription prices would rise following a merger.\n\nText 2\n\nEconomists Dario Focarelli and Fabio Panetta have argued that research on the effect of mergers on prices has focused excessively on short- term effects, which tend to be adverse for consumers. Using the case of consumer banking in Italy, they show that over the long term (several years, in their study), the efficiency gains realized by merged companies do result in economic benefits for consumers.",
+    "question": "Based on the texts, how would Focarelli and Panetta (Text 2) most likely respond to Fan’s findings (Text 1)?",
+    "options": [
+      "A. They would recommend that Fan compare the near-term effect of a merger on subscription prices in the Minneapolis area with the effect of a merger in another newspaper market.",
+      "B. They would argue that over the long term the expenses incurred by the merged newspaper company will also increase.",
+      "C. They would encourage Fan to investigate whether the projected effect on subscription prices persists over an extended period.",
+      "D. They would claim that mergers have a different effect on consumer prices in the newspaper industry than in most other industries."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because, based on the information presented in the texts, it represents how Focarelli and Panetta would most likely respond to Fan’s findings. Text 1 indicates that Fan found that a newspaper merger would result in a rise in subscription prices. This rise wouldn’t benefit customers, who would have to pay more for news after a merger. Text 2 presents Focarelli and Panetta’s argument that merger research tends to focus too much on what happens immediately after the merger. Text 2 goes on to describe their finding that mergers can be economically beneficial for consumers over the long term. This suggests that Focarelli and Panetta would encourage Fan to investigate the long- term effect of the hypothetical newspaper merger on subscription prices. Choice A is incorrect because Text 2 doesn’t indicate that Focarelli and Panetta connect the effects of mergers to specific locations. Instead, Focarelli and Panetta focus on the length of time over which the effects of mergers should be evaluated. Choice B is incorrect because Text 2 indicates that Focarelli and Panetta found that merged companies experience \"efficiency gains\" over the long term, meaning that their expenses go down relative to their output, not that their expenses increase. Choice D is incorrect because there’s no indication in Text 2 that Focarelli and Panetta believe that the newspaper industry is different from any other industry when it comes to the effects of mergers. Although their own research was about consumer banking, Text 2 suggests that they view their conclusions as applicable to mergers in general.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "54c6128b",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "When ancient oak planks were unearthed during subway construction in Rome, Mauro Bernabei and his team examined the growth rings in the wood to determine where these planks came from. By comparing the growth rings on the planks to records of similar rings in oaks from Europe, the team could trace the wood to the Jura region of France, hundreds of kilometers from Rome. <u>Because timber could only have been transported from distant Jura to Rome by boat, the team’s findings suggest the complexity of Roman trade routes.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It presents a conclusion about Roman trade routes based on the team’s findings.",
+      "B. It questions how the team was able to conclude that the planks were used to build a boat.",
+      "C. It explains why the planks were made from oak rather than a different kind of wood.",
+      "D. It describes common methods used in Roman subway construction."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined sentence functions in the text as a whole. The first sentence explains that Bernabei and his team studied growth rings to obtain information about the ancient oak planks found during a construction project in Rome. The next sentence presents what the researchers learned: the wood from the planks came from France’s Jura region, which is far from Rome. The underlined sentence then presents the implications of the findings about the planks: the wood must have been brought to Rome by boat, a difficult task that suggests Roman trade routes were complex. Thus, the underlined sentence mainly functions to present a conclusion about Roman trade routes based on the team’s findings. Choice B is incorrect because the text doesn’t suggest that the team thought the ancient planks were used in the construction of a boat, nor does the underlined sentence question that conclusion. Instead, the text states that the wood could only have been transported from Jura to Rome in a boat. Choice C is incorrect because the underlined sentence simply offers a conclusion drawn from the team’s findings about the likely place of origin of the ancient planks; the text never mentions why oak was chosen for the planks instead of other wood. Choice D is incorrect because neither the underlined sentence nor the text as a whole addresses any methods that Romans used in constructing subways. Instead, the underlined sentence offers a conclusion drawn from the team’s findings about the likely place of origin of the ancient wooden planks discovered.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1fa751f1",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Handedness, a preferential use of either the right or left hand, typically is easy to observe in humans. Because this trait is present but less ______ in many other animals, animal-behavior researchers often employ tasks specially designed to reveal individual animals’ preferences for a certain hand or paw.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. recognizable",
+      "B. intriguing",
+      "C. significant",
+      "D. useful"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion about handedness in animals. As used in this context, “recognizable” means apparent or identifiable. The text indicates that handedness is “easy to observe in humans,” but that animal-behavior researchers use special tasks to determine handedness in other animals. This context and the use of “less” before the blank indicate that compared with handedness in humans, handedness in other animals is less recognizable. Choice B is incorrect because there’s nothing in the text to suggest that handedness is less “intriguing,” or fascinating, in nonhuman animals than it is in humans. The text focuses on how easy it is to observe handedness in humans as compared with other animals; the text doesn’t suggest that handedness is more fascinating in humans. Choice C is incorrect because there’s nothing in the text to suggest that handedness is less “significant,” or important or meaningful, in nonhuman animals than it is in humans. The text focuses on how easy it is to observe handedness in humans as compared with other animals; the text doesn’t suggest that handedness is more significant in humans. Choice D is incorrect because “useful,” or functional or helpful, wouldn’t make sense in context. The text focuses on the ease with which researchers can determine whether an animal or person is right- or left-handed, not on how useful handedness in nonhuman animals is compared with handedness in humans.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a2be625e",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Sarah Orne Jewett’s 1899 short story “Martha’s Lady.” Martha is employed by Miss Pyne as a maid.\n\nMiss Pyne sat by the window watching, in her best dress, looking stately and calm; she seldom went out now, and it was almost time for the carriage. Martha was just coming in from the garden with the strawberries, and with more flowers in her apron. It was a bright cool evening in June, the golden robins sang in the elms, and the sun was going down behind the apple-trees at the foot of the garden. The beautiful old house stood wide open to the long-expected guest.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To convey the worries brought about by a new guest",
+      "B. To describe how the characters have changed over time",
+      "C. To contrast the activity indoors with the stillness outside",
+      "D. To depict the setting as the characters await a visitor’s arrival"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately reflects the main purpose of the text. The text portrays Miss Pyne as awaiting the arrival of a carriage while Martha brings strawberries and flowers from the garden into the house. The text also describes the surroundings of the scene, stating that Miss Pyne looks \"stately and calm,\" the evening is bright and cool, and birds are singing in the garden as the sun sets. Then the last sentence states that the house was \"wide open to the long-expected guest,\" which strongly suggests that Miss Pyne’s anticipation and Martha’s activities were in preparation for the guest who is expected to arrive in the carriage. Thus, the text depicts the setting and conveys what these characters are doing as they await the arrival of their visitor. Choice A is incorrect because there is nothing in the text to indicate that the characters feel any worry about the guest’s arrival. The text indicates that the guest was \"long-expected,\" but characterizing Miss Pyne as \"stately and calm\" conflicts with the idea that the characters are worried about the guest. Choice B is incorrect because the text describes a moment in time when two characters are awaiting the arrival of a visitor rather than an extended period over which characters could be seen changing. Choice C is incorrect. Although the text describes the activity indoors (Miss Pyne sitting calmly), it describes a higher level of activity, not stillness, outside (Martha bringing fruit and flowers and birds singing).",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ab56a107",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nDigital art, the use of digital technology to create or display images, isn’t really art at all. It doesn’t require as much skill as creating physical art. “Painting” with a tablet and stylus is much easier than using paint and a brush: the technology is doing most of the work.\n\nText 2\n\nThe painting programs used to create digital art involve more than just pressing a few buttons. In addition to knowing the fundamentals of art, digital artists need to be familiar with sophisticated software. Many artists will start by drawing an image on paper before transforming the piece to a digital format, where they can apply a variety of colors and techniques that would otherwise require many different traditional tools.",
+    "question": "Based on the texts, how would the author of Text 2 most likely respond to the claims of the author of Text 1?",
+    "options": [
+      "A. By arguing that a piece of art created digitally can still be displayed traditionally",
+      "B. By explaining that it’s actually much harder to use a tablet and stylus to create art than to use paint and a brush",
+      "C. By insisting that digital art requires artistic abilities and skill even if it employs less traditional tools",
+      "D. By admitting that most digital artists don’t think fundamental drawing skills are important"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it reflects how the author of Text 2 would respond to the claims in Text 1. Both texts address skills needed to produce digital art. Text 1 claims that digital art doesn’t require the same amount of skill as creating physical art and that “the technology is doing most of the work.” Text 2 states that digital art requires “knowing the fundamentals of art” and that many digital artists begin their work on paper and then transfer it to a digital format using “sophisticated software” and “a variety of colors and techniques.” Therefore, the author of Text 2 would most likely insist that digital art requires artistic abilities even if it employs less traditional tools. Choice A is incorrect because neither text discusses nondigital means of displaying art. Choice B is incorrect because the author of Text 2 doesn’t address whether it’s harder to use a tablet and stylus than it is to use paint and a brush. Text 2 does argue that digital art requires skills that aren’t part of the traditional methods for producing art, but the text doesn’t address relative difficulty. Choice D is incorrect because the author of Text 2 states that digital artists still need to know “the fundamentals of art” and that many digital artists begin their work by drafting on paper before transferring the work to a digital format.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f653b273",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nA tiny, unusual fossil in a piece of 99-million-year-old amber is of the extinct species Oculudentavis khaungraae. The O. khaungraae fossil consists of a rounded skull with a thin snout and a large eye socket. Because these features look like they are avian, or related to birds, researchers initially thought that the fossil might be the smallest avian dinosaur ever found.\n\nText 2\n\nPaleontologists were excited to discover a second small fossil that is similar to the strange O. khaungraae fossil but has part of the lower body along with a birdlike skull. Detailed studies of both fossils revealed several traits that are found in lizards but not in dinosaurs or birds. Therefore, paleontologists think the two creatures were probably unusual lizards, even though the skulls looked avian at first.",
+    "question": "Based on the texts, what would the paleontologists in Text 2 most likely say about the researchers’initial thought in Text 1?",
+    "options": [
+      "A. It is understandable because the fossil does look like it could be related to birds, even though O. khaungraae is probably a lizard.",
+      "B. It is confusing because it isn’t clear what caused the researchers to think that O. khaungraae might be related to birds.",
+      "C. It is flawed because the researchers mistakenly assumed that O. khaungraae must be a lizard.",
+      "D. It is reasonable because the O. khaungraae skull is about the same size as the skull of the second fossil but is shaped differently."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it reflects what the paleontologists in Text 2 would most likely say about what the researchers in Text 1 initially thought. Text 1 focuses on the discovery of a strange fossil consisting of the skull of the extinct species Oculudentavis khaungraae. According to Text 1, the fossil has features that appear to be avian, or related to birds, which led researchers to initially think that the fossil might be a very small avian dinosaur. Text 2 begins by noting the discovery of a second fossil similar to the one discussed in Text 1, then explains that based on detailed studies of both fossils, paleontologists think that the two creatures were probably unusual lizards, even though the skulls appeared avian at first. This suggests that the paleontologists in Text 2 recognize that the fossils do indeed look like they could be related to birds. For this reason, the paleontologists in Text 2 would most likely say that the initial thought of the researchers in Text 1—that the fossil was avian—is understandable, even if the fossil is probably not avian but rather is from a lizard. Choice B is incorrect because Text 2 indicates that the fossils initially looked avian, so the paleontologists described in Text 2 wouldn’t be confused by the researchers in Text 1 initially thinking that O. khaungraae might be related to birds. The paleontologists would find that initial thought understandable, not confusing. Choice C is incorrect because Text 1 never mentions lizards, so it wouldn’t make sense for the paleontologists in Text 2 to say that the researchers in Text 1 mistakenly assumed that O. khaungraae must be a lizard. Choice D is incorrect. Although the paleontologists in Text 2 might agree that the initial thought of the researchers in Text 1 was reasonable, nothing in Text 2 suggests that the two skulls were shaped differently.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d9e55268",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is adapted from Louise Erdrich’s 2020 novel The Night Watchman. Louis Pipestone is collecting signatures for a petition from fellow members of the Turtle Mountain Band of Chippewa on the tribe’s reservation in North Dakota.\n\nLouis Pipestone tended the petition like a garden. He kept it with him at all times. In town, his eyes sharpened when he noticed a tribal member who hadn’t yet signed. Wherever they were—at the gas pump, mercantile [general store], at Henry’s [Café], on the road, or outside the clinic and hospital—Louis cornered them. If they were waiting for a baby to be born, he’d have them sign. If they were laughing, if they were arguing. If they were taking a child home from school, they signed.\n\n©2020 by Louise Erdrich",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To suggest that some tribal members refuse to sign the petition because they dislike Louis Pipestone",
+      "B. To show that attitudes toward the petition within the tribal community change over time",
+      "C. To demonstrate that most tribal members are enthusiastic about signing the petition",
+      "D. To portray Louis Pipestone’s strong commitment to collecting signatures for the petition"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately states the text’s main purpose. The text indicates that Louis always had his petition with him, asked everyone he encountered to sign it if they hadn’t already, and lists several comical circumstances in which he might try to get someone to sign. Thus, the main purpose of the text is to illustrate Louis’s dedicated focus on getting people to sign the petition. Choice A is incorrect. Although the text suggests that Louis was aggressive in seeking signatures for the petition—for example, saying that he \"cornered\" people—nothing in the text addresses how those people feel toward Louis, let alone that they are refusing his request. Choice B is incorrect because, other than portraying Louis’s commitment to gathering signatures, the text doesn’t discuss community members’attitudes toward Louis or the petition. Choice C is incorrect because the text never mentions the attitudes of the people Louis approaches toward the petition, but the text does indicate that he \"cornered\" prospective signatories, strongly suggesting that their enthusiasm was neither needed nor considered.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "faee8ec7",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\n<u>It seems clear that emotional contagion (the unintentional transfer of an emotional state from one person to another) requires physical interaction and the observation of body language.</u> After all, research shows that talking to someone who is smiling and expressing positive feelings often causes people to respond in a comparably positive way. Similarly, displays of nervous fidgeting have been found to prompt others to begin behaving more nervously, too.\n\nText 2\n\nIn an experiment using a social networking service, Zeyao Yang and Emilio Ferrara found evidence of emotional contagion in text-based online interactions. The researchers discovered that reading social media posts that expressed a positive outlook led people to make more positive posts themselves, while posts with a negative emotional tone led people to make more negative posts.",
+    "question": "Based on the texts, what would the researchers in Text 2 most likely say about the claim underlined in Text 1?",
+    "options": [
+      "A. It perpetuates a flawed understanding of emotional contagion, because there isn’t enough evidence to suggest that smiling is a sign of emotional contagion.",
+      "B. It reflects an incomplete view of emotional contagion, because this phenomenon can occur even without in-person interaction.",
+      "C. It’s fairly persuasive, because studies attempting to identify emotional contagion in situations without in-person interaction have thus far yielded unclear results.",
+      "D. It’s mostly accurate, because the social networking study confirmed that emotional contagion primarily occurs in response to negative emotions like nervousness."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it represents how the researchers in Text 2 would most likely respond to the underlined claim in Text 1. Text 1 begins by asserting that the unintended transfer of feelings from one person to another, known as emotional contagion, seems to rely on both people being physically present and able to observe body language. Text 1 then references research that supports this assertion. Text 2 describes an experiment conducted by the researchers Yang and Ferrara in which they found evidence of emotional contagion in the absence of physical interaction, namely through text-based interactions on social media. The researchers in Text 2 wouldn’t completely agree with what is asserted in the underlined portion of Text 1 (that emotional contagion seems to require physical proximity), because their study, which used a social media networking service, found that physical interaction isn’t the only way that emotional contagion can take place. Thus, the researchers in Text 2 would most likely respond to the underlined claim in Text 1 by stating that it reflects an incomplete view of emotional contagion, because the phenomenon can occur without an in-person interaction. Choice A is incorrect. Although the researchers in Text 2 would likely agree that the underlined statement in Text 1 perpetuates a flawed conclusion that emotional contagion requires physical interaction, Text 2 doesn’t address what the researchers thought about smiling as a sign of emotional contagion. Choice C is incorrect because the researchers in Text 2 wouldn’t say that the underlined claim in Text 1 is fairly persuasive. According to Text 2, the researchers conducted a study that found emotional contagion didn’t require physical interaction, because they found evidence of it in text-based online interactions. Choice D is incorrect because neither of the texts claim that emotional contagion primarily occurs when a person is exposed to negativity. Instead, Text 1 claims that physical interaction is required for emotional contagion to occur, and Text 2 describes a study that suggests emotional contagion can occur in text-based online interactions.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c19b2f77",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nLittle is known about how plate tectonics—wherein slabs of Earth’s crust move over, under, away from, and against one another—began. Some researchers contend that tectonic movements began around 3 billion years ago, often noting that computer models of Earth’s mantle temperature at the time indicate that the mantle would have been sufficiently molten to enable the plates to move.\n\nText 2\n\nUltimately, any plausible claim about the inception of tectonic movement must rest on empirical evidence from the geological record. Researcher Wriju Chowdhury and his team analyzed the geochemistry of zircon crystals to gain insight into the chemical composition of the magma from which the crystals formed and, based on the data, compellingly argue that plate tectonics may have been occurring as early as 4.2 billion years ago.",
+    "question": "Based on the texts, how would the author of Text 2 most likely respond to what “some researchers contend”as described in Text 1?",
+    "options": [
+      "A. By suggesting that the temperature of Earth’s mantle 3 billion years ago was likely insufficient to allow for the level of tectonic movement predicted by computer models",
+      "B. By distinguishing between computer models of Earth’s mantle temperature that reliably predict the onset of plate tectonics and those that do not",
+      "C. By indicating that computer models of Earth’s mantle temperature are still being improved such that new models tend to be much more reliable than their predecessors",
+      "D. By asserting that a more definitive form of evidence than the computer models suggests a different timeline for the onset of plate tectonics on Earth"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it reflects how the author of Text 2 would most likely respond to what the researchers mentioned in Text 1 contend. Text 1 discusses the lack of knowledge of how plate tectonics on Earth began. Text 1 also mentions researchers who contend that movements of tectonic plates began around 3 billion years ago. As support for this assertion, these researchers cite computer models (which are simulations, not empirical evidence) of the temperature in Earth’s mantle that show that at that time, the mantle would have been sufficiently molten for plates to move. However, the author of Text 2 asserts that empirical evidence from the geological record is necessary to make plausible claims about when tectonic movement began. Text 2 mentions an analysis performed by Wriju Chowdhury and his team of the geochemistry of zircon crystals (which would constitute empirical evidence). Chowdhury and his team argue, based on this analysis, that tectonic plates may have begun to move as early as 4.2 billion years ago. Therefore, since the author of Text 2 would consider Chowdhury et al.’s empirical evidence to be more conclusive than the computer models cited in Text 1, the author of Text 2 would most likely assert that a more definitive form of evidence than the computer models suggests a different timeline for the onset of plate tectonics on Earth. Choice A is incorrect because the author of Text 2 makes no claims about the temperature of Earth’s mantle and therefore wouldn’t argue that the temperature of Earth’s mantle 3 billion years ago was insufficient to allow tectonic movement. Choice B is incorrect because the author of Text 2 claims that empirical evidence is needed to fix the earliest date of tectonic movement. Computer models are simulations, not empirical evidence, so the author of Text 2 wouldn’t distinguish between different kinds of computer models but would instead argue that no computer models can reliably predict the onset of plate tectonics. Choice C is incorrect because the author of Text 2 wouldn’t consider any computer model to be able to provide evidence to support a plausible claim about tectonic movement, no matter how much such models were improved. The author of Text 2 would only accept empirical evidence.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "14b7dced",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Walt Whitman’s 1860 poem “Calamus 24.” I HEAR it is charged against me that I seek to destroy institutions;\n\nBut really I am neither for nor against institutions\n\n(What indeed have I in common with them?—Or what with the destruction of them?),\n\nOnly I will establish in the Mannahatta [Manhattan] and in every city of These States, inland and seaboard, And in the fields and woods, and above every keel [ship] little or large, that dents the water,\n\nWithout edifices, or rules, or trustees, or any argument,\n\nThe institution of the dear love of comrades.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. The speaker questions an increasingly prevalent attitude, then summarizes his worldview.",
+      "B. The speaker regrets his isolation from others, then predicts a profound change in society.",
+      "C. The speaker concedes his personal shortcomings, then boasts of his many achievements.",
+      "D. The speaker addresses a criticism leveled against him, then announces a grand ambition of his."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it best describes the overall structure of the text. The speaker begins by stating that he has heard that others are accusing him of seeking to destroy institutions. The speaker then addresses this criticism by stating that he is “neither for nor against institutions.”Instead, the speaker states that his ultimate goal is to instill “the institution of the dear love of comrades”everywhere in the country. Therefore, the overall structure of the text is best described as an address of criticism followed by an announcement of a grand ambition. Choice A is incorrect. While the speaker does address an opinion of him that he believes to be untrue, he doesn’t indicate that this attitude has become increasingly prevalent. The speaker also concludes by explaining his goal for the future rather than his current worldview. Choice B is incorrect because the text doesn’t portray the speaker as isolated or regretful, and the speaker gestures toward a hope for societal change but doesn’t offer an explicit prediction that it will happen. Choice C is incorrect because the speaker addresses a criticism of him that he believes to be false; he doesn’t admit any personal shortcomings. Moreover, the speaker concludes by stating a goal he has rather than showcasing his achievements.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e56b66e5",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Set in a world where science fiction tropes exist as everyday realities, Charles Yu’s 2010 novel How to Live Safely in a Science Fictional Universe traces a time traveler’s quest to find his father. Because the journey at the novel’s center is so ______, with the protagonist ricocheting chaotically across time, the reader often wonders whether the pair will ever be reunited.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. haphazard",
+      "B. premeditated",
+      "C. inspirational",
+      "D. fruitless"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Yu’s novel. In this context, “haphazard”means marked by a lack of plan or order. The text indicates that the quest featured in the novel, which involves the protagonist bouncing across time, is chaotic and causes the reader to often wonder what will happen. This context suggests that the protagonist’s journey seems to be marked by a lack of order. Choice B is incorrect because the text indicates that the journey featured in Yu’s novel involves a character “ricocheting chaotically,”or bouncing in a disordered way, across time and causes the reader to often wonder what will happen. It wouldn’t make sense to say that a chaotic journey seems “premeditated,”or characterized by forethought and planning. Choice C is incorrect because the text doesn’t give any indication that readers regard the journey in Yu’s novel as “inspirational,”or as causing extraordinarily creative or brilliant thoughts or actions; instead, the text focuses on the idea that the protagonist’s journey is chaotic, or disordered, and doesn’t give readers a clear sense of what will happen. Choice D is incorrect. Rather than suggesting that the journey featured in Yu’s novel is “fruitless,”or has an unsuccessful outcome, the text focuses on the idea that while reading about the protagonist’s chaotic movements across time, readers are often unsure of what will happen—that is, they don’t know whether the protagonist will be successful in finding his father.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f4166aae",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In addition to being an accomplished psychologist himself, Francis Cecil Sumner was a ______ increasing the opportunity for Black students to study psychology, helping to found the psychology department at Howard University, a historically Black university, in 1930.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. proponent of",
+      "B. supplement to",
+      "C. beneficiary of",
+      "D. distraction for"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Francis Cecil Sumner. As used in this context, “proponent of”means supporter of. The text says that Sumner helped to found the psychology department at historically Black Howard University in 1930. This is evidence that Sumner supported increasing the opportunity for Black students to study psychology. Choice B is incorrect because the phrase “supplement to,”or addition to, wouldn’t make sense in context. The text discusses Sumner’s efforts to increase the number of Black psychology students, but it doesn’t make sense to describe him as an addition to his efforts. Choice C is incorrect because Sumner was already an accomplished psychologist himself when he helped to found the Howard University psychology department. While Black students were the beneficiaries of his efforts—that is, they received help because of his efforts—it wouldn’t make sense in this context to describe Sumner as a “beneficiary of”opportunities, because he was the one doing the helping. Choice D is incorrect because founding a psychology department at Howard University wouldn’t be a “distraction for”Sumner’s aim to increase the opportunity for Black students to study psychology—that is, it wouldn’t be something that draws Sumner’s attention away from that goal, but rather the opposite.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "590f0ad2",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Industrial activity is often assumed to be a threat to wildlife, but that isn’t always so. <u>Consider the silver-studded blue butterfly (Plebejus argus):</u> as forest growth has reduced grasslands in northern Germany, many of these butterflies have left meadow habitats and are now thriving in active limestone quarries. In a survey of multiple active quarries and patches of maintained grassland, an ecologist found silver-studded blue butterflies in 100% of the quarries but only 57% of the grassland patches. Moreover, butterfly populations in the quarries were four times larger than those in the meadows.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It challenges a common assumption about the species under investigation in the research referred to in the text.",
+      "B. It introduces discussion of a specific example that supports the general claim made in the previous sentence.",
+      "C. It suggests that a certain species should be included in additional studies like the one mentioned later in the text.",
+      "D. It provides a definition for an unfamiliar term that is central to the main argument in the text."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The first sentence presents the general claim that industrial activity is not always a threat to wildlife. The underlined portion of the sentence that follows suggests that the silver-studded blue butterfly is an example of wildlife thriving in areas of industrial activity: active limestone quarries. Thus, the function of the underlined portion is to introduce a specific example in support of the general claim in the previous sentence. Choice A is incorrect. Although the first sentence indicates that “industrial activity is often assumed” to harm wildlife, in the case of the silver- studded blue butterfly the text mentions neither an assumption about this species nor any challenge to such an assumption. Choice C is incorrect because the text mentions only one study: the “survey.” Additional studies are not mentioned in the text. Choice D is incorrect because neither the underlined portion nor any other portion of the text provides a definition for any of the terms used in the text’s argument.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "19688783",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Lucy Maud Montgomery’s 1908 novel Anne of Green Gables. Anne, an eleven-year-old girl, has come to live on a farm with a woman named Marilla in Nova Scotia, Canada.\n\nAnne reveled in the world of color about her.\n\n“Oh, Marilla,”she exclaimed one Saturday morning, coming dancing in with her arms full of gorgeous boughs, “I’m so glad I live in a world where there are Octobers. It would be terrible if we just skipped from September to November, wouldn’t it? Look at these maple branches. Don’t they give you a thrill—several thrills? I’m going to decorate my room with them.”\n\n“Messy things,”said Marilla, whose aesthetic sense was not noticeably developed. “You clutter up your room entirely too much with out-of-doors stuff, Anne. Bedrooms were made to sleep in.”",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To demonstrate that Anne has a newly developed appreciation of nature",
+      "B. To describe an argument that Anne and Marilla often have",
+      "C. To emphasize Marilla’s disapproval of how Anne has decorated her room",
+      "D. To show that Anne and Marilla have very different personalities"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes the main purpose of the text. The text begins by noting that Anne “reveled in the world of color about her”—that is, she takes great delight in colorful things. It then relates a scene when she enthusiastically enters the house with autumn foliage and announces that she will decorate her room with it. The focus of the text then shifts to Marilla, who has an undeveloped “aesthetic sense,”or appreciation of beauty, as can be seen when she dismisses the maple leaves as “messy things”and criticizes Anne for cluttering her room with objects from outside. This episode thus illustrates that Anne and Marilla differ in their appreciation of beauty and, more generally, in their basic character: Anne is exuberant and joyful, while Marilla is stern and critical. Therefore, the purpose of the text is to show that Anne and Marilla have very different personalities. Choice A is incorrect because the text presents Anne’s appreciation of nature as a basic personality trait, not as a newfound enthusiasm, and never indicates how recently she developed that appreciation. Choice B is incorrect. Although the text portrays Anne and Marilla as having different personalities and attitudes toward natural beauty and home decoration, it doesn’t show them engaging in an argument about this difference or suggest that they often argue about it. Choice C is incorrect. Although the text does indicate that Marilla disapproves of how Anne plans to decorate her room, Marilla’s disapproval is a supporting detail that serves to develop her personality, which the text as a whole contrasts with Anne’s personality.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1107e7dc",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Economists often assert that countries looking to increase their reliance on solar energy should expand their capacity for storage; having an ample reserve of stored energy can mitigate the effects of ______ solar energy collection caused by unpredictable shifts in cloud cover and haze.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. developments of",
+      "B. fluctuations in",
+      "C. calibrations with",
+      "D. incentives for"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of solar energy collection and storage. In this context, \"fluctuations in\" means irregular changes in. The text notes that economists recommend that countries that want to rely more on solar energy (energy captured from sunlight) should attempt to expand their storage capacity. The text goes on to explain that having a large amount of stored solar energy can lessen the negative effect of \"unpredictable shifts in cloud cover and haze\"—that is, unpredictable changes in environmental conditions that at times limit sunlight. This context suggests that having ample solar energy stored and ready to use can mitigate the issue of fluctuations in solar energy collection caused by irregular patterns of sunlight availability. Choice A is incorrect because in this context, \"developments of solar energy collection\" would most clearly refer to the creation of ways to collect solar energy (energy captured from sunlight). The text focuses on collection and the idea that having stored energy can mitigate, or make less bad, the effects of a problem caused by unpredictable changes that affect sunlight (\"cloud cover and haze\"); there’s no reason to think that the creation of new collection methods would be viewed as a problem that would need to be mitigated. Choice C is incorrect because in this context, \"calibrations with\" would most clearly refer to precise adjustments for a particular purpose. The text focuses on the collection of solar energy (energy captured from sunlight) and the idea that having stored energy can mitigate, or make less bad, the effects of a problem caused by unpredictable changes that affect sunlight (\"cloud cover and haze\"); there’s no reason to think that precision in something related to solar energy collection would be viewed as a problem that would need to be mitigated. Choice D is incorrect. The text focuses on the collection of solar energy (energy captured from sunlight) and the idea that having stored energy can mitigate, or make less bad, the effects of a problem caused by unpredictable changes that affect sunlight (\"cloud cover and haze\"); nothing in the text suggests that \"incentives for,\" or rewards for, solar energy collection would be viewed as a problem that would need to be mitigated, especially in countries that want to rely more on solar energy than they already do.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d7dccee7",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In a 2019 study, Jeremy Gunawardena and colleagues found that the single-celled protozoan Stentor roeseli not only uses strategies to escape irritating stimuli but also switches strategies when one fails. This evidence of protozoans sophisticatedly “changing their minds” demonstrates that single-celled organisms may not be limited to ______ behaviors.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. aggressive",
+      "B. rudimentary",
+      "C. evolving",
+      "D. advantageous"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of single-celled organism behavior. As used in this context, “rudimentary” means basic or unsophisticated. According to the text, a study of the single-celled protozoan Stentor roeseli showed that the organisms can switch strategies for escaping certain stimuli, “sophisticatedly ‘changing their minds’” and using new strategies should other strategies fail. This context suggests that single-celled organisms may not be limited to behaviors that are basic or rudimentary, since the study showed that single-celled protozoans can respond complexly to irritating stimuli. Choice A is incorrect because the text doesn’t suggest that single-celled organisms may not be limited to behavior that is “aggressive,” or threatening. Rather, the text suggests that single-celled organisms may not be limited to behaviors that are basic, since the study of Stentor roeseli showed that single-celled protozoans can respond complexly to irritating stimuli. Choice C is incorrect because the text doesn’t suggest that single-celled organisms may not be limited to behavior that is “evolving,” or advancing. Rather, the text suggests that single-celled organisms may not be limited to behaviors that are basic, since the study of Stentor roeseli showed that single-celled protozoans can respond complexly to irritating stimuli. Choice D is incorrect because the text doesn’t suggest that single-celled organisms may not be limited to behavior that is “advantageous,” or helpful. Rather, the text suggests that single-celled organisms may not be limited to behaviors that are basic, since the study of Stentor roeseli showed that single-celled protozoans can respond complexly to irritating stimuli.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d69bc408",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is adapted from Aphra Behn’s 1689 novel The Lucky Mistake. Atlante and Rinaldo are neighbors who have been secretly exchanging letters through Charlot, Atlante’s sister.\n\n[Atlante] gave this letter to Charlot; who immediately ran into the balcony with it, where she still found Rinaldo in a melancholy posture, leaning his head on his hand: She showed him the letter, but was afraid to toss it to him, for fear it might fall to the ground; so he ran and fetched a long cane, which he cleft at one end, and held it while she put the letter into the cleft, and stayed not to hear what he said to it. But never was man so transported with joy, as he was at the reading of this letter; it gives him new wounds; for to the generous, nothing obliges love so much as love.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It describes the delivery of a letter, and then portrays a character’s happiness at reading that letter.",
+      "B. It establishes that a character is desperate to receive a letter, and then explains why another character has not yet written that letter.",
+      "C. It presents a character’s concerns about delivering a letter, and then details the contents of that letter.",
+      "D. It reveals the inspiration behind a character’s letter, and then emphasizes the excitement that another character feels upon receiving that letter."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the overall structure of the text. The narrator begins by explaining how Charlot carefully delivers Atlante’s letter to Rinaldo, and then relates that Rinaldo feels “transported with joy” after reading the letter. Therefore, the overall structure of the text is best described as a description of the delivery of a letter followed by the portrayal of a character’s happiness after reading the letter. Choice B is incorrect because the text indicates that the letter has been written; there’s no explanation why another character hasn’t written one. In addition, the text’s description of Rinaldo “in a melancholy posture” suggests that he’s sad and thoughtful, not that he’s desperate to receive the letter. Choice C is incorrect. Although the text states that Charlot won’t toss the letter to Rinaldo because she doesn’t want it to fall, the text doesn’t refer to the contents of the letter. Instead, the text describes how happy Rinaldo feels after reading it. Choice D is incorrect. Although the text does describe Rinaldo’s reaction to the letter, the text doesn’t begin by discussing Atlante’s inspiration for writing the letter. Instead, the text begins by discussing the delivery of the letter.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3bd32343",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "The following text is adapted from Henry James’s 1881 novel The Portrait of a Lady.\n\nEverything Osmond did was pose—pose so subtly considered that if one were not on the lookout one mistook it for impulse. Ralph had never met a man who lived so much in the land of consideration. His tastes, his studies, his accomplishments, his collections, were all for a purpose.",
+    "question": "As used in the text, what does the word “consideration”most nearly mean?",
+    "options": [
+      "A. Deference",
+      "B. Courtesy",
+      "C. Calculation",
+      "D. Indecision"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because as used in the text, “consideration”most nearly means calculation. The text describes Osmond as someone whose every action is a “pose;”that is, he adopted a deliberate appearance crafted so subtly that an unwary observer “mistook it for impulse.” The text further indicates that Osmond’s tastes, studies, accomplishments, and collections “were all for a purpose,”meaning each was strategically chosen to serve some intended end. The phrase “the land of consideration”thus characterizes Osmond as someone whose mental life is dominated by deliberate planning—that is, calculation. Choice A is incorrect because “deference,”meaning submissive yielding to others’wishes, wouldn’t make sense in context. The text portrays Osmond as a man who carefully crafts his own image and arranges his life “for a purpose,”which suggests self-direction rather than yielding to others. Choice B is incorrect because although “consideration”can mean courtesy, or thoughtful regard for others, this meaning wouldn’t fit the text, which characterizes the calculated, purposeful nature of Osmond’s behavior, not his treatment of other people. Choice D is incorrect because “indecision,”meaning the inability to make a choice, wouldn’t make sense in context. The text portrays Osmond as decisive in his self- presentation: each pose is “subtly considered,”and his tastes and accomplishments serve “a purpose,”indicating firm choices made in service of his aims.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6c64a8f3",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Ecologist Exequiel Ezcurra and colleagues found that the inhabitants of the Mexica empire used natural landmarks to track time with a high degree of ______. By observing the sun’s position in relation to various points on the mountains surrounding the Basin of Mexico, the Mexica were able to precisely identify the dates when significant events such as solstices occurred.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. precariousness",
+      "B. exactitude",
+      "C. resilience",
+      "D. inconspicuousness"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the method the inhabitants of the Mexica empire used to track time. In this context, \"exactitude\" means precision. The text indicates that the Mexica used the sun’s position relative to various natural landmarks to track the passage of time, explaining that such methods allowed the Mexica to accurately determine the dates of important events such as solstices. This context supports the idea that the Mexica people were able to track time with a high degree of precision, or exactitude. Choice A is incorrect because in this context \"precariousness\" would mean instability, and there’s nothing in the text to suggest that the method used by the Mexica people to track time was unstable or produced unstable results. Rather, the text indicates that the method yielded precise results, allowing the Mexica to accurately determine the dates of significant events. Choice C is incorrect because in this context \"resilience\" would mean persistence, and there’s nothing in the text to suggest that the Mexica worked stubbornly in spite of obstacles in order to track time. Choice D is incorrect because in this context \"inconspicuousness\" would mean discreetness, and there’s nothing in the text to suggest that the Mexica wanted to track time without being noticed.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "97360a00",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is adapted from Gwendolyn Bennett’s 1926 poem “Street Lamps in Early Spring.”\n\nNight wears a garment\n\nAll velvet soft, all violet blue...\n\nAnd over her face she draws a veil\n\nAs shimmering fine as floating dew... And here and there\n\nIn the black of her hair\n\nThe subtle hands of Night\n\nMove slowly with their gem-starred light.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It presents alternating descriptions of night in a rural area and in a city.",
+      "B. It sketches an image of nightfall, then an image of sunrise.",
+      "C. It makes an extended comparison of night to a human being.",
+      "D. It portrays how night changes from one season of the year to the next."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the overall structure of the text. Throughout the text, the speaker characterizes nighttime as if it were a person who wears clothing (“a garment” that is “velvet soft” and “violet blue”) and a veil “over her face” and who moves her hands “slowly with their gem-starred light” through her dark hair. Thus, the text is structured as an extended comparison of night to a human being. Choice A is incorrect because the text never mentions any particular location; instead, it focuses on presenting a single description of night as a person with certain clothing and features. Choice B is incorrect because the text doesn’t make any reference to the sun or sunrise; instead, it focuses on presenting a single image of night as a person with certain clothing and features. Choice D is incorrect. Rather than describing how nighttime changes seasonally (or in any other way), the text presents a single image of night as a person with certain clothing and features.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6a1194e8",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Rydra Wong, the protagonist of Samuel R. Delany’s 1966 novel Babel-17, is a poet, an occupation which, in Delany’s work, is not ______: nearly a dozen of the characters that populate his novels are poets or writers.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. infallible",
+      "B. atypical",
+      "C. lucrative",
+      "D. tedious"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Samuel R. Delany’s character Rydra Wong. As used in this context, “atypical” would mean unrepresentative or not common. The text indicates that Wong is one of “nearly a dozen” characters in Delany’s novels who are poets or writers. This context conveys that being a poet isn’t an atypical occupation for a character in one of Delany’s works. Choice A is incorrect because “infallible” means to be accurate or without fault, which wouldn’t make sense in context. The text focuses on the fact that Delany has written many characters who are poets and writers. This context suggests that the occupation isn’t atypical for Delany, not that the occupation isn’t infallible, or problematic. Choice C is incorrect because “lucrative” means to be profitable, which wouldn’t make sense in context. If writing poet characters weren’t profitable, it wouldn’t be logical to explain this by citing that Delany gave many of his characters the same occupation. Choice D is incorrect because “tedious” means to be boring, which wouldn’t make sense in context. The text focuses on the fact that Delany has written many characters who are poets and writers. This context suggests that the occupation isn’t atypical for Delany, not that the occupation isn’t tedious.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "490b205f",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In editor Lisa Yaszek’s introduction to her anthology The Future Is Female! More Classic Science Fiction Stories by Women, Yaszek identifies an increasing sense of ______ feminist mode of writing in the 1970s, in contrast to many woman-authored science fiction stories of the 1920s to 1960s whose politics were less deliberately signaled.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. a prudently",
+      "B. an overtly",
+      "C. a cordially",
+      "D. an inadvertently"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Yaszek’s introduction to her science fiction anthology. In this context \"overtly\" means openly or without concealment. The text draws a contrast between the lack of \"deliberately signaled\" political themes in woman-authored science fiction from the 1920s to the 1960s and what Yaszek notes about woman-authored science fiction from the 1970s. This contrast implies that the work from the 1970s did clearly reflect feminist political themes. In other words, the text indicates that unlike women who wrote science fiction in the 1920s to the 1960s, the women who wrote science fiction in the 1970s expressed overtly feminist themes. Choice A is incorrect. In this context \"prudently\" would mean cautiously, which might plausibly describe the women who wrote science fiction from the 1920s to the 1960s, in that they tended to avoid revealing their political views; however, the text contrasts these authors with the women writing science fiction in the 1970s, thereby suggesting that the authors writing in the 1970s were not restrained in that way. Choice C is incorrect because in this context \"cordially\" would mean politely, and nothing in the text indicates that politeness was a significant factor for women writing science fiction either from the 1920s to the 1960s or in the 1970s. The text draws a contrast between the lack of \"deliberately signaled\" political themes in woman-authored science fiction from the 1920s to the 1960s and what Yaszek notes about woman-authored science fiction from the 1970s. It’s unclear how \"less deliberately signaled\" politics and an increasing sense of politeness toward feminism would constitute a meaningful contrast. Choice D is incorrect because in this context, \"inadvertently\" would mean unintentionally, and nothing in the text suggests that Yaszek thought the feminist elements of the woman-authored science fiction from the 1970s arose without deliberate effort.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "aa7fc89b",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is adapted from Susan Glaspell’s 1912 short story “‘Out There.’” An elderly shop owner is looking at a picture that he recently acquired and hopes to sell.\n\nIt did seem that the picture failed to fit in with the rest of the shop. A persuasive young fellow who claimed he was closing out his stock let the old man have it for what he called a song. It was only a little out-of-the-way store which subsisted chiefly on the framing of pictures. The old man looked around at his views of the city, his pictures of cats and dogs, his flaming bits of landscape. “Don’t belong in here,” he fumed.\n\nAnd yet the old man was secretly proud of his acquisition. There was a hidden dignity in his scowling as he shuffled about pondering the least ridiculous place for the picture.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To reveal the shop owner’s conflicted feelings about the new picture",
+      "B. To convey the shop owner’s resentment of the person he got the new picture from",
+      "C. To describe the items that the shop owner most highly prizes",
+      "D. To explain differences between the new picture and other pictures in the shop"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the main purpose of the text. The text begins by stating that the new picture “failed to fit in” with the other items that the shop owner has. The text goes on to illustrate that point by describing the other pictures the shop owner has, indicating that the shop owner is fuming because he doesn’t think the new picture belongs in the store. In the second paragraph, however, the text indicates that the shop owner is “secretly proud of his acquisition.” The main purpose of the text is thus to reveal the shop owner’s conflicted feelings about the new picture. Choice B is incorrect because the text doesn’t suggest that the shop owner resents the young man who sold him the new picture; in fact, the text gives no indication of the owner’s feelings about the young man at all. Choice C is incorrect. Although the text indicates that the new picture is different from the other items in the shop, there’s no suggestion that the shop owner prizes either the new picture or the pictures of the city, pets, and landscapes more than he prizes any other items. Choice D is incorrect because the text doesn’t describe what the new picture looks like; rather, the text identifies some of the other kinds of images that the shop owner has and states that they’re different from the new picture without explaining how they’re different.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "72bae7f4",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "A team investigating frugivorous (fruit-eating) birds found that their feeding patterns vary depending on where they live within their habitat range. At the geographic boundaries of their natural range, these birds become highly selective, choosing fruits that closely match their beak size to maximize energy intake while minimizing effort. However, this fruit-selection strategy doesn’t occur at elevation boundaries (the highest and lowest altitudes of their range). In these areas, other factors, such as territorial competition among species, have a stronger influence on feeding patterns.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To describe research methods that can be used to study the habitat preferences of frugivorous birds",
+      "B. To present research findings concerning how location within a habitat affects the feeding patterns of frugivorous birds",
+      "C. To discuss how competition among frugivorous bird species influences their habitat boundaries",
+      "D. To explain why habitat boundaries are more important than beak size in determining the feeding patterns of frugivorous birds"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately states the main purpose of the text. The text begins by introducing research on variation in frugivorous birds’feeding patterns based on the specific part of their habitat range the birds occupy. The text then explains that birds at the geographic edges of their range feed selectively based on beak size, whereas birds at altitude-based boundaries feed based on local competition with other species. Therefore, the main purpose of the text is to present research findings concerning how location within a habitat affects the feeding patterns of frugivorous birds. Choice A is incorrect. Although the text does discuss studying habitats of frugivorous birds, it doesn’t address specific research methods. Choice C is incorrect. Although the text mentions territorial competition as a factor affecting the feeding patterns of frugivorous birds at elevation boundaries, nothing in the text suggests that such competition affects the boundaries of those birds’habitats. Choice D is incorrect. Although the text mentions beak size as a key factor shaping frugivorous birds’feeding patterns at the geographic boundaries of the birds’natural range, it doesn’t compare the relative importance of different factors or indicate that habitat boundaries matter more than beak size. Instead, the text presents findings showing that different types of boundaries—geographic and elevational—are associated with different influences on feeding patterns.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e23f50b9",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The people of medieval Europe have traditionally been seen as uninterested in cleanliness and hygiene, but modern research has shown that this is largely a myth. According to historian Eleanor Janega, most medieval towns in Europe had at least one public bathhouse, which often offered both full-immersion baths and—more affordably—steam baths. <u>While such amenities were available mainly to town dwellers,</u> regular bathing in rivers and streams or daily sponge baths at home were common practices throughout medieval Europe.",
+    "question": "Which choice best describes the function of the underlined portion?",
+    "options": [
+      "A. It asserts that in medieval Europe steam baths were more popular in rural areas than in urban ones.",
+      "B. It describes a limitation of earlier historians’studies of medieval European bathing habits.",
+      "C. It concedes that not all people in medieval Europe had access to public bathhouses.",
+      "D. It explains why Janega decided to study the popularity of public bathhouses in medieval Europe."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most effectively describes the function of the underlined portion. The text discusses the long-standing misconception that people in medieval Europe were uninterested in cleanliness and hygiene. As evidence that this idea is false, the text cites historian Eleanor Janega’s assertion that in medieval Europe, towns usually had at least one bathhouse, where people could take immersion baths or steam baths for a fee. The underlined portion then notes that mainly town dwellers had access to these bathhouses. The remainder of the text explains that those who lacked such access were nonetheless able to bathe in outdoor waterways or take sponge baths at home. Therefore, the underlined portion concedes that some people in medieval Europe lacked access to public bathhouses. Choice A is incorrect. The underlined portion establishes that amenities such as steam baths were mainly available to town dwellers, which suggests in turn that steam baths were largely unavailable to people in rural areas. Thus, the distinction made by the underlined portion is not between the popularity of steam baths in towns versus their lack of popularity in rural areas but instead between their presence in towns and absence in rural areas. Choice B is incorrect. Although the text does explain that recent historians have disproved the idea that medieval Europeans rarely bathed, it doesn’t attribute that misconception to earlier historians of medieval Europe or suggest that their research was subject to limitations. Moreover, the underlined portion addresses a limitation of life in medieval Europe, not of historical research. Choice D is incorrect because the underlined portion doesn’t address why historian Eleanor Janega decided to study the popularity of public bathhouses in medieval Europe—nor does any portion of the text. The text mentions Janega in passing, but it doesn’t go into detail about why she decided to study the popularity of public bathhouses in medieval Europe.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ae2b3112",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "By combining Indigenous and classical music, Cree composer and cellist Cris Derksen creates works that reflect the diverse cultural landscape of Canada. For her album Orchestral Powwow, Derksen composed new songs in the style of traditional powwow music that were accompanied by classical arrangements played by an orchestra. But where an orchestra would normally follow the directions of a conductor, the musicians on Orchestral Powwow are led by the beat of a powwow drum.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To examine how Derksen’s musical compositions blend cultures",
+      "B. To argue that Derksen should be recognized for creating a new style of music",
+      "C. To describe the difficulties Derksen encountered when producing her album",
+      "D. To establish a contrast between Derksen’s classical training and her Cree heritage"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the main purpose of the text, which is to discuss how Derksen’s compositions incorporate elements from both Indigenous and classical music. After introducing Derksen, the text describes how the songs Derksen composed for her album Orchestral Powwow feature aspects of the two musical traditions. Specifically, the text notes that Derksen wrote songs in the style of traditional powwow music but accompanied them with classical arrangements played by an orchestra that followed the beat of a powwow drum rather than the directions of a conductor. In this way, Derksen’s compositions blend different cultures. Choice B is incorrect because although the text suggests that Derksen’s songs contain innovative elements since they blend styles from two different musical traditions, it doesn’t discuss whether her compositions constitute a new style of music, let alone whether Derksen should be recognized for creating a new style of music. Choice C is incorrect because the text doesn’t mention any difficulties Derksen encountered when producing her album. Rather, the text describes how the songs on the album exemplify how Derksen combines music from two different cultures. Choice D is incorrect because although the text mentions Derksen’s Cree heritage and suggests that she relies on knowledge of both Indigenous and classical music when she composes her songs, it doesn’t discuss her musical training. Additionally, the text is primarily focused on how Derksen combines different cultural traditions, not on contrasting Derksen’s training with her heritage.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "94eb800d",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "For a 2020 exhibition, photographer and neurobiologist Okunola Jeyifous ______ a series of new images based on a series of alphabet posters from the 1970s known as the “Black ABCs,”which featured Black children from Chicago. Jeyifous photographed the now-adult models and layered the photos over magnified images of the models’cells, resulting in what he called “micro and macro portraiture.”",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. validated",
+      "B. created",
+      "C. challenged",
+      "D. restored"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically and precisely completes the text’s discussion of Jeyifous’s series of images for the 2020 exhibition. In this context, “created”means produced. The text explains that Jeyifous, a photographer and neurobiologist, photographed adults who had appeared as children in posters from the 1970s, then combined those photographs with magnified images of the adults’cells—a process that resulted in what he called “micro and macro portraiture.”This context suggests that Jeyifous drew on his dual interests in photography and neurobiology to produce the images for display in the exhibition. Choice A is incorrect because there’s nothing in the text to suggest that Jeyifous “validated,”or corroborated, the series of images. The text describes Jeyifous’s process for composing the images but doesn’t describe Jeyifous making an effort to evaluate the images for their artistic or scientific legitimacy. Choice C is incorrect because there’s nothing in the text to suggest that Jeyifous “challenged,”or disputed, an aspect of the images; rather, the focus of the text is on the inspiration behind the images and the method Jeyifous used to achieve them. Choice D is incorrect because the text indicates that Jeyifous made the images himself using a combination of photography and magnified pictures of cells, not that he “restored,”or reconditioned, the images from a deteriorated state.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c218cd98",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In 1776, the United States sent Benjamin Franklin to France to try to win the country’s support in the United States’ fight for independence from Great Britain. Franklin was very popular in France. This ______ surely helped him to convince France to assist the United States.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. thoughtfulness",
+      "B. esteem",
+      "C. controversy",
+      "D. sincerity"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Benjamin Franklin’s popularity in France. In this context, \"esteem\" means high regard. The text indicates that Franklin was very popular, or highly regarded, in France, where he sought the country’s support for the United States in its fight for independence, and indicates that his status helped him achieve his goal. The context therefore suggests that being held in high regard by the people likely helped Franklin convince France to help the United States. Choice A is incorrect because the text directly indicates that it was Franklin’s popularity that likely helped him convince France to help the United States, not his \"thoughtfulness\" (which in this context would mean either his careful reasoning and attention or his kind consideration of others’ needs). Choice C is incorrect because the text doesn’t suggest that there was any \"controversy,\" or dispute, about Franklin’s presence in France; instead, the text states that Franklin was very popular in France and directly indicates that this status likely helped him convince France to help the United States. Choice D is incorrect because the text directly indicates that it was Franklin’s popularity that likely helped him convince France to help the United States, not his \"sincerity,\" or his honesty.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7a0e31ea",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Betty Smith’s 1943 novel A Tree Grows in Brooklyn. Francie, a young girl, visits the library often.\n\nFrancie thought that all the books in the world were in that library and she had a plan about reading all the books in the world. She was reading a book a day in alphabetical order and not skipping the dry ones. She remembered that the first author had been Abbott. She had been reading a book a day for a long time now and she was still in the B’s. Already she had read about bees and buffaloes, Bermuda vacations and Byzantine architecture. For all her enthusiasm, she had to admit that some of the B’s had been hard going. But Francie was a reader.\n\n©1947 by Betty Smith",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To illustrate Francie’s enjoyment of an unusual topic",
+      "B. To explain why Francie prefers reading over other activities",
+      "C. To portray Francie’s determination to meet a goal",
+      "D. To describe a book that Francie greatly admires"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the main purpose of the text, which is to portray Francie’s determination to reach her goal of reading all the books in the world. The text indicates that to achieve this aim, Francie works systematically and persistently: she reads all the books in the library in alphabetical order and devotes much time and effort to the project, finishing one book per day over a long period of time. The text then suggests that even though she progresses slowly (\"she was still in the B’s\") and that she struggled with some books (\"some of the B’s had been hard going\"), she doesn’t give up because she thinks of herself as \"a reader.\" These details show Francie’s resolve. Choice A is incorrect. Although the text mentions several topics (bees and buffaloes, Bermuda vacations, and Byzantine architecture) that Francie has read about, it doesn’t indicate that any of these topics are unusual or that she especially enjoyed reading about one of these topics in particular. If anything, the text suggests that she may have found some of these topics to be dull, saying that she even read the \"dry ones\"—that is, the boring books—and that some of the books were \"hard going,\" meaning they were difficult to get through. Choice B is incorrect because the text doesn’t discuss Francie’s involvement in other activities, only her dedication to reading. Although it’s possible that Francie dedicates herself to reading because she prefers it to other activities, the text doesn’t indicate whether this is the case. Choice D is incorrect. Although the text mentions one author (Abbott) whose book Francie has read as well as several topics (bees and buffaloes, Bermuda vacations, and Byzantine architecture) she has encountered, the text doesn’t say whether Francie admires any of the books she’s read so far. Instead, the text focuses on the time and effort she devotes to reaching her goal of reading all the books in the world—even ones she doesn’t enjoy.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7b43c0cc",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Steiger Butte Drum, a family ensemble from the Klamath Tribes of the Pacific Northwest, collaborated with composer Michael Gordon to create Natural History, a work featuring traditional drumming and vocals alongside an orchestra and chorus. Steiger Butte Drum’s participation is ______ to the piece: members not only contributed to its composition but also must be included in all performances.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. tangential",
+      "B. subsequent",
+      "C. analogous",
+      "D. integral"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Steiger Butte Drum’s contributions to the musical work Natural History. In this context, “integral” means essential or necessary to the whole. The text states that Steiger Butte Drum not only took part in the piece’s creation, collaborating with composer Michael Gordon on it, but also “must be included in all performances.” This context clearly indicates that the ensemble’s participation is essential, or integral, to the piece, both in its creation and its performance. Choice A is incorrect because in this context, “tangential” would mean peripheral or of little relevance to something. The text emphasizes the importance of Steiger Butte Drum’s involvement in both the composition and performance of Natural History, indicating their role is central, not tangential. Choice B is incorrect because in this context, “subsequent” would mean following after or coming later than something else. The text doesn’t establish a temporal sequence where the participation of Steiger Butte Drum followed after the creation of Natural History; rather, it indicates that the ensemble was involved with the piece from the beginning, having worked with Michael Gordon during the creation process. Choice C is incorrect because in this context, “analogous” would mean similar or comparable to something else, and the text doesn’t compare Steiger Butte Drum’s participation in the creation and performances of Natural History to anything else; instead, it describes the nature and importance of the ensemble’s involvement.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "fdca960a",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Yanzhe Fu et al. suggest that the extinct aquatic insect Karataviella popovi utilized a brood care strategy that mitigated the risk of oxygen deficiency. This determination rests on the researchers’ analysis of fossils uncovered at a particularly ______ site: China’s Haifanggou Formation, which has yielded a vast diversity of fossils, including those of long-proboscid scorpionflies.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. fruitful",
+      "B. unassailable",
+      "C. obscure",
+      "D. quantified"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the fossil site from which the evidence about brood care in K. popovi was recovered. In this context, “fruitful” means abundantly productive. The text indicates that the researchers drew their evidence from fossils found in China’s Haifanggou Formation, a location that has yielded a vast diversity of fossils. The information about the site yielding a vast diversity of fossils supports the characterization of the Haifanggou Formation as particularly productive, or fruitful. Choice B is incorrect because there is nothing in the text to support characterizing the Haifanggou Formation as a site that is particularly “unassailable,” or not open to attack, question, or criticism. The text emphasizes that the site has yielded a vast diversity of fossils, suggesting that it is a particularly productive location for fossil hunters, not that it cannot be challenged. Choice C is incorrect because there is nothing in the text to support characterizing the Haifanggou Formation as a site that is particularly “obscure,” or poorly understood or relatively unknown. In fact, the text notes that the Haifanggou Formation has yielded a vast diversity of fossils, suggesting that the site is not an obscure one. Choice D is incorrect because “quantified” means expressed or measured as a quantity, which does not describe the productiveness the context calls for. Although the text indicates that the Haifanggou Formation has yielded a vast diversity of fossils, that fact suggests that the site can be characterized as particularly productive, not as particularly quantified.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d3104a68",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Birds sing to communicate over potentially great distances. For this reason, many researchers believe that birds in densely vegetated habitats generally sing at lower frequencies than birds living in comparatively sparse habitats, since dense vegetation tends to ______ the distance that high-frequency sounds can travel.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. exceed",
+      "B. diminish",
+      "C. encompass",
+      "D. conceal"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of birdsong. In this context, \"diminish\" means reduce or lessen. The text establishes that birds sing to communicate over potentially large distances and that researchers believe that birds that live in densely vegetated habitats sing at lower frequencies than birds that live in comparatively sparsely vegetated habitats. The text then explains that researchers hold this belief due to some effect of dense vegetation on the distance that high-frequency sounds can travel. If birds sing to communicate over long distances, it would be logical to conclude that researchers believe that birds in densely vegetated habitats sing at lower frequencies than birds in relatively sparse habitats do because dense vegetation diminishes the distance that high-frequency sounds can travel. Choice A is incorrect because nothing in the text suggests that dense vegetation can \"exceed,\" or surpass or go beyond, the distance that high- frequency sounds can travel. The text suggests that dense vegetation reduces the distance that high-frequency sounds can travel, not that dense vegetation goes farther than that distance. Choice C is incorrect because it would not be sensible to say that dense vegetation can \"encompass,\" or enclose or encircle, the distance that high-frequency sounds can travel. The distance that sounds can travel is not an object that can be enclosed or encircled by vegetation. Choice D is incorrect because there is no information in the text indicating that dense vegetation can \"conceal,\" or hide or keep from being observed, the distance that high-frequency sounds travel. Instead, the text suggests that dense vegetation reduces the distance that high-frequency sounds can travel.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "8889d6e2",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nAn excavation in Chiquihuite Cave in central Mexico has upended the belief that approximately 13,000 years ago, a group known as the Clovis people were the first human inhabitants of North America. More than 200 crude stone tools were found embedded in a layer of earth that is up to 33,150 years old, <u>revealing that humans occupied the cave thousands of years before the Clovis people reached the continent.</u>\n\nText 2\n\nThe objects uncovered in Chiquihuite Cave are intriguing, but it is premature to characterize them as tools. The stone pieces are so roughly shaped that they may have simply fractured from rocks during natural geological activity in the cave. Moreover, their unearthing has thus far not been accompanied by discoveries of other signs of human activity or even traces of human DNA from surfaces.",
+    "question": "Based on the texts, how would the author of Text 2 most likely respond to the underlined claim in Text 1?",
+    "options": [
+      "A. By suggesting that it draws a plausible connection between two groups of people but will need to be confirmed with further study",
+      "B. By asserting that it rests on an assumption about the stone pieces that is not sufficiently supported by available evidence",
+      "C. By acknowledging that it will most likely be proved correct when the stone pieces undergo more detailed analysis",
+      "D. By pointing out that it fails to account for evidence that the Clovis people were active on the continent as early as is commonly thought"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it reflects how the author of Text 2 would most likely respond to the underlined claim about the Clovis people in Text 1. Text 1 explains that the idea that the Clovis people were the first human inhabitants of North America has been overturned by the unearthing of stone tools in Chiquihuite Cave in Mexico. The tools were found in a layer of earth that is over 33,000 years old—much older than the Clovis people’s arrival 13,000 years ago. The text ends with the claim that the tools reveal that humans lived in the cave long before the Clovis people reached the continent. Text 2, on the other hand, disputes the idea that the stone pieces are definitely tools. Text 2 states that the pieces are so roughly shaped that they may have simply naturally broken off from rocks and, moreover, that no other signs of human activity have been found in the cave. In other words, Text 2 argues that there is no proof yet that humans made the pieces as tools or were even present in the cave. Therefore, the author of Text 2 would most likely say that the claim that humans occupied Chiquihuite Cave long before the Clovis people reached North America rests on an assumption about the stone pieces—that they are human-made tools—that is not sufficiently supported by available evidence. Choice A is incorrect because Text 1 doesn’t claim that human inhabitants of Chiquihuite Cave and the Clovis people had any connection; the author of Text 1 focuses only on the timing of each group’s presence in North America. Further, the author of Text 2 makes no mention of the Clovis people and indicates that it isn’t clear yet that any human group did inhabit Chiquihuite Cave. Choice C is incorrect because nothing in Text 2 suggests that the author believes the stone pieces probably are human-made tools and will be confirmed as such by further analysis; instead, the author of Text 2 emphasizes the current lack of evidence of human activity in the cave. Choice D is incorrect because Text 2 focuses on the issue of characterizing the stone pieces as tools made by humans, not on the timing of any particular group’s activity in North America; further, Text 1 seems to support the common belief that the Clovis people reached North America 13,000 years ago and challenges only the idea that they were the continent’s first inhabitants. Therefore, there’s no reason to think the author of Text 2 would say that the author of Text 1 overlooks evidence that the Clovis people were active as early as is commonly thought.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "03eeecf3",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from H.D.’s 1916 poem “Mid-Day.”In the poem, the speaker is on a path in an outdoor setting.\n\n<u>A slight wind shakes the seed-pods—</u>\n\nmy thoughts are spent\n\nas the black seeds.\n\nMy thoughts tear me,\n\nI dread their fever.\n\nI am scattered in its whirl.\n\nI am scattered like\n\nthe hot shrivelled seeds.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It illustrates a change in the natural environment that the speaker implies is responsible for the growing misgivings described in the text.",
+      "B. It establishes an example of consistency in the natural landscape that the speaker then contrasts with the unpredictability of human emotions.",
+      "C. It presents an observation of an occurrence in the natural world that the speaker then expands on to convey a sense of a turbulent interior state.",
+      "D. It evokes the ordinariness of an event in nature to suggest that the critical self-evaluation the speaker engages in is a common pursuit."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes the function of the underlined portion in the text as a whole. In the text, the speaker mentions the occurrence in nature of seedpods being shaken by a slight wind. The speaker then goes on to compare the black seeds to thoughts, using language that indicates that the speaker’s state of mind is unsettled (e.g., \"my thoughts are spent\"; \"My thoughts tear me, I dread their fever\"). The text concludes with a comparison between the speaker’s \"scattered\" state of mind and the \"hot shrivelled seeds.\" Thus, the underlined portion of the text presents an observation of an occurrence in the natural world that the speaker then expands on to convey a sense of a turbulent interior state. Choice A is incorrect because the text does not indicate that the seedpods are the cause of the speaker’s state of mind; thus, they could not be responsible for any misgivings the speaker has. Choice B is incorrect because the text does not contrast the natural landscape with the speaker’s state of mind or describe the wind shaking the seedpods as consistent; rather, the text suggests that the state of the natural world and the speaker’s state of mind are similar in that both are unsettled. Choice D is incorrect because there is no indication in the text that the speaker regularly engages in critical self-evaluation, only that in this particular instance the speaker’s state of mind is turbulent.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f878693b",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Medium",
+    "passage": "Text 1\n\nIn 1954 George Balanchine choreographed a production of The Nutcracker, a ballet by Pyotr Ilyich Tchaikovsky. It has since become a tradition for hundreds of dance companies in North America to stage The Nutcracker each year. <u>But the show is stuck in the past, with an old-fashioned story and references, so it should no longer be produced.</u> Ballet needs to create new traditions if it wants to stay relevant to contemporary audiences.\n\nText 2\n\nThe Nutcracker is outdated, but it should be kept because it’s a holiday favorite and provides substantial income for some dance companies. Although it can be behind the times, there are creative ways to update the show. For example, Debbie Allen successfully modernized the story. Her show Hot Chocolate Nutcracker combines ballet, tap, hip-hop, and other styles, and it has been gaining in popularity since it opened in 2009.",
+    "question": "Based on the texts, how would the author of Text 2 most likely respond to the underlined claim in Text 1?",
+    "options": [
+      "A. By questioning the idea that the story of The Nutcracker is stuck in the past and by rejecting the suggestion that contemporary audiences would enjoy an updated version",
+      "B. By agreeing that contemporary audiences have largely stopped going to see performances of The Nutcracker because it’s so old-fashioned",
+      "C. By pointing out that most dance companies could increase their incomes by offering modernized versions of The Nutcracker",
+      "D. By suggesting that dance companies should consider offering revised versions of The Nutcracker instead of completely rejecting the show"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it reflects how the author of Text 2 would most likely respond to the underlined claim in Text 1. Text 1 begins by noting the success of The Nutcracker but then claims that the ballet is \"stuck in the past\" and should \"no longer be produced.\" Text 2 begins by conceding that The Nutcracker is indeed outdated but argues that it should continue to be performed, states that the show can be updated to include more contemporary dance styles, and provides an example of one such modernized version, Hot Chocolate Nutcracker. Hence, the author of Text 2 would most likely respond to the underlined claim in Text 1 by suggesting that dance companies should consider offering revised versions of The Nutcracker instead of completely rejecting the show. Choice A is incorrect because the author of Text 2 advocates for using creative ways to update The Nutcracker and therefore wouldn’t respond to the underlined claim by rejecting the suggestion that contemporary audiences would enjoy an updated version. Choice B is incorrect because although the authors of both texts claim that The Nutcracker is outdated, neither text suggests that contemporary audiences have largely stopped attending productions of the show. On the contrary, Text 2 states that The Nutcracker is a holiday favorite and generates substantial income for some dance companies. Choice C is incorrect because although Text 2 provides an example of a contemporized version of The Nutcracker, the text doesn’t suggest that offering modernized versions is a way to increase income for most dance companies. Rather, the author of Text 2 suggests that offering modernized versions is a way to make the ballet discussed in Text 1 feel less outdated.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "8634bf4a",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "Diego Velázquez was the leading artist in the court of King Philip IV of Spain during the seventeenth century, but his influence was hardly ______ Spain: realist and impressionist painters around the world employed his techniques and echoed elements of his style.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. derived from",
+      "B. recognized in",
+      "C. confined to",
+      "D. repressed by"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the discussion of the artist Diego Velázquez’s influence outside Spain. As used in this context, “confined to” means restricted to. The text says that Velázquez was the leading artist in the Spanish court during the seventeenth century, but it also notes that other painters around the world were influenced by his techniques and style. Thus, Velázquez’s influence was hardly (or almost not) confined to, or restricted to, Spain. Choice A is incorrect because if Velázquez was a leading artist in Spain, it doesn’t make logical sense to claim that his influence was hardly (or almost not) derived from, or obtained from, Spain. Moreover, the other painters around the world who employed Velázquez’s techniques would by definition be influenced by Spanish style. Choice B is incorrect because if Velázquez was a leading artist in the court of King Philip IV of Spain, then his influence must have been widely recognized, or acknowledged, rather than being hardly (or almost not) recognized. Choice D is incorrect because the text gives no indication that deliberately limiting Velázquez’s influence outside Spain was ever considered by anyone. Thus, even if it is true that his influence was not repressed, or restrained, it doesn’t make logical sense to say so in this context.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1090b367",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "Today composer Scott Joplin is mainly celebrated for his catchy ragtime pieces “Maple Leaf Rag” and “The Entertainer.” However, by overlooking his less famous works, listeners will miss the full range of Joplin’s creativity. For instance, his waltz “Pleasant Moments” and his opera Treemonisha skillfully blend ragtime and classical music. These masterpieces deserve as much fame as Joplin’s biggest hits.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To describe the similarities and differences between ragtime music and opera",
+      "B. To argue that more attention should be given to Joplin’s lesser-known works",
+      "C. To encourage music lovers to listen to music by many different composers",
+      "D. To explain how Joplin learned to compose and perform ragtime music"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best states the main purpose of the text, which is to make a case for the importance of Scott Joplin’s less famous works. The text begins by introducing Joplin’s most popular works and then goes on to assert that gaining a full understanding of Joplin’s creativity requires a consideration of his lesser-known pieces as well. The text concludes by characterizing the lesser-known works \"Pleasant Moments\" and Treemonisha as masterpieces that deserve to be famous. These details indicate that the text’s main purpose is to argue that more attention should be given to Joplin’s lesser-known works. Choice A is incorrect. Although the text discusses some of the ragtime music and an opera that Joplin composed, it does not compare the two types of music in general. Instead, the text argues that Joplin’s lesser-known works, including his opera, deserve as much attention as his more famous ragtime pieces receive. Choice C is incorrect because the text discusses only Joplin’s music and does not ask music lovers to listen to a variety of composers. Instead, the text encourages listeners to pay attention to Joplin’s lesser-known works in order to gain a full understanding of his creativity. Choice D is incorrect because the text does not discuss how Joplin learned to compose and perform ragtime music. Instead, the text focuses on Joplin’s less famous works and makes a case for their importance.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d168e7c5",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Medium",
+    "passage": "The following text is from Annie Dillard’s 1987 autobiographical novel An American Childhood. The narrator is a young girl living in Pittsburgh.\n\nI walked. My mother had given me the freedom of the streets as soon as I could say our telephone number. I walked and memorized the neighborhood. I made a mental map and located myself upon it. At night in bed I rehearsed the small world’s scheme and set challenges: <u>Find the store using backyards only. Imagine a route from the school to my friend’s house.</u>\n\n©1987 by Annie Dillard",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It describes the narrator trying to memorize her telephone number.",
+      "B. It provides examples of what the narrator thinks about at night.",
+      "C. It gives directions to the narrator’s favorite local store.",
+      "D. It portrays the narrator’s relationship with her mother."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it accurately describes how the underlined portion functions in the text as a whole. In the text, the narrator explains that she walks around her neighborhood, making a \"mental map\" of the area that she imagines herself navigating through. She then states that she rehearses \"the small world’s scheme\"—that is, imagines moving through her mental map—and challenges herself to use the map in her mind while lying in bed at night. The underlined portion presents two such challenges (getting to the store through backyards and traveling from school to a friend’s house) and thus provides examples of what the narrator thinks about at night. Choice A is incorrect because the underlined portion makes no mention of memorizing a telephone number. Although the narrator mentions that she had to learn the home telephone number before her mother would give her permission to walk around the neighborhood, there is nothing in the underlined portion or the rest of the text about memorizing the telephone number. Choice C is incorrect. Although the underlined portion refers to navigation tasks like finding a route to a store only through backyards, the text contains no specific directions to any store, nor is any store identified as the narrator’s favorite. Choice D is incorrect because the underlined portion makes no mention of the narrator’s mother and doesn’t address the narrator’s relationship with her. Although the narrator mentions that her mother gave her permission as a child to walk around the neighborhood, there is nothing in the underlined portion or the rest of the text about the mother or her relationship to her child.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c843d63c",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "The artisans of the Igun Eronmwon guild in Benin City, Nigeria, typically ______ the bronze- and brass-casting techniques that have been passed down through their families since the thirteenth century, but they don’t strictly observe every tradition; for example, guild members now use air- conditioning motors instead of handheld bellows to help heat their forges.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. experiment with",
+      "B. adhere to",
+      "C. improve on",
+      "D. grapple with"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of bronze- and brass-casting techniques used by the Igun Eronmwon guild. In this context “adhere to” would mean to act in accordance with. The text states that although members of the Igun Eronmwon guild typically do something with techniques that have been passed down since the thirteenth century, they “don’t strictly observe every tradition.” By establishing a contrast with not always following traditions, the context suggests that guild members do typically adhere to traditional techniques. Choice A is incorrect because in this context “experiment with” would mean to do something new with. Although using motors rather than manual bellows is presented as a new approach, the text establishes a contrast between what the guild members typically do with techniques that have been passed down over centuries and the idea that the members “don’t strictly observe every tradition.” The phrase “experiment with” wouldn’t support the contrast because regularly trying new things with the techniques would be an example of not strictly following all traditions. Choice C is incorrect because in this context “improve on” would mean to make better. Although using motors rather than manual bellows might be an improved approach, the text establishes a contrast between what the guild members typically do with techniques that have been passed down over centuries and the idea that the members “don’t strictly observe every tradition.” The phrase “improve on” wouldn’t support the contrast because regularly making changes to the techniques would be an example of not strictly following all traditions. Choice D is incorrect because in this context “grapple with” would mean to try hard to solve a difficult problem. Although bronze- and brass-casting are likely challenging tasks, nothing in the text suggests that the guild members have any particular difficulties with the techniques passed down since the thirteenth century.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2a6c71a4",
+    "skill": "Words in Context",
+    "difficulty": "Medium",
+    "passage": "In the search for new impact craters on Mars, the roles of seismic monitoring and orbital imaging as data sources are ______: when vibrations detected with seismic monitoring indicate roughly where an impact has occurred, researchers can use orbital images of that relatively limited area of the rocky surface to precisely locate a new crater.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. interchangeable",
+      "B. complementary",
+      "C. exhaustive",
+      "D. redundant"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of how seismic monitoring and orbital imaging are used to find impact craters on Mars. In this context, “complementary”means combining in such a way that each contributes something the other lacks. The text describes how two data sources work together: seismic monitoring detects vibrations that indicate the rough location of an impact, and orbital imaging is then used to examine that limited area in detail to pinpoint the exact location of the crater. Each method does something the other does not—seismic monitoring narrows the search area, while orbital imaging provides the precise location—and together they accomplish what neither could alone. This context supports the idea that the two methods’roles are complementary. Choice A is incorrect because describing the roles of seismic monitoring and orbital imaging as “interchangeable,”or able to be substituted for each other, would contradict the text. The text indicates that the two methods perform different functions in sequence (seismic monitoring narrows the area; orbital imaging pinpoints the crater), so they cannot be substituted for each other. Choice C is incorrect because describing the roles of seismic monitoring and orbital imaging as “exhaustive,”or comprehensive in covering all possibilities, wouldn’t be logical in context. The text describes how the two methods work together to perform a particular two-step task (locating new impact craters), not whether they collectively address every possible aspect of Mars research. Choice D is incorrect because describing the roles of seismic monitoring and orbital imaging as “redundant,”or unnecessarily duplicative, would contradict the text. The text indicates that each method performs a distinct function in finding impact craters on Mars—rough localization versus precise localization—so neither method duplicates the other’s contribution.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ca50de52",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "“<u>How lifelike are they?”</u> Many computer animators prioritize this question as they strive to create ever more realistic environments and lighting. Generally, while characters in computer-animated films appear highly exaggerated, environments and lighting are carefully engineered to mimic reality. But some animators, such as Pixar’s Sanjay Patel, are focused on a different question. Rather than asking first whether the environments and lighting they’re creating are convincingly lifelike, Patel and others are asking whether these elements reflect their films’ unique stories.",
+    "question": "Which choice best describes the function of the underlined question in the text as a whole?",
+    "options": [
+      "A. It reflects a primary goal that many computer animators have for certain components of the animations they produce.",
+      "B. It represents a concern of computer animators who are more interested in creating unique backgrounds and lighting effects than realistic ones.",
+      "C. It conveys the uncertainty among many computer animators about how to create realistic animations using current technology.",
+      "D. It illustrates a reaction that audiences typically have to the appearance of characters created by computer animators."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the function of the underlined question in the text as a whole. The text begins with the underlined question, “How lifelike are they?” The text then explains that many computer animators pose this question about the environments and lighting that they create for animated films, striving for realistic animation of those components even if the characters themselves aren’t portrayed in realistic terms. The focus of the text then shifts to describe how some animators strive to create environments and lighting that reflect the film’s unique stories rather than making them appear realistic. Therefore, the function of the underlined question is to reflect a primary goal that many computer animators have for certain components of the animations they produce. Choice B is incorrect because, as the text makes clear, the underlined question is one posed by computer animators who wish to create realistic backgrounds and lighting effects, not by those who, instead, wish to create effects that reflect films’ unique stories and aren’t necessarily realistic; this latter group of animators is discussed later in the text. Choice C is incorrect. As the text explains, many computer animators strive for realistic environments and lighting, while others do not; this difference of approach relates to whether these components should be realistic, not to how realism can be achieved using current technology, and the text never suggests that animators are uncertain how to achieve it. Choice D is incorrect because the underlined question pertains to the perspective of computer animators, not the audience, and the text never considers audience’s reactions to characters in animated films.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "82cb7dda",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The field of study called affective neuroscience seeks instinctive, physiological causes for feelings such as pleasure or displeasure. Because these sensations are linked to a chemical component (for example, the release of the neurotransmitter dopamine in the brain when one receives or expects a reward), they can be said to have a partly physiological basis. These processes have been described in mammals, but Jingnan Huang and his colleagues have recently observed that some behaviors of honeybees (such as foraging) are also motivated by a dopamine-based signaling process.",
+    "question": "What choice best describes the main purpose of the text?",
+    "options": [
+      "A. It describes an experimental method of measuring the strength of physiological responses in humans.",
+      "B. It illustrates processes by which certain insects can express how they are feeling.",
+      "C. It summarizes a finding suggesting that some mechanisms in the brains of certain insects resemble mechanisms in mammalian brains.",
+      "D. It presents research showing that certain insects and mammals behave similarly when there is a possibility of a reward for their actions."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the main purpose of the text, which is to summarize a finding suggesting that some mechanisms in the brains of certain insects resemble mechanisms in mammalian brains. The text begins by explaining that feelings such as pleasure and displeasure are linked to chemical processes in the brain, such as the release of dopamine when one receives a reward. The text then indicates that such processes have been seen in mammals but that researchers have recently observed similar processes involving dopamine in honeybees. Taken together, this information serves to sum up the discovery that some mechanisms in the brains of certain insects may resemble mechanisms linked to feelings such as pleasure and displeasure in mammals. Choice A is incorrect because the text doesn’t describe any experiments or experimental methods. Instead, the text describes a phenomenon that has been observed in mammals and then presents the recent observations of Huang and colleagues that this phenomenon is also seen in honeybees. Choice B is incorrect because there’s nothing in the text to suggest that certain insects can express how they’re feeling through particular processes. The text does indicate that certain honeybee behaviors such as foraging are linked to dopamine, but it doesn’t suggest that these behaviors enable honeybees to communicate feelings or sensations. Choice D is incorrect because the text presents research showing that certain honeybee behaviors such as foraging are linked to dopamine and therefore may be motivated by similar mechanisms to those in mammalian brains, not that honeybees and mammals behave similarly when there is the possibility of reward for their actions.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e35d481c",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Some economic historians ______ that late nineteenth- and early twentieth-century households in the United States experienced an economy of scale when it came to food purchases—they assumed that large households spent less on food per person than did small households. Economist Trevon Logan showed, however, that a close look at the available data disproves this supposition.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. surmised",
+      "B. contrived",
+      "C. questioned",
+      "D. regretted"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of late nineteenth- and early twentieth-century household food purchases. In this context, “surmised”means formed an idea or assumption with little evidence. The text explains that certain economic historians “assumed”that large and small households spent different amounts on food per person, but that another economist found this supposition to be false based on evidence from available data. This context suggests that the economic historians made an incorrect assumption without enough consideration of evidence. Choice B is incorrect. In this context, “contrived”would mean brought about or created through trickery. Nothing in the text suggests that the economic historians were deliberately trying to trick people with a claim about food purchasing behaviors in late nineteenth- and early twentieth- century households; the text simply suggests that they made an assumption about those behaviors that another historian believes isn’t supported by the available data. Choice C is incorrect because the text indicates that it’s Logan and not the economic historians who “questioned,”or doubted, the assumption that large and small households in the late nineteenth and early twentieth centuries spent different amounts on food per person; the economic historians are the ones who made that assumption to begin with. Choice D is incorrect because nothing in the text suggests that some economic historians “regretted,”or felt sad or remorseful about, the food purchasing behaviors of late nineteenth- and early twentieth-century households. The text focuses on the idea that the economic historians made an assumption about those behaviors that may not be supported by available data, not on the historians’emotional response to what households did in the past.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1917ba9a",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nMany teleost fish species are protogynous, meaning that fertile females can become fertile males. One model holds that protogyny occurs when body size confers a greater reproductive advantage on males than on females. In teleost fish, body size is irrelevant to female reproduction, but among males (which tend to be larger than females), only individuals comparatively large enough to defend territory reproduce. An individual could thus maximize its lifetime reproductive success by staying female when small and becoming male upon reaching a critical size threshold.\n\nText 2\n\nInvestigating protogyny in teleost fish, Alexander Goikoetxea and colleagues placed captured spotty wrasses of typical size distributions into two mixed-sex tanks. During the breeding season, they removed all males from tank 1 but none from tank 2. They observed that sexual change began in 81 percent of females in tank 1 but in no females in tank 2.",
+    "question": "Based on the texts, which choice best explains the difference in the outcomes of the two tanks in Goikoetxea and colleagues’experiment (Text 2) using the model presented in Text 1?",
+    "options": [
+      "A. Once the males were removed from tank 1, territories in the tank were undefended and thus even small females could maximize their reproductive success by becoming male and taking over those territories, whereas only the largest females in tank 2 could successfully take over territories due to the ongoing presence of males in the tank.",
+      "B. With no males left in tank 1, females were potentially large enough to defend territory as males and thus could gain an advantage by becoming male at their current size, whereas females in tank 2 may not have been large enough to outcompete the males in the tank and thus would have greater reproductive success by remaining female.",
+      "C. Differences in body size among the females in tank 1 became irrelevant to reproductive success once the males were removed, thereby eliminating any advantage to becoming male, whereas the ongoing presence of males in tank 2 made differences in body size among the females in that tank relevant to their reproductive success.",
+      "D. Since all males were removed from tank 1, the females in the tank could not reproduce regardless of their size and thus some became male, whereas the presence of males in tank 2 meant that females in that tank could reproduce without first becoming male and thus they remained female."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it correctly applies the model presented in Text 1 to explain the different outcomes in the two tanks described in Text 2. Text 1 begins by explaining that fertile female teleost fish will sometimes become fertile males through protogyny. The model, or explanation, of protogyny advanced in Text 1 holds that among female teleost fish, size doesn’t confer any reproductive advantage, but among male teleost fish, “only individuals comparatively large enough to defend territory reproduce”—in other words, there is a direct relationship between relative body size and reproductive success, but only among male fish. Text 1 concludes by saying that, according to this model, individuals can maximize their reproductive success by “staying female when small”(when size has no relevance to reproduction) and only becoming male when they reach a certain size threshold by becoming large enough relative to other male fish to be able to defend territory. In sum, according to the model, whether protogyny is advantageous depends on a female’s body size relative to the males currently present. Text 2 describes an experiment in which fish of “typical size distributions”(meaning, size distributions consistent with Text 1’s note about the tendency of males to be larger than females) were placed in two tanks. Applying Text 1’s model, once the males (that is, the typically larger fish) were removed from tank 1, the remaining females would no longer be at a size disadvantage and could potentially defend territory as males at their current size, making sex change advantageous for some of the fish in tank 1. This would therefore explain the finding that 81 percent of female fish began changing into males. In tank 2, however, the continued presence of larger males meant that on average, females would not be large enough to outcompete the males for territory and would therefore have greater reproductive success by remaining female. In this way, the size- advantage model presented in Text 1 would also account for why no fish changed sex in tank 2. Choice A is incorrect because it claims that “even small females”could succeed as males once territories were undefended, contradicting Text 1’s emphasis on there being a “critical size threshold”for male reproductive success, wherein only male fish who were sufficiently large to defend territory would have a reproductive advantage. Under this model, small females would have more reproductive success by remaining female than by becoming male and being unable to compete with larger fish for territory. Additionally, this choice’s claim about tank 2—that “only the largest females”could take over territories—implies either that females defend territory (when the model in Text 1 makes no such claim) or that at least some females were sufficiently large to change sex and compete for territory with fish that began the experiment as males, yet the results show that no females in tank 2 did so. Choice C is incorrect. Not only is it based on a flawed understanding of the model presented in Text 1, it flatly contradicts the experimental results summarized in Text 2. While Text 1 clearly states that body size is irrelevant to female reproductive success, choice C states that the presence of males in tank 2 made differences in body size relevant to the females’reproductive success. This choice also claims that the removal of males from tank 1 eliminated any advantage to becoming male, yet the researchers reported that 81 percent of females in tank 1 began changing sex. Choice D is incorrect because it doesn’t use the model proposed in Text 1 to explain the findings described in Text 2. It is common sense that a certain number of male fish are required for reproduction to occur in tank 1, but the model presented by Text 1 focuses on the individual reproductive benefits of protogyny, not on its potential to benefit the population by maintaining a favorable sex ratio.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d9915c15",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "In 2020, rap artist and professor A.D. Carson published the first peer-reviewed rap album about his experiences with Black masculinity called “i used to love to dream.” Typically in peer review, experts evaluate scholarly articles prior to publication. For Carson’s album, dubbed a “mixtap/e/ssay,” peer review involved both scholars and rap artists. In combining elements of a mixtape album with scholarly essays that connect Carson’s lyrics to historical and contemporary contexts for listeners both inside and outside academia, Carson’s album helped redefine how scholarship is created and shared.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To compare the relative public impact of scholarly articles and albums",
+      "B. To capture one scholar’s opinion of a new rap album",
+      "C. To explain why a certain rap album is particularly innovative",
+      "D. To describe how each step of the peer review process unfolds"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes the main purpose of the text, which is to explain why a certain rap album is particularly innovative. The text mentions rap artist and professor A.D. Carson, who published \"the first peer-reviewed rap album.\" The text also describes the unusual process of having the work evaluated by both scholars and rap artists before its release, and details how the album combines elements of a mixtape album with elements of scholarly essays. All of these characteristics of the album and the way in which it was developed help to demonstrate the album’s novelty. Choice A is incorrect because though the text mentions an album that combines elements of scholarly essays and mixtapes, it does not compare the relative public impact of scholarly articles and albums. Choice B is incorrect because the text does not present the opinion of a scholar regarding the rap album. Choice D is incorrect because though the text mentions that the album was peer reviewed, it does not detail the steps of the review.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e818241b",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Astronomers are confident that the star Betelgeuse will eventually consume all the helium in its core and explode in a supernova. They are much less confident, however, about when this will happen, since that depends on internal characteristics of Betelgeuse that are largely unknown. Astrophysicist Sarafina El-Badry Nance and colleagues recently investigated whether acoustic waves in the star could be used to determine internal stellar states but concluded that this method could not sufficiently reveal Betelgeuse’s internal characteristics to allow its evolutionary state to be firmly fixed.",
+    "question": "Which choice best describes the function of the second sentence in the overall structure of the text?",
+    "options": [
+      "A. It describes a serious limitation of the method used by Nance and colleagues.",
+      "B. It presents the central finding reported by Nance and colleagues.",
+      "C. It identifies the problem that Nance and colleagues attempted to solve but did not.",
+      "D. It explains how the work of Nance and colleagues was received by others in the field."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes how the second sentence functions in the text as a whole. The first sentence establishes something astronomers believe with some certainty: that Betelgeuse will explode in a supernova. The second sentence then introduces a problem: astronomers aren’t certain when Betelgeuse will explode because they don’t have enough information about the star’s internal characteristics. Finally, the third sentence indicates that researcher Sarafina El-Badry Nance and colleagues investigated a possible method of obtaining the necessary information about Betelgeuse’s internal characteristics, though they found that the method wouldn’t be sufficient. Thus, the function of the second sentence is to identify the problem that Nance and colleagues attempted to solve but didn’t. Choice A is incorrect because the second sentence introduces the general problem Nance and colleagues hoped to solve, not a serious limitation of how Nance and colleagues tried to solve it. It is the third sentence that introduces Nance and colleagues, but no serious limitation of their approach to studying a method of determining internal stellar states is described. Choice B is incorrect because the second sentence introduces the general problem Nance and colleagues hoped to solve, not the central finding they ultimately reported. It is the third sentence that presents Nance and colleagues’ conclusion that a potential method for determining internal stellar states would be insufficient. Choice D is incorrect because the second sentence doesn’t indicate how other astronomers or astrophysicists responded to the work done by Nance and colleagues; the text doesn’t address this information at all.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d5ad34f0",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The results of randomized clinical trials testing the efficacy of common medical interventions sometimes fail to ______ conclusions that practitioners reach based on their real-world observations of patients. While there are several possible reasons for this, one is that practitioners may overlook confounding variables that account for the results they attribute to the interventions in question.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. circumvent",
+      "B. corroborate",
+      "C. disseminate",
+      "D. implement"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of a relationship between the results of randomized clinical tests of how effective common medical interventions are and the conclusions practitioners reach about such interventions in real-world settings. In this context, \"corroborate\" means confirm or support with evidence. The text indicates that one possible explanation for the relationship being discussed is that practitioners may overlook confounding variables—that is, additional factors other than the medical interventions being investigated that affect the observed outcomes. This means that practitioners may assume that an outcome is the direct result of a medical intervention when it is actually the result of a combination of factors. Clinical trials take steps to rule out factors other than the one being studied, so if those extra factors are actually having an effect on real-world outcomes, the trials are likely to produce conclusions different from those practitioners reach in their real-world observations. In other words, clinical trials may fail to corroborate practitioners’ conclusions. Choice A is incorrect because it wouldn’t make sense to say that the results of clinical trials could \"circumvent,\" or find a way around or bypass, conclusions practitioners reach in real-world scenarios with patients; it’s possible that researchers conducting the trials might avoid engaging with practitioners’conclusions, but findings from a study can’t choose to get around something. Choice C is incorrect because it wouldn’t make sense to say that the results of clinical trials could \"disseminate,\" or spread widely, conclusions practitioners reach in real-world scenarios with patients; the researchers conducting the trials might choose to draw attention to practitioners’conclusions, but findings from a study can’t spread anything. Choice D is incorrect because it wouldn’t make sense to say that the results of clinical trials could \"implement,\" or put into effect, conclusions practitioners reach in real-world scenarios with patients; the researchers conducting the trials might consider practitioners’ conclusions, but findings from a study can’t put anything into effect.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6c9f1727",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "One popular theory of the origin of the Moon, the “big whack,”posits that a protoplanet called Theia collided with Earth, flinging debris into orbit that eventually coalesced into the Moon. Until recently, Theia was ______, but researcher Qian Yuan and colleagues now claim to have identified pieces of the protoplanet in the lowermost section of Earth’s mantle.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. desultory",
+      "B. spurious",
+      "C. veritable",
+      "D. notional"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Theia and the origin of the Moon. In this context, \"notional\" means theoretical or only an idea. The text indicates that although something was once true of Theia, the protoplanet one theory holds collided with Earth and created debris that became the Moon, researchers now claim to have identified pieces of it deep in Earth’s mantle. In other words, having direct evidence of Theia is a new development. This context suggests that before evidence was found, Theia was only theoretical—that is, that it was notional. Choice A is incorrect because the text doesn’t suggest that Theia, a protoplanet, was \"desultory,\" which in this context would mean moving away from the matter at hand; indeed, the text focuses on the \"big whack\" theory of the origin of the Moon and indicates that Theia is a central part of that theory. Choice B is incorrect because the text makes the point that something was true of Theia until recently and suggests that this has changed now that researchers believe they have found pieces of the protoplanet deep in Earth’s mantle. It wouldn’t make sense to say that Theia was actually \"spurious,\" or false, until researchers found direct evidence of the protoplanet. (Although Theia’s existence might not have been certain, it would not have been false simply because there was no evidence of it.) Choice C is incorrect because the text makes the point that something was true of Theia until recently and suggests that this has changed now that researchers believe they have found pieces of the protoplanet deep in Earth’s mantle. It wouldn’t make sense to say that Theia was \"veritable,\" or real, before researchers found direct evidence of its existence: the evidence would instead confirm that Theia was real.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4d13a0c0",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Before the Mariner 2 mission completed a successful flyby of Venus in 1962, astronomers’ ideas about the planet were little more than ______. Venus’s atmosphere is so thick that Earth-based observations had yielded very little information about the planet.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. summations",
+      "B. conjectures",
+      "C. conclusions",
+      "D. exemplifications"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of pre-Mariner 2 ideas about Venus. In this context, “conjectures” means guesses or inferences formed without sufficient evidence. The text indicates that before the successful 1962 flyby, Earth- based observations of Venus had produced “very little information” because of the planet’s thick atmosphere. The limited scope of astronomers’ earlier knowledge of Venus is also emphasized by the text’s description of their ideas as being “little more than” something before the flyby. This context conveys that before Mariner 2 flew close to Venus, astronomers lacked the evidence needed for their ideas about the planet to be much more than conjectures, or guesses. Choice A is incorrect. In this context, “summations” would be final conclusions reached by putting all information together. Because the text emphasizes that very little information about Venus was available before the 1962 flyby, it wouldn’t make sense to describe astronomers’ pre- Mariner 2 ideas about Venus as summations; the text suggests that astronomers didn’t have enough information to draw solid conclusions about Venus. Choice C is incorrect. In this context, “conclusions” would be reasoned final judgments or outcomes. Because the text emphasizes that very little information about Venus was available before the 1962 flyby, it wouldn’t make sense to describe astronomers’ pre-Mariner 2 ideas about Venus as conclusions; the text suggests that astronomers didn’t have what they would have needed to make informed judgments about Venus. Choice D is incorrect because it wouldn’t make sense to describe astronomers’ pre-Mariner 2 ideas about Venus as “exemplifications,” or examples that illustrate something; people’s ideas about a subject are the ideas themselves, not illustrations. Further, the text emphasizes that the astronomers had little information before 1962, suggesting they didn’t have much to work with to form examples.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "93665100",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Seminole/Muscogee director Sterlin Harjo ______ television’s tendency to situate Native characters in the distant past: this rejection is evident in his series Reservation Dogs, which revolves around teenagers who dress in contemporary styles and whose dialogue is laced with current slang.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. repudiates",
+      "B. proclaims",
+      "C. foretells",
+      "D. recants"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Sterlin Harjo’s approach to representing Native characters on television. As used in this context, “repudiates” means rejects or refuses to have anything to do with. The text indicates that television shows tend to depict Native characters as living long ago, but that Harjo’s series Reservation Dogs focuses on Native teenagers in the present day, representing a “rejection” of the typical approach to depicting Native characters. This context thus indicates that Harjo repudiates television’s general tendency regarding Native characters. Choice B is incorrect because the text describes Harjo’s “rejection” of the typical approach to representing Native characters on television, so it wouldn’t make sense to say that Harjo “proclaims,” or declares or affirms, television’s general tendency regarding Native characters. Harjo is described as refusing to follow the pattern of depicting Native characters in the distant past, not as proclaiming that pattern. Choice C is incorrect because the text describes television’s tendency to represent Native characters in the distant past as something that is already occurring, not as something that Harjo “foretells,” or predicts will happen in the future. The text is focused on Harjo’s “rejection” of this pattern, not on any predictions he may have about it. Choice D is incorrect because saying that Harjo “recants” something would mean that he withdraws a previously held belief, and it wouldn’t make sense to say that Harjo recants television’s tendency to represent Native characters as living in the past. No beliefs previously held by Harjo are mentioned. Additionally, a tendency isn’t a belief and thus isn’t something that can be recanted.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "994be036",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The Polynesian languages, a group of related languages originating on islands in the Pacific, typically have ______ array of consonant sounds. For example, the Mangareva language of the South Pacific has nine consonants, and ‘Ōlelo Hawai‘i, the language of the Native Hawaiian people, has eight. Globally, however, the median number of consonants per language is over twenty-two.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. an unvarying",
+      "B. a musical",
+      "C. an exclusive",
+      "D. a modest"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of Polynesian languages. In this context, “modest”means relatively limited or small. The text begins with a statement about the array, or number, of consonant sounds in these languages. It then gives examples of one Polynesian language that has nine consonants and one that has eight consonants before noting that the global median number of consonants per language is more than twenty-two; in other words, the numbers of consonants in the Polynesian examples are well below the global median number. This context conveys that the text is making the point that the Polynesian languages have a modest array of consonant sounds. Choice A is incorrect. In this context, “unvarying”would mean unchanging. The text focuses on comparing the typical numbers of consonant sounds in Polynesian languages to the global median number of consonants per language, not on conveying that the number of consonant sounds in Polynesian languages typically doesn’t vary; the text makes no mention of the number of consonants changing within a language or language group. Choice B is incorrect because the text is focused on the quantity of consonant sounds in Polynesian languages, not the idea that those consonants are “musical,”or pleasantly harmonious and like music; the text discusses only the numbers of consonants in Polynesian languages and the global median number of consonants per language, not the way consonants sound. Choice C is incorrect. In this context, “exclusive”would mean limited to a single group. The text discusses the typical numbers of consonant sounds in Polynesian languages and gives two examples of languages with consonant numbers below the global median number of consonants per language, but it doesn’t suggest that the array, or number, of consonant sounds in Polynesian languages is exclusive to those languages—that is, that Polynesian languages are the only ones with eight to nine consonants.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0462dac3",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Barring major archaeological discoveries, we are unlikely to ever have ______ account of ancient Egypt under the female pharaoh Hatshepsut, as much of the evidence of her reign was deliberately destroyed by her successors.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. an imaginative",
+      "B. a superficial",
+      "C. an exhaustive",
+      "D. a questionable"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of historical evidence about ancient Egypt under the reign of the pharaoh Hatshepsut. In this context, \"an exhaustive\" account would be a thorough one. The text states that much of the evidence from her reign was purposely destroyed—in other words, there is a lack of surviving records. This context conveys that unless there are major new archaeological discoveries, an exhaustive account of Hatshepsut’s reign is unlikely. Choice A is incorrect because in this context, \"an imaginative\" account would be an account based on imagination, or ideas and speculation, rather than facts. The text indicates that much of the evidence of Hatshepsut’s reign was deliberately destroyed, and a lack of evidence actually makes it more likely that accounts will be imaginative to some degree and not strictly factual. Choice B is incorrect because in this context, \"a superficial\" account would be one that is lacking in depth or concerned only with what is obvious. The text indicates that most evidence of Hatshepsut’s reign was purposely destroyed, which suggests that accounts of that time are likely already somewhat superficial, since there is little information available to support deeper knowledge. Further, it would be illogical to suggest that discovering major new evidence would make it more likely that accounts would be superficial. Choice D is incorrect because \"a questionable\" account would be one likely to be challenged or doubted, and since the text suggests that little evidence of Hatshepsut’s reign has survived, accounts of that time probably involve some speculation and thus may already be open to doubt. Further, it would be illogical to suggest that discovering major new evidence would make it more likely that accounts would be questionable.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "153aaae2",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Guadalupe Romero Villanueva et al. conducted radiocarbon analysis of paint used in rock art at the Patagonian archaeological site Cueva Huenul 1, revealing that images of a comblike motif date to as early as 8,000 years ago, predating other paintings in the region by several millennia. The motif was subsequently reproduced multiple times at the site over the next 3,000 years, <u>a period coinciding with extremely arid conditions and slightly negative population growth.</u> The motif may therefore have functioned to help preserve cultural knowledge during a time of ecological and demographic stress.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It identifies a consideration that factored into an interpretation of the rock art at Cueva Huenul 1 that is presented in the text.",
+      "B. It provides context that informs the text’s claim about why the peoples of Patagonia chose Cueva Huenul 1 as a culturally significant site.",
+      "C. It emphasizes the historical conditions that explain why production of the painted motif described in the text abruptly ceased after 3,000 years of continued use.",
+      "D. It explains the environmental circumstances that account for the rarity of rock art dating to the same period as the motif discussed in the text."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the function of the underlined portion in the text as a whole. The text first reports that a comblike motif at Cueva Huenul 1 dates to 8,000 years ago and was reproduced over the next 3,000 years. The underlined portion then indicates that this 3,000-year period corresponds to a span of very dry environmental conditions and a slowly declining human population in the area. The text then suggests that the chronological overlap between use of the comblike motif and the ecological and demographic conditions might suggest that what the motif is meant to communicate is related to those specific factors. Thus, the underlined portion identifies a consideration that factored into an interpretation of the rock art at Cueva Huenul 1 that is presented in the text. Choice B is incorrect. Although the text suggests that Cueva Huenul 1 may have been an important site because it enabled the peoples of Patagonia to preserve cultural knowledge, nothing in the text addresses why they chose the site for their paintings. Choice C is incorrect because the text indicates that the motif was reproduced over a period of 3,000 years (beginning 8,000 years ago) without directly addressing the cessation of its use. Furthermore, nothing in the text suggests that the motif was abandoned abruptly. Choice D is incorrect because nothing in the underlined portion or the text as a whole addresses the rarity of rock art during the period in question.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "ac9a3a26",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "According to historian Vicki L. Ruiz, Mexican American women made crucial contributions to the labor movement during World War II. At the time, food processing companies entered into contracts to supply United States armed forces with canned goods. Increased production quotas conferred greater bargaining power on the companies’employees, many of whom were Mexican American women: <u>employees insisted on more favorable benefits, and employers, who were anxious to fulfill the contracts, complied.</u> Thus, labor activism became a platform for Mexican American women to assert their agency.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It elaborates on a claim about labor relations in a particular industry made earlier in the text.",
+      "B. It offers an example of a trend in the World War II–era economy discussed earlier in the text.",
+      "C. It notes a possible exception to the historical narrative of labor activism sketched earlier in the text.",
+      "D. It provides further details about the identities of the workers discussed earlier in the text."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it best describes how the underlined portion functions in the text as a whole. The text says that the increased production quotas of food processing companies during World War II enabled employees to make better bargains in exchange for their labor. The underlined portion presents an example of this increased bargaining power: employees requested more favorable benefits, and employers complied because they were under pressure to fulfill the demanding terms of their contracts. Thus, the underlined portion of the text elaborates on a claim about labor relations in a particular industry (food processing) made earlier in the text. Choice B is incorrect because there is no indication in the text that the economic factors that influenced food processing also influenced other parts of the economy; thus, the bargaining described in the underlined portion of the text cannot be called an example of a trend. Choice C is incorrect because the underlined portion supports the historical narrative of labor activism in food processing that is sketched in the text, instead of noting an exception to that narrative. Choice D is incorrect because while the underlined portion does discuss the demands that workers made in exchange for their labor, it does not discuss the identities of the workers.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "03c9f327",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is from Charlotte Brontë’s 1847 novel Jane Eyre. Jane, the narrator, works as a governess at Thornfield Hall.\n\nI went on with my day’s business tranquilly; but ever and anon vague suggestions kept wandering across my brain of reasons why I should quit Thornfield; and I kept involuntarily framing advertisements and pondering conjectures about new situations: these thoughts I did not think to check; they might germinate and bear fruit if they could.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To convey a contrast between Jane’s outward calmness and internal restlessness",
+      "B. To emphasize Jane’s loyalty to the people she works for at Thornfield Hall",
+      "C. To demonstrate that Jane finds her situation both challenging and deeply fulfilling",
+      "D. To describe Jane’s determination to secure employment outside of Thornfield Hall"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the main purpose of the text, which is to show that while Jane calmly goes about her daily tasks, she is experiencing internal agitation about possibly seeking a new job. At the start of the text, Jane says, “I went on with my day’s business tranquilly,”indicating that she is outwardly calm. This outward calmness is then contrasted with her intense internal restlessness, as Jane says that thoughts of leaving her job keep running through her mind, that she is “involuntarily framing advertisements” (meaning that she can’t stop herself from thinking up potential listings for jobs), and that she often wonders what new “situations”(or jobs) would be like. Choice B is incorrect because the text gives no indication of Jane’s feelings, either positive or negative, about the people she works for at Thornfield Hall. And rather than emphasizing that Jane feels particularly loyal to her employers, the text focuses on her constant consideration of leaving her job. Choice C is incorrect because the text gives no indication that Jane finds her current situation fulfilling, or satisfying. Given that much of the text is focused on Jane’s thoughts about possibly leaving her job for a new one, it might be the case that she finds her situation challenging, but there is no evidence in the text that Jane also finds that situation satisfying—she says nothing positive about her current job at all, in fact. Choice D is incorrect because the text describes Jane as wondering about getting a new job, not as determined to definitely do so. Jane keeps thinking about reasons why she “should”quit her current job (indicating that she hasn’t yet decided to) and imagining possible new situations she could find, but she says at the end of the text that these thoughts “might germinate and bear fruit if they could,”meaning that the thoughts haven’t yet led to a decision—that Jane isn’t yet determined to get a new job somewhere else.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "662ebff2",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "In response to concerns that some recent financial crises were exacerbated by consumers misunderstanding risks associated with credit cards, loans, and other financial products, policymakers in many countries have instituted risk-disclosure requirements on sellers of those products. Enrique Seira et al. investigated a variety of risk-disclosure messages sent to thousands of credit card customers and found that the messages had only small and short-lived effects on behavior. Seira et al. asserted that such effects may nevertheless be worth pursuing, <u>given the negligible cost of messaging.</u>",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It notes a factor that led Seira et al. to not dismiss risk-disclosure messaging altogether despite their evidence of its limited utility.",
+      "B. It acknowledges a type of risk-disclosure messaging that Seira et al. may not have fully accounted for in their study.",
+      "C. It describes a consideration that explains why Seira et al. recommended risk-disclosure messaging even though its effects may be small relative to its costs.",
+      "D. It points out a circumstance that Seira et al. conceded may make risk-disclosure messaging more effective than their study suggests."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes the function of the underlined portion in the text as a whole. The text establishes that many countries have adopted risk-disclosure requirements for financial products due to concerns that consumers don’t understand the risks associated with the products. According to the text, Seira et al. found that the effects of such messaging on consumer behavior were small and temporary. The text then adds that the researchers assert that because the cost of the messaging is negligible, the approach may be worth doing even if the effects are limited. Thus, the underlined portion notes a factor—very low cost—that led the researchers to not completely dismiss risk-disclosure messaging despite their evidence of its limited utility. Choice B is incorrect because the underlined portion doesn’t refer to a particular type of risk-disclosure messaging, whether Seira et al. considered it or not; the underlined portion simply indicates that the cost of the messaging (broadly) is very low, which makes the approach worth pursuing even if its effects are limited. Choice C is incorrect. Although the underlined portion does describe a consideration that led the researchers to recommend risk-disclosure messaging despite the messaging’s small effects on consumer behavior, it directly states that the cost of such messaging is negligible, or very low—meaning that both the effects and the costs are small, not that the effects are small only relative to the costs. Choice D is incorrect because there’s no indication that Seira et al. suggest that risk-disclosure messaging could be more effective if it had lower costs; rather, the underlined portion indicates that Seira et al. believe the already negligible cost of messaging makes the approach worth pursuing even if its effects are limited.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "37c481f8",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is from Rachel Heng’s 2023 novel The Great Reclamation. Ah Boon is fishing off the coast of Singapore.\n\nWhen he pulled up the nets, they contained only one kind of <u>fish—black pomfrets,</u> the flat diamonds of their bodies slick in the morning light. This uniformity did not surprise him; over the years, he’d learned that the waters here were temperamental. They could be relied upon for a good catch, but from time to time threw up only <u>prawns or squid,</u> and other times <u>colorful varieties of fish</u> that weren’t even supposed to be found in this region. He’d grown to accept the unpredictability, embracing it as a game to be played, like the reading of tea leaves or the grooves of a palm.\n\n©2023 by Rachel Heng",
+    "question": "Taken together, the three underlined portions most clearly serve which function in the text as a whole?",
+    "options": [
+      "A. They provide examples of what Ah Boon most frequently catches in the area.",
+      "B. They illustrate the changeable nature of the fishing grounds where Ah Boon is.",
+      "C. They emphasize the wide variety of sea creatures that Ah Boon has caught on this particular fishing trip.",
+      "D. They underscore Ah Boon’s lack of surprise at seeing sea creatures that aren’t usually found in the region."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the function that the three underlined portions serve in the text as a whole. The text states that Ah Boon’s nets contained only one kind of fish and explains that he is unsurprised because the waters are “temperamental.”The three underlined portions name different types of catch yielded by the waters on different occasions, demonstrating how the catch varies unpredictably. Thus, taken together, the three underlined portions illustrate the changeable nature of the waters where Ah Boon fishes. Choice A is incorrect because the text does not indicate which types of catch are most frequent; it describes the waters as unpredictable and varying over time. Instead of illustrating frequency, the underlined portions that mention different kinds of sea creatures illustrate variability. Choice C is incorrect because the text states that on this particular trip, Ah Boon caught only one kind of fish—black pomfrets. The other two underlined portions refer to catches from other occasions, not from the present trip. Instead of emphasizing variety on one trip, the underlined portions illustrate the unpredictability of the waters over time. Choice D is incorrect. Although the text notes that Ah Boon is unsurprised by his catch of black pomfrets, only one of the three underlined portions—“colorful varieties of fish”—refers to creatures not usually found in the region. The underlined portions collectively convey the range of what Ah Boon has caught while fishing in the waters, illustrating their changeable nature rather than underscoring Ah Boon’s emotional response.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0e033f9b",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Among stock-market investors, the practice of diversification, or distributing investment funds across many different companies in many different industries, is regarded as ______ since it protects investors from major losses if the value of one particular company or industry sector falls.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. contentious",
+      "B. prudent",
+      "C. unworkable",
+      "D. optimistic"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of how stock-market investors regard diversification. In this context, “prudent”means showing sensible judgment. The text defines diversification as the practice of spreading investment funds across many different companies and industries and explains that this practice “protects investors from major losses”when a particular company or sector loses value. This context supports the idea that diversification is regarded as prudent—that is, as a sensible strategy because of the financial protection it provides. Choice A is incorrect because describing diversification as “contentious,”or likely to cause disagreement, would contradict the text, which presents diversification as a practice valued by investors for its protective benefits, not as one that prompts dispute. Choice C is incorrect because describing diversification as “unworkable,”or unable to function effectively, would contradict the text, which indicates that diversification successfully protects investors from major losses. Choice D is incorrect because describing diversification as “optimistic,”or expressing confidence in a positive outcome, wouldn’t make sense in context. The text presents diversification as a defensive strategy designed to limit losses, not as one expressing confidence about future gains.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "af4300b0",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The creation of Lotte Reiniger’s 1926 animated film The Adventures of Prince Achmed was ______ process. Over the course of three years, Reiniger and her collaborators painstakingly made more than 250,000 individual images of hand-cut paper silhouettes and repeatedly had to invent entirely new methods and tools to create the special effects Reiniger envisioned.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. a haphazard",
+      "B. a contentious",
+      "C. an ineffectual",
+      "D. an arduous"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the creation of The Adventures of Prince Achmed. In this context, \"arduous\" means that the process is marked by great labor or effort. According to the text, the creation of the 1926 animated film The Adventures of Prince Achmed took three years and was a painstaking process. Since the process was so long and required great efforts by Lotte Reiniger and her team, the creation of the film was therefore an arduous process. Choice A is incorrect because the text doesn’t indicate that the creation of Reiniger’s film was \"a haphazard,\" or disorganized, process. In fact, the text suggests that the creation process was quite meticulous and the team worked hard together to produce the envisioned effects. Choice B is incorrect. While the text does suggest that the creation of Reiniger’s film was a long and difficult process, it doesn’t suggest that the process was \"a contentious\" one, or one causing controversy or argument. The text suggests that the team worked together to produce the envisioned effects. Choice C is incorrect because rather than describing the process of creating the film as \"ineffectual,\" or not having the effect it was intended to have, the text describes the process as ultimately successful despite the difficulty it involved.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "cf46f239",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is adapted from Herman Melville’s 1855 novel Israel Potter. Israel is a young man wandering through New England during the late eighteenth century.\n\nHe hired himself out for three months; at the end of that time to receive for his wages two hundred acres of land lying in New Hampshire. [...] His employer proving false to the contract in the matter of the land, and there being no law in the country to force him to fulfil it, <u>Israel—who, however brave-hearted, and even much of a dare-devil upon a pinch, seems nevertheless to have evinced, throughout many parts of his career, a singular patience and mildness—was</u> obliged to look round for other means of livelihood than clearing out a farm for himself in the wilderness.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It implies that Israel treasures a particular characteristic of his personality when that characteristic should usually be regarded as a flaw.",
+      "B. It suggests that if not for a certain aspect of his character, Israel might not have been as easily thwarted in his ambition to establish a farm.",
+      "C. It shows why Israel would not have been able to undertake the enormous amount of labor necessary to run a farm even if he had owned the necessary property.",
+      "D. It explains why, when the situation requires it, Israel is able to undertake courageous acts that others would generally avoid."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best describes the function of the underlined portion in the text as a whole. The text describes the failed attempt of Israel Potter to establish a farm in New England during the late eighteenth century: according to his contract, he was to receive two hundred acres in exchange for three months’work, but his employer then refused to fulfill the bargain and Israel had no recourse to law to obtain the land he was owed. Israel was therefore forced to find another means of supporting himself. To explain why Israel was particularly susceptible to his employer’s dishonesty, the underlined portion states that though Israel was \"brave-hearted, and even much of a dare-devil upon a pinch,\" he also possessed \"a singular patience and mildness.\" In other words, Israel could be courageous in certain circumstances, but he was usually meek and disinclined to argument, from which it is reasonable to infer that Israel was often taken advantage of. Thus, the underlined portion suggests that if not for a certain aspect of his character, Israel might not have been as easily thwarted in his ambition to establish a farm. Choice A is incorrect because although the underlined portion describes aspects of Israel’s personality, it does not address how he feels about his own personality. Choice C is incorrect because the underlined portion addresses Israel’s occasional courage and frequent meekness but does not address whether he would have the skills and resolve necessary to operate a farm if he owned sufficient property. Choice D is incorrect. Though the underlined portion does indicate that Israel could be courageous in certain circumstances, it does not say that he undertook acts of courage that others avoided, but rather that he was habitually meek. Even if the underlined portion did say that Israel was more courageous than most, this would not explain why he found himself under the circumstances described in the text—that is, as a consequence of his meek nature, cheated of the property to which he had a right.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "15daaded",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Among saltwater fish species, there is a clear association between habitat latitude and morphological variety. While tropical species are ______ deep-bodied physical forms (body shapes that are laterally compressed but vertically extended), polar and temperate species are highly dispersed across the morphological spectrum.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. authenticated by",
+      "B. habituated to",
+      "C. contemporary with",
+      "D. concentrated among"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the relationship between habitat latitude and body shape in saltwater fish species. In this context, “concentrated among”means largely confined to. The text sets up a contrast between tropical species, which are generally characterized by a single shape—deep-bodied forms—and polar and temperate species, which are “highly dispersed across the morphological spectrum”(meaning they exhibit a wide range of body shapes). This context supports the idea that tropical species are concentrated among deep-bodied physical forms—that is, largely confined to this single morphological category rather than spread across many. Choice A is incorrect because saying that tropical species are “authenticated by,”or proven genuine by, deep-bodied physical forms wouldn’t make sense. Instead, the text describes the typical morphology (body shape) of tropical fish species and how that differs from the typical morphologies of polar and temperate fish species. Choice B is incorrect because saying that tropical species are “habituated to,”or accustomed through repeated exposure to, deep-bodied physical forms wouldn’t make sense. Instead, the text describes the typical morphology (body shape) of tropical fish species and how that differs from the typical morphologies of polar and temperate fish species. Choice C is incorrect because saying that tropical species are “contemporary with,”or existing at the same time as, deep-bodied physical forms indicates that the species exist at the same time as their body shapes do, which, if it is a meaningful statement at all, is at best trivially true and unrelated to the text’s discussion of the typical morphology (body shape) of tropical fish species and how that differs from the typical morphologies of polar and temperate fish species.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "8af926b1",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Despite potential independent confirmation, the apparent detection in 2020 of phosphine (PH 3 )—a gas that on Earth almost exclusively derives from biological sources—in Venus’s cloud deck remains controversial, in part because Venus is thought to be uninhabitable. To evaluate such a finding’s plausibility, William Bains et al. modeled multiple abiotic PH 3 pathways, including geochemical, atmospheric, and photochemical reactions, but none adequately explain the observed levels of PH 3. If Venusian PH 3 does exist, it would indicate insufficiencies in the current consensus on Venus’s chemistry.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It outlines recent efforts to confirm the presence of a particular gas in Venus’s atmosphere, summarizes a research team’s evaluations of those efforts’methodological shortcomings, and then explains why that team remains skeptical of the gas’s future detection.",
+      "B. It explains why the consensus view of a particular gas in Venus’s atmosphere has recently become controversial, expands on a scientific team’s reasons for questioning that consensus, and then suggests that future observations of Venus’s atmosphere will likely be needed to settle the controversy.",
+      "C. It introduces an unexpected observation of a particular gas in Venus’s atmosphere, presents an effort to investigate possible mechanisms that could explain that observation, and then notes an implication of that investigation’s findings.",
+      "D. It compares the levels of a particular gas on Venus and Earth, sketches the chemical processes that account for differences in these levels, and then addresses some of the practical challenges of studying the presence of this gas on Venus more closely."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the overall structure of the text. The text begins by discussing the detection of phosphine gas in Venus’s atmosphere, indicating that it is unexpected because on Earth, phosphine derives from biological sources, and Venus is thought to be uninhabitable, thereby lacking in biological sources. The text then presents the effort by Bains et al. to determine whether one or more abiotic (nonbiological) pathways could explain the observed levels of phosphine on Venus, noting that none could. Finally, the text notes an implication: if phosphine exists on Venus, its presence would indicate that our current understanding of chemical processes on Venus that could produce it is inadequate. Thus, the text introduces an unexpected observation about Venus’s atmosphere, presents an effort to investigate mechanisms related to that observation, and notes an implication of that effort’s findings. Choice A is incorrect. The text starts by mentioning that phosphine has been detected in Venus’s atmosphere. Rather than discuss whether the presence of phosphine on Venus can be confirmed, the text focuses on the efforts of one team of researchers, Bains et al., who are trying to explain the observed amount of phosphine on Venus. Furthermore, the text doesn’t suggest that the research team was skeptical about the presence of phosphine on Venus. Choice B is incorrect because, rather than indicating a consensus view about the phosphine detected on Venus, the text focuses on the fact that the detection “remains controversial,”a framing that suggests the controversy is not a new phenomenon. The text also doesn’t suggest that future atmospheric observations would be needed to settle the controversy. There is no consensus view about the presence of phosphine on Venus. Choice D is incorrect because the text does not compare levels of phosphine on Venus with levels on Earth, nor does it address practical challenges of studying the gas on Venus.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d6c77ae5",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nAstronomer Mark Holland and colleagues examined four white dwarfs—small, dense remnants of past stars—in order to determine the composition of exoplanets that used to orbit those stars. Studying wavelengths of light in the white dwarf atmospheres, the team reported that traces of elements such as lithium and sodium support the presence of exoplanets with continental crusts similar to Earth’s.\n\nText 2\n\nPast studies of white dwarf atmospheres have concluded that certain exoplanets had continental crusts. Geologist Keith Putirka and astronomer Siyi Xu argue that those studies unduly emphasize atmospheric traces of lithium and other individual elements as signifiers of the types of rock found on Earth. The studies don’t adequately account for different minerals made up of various ratios of those elements, and the possibility of rock types not found on Earth that contain those minerals.",
+    "question": "Based on the texts, how would Putirka and Xu (Text 2) most likely characterize the conclusion presented in Text 1?",
+    "options": [
+      "A. As unexpected, because it was widely believed at the time that white dwarf exoplanets lack continental crusts",
+      "B. As premature, because researchers have only just begun trying to determine what kinds of crusts white dwarf exoplanets had",
+      "C. As questionable, because it rests on an incomplete consideration of potential sources of the elements detected in white dwarf atmospheres",
+      "D. As puzzling, because it’s unusual to successfully detect lithium and sodium when analyzing wavelengths of light in white dwarf atmospheres"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it reflects how Putirka and Xu (Text 2) would likely characterize the conclusion presented in Text 1. Text 1 discusses a study by Mark Holland and colleagues in which they detected traces of lithium and sodium in the atmospheres of four white dwarf stars. The team claims that this supports the idea that exoplanets with continental crusts like Earth’s once orbited these stars. Text 2 introduces Putirka and Xu, who indicate that sodium and lithium are present in several different minerals and that some of those minerals might exist in types of rock that are not found on Earth. Therefore, Putirka and Xu would likely describe the conclusion in Text 1 as questionable because it does not consider that lithium and sodium are also found in rocks that are not like Earth’s continental crust. Choice A is incorrect because the texts do not indicate how widely held any of the viewpoints described are. Choice B is incorrect because neither text discusses how new this area of study is. Choice D is incorrect because neither text discusses how likely lithium and sodium are to be detected by analyzing wavelengths of light.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "76e4c51d",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The güiro, a musical instrument traditionally made from a dried and hollowed gourd, is thought to have originated with the Taíno people of Puerto Rico. Players use a wooden stick to scrape along ridges cut into the side of the gourd, creating sounds that are highly ______: the sounds produced by güiros can differ based on the distance between the ridges, the types of strokes the player uses, and the thickness of the gourd.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. overlooked",
+      "B. powerful",
+      "C. routine",
+      "D. variable"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the sounds made by güiros. In this context, “variable” means able to change. The text begins by explaining that güiros are instruments made out of hollowed gourds with ridges cut into their sides and that players scrape the ridges with wooden sticks to produce sounds. The text goes on to say that güiros’ sounds can change depending on gourd thickness, the distance between ridges, and the types of strokes the player uses, thus supporting the idea that the sounds created by these instruments are variable. Choice A is incorrect because “overlooked” means not being seen or noticed, and there is nothing in the text to suggest that the sounds produced by güiros are overlooked or not noticed. Choice B is incorrect because in this context, “powerful” would mean having a great ability to produce an effect. While it’s possible that the sounds produced by güiros have a strong effect on listeners, the text doesn’t discuss this aspect of their sounds. Choice C is incorrect because “routine” means usual and unvarying, and there is nothing in the text to suggest that the sounds produced by güiros are unvarying. In fact, the text describes how the sounds produced by güiros can differ based on several factors.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a2f64e58",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "<u>Individual elephants and Arctic herbivores such as caribou tend to have fixed geographic ranges throughout their lifetimes,</u> which had prompted some researchers to speculate that the Arctic woolly mammoth, an extinct elephantid, might have exhibited similar behavior. Mammoth tusks grew in sequential layers, incorporating ingested minerals and organics, and so each ivory stratum reflects the ratio of strontium isotopes (\n\n87 Sr/\n\n86\n\nSr) in the local environment; thus, the sequence of strata shows where the animal roamed during life. Recent analysis of the strontium\n\nratios in the strata of one Arctic woolly mammoth tusk in relation to the geographic distribution of strontium ratios in the environment shows the animal’s range begin to expand as it reached sexual maturity, only to contract again in its final 1.5 years.",
+    "question": "Which choice best describes the function of the underlined statement in the text as a whole?",
+    "options": [
+      "A. It discusses a characteristic shared by certain animals in order to explain why researchers raised a possibility that turned out not to be supported by data described later in the text.",
+      "B. It illustrates a pattern of behavior among certain animals in order to present a theory about exceptions to that pattern that is weakened by a finding described later in the text.",
+      "C. It describes a similarity in the behavior of certain animals in order to show why a method described later in the text did not reveal whether another animal also showed that behavior.",
+      "D. It introduces a trait shared by certain animals in order to contextualize a hypothesis about the origin of that trait that is advanced later in the text."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined statement functions in the text as a whole. The underlined statement mentions a category of animals that have a feature in common: they tend to have fixed geographic ranges throughout their lifetimes. The text then presents the speculation of some researchers that the Arctic woolly mammoth might also share this characteristic. However, an examination of the content of strontium in the strata (or layers) of a woolly mammoth tusk indicated that contrary to the researchers’ hypothesis, the mammoth had an expanding range in its environment that contracted in its last 1.5 years of life. Thus, the underlined statement discusses a characteristic shared by certain animals in order to explain why researchers raised a possibility that turned out not to be supported by data described later in the text. Choice B is incorrect. Though the underlined statement presents a pattern of behavior (the habit of certain animals of staying within a fixed geographic range), the rest of the text does not present a theory of exceptions to that pattern; rather, the researchers are merely concerned with whether one particular animal has behavior consistent with the pattern. Choice C is incorrect. Though the underlined statement does describe a similarity in the behavior of certain animals (their tendency to stay within a fixed geographic range), this is not done in order to show why a method described later in the text failed to show whether another animal showed that behavior; rather, the method of analysis of strata of a woolly mammoth tusk showed that the mammoth’s behavior was different from that of the animals mentioned in the underlined statement. Choice D is incorrect. Though the underlined statement mentions a trait shared by a number of animals (their fixed geographic range), the rest of the text does not present a hypothesis regarding the origin of that trait; rather, the researchers are concerned with whether another particular animal shares that trait.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e26d23c4",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Proposals to raise the age at which retirees begin receiving government transfers of funds are generally discussed in terms of the effects on transfer recipients, but Andria Smythe has argued that delaying such transfers could ______ wealth creation among working adults by lengthening the period in which they are providing financial support to their nonworking parents.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. stymie",
+      "B. compound",
+      "C. disparage",
+      "D. outstrip"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of the consequences of raising the age at which retirees begin receiving government funds. The text indicates that raising the age for these funds is usually discussed in terms of effects on fund recipients but that Andria Smythe is instead considering the effects on working family members who care for retirees. Smythe notes that raising the age for the funds would increase the length of time retirees are dependent on financial assistance from working family members. This is suggested to have an effect on wealth creation for those workers, and most logically, that effect would be disadvantageous. Thus, \"stymie,\" which means to prevent or greatly hinder, is the most logical choice in context. Choice B is incorrect because in this context, \"compound\" would most nearly mean multiply or greatly enhance. The text indicates that raising the age at which retirees are eligible for government funds will increase the amount of time retirees are dependent on working family members for financial support. This would likely have a negative rather than a positive effect on wealth creation. Choice C is incorrect because in this context, \"disparage\" would most nearly mean criticize or defame. Nothing in the text suggests that raising the age at which retirees are eligible for government funds would defame wealth creation among working adults. Choice D is incorrect because in this context, \"outstrip\" would most nearly mean to exceed, and nothing in the text indicates that the financial support provided to retirees would exceed the amount of wealth these workers can create. The text does suggest that workers providing funds to retirees works against those workers’ wealth accumulation, but not that the support to retirees exceeds the workers’ accumulated wealth.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "98364791",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "In studying the use of external stimuli to reduce the itching sensation caused by an allergic histamine response, Louise Ward and colleagues found that while harmless applications of vibration or warming can provide a temporary distraction, such ______ stimuli actually offer less relief than a stimulus that seems less benign, like a mild electric shock.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. deceptive",
+      "B. innocuous",
+      "C. novel",
+      "D. impractical"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of Ward and colleagues’ findings. As used in this context, “innocuous” means mild or unharmful. The text describes the vibration and warming that Ward and colleagues used to alleviate itching as “harmless applications” and goes on to contrast these applications with another stimulus that actually offers more relief even though it seems to be stronger and “less benign.” This context conveys the idea that vibration and warming were innocuous stimuli. Choice A is incorrect because the text focuses on a distinction between harmless stimuli and those that seem to be less benign. Nothing in the text suggests that any of the treatments are “deceptive,” or misleading; indeed, even the less effective ones are described as offering some relief. Choice C is incorrect because the text focuses on the amount of relief from itching offered by harmless stimuli and those that seem to be less benign. The text doesn’t suggest that any of these stimuli are “novel,” or original and new; heat, vibration, and electricity aren’t new inventions. Choice D is incorrect because it wouldn’t make sense to describe an application of vibration or warming as “impractical,” or not suitable for use. The text indicates that these harmless applications are useful in that they offer at least some temporary relief.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7f935017",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The following text is from a 1955 translation of Samuel Beckett’s 1951 novel Molloy(translated by the author and Patrick Bowles). In the text, Molloy has arrived at the town ramparts, an elevated walkway atop the city walls.\n\nAnd having cleared the ramparts I had to confess the sky was clearing, prior to its winding in the other shroud, night. Yes, the great cloud was ravelling, discovering here and there a pale and dying sky, and the sun, already down, was manifest in the livid tongues of fire darting towards the zenith, falling and darting again, ever more pale and languid, and doomed no sooner lit to be extinguished.\n\n©1955 by Grove Press, Inc.",
+    "question": "As used in the text, what does the word “manifest” most nearly mean?",
+    "options": [
+      "A. Realized",
+      "B. Perceptible",
+      "C. Situated",
+      "D. Dwindling"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because as used in the text, “manifest” most nearly means perceptible or detectable. The text indicates that the sun was “already down,” meaning it was below the horizon and not directly visible. However, the sun’s presence was nonetheless perceptible or manifest in the “tongues of fire” (or beams of light) that still flickered in the darkening sky. Choice A is incorrect. Although in some contexts “manifest” can mean “realized” or “brought into being,” that is not the context here. Rather, the text is about how the sun’s presence was perceptible or manifest in the “darting” beams of light that could still be seen in the sky. Choice C is incorrect. This choice would suggest that the sun is situated, or located, in the light it emits, which is not supported by the surrounding context. Rather, the text is about how the sun’s presence was perceptible or manifest in the remaining light that could still be seen in the sky. Choice D is incorrect. Although the text is about the decreasing light in the scene at sunset, the text’s use of “manifest” is about how the sun’s presence was nonetheless perceptible or manifest in the “tongues of fire” still visible in the sky as night approached.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "be94c9fc",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The following text is adapted from James Baldwin’s 1956 novel Giovanni’s Room. The narrator is riding in a taxi down a street lined with food vendors and shoppers in Paris, France.\n\nThe multitude of Paris seems to be dressed in blue every day but Sunday, when, for the most part, they put on an unbelievably festive black. Here they were now, in blue, disputing, every inch, our passage, with their wagons, handtrucks, their bursting baskets carried at an angle steeply self-confident on the back.\n\n©1956 by James Baldwin",
+    "question": "As used in the text, what does the word “disputing” most nearly mean?",
+    "options": [
+      "A. Arguing about",
+      "B. Disapproving of",
+      "C. Asserting possession of",
+      "D. Providing resistance to"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because as used in the text, \"disputing\" most nearly means providing resistance to. The narrator is in a taxi as it drives down a street lined with so many food vendors and shoppers that the narrator describes them as \"the multitude of Paris,\" meaning an immense group of people. The street is essentially a large open-air market, and there are so many people pushing small wagons of goods and carrying shopping baskets that \"every inch\" of the taxi’s progress is impeded. In other words, the people are providing resistance to the taxi’s attempt to drive down the street. Choice A is incorrect. Although in some contexts, \"disputing\" can mean arguing, the narrator doesn’t portray the shoppers and vendors as arguing with the driver of the taxi or, indeed, arguing at all. Choice B is incorrect. Although in some contexts, \"disputing\" can mean expressing disapproval, the narrator doesn’t suggest that the shoppers and vendors necessarily disapprove of the taxi’s attempt to drive down the street. Instead, their combined presence along the street has the effect of impeding the taxi’s progress. Choice C is incorrect because, as the narrator explains, both the multitude of people and the taxi are using a public space (a street) at the same time. The narrator doesn’t go so far as to suggest that the people feel that they, and not the taxi, possess exclusive access to the street.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d72b325e",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nWhat factors influence the abundance of species in a given ecological community? Some theorists have argued that historical diversity is a major driver of how diverse an ecological community eventually becomes: differences in community diversity across otherwise similar habitats, in this view, are strongly affected by the number of species living in those habitats at earlier times.\n\nText 2\n\nIn 2010, a group of researchers including biologist Carla Cáceres created artificial pools in a New York forest. They stocked some pools with a diverse mix of zooplankton species and others with a single zooplankton species and allowed the pool communities to develop naturally thereafter. Over the course of four years, Cáceres and colleagues periodically measured the species diversity of the pools, finding—contrary to their expectations—that by the end of the study there was little to no difference in the pools’species diversity.",
+    "question": "Based on the texts, how would Cáceres and colleagues (Text 2) most likely describe the view of the theorists presented in Text 1?",
+    "options": [
+      "A. It is largely correct, but it requires a minor refinement in light of the research team’s results.",
+      "B. It is not compelling as a theory regardless of any experimental data collected by the research team.",
+      "C. It may seem plausible, but it is not supported by the research team’s findings.",
+      "D. It probably holds true only in conditions like those in the research team’s study."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer. This is how Cáceres and co. would most likely describe the view presented in Text 1. The view in Text 1 is that historical diversity affects how diverse an ecological community eventually becomes. But Cáceres and co. did not get this result: they found no difference in eventual diversity between a zooplankton pool that started out diverse and a zooplankton pool that started out with only a single species. Choice A is incorrect. Cáceres and co. would probably not describe the view presented in Text 1 this way. The view in Text 1 is that historical diversity affects how diverse an ecological community eventually becomes. Cáceres and co’s findings directly undermine this view: they found no difference in eventual diversity between a zooplankton pool that started out diverse and a zooplankton pool that started out with only a single species. Choice B is incorrect. Cáceres and co. would probably not describe the view presented in Text 1 this way. Their experiment was designed to test this hypothesis, and their findings were \"contrary to their expectations.\" In other words, before the study, they predicted the theory was correct. Choice D is incorrect. Cáceres and co. would not describe the view presented in Text 1 this way. Their research finding directly undermines the view presented in Text 1: so it definitely doesn’t hold true in conditions like those in the study.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4b4ab04e",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nMycoprotein is a fungal biomass that can be eaten as an alternative to meat. Studies of the environmental impact of its manufacture generally agree it is lower than that of beef and closer to that of chicken or pork. But the expense of producing mycoprotein restricts its availability to a few countries with postindustrial economies. Knowing that cost reductions would expand access to mycoprotein, biochemists are exploring solutions, such as a cheaper substrate to feed the mycoprotein as it grows.\n\nText 2\n\nCattle farming is a principal cause of global deforestation, and a study by Florian Humpenöder and his colleagues found that replacing 20% of beef consumption worldwide with consumption of mycoprotein would cut deforestation by half if accomplished over the next thirty years. However, this would likely involve only a small change in agricultural water consumption, since water once dedicated to raising cattle would be diverted to raising crops instead.",
+    "question": "Based on the texts, how would the author of Text 1 most likely respond to the study findings mentioned in Text 2?",
+    "options": [
+      "A. By emphasizing that since agricultural water consumption would remain static in the event of replacing beef consumption with mycoprotein consumption, an effort must be made to substitute mycoprotein for chicken and pork in diets as well",
+      "B. By asserting that the development of a more inexpensive substrate for mycoprotein production would contribute to the goal of decreasing worldwide deforestation over time",
+      "C. By noting that most people would be more likely to use mycoprotein as a substitute for chicken or pork in their diets than as a substitute for beef",
+      "D. By pointing out that some countries are responsible for greater deforestation than others and thus, to have any significant effect on the environment, will have to replace more than 20% of their beef consumption with mycoprotein"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it reflects how the author of Text 1 would most likely respond to the study findings described in Text 2. The author of Text 2 discusses a study by Florian Humpenöder and his colleagues that found that deforestation would be reduced by half over the next thirty years if 20% of the beef consumed worldwide were replaced with mycoprotein. The author of Text 1 points out that mycoprotein is not widely available because of its high production cost, but goes on to note that this problem could be addressed by the creation of a cheaper substrate to feed mycoprotein. This suggests that the author of Text 1 would assert that the development of a less expensive mycoprotein substrate would contribute to the reduction in deforestation described in the study findings discussed in Text 2: if reducing the cost of mycoprotein increases people’s access to it, then mycoprotein may be able to replace beef in more people’s diets, thereby reducing the deforestation associated with beef production. Choice A is incorrect because the author of Text 1 indicates that the environmental impact of mycoprotein production is close to that of chicken or pork production, so there is no reason to think that the author would assert that replacing chicken or pork with mycoprotein would be environmentally beneficial: such a replacement would not lessen the total environmental impact of food manufacture. Additionally, the specific issue of agricultural water consumption is never mentioned in Text 1, so there is no evidence indicating what the author of Text 1 would say about that issue. Choice C is incorrect. Although Text 1 does compare the environmental effects of producing mycoprotein to those of producing chicken or pork, nothing in Text 1 suggests that the author believes that people are more likely to replace chicken or pork with mycoprotein than they are to replace beef with mycoprotein. Choice D is incorrect because Text 1 makes no mention of countries’ varying contributions to deforestation, so there is no evidence that the author of Text 1 would respond to the finding described in Text 2 by saying that some countries will have to replace more than 20% of their beef consumption with mycoprotein.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "39857700",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is from Edith Wharton’s 1905 novel The House of Mirth. Lily Bart and a companion are walking through a park.\n\nLily had no real intimacy with nature, but she had a passion for the appropriate and could be keenly sensitive to a scene which was the fitting background of her own sensations. <u>The landscape outspread below her seemed an enlargement of her present mood, and she found something of herself in its calmness, its breadth, its long free reaches.</u> On the nearer slopes the sugar-maples wavered like pyres of light; lower down was a massing of grey orchards, and here and there the lingering green of an oak-grove.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It creates a detailed image of the physical setting of the scene.",
+      "B. It establishes that a character is experiencing an internal conflict.",
+      "C. It makes an assertion that the next sentence then expands on.",
+      "D. It illustrates an idea that is introduced in the previous sentence."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it best describes how the underlined sentence functions in the text as a whole. The first sentence of the text establishes that Lily can be “keenly sensitive to”scenes that serve as a “fitting background”for her feelings—that is, she’s very aware of when a setting seems to reflect her mood. The next sentence, which is underlined, then demonstrates this awareness: Lily views the landscape she’s in as a large-scale reflection of her current mood, identifying with elements such as its calmness. Thus, the function of the underlined sentence is to illustrate an idea introduced in the previous sentence. Choice A is incorrect because the underlined sentence describes the scene only in very general terms, referring to its calmness, breadth, and long stretches of land. It’s the next sentence that adds specific details about colors, light, and various trees nearby. Choice B is incorrect because nothing in the underlined sentence suggests that Lily is experiencing an internal conflict. In fact, the sentence indicates that Lily thinks the landscape reflects her own feeling of calmness. Choice C is incorrect because the only assertion in the underlined sentence is that Lily feels that broad aspects of the landscape, such as its calmness, reflect her current mood, and that assertion isn’t expanded on in the next sentence. Instead, the next sentence describes specific details of the scene without connecting them to Lily’s feelings.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "70e6af39",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "To produce batik, an Indonesian textile that originated as early as the 6th century CE, an artist creates patterns on fabric by skillfully applying wax to the surface and then dyeing it. Traditionally, the artist draws on the cloth using a canting, a pen-shaped tool that applies wax in fine lines or dots. To expedite this laborious process, the cap, a copper stamp that applies preset wax patterns, was introduced. Although the cap made the process of producing batiks much quicker, the canting is often preferred because it results in unique pieces.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It introduces a traditional type of textile, suggests that it is a variation of an even older type of textile, and then explains a significant difference in how those types of textiles are produced.",
+      "B. It establishes how a textile production technique originated, indicates how the technique has changed over time, and then suggests that renewed interest in the original technique is growing.",
+      "C. It presents a method of textile production, identifies two approaches to that method, and then addresses the relative advantage of each approach.",
+      "D. It conveys admiration of a certain style of textile, emphasizes the level of skill needed to produce the textile, and then urges broader recognition of the skill involved in producing the textile."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the overall structure of the text. The text begins by describing batik fabric and the method for producing it—designs are applied in wax on the fabric, after which the fabric is dyed. The text then indicates that a “canting”(a pen-shaped tool) is traditionally used to apply the wax finely in lines or dots, and that “the cap”(a copper stamp of an entire pattern) is another, faster way to apply the wax design. Finally, the text states that the cap has the advantage of making batik production quicker, whereas a canting tends to produce a more unique design, which often makes a batik created using a canting more desirable than a mass-produced one. Thus, the text presents a method of textile production, identifies two approaches to that method, and addresses the relative advantage of each approach. Choice A is incorrect. Although the text describes making the textile batik with a canting and with the cap, both approaches are for making the same type of textile (batik). No other type of textile is mentioned in the text. Choice B is incorrect. Although the text indicates when batik originated (perhaps the 6th century CE), it doesn’t describe how it originated. And although the text indicates that a batik created using a canting “is often preferred”over mass-produced batiks, nothing in the text suggests that this preference is a recent trend. Choice D is incorrect. Although the text indicates that the batik artists “skillfully”apply the wax designs that create the batik patterns, the overall discussion in the text describes factual aspects of the process of batik production without seeming to advocate for greater recognition of the art form.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f61c22f3",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Changes to vegetation cover and other human activities influence carbon and nitrogen levels in soil, though how deep these effects extend is unclear. Hypothesizing that differences in land use lead to differences in carbon and nitrogen levels that are not restricted to the topsoil layer (0– 30 cm deep), Chukwuebuka Okolo and colleagues sampled soils across multiple land-use types (e.g., grazing land, cropland, forest) within each of several Ethiopian locations. They found, though, that across land-use types, carbon and nitrogen decreased to comparably low levels beyond depths of 30 cm.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It describes a phenomenon that scientists do not fully understand, explains a research team’s hypothesis about that phenomenon, and then describes a finding that led the team to refine the hypothesis.",
+      "B. It introduces an unresolved scientific question, presents a research team’s hypothesis pertaining to that question, and then describes an observation made by the team that conflicts with that hypothesis.",
+      "C. It discusses a process that scientists are somewhat unclear about, introduces competing hypotheses about that process, and then explains how a research team concluded that one of those hypotheses is likely correct.",
+      "D. It explains a hypothesis that has been the subject of scientific debate, discusses how a research team tested that hypothesis, and then presents data the team collected that validate the hypothesis."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the overall structure of the text. The text begins by explaining that human activities influence carbon and nitrogen levels in soil, but how deeply these effects are seen in the soil remains an unresolved question. Next, the text summarizes Okolo and colleagues’hypothesis regarding this question—which is that the different effects on carbon and nitrogen levels associated with different types of land use would also be observed below the topsoil layer—and then briefly explains the methods they used to test this hypothesis. Finally, the text states that the researchers found that at depths below the topsoil layer, carbon and nitrogen decreased to similarly low levels across all land-use types, a finding that conflicts with the team’s hypothesis presented earlier in the text. Thus, the text introduces an unresolved scientific question, presents a research team’s hypothesis pertaining to that question, and then describes an observation that the team made that conflicted with their hypothesis. Choice A is incorrect. Although the text introduces a phenomenon (the fact that human activities influence carbon and nitrogen levels in the soil) that isn’t fully understood by scientists and explains a research team’s hypothesis about the phenomenon, the text doesn’t describe how the team refined their hypothesis when a research finding contradicted it. Choice C is incorrect because the text doesn’t discuss a process at all; rather, it poses an unsolved scientific question and presents a hypothesis that Okolo and colleagues tested to answer that question. Moreover, the text only describes one hypothesis; it doesn’t mention any competing hypotheses, nor does it suggest that Okolo’s team was able to determine which hypothesis was correct. Choice D is incorrect because the text doesn’t begin by presenting a hypothesis that is under scientific debate; rather, it presents a question that scientists have been unable to answer and then introduces a hypothesis formulated by Okolo and colleagues. While the text does explain how Okolo’s team tested their hypothesis, the text goes on to say that their data conflicted with their hypothesis, not that the data validated, or supported, their hypothesis.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6557f7fc",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The following text is adapted from Edith Wharton’s 1911 novella Ethan Frome. The narrator has asked the woman he rents a room from about Ethan Frome, a town resident he encountered recently.\n\nHer mind was a store-house of innocuous anecdote and any question about her acquaintances brought forth a volume of detail; but on the subject of Ethan Frome I found her unexpectedly reticent. There was no hint of disapproval in her reserve; I merely felt in her an insurmountable reluctance to speak of him.",
+    "question": "As used in the text, what does the word “reserve”most nearly mean?",
+    "options": [
+      "A. Modesty",
+      "B. Misgiving",
+      "C. Constraint",
+      "D. Composure"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because as used in the text, “reserve”most nearly means constraint, or repression of one’s behavior or actions. The text indicates that although the narrator’s landlady is ordinarily “a store-house of innocuous anecdote”who readily produces “a volume of detail” in response to questions about her acquaintances—that is, she usually tells harmless stories and is willing to share details about people she knows—she is “unexpectedly reticent,”or surprisingly unwilling to speak, when it comes to Ethan Frome. The narrator then observes that the landlady doesn’t appear to disapprove of Ethan, she simply seems completely reluctant to speak of him. In this context, then, “reserve”refers to the landlady’s constraint—her repression of her usual willingness to share details in conversation. Choice A is incorrect. “Modesty”can refer to being appropriate in speech or behavior, and one might consider it appropriate to decline to speak of someone, but the text gives no indication that the narrator thinks the landlady is acting out of modesty. The narrator suggests that the landlady generally isn’t concerned about the appropriateness of discussing others (she’s usually “a store-house of innocuous anecdote”and shares many details) and isn’t holding back to avoid saying something negative about Ethan Frome (there’s “no hint of disapproval”); indeed, the narrator suggests he can’t tell why the landlady is so unwilling to speak of Ethan. Choice B is incorrect because the text never suggests that the landlady has any “misgiving,”or feeling of doubt or apprehension, about Ethan Frome. In fact, the text explicitly states that there is “no hint of disapproval”in her surprising unwillingness to discuss Ethan. Choice D is incorrect because the narrator doesn’t suggest that the landlady is acting with “composure,”or calmness and control of her emotions. Instead of describing the landlady’s emotional state or presenting her as calm, the narrator simply conveys her surprising unwillingness to discuss Ethan Frome.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "2e744883",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Historians have argued that a crucial component of the Civil Rights Movement’s success in the 1960s was the Southern Christian Leadership Conference’s Citizen Education Program (CEP), which invited promising activists from across the South to its one-week training sessions in Dorchester, Georgia. Led by experienced organizers such as Dorothy Cotton and Septima Clark, CEP <u>attendees—more than 7,000 in all—</u> participated in workshops on topics ranging from public speaking to legal doctrine before returning home and using their newly acquired knowledge to spearhead local civil rights initiatives.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It underscores the extent of the CEP’s impact on the Civil Rights Movement of the 1960s.",
+      "B. It illustrates the CEP organizers’efforts to educate participants on a wide variety of topics.",
+      "C. It suggests that CEP attendees held a diverse array of opinions about the Southern Christian Leadership Conference’s political philosophy.",
+      "D. It establishes that criticism of the CEP was limited to a few individuals in the Southern Christian Leadership Conference."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The first sentence of the text states that the CEP had a positive impact on the Civil Rights Movement in the 1960s. The next sentence explains that the CEP organized workshops for attendees, who later used the knowledge they gained to lead civil rights initiatives. And the underlined portion indicates the number of activists—more than 7,000—who participated in the workshops. Thus, the underlined portion provides a number that underscores the extent of the CEP’s impact on the Civil Rights Movement in the 1960s. Choice B is incorrect. Although the sentence that contains the underlined portion mentions some CEP workshop topics, the underlined portion itself addresses the number of participants in the CEP workshops, not the number of topics covered. Choice C is incorrect. Although the underlined portion refers to attendees of the CEP workshops, nothing in the underlined portion or the text as a whole addresses the Southern Christian Leadership Conference’s philosophy or the attendees’opinions thereof. Choice D is incorrect because neither the underlined portion nor the text as a whole mentions any criticism of the CEP by members of the Southern Christian Leadership Conference.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0f2933b9",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is from William Shakespeare’s circa 1611 play The Winter’s Tale. Camillo has been away from his home in Sicily and serves in the court of Polixenes, the king of Bohemia. He has asked Polixenes for permission to return to Sicily.\n\nPOLIXENES: I pray thee, good Camillo, be no more\n\nimportunate. ’Tis a sickness denying thee anything,\n\na death to grant this.\n\nCAMILLO: It is fifteen years since I saw my country.\n\nThough I have for the most part been aired abroad,\n\nI desire to lay my bones there. Besides, the penitent\n\nking, my master, hath sent for me, <u>to whose feeling\n\nsorrows I might be some allay—or I o’erween [presume] to\n\nthink so—which</u> is another spur to my departure.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It establishes Camillo’s hope that Polixenes will be comforted knowing that Camillo isn’t departing at his own discretion.",
+      "B. It suggests that Camillo feels compelled to persuade Polixenes that Camillo’s decision to leave the court is justified.",
+      "C. It conveys Camillo’s recognition that one benefit his presence may afford the king of Sicily is merely speculative.",
+      "D. It bolsters the idea that Camillo’s primary motivation to return home is his concern for the king of Sicily’s well-being in his absence."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. In the text, Camillo explains to Polixenes that he wants to return home after his long absence and that Sicily’s king has summoned him. In the underlined portion, Camillo adds that he also wants to return because he might provide comfort to the king’s sorrows (“to whose feeling sorrows I might be some allay”) but then clarifies that his belief about being able to comfort the king is a presumption—that is, something he thinks is true but can’t be certain of. Thus, the underlined portion indicates that Camillo recognizes that one benefit his presence may offer is merely speculative. Choice A is incorrect because the underlined portion conveys Camillo’s hope that he might comfort the king of Sicily, which does suggest a personal choice contributing to Camillo’s decision to leave; the idea that Camillo isn’t choosing to leave is established in a different part of the text, when he says “the penitent king, my master, hath sent for me.”Choice B is incorrect because the underlined portion doesn’t suggest Camillo feels compelled to justify his decision to leave. Rather than expressing a need to persuade Polixenes that his departure is warranted, Camillo’s statement simply reveals his awareness that he assumes rather than knows with certainty that his presence will comfort the king of Sicily. Choice D is incorrect because nothing in the text indicates that Camillo’s primary motivation for returning to Sicily is his concern for the king’s well-being; Camillo mentions first that he wants to return home because he has been away for so long, then adds that the king has summoned him and that he hopes his presence will comfort the king. The underlined portion simply conveys Camillo’s awareness that offering comfort is a hope rather than a certainty; it doesn’t suggest that the king’s well-being is his main concern.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1eeb9bb8",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The subscription model in which consumers who do not deliberately cancel their subscriptions automatically pay recurring fees for access to products and services benefits retailers when consumer ______ is high. Many of the 8.5 percent of subscribers who canceled their food and beverage subscriptions in January 2022 had stopped valuing their subscriptions long before then, but sellers profited from those customers’ passivity in the interim.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. inertia",
+      "B. decisiveness",
+      "C. evasion",
+      "D. turnover"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of when the subscription model benefits retailers. In this context, “inertia”means a tendency to remain inactive or unchanged. The text describes a subscription model in which consumers continue to pay recurring fees unless they actively cancel and indicates that retailers profit when consumers fail to cancel even after they have stopped valuing the subscription. The text reinforces this by stating that sellers profited from canceling customers’“passivity in the interim”—that is, the period during which those customers had ceased valuing their subscriptions but had not yet acted to cancel. This context supports the idea that the model benefits retailers when consumer inertia is high—that is, when consumers tend to remain inactive rather than take action to cancel. Choice B is incorrect because saying that the subscription model benefits retailers when consumer “decisiveness,”or quick and firm action, is high would contradict the text. The text indicates that retailers profit from consumer “passivity”—the failure to act—and decisive consumers would presumably cancel subscriptions promptly once they stopped valuing them, eliminating the retailers’benefit. Choice C is incorrect because saying that the subscription model benefits retailers when consumer “evasion,”or active avoidance, is high wouldn’t make sense in this context. Evasion implies deliberate action to avoid something, but the text describes consumers as passive—they fail to cancel not because they actively avoid doing so but because they don’t take action at all. Choice D is incorrect because saying that the subscription model benefits retailers when consumer “turnover,”or the rate at which customers are replaced by new ones, is high would contradict the text. The text indicates that retailers profit when consumers continue paying without canceling, which means retailers benefit from retaining consumers, not from a high rate of consumer replacement.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9b22bf7b",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The following text is from the 1989 novel The Ancient Child by Kiowa writer N. Scott Momaday. The main character has achieved tremendous commercial success as a painter.\n\nMore and more often he was asked to compromise his art or himself in one way or another, and more often than not he did so, for he was inclined to be passive and naïve; it was difficult for him to say no. Those who exhibited his work, who praised and purchased it, and who demanded its proliferation began to determine it.\n\n©1989 by N. Scott Momaday",
+    "question": "As used in the text, what does the word “determine” most nearly mean?",
+    "options": [
+      "A. Conclude",
+      "B. Dictate",
+      "C. Evaluate",
+      "D. Select"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because as used in the text \"determine\" most nearly means \"dictate.\" The text describes the relationship between the main character and those who exhibit, praise, and purchase his artwork. The text states that the main character is often asked to change his art or himself based on outside influences, and he usually acquiesces. Because the main character admits that those who support his work often shape it based on their demands, it follows that those outside influences dictate, or guide or dominate, the direction his work takes. Choice A is incorrect because the text doesn’t suggest that outside influences \"conclude,\" or end, the main character’s work. The text states that many supporters of the main character’s art \"demand its proliferation,\" not its conclusion. Choice C is incorrect because the text doesn’t suggest that outside influences are \"evaluating,\" or judging the main character’s work. According to the text, the main character’s art has already achieved great commercial success, with many people exhibiting, purchasing, and praising his work. Thus, outsiders have already supported the main character’s work and are not questioning or evaluating its success or worth. They are instead influencing its initial direction. Choice D is incorrect because the text doesn’t suggest that outside influences \"select,\" or choose the main character’s work. According to the text, the main character’s art has already achieved great commercial success, with many people exhibiting, purchasing, and praising his work. Thus, outsiders have already supported the main character’s work and are not selecting it. They are instead influencing its initial direction.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3e6ad72d",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "A study by a team including finance professor Madhu Veeraraghavan suggests that exposure to sunshine during the workday can lead to overly optimistic behavior. <u>Using data spanning from 1994 to 2010 for a set of US companies, the team compared over 29,000 annual earnings forecasts to the actual earnings later reported by those companies.</u> The team found that the greater the exposure to sunshine at work in the two weeks before a manager submitted an earnings forecast, the more the manager’s forecast exceeded what the company actually earned that year.",
+    "question": "Which choice best states the function of the underlined sentence in the overall structure of the text?",
+    "options": [
+      "A. To summarize the results of the team’s analysis",
+      "B. To present a specific example that illustrates the study’s findings",
+      "C. To explain part of the methodology used in the team’s study",
+      "D. To call out a challenge the team faced in conducting its analysis"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes how the underlined sentence functions in the text as a whole. The first sentence presents the implications of Veeraraghavan’s team’s study: sunshine exposure during work hours can cause overly optimistic behavior. The underlined sentence then describes the data the team consulted and how they were used (comparing predictions about earnings to what the companies actually earned), and the final sentence presents what the team found in their examination of the data. Thus, the underlined sentence mainly functions to explain part of the methodology used in the team’s study. Choice A is incorrect because the underlined sentence explains in part how the team conducted their analysis of the effect of sunshine but doesn’t address what the team found; a broad summary is instead given in the other two sentences. Choice B is incorrect because the underlined sentence doesn’t present any specific examples from the team’s comparisons of 29,000 earnings predictions to actual earnings; it simply explains in part how the team conducted their analysis. Choice D is incorrect because the underlined sentence simply explains in part how the team conducted their analysis; the text never mentions any challenges that the team encountered in their study.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5336f2e4",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is adapted from Zora Neale Hurston’s 1921 short story “John Redding Goes to Sea.” John is a child who lives in a town in the woods.\n\nPerhaps ten-year-old John was puzzling to the folk there in the Florida woods for he was an imaginative child and fond of day-dreams. The St. John River flowed a scarce three hundred feet from his back door. On its banks at this point grow numerous palms, luxuriant magnolias and bay trees. On the bosom of the stream float millions of delicately colored hyacinths. [<u>John Redding] loved to wander down to the water’s edge, and, casting in dry twigs, watch them sail away down stream to Jacksonville, the sea, the wide world and [he] wanted to follow them.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It provides an extended description of a location that John likes to visit.",
+      "B. It reveals that some residents of John’s town are confused by his behavior.",
+      "C. It illustrates the uniqueness of John’s imagination compared to the imaginations of other children.",
+      "D. It suggests that John longs to experience a larger life outside the Florida woods."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it accurately describes how the underlined sentence functions in the text as a whole. The text establishes that John has a strong imagination and then goes on to describe the St. John River near John’s home in the Florida woods. The underlined sentence depicts John sending twigs sailing down the river while he imagines them reaching “Jacksonville, the sea, the wide world,” where he wishes he could follow. This suggests that John longs to expand his life experiences beyond the Florida woods. Choice A is incorrect because the second and third sentences of the text provide an extended description of the riverbank where John likes to go, whereas the underlined sentence describes what John does at that location. Choice B is incorrect because the first sentence of the text suggests that John’s behavior “was puzzling” to others around him, whereas the underlined sentence concerns the content of John’s imaginings. Choice C is incorrect because the underlined sentence elaborates on John’s imagination but doesn’t mention any other children to whom John could be compared.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1455b754",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "While recent scholarship has undermined claims that the works of twelfth-century Islamic philosopher Ibn Rushd were ______ other Muslim philosophers of his time, it is indisputable that his location in the Muslim-ruled area of what is now Spain meant that his works were primarily available thousands of miles west of the era’s center of Islamic thought.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. controversial among",
+      "B. antagonistic toward",
+      "C. imitated by",
+      "D. inconsequential to"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the twelfth-century Islamic philosopher Ibn Rushd. As used in this context, \"inconsequential to\" means not significant to. According to the text, Ibn Rushd’s works were primarily available in Spain, where he lived, far from central areas of the Muslim world, a fact that could support the conclusion that his influence on Muslim contemporaries was limited. The text implies, however, that recent scholarship has shown that his works still had an impact on other Muslim philosophers of his time. This context supports the idea that his works weren’t inconsequential to Islamic thought in this period. Choice A is incorrect because the issue under consideration in the text is whether other Muslim philosophers of Ibn Rushd’s time had access to his works, not whether his works were \"controversial among,\" or causing dispute among, other philosophers. Choice B is incorrect. The text implies that other Muslim philosophers of Ibn Rushd’s era were aware of his works, not that they were \"antagonistic toward,\" or hostile toward, them. There is no suggestion that Ibn Rushd’s writings elicited hostility from his contemporaries. Choice C is incorrect because in this context, \"imitated by\" would mean followed as a model by. Although the text implies that Ibn Rushd’s works were at least somewhat available in regions that were at the center of Islamic thought during the period, it doesn’t specifically address in what ways his works influenced contemporary Muslim philosophers. Thus, the text doesn’t support the idea that other philosophers modeled their own works after Ibn Rushd’s works.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7bc05fa2",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Whether the reign of a French monarch such as Hugh Capet or Henry I was historically consequential or relatively uneventful, its trajectory was shaped by questions of legitimacy and therefore cannot be understood without a corollary understanding of the factors that allowed the monarch to ______ his right to hold the throne.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. disengage",
+      "B. annotate",
+      "C. buttress",
+      "D. reciprocate"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the legitimacy of the reigns of French monarchs such as Hugh Capet and Henry I. As used in this context, “buttress” means to strengthen or defend. The text indicates that regardless of whether a French monarch’s reign was significant or uneventful, each monarch faced questions about his right to the throne. The text goes on to say that in order to understand the path of a French monarch’s reign, it’s important to understand what contributed to the monarch’s ability to “hold the throne.” This context suggests that French monarchs such as Hugh Capet and Henry I had to buttress, or defend, their right to be monarch. Choice A is incorrect because it wouldn’t make sense in context to discuss factors that enabled a monarch to “disengage,” or withdraw his right to the French throne. The text focuses on an examination of people who reigned as French monarchs, not on people who didn’t choose to rule. Choice B is incorrect because it wouldn’t make sense in context to discuss factors that enabled a monarch to “annotate,” or add notes to or explain, his right to the French throne. Nothing in the text suggests that the monarchs were writing notes about their right to the throne; instead, faced with questions about the legitimacy of their reign, the monarchs defended their right. Choice D is incorrect. Saying that a monarch who is faced with questions about the legitimacy of his reign was able to “reciprocate” his right to the French throne would mean that he either returned his right to the throne or that he responded in kind to the challenge. Neither of these meanings would make sense in context because the text focuses on people who did reign as French monarchs and defended their right to do so.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c762ca58",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Technological advances have prompted companies to increasingly rely on automation to streamline production. Armin Granulo and colleagues, however, found that for products with higher symbolic value (those viewed as contributing to individual self-expression), consumers prefer products made by humans rather than by robots, likely because human-made products are more strongly associated with uniqueness. <u>When considering automation, therefore, companies—especially those specializing in products of symbolic value—should weigh trade-offs between efficiency gains and consumer preferences.</u>",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It presents evidence supporting the text’s argument that consumers prefer products with high symbolic value over products with low symbolic value.",
+      "B. It refers to a finding presented in the previous sentence to recommend that companies that value product quality reconsider automating their production processes.",
+      "C. It illustrates the need for additional research to evaluate the claim in the previous sentence that automation affects how consumers rate product uniqueness.",
+      "D. It emphasizes that a research finding discussed in the text has practical implications that are particularly relevant for businesses making a certain class of product."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it best describes the function of the underlined sentence in the text as a whole. The text begins by noting that companies increasingly depend on automation to improve production efficiency. The text then presents Granulo and colleagues’finding that consumers think it’s preferable for one category of products (those “with higher symbolic value”) to be human made rather than machine made. The underlined sentence highlights a practical consequence of that finding: companies, especially those specializing in such products, should balance the efficiency of automation against consumer preferences. Thus, the underlined sentence emphasizes that the research finding has practical implications that are especially relevant for businesses making a certain class of product. Choice A is incorrect. Although the text indicates that among products with high symbolic value, people prefer those made by humans over those made by machines, it doesn’t address whether products with high symbolic value are preferred over those with low symbolic value. Choice B is incorrect because rather than reiterate the finding in the previous sentence—that people tend to prefer “products with higher symbolic value”that are human made over those that are machine made—the underlined sentence instead makes a recommendation to companies that sell such products to carefully consider a potential drawback of making their products with machines. Choice C is incorrect because nothing in the underlined sentence or the text as a whole suggests that additional research is needed to evaluate Granulo and colleagues’claim. Moreover, the researchers’finding is that consumers prefer “products with higher symbolic value”to be human made, not that automation affects consumers’ ratings of how unique products are.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "aaa3ee7c",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Critics have asserted that fine art and fashion rarely ______ in a world where artists create timeless works for exhibition and designers periodically produce new styles for the public to buy. Luiseño/Shoshone-Bannock beadwork artist and designer Jamie Okuma challenges this view: her work can be seen in the Metropolitan Museum of Art and purchased through her online boutique.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. prevail",
+      "B. succumb",
+      "C. diverge",
+      "D. intersect"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion about the relationship between fine art and fashion. As used in this context, “intersect”means to connect or overlap. The text indicates that Jamie Okuma challenges the position held by critics because her work can be seen at an art museum and can be bought by the public from her online boutique. The text also presents the critics’ view as being influenced by a perception that fine artists create works that are “timeless”and meant for exhibition, whereas fashion designers periodically produce new styles that are meant for purchase. This context suggests that the critics believe that fine art and fashion tend not to overlap—in other words, that they rarely intersect. Choice A is incorrect because it wouldn’t make sense in context to say that critics contend that fine art and fashion rarely “prevail,”or prove to be triumphant or widespread. The text indicates that Okuma is an example of an artist who demonstrates that it’s possible to make fine art that is also available to the public as fashion. Choice B is incorrect because it wouldn’t make sense in context to say that fine art and fashion rarely “succumb,”or surrender. The text establishes that unlike what critics believe, Okuma creates works that are in art museums and available for the public to purchase, suggesting that critics believe fine art and fashion rarely overlap, not that they rarely succumb. Choice C is incorrect because saying that critics believe that fine art and fashion rarely “diverge,”or disagree or move in different directions, wouldn’t make sense in context. The text presents Okuma’s work as both fine art and fashion, thereby undermining what the critics assert. This suggests that the critics believe that fine art and fashion rarely intersect rather than that the two rarely diverge.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "975b0602",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "A number of Indigenous politicians have been elected to the United States Congress since 2000 as members of the country’s two established political parties. In Canada and several Latin American countries, on the other hand, Indigenous people have formed their own political parties to advance candidates who will advocate for the interests of their communities. This movement has been particularly successful in Ecuador, where Guadalupe Llori, a member of the Indigenous party known as Pachakutik, was elected president of the National Assembly in 2021.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To trace the history of an Indigenous political movement and speculate about its future development",
+      "B. To argue that Indigenous politicians in the United States should form their own political party",
+      "C. To highlight two approaches to achieving political representation for Indigenous people",
+      "D. To consider how Indigenous politicians in the United States have influenced Indigenous politicians in Canada and Latin America"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the main purpose of the text, which is to illustrate two approaches that Indigenous politicians have taken to achieve political representation for their communities. The text begins by explaining that one approach is exemplified by Indigenous politicians in the United States who, in an effort to ensure that the interests of their communities are represented in government, joined preexisting political parties and were subsequently elected to Congress. The text goes on to highlight a second approach adopted by Indigenous leaders in Canada and several Latin American countries: rather than joining established political parties, many Indigenous politicians in these countries have instead formed their own parties to promote candidates for office who support causes that are important to their communities. Choice A is incorrect because the text’s focus is on the contrasting approaches adopted by different Indigenous political movements in different countries; thus, it isn’t accurate to say that the text traces the history of one political movement. Moreover, the text only discusses examples from 2000 to 2021, a relatively short period of time; therefore, it provides very little in the way of discussion of larger historical developments, nor does it make any predictions about how these movements might continue to develop in the future. Choice B is incorrect because the text never urges Indigenous politicians in the US to alter their strategy of striving for representation through the established political parties, nor does it suggest that this strategy is inferior to that of Indigenous politicians in Canada and Latin America, who have formed their own parties. In fact, the text notes that both strategies have resulted in the election of Indigenous politicians to national governments. Choice D is incorrect because the text never suggests that Indigenous politicians in the US have influenced those in Canada and Latin America; instead, it stresses how Indigenous politicians’ approach toward achieving representation in the US government has differed from the approach Indigenous politicians have taken to achieve representation in national governments elsewhere in the Americas.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a06c434d",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The work of Kiowa painter T.C. Cannon derives its power in part from the tension among his ______ influences: classic European portraiture, with its realistic treatment of faces; the American pop art movement, with its vivid colors; and flatstyle, the intertribal painting style that rejects the effect of depth typically achieved through shading and perspective.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. complementary",
+      "B. unknown",
+      "C. disparate",
+      "D. interchangeable"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of the artistic styles that have influenced Cannon’s work. As used in this context, “disparate” means distinct or dissimilar. The text indicates that a tension exists among the styles that have influenced Cannon’s work and goes on to describe how those styles differ: classic European portraiture favors realism, American pop art uses vivid colors, and intertribal flatstyle rejects the use of shading and perspective to achieve depth. This context suggests that the styles that have influenced Cannon’s work are disparate. Choice A is incorrect because the text indicates that there is a tension among the influences on Cannon’s artwork, so it wouldn’t make sense to say that the influences are “complementary,” or that they complete one another or make up for one another’s deficiencies. Choice B is incorrect because it wouldn’t make sense to characterize Cannon’s influences as “unknown,” or not familiar; it’s clear that the influences are known because the text goes on to list them. Choice D is incorrect because the text indicates that there is a tension among the influences on Cannon’s work, not that they are “interchangeable,” or capable of being used in one another’s place.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "177ed7dc",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Though copies of The Adventures of Indiana Jones in Wenceslas Square in Prague on January 16, 1989—an underground computer game that was created anonymously in 1989 as an act of political protest against the authoritarian regime of what was then Czechoslovakia—were originally distributed ______, the game is now readily available online for anyone to play.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. succinctly",
+      "B. dispassionately",
+      "C. disingenuously",
+      "D. surreptitiously"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of how The Adventures of Indiana Jones in Wenceslas Square in Prague on January 16, 1989 was originally distributed. In this context, “surreptitiously”means in a secret manner. The text describes the game as being underground and created anonymously as a way to oppose the regime of what was then Czechoslovakia. The text goes on to contrast the game’s original distribution with its current broader availability. This context supports the idea that copies were originally distributed surreptitiously—that is, secretly, as would be necessary for an act of protest against an authoritarian regime. Choice A is incorrect because saying that copies of the game were originally distributed “succinctly,”or in a brief and concise manner, wouldn’t make sense in this context. “Succinctly”describes the manner in which something is expressed, not the manner in which physical copies of a game are circulated. Choice B is incorrect because saying that copies of the game were originally distributed “dispassionately,”or without emotion, wouldn’t make sense in this context. The text describes the game as an act of political protest, suggesting that its creation and distribution were motivated by strong feelings about the then Czechoslovakian regime. Moreover, the text establishes the contrast between secretive distribution and open availability, not between emotional and unemotional distribution. Choice C is incorrect because saying that copies of the game were originally distributed “disingenuously,”or in an insincere manner, wouldn’t make sense in this context. The text characterizes the game as a sincere act of political protest, and the contrast the text sets up concerns secrecy (“underground”and “anonymously”) versus openness (“readily available”).",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b411eb09",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "New and interesting research conducted by Suleiman A. Al-Sweedan and Moath Alhaj is inspired by their observation that though there have been many studies of the effect of high altitude on blood chemistry, there is a ______ studies of the effect on blood chemistry of living in locations below sea level, such as the California towns of Salton City and Seeley.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. quarrel about",
+      "B. paucity of",
+      "C. profusion of",
+      "D. verisimilitude in"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically and precisely completes the text’s discussion of studies of altitude’s effect on blood chemistry. In this context, “paucity of” means lack of. In describing the inspiration behind Al-Sweedan and Alhaj’s research, the text uses the word “though” to suggest a contrasting relationship between two types of studies: those examining the effect on blood chemistry of living at a high altitude and those examining the effect on blood chemistry of living in locations below sea level. This contrasting relationship and the text’s use of the word “many” provide context suggesting that there are few, if any, examples of the second type of study, whereas there are numerous examples of the first type. Choice A is incorrect because it wouldn’t make sense in context for there to be a “quarrel about,” or open disagreement about, studies of the effect on blood chemistry of living in locations below sea level. The text’s use of the words “though” and “many” suggests a contrasting relationship in terms of amount between two types of studies: those examining the effect on blood chemistry of living at a high altitude and those examining the effect on blood chemistry of living in locations below sea level. There’s nothing in the text to suggest that the contrast between the two types of studies involves the extent to which researchers broadly agree or disagree about the contents of either type. Choice C is incorrect because it wouldn’t make sense in context for there to be a “profusion of,” or great abundance of, studies of the effect on blood chemistry of living in locations below sea level. The text’s use of the words “though” and “many” suggests a contrasting relationship in terms of amount between two types of studies: those examining the effect on blood chemistry of living at a high altitude and those examining the effect on blood chemistry of living in locations below sea level. Rather than logically completing this contrast, “profusion of” would indicate that the two types of studies are similar in terms of amount, with many examples existing of both types. Choice D is incorrect because it wouldn’t make sense in context for there to be a “verisimilitude in,” or appearance of truth in, studies of the effect on blood chemistry of living in locations below sea level. The text’s use of the words “though” and “many” suggests a contrasting relationship in terms of amount between two types of studies: those examining the effect on blood chemistry of living at a high altitude and those examining the effect on blood chemistry of living in locations below sea level. There’s nothing in the text to suggest that the contrast between the two types of studies involves the extent to which either type of study presents an appearance of truth.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "592f94c2",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nGood art often challenges and disrupts social and aesthetic norms, but the creation of public art—paintings, sculptures, and performance pieces displayed in nonmuseum or nontheatrical public settings—typically requires broad agreement among artists, civic officials, and community members about the works’message and artistic goals. <u>Public art that fails to appease everyone by being sufficiently aesthetically and conceptually bland almost inevitably provokes backlash.</u>\n\nText 2\n\nPublic art is commonly displayed in spaces intended for purposes other than meaningful aesthetic engagement. Some critics of public art therefore note that norm-defying pieces that aren’t effectively integrated within their surroundings in a manner that primes passersby to appreciate the pieces’merits (as is often the case) tend to be regarded more unfavorably than similarly provocative art encountered in museums is.",
+    "question": "Based on the texts, how would the critics mentioned in Text 2 most likely respond to the underlined claim in Text 1?",
+    "options": [
+      "A. By arguing that the reason members of the general public might disagree about a public artwork’s merits is unrelated to the unconventionality of its appearance and ideas",
+      "B. By agreeing with the idea that only works of art that are universally appealing are suitable for displaying in public spaces",
+      "C. By disputing the notion that civic leaders and community members are easily placated by art that is intended mainly to reinforce social norms",
+      "D. By contending that the kinds of reactions controversial public artworks often receive aren’t exclusively the result of attributes inherent in the works themselves"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because the critics mentioned in Text 2 would argue that negative reactions to controversial public art are not solely the result of the nature of the art itself. The claim in Text 1 suggests that public artworks tend to provoke backlash when they are not “aesthetically and conceptually bland.”This implies that the content of public art alone can cause backlash. However, the critics in Text 2 offer a more nuanced explanation. They argue that norm-defying pieces of public art that are not “effectively integrated within their surroundings”are more likely to be judged harshly by the public. They also imply that a museum provides a context that prepares viewers to expect challenging art, while public environments that serve other purposes often do not. This indicates that the critics in Text 2 would contend that factors beyond the attributes of the art, like environment and presentation, play a significant role in how public art is received. Choice A is incorrect because the critics in Text 2 do not argue that unconventionality is unrelated to public disagreement about a public artwork’s merits. Rather, they acknowledge that norm-defying pieces do face unfavorable reactions, but they attribute such reactions to contextual factors like poor integration with the environment rather than dismissing the role of unconventionality entirely. Choice B is incorrect because the critics in Text 2 do not advocate for restricting public art to universally appealing works. Instead, they argue that better integration with the surroundings and situating the work in appropriate contexts could help norm-defying art be better received by passersby. Choice C is incorrect because the critics in Text 2 do not address whether civic leaders and community members are easily satisfied by norm-reinforcing art. The critics in Text 2 instead argue that installation and integration with the surrounding environment factor into how norm-defying art is received by the general public, rather than disputing how people respond to conventional art.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "84dbd633",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nThe Cretaceous-Paleogene (K-Pg) mass extinction event is usually attributed solely to an asteroid impact near Chicxulub, Mexico. Some scientists argue that <u>volcanic activity was the true cause, as the K-Pg event occurred relatively early in a long period of eruption of the Deccan Traps range that initially produced huge amounts of climate-altering gases.</u> These dissenters note that other mass extinctions have coincided with large volcanic eruptions, while only the K-Pg event lines up with an asteroid strike.\n\nText 2\n\nIn a 2020 study, Pincelli Hull and her colleagues analyzed ocean core samples and modeled climate changes around the K-Pg event. The team concluded that Deccan Traps gases did affect global conditions prior to the event, but that the climate returned to normal well before the extinctions began—extinctions that instead closely align with the Chicxulub impact.",
+    "question": "Based on the texts, how would Hull’s team (Text 2) most likely respond to the argument in the underlined portion of Text 1?",
+    "options": [
+      "A. By agreeing that the Chicxulub impact changed the climate and that the Deccan Traps eruption caused the K-Pg event",
+      "B. By declaring that the changes in climate caused by the Deccan Traps eruption weren’t the main cause of the K-Pg event",
+      "C. By questioning why those scientists assume that the Chicxulub impact caused the Deccan Traps eruption",
+      "D. By asserting that the Deccan Traps eruption had a more significant effect on global conditions than those scientists claim"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it describes how Hull’s team would most likely respond to the argument in the underlined portion of Text 1, which asserts that volcanic activity in the Deccan Traps range led to changes in the climate and caused the K-Pg mass extinction event. According to Text 2, although Hull’s team found that activity in the Deccan Traps did indeed alter the climate before the K-Pg event, the team determined that the climate had returned to normal before mass extinctions began. This finding and the observation that the K-Pg extinctions closely align with the Chicxulub asteroid impact suggest that Hull’s team would likely dispute the claim in the underlined portion of Text 1 and say that the climate changes caused by the Deccan Traps activity were not the main cause of the extinctions. Choice A is incorrect because Text 2 describes how Hull’s team found that the climate had recovered from the changes brought about by the Deccan Traps activity before the K-Pg event occurred, which suggests that Hull’s team would disagree that the Deccan Traps activity caused the K-Pg event. Additionally, the claim in the underlined portion of Text 1 says nothing about how the Chicxulub impact changed the climate, so while Hull’s team might believe that the impact did in fact change the climate, they could not be said to agree with the claim in Text 1 on this point. Choice C is incorrect because there is no indication in either text that any scientists assume that the Chicxulub impact caused the Deccan Traps activity, so there is no reason to conclude that Hull’s team would question why the scientists referred to in Text 1 make such an assumption. Choice D is incorrect because Text 2 describes how Hull’s team found that the climate had recovered from the changes brought about by the Deccan Traps activity before the K-Pg event occurred, which suggests that Hull’s team would say that the Deccan Traps activity had a less enduring effect on global conditions than the scientists referenced in Text 1 believe, not that the effect on global conditions was more significant than those scientists claim.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "bce4d106",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Archaeologists have identified a plethora of beads fashioned from Tritia gibbosula shells in many Middle Stone Age (MSA) sites across western North Africa, including El Mnasra Cave, Morocco. In a 2021 paper, El Mehdi Sehasseh et al. attribute these artifacts’ apparent ______ to the evolution and propagation of symbolic behavior (e.g., use of personal ornaments) in humans and the widespread availability of T. gibbosula during the MSA.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. heterogeneity",
+      "B. ubiquity",
+      "C. expediency",
+      "D. fecundity"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of beads found in Middle Stone Age sites. In this context, “ubiquity” means widespread presence or commonness. The text states that archaeologists have encountered “a plethora,” or an abundance, of beads made from Tritia gibbosula shells “in many Middle Stone Age (MSA) sites across western North Africa.” In this context, the abundance of beads therefore suggests their ubiquity. Choice A is incorrect because in this context, “heterogeneity” would mean variety or diversity among the beads. The text doesn’t suggest that the beads varied significantly from one another; rather, it focuses on their widespread presence across multiple sites. Moreover, the text mentions that all the beads were “fashioned from Tritia gibbosula shells,” suggesting consistency rather than heterogeneity. Choice C is incorrect because the text doesn’t emphasize the beads’ “expediency,” or convenience or practicality. The text doesn’t support the idea of convenience (there’s no indication, for example, that the beads were easy to use or make) but rather focuses on the beads’ abundant presence at MSA sites. Choice D is incorrect. While “fecundity” can suggest abundant production, it specifically refers to fertility, and the text doesn’t connect the beads to this theme. Instead, the text attributes their widespread presence to the development of symbolic behavior in humans and the natural availability of Tritia gibbosula during the MSA.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "e7d37666",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "It is by no means ______ to recognize the influence of Dutch painter Hieronymus Bosch on Ali Banisadr’s paintings; indeed, Banisadr himself cites Bosch as an inspiration. However, some scholars have suggested that the ancient Mesopotamian poem Epic of Gilgamesh may have had a far greater impact on Banisadr’s work.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. substantial",
+      "B. satisfying",
+      "C. unimportant",
+      "D. appropriate"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the sentence about the influences on Banisadr’s work. In context, “It is by no means” followed by “unimportant” conveys how it is relevant to recognize Bosch’s influence on Banisadr. The text points out that the artist himself cites Bosch as an inspiration, and then goes on to claim that The Epic of Gilgamesh has had a more significant influence than Bosch. Choice A is incorrect because “substantial,” which means weighty or meaningful, incorrectly suggests that it wouldn’t be meaningful to acknowledge Bosch’s influence on Banisadr. The phrase “indeed, Banisadr himself cites Bosch as an inspiration” doesn’t support this suggestion. Choice B is incorrect because “satisfying,” which means pleasing, incorrectly suggests that it wouldn’t be pleasing to acknowledge Bosch’s influence on Banisadr. The phrase “indeed, Banisadr himself cites Bosch as an inspiration” doesn’t support this suggestion. Choice D is incorrect because “appropriate,” which means suitable, incorrectly suggests that it wouldn’t be proper to acknowledge Bosch’s influence on Banisadr. The phrase “indeed, Banisadr himself cites Bosch as an inspiration” doesn’t support this suggestion.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "570970cd",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is adapted from Indian Boyhood, a 1902 memoir by Ohiyesa (Charles A. Eastman), a Santee Dakota writer. In the text, Ohiyesa recalls how the women in his tribe harvested maple syrup during his childhood.\n\nNow the women began to test the trees—moving leisurely among them, axe in hand, and striking a single quick blow, to see if the sap would appear. <u>The trees, like people, have their individual characters; some were ready to yield up their life-blood, while others were more reluctant.</u> Now one of the birchen basins was set under each tree, and a hardwood chip driven deep into the cut which the axe had made. From the corners of this chip—at first drop by drop, then more freely—the sap trickled into the little dishes.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It portrays the range of personality traits displayed by the women as they work.",
+      "B. It foregrounds the beneficial relationship between humans and maple trees.",
+      "C. It demonstrates how human behavior can be influenced by the natural environment.",
+      "D. It elaborates on an aspect of the maple trees that the women evaluate."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it best describes the function of the underlined sentence in the text’s overall portrayal of how the women in Ohiyesa’s tribe harvested maple syrup. The text states that the women used an axe to strike the maple trees in order to find out which ones would produce sap. The underlined sentence compares the trees to people, with the sap described as the trees’“life-blood.”Some of the trees are ready to give out their sap, while others are unwilling to do so. Using personification, the sentence provides greater detail about the aspect of the maple trees—their potential to give sap—that the women are evaluating. Choice A is incorrect because the personalities of the women are not discussed in the text. Although the underlined sentence does mention “individual characters,”this reference is not to the women in the text but rather to the maple trees, which the sentence compares to people with individual character traits. Choice B is incorrect because the underlined sentence focuses on the trees’willingness or refusal to yield sap, not on the beneficial relationship between the women and the trees. Additionally, although the text does suggest that the women and their tribe benefit from the maple trees since the trees allow the women to harvest syrup, there is nothing in the text to suggest that the trees benefit from this relationship in turn. Choice C is incorrect because the underlined sentence is comparing maple trees to humans, not addressing the influence of the natural environment on how the actual humans in the text, the women, behave.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a1ff8ce3",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "As discussed by scholar Anna Mladentseva, many artworks produced in the mid-1990s to the early 2000s exclusively for exhibition on the internet, such as Sinae Kim’s Genesis (2001), have become inaccessible because viewing them requires the use of ______ software (most notably Adobe Flash, discontinued in 2021).",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. defunct",
+      "B. arcane",
+      "C. ubiquitous",
+      "D. extraneous"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of artworks that were produced for exhibition on the internet. In this context, \"defunct\" means no longer existing or functioning. According to the text, many artworks that were produced in the mid- 1990s to the early 2000s for exhibition on the internet have become inaccessible due to their reliance on certain software. As an example, the text cites Sinae Kim’s Genesis, which relied on software that was discontinued in 2021. This context supports the idea that the software is defunct. Choice B is incorrect because the text indicates that viewing artworks produced in the mid-1990s to the early 2000s for exhibition on the internet requires the use of software. Artists generally want their works to be seen by many people, so it wouldn’t make sense for creators of internet art to require the use of software that is \"arcane,\" or known or knowable to only a few people. Moreover, the text states that a prominent example of software used to view these artworks is Adobe Flash, which was discontinued in 2021, meaning it’s now defunct. Choice C is incorrect because \"ubiquitous\" would mean found everywhere, which wouldn’t make sense in this context. The text indicates that the reason why many artworks that were produced in the mid-1990s to the early 2000s for exhibition on the internet have become inaccessible has to do with the software required for viewing them. According to the text, one example of such software is Adobe Flash, which was discontinued in 2021, meaning it’s now defunct. Choice D is incorrect because nothing in the text suggests that the software used to view artworks produced in the mid-1990s to the early 2000s for exhibition on the internet is \"extraneous,\" or irrelevant. Instead, the text indicates that use of specific software is required to view certain artworks from this period and that the discontinuation of the software renders the works inaccessible.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5e4e082c",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nChemically analyzing bulk rock-core samples from Australia’s Mount McRae Shale, Ariel Anbar et al. found a transient but significant increase in molybdenum (Mo) at a point corresponding to roughly 2.5 billion years ago (Ga). On Earth, Mo is released mainly through oxidative weathering of minerals; Anbar et al. therefore concluded that atmospheric oxygen briefly increased 2.5 Ga, then returned to its earlier negligible level.\n\nText 2\n\nSarah Slotznick et al. reexamined the Mount McRae Shale core. Since chemically analyzing bulk samples can occlude contextual details, Slotznick et al. also employed high-resolution microscopy, which revealed volcanic debris—a known Mo host—around 2.5 Ga and microfractures in the surrounding matrix. The researchers assert that fluid could have reached the debris through the microfractures and initiated oxidative weathering long after debris deposition.",
+    "question": "Based on the texts, Anbar et al. (Text 1) and Slotznick et al. (Text 2) would most likely disagree about the answer to which question about the portion of the Mount McRae Shale rock-core corresponding to 2.5 Ga?",
+    "options": [
+      "A. Does the increase in Mo in that portion suggest that atmospheric oxygen levels were not negligible before 2.5 Ga?",
+      "B. Is the increase in Mo in that portion indicative of an increase in atmospheric oxygen dating to the same time?",
+      "C. Is the increase in Mo in that portion attributable to oxidative weathering of the material found in that portion?",
+      "D. Did chemically analyzing bulk samples lead to a false impression that there is an increase in Mo in that portion?"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because Anbar et al. and Slotznick et al. would most likely disagree about whether the molybdenum (Mo) increase indicates atmospheric oxygen levels specifically at 2.5 Ga. Anbar et al. conclude that the Mo increase they found “at a point corresponding to roughly 2.5 billion years ago”means that “atmospheric oxygen briefly increased 2.5 Ga, then returned to its earlier negligible level,”directly linking the timing of the Mo increase to contemporaneous atmospheric oxygen levels. In contrast, Slotznick et al. discovered volcanic debris and microfractures in the rock core and “assert that fluid could have reached the debris through the microfractures and initiated oxidative weathering long after debris deposition.”If, as Slotznick asserts, the Mo detected at the 2.5 Ga portion could have been deposited there much later through weathering processes, then the Mo increase wouldn’t necessarily indicate atmospheric oxygen levels at 2.5 Ga specifically. Thus, Anbar et al. and Slotznick et al. disagree on whether the increase in Mo in the portion of the rock core corresponding to 2.5 Ga is indicative of an increase in atmospheric oxygen dating to the same time. Choice A is incorrect because neither research team’s findings directly address atmospheric oxygen levels before 2.5 Ga. Anbar et al. conclude that oxygen “returned to its earlier negligible level”after 2.5 Ga, implying low pre–2.5 Ga levels, while Slotznick et al. focus on explaining the Mo increase through later weathering processes rather than making claims about earlier atmospheric conditions. Choice C is incorrect because both research teams would likely agree that the Mo increase is attributable to oxidative weathering. Anbar et al. state that “Mo is released mainly through oxidative weathering of minerals,”and Slotznick et al. also reference “oxidative weathering”as the process that released Mo from the volcanic debris. Their disagreement concerns the timing of this weathering, not whether oxidative weathering is responsible. Choice D is incorrect because Slotznick et al. don’t suggest that bulk chemical analysis created a false impression about the presence of increased Mo. They acknowledge that the Mo increase exists but offer a different explanation for its timing and source. They critique bulk analysis for occluding “contextual details”that would require another kind of analysis to uncover, not for producing inaccurate measurements of Mo levels.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7b4dde72",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "In 1891, design artist William Morris cofounded the Kelmscott Press, which printed editions of books using preindustrial methods. Historians argue that Morris’s repudiation of industrialization is ______ the Kelmscott editions’ use of handmade materials and intricate ornamentation reminiscent of medieval manuscripts: these meticulously handcrafted elements exemplify the artistry involved.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. insensible to",
+      "B. manifest in",
+      "C. scrutinized by",
+      "D. complicated by"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the Kelmscott Press’s books. In this context, \"manifest in\" means evident or apparent from. The text states that the Kelmscott Press, which was cofounded by William Morris, produced its books using preindustrial methods. The text notes the similarity between those methods, which include the use of handmade materials and intricate ornamentation, and methods used in the creation of medieval manuscripts. This context suggests that Morris’s repudiation of industrialization is apparent from, or manifest in, the methods and materials his company employed. Choice A is incorrect because there is nothing in the text to suggest that Morris’s repudiation of industrialization is \"insensible to,\" or unaware of or lacking perception of, the use of handmade materials and intricate ornamentation in the production of the Kelmscott editions. Instead, the text suggests that the methods and materials used to produce the Kelmscott editions are evidence of Morris’s repudiation of industrialization. Choice C is incorrect because it would not make sense to say that Morris’s repudiation of industrialization was \"scrutinized by,\" or examined closely by, the Kelmscott editions’ use of handmade materials and intricate ornamentation. Although creating the Kelmscott editions may have involved examining the books closely, the text does not mention this aspect of Morris’s work, and in any case, the action of using certain materials to create those editions cannot scrutinize Morris’s attitude toward industrialization. Choice D is incorrect because the text gives no indication that Morris’s repudiation of industrialization is \"complicated by,\" or made more complex or difficult by, the Kelmscott Press’s use of preindustrial methods and handcrafted elements to produce books. Instead, the text presents those methods as exemplifying Morris’s repudiation of industrialization.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5ccbfe22",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "To entice study participants, psychology researchers commonly offer a gift card or other compensation. However, this practice may undercut the applicability of the study’s results: people who join a study in response to ______ may differ in important ways from a representative sample of the population of interest.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. a propensity",
+      "B. an inducement",
+      "C. a paradigm",
+      "D. an appeasement"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of how compensation in psychology studies may affect the applicability of results. In this context, “an inducement” means a reward offered to encourage a person to take a particular action. The text indicates that psychology researchers commonly offer rewards such as gift cards to encourage people to participate in their studies, potentially rendering the participant pool unrepresentative of the target population. This context supports the idea that participants are joining studies in response to an inducement. Choice A is incorrect. While participants might join a study in response to “a propensity,” or a natural inclination, to do so, the text isn’t focused on participants’ predispositions. Rather, the text is concerned with the external rewards that researchers offer to attract participants. Choice C is incorrect because saying that participants join studies in response to “a paradigm,” or a typical model or framework, wouldn’t make sense in context. The text doesn’t address any such framework. Instead, it focuses on tangible rewards that researchers offer to attract study participants. Choice D is incorrect because saying that participants join a study in response to “an appeasement,” or a concession made to pacify a person, wouldn’t make sense in context. The text describes researchers offering gift cards and other forms of compensation to attract willing study participants, not to address anyone’s grievance or dissatisfaction.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "f99847ed",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "For her 2021 art installation Anthem, Wu Tsang joined forces with singer and composer Beverly Glenn-Copeland to produce a piece that critics found truly ______: they praised Tsang for creatively transforming a museum rotunda into a dynamic exhibit by projecting filmed images of Glenn- Copeland onto a massive 84-foot curtain and filling the space with the sounds of his and other voices singing.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. restrained",
+      "B. inventive",
+      "C. inexplicable",
+      "D. mystifying"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the art installation Anthem. In this context, “inventive” means characterized by invention and creativity. The text explains that critics’ responses to the installation involved praise for Tsang’s creative transformation of a space into a dynamic exhibit with huge images and lots of sound. This context conveys that the critics found the piece particularly creative. Choice A is incorrect because the text indicates that critics praised the installation for being dynamic and including huge images and lots of sound, and it wouldn’t make sense to describe such an exhibit as “restrained,” or limited and not extravagant or showy. Choice C is incorrect because it wouldn’t make sense to say that critics found the installation “inexplicable,” or incapable of being explained or interpreted, since the critics were able to explain their praise for the installation’s transformation of a space with huge images and lots of sound. Choice D is incorrect because the text focuses on the idea that critics praised Tsang for creatively transforming a space into a dynamic exhibit, not that they found the installation “mystifying,” or bewildering and hard to understand. Nothing in the text suggests that the critics couldn’t understand the piece.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5e101c70",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nMost animals can regenerate some parts of their bodies, such as skin. But when a three-banded panther worm is cut into three pieces, each piece grows into a new worm. Researchers are investigating this feat partly to learn more about humans’ comparatively limited abilities to regenerate, and they’re making exciting progress. An especially promising discovery is that both humans and panther worms have a gene for early growth response (EGR) linked to regeneration.\n\nText 2\n\nWhen Mansi Srivastava and her team reported that panther worms, like humans, possess a gene for EGR, it caused excitement. However, as the team pointed out, the gene likely functions very differently in humans than it does in panther worms. Srivastava has likened EGR to a switch that activates other genes involved in regeneration in panther worms, but how this switch operates in humans remains unclear.",
+    "question": "Based on the texts, what would the author of Text 2 most likely say about Text 1’s characterization of the discovery involving EGR?",
+    "options": [
+      "A. It is reasonable given that Srivastava and her team have identified how EGR functions in both humans and panther worms.",
+      "B. It is overly optimistic given additional observations from Srivastava and her team.",
+      "C. It is unexpected given that Srivastava and her team’s findings were generally met with enthusiasm.",
+      "D. It is unfairly dismissive given the progress that Srivastava and her team have reported."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it reflects how the author of Text 2 would most likely respond to Text 1 based on the information provided. Text 1 discusses the discovery of a regeneration-linked gene, EGR, in both three-banded panther worms (which are capable of full regeneration) and humans (who have relatively limited regeneration abilities). Text 1 characterizes this discovery as “especially promising” and a sign of “exciting progress” in understanding human regeneration. The author of Text 2, on the other hand, focuses on the fact that the team that reported the EGR finding pointed out that while EGR’s function in humans isn’t yet known, it’s likely very different from its function in panther worms. Therefore, the author of Text 2 would most likely say that Text 1’s enthusiasm about the EGR discovery is overly optimistic given Srivastava’s team’s observations about EGR in humans. Choice A is incorrect because the author of Text 2 explains that Srivastava and her team explicitly reported that they haven’t yet identified how EGR functions in humans; therefore, the author of Text 2 wouldn’t say that Text 1’s excitement is reasonable for the stated reason. Instead, the author of Text 2 would likely characterize Text 1’s excitement as premature and overly optimistic. Choice C is incorrect because Text 1 does treat Srivastava’s team’s findings with enthusiasm; it describes the discovery of EGR in both three-banded panther worms and humans as promising and exciting. It would be illogical for the author of Text 2 to say that because most others treat the discovery with enthusiasm, Text 1’s enthusiastic characterization of the discovery is unexpected. Choice D is incorrect because Text 1 isn’t at all dismissive of Srivastava’s team’s findings; instead, Text 1 is optimistic about the EGR discovery, characterizing it as promising and exciting. There’s nothing in Text 2 to suggest that the author of Text 2 would say that Text 1’s praise for the discovery is dismissive, or disdainful.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "df45f0eb",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "<u>Several studies have found negligible electoral consequences for governments that impose fiscal austerity measures, yet some European governments recently suffered electorally due to their austerity programs.</u> Evelyne Huebscher and colleagues attribute this incongruity to governments’tendency—not followed in the recent European cases—to implement austerity programs strategically to avoid electoral costs (e.g., setting spending cuts to take effect only after the next election), which has obscured the inherent political risks of austerity measures in the election data scholars have examined.",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "options": [
+      "A. It explains a discrepancy between what has been observed in study settings and what has been observed in real-world settings that the text goes on to assert is attributable to the studies not using real-world data.",
+      "B. It identifies a conflict between research findings and recent events that the text goes on to suggest is a consequence of a complicating factor in the data used to generate those findings.",
+      "C. It presents a long-standing divergence in research findings that the text goes on to say is due to different groups of researchers using data that derive from different electoral circumstances.",
+      "D. It describes a recent exception to a general pattern in research findings that the text goes on to explain is a result of researchers underestimating the significance of inconsistencies in the data they’ve analyzed."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it best describes how the underlined sentence functions in the text as a whole. The underlined sentence explains that contrary to what several studies would suggest, recent European governments suffered electorally after the launch of fiscal austerity programs. The text goes on to indicate that the researchers generated their findings from data that didn’t reveal the true political risk of austerity measures because the data were based on cases in which governments had set austerity programs to take effect after the next election, a practice the European governments that recently suffered electorally didn’t adhere to, thus introducing a complicating factor resulting in a conflict between the research findings and recent events. Choice A is incorrect because the underlined sentence doesn’t indicate that the discrepancy described in the text is between observations made in study settings and observations made in real-world settings. Rather, the underlined sentence indicates that the outcome of recent events is contrary to what would be expected based on the findings of several studies. Additionally, there is nothing in the text to suggest that the studies mentioned did not use real-world data; instead, the text indicates that the data used was generated under potentially different circumstances than the recent events. Choice C is incorrect because the underlined sentence doesn’t present a long-standing divergence in research findings but rather a discrepancy between past research findings and recent events that the text goes on to attribute to researchers’use of data that didn’t reveal the true political risk of austerity measures. Choice D is incorrect because while the underlined sentence notes that there have been some recent exceptions to a general pattern observed in several research studies, it does not go on to attribute this exception to the researchers underestimating inconsistencies in the data. Rather, the text goes on to attribute this to a circumstance (fiscal austerity measures being implemented before an election rather than after) which adds a complicating factor into the data not accounted for in past studies.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6ae393f7",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Asteroid 6478 Gault has experienced intermittent mass loss since at least 2013, but in contrast to some other asteroids with repeated mass-loss episodes, 6478 Gault has not lost mass at its perihelion (the closest point of its orbit to the Sun), and thus the loss is not attributable to solar energy–driven ice vaporization. And as Jane X. Luu et al. point out, the singular nature of impact ejection makes it untenable as an account of multiple loss episodes of similar duration over several years. Instead, Luu et al. are likely correct that 6478 Gault is shedding mass due to rotational instability.",
+    "question": "Which choice best describes the overall structure of the text?",
+    "options": [
+      "A. It presents a scientific observation, describes a contrast between that observation and other observations, and then explains why those other observations should not be considered credible.",
+      "B. It describes an astronomical finding, discusses competing theories about that finding that the author regards as flawed, and then describes new evidence that supports an alternative theory.",
+      "C. It introduces a natural phenomenon, refutes two potential explanations for that phenomenon, and then presents a third explanation for that phenomenon that the author regards as plausible.",
+      "D. It discusses a physical process, evaluates possible causes of that process, and then states that a persuasive account of the process has yet to be put forward."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes the overall structure of the text. The text begins by introducing the natural phenomenon of intermittent mass loss with regard to Asteroid 6478 Gault and notes that it curiously has not lost mass at its perihelion like other asteroids typically do. The text then refutes \"solar energy–driven ice vaporization\" and \"the singular nature of impact ejection\" as two possible explanations for Asteroid 6478 Gault’s intermittent mass loss. Finally, the text presents Luu et al.’s explanation that \"6478 Gault is shedding mass due to rotational instability,\" which the author says is \"likely correct.\" Thus, the overall structure of the text is that it introduces a natural phenomenon, refutes two potential explanations for that phenomenon, and then presents a third explanation for that phenomenon that the author regards as plausible. Choice A is incorrect because the text doesn’t distinguish between multiple observations. It focuses on the single observation that Asteroid 6478 Gault is losing mass and evaluates multiple explanations for the phenomenon. The text also asserts that Luu et al.’s explanation is credible and \"likely correct.\" Choice B is incorrect because the text describes a natural phenomenon, not a specific astronomical finding. In addition, although the text does note flawed reasons for Asteroid 6478 Gault’s intermittent mass loss, it doesn’t mention that Asteroid 6478 Gault’s intermittent mass loss is based on new evidence. Choice D is incorrect. Although the text does evaluate explanations for the cause of Asteroid 6478 Gault’s intermittent mass loss, the text also asserts that Luu et al.’s explanation that they have put forth is persuasive and \"likely correct.\"",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9ff88d6b",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The work of Tobias Gerstenberg et al. on tracking eye movements supports a theory that people envision ______ scenarios when making causal judgments: when subjects were asked to look at two colliding billiard balls and judge whether one caused or prevented the other’s movement through a gate, their eyes looked at where the target ball would have gone if the ball that altered its path did not exist.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. ambivalent",
+      "B. retrospective",
+      "C. counterfactual",
+      "D. analogical"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of what people envision when making causal judgments, or judgments of cause and effect. In this context, “counterfactual”means contrary to fact. The text explains that in an experiment in which subjects judged whether one billiard ball caused or prevented another billiard ball’s movement through a gate, researchers found that the subjects looked at where the target ball would have gone if the other ball hadn’t been there at all—that is, the subjects pictured the path the target ball would have taken in a scenario contrary to the one they actually saw. This would be an example of people envisioning counterfactual scenarios when considering causes and effects. Choice A is incorrect because it wouldn’t make sense to describe scenarios people envision when making judgments of cause and effect as “ambivalent,”or characterized by conflicting feelings. People might have conflicting feelings in response to a scenario, but a scenario itself can’t have feelings. Choice B is incorrect. In this context, “retrospective”would mean looking back at something that occurred in the past. The text indicates that when asked to make a judgment about the movement of the target billiard ball, subjects envisioned what would have happened if only one ball had been present—that is, the text indicates that they envisioned a scenario that hadn’t actually happened, not that they examined only what had already actually happened. Choice D is incorrect. The text indicates that in an experiment involving the interaction of two billiard balls, eye movements showed that subjects pictured the path one ball would have taken if the other hadn’t been present. Because the subjects were picturing a scenario in the same context (the movement of the target billiard ball), just with a different arrangement of details (only one ball present), this wouldn’t be an example of people envisioning “analogical”scenarios, or hypothetical scenarios that are comparable to the scenario in question despite having different contexts.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "79fe7550",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Researcher Haesung Jung led a 2020 study showing that individual acts of kindness can ______ prosocial behavior across a larger group. Jung and her team found that bystanders who witness a helpful act become more likely to offer help to someone else, and in doing so, can inspire still others to act.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. require",
+      "B. remember",
+      "C. foster",
+      "D. discourage"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Jung and her team’s study of acts of kindness. In this context, “foster” means encourage or promote the development of. The text indicates that Jung and her team found that seeing a helpful (or prosocial) act makes a bystander more likely to help someone else, which can in turn inspire additional people to help others. That is, the team showed that single acts of kindness can foster additional prosocial acts across a group. Choice A is incorrect because nothing in the text suggests that Jung and her team found that single acts of kindness “require,” or depend on or make obligatory, broader prosocial (or helpful) behavior across a group. There’s no suggestion in the text that individual acts of kindness can only occur if other prosocial acts have already occurred, and the text indicates only that an act of kindness can inspire additional helpful acts, not that it necessarily will do so. Choice B is incorrect because the text focuses on a possible direct effect of individual acts of kindness, or single helpful actions, and it wouldn’t make sense to suggest that actions can “remember,” or hold a memory of, something. Choice D is incorrect because the text doesn’t indicate that Jung and her team found that single acts of kindness can “discourage,” or hinder, prosocial (or helpful) behavior across a group. On the contrary, the text states that Jung and her team found that seeing a helpful act makes a bystander more likely to help someone else, which can in turn inspire even more people to help others.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0a04cac5",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The following text is adapted from Jane Austen’s 1814 novel Mansfield Park. The speaker, Tom, is considering staging a play at home with a group of his friends and family.\n\nWe mean nothing but a little amusement among ourselves, just to vary the scene, and exercise our powers in something new. We want no audience, no publicity. We may be trusted, I think, in choosing some play most perfectly unexceptionable; and I can conceive no greater harm or danger to any of us in conversing in the elegant written language of some respectable author than in chattering in words of our own.",
+    "question": "Which choice best states the main purpose of the text?",
+    "options": [
+      "A. To offer Tom’s assurance that the play will be inoffensive and involve only a small number of people",
+      "B. To clarify that the play will not be performed in the manner Tom had originally intended",
+      "C. To elaborate on the idea that the people around Tom lack the skills to successfully stage a play",
+      "D. To assert that Tom believes the group performing the play will be able to successfully promote it"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately portrays the main purpose of the text. At the beginning of the text, Tom asserts that he and the other people staging the play are doing so only for “a little amusement among ourselves” and aren’t interested in attracting an audience or any attention with the production. Then, Tom promises that the play they chose is modest and appropriate, and he further reasons that using the well-written prose of “some respectable author” is better than using their own words. Overall, the main purpose of the text is to convey Tom’s promise that the play will be inoffensive and involve only a few people. Choice B is incorrect because the text doesn’t indicate that Tom had earlier intentions for the play’s performance or that anything has changed since the group first decided to stage a play. Instead, the text focuses on how harmless the entire endeavor will be. Choice C is incorrect. Although Tom mentions that using the words of a “respectable author” will be better than using their own words, he never addresses the idea that the people around him generally aren’t skilled enough to stage a play. Choice D is incorrect because in the text Tom specifically says that they “want no audience, no publicity,” which indicates that they don’t plan on promoting the play at all.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "1f2d6173",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Scholarly accounts of the Chicano movement—a movement that advocated for the social, political, and cultural empowerment of Mexican Americans and reached its zenith in the 1960s and <u>1970s—tend to focus on the most militant, outspoken figures in the movement,</u> making it seem uniformly radical. Geographer Juan Herrera has shown, however, that if we shift our focus toward the way the movement manifested in comparatively low-profile neighborhood institutions and projects, we see participants espousing an array of political orientations and approaches to community activism.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It presents a trend in scholarship on the Chicano movement that the text claims has been reevaluated by researchers in light of Herrera’s work on the movement’s participants.",
+      "B. It identifies an aspect of the Chicano movement that the text implies was overemphasized by scholars due to their own political orientations.",
+      "C. It describes a common approach to studying the Chicano movement that, according to the text, obscures the ideological diversity of the movement’s participants.",
+      "D. It summarizes the conventional method for analyzing the Chicano movement, which the text suggests creates a misleading impression of the effectiveness of neighborhood institutions and projects."
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The text begins by mentioning scholarly accounts of the Chicano movement, which the underlined portion describes as tending \"to focus on the most militant, outspoken figures in the movement,\" making the movement as a whole seem uniformly radical. The text then indicates that the work of geographer Juan Herrera shows that focusing less on such militant figures and instead paying more attention to manifestations of the Chicano movement in less widely known neighborhood institutions and projects would reveal that the movement’s participants embraced a range of political orientations and approaches. Thus, the underlined portion describes a common approach to studying the Chicano movement that, according to the text, obscures the ideological diversity of the movement’s participants. Choice A is incorrect. Though the underlined portion does present a trend in scholarship on the Chicano movement, the text does not indicate that other scholars have reevaluated their methods in light of Herrera’s work. It only indicates that Herrera’s work suggests that the work of those other scholars does not provide a complete picture of the Chicano movement. Choice B is incorrect. Though the underlined portion does identify an aspect of the Chicano movement that the text indicates has been overemphasized, the text does not discuss the political orientations of the scholars whose work is mentioned in the text. Choice D is incorrect. Though the underlined portion does summarize the conventional method for analyzing the Chicano movement, the rest of the text does not address the effectiveness of \"comparatively low-profile neighborhood institutions and projects.\" Instead, the text suggests that those projects were led by people with a variety of approaches to community activism.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "de059199",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Typically, synthetic leather is petroleum based, but materials scientists searching for an ecologically sustainable alternative have used various bacteria that secrete linear chains of glucose, forming a dense mesh of cellulose called a pellicle, which is leatherlike except in color. The standard process for dyeing leather generates substantial wastewater and other undesirable byproducts, so <u>adopting such a regimen would run counter to the ecological promise of the pellicle approach.</u> To address this, Kenneth T. Walker and colleagues worked to modify Komagataeibacter rhaeticus bacteria to produce a pellicle with embedded pigmentation cells, thereby allowing the pellicle to “dye”itself from the inside.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. To concede that the researchers’main goal as described in the text will be challenging to achieve due to the standard coloring approach being impractical for use on a pellicle",
+      "B. To indicate the characteristic of conventional synthetic leathers that makes those leathers poorly suited to achieve the researchers’main goal as presented in the text",
+      "C. To describe a consideration that led the researchers to employ an alternative approach to coloring a pellicle that allowed them to achieve their main goal as presented in the text",
+      "D. To illustrate how the researchers adapted the pellicle approach to overcome a potential impediment to their main goal as presented in the text"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it best describes the function of the underlined portion in the text as a whole. The text establishes that scientists developed a pellicle (a dense cellulose mesh) as an ecologically sustainable alternative to petroleum-based synthetic leather, noting that the pellicle is leatherlike except in color. The text then notes that the standard dyeing process for leather generates wastewater and other byproducts, and the underlined portion states that using such a process would be inconsistent with the ecological promise of the pellicle approach. The sentence that follows the underlined portion describes how Walker and colleagues addressed this problem by modifying bacteria to produce a pellicle with embedded pigmentation. Thus, the underlined portion describes a consideration—the incompatibility of standard dyeing methods with ecological aims—that led the researchers to employ an alternative coloring approach consistent with their goal of ecological sustainability. Choice A is incorrect because the text presents the underlined portion not as a concession that the researchers’main goal, developing an ecologically sustainable alternative to synthetic leather, will be difficult to achieve, but as a reason why adopting a particular method of dyeing would be inconsistent with that goal. Choice B is incorrect because the underlined portion addresses a problem with the standard process for dyeing leather, not a characteristic of conventional synthetic leathers themselves. The issue identified in the underlined portion concerns the environmental impact of the standard method used to dye leather, not the petroleum-based nature of conventional synthetics. Choice D is incorrect because the underlined portion identifies the problem that motivated the researchers’search for an alternative method of coloring the pellicle, not the method of coloring itself. The method of modifying bacteria to embed pigmentation is described in the sentence that follows the underlined portion.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "7afb470b",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Diadromous fish migrate between freshwater and marine biomes during their life cycle. The migration’s obligate nature is why diadromous fish can be ______ those that are merely euryhaline (able to tolerate high salinity): the euryhaline blackchin tilapia can survive high salinity, but its life cycle does not involve relocation to a different biome, as does that of the diadromous wild salmon.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. demarcated from",
+      "B. reconstituted as",
+      "C. conflated with",
+      "D. derived from"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of diadromous fish. In this context, \"demarcated from\" means separate or set apart from. The text indicates that diadromous fish differ from euryhaline fish in that diadromous fish \"migrate between freshwater and marine biomes during their life,\" whereas euryhaline fish do not relocate to a different biome because they can tolerate higher salinity environments. Therefore, this context suggests that because of differences between their migration patterns, diadromous fish are distinct and can be demarcated from euryhaline fish. Choice B is incorrect. Although the text states that diadromous fish migrate and relocate, the text does not suggest that diadromous fish would be \"reconstituted as,\" or formed again as, anything new. Only their environments change and not the fish themselves. Choice C is incorrect because the text does not suggest that diadromous fish can be \"conflated with,\" or combined with, euryhaline fish. Instead, the text distinguishes the two types of fish by pointing out their differences with regard to migration and tolerance for salinity. Choice D is incorrect because the text indicates that based on migration habits and tolerance for salinity, diadromous fish are different from euryhaline fish; so it would not make logical sense to say that diadromous fish would be \"derived from,\" or be an extension of or result from, euryhaline fish.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "93ce86d0",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Curious about how people visually perceive objects in their dreams, Stephen LaBerge and team recruited lucid dreamers—people aware that they’re dreaming as it’s happening—for a research study. These participants were reliably able to signal when they had entered a dream state; the team then observed participants’eye movements as they slept. <u>The smoothness with which participants’eyes tracked objects in their dreams closely matched how sighted people who are awake visually track objects around them,</u> suggesting to the team that the brain perceives dream objects as the product of something other than pure imagination.",
+    "question": "Which choice best states the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. To offer key evidence that undermines LaBerge and team’s initial hypothesis",
+      "B. To show the unexpected result that led LaBerge and team to change the focus of their study",
+      "C. To illustrate an important real-world implication of LaBerge and team’s main finding",
+      "D. To identify a comparable circumstance that helps justify LaBerge and team’s conclusion"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The text first establishes that in order to investigate visual perception of objects in dreams, LaBerge and team observed the eye movements of lucid dreamers (people who are aware of their dreaming as it occurs) when these participants signaled that they were in a dream state. The underlined portion then describes a finding that rests on a comparison: the way participants’eyes tracked objects in dream states was very similar to how sighted people track real objects when awake. Finally, the text states that the team concluded from this finding that objects in dreams are perceived as more than just products of imagination—implying that the team thinks the eye movements are an indication that the brain treats dream objects as more real than imaginary. Thus, the function of the underlined portion is to identify a circumstance that is comparable to one in the study and that helps justify LaBerge and team’s conclusion, presenting the close similarity of visual tracking in wakeful and dreaming scenarios as support for the implicit idea that the brain perceives dream objects not as imaginary but as somewhat or fully real objects. Choice A is incorrect because the text never presents LaBerge and team’s initial hypothesis, only what question they were interested in studying and what they found. So although the underlined portion does present evidence, that evidence doesn’t serve to undermine any hypothesis in the text. Choice B is incorrect because the text gives no indication that LaBerge and team changed the focus of their study at any point or that the finding described in the underlined portion (or any other finding) was unexpected or surprising. Choice C is incorrect. Rather than illustrating an implication of the main finding by LaBerge and team, the underlined portion only presents the finding itself, stating that the team found that the movements of lucid dreamers’eyes while dreaming were very similar to those of sighted people visually tracking objects while awake. The next part of the text indicates what the finding implied to the team but still doesn’t offer a real-world example as illustration.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3021d9ef",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "In a 2020 paper, Arya Udry et al. cautioned that although similarities in the isotopic signatures of elements detected in Mars’s atmosphere and in Martian meteorites recovered on Earth make it tempting to treat the geochemical properties of the meteorites as ______ those of Mars’s interiors, Mars’s geology cannot be ascertained based solely on meteorite-sample analyses.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. contrivances of",
+      "B. proxies for",
+      "C. catalysts of",
+      "D. deterrents to"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the relationship between Martian meteorites and Mars’s interior geology. In this context, “proxies for” means substitutes used to represent something else. The text describes Udry and colleagues as cautioning against a tempting line of reasoning: because the isotopic signatures (chemical fingerprints) of elements in Mars’s atmosphere resemble those in Martian meteorites recovered on Earth, researchers might be inclined to treat the meteorites’ geochemical properties as reasonably standing in for those of Mars’s interiors. The text indicates that Udry and colleagues argue against this reasoning, noting that Mars’s geology cannot be determined solely from meteorite analysis. This context conveys that it is tempting to treat the meteorites’ properties as proxies for those of Mars’s interiors. Choice A is incorrect because “contrivances of” would mean things artificially devised or produced by something, and it wouldn’t make sense to say that it’s tempting to treat the geochemical properties of meteorites as having been artificially produced by the planet the meteorites came from; it’s not clear how a planet could fabricate such properties. Further, the text is focused on the idea that it’s tempting to treat the meteorites’ properties as standing in for those of Mars’s interiors, which likely wouldn’t be the case if the meteorite’s properties were considered artificial in any way. Choice C is incorrect because “catalysts of” something are things that trigger or accelerate its change or action. The text focuses on the idea of analyzing samples of Martian meteorites found on Earth to determine Mars’s geology; this suggests that the temptation is to view the geochemical properties of the meteorites as direct evidence of those of Mars’s interior, not to treat them as though they had caused changes in Mars’s interior geology. Choice D is incorrect because “deterrents to” something would mean things that discourage or prevent it, and it wouldn’t make sense to say that it’s tempting to treat the geochemical properties of Martian meteorites as preventing the geochemical properties of Mars’s interiors; the meteorites came from Mars and are no longer there, so their properties can’t have any effect on those of the planet.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a1d2c4d0",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "Pteropods are small swimming snails with thin, delicate calcium carbonate shells. These animals are thought to be especially vulnerable to ocean acidification due to calcium carbonate’s susceptibility to dissolution at lower pH values. Victoria L. Peck and colleagues recently found that the periostracum (a protective coating on pteropods’ outer shells) prevents this dissolution when intact. Moreover, the team was surprised to discover that even when the periostracum is breached, pteropods can still mitigate damage by rebuilding the inner shell wall.",
+    "question": "Which choice best describes the main purpose of the text?",
+    "options": [
+      "A. To call for additional research on biological mechanisms that improve pteropod survival rates",
+      "B. To discuss a conclusion drawn in a study of calcium carbonate’s role in protecting the periostracum of pteropods",
+      "C. To address some of the ways ocean acidification has altered pteropod behavior over time",
+      "D. To present findings that suggest that a concern about the effects of ocean acidification on pteropod shells may be unwarranted"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most accurately describes the main purpose of the text, which is to present findings that suggest a previously held concern about the effects of ocean acidification on pteropod shells may be unwarranted. The text introduces the concern that pteropods are thought to be particularly vulnerable to ocean acidification, or lower pH levels, due to the susceptibility of their calcium carbonate shells to dissolution at lower pH levels. However, the text then describes findings from a recent study that suggest this concern may be unjustified, insofar as the protective periostracum coating on a pteropod’s shell prevents dissolution, and even when the coating is breached, a pteropod can rebuild the inner shell wall, reducing the damage. Choice A is incorrect because the text doesn’t call for additional research or suggest that more research is needed on biological mechanisms that improve pteropod survival rates. Instead, the text discusses a recent study showing that pteropods may not be as vulnerable to ocean acidification as is feared. Choice B is incorrect because the study discussed in the text doesn’t address calcium carbonate’s role in protecting the periostracum of pteropods. According to the text, the study addresses the periostracum’s role in protecting pteropods’ calcium carbonate shells from dissolution due to ocean acidification. Choice C is incorrect because the text doesn’t address how ocean acidification has altered pteropod behavior over time. Instead, the text focuses on the potential effects of ocean acidification on pteropods’ shells and the mechanisms protecting against those effects.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "c885c38b",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nConventional wisdom long held that human social systems evolved in stages, beginning with hunter-gatherers forming small bands of members with roughly equal status. The shift to agriculture about 12,000 years ago sparked population growth that led to the emergence of groups with hierarchical structures: associations of clans first, then chiefdoms, and finally, bureaucratic states.\n\nText 2\n\nIn a 2021 book, anthropologist David Graeber and archaeologist David Wengrow maintain that humans have always been socially flexible, alternately forming systems based on hierarchy and collective ones with decentralized leadership. The authors point to evidence that as far back as 50,000 years ago some hunter-gatherers adjusted their social structures seasonally, at times dispersing in small groups but also assembling into communities that included esteemed individuals.",
+    "question": "Based on the texts, how would Graeber and Wengrow (Text 2) most likely respond to the “conventional wisdom” presented in Text 1?",
+    "options": [
+      "A. By conceding the importance of hierarchical systems but asserting the greater significance of decentralized collective societies",
+      "B. By disputing the idea that developments in social structures have followed a linear progression through distinct stages",
+      "C. By acknowledging that hierarchical roles likely weren’t a part of social systems before the rise of agriculture",
+      "D. By challenging the assumption that groupings of hunter-gatherers were among the earliest forms of social structure"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it describes the most likely way that Graeber and Wengrow (Text 2) would respond to the “conventional wisdom” presented in Text 1. According to Text 1, the conventional wisdom about human social systems is that they developed through stages, beginning with hunter-gatherer bands, then moving to clan associations, then chiefdoms, and finally arriving at states with bureaucratic structures. Text 2 indicates that Graeber and Wengrow believe that human social systems have been flexible, shifting between different types of structures, including both hierarchical and collective systems, and that these shifts may have even occurred seasonally. This suggests that Graeber and Wengrow would dispute the idea that developments in social structures have followed a linear progression through distinct stages. Choice A is incorrect because nothing in Text 2 suggests that Graeber and Wengrow believe that decentralized collective societies are more significant than hierarchical systems. Text 2 is focused on Graeber and Wengrow’s view that humans have flexibly shifted among various social structures, not on the importance of particular structures relative to others. Choice C is incorrect because Text 2 doesn’t include any information suggesting that Graeber and Wengrow believe that hierarchies didn’t emerge until after the rise of agriculture. In fact, Text 2 indicates that Graeber and Wengrow cite evidence suggesting that some hunter-gatherer groups formed social structures with hierarchical elements (“communities that included esteemed individuals”) 50,000 years ago, long before the rise of agriculture, which Text 1 says occurred around 12,000 years ago. Choice D is incorrect because there’s no information in Text 2 suggesting that Graeber and Wengrow would challenge the assumption that groupings of hunter-gatherers were among the earliest forms of social structure. Although Text 1 does indicate that hunter- gatherer groups are assumed to be the earliest human social system, Text 2 says only that Graeber and Wengrow believe that some hunter- gatherer groups made use of different social structures at different times. Text 2 doesn’t imply that Graeber and Wengrow doubt that hunter- gatherer groups preceded most other social structures.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "d7807ec8",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Political blogs with conspicuous ideological alignments became an integral component of US media in the early 2000s. While some commentators lauded this development, asserting that such blogs had a welcome transparency missing from traditional news, less ______ observers countered that such blogs tended to ideological extremes that exacerbated political polarization to problematic levels.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. sanguine",
+      "B. recalcitrant",
+      "C. misanthropic",
+      "D. earnest"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of political blogs. In this context, \"sanguine\" means optimistic. The text begins by noting the rise of political blogs with readily identifiable ideological alignments in the early 2000s. The text then indicates that some commentators saw this as a positive development, citing a reason why (their difference from traditional news). Finally, the text goes on to contrast those commentators with others who have a negative opinion of the rise of political blogs (because they increase political polarization among their readers). This context supports the idea that the second group of commentators is less positive than the first: thus, the second group of commentators is less optimistic, or sanguine. Choice B is incorrect because it would not make sense in this context to describe those commentators who have a negative opinion of political blogs as less \"recalcitrant,\" or obstinately uncooperative, than those commentators who supported political blogs. Choice C is incorrect because the text gives no indication that those commentators who have a negative opinion of political blogs are less \"misanthropic,\" or less contemptuous of humankind, than those commentators who have a positive opinion of political blogs—there is no indication in the text that those commentators who like political blogs would be contemptuous of humankind at all. Choice D is incorrect because there is no evidence that those commentators who have a negative opinion of political blogs are less \"earnest,\" or sincere, than those who have a positive opinion of such blogs—presumably, both groups of commentators hold their beliefs with equal conviction.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "dd19befa",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The familial structure of the black swan (Cygnus atratus) shows tremendous ______: breeding pairs with demonstrated success in rearing cygnets (young swans) have been observed to foster those of less successful pairs, and while rearing by female-male pairs is most common, male-male pairs sometimes rear cygnets too, achieving a significantly higher rate of survival to adulthood than female-male pairs.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. cohesion",
+      "B. elasticity",
+      "C. affection",
+      "D. reciprocity"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of black swan familial structures. In this context, “elasticity”means flexibility or adaptability. The text provides examples of flexible family arrangements among black swans: successful male- female breeding pairs are known to foster other pairs’cygnets, and while they are less common, male-male pairs also successfully rear cygnets. This context therefore emphasizes the flexibility or elasticity of black swan familial structures, showing how this trait contributes to the success of the species. Choice A is incorrect. Although close family units may show “cohesion,”which refers to unity or harmony within a group, the text’s focus is on the variety and adaptability of black swan family structures. The examples given—fostering other pairs’cygnets and forming male-male as well as female-male pairs—highlight flexibility rather than cohesion, emphasizing family structures that vary from the model in which a breeding pair raises its own young. Choice C is incorrect. While “affection,”or fondness, might be present in black swan relationships, the text doesn’t focus on emotional bonds but rather on the structural flexibility of black swan familial arrangements. The examples provided demonstrate adaptable breeding and rearing practices rather than affectionate behaviors. Choice D is incorrect because “reciprocity”would suggest mutual exchange or cooperation between parties. Although the text mentions the fostering of cygnets by different successful breeding pairs, it doesn’t establish that this is based on reciprocal exchanges. The focus is instead on the flexibility of family structures and the effectiveness of these varied structures in rearing young.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "3cfbf077",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nHycean planets are a class of exoplanets (planets outside our solar system) with oceans of liquid water—critical to supporting life—and atmospheres rich in hydrogen. Computer models have determined that for potential hycean planets, the range of the habitable zone (HZ), the distance from a star that allows a planet to retain liquid water on its surface, begins at about 1 astronomical unit (AU). In 2021, Nikku Madhusudhan et al. identified K2-18 b as a hycean candidate, noting that the planet is located right on the inner edge of the HZ.\n\nText 2\n\nIn a 2023 paper, Shang-Min Tsai et al. claimed that the hydrogen-rich atmospheres of K2-18 b and other hycean candidates admit wavelengths of light that cause elevated surface temperatures and increased water evaporation. Unlike earlier assessments, Tsai et al.’s calculations therefore placed the inner edge for these planets’HZ as far out as 3.85 AU.",
+    "question": "Based on the texts, how would Tsai et al. (Text 2) most likely respond to Madhusudhan et al.’s research, as presented in Text 1?",
+    "options": [
+      "A. By stating that the chemical composition of the atmosphere of the hycean candidate Madhusudhan et al. identified suggests that this planet’s surface is unlikely to harbor liquid water",
+      "B. By maintaining that Madhusudhan et al. relied on a model whose estimates of surface temperatures on hycean candidates are likely too high",
+      "C. By observing that unlike the hycean candidate Madhusudhan et al. discovered, most other types of planets with hydrogen-rich atmospheres are likely located within the HZ",
+      "D. By arguing that K2-18 b and other hycean candidates are unlikely to support life because these planets are located too far from the stars they orbit"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it reflects how Tsai et al. would most likely respond to Madhusudhan et al.’s identification of K2-18 b as a hycean candidate. Text 1 establishes that the habitable zone (HZ) for potential hycean planets, which are typified by abundant liquid water and hydrogen-rich atmospheres, represents “the distance from a star that allows a planet to retain liquid water on its surface”and is estimated to begin at about 1 astronomical unit (AU). Based on this characterization of the HZ, Madhusudhan et al. identified K2-18 b as a hycean candidate whose location falls on the “inner edge”of the HZ—implying that its distance from its star is about 1 AU. However, Text 2 presents Tsai et al.’s claim that the same hydrogen-rich atmospheres that typify K2-18 b and other hycean candidates “admit wavelengths of light that cause elevated surface temperatures and increased water evaporation,”phenomena that would be exacerbated by proximity to their host stars. Tsai et al. instead placed the inner edge of the HZ “as far out as 3.85 AU,”implying that hycean candidates at lesser distances from their stars would be unlikely to maintain liquid oceans because of elevated surface temperatures and subsequent water evaporation. According to Tsai et al.’s HZ estimate, K2-18 b—at roughly 1 AU—would be too close to its star to retain liquid water. Therefore, based on the details in the texts, Tsai et al. would most likely respond that the very atmospheric composition that defines K2-18 b as a hycean candidate suggests that it is unlikely to harbor liquid water on its surface. Choice B is incorrect. In contrast to the suggestion that Madhusudhan et al.’s estimates of the surface temperature of hycean candidates are “likely too high,”Tsai et al.’s findings suggest the opposite: earlier assessments of the HZ didn’t fully account for the warming effect of wavelengths of light admitted by these planets’hydrogen-rich atmospheres, which is why Tsai et al. placed the edge of the HZ farther out. The information in Text 2 therefore suggests that Tsai et al. would view Madhusudhan et al.’s temperature estimates as too low rather than as too high. Choice C is incorrect because neither text discusses other types of planets with hydrogen-rich atmospheres or compares them to hycean candidates. It therefore doesn’t follow from the information in the texts that Tsai et al. would observe that most other hydrogen-rich planets are likely within the HZ. Text 2 only indicates that the HZ for hycean candidates begins at about 3.85 AU and that K2-18 b therefore isn’t likely to be within the HZ, not that other planets with hydrogen-rich atmospheres are mostly located within the HZ. Choice D is incorrect because it mischaracterizes Tsai et al.’s findings. Rather than indicating that K2-18 b and other hycean candidates are “too far from the stars they orbit,”Tsai et al.’s findings suggest the opposite problem. Because these planets’hydrogen-rich atmospheres admit wavelengths of light that cause elevated temperatures and water evaporation at distances of less than 3.85 AU, Tsai et al. would be more likely to argue that K2-18 b (at a distance of about 1 AU) and planets like it are too close to their stars, not too far from them. Moreover, Text 2 doesn’t suggest anything about hycean candidates more generally being unable to support life, only that hycean candidates at distances less than 3.85 AU from their stars, like K2-18 b, likely don’t have the liquid water needed to sustain life. Presumably, hycean candidates that are within the HZ described by Tsai et al. could harbor liquid oceans necessary for supporting life.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "cce2f8dc",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "In 2023 literary scholar Jeremy Douglass cautioned technology investors and enthusiasts who predict conventional books’ ultimate displacement by newer forms of media. Douglass observed that <u>the concept of an “interactive” text is much older than technologists assume, extending back to the first time readers scratched notes into a text’s margins.</u> In addition, newer media, such as video games, haven’t replaced older forms of entertainment, such as comic books, but rather exist alongside them. Douglass believes that rather than supplanting books, technology is simply making new forms of expression possible.",
+    "question": "Which choice best describes the function of the underlined portion in the text as a whole?",
+    "options": [
+      "A. It challenges the stance of the investors and enthusiasts who are mentioned earlier in the text.",
+      "B. It explains the basis for the claim made by the technologists mentioned in the text.",
+      "C. It suggests that academics are better suited than investors to see the potential uses of contemporary interactive texts.",
+      "D. It provides a historical anecdote about the technological challenges involved in reading the earliest interactive texts."
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most accurately describes how the underlined portion functions in the text as a whole. The first sentence of the text introduces literary scholar Jeremy Douglass’s warning to technology investors and enthusiasts against predicting the displacement of conventional books by newer media forms. The next sentence, which is underlined in part, presents Douglass’s observation that interactive texts are hardly new; they have been available for longer than technologists assume, beginning with the first time readers wrote notes in texts’ margins. Thus, the function of the underlined portion is to challenge the stance of the technology investors and enthusiasts mentioned earlier in the text. As the remainder of the text points out, newer media doesn’t necessarily replace older media, but rather, as Douglass believes, leads to new forms of expression. Choice B is incorrect because the underlined portion challenges the position taken by investors and enthusiasts; it doesn’t provide context for their claims. Choice C is incorrect because the underlined portion doesn’t mention academics or compare them to investors regarding their ability to see potential in using contemporary interactive texts; instead, the underlined portion challenges the position of investors and enthusiasts who predict that conventional books will be replaced by newer forms of media. Choice D is incorrect because the underlined portion doesn’t address technological challenges; instead, it disputes the stance taken by investors and enthusiasts, suggesting that conventional books haven’t been displaced by traditional interactions with texts, such as writing in the margins, and won’t be supplanted by newer forms of media either.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6977d22b",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nEcologists have long wondered how thousands of microscopic phytoplankton species can live together near ocean surfaces competing for the same resources. According to conventional wisdom, one species should emerge after outcompeting the rest. So why do so many species remain? Ecologists’many efforts to explain this phenomenon still haven’t uncovered a satisfactory explanation.\n\nText 2\n\nEcologist Michael Behrenfeld and colleagues have connected phytoplankton’s diversity to their microscopic size. Because these organisms are so tiny, they are spaced relatively far apart from each other in ocean water and, moreover, experience that water as a relatively dense substance. This in turn makes it hard for them to move around and interact with one another. Therefore, says Behrenfeld’s team, direct competition among phytoplankton probably happens much less than previously thought.",
+    "question": "Based on the texts, how would Behrenfeld and colleagues (Text 2) most likely respond to the “conventional wisdom”discussed in Text 1?",
+    "options": [
+      "A. By arguing that it is based on a misconception about phytoplankton species competing with one another",
+      "B. By asserting that it fails to recognize that routine replenishment of ocean nutrients prevents competition between phytoplankton species",
+      "C. By suggesting that their own findings help clarify how phytoplankton species are able to compete with larger organisms",
+      "D. By recommending that more ecologists focus their research on how competition among phytoplankton species is increased with water density"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because based on Text 2, it represents how Behrenfeld and colleagues would most likely respond to the “conventional wisdom”discussed in Text 1. The conventional wisdom cited holds the opinion that when there is species diversity within a phytoplankton population, “one species should emerge after outcompeting the rest”—that is, after being so successful in competing for resources that the other species vanish from the population. However, Text 2 explains that according to Behrenfeld and colleagues, phytoplankton are so small and spaced so far apart in the water that there is “much less”direct competition for resources within phytoplankton populations than scientists had previously thought. Choice B is incorrect because Text 2 never discusses whether routine replenishment of ocean nutrients affects competition between phytoplankton species. Choice C is incorrect because the interspecies competition discussed in both texts is specifically between phytoplankton species, and neither text considers whether phytoplankton compete for resources with larger nonphytoplankton species. Choice D is incorrect because according to Text 2, Behrenfeld and colleagues argue that water density decreases, not increases, competition between phytoplankton species.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6bc0ba75",
+    "skill": "Text Structure and Purpose",
+    "difficulty": "Hard",
+    "passage": "The mimosa tree evolved in East Asia, where the beetle Bruchidius terrenus preys on its seeds. In 1785, mimosa trees were introduced to North America, far from any B. terrenus. But evolutionary links between predators and their prey can persist across centuries and continents. Around 2001, B. terrenus was introduced in southeastern North America near where botanist Shu-Mei Chang and colleagues had been monitoring mimosa trees. Within a year, 93 percent of the trees had been attacked by the beetles.",
+    "question": "Which choice best describes the function of the third sentence in the overall structure of the text?",
+    "options": [
+      "A. It states the hypothesis that Chang and colleagues had set out to investigate using mimosa trees and B. terrenus.",
+      "B. It presents a generalization that is exemplified by the discussion of the mimosa trees and B. terrenus.",
+      "C. It provides context that clarifies why the species mentioned spread to new locations.",
+      "D. It offers an alternative explanation for the findings of Chang and colleagues."
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most accurately describes the function of the third sentence within the overall structure of the text. The third sentence makes a generalization, asserting that evolutionary links between predators and prey can persist across great expanses of time and distance. This generalization is exemplified by the text’s discussion of the relationship between mimosa trees and B. terrenus beetles. When mimosa trees were introduced to North America in 1785, no B. terrenus beetles were present, so the relationship between the trees and the beetles that exists in their native East Asia was disrupted. When the beetles were introduced to North America more than 200 years later, however, they quickly attacked mimosa trees, illustrating the generalization that links between predators and prey \"can persist across centuries and continents.\" Choice A is incorrect because the third sentence doesn’t indicate that Chang and colleagues were investigating any hypothesis. According to the text, Chang and colleagues were simply monitoring mimosa trees when the beetles happened to be introduced to the area. Choice C is incorrect because the third sentence doesn’t discuss any particular species, let alone the species mentioned elsewhere in the text, nor does the sentence explain why species spread to new locations. Choice D is incorrect because the third sentence offers a generalization about the relationship between predators and prey, not an explanation for the findings by Chang and colleagues that’s an \"alternative\" to an explanation presented elsewhere in the text.",
+    "strategy": "Structure Analysis",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "4ce8e2fa",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Players of online games are largely aware that the games collect their data, and they’re often willing to trade some privacy for a fun experience. But the games are often quite ______ about what data they collect and why. Because of this, data-privacy advocates are seeking to expand online players’ knowledge of data collection practices and improve their ability to navigate privacy-setting features in games.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. opaque",
+      "B. abrasive",
+      "C. ambivalent",
+      "D. outspoken"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of how online games disclose information about their data collection practices. In this context, “opaque” means that games deliberately avoid sharing clear information about data collection. The text indicates that data-privacy advocates are working to “expand online players’ knowledge of data collection practices” and improve players’ ability to navigate privacy settings. The fact that advocates are working to expand players’ knowledge about data collection and privacy settings implies that players currently lack clear information about these aspects of the games. This context therefore supports the idea that online games are often quite unclear, or opaque, about what data they collect and why. Choice B is incorrect because describing online games as being “abrasive,” or harsh and irritating, about their data collection practices wouldn’t make sense in context. The text focuses on the clarity of the information about data collection that games share with players, not on the tone or manner in which this information is communicated. Choice C is incorrect because describing the games as “ambivalent,” or having mixed feelings, about their data collection practices wouldn’t make sense in context. The text isn’t discussing the game companies’ attitudes toward their own practices; it’s discussing the extent to which information about those practices is communicated to players. Choice D is incorrect because describing online games as “outspoken,” or frank and forthright, about their data collection practices would contradict the text. If the games were forthright about data collection, data-privacy advocates wouldn’t need to work to expand players’ awareness of this aspect of gaming. Instead, the text emphasizes the challenge of obtaining clear information about data collection in online games.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "5444db38",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "To demonstrate that the integrity of underground metal pipes can be assessed without unearthing the pipes, engineer Aroba Saleem and colleagues ______ the tendency of some metals’ internal magnetic fields to alter under stress: the team showed that such alterations can be measured from a distance and can reveal concentrations of stress in the pipes.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. hypothesized",
+      "B. discounted",
+      "C. redefined",
+      "D. exploited"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of using magnetism to detect stress in buried metal pipes. In this context, \"exploited\" means made productive use of. The text indicates that the magnetic fields of some metals change under stress and that Saleem and colleagues showed that it is possible to measure those changes from a distance, thereby demonstrating that the integrity of underground metal pipes can be evaluated without having to unearth them. This context thus indicates that Saleem and colleagues made productive use of, or exploited, this tendency of the metals’ magnetic fields. Choice A is incorrect because in this context, \"hypothesized\" would mean made a tentative assumption to be evaluated in a study or experiment. Although Saleem and colleagues may have had one or more hypotheses for these experiments, the text presents the information about the tendency of some metals’ magnetic fields to change under stress as a known fact that the researchers made productive use of, not as a hypothesis to be evaluated. The text after the colon indicates that the researchers were not evaluating whether such changes occur but whether those changes can be measured at a distance. Choice B is incorrect because in this context, \"discounted\" would mean downplayed or ignored, but the text does not suggest that Saleem and colleagues minimized or ignored the tendency of the magnetic fields of some metals to change under stress. Rather, the text indicates that this tendency is the basis for Saleem and colleagues’ method of assessing the pipes’ integrity. Choice C is incorrect because nothing in the text indicates that Saleem and colleagues \"redefined,\" or reevaluated or reformulated, the tendency of some metals’ magnetic fields to change under stress. Instead, the text indicates that the researchers made use of that tendency to demonstrate that it is possible to evaluate the integrity of underground pipes without unearthing them.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "6017ae31",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "In 2016, Gabriela González and team announced that a chirping sound captured by Laser Interferometer Gravitational-Wave Observatory antennas was direct evidence of gravitational waves, which skeptics had argued would be too faint for detection. Detailed statistical analysis helped preclude claims of the event’s ______, confirming the signal at a confidence level of over 99%.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. inconspicuousness",
+      "B. discretion",
+      "C. ambiguity",
+      "D. probability"
+    ],
+    "answer": "C",
+    "explanation": "Choice C is the best answer because it most logically completes the text’s discussion of Gabriela González and team’s detection of gravitational waves. In this context, \"ambiguity\" means uncertainty or doubtfulness. The text explains that although skeptics had thought that direct evidence of gravitational waves would be too faint to be detected, researchers led by González claimed that a chirping sound captured by Laser Interferometer Gravitational-Wave Observatory antennas nevertheless provided such evidence. The text goes on to say that detailed statistical analysis confirmed the observation of gravitational waves with a high degree of confidence—that is, with near certainty—a finding that helped to preclude, or rule out, any claims that the signal’s attribution to gravitational waves might be ambiguous or doubtful. Choice A is incorrect. In this context, \"inconspicuousness\" would mean the quality of being unnoticeable or difficult to detect. Although the text indicates that skeptics had doubted whether gravitational waves could be observed directly because of their presumed faintness (which suggests that gravitational waves were expected to be difficult to detect), the blank portion of the text isn’t referring to the possibility that gravitational waves are unnoticeable or undetectable. Instead, the focus of the last sentence is González’s team’s observation of a chirping sound that they attributed to gravitational waves, and it wouldn’t make sense to say that through statistical analysis, they ruled out the possibility that the sound they observed was undetectable. Rather, the skeptical view presented in the text suggests that there could be some ambiguity about the source of the chirping, but statistical analysis virtually eliminated this uncertainty. Choice B is incorrect because in this context, \"discretion\" would mean good judgment, and it wouldn’t make sense to say that an event, such as the detection of gravitational waves, would show judgment, much less that the event’s capacity to exercise good judgment would be precluded by statistical analysis confirming its attribution. Choice D is incorrect because in this context, \"probability\" would mean likelihood, and the text states that statistical analysis, which confirmed the signal with a high degree of confidence, suggests the likelihood that the chirping sound was produced by gravitational waves, not that the analysis helped to preclude this likelihood.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "571cf537",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The author’s claim about the relationship between Neanderthals and Homo sapiens is ______, as it fails to account for several recent archaeological discoveries. To be convincing, his argument would need to address recent finds of additional hominid fossils, such as the latest Denisovan specimens and Homo longi.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. disorienting",
+      "B. tenuous",
+      "C. nuanced",
+      "D. unoriginal"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of the author’s claim about the relationship between Neanderthals and Homo sapiens. As used in this context, “tenuous”means lacking substance. The end of the first sentence states that the author’s claim didn’t consider certain key pieces of evidence—“recent archaeological discoveries”—and is therefore weak. Choice A is incorrect because it wouldn’t make sense in context to refer to the author’s claim as “disorienting,”or confusing. The text suggests that the author’s claim is insubstantial, not that it’s difficult to grasp. Choice C is incorrect because referring to the claim as “nuanced,”or subtle, wouldn’t make sense in context. According to the text, the claim is incomplete because it didn’t consider certain key information about recent archaeological finds; it doesn’t suggest that what’s in the claim lacks precision. Choice D is incorrect because saying that the claim is “unoriginal,”or imitative, wouldn’t make sense in context. The text faults the claim because it doesn’t consider certain key information about recent archaeological finds; it doesn’t suggest that the author’s claim lacks originality.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "dba9eaf8",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "Within baleen whale species, some individuals develop an accessory spleen—a seemingly functionless formation of splenetic tissue outside the normal spleen. Given the formation’s greater prevalence among whales known to make deeper dives, some researchers hypothesize that its role isn’t ______; rather, the accessory spleen may actively support diving mechanisms.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. replicable",
+      "B. predetermined",
+      "C. operative",
+      "D. latent"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of baleen whale accessory spleens. In this context, “latent” means dormant or functionless. The text sets up a contrast between the idea that baleen whale accessory spleens appear not to have a function and the research indicating that the accessory spleen may actually have a role in supporting the whales’diving mechanisms. This context therefore conveys the idea that the assumption that baleen whale accessory spleens are latent may be incorrect. Choice A is incorrect because it wouldn’t make sense to say that the role of the accessory spleen is “replicable,”or capable of being reproduced. The text indicates that the role of the accessory spleen seems to have no function, but some researchers think it does have a role; the text doesn’t address whether the role of the accessory spleen could or couldn’t be reproduced. Choice B is incorrect because suggesting that the role of the accessory spleen is “predetermined,”or decided in advance, wouldn’t make sense in context. Although the researchers may agree that the role of the accessory spleen or any other organ hasn’t been determined in advance, the text focuses on the idea that the accessory spleen was thought to have been functionless but may in fact serve an active role for baleen whales. Choice C is incorrect because it’s the opposite of what the context of the text is conveying. The second sentence of the text indicates that baleen whale accessory spleens may not be useless, not that they aren’t “operative,”or functional.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "a756aa95",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "The province of Xoconochco was situated on the Pacific coast, hundreds of kilometers southeast of Tenochtitlan, the capital of the Aztec Empire. Because Xoconochco’s location within the empire was so ______, cacao and other trade goods produced there could reach the capital only after a long overland journey.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. unobtrusive",
+      "B. concealed",
+      "C. approximate",
+      "D. peripheral"
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it most logically completes the text’s discussion of the location of the province of Xoconochco within the Aztec Empire. As used in this context, “peripheral” means situated toward the outer bounds rather than the center. The text indicates that Xoconochco was located on a coast, hundreds of kilometers away from the capital of the Aztec Empire. The text also states that trade between the province and the capital required “a long overland journey.” This context suggests that Xoconochco was situated toward an edge of the empire’s territory rather than near its center. Choice A is incorrect because it wouldn’t make sense in context to refer to Xoconochco’s location within the Aztec Empire as “unobtrusive,” or not blatant or undesirably prominent; it’s not clear how a province’s physical location would or wouldn’t be blatant. Instead of focusing on how noticeable Xoconochco’s location was, the text emphasizes the province’s distance from the capital of the empire, pointing out that because of this distance trade between the two required “a long overland journey.” Choice B is incorrect because the text indicates that the province of Xoconochco was located on a coast far from the capital of the Aztec Empire, not that it was “concealed,” or kept out of sight or hidden from view. Nothing in the text suggests that Xoconochco was actually hidden such that people couldn’t see it, and being hidden wouldn’t necessarily result in trade between the province and the capital requiring “a long overland journey.” Choice C is incorrect because to say that Xoconochco’s location within the Aztec Empire was “approximate” would mean that the location either wasn’t precisely correct or was close to some other location. Neither of these meanings would make sense in context because the text indicates that Xoconochco’s location is known and that it was far from the empire’s capital, so there’s no reason to characterize the location as either not precisely correct or close to another location.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "0ed8f24f",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "K.D. Leka and colleagues found that the Sun’s corona provides an advance indication of solar flares—intense eruptions of electromagnetic radiation that emanate from active regions in the Sun’s photosphere and can interfere with telecommunications on Earth. Preceding a flare, the corona temporarily exhibits increased brightness above the region where the flare is ______.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. antecedent",
+      "B. impending",
+      "C. innocuous",
+      "D. perpetual"
+    ],
+    "answer": "B",
+    "explanation": "Choice B is the best answer because it most logically completes the text’s discussion of advance indications of solar flares. In this context the word \"impending\" means imminent or approaching. The text mentions a study by Leka and colleagues that found that the Sun’s corona provides an advance indication of solar flares. The text then points out why such an advance indication would be useful—solar flares can interfere with communications on Earth—and concludes by describing the characteristic of the corona that gives warning of a solar flare. The text indicates that this characteristic—increased brightness in a particular region of the corona—comes before the appearance of the flare. Therefore, in context, the best answer would indicate that the flare is approaching, or impending. Choice A is incorrect. The best answer would be one that indicates that the increased brightness of the Sun’s corona precedes the appearance of the flare. But if the flare were \"antecedent,\" or previous, then the flare would instead precede the appearance of the increased brightness of the corona, a statement that is logically inconsistent. Choice C is incorrect. The word \"innocuous,\" or harmless, does not logically complete the text; since solar flares can interfere with communications on Earth, they cannot reasonably be described as innocuous. Choice D is incorrect. If the solar flares have an advance indication of their appearance, then there must therefore be a time before the appearance of the flares when they do not exist. But the word \"perpetual,\" or never-ending, would in context indicate that the flare exists at the same time as the advance indication provided by the Sun’s corona, which would not make logical sense.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "35e21b06",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1\n\nDominique Potvin and colleagues captured five Australian magpies (Gymnorhina tibicen) to test a new design for attaching tracking devices to birds. As the researchers fitted each magpie with a tracker attached by a small harness, they noticed some magpies without trackers pecking at another magpie’s tracker until it broke off. The researchers suggest that this behavior could be evidence of magpies attempting to help another magpie without benefiting themselves.\n\nText 2\n\nIt can be tempting to think that animals are deliberately providing help when we see them removing trackers and other equipment from one another, especially when a species is known to exhibit other cooperative behaviors. At the same time, it can be difficult to exclude the possibility that individuals are simply interested in the equipment because of its novelty, curiously pawing or pecking at it until it detaches.",
+    "question": "Based on the texts, how would the author of Text 2 most likely respond to the researchers’ perspective in Text 1 on the behavior of the magpies without trackers?",
+    "options": [
+      "A. That behavior might have been due to the novelty of the magpies’ captive setting rather than to the novelty of the tracker.",
+      "B. That behavior likely indicates that the magpies were deliberately attempting to benefit themselves by obtaining the tracker.",
+      "C. That behavior may not be evidence of selflessness in Gymnorhina tibicen because not all the captured magpies demonstrated it.",
+      "D. That behavior might be adequately explained without suggesting that the magpies were attempting to assist the other magpie."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it reflects how the author of Text 2 would most likely respond to the researchers’ perspective in Text 1 on the behavior of the magpies without trackers. According to Text 1, Dominique Potvin and colleagues observed magpies without trackers pecking at a tracker on another magpie until the device fell off. The researchers suggested that the birds might have been attempting to help the other bird, with no benefit to themselves. Text 2 generally discusses scenarios in which animals have been observed removing trackers from each other. The text cautions that it shouldn’t be assumed that these animals are helping one another deliberately, since they might simply be pecking at trackers out of curiosity, causing them to fall off eventually. Therefore, the author of Text 2 would most likely respond to Potvin and colleagues’ perspective in Text 1 by saying that the behavior of the magpies without trackers could be adequately explained without suggesting that they were attempting to assist the other magpie. Choice A is incorrect because Text 2 never discusses the novelty, or the newness and unusual quality, of the captive settings in which animals have been observed to remove trackers from other animals, nor does it suggest that such novelty might account for this behavior. Instead, the text suggests that it’s the novelty of the tracking equipment itself that might cause the behavior: interested in the trackers because they’re unusual, animals might paw or peck at them until they fall off. Choice B is incorrect because Text 2 never suggests that when animals remove trackers from other animals, they do so because they wish to obtain the trackers for themselves. Instead, Text 2 argues that animals paw or peck at trackers because they are merely curious about them. Choice C is incorrect because Text 2 doesn’t argue that when captured animals are observed removing trackers from each other, their behavior should be regarded as selfless only if all of them participate in it. Instead, the text argues that the behavior may not be selfless at all and may instead be attributed to animals’ curiosity about the new and unusual trackers.",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "b35e2fdc",
+    "skill": "Words in Context",
+    "difficulty": "Hard",
+    "passage": "A casual description of Scherezade García’s 2019 mural Blame It on the Bean: The Power of Coffee can make the work seem ______—a painting that is housed in a coffee shop and that depicts three women drinking coffee may not sound particularly ambitious—but in fact the work is a complex, dynamic meditation on gender and the legacy of colonialism that demands serious attention.",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "options": [
+      "A. unassuming",
+      "B. shrewd",
+      "C. incongruous",
+      "D. pretentious"
+    ],
+    "answer": "A",
+    "explanation": "Choice A is the best answer because it most logically completes the text’s discussion of Scherezade García’s mural Blame It on the Bean: The Power of Coffee. In this context, “unassuming”means ordinary or unremarkable. The text draws a contrast between a “casual description”of the mural’s ordinary location (a coffee shop) and subject matter (three women drinking coffee)—details that would make it seem relatively unambitious—and a characterization of the painting as a “dynamic meditation”on gender and colonialism deserving of “serious attention.”This context suggests that the mural has significant depth and complexity, but a superficial description of it might make the mural seem ordinary and unremarkable—that is, unassuming. Choice B is incorrect because in this context, “shrewd”would mean clever or astute, and there’s nothing in the text to suggest that a casual yet misleading description that only mentions the apparent simplicity of the mural’s location and subject matter would make the mural seem particularly clever or astute. Though it’s possible that the text’s assertion that the mural is a “complex, dynamic meditation”demanding “serious attention”might convey the idea that it’s a particularly clever or astute—that is, shrewd—artwork, the text wouldn’t suggest that a casual description that fails to account for the work’s complexity would likewise characterize the work as shrewd. Choice C is incorrect because in this context, “incongruous”would mean unsuitable for its surroundings or internally inconsistent. The “casual description”presented in the text indicates that the painting is housed in a coffee shop and depicts women drinking coffee, which would imply that the mural may in fact be well suited to its surroundings, not that it’s ill suited to its location. Moreover, none of the details mentioned in this description would suggest that the painting contains internal inconsistencies of any kind. Choice D is incorrect because in this context, “pretentious”would mean expressive of exaggerated importance, which wouldn’t fit the contrast established in the text between a “casual description”of the painting and the work’s deeper themes. Though the text argues that the painting is worthy of “serious attention,”which would suggest its importance, the text doesn’t suggest that the casual description would by contrast imply that the painting’s importance is exaggerated. Rather, by merely mentioning the mural’s relatively ordinary location and subject matter without reference to this complexity, the casual description conveys that the painting is more unassuming and understated than it actually is, not that it expresses an exaggerated self-importance.",
+    "strategy": "Context Clues",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
+    "psatDifficultyFrom": "mapped-from-sat"
+  },
+  {
+    "id": "9828ab3d",
+    "skill": "Cross-Text Connections",
+    "difficulty": "Hard",
+    "passage": "Text 1 is adapted from E.M. Forster’s 1910 novel Howards End. Text 2 discusses Howards End. King’s Cross and St. Pancras are adjacent railway terminals in London from which trains travel to the countryside.\n\nText 1\n\nTo Margaret the station of King’s Cross had always suggested Infinity. Its very situation—withdrawn a little behind the facile splendours of St. Pancras—implied a comment on the materialism of life. Those two great arches, colourless, indifferent, shouldering between them an unlovely clock, were fit portals for some eternal adventure, whose issue might be prosperous, but would certainly not be expressed in the ordinary language of prosperity.\n\nText 2\n\nThe interplay between opposing ideological positions in Howards End is broadly articulated in the novel’s organization of geographic space. On the one hand, the modern metropolis of London represents capitalism’s emphasis on pragmatism and the accumulation of material wealth; on the other, the English countryside, accessible via King’s Cross, fosters an idealism that values tradition, authentic personal connection, and the aesthetic—what the novel calls “the infinite.”",
+    "question": "Based on the texts, the author of Text 2 would most likely agree with which statement about King’s Cross, as it is depicted in Text 1?",
+    "options": [
+      "A. King’s Cross has a relatively unassuming appearance whose sharp contrast with the more aesthetically pleasing appearance of St. Pancras suggests to Margaret the ascendancy of the pragmatic capitalistic outlook among London’s inhabitants.",
+      "B. Because it is situated at the beginning of Margaret’s journey from the city to the country, King’s Cross emblematizes the intrusion of the forces of materialism and modernity into the rural spaces that the novel associates with idealism and tradition.",
+      "C. The austerity conveyed by King’s Cross’s appearance mirrors Margaret’s disillusionment with the prospect of having authentic connections with other people in a world that chiefly values more conventional forms of prosperity.",
+      "D. As a point of connection between London and the countryside, King’s Cross suggests to Margaret the possibility of experiencing the intangible abundance promised by the kinds of authentic engagements that the novel’s rural spaces seem to offer."
+    ],
+    "answer": "D",
+    "explanation": "Choice D is the best answer because it presents a statement about King’s Cross, as depicted in Text 1, that the author of Text 2 would most likely agree with. In Text 1, Margaret associates King’s Cross with “Infinity”and sees its arches as portals for an adventure whose value transcends London’s mundane materialism. The author of Text 2 provides an interpretation of the novel’s geography that is consistent with Margaret’s vision, explaining that London represents capitalist materialism while the countryside—“accessible via King’s Cross”—fosters idealism, authentic connection, and the aesthetic (“the infinite”). By characterizing King’s Cross as a “point of connection between London and the countryside”that offers access to the “intangible abundance”promised by “the novel’s rural spaces,”choice D provides a reading of the railway terminal that aligns with the interpretive framework set up by the author of Text 2. Choice A is incorrect because Margaret views King’s Cross positively—as evoking infinity and eternal adventure—not as a sign of capitalism’s dominance. Text 1 characterizes St. Pancras’s splendors as “facile,”or superficial, so that the contrast elevates King’s Cross rather than signaling materialism’s ascendancy. Choice B is incorrect because the author of Text 2 positions King’s Cross as a gateway to the countryside’s idealism, not as a vehicle for materialism intruding into rural spaces. Margaret’s sense of wonder at the station arises from her sense that it offers access to the countryside’s idealism rather than to London’s materialism. Choice C is incorrect because nothing in Text 1 suggests Margaret is disillusioned; her perception of King’s Cross is defined by expansive possibility, not resignation. Moreover, Margaret finds the austerity of King’s Cross (relative to St. Pancras) appealing—its unpretentious appearance resonates with her attitude toward the “materialism of life.”",
+    "strategy": "Compare Views",
+    "origin": "cb-sat",
+    "psatDifficulty": "Hard",
+    "altIds": [],
     "psatDifficultyFrom": "mapped-from-sat"
   }
 ];

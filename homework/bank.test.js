@@ -105,7 +105,7 @@ section('Merge metadata and content identity are sound');
 
 section('Underline references have one coherent target');
 {
-    const broken = QB.filter(q => {
+    const brokenUnderline = q => {
         const passage = String(q.passage || '');
         const question = String(q.question || '');
         if (!/underlin/i.test(question) && !/<u>/i.test(passage)) return false;
@@ -113,8 +113,12 @@ section('Underline references have one coherent target');
         const closes = (passage.match(/<\/u>/gi) || []).length;
         const singular = /underlined\s+(?:sentence|claim|portion|phrase|line)\b/i.test(question);
         return (!q.image && opens === 0) || opens !== closes || opens > 3 ||
-            (singular && opens > 1) || /<u>[\s\S]*<u>/i.test(passage);
-    });
+            (singular && opens > 1) || /<u>(?:(?!<\/u>)[\s\S])*<u>/i.test(passage);
+    };
+    const broken = QB.filter(brokenUnderline);
+    ok('separate spans for a plural underline prompt are valid', !brokenUnderline({ passage: '<u>first</u> then <u>second</u> then <u>third</u>', question: 'The three underlined portions serve which function?' }));
+    ok('nested underlines still fail', brokenUnderline({ passage: '<u>outer <u>inner</u></u>', question: 'The underlined portion serves which function?' }));
+    ok('scattered singular underlines still fail', brokenUnderline({ passage: '<u>first</u> then <u>second</u>', question: 'The underlined portion serves which function?' }));
     ok('no underline target is missing, scattered, nested, or unbalanced', broken.length === 0,
         broken.map(q => q.id).join(', '));
 }
@@ -189,7 +193,18 @@ section('Extension questions are safe to merge');
     ok('each extension loads immediately after its base',
         ['craft-structure', 'expression-of-ideas', 'info-ideas', 'conventions'].every(name =>
             BANKS.indexOf(`data-${name}-ext.js`) === BANKS.indexOf(`data-${name}.js`) + 1));
-    ok('the extension bank is present', incoming.length > 0, `${incoming.length} provisional questions`);
+    // The owner retired the book/provisional bank. Empty extension arrays remain
+    // loadable so existing pages keep their script order.
+    ok('only official SAT questions remain drawable', QB.every(q => q.origin === 'cb-sat' && q.difficultyStatus !== 'provisional'));
+    const archiveFile = path.join(APP, 'data-retired.js');
+    ok('the retired question archive exists', fs.existsSync(archiveFile));
+    if (fs.existsSync(archiveFile)) {
+        const text = fs.readFileSync(archiveFile, 'utf8');
+        const archived = JSON.parse(text.slice(text.indexOf('['), text.lastIndexOf(']') + 1));
+        ok('book/provisional records are archived with permanent IDs', archived.length > 0 && archived.every(q => q.id && q.origin === 'book-ugsg' && q.difficultyStatus === 'provisional' && q.retiredOn && q.retiredFrom));
+        ok('no archived ID remains drawable', archived.every(q => !QB.some(active => active.id === q.id)));
+        ok('no production page loads the retirement archive', fs.readdirSync(APP).filter(f => f.endsWith('.html')).every(f => !read(f).includes('data-retired.js')));
+    }
     ok('every extension question has complete provenance', incoming.every(q => q.source && q.source.book &&
         q.source.ref && Number.isInteger(q.source.questionPage) && Number.isInteger(q.source.keyPage)));
     const sourceRefs = incoming.map(q => q.source.ref);
@@ -231,7 +246,7 @@ section('Extension questions are safe to merge');
     }, {});
     const largestShare = Math.max(...Object.values(letters)) / incoming.length;
     ok('extension answer positions are plausibly distributed',
-        'ABCD'.split('').every(letter => letters[letter]) && largestShare <= 0.40,
+        incoming.length === 0 || ('ABCD'.split('').every(letter => letters[letter]) && largestShare <= 0.40),
         JSON.stringify(letters));
 }
 

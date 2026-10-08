@@ -111,7 +111,16 @@ t('the page is gated', () => {
 });
 
 t('page boots with no script errors', () => eq(pageErrors, []));
-t('bank assembled in the page', () => eq(ev('questionBank.length'), 809));
+// Derive the expected IDs from all eight files independently of the page's
+// script tags, so a missing bank or extension still fails after a bank import.
+const bankContext = require('vm').createContext({});
+const bankFiles = ['data-craft-structure.js', 'data-craft-structure-ext.js',
+    'data-expression-of-ideas.js', 'data-expression-of-ideas-ext.js',
+    'data-info-ideas.js', 'data-info-ideas-ext.js',
+    'data-conventions.js', 'data-conventions-ext.js'];
+bankFiles.forEach(file => require('vm').runInContext(fs.readFileSync(path.join(__dirname, file), 'utf8'), bankContext));
+const expectedBankIds = require('vm').runInContext('[...questionBank_CS, ...questionBank_EOI, ...questionBank_II, ...questionBank_CON].map(q => q.id).sort()', bankContext);
+t('bank assembled in the page', () => eq(JSON.parse(ev('JSON.stringify(questionBank.map(q => q.id).sort())')), Array.from(expectedBankIds))); 
 t('form built to 22 items', () => eq(ev('Q.length'), 22));
 t('the clock is the SAT sitting, not the sister app\'s', () =>
     eq(ev('remaining'), 22 * 71));

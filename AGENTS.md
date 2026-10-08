@@ -48,6 +48,7 @@ NODE_PATH=/tmp/j/node_modules node baseline.e2e.test.js            # the screene
 NODE_PATH=/tmp/j/node_modules node baseline-sync.test.js           # the tutor actually receives it
 NODE_PATH=/tmp/j/node_modules node baseline-recover.test.js        # a stranded baseline can be sent
 node tutor-sheet/apps-script.test.js                               # the sheet + dashboard join
+node tools/bank-import-kit/import.test.js                           # import gates and install barrier
 node cache-tags.test.js                                            # students get the CURRENT files
 ```
 
@@ -371,14 +372,18 @@ one needs a closer look" without taking that look. **If a band needs resolving, 
 taught practice — a homework set, which is the tutor's call and lives in `homework/assignments.js`
 — not by re-opening a finished assessment.**
 
-### Two confirmed forms, and that is the bank talking
+### Two confirmed forms; preflight reports additional capacity
 
-The extension bank carries classifier-assigned provisional difficulty, so it is available for
-practice but excluded from baseline forms and from the bank-frequency weights used to rank the
-baseline plan. The confirmed bank still has five Medium Command of Evidence — Quantitative items;
-three forms need six. Repeating that skill would make a retake comparison measure memory.
-`baselinePreflight()` fails if the confirmed bank cannot supply a form and warns when it can support
-another. `baseline.test.js` keeps two forms a decision rather than inertia.
+The active bank now contains official SAT questions from all three difficulty exports.
+Book records with provisional difficulty are preserved in `data-retired.js`, which no page loads.
+They are excluded from practice and baseline draws. Existing official IDs and their aliases remain
+stable. Baseline forms and bank-frequency weights use confirmed questions only.
+
+The expanded bank can support a third form. The app retains the existing two-form configuration
+for this import; adding a form is a separate assessment decision. `baselinePreflight()` fails if
+the confirmed bank cannot supply the configured forms and warns when it can support another.
+`baseline.test.js` checks that capacity warning against the actual per-skill Medium pools rather
+than assuming the bank will always be too small.
 
 ### The baseline does NOT write to the mastery ledger
 

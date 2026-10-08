@@ -30,3 +30,6 @@ Thumbs.db
 
 # dependencies — only ever installed locally to run the test suites
 node_modules/
+
+# Local import staging, reports, and rollback snapshots.
+_bank-import-work/
