@@ -688,3 +688,319 @@ window.CHALLENGE_SETS = {
     }
   });
 })();
+
+// Short lessons alternate with silent checks; class work grants no mastery credits.
+(function () {
+  var sets = window.CHALLENGE_SETS.Ayodeji || (window.CHALLENGE_SETS.Ayodeji = []);
+  sets.push({
+  "setId": "patterns-checks-20261009",
+  "title": "Prove it. Find the subject. Choose the verb.",
+  "source": "Ordered class lesson",
+  "date": "2026-10-09",
+  "tileIntro": "Short lessons, three-question independent checks, then mixed application.",
+  "ids": [
+    "9debe79a",
+    "e441da80",
+    "1db1a9a6",
+    "e44db0a0",
+    "d47bb0a4",
+    "a03008de",
+    "29c9be28",
+    "4a90a978",
+    "de3dd17d",
+    "b8e13a74",
+    "145da981",
+    "4320b4ad",
+    "30c3aa98",
+    "0147b080",
+    "4c9a2aee",
+    "f4fd123c",
+    "983d33fa"
+  ],
+  "learningPath": {
+    "route": "target-evidence",
+    "transfer": [],
+    "intro": "Use the route with your tutor. Keep notes closed during independent checks. Commit each first answer and a short reason before feedback. Say if you recognise an item.",
+    "order": "Retrieve → data lesson and check → agreement lesson and check → verb lesson and check if ready → mixed check → practice decision.",
+    "graphTextStarts": {
+      "7edfb2c5": "Flint artifacts",
+      "9debe79a": "The Navajo Nation",
+      "e441da80": "Investigative journalists",
+      "1db1a9a6": "To test the effects",
+      "145da981": "Digital paywalls",
+      "30c3aa98": "Copper had been mined",
+      "0147b080": "A student is writing"
+    },
+    "graphAlts": {
+      "7edfb2c5": "Artifact exposure temperatures in degrees Celsius.",
+      "9debe79a": "Average high and low July temperatures for four Navajo Nation locations.",
+      "e441da80": "Investigative articles by year from 2010 to 2019.",
+      "1db1a9a6": "Cantaloupe yield with nitrogen and control fertilizers by year.",
+      "145da981": "Revenue changes after paywalls, with newspaper size.",
+      "30c3aa98": "Copper production for three states across three years.",
+      "0147b080": "Heights and ages of four pyramids."
+    },
+    "blocks": [
+      {
+        "key": "opening",
+        "title": "Retrieve the claim",
+        "intro": "Work silently on this previously encountered question. Identify what the underlined claim requires, then choose. Commit before feedback.",
+        "review": "The apparent similarity may come from programmed rules rather than brain-like mechanisms. A supports that distinction. C describes brain-like tasks but does not isolate why the resemblance occurs.",
+        "items": [
+          {
+            "id": "dd1757fd",
+            "role": "delayed retrieval",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ]
+      },
+      {
+        "key": "graph-model",
+        "title": "Lesson 1 — prove the claim with data",
+        "intro": "With your tutor: identify the claim, read the units and labels, then ask whether the selected data establish the required comparison.",
+        "review": "The claim needs exposure above 400°C. L5_239 is about 550°C and K3_18 about 650°C. B meets that criterion. All artifacts above 100°C is true but insufficient. Evidence must be both accurate and relevant.",
+        "items": [
+          {
+            "id": "7edfb2c5",
+            "role": "modelled",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ]
+      },
+      {
+        "key": "graph-check",
+        "title": "Independent check 1",
+        "intro": "Three questions. Notes closed; work without tutor hints. No feedback until all three first answers are committed. Give a short target and the deciding data.",
+        "review": "Check numerical truth and relevance separately. Did you compare different climates, the first and last year, and nitrogen with control within each year? Review the closest rival on a miss or uncertain answer.",
+        "items": [
+          {
+            "id": "9debe79a",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          },
+          {
+            "id": "e441da80",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          },
+          {
+            "id": "1db1a9a6",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ],
+        "batchFeedback": true
+      },
+      {
+        "key": "graph-repair",
+        "title": "Optional follow-up 1",
+        "optional": true,
+        "intro": "With your tutor, decide whether to use a fresh follow-up or defer this step. If reading the data is the difficulty, practise a single-cell lookup first. If relevance is the difficulty, restate the exact comparison.",
+        "review": "A successful lookup checks a prerequisite; it does not alone establish claim-support skill. The copper question needs growth over time across the states, rather than a true comparison within one year.",
+        "alternatives": [
+          {
+            "label": "Fresh claim-support question",
+            "items": [
+              {
+                "id": "30c3aa98",
+                "role": "silent fresh repair check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              }
+            ]
+          },
+          {
+            "label": "Data lookup, then fresh application",
+            "items": [
+              {
+                "id": "0147b080",
+                "role": "silent fresh repair check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              },
+              {
+                "id": "30c3aa98",
+                "role": "silent fresh repair check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              }
+            ]
+          }
+        ],
+        "batchFeedback": true
+      },
+      {
+        "key": "agreement-model",
+        "title": "Lesson 2 — find the real subject",
+        "intro": "With your tutor: bracket descriptions, identify the head subject, and match the verb to it. “The list of names is ready”; “The names on the list are ready.” What controls each verb?",
+        "review": "Every last second is singular. The phrases about the mission, days and hours do not change the subject. C: was. Link the verb to its own clause’s subject, not the nearest noun.",
+        "items": [
+          {
+            "id": "003f22c8",
+            "role": "modelled",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ]
+      },
+      {
+        "key": "agreement-check",
+        "title": "Independent check 2",
+        "intro": "Three questions. Notes closed; no tutor hints and no feedback between answers. Write the head subject and what verb form it requires.",
+        "review": "A cycle takes; Objects were; the Proto-Nilotic language is. Check both singular and plural subjects and reject matching the nearest distracting noun.",
+        "items": [
+          {
+            "id": "e44db0a0",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          },
+          {
+            "id": "d47bb0a4",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          },
+          {
+            "id": "a03008de",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ],
+        "batchFeedback": true
+      },
+      {
+        "key": "agreement-repair",
+        "title": "Optional follow-up 2",
+        "optional": true,
+        "intro": "Use one follow-up if needed. If this requires substantial repair, defer Lesson 3 and its check, then select the shorter mixed check. Protect the last six minutes.",
+        "review": "Tools is plural and takes enable. Market is singular and takes promotes. The difficulty label does not change the operation: locate the subject controlling this verb.",
+        "alternatives": [
+          {
+            "label": "Fresh agreement application",
+            "items": [
+              {
+                "id": "4c9a2aee",
+                "role": "silent fresh repair check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              }
+            ]
+          },
+          {
+            "label": "Hard agreement transfer",
+            "items": [
+              {
+                "id": "f4fd123c",
+                "role": "silent fresh repair check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "verb-model",
+        "title": "Lesson 3 — choose the verb the clause needs",
+        "intro": "Use this lesson only if there is time after feedback. “One species …” still needs a finite verb. Contrast: “The botanist visited the coast to collect specimens”: visited already supplies the main verb; to collect expresses purpose. “The botanist collected specimens” needs the finite verb at the blank.",
+        "review": "Includes supplies the missing finite verb for one species. A sentence can have several clauses, each with its own verb. An -ing form can be part of a finite phrase with an auxiliary, as in is collecting. Do not apply an always-finite or never-ing rule.",
+        "items": [
+          {
+            "id": "ec08463d",
+            "role": "modelled",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ],
+        "optional": true
+      },
+      {
+        "key": "verb-check",
+        "title": "Independent check 3",
+        "intro": "Start only if Lesson 3 was taught. Otherwise defer this check too. Three questions, no hints, no feedback between first answers. Identify which clause owns the blank and whether its finite verb is already present.",
+        "review": "Embryos enter; Ochoa left … to join; the bits of rock that … rain. Verbs in other clauses do not supply the missing verb in the clause being tested.",
+        "items": [
+          {
+            "id": "29c9be28",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          },
+          {
+            "id": "4a90a978",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          },
+          {
+            "id": "de3dd17d",
+            "role": "silent independent check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ],
+        "batchFeedback": true,
+        "optional": true
+      },
+      {
+        "key": "verb-repair",
+        "title": "Optional follow-up 3",
+        "intro": "Start only after Lesson 3. Use a fresh item if the clause distinction needs repair; otherwise defer and proceed to the mixed check.",
+        "review": "Historians claim supplies the finite verb for the main clause. Separate it from the verbs inside later clauses.",
+        "items": [
+          {
+            "id": "983d33fa",
+            "role": "silent fresh repair check",
+            "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+          }
+        ],
+        "optional": true
+      },
+      {
+        "key": "mixed",
+        "title": "Mixed independent check",
+        "intro": "Choose the version matching what was taught today. Notes closed, no tutor hints or method labels. All first answers precede feedback.",
+        "review": "Identify which operation each question required. Painting has entered; the larger newspaper gains while the smaller one loses; women kept (if taught); Text 2 qualifies the optimism with a food-supply condition. A grouped check is immediate application; this mixed check tests method selection.",
+        "alternatives": [
+          {
+            "label": "Full check — all three lessons taught",
+            "items": [
+              {
+                "id": "b8e13a74",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              },
+              {
+                "id": "145da981",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              },
+              {
+                "id": "4320b4ad",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              },
+              {
+                "id": "d9a6817c",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              }
+            ]
+          },
+          {
+            "label": "Shorter check — Lessons 1 and 2 taught",
+            "items": [
+              {
+                "id": "b8e13a74",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              },
+              {
+                "id": "145da981",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              },
+              {
+                "id": "d9a6817c",
+                "role": "silent mixed check",
+                "reasonPrompt": "Give a short reason: the deciding words, clause, or data."
+              }
+            ]
+          }
+        ],
+        "batchFeedback": true
+      }
+    ],
+    "schedule": "Reserve the final six minutes: recall the decision rules, agree two realistic practice times, and open the selected task on your device. Use recorded first answers and actual help to decide the next practice. Return to the methods on another day, mixed with older skills."
+  }
+});
+})();

@@ -11,6 +11,8 @@ function inject(text){const s=w.document.createElement('script');s.textContent=t
 for(const file of ['config.js','progress.js','sheet-sync.js','session-responses.js','storage.js','timer.js','history.js','data-craft-structure.js','data-expression-of-ideas.js','data-info-ideas.js','data-conventions.js','eliminator.js','app.js','challenge/sets.js','challenge/challenge-core.js','challenge/class-path.js','challenge/evidence-route.js'])inject(read(file));
 inject('window.__bank=function(){return questionBank;};window.__setExamMode=function(){userMode="exam";};');
 w.syncSessionToSheet=record=>posts.push(record);
+// Pin the historical fixture; a newly appended production route must not erase this regression.
+w.CHALLENGE_SETS.Ayodeji = w.CHALLENGE_SETS.Ayodeji.filter(s=>s.setId==='target-evidence-20261002');
 w.sessionStorage.setItem('mastery_user','Ayodeji');
 inject(read('challenge/challenge.js'));
 const set=w.CHALLENGE_SETS.Ayodeji.at(-1),key='satrw_sat_class_route:Ayodeji:'+set.setId;
@@ -25,7 +27,7 @@ async function main(){
  const plans={};new Function('window',read('homework/assignments.js'))(plans);
  // homework-hub.html renders a plan carrying `challenge` as the challenge card alone and never draws its days.
  ok(Object.values(plans.HOMEWORK).every(p=>!(p.challenge&&p.days&&p.days.length)),'no plan carries both days and a challenge key — the hub would hide the days');
- ok(set.setId==='target-evidence-20261002','the class route is still the newest set, so the hub shows it under any sets');
+ ok(set.setId==='target-evidence-20261002','the historical class route remains available for regression checks');
  const bank=w.__bank();
  const refs=set.learningPath.blocks.flatMap(b=>b.items||b.alternatives.flatMap(a=>a.items));
  ok(refs.every(r=>bank.some(q=>q.id===r.id)),'every model, fresh question and exit resolves against the real bank');
