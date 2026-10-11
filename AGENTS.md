@@ -539,29 +539,41 @@ Judgement, not code — but it is what the plans encode, and it is easy to lose:
   cold, with no strategy to meet it, is the fastest way to lose a student.
 - **Pace is a ladder.** Untimed → ~90s → ~80s → the real thing (SAT R&W is ~71s/question).
 
-### Sets unlock on completion, and the order is the teaching sequence
+### One set opens a day, and the order is the teaching sequence
 
-`unlock: "sequential"` is the default for new plans: set 1 is open, and each later set opens when
-the one before it is **submitted**. `unlock: "cumulative"` (one per calendar day) is legacy — it
-meant a student with a free Saturday could still only reach that day's set, while a student who
-fell behind was met by a wall. Do not flip a plan that is already running; re-author it instead.
+**The house homework standard (adopted 11 Oct 2026) is the tutor's `PSAT 8-9/Homework_Standard.md`,
+outside this repo. Follow it; this section is its mechanics.** In short: 2–3 sets a week, 4–6 new
+questions each, a written prediction before the options, untimed before one paced set, taught
+skills only.
 
-Because the student now meets the sets in exactly the authored order, every time, **order them so
-that finishing one helps with the ones after it.** Name the chain in the plan's comment block:
+**`unlock: "cumulative"` (one set per calendar day) is the default for new plans.** Across both
+apps' plan histories matched to what students submitted, one-a-day release spread the work over
+more evenings (1.6 sets an evening against 2.5) and completion was no lower. Under
+`unlock: "sequential"` (next set opens on submission) every week that got any work done was done in
+a single sitting. One-a-day does not get a student started: the reminder emails
+(`tutor-sheet/reminders.md`) and the tutor do that. Its known cost is that a student who starts
+late finds every past set open, so the tip names each set's day.
+
+`sequential` is still available for a plan where spacing cannot matter (a one-evening plan). It
+stops enforcing spacing, and **any plan MUST carry `through: "YYYY-MM-DD"`** so the hub prints the
+window. **Never put an in-class day ahead of home days under `sequential`:** if class runs in a
+different mode the in-class set is never submitted and the home sets never open. Do not flip a plan
+that is already running; re-author it instead.
+
+The student meets the sets in the authored order, so **order them so that finishing one helps with
+the ones after it.** Name the chain in the plan's comment block:
 
 - an **untimed** rep of a skill before the **timed** rep of that same skill;
 - a **pace ladder** across sets (~90s before ~71s);
 - a skill from an early set **returning inside a later mixed set**;
-- the **most startable** set first — under sequential unlock, a stall on set 1 blocks the week.
+- the **most startable** set first.
 
 If the sets genuinely do not relate, the order is a judgement call. Say so in the comment so the
 next person knows it was a decision and not an oversight.
 
-**A sequential plan MUST carry `through: "YYYY-MM-DD"`.** Sequential unlock stops enforcing
-spacing — nothing prevents the whole week in one sitting, which is the one thing the design cannot
-afford. The hub prints the window and asks the student to spread the sets out. That request is the
-only spacing mechanism left, so it is not optional, and the student has to meet it *before* the
-first set: a locked card with no explanation reads as a broken app.
+**Keep each day's `focus` unique to its week.** The reminder script counts a set as done only when
+the submitted day number and focus both match the plan, so last week's "Day 2" is never read as
+this week's.
 
 `hwDayOpen()` in `homework/assignments.js` is the shared gate; the hub and the runner both call it,
 so the order cannot be walked past with a bookmark. It deliberately **opens** a set when

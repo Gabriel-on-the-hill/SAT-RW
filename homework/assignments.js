@@ -272,15 +272,16 @@ function hwGetAssignment(id) {
 // hand-edit. This sits alongside the shared HW_ASSIGNMENTS catalog
 // above; the homework hub/runner use the per-student plans below.
 //
-// UNLOCK — `sequential` is the default and what new plans should use:
+// UNLOCK — `cumulative` (one set a day) is the house default from 11 Oct 2026;
+// see AGENTS.md "One set opens a day". `sequential` is still supported:
 //   unlock: "sequential"  Set 1 is open; each later set opens when the
 //                         one before it is submitted. Pair it with
 //                         `through: "YYYY-MM-DD"` — the hub then tells
 //                         the student the window the sets are meant to
 //                         be spread over, so nothing pushes them to do
 //                         the lot in one sitting. See hwDayOpen().
-//   unlock: "cumulative"  Legacy: one set per calendar day from `start`,
-//                         missed days stay open.
+//   unlock: "cumulative"  Default: one set per calendar day from `start`,
+//                         missed days stay open. Name each set's day in its tip.
 //
 // Where plans come from:
 //   HW_USE_SHEET = false → from this file (reliable, instant, no backend) ← default
@@ -1231,7 +1232,8 @@ function hwParseDate(s) {
 
 // Is set `n` open to this student yet?
 //
-// THE DEFAULT IS `sequential`: Set 1 is always open, and each later set opens
+// HOUSE DEFAULT (11 Oct 2026) IS `cumulative`, one set a day: see AGENTS.md "One set opens a
+// day". What follows describes `sequential`, still supported: Set 1 is always open, and each later set opens
 // when the one before it is submitted. A set is earned, not waited for. This
 // replaced `cumulative` (one per calendar day) because a student who sat down
 // on a Saturday with time to work could only ever reach that day's set, and a
