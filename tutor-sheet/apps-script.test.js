@@ -238,12 +238,16 @@ sec('4 · R&W: the homework runner posts a different shape and still lands');
                    'random', 'map', 'function', 'return', 'filter', 'Date', 'Math'];
     const keysIn = s => [...s.matchAll(/([a-zA-Z]+)\s*:/g)].map(m => m[1]).filter(k => !NOISE.includes(k));
     const cut     = lit.indexOf('questions:');
-    const topKeys = keysIn(lit.slice(0, cut));
+    const selectionCut = lit.indexOf('selection:');
+    const topKeys = keysIn(lit.slice(0, selectionCut)).concat('selection');
+    const selectionKeys = keysIn(lit.slice(selectionCut + 'selection:'.length, cut));
     const qKeys   = keysIn(lit.slice(cut)).filter(k => k !== 'questions');
 
     ok('every session field the runner posts is in the fixture',
         topKeys.every(k => k in FIX.rw_homework), topKeys.join(','));
     ok('the runner still posts a per-question array', cut > 0 && qKeys.length > 0);
+    ok('every selection field is checked at its own level',
+        selectionCut > 0 && selectionKeys.length > 0 && selectionKeys.every(k => k in FIX.rw_homework.selection), selectionKeys.join(','));
     ok('every per-question field the runner posts is in the fixture',
         qKeys.every(k => k in (FIX.rw_homework.questions || [])[0]), qKeys.join(','));
 
@@ -253,6 +257,7 @@ sec('4 · R&W: the homework runner posts a different shape and still lands');
     const row = c.__byName('Sessions', 1);
     eq('Student', row['Student'], 'Segun');
     eq('Type', row['Type'], 'homework');
+    eq('the selection manifest survives the backend', row['Homework Selection'], JSON.stringify(FIX.rw_homework.selection));
     eq('day becomes an Assignment ID', row['Assignment ID'], 'day-2');
     eq('focus becomes the Assignment', row['Assignment'], 'Transitions, at pace');
     eq('seconds become Duration', row['Duration (sec)'], 431);

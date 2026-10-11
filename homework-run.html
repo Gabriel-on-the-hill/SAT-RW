@@ -124,6 +124,9 @@
 <script src="data-conventions.js?v=20261008&rev=sat-import-1"></script>
 <script src="data-conventions-ext.js?v=20261008&rev=sat-import-1"></script>
 <script src="progress.js?v=20261005"></script>
+<script src="baseline-spec.js?v=20261008&rev=sat-import-1"></script>
+<script src="homework/selection.js?v=20261011"></script>
+<script src="homework/sitting.js?v=20261011"></script>
 <script src="sheet-sync.js?v=20260825"></script>
 <script src="homework/assignments.js?v=20261011"></script>
 <script src="eliminator.js?v=20261008&rev=sat-import-1"></script>
@@ -268,19 +271,25 @@
   // We store ids and rehydrate from the bank, so the record stays small.
   var RECS_KEY = 'satrw_hwrec_'+student+'_'+plan.start+'_'+dayN;
   var records = [];
+  var precise=null;
   var _elimSitting=Date.now();   // cross-out namespace for this page's sitting (eliminator.js)
   // Review logging state (see postReviewEvent). Declared here, above the review-only
   // early return, so a review-only page has it initialised too.
   var _reviewOpenLogged=false, _redoRows=[], _notesSent=null, _notesArmed=false;
-  function saveRecs(){ try{ localStorage.setItem(RECS_KEY, JSON.stringify({at:Date.now(), recs:records})); }catch(e){} }
+  function saveRecs(){ try{ localStorage.setItem(RECS_KEY, JSON.stringify({at:Date.now(), recs:records})); }catch(e){} saveSitting(); }
+  function saveSitting(){
+    if(!precise || isRedo || reviewOnly)return;
+    precise.data.records=records;precise.data.nav=nav||[];precise.data.index=idx||0;
+    precise.save();
+  }
   function loadRecs(){
     try{
       var o=JSON.parse(localStorage.getItem(RECS_KEY));
       if(!(o&&o.recs&&o.recs.length)) return null;
       var changed=false;
-      o.recs.forEach(function(r){ var q=byId(r.id); if(q&&q.id!==r.id){r.id=q.id; changed=true;} });
+      o.recs.forEach(function(r){ if(!r)return;var q=byId(r.id); if(q&&q.id!==r.id){r.id=q.id; changed=true;} });
       if(changed) localStorage.setItem(RECS_KEY,JSON.stringify(o));
-      return o.recs;
+      return o.recs.filter(Boolean);
     }catch(e){ return null; }
   }
 
@@ -365,7 +374,12 @@
   // filtered pool (skill + difficulty + optional ruleType), no repeats across
   // sections. Days without `sections` fall back to the simple skills/diffs/count.
   var set=[];
-  if(spec.sections && spec.sections.length){
+  if(spec.slots && spec.slots.length){
+    try{precise=HomeworkSitting.open({prefix:'satrw',student:student,plan:plan,spec:spec,bank:QB});}
+    catch(e){run.textContent=e.message;return;}
+    if(precise.data.finished){records=precise.data.records;showReview(true,false);return;}
+    set=precise.questions();
+  } else if(spec.sections && spec.sections.length){
     var _used={};
     spec.sections.forEach(function(sec){
       var pool=QB.filter(function(q){
@@ -407,8 +421,9 @@
   // questions overnight. New plans simply omit it and get review for free — which is
   // the point: spacing should be what happens when the tutor does nothing.
   // `reviewN` is resolved before the build — see the _missesFirst block above.
-  var _inSet   = {}; set.forEach(function(q){ _inSet[q.id] = true; });
-  var reviewQs = (typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet, _reviewOpts) : [];
+  var _inSet   = {}; set.forEach(function(q){ if(q)_inSet[q.id] = true; });
+  // Precise plans include their deliberate review slots; never append an unplanned target.
+  var reviewQs = (!precise && typeof dueForReview === 'function') ? dueForReview(QB, reviewN, _inSet, _reviewOpts) : [];
   reviewQs.forEach(function(q){ set.splice(Math.floor(Math.random() * (set.length + 1)), 0, q); });
 
   // These — and nothing else in the set — are delayed retrievals: questions he has
@@ -422,7 +437,8 @@
   if(!set.length){ run.innerHTML='<div class="done-card">No questions available for this day. <a href="homework-hub.html">Back</a></div>'; return; }
 
   var daySet=set.slice();   // the canonical set; `set` becomes the redo list later
-  records=new Array(daySet.length);
+  records=precise?precise.data.records:new Array(daySet.length);
+  if(precise)records.length=daySet.length;
 
   // Timed sets get a one-click commit gate; untimed sets ask her to TYPE the
   // prediction. Same predict-first habit either way — but she can't type on test
@@ -444,7 +460,8 @@
   // no question forces a guess, and a Submit step so a misclick is not fatal.
   function navMode(){ return (!isRedo && spec.minutes > 0) ? 'exam' : 'practice'; }
 
-  var idx=0, started=Date.now(), answered=false, isRedo=false;
+  var idx=precise?Math.min(precise.data.index||0,set.length-1):0, started=precise?(precise.data.startedAt||Date.now()):Date.now(), answered=false, isRedo=false;
+  if(precise)_elimSitting=precise.data.sittingId;
   // Cross-out state (eliminator.js) is kept per sitting: this day's first attempt,
   // or its redo. A redo starts with nothing crossed out.
   function elimNs(){ return 'hw:'+student+':'+plan.start+':'+dayN+':'+_elimSitting+(isRedo?':redo':''); }
@@ -464,6 +481,7 @@
   }
   function resetNav(n){ nav=[]; for(var i=0;i<n;i++) navOf(i); }
   resetNav(daySet.length);
+  if(precise){nav=precise.data.nav;precise.data.nav=nav;}
 
   function predictPrompt(q){
     return (q && PREDICT_PROMPTS[q.skill]) || {
@@ -473,10 +491,21 @@
   }
 
   function render(){
+    if(readTimer){clearInterval(readTimer);readTimer=null;}
+    if(precise && !isRedo && !set[idx]){
+      qStart=null;
+      run.innerHTML='<div class="done-card"><h2>A suitable backup is needed</h2><p>Question '+(idx+1)+' of '+set.length+' is waiting for your tutor. Your other work is saved.</p>'
+        +'<button class="btn sec" id="pendingBack">Back</button> <button class="btn" id="pendingNext">Continue</button></div>';
+      document.getElementById('pendingBack').onclick=function(){if(idx>0){idx--;render();}};
+      document.getElementById('pendingNext').onclick=function(){if(idx<set.length-1){idx++;render();}else finish(false);};
+      precise.controls(run,function(){set=precise.questions();daySet=set.slice();records=precise.data.records;nav=precise.data.nav;render();});
+      saveSitting();return;
+    }
     var n=navOf(idx);
     // A question already visited comes back as it was left, not as a blank slate.
     answered=n.graded; revealTs=n.revealed?Date.now():null; prediction=n.prediction||'';
     var q=set[idx];
+    if(precise && !isRedo)HomeworkSelection.notePresented('satrw',student,q.id,precise.data.sittingId);
     qStart=Date.now();
     var mode=predictMode();
 
@@ -511,6 +540,7 @@
       +'<div id="yourpred"></div>'
       +'<div id="opts" class="hidden">'+opts+'</div>'
       +'<div class="fb" id="fb"><div class="h" id="fbh"></div><p id="fbt"></p></div>'
+      +(precise && !isRedo?'<p><button class="btn sec" id="recognized">'+(n.recognized?'Previously seen · reported':"I’ve seen this question before")+'</button><span id="recognitionStatus" role="status"></span></p>':'')
       +'<div class="nav">'
         +'<button class="btn hidden" id="back">&#8592; Back</button>'
         +'<span style="flex:1"></span>'
@@ -520,6 +550,20 @@
       +'</div>';
 
     var predGoEl=document.getElementById('predGo');
+    var draft=document.getElementById('predText');
+    if(draft && n.prediction)draft.value=n.prediction;
+    if(draft && precise)draft.oninput=function(){n.prediction=draft.value;saveSitting();};
+    var recognized=document.getElementById('recognized');
+    if(recognized){recognized.disabled=!!n.recognized;recognized.onclick=function(){
+      var result;
+      try{result=precise.recognize(idx);}catch(e){document.getElementById('recognitionStatus').textContent=e.message;return;}
+      if(!result)return;
+      postReviewEvent('previously seen question', [{id:result.question.id,skill:result.question.skill,difficulty:result.question.difficulty,
+        chosen:null,correct:result.question.answer,prediction:'[recognition] Previously encountered; no new attempt credit.'}], '', '');
+      if(result.replaced){set=precise.questions();daySet=set.slice();records=precise.data.records;nav=precise.data.nav;render();}
+      else{if(records[idx])records[idx].recognized=true;saveSitting();recognized.disabled=true;recognized.textContent='Previously seen · reported';
+        document.getElementById('recognitionStatus').textContent=spec.minutes>0?' Recorded. Continue with the same timed set.':' Recorded. Your committed answer stays saved.';}
+    };}
     if(predGoEl) predGoEl.onclick=function(){ commit(); };
     Array.prototype.forEach.call(document.querySelectorAll('.opt'),function(b){b.onclick=function(){choose(b,q);};});
     if(typeof Eliminator!=='undefined') Eliminator.decorate(document.getElementById('opts'),{ns:elimNs(),id:q.id,selector:'.opt'});
@@ -551,7 +595,7 @@
     // dead control she has to guess at.
     if(readTimer){ clearInterval(readTimer); readTimer=null; }
     var need=minReadSecs(q);
-    if(need>0){
+    if(need>0 && document.getElementById('predGo')){
       var go=document.getElementById('predGo'), label=go.textContent;
       var tick=function(){
         var left=need-Math.floor((Date.now()-qStart)/1000);
@@ -627,6 +671,8 @@
     if(!qStart) return;
     navOf(idx).secs += Math.round((Date.now()-qStart)/1000);
     qStart=Date.now();
+    var text=document.getElementById('predText');if(text)navOf(idx).prediction=text.value;
+    saveSitting();
   }
 
   function advance(){
@@ -638,6 +684,7 @@
 
   // Show/hide the controls for this mode and this question's state.
   function syncHwNav(){
+    saveSitting();
     var n=navOf(idx), m=navMode(), last=idx===set.length-1;
     var back=document.getElementById('back'), skip=document.getElementById('skip');
     var sub=document.getElementById('submit'), nx=document.getElementById('next');
@@ -719,6 +766,7 @@
       onText: onText,
       onOpts: onOpts,
       secs: n.secs,
+      recognized:!!n.recognized,
       tag:r.tag||null, fix:r.fix||''
     };
     var _el=elimOf(q.id, q.answer);
@@ -749,12 +797,12 @@
     // calibration signal, so it feeds neither retention nor the per-skill accuracy
     // the difficulty recommender reads — the same reason it never rewrites the
     // first attempt. It still climbs the ladder: he did get it right in the end.
-    if(typeof recordAnswer==='function')
+    if(typeof recordAnswer==='function' && !(precise && n.recognized))
       recordAnswer(q.id, okk, 'practice', { skill:q.skill, review: !isRedo && !!_isReviewQ[q.id] });
     // Homework never fed the per-skill stats — only the practice app did. That left
     // the trap analytics, and now the difficulty recommender, blind to the work he
     // actually does most of.
-    if(!isRedo && typeof recordTrapOutcome==='function')
+    if(!isRedo && typeof recordTrapOutcome==='function' && !(precise && n.recognized))
       recordTrapOutcome(q.skill, q.trapName, okk, q.difficultyStatus!=='provisional');
     paintHwChoice(q);
     showHwFeedback(q, {ok:okk});
@@ -814,9 +862,9 @@
       var okk=n.chosen===q.answer;
       var r=records[i];
       if(r){ r.ok=okk; r.chosen=n.chosen; r.secs=n.secs; }
-      if(typeof recordAnswer==='function')
+      if(typeof recordAnswer==='function' && !(precise && n.recognized))
         recordAnswer(q.id, okk, 'practice', { skill:q.skill, review: !!_isReviewQ[q.id] });
-      if(typeof recordTrapOutcome==='function')
+      if(typeof recordTrapOutcome==='function' && !(precise && n.recognized))
         recordTrapOutcome(q.skill, q.trapName, okk, q.difficultyStatus!=='provisional');
     }
     saveRecs();
@@ -826,6 +874,9 @@
   // Running out of time must not cost her the set. Whatever she answered is kept,
   // the rest are marked not-reached, and she still lands on the review screen.
   function finish(expired){
+    if(precise && !isRedo && daySet.some(function(q){return !q;})){
+      idx=daySet.findIndex(function(q){return !q;});render();return;
+    }
     // The clock can run out mid-set on a timed run, before anything has been
     // graded. Grade and record whatever is there, then carry on.
     if(navMode()==='exam' && !isRedo){
@@ -835,9 +886,9 @@
         gn.graded=true;
         var gq=set[g], gok=gn.chosen===gq.answer, gr=records[g];
         if(gr){ gr.ok=gok; gr.chosen=gn.chosen; gr.secs=gn.secs; }
-        if(typeof recordAnswer==='function')
+        if(typeof recordAnswer==='function' && !(precise && gn.recognized))
           recordAnswer(gq.id, gok, 'practice', { skill:gq.skill, review: !!_isReviewQ[gq.id] });
-        if(typeof recordTrapOutcome==='function')
+        if(typeof recordTrapOutcome==='function' && !(precise && gn.recognized))
           recordTrapOutcome(gq.skill, gq.trapName, gok, gq.difficultyStatus!=='provisional');
       }
       saveRecs();
@@ -850,6 +901,7 @@
     if(hwTimer) { clearInterval(hwTimer); hwTimer=null; }
     if(readTimer) { clearInterval(readTimer); readTimer=null; }
     if(!isRedo){
+      if(precise){precise.data.finished=true;saveSitting();}
       for (var j=0;j<daySet.length;j++){
         if (!records[j]) records[j]={
           id:daySet[j].id, skill:daySet[j].skill, difficulty:daySet[j].difficulty,
@@ -1080,10 +1132,13 @@
             score:got,total:rows.length,seconds:secs,at:new Date().toISOString(),
             sessionId:_hwSessionId+(partial?'_partial':''),
             retention:sessionRetention(),
+            selection:precise?{sittingId:precise.data.sittingId,version:plan.version||null,entries:precise.data.entries,
+              history:precise.data.snapshot,events:precise.data.events,
+              freshAnswered:records.filter(function(r,i){return r && r.chosen && !r.recognized && precise.data.entries[i].intent==='fresh';}).length}:undefined,
             questions:rows.map(function(r){
               return {id:r.id, skill:r.skill, difficulty:r.difficulty,
                       chosen:r.chosen, correct:r.answer, isCorrect:r.ok,
-                      secs:r.secs, onText:r.onText, onOpts:r.onOpts, prediction:r.prediction,
+                      secs:r.secs, onText:r.onText, onOpts:r.onOpts, prediction:(r.recognized?'[previously seen] ':'')+(r.prediction||''),
                       elim:r.elim||'', elimAnswer:!!r.elimAnswer};
             })})});
         if(partial) _hwPartialLogged=true; else _hwLogged=true;
@@ -1114,7 +1169,9 @@
         bankQ();
         var secs=Math.round((Date.now()-started)/1000);
         var answered=records.filter(function(r){ return r && r.chosen; }).length;
-        if(daySet.length && answered>=daySet.length){
+        if(daySet.length && !daySet.some(function(q){return !q;}) && answered>=daySet.length){
+          if(precise && navMode()==='exam'){finish(false);return;}
+          if(precise){precise.data.finished=true;saveSitting();}
           saveRecs();
           try{ localStorage.setItem('satrw_hw_'+student+'_'+plan.start+'_'+dayN,'1'); }catch(e){}
           postLog(secs);              // a real row, not a partial
@@ -1177,17 +1234,25 @@
     };
   })();
 
+  function startRun(){
+  if(precise){set=precise.questions();daySet=set.slice();records=precise.data.records;nav=precise.data.nav;
+    started=precise.data.startedAt||started;
+    if(!precise.data.startedAt){precise.data.startedAt=started;precise.save();}}
   render();
   if (spec.minutes > 0) {
     var remain = spec.minutes * 60, te = document.getElementById('timer'); te.style.display = 'inline-block';
     function tick(){
+      if(precise)remain=Math.max(0,Math.ceil((precise.data.deadline-Date.now())/1000));
       var m = Math.floor(remain/60), x = remain%60;
       te.textContent = m + ':' + String(x).padStart(2,'0');
       if (remain <= 0) { clearInterval(hwTimer); hwTimer=null; finish(true); return; }
       remain--;
     }
-    tick(); hwTimer = setInterval(tick, 1000);
+    tick(); if(!precise || remain>0)hwTimer = setInterval(tick, 1000);
   }
+  }
+  if(precise && !precise.data.startedAt)precise.preflight(run,startRun);
+  else startRun();
   });
 })();
 </script>

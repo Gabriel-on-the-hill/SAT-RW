@@ -118,7 +118,7 @@ var SESSION_COLUMNS = [
 // Blank on every non-baseline row, and blank is not zero — it means this
 // session was not a baseline, not that the baseline found nothing.
 var EXTRA_COLUMNS = ['Skills', 'Difficulties', 'Retention',
-                     'Baseline Projection', 'Baseline Plan', 'Baseline'];   // R&W only
+                     'Baseline Projection', 'Baseline Plan', 'Baseline', 'Homework Selection'];   // R&W only
 //
 // OPTIONAL, NOT YET ADDED — 'Partial'. Since 25 Aug 2026 the client posts
 // `partial: true` on a sitting flushed by `pagehide` (answered, then walked away
@@ -343,6 +343,7 @@ function normalise_(b) {
     'Session ID':     b.sessionId || '',
     'Breakdown':      b.skillStats ? JSON.stringify(b.skillStats) : '',
     'Retention':      b.retention  ? JSON.stringify(b.retention)  : '',
+    'Homework Selection': b.selection ? JSON.stringify(b.selection) : '',
     'Skills':         Array.isArray(b.skills) ? b.skills.join(', ') : '',
     'Difficulties':   Array.isArray(b.diffs) ? b.diffs.join(', ') : '',
     'Baseline Projection': baselineRange_(b),

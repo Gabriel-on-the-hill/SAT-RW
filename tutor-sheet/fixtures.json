@@ -262,6 +262,14 @@
     ]
   },
   "rw_homework": {
+    "selection": {
+      "sittingId": "hw_fixture_sitting",
+      "version": "fixture-v1",
+      "entries": [{"slot": 0, "id": "tra-m-09", "intent": "fresh", "substituted": true}],
+      "history": {"importedAt": 1791712800000, "available": true},
+      "events": [{"slot": 0, "reason": "recognized", "id": "tra-m-08"}],
+      "freshAnswered": 1
+    },
     "type": "homework",
     "student": "Segun",
     "day": 2,

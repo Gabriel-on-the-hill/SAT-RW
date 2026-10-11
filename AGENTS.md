@@ -33,6 +33,7 @@ NODE_PATH=/tmp/j/node_modules node homework/homework-run.test.js   # the learnin
 NODE_PATH=/tmp/j/node_modules node homework/review-ladder.test.js  # spacing, retention, calibration
 NODE_PATH=/tmp/j/node_modules node homework/assignments.test.js    # the plans are sane
 node exposure.test.js                                               # met elsewhere is not unseen
+NODE_PATH=/tmp/j/node_modules node homework/selection.test.js      # exact slots, imports, reserves and sitting integrity
 NODE_PATH=/tmp/j/node_modules node homework/bank.test.js           # the bank is classified right
 NODE_PATH=/tmp/j/node_modules node challenge/*.test.js             # the challenge feature
 NODE_PATH=/tmp/j/node_modules node ns-migrate.test.js              # nobody loses their work

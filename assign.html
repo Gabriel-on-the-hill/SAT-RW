@@ -1,118 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assignment Builder — SAT Mastery (tutor)</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<html lang="en" data-theme="light"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homework Builder — tutor</title>
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{--bg:#f5f7fa;--surface:#fff;--surface2:#f1f5f9;--border:#e2e8f0;--text:#1a2233;--muted:#5b6678;--accent:#2563eb;--accent-soft:#eaf1fe;--good:#15803d;--radius:12px}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px}
-  .wrap{max-width:760px;margin:0 auto;padding:1.4rem 1.15rem 4rem}
-  h1{font-size:1.45rem;font-weight:800;margin-bottom:.2rem}
-  .lede{color:var(--muted);margin-bottom:1.2rem;font-size:.95rem}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.9rem}
-  label{display:block;font-weight:700;font-size:.8rem;margin:.5rem 0 .2rem}
-  input[type=text],input[type=number],input[type=date],textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:.5rem .6rem;font-family:inherit;font-size:.92rem}
-  .row{display:flex;gap:.8rem;flex-wrap:wrap}
-  .row > div{flex:1;min-width:130px}
-  .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.2rem}
-  .chip{border:1px solid var(--border);border-radius:99px;padding:.28rem .6rem;font-size:.8rem;cursor:pointer;user-select:none;background:var(--surface)}
-  .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
-  .day{border-left:4px solid var(--accent)}
-  .day .dhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem}
-  .day .dnum{font-weight:800}
-  .btn{border:none;background:var(--accent);color:#fff;border-radius:9px;padding:.55rem 1rem;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit}
-  .btn.sec{background:var(--surface);color:var(--text);border:1px solid var(--border)}
-  .btn.sm{padding:.3rem .7rem;font-size:.8rem}
-  .out{margin-top:1.2rem}
-  .out h3{font-size:.95rem;margin:.8rem 0 .3rem}
-  textarea{min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;white-space:pre}
-  .hint{font-size:.82rem;color:var(--muted);margin-top:.2rem}
-  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-  .back{font-size:.82rem;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:.4rem .7rem}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#17243b;font:15px/1.55 system-ui,sans-serif}.wrap{max-width:1120px;margin:auto;padding:30px 20px 80px}h1{margin:0;font-size:28px}h2{font-size:20px}h3{font-size:16px}.muted{color:#55657c}.card{background:white;border:1px solid #dce4ef;border-radius:14px;padding:20px;margin:18px 0}.row{display:flex;gap:14px;flex-wrap:wrap}.row>label{flex:1;min-width:155px}label{display:block;font-weight:650;font-size:13px;margin:8px 0}input,select,textarea{display:block;width:100%;border:1px solid #b9c8dd;border-radius:7px;padding:9px;font:inherit;color:inherit;background:white}textarea{min-height:70px}button,.back{padding:9px 14px;border:1px solid #b9c8dd;border-radius:8px;font:inherit;font-weight:650;background:white;color:#174da3;cursor:pointer}button.primary{background:#235dcc;color:white;border-color:#235dcc}button:disabled{opacity:.5;cursor:default}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.slot{border-top:1px solid #e2e8f0;padding:14px 0}.slot .row{gap:10px}.slot .row>label{min-width:140px}.ids{font-family:ui-monospace,monospace}.warn{color:#8d450a}.error{color:#a62727}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;border-bottom:1px solid #dce4ef;padding:9px;vertical-align:top}.output{font-family:ui-monospace,monospace;min-height:240px}.preview{white-space:pre-line;background:#f3f6fb;border-radius:10px;padding:16px}dialog{width:min(1050px,95vw);max-height:92vh;border:1px solid #b9c8dd;border-radius:14px;padding:22px}dialog::backdrop{background:#14263c88}.picker{display:grid;grid-template-columns:1fr 1fr;gap:20px}.candidates{max-height:58vh;overflow:auto}.candidate{display:block;width:100%;text-align:left;margin:6px 0;font-size:13px}.figure{max-width:100%}@media(max-width:700px){.picker{grid-template-columns:1fr}.wrap{padding:20px 12px}}
 </style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top"><div></div><a class="back" href="index.html">Back to app</a></div>
-  <h1>Assignment Builder</h1>
-  <p class="lede">A tutor tool. Fill in the week, pick skills and difficulty from the buttons, and it writes out the rows for you — paste them into your Plans sheet, or the code block into <code>assignments.js</code>. No typing skill names, no syntax to get wrong.</p>
-
-  <div class="card">
-    <div class="row">
-      <div><label>Student (must match their password name)</label><input type="text" id="student" placeholder="e.g. Jeffrey"></div>
-      <div><label>Start date (Day 1 opens)</label><input type="date" id="start"></div>
-    </div>
-    <label>Title (shown at top of their homework)</label><input type="text" id="title" placeholder="e.g. This week — Boundaries & Transitions">
-  </div>
-
-  <div id="days"></div>
-  <button class="btn sec sm" id="addDay" type="button">+ Add another day</button>
-
-  <div style="margin-top:1.2rem"><button class="btn" id="gen" type="button">Generate assignment</button></div>
-
-  <div class="out" id="output" style="display:none">
-    <h3>1. Sheet rows — paste into the "Plans" tab</h3>
-    <p class="hint">Click in the box, select all, copy, then click the first empty cell under your headers in the Plans tab and paste.</p>
-    <textarea id="tsv" readonly></textarea>
-    <button class="btn sec sm" type="button" onclick="copyBox('tsv')">Copy sheet rows</button>
-    <h3>2. Or — code block for assignments.js</h3>
-    <p class="hint">Paste inside the <code>HOMEWORK = { … }</code> object in <code>homework/assignments.js</code>.</p>
-    <textarea id="js" readonly></textarea>
-    <button class="btn sec sm" type="button" onclick="copyBox('js')">Copy code block</button>
-  </div>
-</div>
-
-<script>
-var SKILLS=["Words in Context","Text Structure and Purpose","Cross-Text Connections","Central Ideas and Details","Command of Evidence — Textual","Command of Evidence — Quantitative","Inferences","Rhetorical Synthesis","Transitions","Boundaries","Form, Structure, and Sense"];
-var DIFFS=["Easy","Medium","Hard"];
-var daysEl=document.getElementById('days'); var n=0;
-function addDay(){
-  n++; var d=document.createElement('div'); d.className='card day'; d.dataset.n=n;
-  d.innerHTML='<div class="dhead"><span class="dnum">Day '+n+'</span><button class="btn sec sm" type="button" onclick="this.closest(\'.day\').remove()">Remove</button></div>'
-    +'<label>Focus (short label the student sees)</label><input type="text" class="focus" placeholder="e.g. Words in Context">'
-    +'<label>Skills (tap to include)</label><div class="chips skills">'+SKILLS.map(function(s){return '<span class="chip" data-v="'+s+'">'+s+'</span>';}).join('')+'</div>'
-    +'<label>Difficulty</label><div class="chips diffs">'+DIFFS.map(function(s){return '<span class="chip" data-v="'+s+'">'+s+'</span>';}).join('')+'</div>'
-    +'<div class="row"><div><label>How many questions</label><input type="number" class="count" value="6" min="1" max="40"></div>'
-    +'<div><label>Time limit in minutes (0 = untimed)</label><input type="number" class="minutes" value="0" min="0" max="120"></div></div>'
-    +'<label>Tip (one line of advice)</label><input type="text" class="tip" placeholder="e.g. Predict the word, then check the tone.">';
-  daysEl.appendChild(d);
-  d.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('on');};});
-}
-document.getElementById('addDay').onclick=addDay;
-addDay();
-
-function collect(){
-  var student=val('student'), start=val('start'), title=val('title');
-  var days=[];
-  document.querySelectorAll('.day').forEach(function(d,i){
-    var skills=[].map.call(d.querySelectorAll('.skills .chip.on'),function(c){return c.dataset.v;});
-    var diffs=[].map.call(d.querySelectorAll('.diffs .chip.on'),function(c){return c.dataset.v;});
-    days.push({n:i+1, focus:d.querySelector('.focus').value.trim()||skills.join(', '),
-      skills:skills, diffs:diffs, count:+d.querySelector('.count').value||6,
-      minutes:+d.querySelector('.minutes').value||0, tip:d.querySelector('.tip').value.trim()});
-  });
-  return {student:student,start:start,title:title,days:days};
-}
-function val(id){return document.getElementById(id).value.trim();}
-
-document.getElementById('gen').onclick=function(){
-  var a=collect();
-  if(!a.student||!a.start){ alert('Please fill in the student name and start date.'); return; }
-  if(a.days.some(function(d){return !d.skills.length||!d.diffs.length;})){ alert('Each day needs at least one skill and one difficulty selected.'); return; }
-  var head=['Student','Start','Title','Day','Focus','Skills','Difficulties','Count','Minutes','Tip'].join('\t');
-  var rows=a.days.map(function(d,i){return [a.student,a.start,(i===0?a.title:''),d.n,d.focus,d.skills.join(', '),d.diffs.join(', '),d.count,d.minutes,d.tip].join('\t');});
-  document.getElementById('tsv').value=[head].concat(rows).join('\n');
-  var js='  "'+a.student+'": {\n    title:'+JSON.stringify(a.title)+', start:'+JSON.stringify(a.start)+', unlock:"cumulative",\n    days:[\n'
-    + a.days.map(function(d){return '      { n:'+d.n+', focus:'+JSON.stringify(d.focus)+', skills:'+JSON.stringify(d.skills)+', diffs:'+JSON.stringify(d.diffs)+', count:'+d.count+(d.minutes?', minutes:'+d.minutes:'')+', tip:'+JSON.stringify(d.tip)+' },';}).join('\n')
-    + '\n    ]\n  },';
-  document.getElementById('js').value=js;
-  document.getElementById('output').style.display='block';
-  document.getElementById('output').scrollIntoView({behavior:'smooth'});
-};
-function copyBox(id){var t=document.getElementById(id);t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}}
-</script>
-</body>
-</html>
+<script>window.GATE_REQUIRE='tutor';</script>
+<script src="ns-migrate.js?v=20260717"></script><script src="gate.js?v=20260929"></script>
+<script src="data-craft-structure.js?v=20261008&rev=sat-import-1"></script><script src="data-craft-structure-ext.js?v=20261008&rev=sat-import-1"></script>
+<script src="data-expression-of-ideas.js?v=20261008&rev=sat-import-1"></script><script src="data-expression-of-ideas-ext.js?v=20261008&rev=sat-import-1"></script>
+<script src="data-info-ideas.js?v=20261008&rev=sat-import-1"></script><script src="data-info-ideas-ext.js?v=20261008&rev=sat-import-1"></script>
+<script src="data-conventions.js?v=20261008&rev=sat-import-1"></script><script src="data-conventions-ext.js?v=20261008&rev=sat-import-1"></script>
+<script src="baseline-spec.js?v=20261008&rev=sat-import-1"></script><script src="homework/selection.js?v=20261011"></script>
+</head><body data-homework-prefix="satrw"><main class="wrap">
+<div class="top"><div><h1>Homework Builder</h1><div class="muted">Choose the method, then review the actual questions and backups.</div></div><a class="back" href="index.html">Back to app</a></div>
+<section class="card"><div class="row"><label>Student<input id="student" autocomplete="off" placeholder="Exact sign-in name"></label><label>First release<input id="start" type="date"></label><label>Finish by<input id="through" type="date"></label></div>
+<label>Homework title<input id="title" placeholder="This week’s homework"></label><label>Held question IDs (class or assessment questions to protect)<textarea id="held" class="ids" placeholder="Separate IDs with spaces or commas. Baseline forms are protected automatically."></textarea></label></section>
+<section class="card"><h2>Question history</h2><p class="muted">Import the Questions export before selecting. Only the named student’s IDs are retained in this browser. A score report alone cannot identify questions.</p><label>Questions CSV or student history file<input id="historyFile" type="file" accept=".csv,.json"></label><p id="historyStatus" role="status">Choose a student to check their local records.</p><button id="historyExport" type="button">Save private student history file</button><p class="muted">Transfer that file privately to the student’s browser before a sitting. Updated external records need another import.</p></section>
+<div id="days"></div><button id="addDay" type="button">+ Add set</button> <button id="autoPick" type="button">Fill questions and backups</button>
+<section class="card"><h2>Review before export</h2><button class="primary" id="gen" type="button">Check and generate assignment</button><div id="audit" aria-live="polite"></div></section>
+<section class="card" id="output" hidden><h2>Assignment code</h2><p class="muted">Copy this entry into HOMEWORK in homework/assignments.js, then run the plan checks. The existing Plans sheet format cannot retain precise slots or backups.</p><textarea id="js" class="output" readonly></textarea><button id="copy" type="button">Copy assignment</button><p id="copyStatus" role="status"></p></section>
+</main><dialog id="picker"><div class="top"><h2>Select question</h2><button id="closePicker" type="button">Close</button></div><p id="pickerTarget" class="muted"></p><div class="picker"><div id="candidates" class="candidates"></div><div id="questionPreview"></div></div></dialog>
+<script src="homework/builder.js?v=20261011"></script></body></html>

@@ -226,7 +226,7 @@
               : (open? '<span class="state open">Available</span>' : '<span class="state lock">'+lockLabel+'</span>');
     html += '<div class="'+cls+'">'
       + '<div class="top"><span class="num">'+day.n+'</span><span class="focus">'+day.focus+'</span>'+state+'</div>'
-      + '<div class="meta">'+(day.diffs?day.diffs.join(' + ')+' &middot; ':'')+(day.sections?day.sections.reduce(function(s,x){return s+(x.count||0);},0):day.count)+' questions'+(day.minutes? ' &middot; '+day.minutes+' min':'')+'</div>'
+      + '<div class="meta">'+(day.diffs?day.diffs.join(' + ')+' &middot; ':'')+(day.slots?day.slots.length:day.sections?day.sections.reduce(function(s,x){return s+(x.count||0);},0):day.count)+' questions'+(day.minutes? ' &middot; '+day.minutes+' min':'')+'</div>'
       + (open? '<div class="tip">'+day.tip+'</div>' : '')
       + (open? '<div class="go" style="display:flex;gap:.5rem;flex-wrap:wrap">'
           + (reviewable(day.n)? '<a class="btn" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'&mode=review">Review your misses</a>' : '')
@@ -234,7 +234,7 @@
           // offered again: on 29 Sep a finished 27-question module was re-run a minute
           // later in 77 seconds, which drew 27 fresh questions, spent them, and logged a
           // score that meant nothing. Untimed sets keep "Do it again".
-          + ((isDone && day.minutes>0) ? '' : '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':started?'Finish set '+day.n:'Start set '+day.n)+'</a>')
+          + ((isDone && (day.minutes>0 || day.slots)) ? '' : '<a class="btn'+((isDone||reviewable(day.n))?' sec':'')+'" href="homework-run.html?student='+encodeURIComponent(student)+'&day='+day.n+'">'+(isDone?'Do it again':started?'Finish set '+day.n:'Start set '+day.n)+'</a>')
           + '</div>' : '')
       + '</div>';
   });
