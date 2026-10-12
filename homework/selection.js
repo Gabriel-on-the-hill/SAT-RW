@@ -143,7 +143,12 @@
       BASELINE_FORMS.forEach(function(f){ids=ids.concat(buildBaselineForm(bank,f).questions.map(function(q){return q.id;}));});
     return ids;
   }
-  function version(plan,spec){return JSON.stringify([plan.start,plan.version||'',spec.n,spec.slots,spec.minutes||0,spec.heldIds||[]]);}
+  function version(plan,spec){
+    var signature=[plan.start,plan.version||'',spec.n,spec.slots,spec.minutes||0,spec.heldIds||[]];
+    // Keep existing sittings compatible when no question-specific override was added.
+    if(spec.responses && Object.keys(spec.responses).length)signature.push(spec.responses);
+    return JSON.stringify(signature);
+  }
   var api={index:index,canonical:canonical,matches:matches,valid:valid,resolve:resolve,csv:csv,
     importHistory:importHistory,readHistory:readHistory,saveImport:saveImport,history:history,
     notePresented:notePresented,noteRecognition:noteRecognition,defaultHeld:defaultHeld,version:version};

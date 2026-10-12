@@ -704,7 +704,7 @@ function finish() {
         const redo = posts.find(p => p.type === 'review' && /— redo$/.test(p.focus));
         ok('a finished redo posts its own `review` row', !!redo);
         eq('with one question per redone item', redo && redo.questions.length, 3);
-        ok('carrying the redo prediction', redo && redo.questions.every(q => q.prediction === 'redo reason'));
+        ok('carrying the redo prediction', redo && redo.questions.every(q => q.prediction === 'Inference and supporting detail: redo reason'));
         ok('and never a `homework` row', !posts.some(p => p.type === 'homework'));
     }
 

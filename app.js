@@ -141,6 +141,7 @@ let isAnswered           = false;
 let activeQuestions      = [];
 let missedQuestions      = [];
 let sessionResults       = [];
+let methodResponse       = null;
 let reviewMode           = false;
 let questionStartTime    = null;
 
@@ -1301,7 +1302,24 @@ function loadQuestion(index) {
     if (userMode === 'assisted') {
         const hint = document.getElementById('predictionHint');
         hint.innerHTML = '&#128161; ' + buildStrategyHint(q.skill);
+        methodResponse=null;
+        if(typeof StrategyResponse!=='undefined'&&timerMode!=='countdown'){
+            let area=document.getElementById('practiceMethod');
+            if(!area){area=document.createElement('div');area.id='practiceMethod';hint.parentNode.insertBefore(area,document.getElementById('revealChoicesBtn'));}
+            area.innerHTML='<textarea id="practiceMethodText"></textarea><p id="practiceMethodError" role="status"></p>';
+            hint.textContent='Make the method checks before choosing.';
+            const current=responses[currentQuestionIndex];
+            methodResponse=StrategyResponse.mount(document.getElementById('practiceMethodText'),q,{values:current.methodValues,onChange:function(h){current.methodValues=h.values();saveSessionState();}});
+            if(current.methodRevealed){methodResponse.freeze(true);}
+            if(current.methodRevealed||methodResponse.profile.phase==='with-options')optionsContainer.classList.remove('hidden');
+            document.getElementById('revealChoicesBtn').textContent='Save method notes — show choices';
+        }else if(typeof StrategyResponse!=='undefined'){
+            const cue=StrategyResponse.profile(q),area=document.getElementById('practiceMethod');if(area)area.innerHTML='';
+            hint.textContent=cue.instructions+' Make the checks briefly in your head or on paper.';
+            document.getElementById('revealChoicesBtn').textContent='I have made the checks — show choices';
+        }
         predictionStep.classList.remove('hidden');
+        if(responses[currentQuestionIndex].methodRevealed)predictionStep.classList.add('hidden');
         applyPassageHighlights(q);
     } else {
         optionsContainer.classList.remove('hidden');
@@ -1420,6 +1438,11 @@ function paintSelection() {
 // Commit the current question: write the ledger once, then show feedback.
 // Used by practice/assisted mode only — exam mode commits the whole module.
 function submitAnswer() {
+    if(userMode==='assisted'&&methodResponse&&!responses[currentQuestionIndex].methodRevealed){
+        const message=document.getElementById('practiceMethodError');
+        message.textContent=methodResponse.complete()?'Save the method notes before submitting this answer.':'Complete: '+methodResponse.missing().join('; ');
+        methodResponse.focusMissing();return;
+    }
     const i = currentQuestionIndex;
     const q = activeQuestions[i];
     const r = responses[i];
@@ -2028,6 +2051,10 @@ function init() {
     });
 
     document.getElementById('revealChoicesBtn').addEventListener('click', () => {
+        if(userMode==='assisted'&&methodResponse){
+            if(!methodResponse.complete()){document.getElementById('practiceMethodError').textContent='Complete: '+methodResponse.missing().join('; ');methodResponse.focusMissing();return;}
+            const current=responses[currentQuestionIndex];current.prediction=methodResponse.text();current.methodValues=methodResponse.values();current.methodRevealed=true;methodResponse.freeze(true);saveSessionState();
+        }
         document.getElementById('predictionStep').classList.add('hidden');
         document.getElementById('optionsContainer').classList.remove('hidden');
     });

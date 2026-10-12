@@ -53,7 +53,7 @@
     }
     function review(block) {
       var rows=firstRows(block);
-      paint('<h2>'+esc(block.title)+' · review</h2><p>'+esc(block.review)+'</p>'+rows.map(function(r){var q=question(r);return '<div class="cbox"><b>'+esc(r.id)+' · '+(r.chosen===null?'Not attempted':esc(r.chosen)+' · '+(r.isCorrect?'correct':'repair'))+'</b><p><b>Your prediction:</b> '+esc(r.prediction)+'</p><p><b>Your explanation:</b> '+esc(r.reason)+'</p><p>'+esc(q.explanation)+'</p>'+assess(r)+'</div>';}).join('')+btn('erContinue','Continue the route'));
+      paint('<h2>'+esc(block.title)+' · review</h2><p>'+esc(block.review)+'</p>'+rows.map(function(r){var q=question(r);return '<div class="cbox"><b>'+esc(r.id)+' · '+(r.chosen===null?'Not attempted':esc(r.chosen)+' · '+(r.isCorrect?'correct':'repair'))+'</b><p><b>Your method notes:</b> '+esc(r.prediction)+'</p><p><b>Your explanation:</b> '+esc(r.reason)+'</p><p>'+esc(q.explanation)+'</p>'+assess(r)+'</div>';}).join('')+btn('erContinue','Continue the route'));
       document.querySelectorAll('.erHelp').forEach(function(select){select.onchange=function(){rows.find(function(r){return r.id===select.dataset.id;}).help=select.value;save();};});
       wire('erContinue',function(){post(block);s.block++;s.draft=null;save();home();});
     }
@@ -65,15 +65,20 @@
       var draft=s.draft && s.draft.id===q.id ? s.draft : {id:q.id,prediction:'',reason:'',chosen:null,revealed:false,recognised:false};
       s.draft=draft;save();
       paint('<h2>'+esc(block.title)+' · '+(i+1)+' of '+list.length+'</h2>'+(item.cue?'<div class="cbox">'+esc(item.cue)+'</div>':'')+passage(q)+
-        '<label for="erPrediction">Your prediction</label><textarea id="erPrediction" rows="2" style="width:100%;box-sizing:border-box;font:inherit">'+esc(draft.prediction)+'</textarea>'+btn('erReveal','Commit prediction and show choices',!draft.prediction.trim())+
+        '<label for="erPrediction">Your method notes</label><textarea id="erPrediction" rows="2" style="width:100%;box-sizing:border-box;font:inherit">'+esc(draft.prediction)+'</textarea>'+btn('erReveal','Save the method notes and show choices',!draft.prediction.trim())+
         '<div id="erChoices"'+(draft.revealed?'':' hidden')+'>'+q.options.map(function(o,j){var letter=String.fromCharCode(65+j);return '<button class="copt" data-answer="'+letter+'"'+(draft.chosen===letter?' aria-pressed="true"':' aria-pressed="false"')+'>'+esc(o)+'</button>';}).join('')+
         '<label for="erReason">'+esc(item.reasonPrompt||'Explain your decision in your own words.')+'</label><textarea id="erReason" rows="3" style="width:100%;box-sizing:border-box;font:inherit">'+esc(draft.reason)+'</textarea>'+btn('erCommit','Commit first answer',!(draft.chosen&&draft.reason.trim()))+'</div>'+
         '<p><label><input id="erRecognised" type="checkbox"'+(draft.recognised?' checked':'')+'> I recognise this question</label></p>'+btn('erSkip','Leave unanswered'));
+      var method=typeof StrategyResponse!=='undefined'?StrategyResponse.mount(el('erPrediction'),q,{
+        profile:draft.methodProfile||item.responseProfile||q.responseProfile,values:draft.methodValues,onChange:function(){update();}
+      }):null;
+      if(method){draft.methodProfile=method.profile;method.freeze(draft.revealed);if(method.profile.phase==='with-options')el('erChoices').hidden=false;}
+      function methodReady(){return method?method.complete():!!el('erPrediction').value.trim();}
       if(typeof Eliminator!=='undefined')Eliminator.decorate(el('erChoices'),{ns:'er:'+ctx.student+':'+ctx.set.setId+':'+block.key,id:q.id,selector:'.copt'});
       el('erPrediction').disabled=draft.revealed;el('erReveal').hidden=draft.revealed;
-      function update() { draft.prediction=el('erPrediction').value;draft.reason=el('erReason').value;draft.recognised=el('erRecognised').checked;save();el('erReveal').disabled=!draft.prediction.trim();el('erCommit').disabled=!(draft.chosen&&draft.reason.trim()); }
+      function update() { if(!draft.revealed){draft.prediction=method?method.text():el('erPrediction').value;if(method)draft.methodValues=method.values();}draft.reason=el('erReason').value;draft.recognised=el('erRecognised').checked;save();el('erReveal').disabled=!methodReady();el('erCommit').disabled=!(draft.chosen&&draft.reason.trim()); }
       el('erPrediction').oninput=update;el('erReason').oninput=update;el('erRecognised').onchange=update;
-      wire('erReveal',function(){update();if(!draft.prediction.trim())return;draft.revealed=true;save();run(block);});
+      wire('erReveal',function(){update();if(!methodReady())return;draft.revealed=true;save();run(block);});
       document.querySelectorAll('#erChoices [data-answer]').forEach(function(b){b.onclick=function(){if(!draft.revealed)return;draft.chosen=b.dataset.answer;document.querySelectorAll('#erChoices [data-answer]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');x.style.borderColor=x===b?'#7c3aed':'';});update();};});
       var committed=false;
       function commit(skip) {
@@ -81,7 +86,7 @@
         update();if(!skip&&(!draft.revealed||!draft.chosen||!draft.reason.trim()))return;
         committed=true;
         var _el=(typeof Eliminator!=='undefined')?Eliminator.report('er:'+ctx.student+':'+ctx.set.setId+':'+block.key,q.id,q.answer):{elim:'',elimAnswer:false};
-        s.rows.push({elim:_el.elim,elimAnswer:_el.elimAnswer,block:block.key,id:q.id,role:item.role,prediction:draft.prediction,reason:draft.reason,chosen:skip?null:draft.chosen,isCorrect:skip?null:draft.chosen===q.answer,recognised:draft.recognised,help:item.role==='modelled'?'model':'unrecorded',date:new Date().toISOString()});
+        s.rows.push({elim:_el.elim,elimAnswer:_el.elimAnswer,block:block.key,id:q.id,role:item.role,prediction:draft.prediction,methodValues:draft.methodValues,methodProfile:draft.methodProfile,reason:draft.reason,chosen:skip?null:draft.chosen,isCorrect:skip?null:draft.chosen===q.answer,recognised:draft.recognised,help:item.role==='modelled'?'model':'unrecorded',date:new Date().toISOString()});
         s.draft=null;save();
         // Met, not mastered: the exposure record keeps this item out of the unseen tier of later draws. No ledger row.
         if(typeof recordExposure==='function') recordExposure(q.id,'class',skip?null:draft.chosen===q.answer);

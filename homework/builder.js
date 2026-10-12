@@ -74,6 +74,14 @@
       +(q.image?'<img class="figure" src="'+esc(q.image)+'" alt="Question figure">':'')+'<p><b>'+esc(q.question)+'</b></p>'
       +q.options.map(function(o){return '<p>'+esc(o)+'</p>';}).join('')+'<details><summary>Tutor key: '+esc(q.answer)+'</summary><p>'+esc(q.explanation)+'</p></details>'
       +'<button id="usePrimary" type="button">Use preferred</button> <button id="useReserve" type="button">Add backup</button><p id="previewMessage" role="status"></p>';
+    if(typeof StrategyResponse!=='undefined'){
+      var method=StrategyResponse.profile(q),notes=document.createElement('div');notes.className='preview';
+      var heading=document.createElement('strong');heading.textContent='Method notes requested';notes.appendChild(heading);
+      var instructions=document.createElement('p');instructions.textContent=method.instructions;notes.appendChild(instructions);
+      method.fields.forEach(function(f){var line=document.createElement('p');line.textContent=f.label;notes.appendChild(line);});
+      var phase=document.createElement('p');phase.textContent=method.phase==='with-options'?'Choices visible during the method check':'Method check before choices';notes.appendChild(phase);
+      el('questionPreview').appendChild(notes);
+    }
     var img=el('questionPreview').querySelector('img');if(img)img.onerror=function(){el('previewMessage').textContent='Figure could not load. Resolve it before assigning this item.';el('usePrimary').disabled=true;el('useReserve').disabled=true;};
     el('usePrimary').onclick=function(){active.preferredId=q.id;active.reserveIds=active.reserveIds.filter(function(id){return id!==q.id;});render();invalidate();el('previewMessage').textContent='Preferred question selected.';};
     el('useReserve').onclick=function(){if(q.id===active.preferredId || active.reserveIds.includes(q.id))return;active.reserveIds.push(q.id);render();invalidate();el('previewMessage').textContent='Backup '+active.reserveIds.length+' selected.';};

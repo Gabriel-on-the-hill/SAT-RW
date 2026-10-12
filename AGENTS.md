@@ -50,6 +50,7 @@ NODE_PATH=/tmp/j/node_modules node baseline-sync.test.js           # the tutor a
 NODE_PATH=/tmp/j/node_modules node baseline-recover.test.js        # a stranded baseline can be sent
 node tutor-sheet/apps-script.test.js                               # the sheet + dashboard join
 node tools/bank-import-kit/import.test.js                           # import gates and install barrier
+NODE_PATH=/tmp/j/node_modules node strategy-response.test.js           # method fields, drafts, timing and logging
 node cache-tags.test.js                                            # students get the CURRENT files
 ```
 
@@ -219,7 +220,7 @@ interleaving (`MR-4`), misses coming back is spaced retrieval (`MR-1`). Look one
 overhead. Every one of them makes the app feel *harder* than the obvious alternative. That is the
 mechanism, not a bug in it.
 
-- **The options stay hidden until the student commits a prediction.** This is the technique
+- **The options stay hidden until the student commits the method response by default.** An item explicitly configured with `phase: "with-options"` can show alternatives during the method check; record that phase and still require the notes before committing an answer. This is the technique
   every student here is taught, and homework is the one place they can silently skip it.
 - **Untimed → she TYPES the prediction. Timed → one click.** Never make her type under a
   clock: she cannot type on test day, and it corrupts the timing measurement. New skill →
@@ -642,3 +643,8 @@ which is how tests stub them. `challenge/challenge-ui.test.js` explains this too
 - **Review is logged.** Opening a review, finishing a redo, and leaving with new "what went
   wrong" notes each post a `review` row (Sessions tab). None of these
   touch mastery or the first-attempt record.
+
+
+## Method-specific responses
+
+Read the parent house `Method_Response_Standard.md` for every class/homework plan. `strategy-response.js` requests the deciding information for the actual skill and grammar rule, with question/day overrides. `homework/METHOD-RESPONSES.md` documents profiles and option-visibility phases. The default is a written method response before choices in untimed work; `phase: "with-options"` is an explicit exception when the method requires inspecting alternatives. Required fields check completeness only, and the selected answer remains the score. Timed homework keeps brief method cues and the existing one-click gate, with paper notes when the plan needs written evidence. First answers and original notes stay fixed. Labelled responses use the existing Prediction field; no new Apps Script column is required. Run `strategy-response.test.js` with jsdom and the prescribed app suites.

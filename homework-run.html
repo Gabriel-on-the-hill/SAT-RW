@@ -125,7 +125,8 @@
 <script src="data-conventions-ext.js?v=20261008&rev=sat-import-1"></script>
 <script src="progress.js?v=20261005"></script>
 <script src="baseline-spec.js?v=20261008&rev=sat-import-1"></script>
-<script src="homework/selection.js?v=20261011"></script>
+<script src="strategy-response.js?v=20261012"></script>
+<script src="homework/selection.js?v=20261012"></script>
 <script src="homework/sitting.js?v=20261011"></script>
 <script src="sheet-sync.js?v=20260825"></script>
 <script src="homework/assignments.js?v=20261011"></script>
@@ -483,7 +484,13 @@
   resetNav(daySet.length);
   if(precise){nav=precise.data.nav;precise.data.nav=nav;}
 
+  var methodResponse=null;
+  function responseProfile(q){ return (spec.responses && spec.responses[q.id]) || q.responseProfile; }
   function predictPrompt(q){
+    if(typeof StrategyResponse!=='undefined'){
+      var p=StrategyResponse.profile(q,responseProfile(q));
+      return {q:p.instructions,ph:p.fields[0].placeholder||p.fields[0].label};
+    }
     return (q && PREDICT_PROMPTS[q.skill]) || {
       q:'In your own words, what should the answer say? Write it before you see the choices.',
       ph:'My prediction is…'
@@ -501,6 +508,7 @@
       precise.controls(run,function(){set=precise.questions();daySet=set.slice();records=precise.data.records;nav=precise.data.nav;render();});
       saveSitting();return;
     }
+    methodResponse=null;
     var n=navOf(idx);
     // A question already visited comes back as it was left, not as a blank slate.
     answered=n.graded; revealTs=n.revealed?Date.now():null; prediction=n.prediction||'';
@@ -514,17 +522,17 @@
     var pp = predictPrompt(q);
     var predictBox = (mode==='type')
       ? '<div class="predict" id="predict">'
-        + '<div class="ph">Predict first</div>'
+        + '<div class="ph">Work out what decides</div>'
         + '<div class="psub">'+esc(pp.q)+'</div>'
         + '<textarea id="predText" placeholder="'+attr(pp.ph)+'"></textarea>'
-        + '<div class="err" id="predErr">Write your prediction first — that’s the whole method.</div>'
+        + '<div class="err" id="predErr">Complete the requested method notes before choosing.</div>'
         + '<div class="err" id="readErr">Read the text first. The choices are still locked.</div>'
         + '<div class="row"><button class="btn" id="predGo">Show the choices</button></div>'
         + '</div>'
       : '<div class="predict" id="predict">'
-        + '<div class="ph">Predict first</div>'
-        + '<div class="psub">'+esc(pp.q)+' Answer it in your head — only then look at the choices.</div>'
-        + '<div class="row"><button class="btn" id="predGo">I have my prediction — show the choices</button></div>'
+        + '<div class="ph">Work out what decides</div>'
+        + '<div class="psub">'+esc(pp.q)+' Make these checks briefly in your head or on paper before choosing. The app does not record a written response in this timed mode.</div>'
+        + '<div class="row"><button class="btn" id="predGo">I have made the checks — show the choices</button></div>'
         + '</div>';
 
     var opts=q.options.map(function(o){var L=o.trim()[0];return '<button class="opt" data-l="'+L+'">'+esc(o)+'</button>';}).join('');
@@ -552,7 +560,17 @@
     var predGoEl=document.getElementById('predGo');
     var draft=document.getElementById('predText');
     if(draft && n.prediction)draft.value=n.prediction;
-    if(draft && precise)draft.oninput=function(){n.prediction=draft.value;saveSitting();};
+    if(draft && typeof StrategyResponse!=='undefined'){
+      methodResponse=StrategyResponse.mount(draft,q,{profile:n.methodProfile||responseProfile(q),values:n.methodValues,intro:false,onChange:function(h){
+        n.methodValues=h.values();n.methodProfile=h.profile;n.prediction=h.text();saveSitting();
+      }});
+      n.methodProfile=methodResponse.profile;
+      if(methodResponse.profile.phase==='with-options'){
+        document.getElementById('opts').classList.remove('hidden');
+        if(n.optionsAt==null)n.optionsAt=Date.now();revealTs=n.optionsAt;
+        document.getElementById('predGo').textContent='Save the checks and choose';
+      }
+    }else if(draft && precise)draft.oninput=function(){n.prediction=draft.value;saveSitting();};
     var recognized=document.getElementById('recognized');
     if(recognized){recognized.disabled=!!n.recognized;recognized.onclick=function(){
       var result;
@@ -584,7 +602,7 @@
       document.getElementById('opts').classList.remove('hidden');
       if(n.prediction){
         document.getElementById('yourpred').innerHTML=
-          '<div class="yourpred"><b>Your prediction</b>'+esc(n.prediction)+'</div>';
+          '<div class="yourpred"><b>Your method notes</b>'+esc(n.prediction)+'</div>';
       }
       paintHwChoice(q);
       if(n.graded && navMode()!=='exam') showHwFeedback(q, recOf(q.id));
@@ -622,7 +640,7 @@
   // locked reveal could cost her the last question — "running out of time must
   // not destroy the set". Redos are exempt; she has already read the passage once.
   function minReadSecs(q){
-    if (isRedo || predictMode()!=='type') return 0;
+    if (isRedo || predictMode()!=='type' || (methodResponse && methodResponse.profile.phase==='with-options')) return 0;
     var words=String(q.passage||'').trim().split(/\s+/).filter(Boolean).length;
     if (q.image) words=Math.max(words,40);          // a figure has to be read too
     return Math.min(45, Math.max(8, Math.round(words/6)));
@@ -643,12 +661,19 @@
     if (predictMode()==='type') {
       var ta=document.getElementById('predText');
       var val=(ta.value||'').trim();
-      if (val.length < 3) { document.getElementById('predErr').classList.add('show'); ta.focus(); return; }
-      prediction=val;
-      document.getElementById('yourpred').innerHTML='<div class="yourpred"><b>Your prediction</b>'+esc(prediction)+'</div>';
+      if(methodResponse){
+        if(!methodResponse.complete()){
+          var pe=document.getElementById('predErr');pe.textContent='Complete: '+methodResponse.missing().join('; ');pe.classList.add('show');methodResponse.focusMissing();return;
+        }
+        prediction=methodResponse.text();navOf(idx).methodValues=methodResponse.values();
+      }else{
+        if (val.length < 3) { document.getElementById('predErr').classList.add('show'); ta.focus(); return; }
+        prediction=val;
+      }
+      document.getElementById('yourpred').innerHTML='<div class="yourpred"><b>Your method notes</b>'+esc(prediction)+'</div>';
     }
     if(readTimer){ clearInterval(readTimer); readTimer=null; }
-    revealTs=Date.now();
+    revealTs=(methodResponse && methodResponse.profile.phase==='with-options')?navOf(idx).optionsAt:Date.now();
     // Record the reveal against THIS question, not just in a local. Without
     // this, coming back to a question re-locked the choices behind a prediction
     // he had already made, and the prediction never reached the record — which
@@ -671,7 +696,7 @@
     if(!qStart) return;
     navOf(idx).secs += Math.round((Date.now()-qStart)/1000);
     qStart=Date.now();
-    var text=document.getElementById('predText');if(text)navOf(idx).prediction=text.value;
+    var text=document.getElementById('predText');if(text){navOf(idx).prediction=methodResponse?methodResponse.text():text.value;if(methodResponse)navOf(idx).methodValues=methodResponse.values();}
     saveSitting();
   }
 
@@ -776,6 +801,7 @@
 
   // Untimed only: grade the selection, write the ledger, show the explanation.
   function gradeCurrent(q){
+    if(!navOf(idx).revealed)return;
     var n=navOf(idx);
     if(n.graded || n.chosen===null) return;
     bankQ();
@@ -1019,7 +1045,7 @@
           : '<div class="ans"><span class="lab">You chose</span><b>—</b></div>')
         +'<div class="ans good"><span class="lab">Correct</span><b>'+esc(r.answer)+'</b></div>';
     var right = (opts && !r.chosen) ? '<div class="ans"><span class="lab">You chose</span><b>— not reached</b></div>' : '';
-    var pred  = r.prediction ? '<div class="yourpred" style="margin-top:.5rem"><b>What you predicted</b>'+esc(r.prediction)+'</div>' : '';
+    var pred  = r.prediction ? '<div class="yourpred" style="margin-top:.5rem"><b>Your original method notes</b>'+esc(r.prediction)+'</div>' : '';
     var fixed = r.redoOk ? '<div class="fixed">Put right on the redo</div>' : '';
 
     // Only the misses get the work. Making her tag a question she nailed teaches
@@ -1030,8 +1056,8 @@
         return '<button class="tag'+(r.tag===t?' on':'')+'" data-id="'+attr(r.id)+'" data-tag="'+attr(t)+'">'+esc(t)+'</button>';
       }).join('');
       work='<div class="lbl">What went wrong?</div><div class="tags">'+chips+'</div>'
-        +'<div class="lbl">What you should have predicted</div>'
-        +'<textarea class="fix" data-id="'+attr(r.id)+'" placeholder="Now that you’ve read the explanation, write the prediction that would have got you there…">'+esc(r.fix||'')+'</textarea>'
+        +'<div class="lbl">Method notes that would have decided this question</div>'
+        +'<textarea class="fix" data-id="'+attr(r.id)+'" placeholder="Use the requested method checks to explain what should change next time…">'+esc(r.fix||'')+'</textarea>'
         +'<div class="saved" data-saved="'+attr(r.id)+'"></div>';
     }
 

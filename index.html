@@ -651,7 +651,7 @@
 
                     <div id="predictionStep" class="hidden">
                         <div id="predictionHint" class="prediction-hint"></div>
-                        <button class="reveal-btn" id="revealChoicesBtn">I have a prediction — Reveal Choices</button>
+                        <button class="reveal-btn" id="revealChoicesBtn">Save method notes — show choices</button>
                     </div>
 
                     <div id="optionsContainer" class="options-list hidden"></div>
@@ -731,12 +731,13 @@
     <script src="progress.js?v=20261005"></script>
     <script src="sheet-sync.js?v=20260825"></script>
     <!-- Must load before storage.js and app.js: both call into it. -->
-    <script src="session-responses.js?v=20260822"></script>
+    <script src="session-responses.js?v=20261012"></script>
     <script src="storage.js?v=20260909"></script>
     <script src="timer.js?v=20260703"></script>
-    <script src="history.js?v=20261008&rev=sat-import-1"></script>
+    <script src="history.js?v=20261012&rev=sat-import-1"></script>
     <script src="eliminator.js?v=20261008&rev=sat-import-1"></script>
-    <script src="app.js?v=20261008&rev=sat-import-1"></script>
+    <script src="strategy-response.js?v=20261012"></script>
+    <script src="app.js?v=20261012&rev=sat-import-1"></script>
 
     <!-- Challenge module. Order matters: the debrief payload declares
          CHALLENGE_P8, which sets.js reads; challenge.js wraps app.js and so
@@ -746,8 +747,8 @@
     <script src="data-challenge-jeffrey-p11.js?v=20260809"></script>
     <script src="challenge/sets.js?v=20261009"></script>
     <script src="challenge/challenge-core.js?v=20260722"></script>
-    <script src="challenge/class-path.js?v=20261008&rev=sat-import-1"></script>
-    <script src="challenge/evidence-route.js?v=20261008&rev=sat-import-1"></script>
+    <script src="challenge/class-path.js?v=20261012&rev=sat-import-1"></script>
+    <script src="challenge/evidence-route.js?v=20261012&rev=sat-import-1"></script>
     <script src="challenge/challenge.js?v=20261008&rev=sat-import-1"></script>
 </body>
 </html>

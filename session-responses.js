@@ -107,6 +107,7 @@ function buildResults(responses, questions) {
             answered,
             flagged:   !!r.flagged,
             secs:      r.secs,
+            ...(r.prediction ? {prediction:r.prediction} : {}),
         };
     });
 }
@@ -133,8 +134,11 @@ function responseSummary(responses, questions) {
 // Kept compact: this rides along in the same localStorage record as the rest of
 // the session state.
 function packResponses(responses) {
-    return responses.map(r =>
-        [r.chosen, r.flagged ? 1 : 0, r.secs, r.committed ? 1 : 0]);
+    return responses.map(r => {
+        const row=[r.chosen,r.flagged?1:0,r.secs,r.committed?1:0];
+        if(r.methodValues||r.prediction||r.methodRevealed)row.push(r.prediction||'',r.methodValues||{},!!r.methodRevealed);
+        return row;
+    });
 }
 
 function unpackResponses(packed, n) {
@@ -146,6 +150,7 @@ function unpackResponses(packed, n) {
         out[i].flagged   = !!p[1];
         out[i].secs      = p[2] || 0;
         out[i].committed = !!p[3];
+        if(p.length>4){out[i].prediction=p[4]||'';out[i].methodValues=p[5]||{};out[i].methodRevealed=!!p[6];}
     });
     return out;
 }
