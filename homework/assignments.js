@@ -1268,9 +1268,13 @@ function hwParseDate(s) {
 function hwDayOpen(student, plan, n) {
   if (!plan) return n === 1;
   if (plan.unlock === 'sequential') {
-    if (n <= 1) return true;
+    // Earlier sets are the plan's own set numbers below n (a plan may start at n:15).
+    var earlier = (plan.days || []).map(function (d, k) { return (d && Number(d.n)) || (k + 1); })
+      .filter(function (m) { return m < n; });
+    if (!earlier.length) return true;
     try {
-      for (var i = 1; i < n; i++) {
+      for (var j = 0; j < earlier.length; j++) {
+        var i = earlier[j];
         if (localStorage.getItem('satrw_hw_' + student + '_' + plan.start + '_' + i) !== '1') {
           return n <= hwDaysAvailable(plan.start);
         }

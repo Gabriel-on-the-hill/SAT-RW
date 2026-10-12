@@ -59,7 +59,7 @@
           '<div class="cq">'+esc(q.passage).replace(/\n/g,'<br>')+'</div><div class="cq"><b>'+esc(q.question)+'</b></div>'+
           '<label for="lpReason">Before choosing, give your deciding clue or structure (a short phrase is enough).</label><textarea id="lpReason" rows="2" style="display:block;width:100%;box-sizing:border-box;font:inherit;margin:.5rem 0;padding:.65rem" aria-describedby="lpPrompt"></textarea><div id="lpPrompt" class="cnote">Your tutor checks this reason. It is not graded automatically.</div>'+
           button('lpCommit','Commit the clue',true,true)+'<div id="lpOptions" style="display:none">'+q.options.map(function(o,j){return '<button class="copt" data-i="'+j+'">'+esc(o)+'</button>';}).join('')+'</div><div id="lpFeedback" aria-live="polite"></div><div class="crow">'+button('lpNext','Continue',false,true)+'</div>');
-        var method=typeof StrategyResponse!=='undefined'?StrategyResponse.mount(el('lpReason'),q):null;
+        var method=typeof StrategyResponse!=='undefined'?StrategyResponse.mount(el('lpReason'),q,{profile:q.responseProfile||(q.reasonPrompt?StrategyResponse.own(q.reasonPrompt):undefined)}):null;
         var methodCommitted=false;
         function methodReady(){return method?method.complete():el('lpReason').value.trim().length>=2;}
         if(method && method.profile.phase==='with-options')el('lpOptions').style.display='block';
@@ -98,9 +98,9 @@
         paint('<div class="cnote"><b>Fresh check '+(i+1)+' of '+qs.length+'</b> · notes closed · no hints</div><div class="cq">'+esc(q.passage)+'</div><div class="cq"><b>'+esc(q.question)+'</b></div><div id="lpOptions">'+q.options.map(function(o,j){return '<button class="copt" data-i="'+j+'">'+esc(o)+'</button>';}).join('')+'</div><div class="crow">'+button('lpNext',i===qs.length-1?'Submit all four':'Commit and continue',false,true)+'</div>');
         var gateMethod=null;
         if(typeof StrategyResponse!=='undefined'){
-          var area=document.createElement('div');area.innerHTML='<textarea id="lpGateReason"></textarea><button class="cbtn" id="lpGateCommit">Save the method notes</button><p id="lpGateStatus" role="status"></p>';
+          var area=document.createElement('div');area.innerHTML='<textarea id="lpGateReason"></textarea><button class="cbtn" id="lpGateCommit">Save your reasoning</button><p id="lpGateStatus" role="status"></p>';
           el('lpOptions').parentNode.insertBefore(area,el('lpOptions'));
-          gateMethod=StrategyResponse.mount(el('lpGateReason'),q,{onChange:function(h){el('lpGateStatus').textContent=h.complete()?'Method notes complete.':'Complete: '+h.missing().join('; ');}});
+          gateMethod=StrategyResponse.mount(el('lpGateReason'),q,{profile:q.responseProfile||StrategyResponse.own('Your deciding clue, in your own words'),onChange:function(h){el('lpGateStatus').textContent=h.complete()?'Ready to save.':'Write your deciding clue first.';}});
           el('lpOptions').style.display=gateMethod.profile.phase==='with-options'?'block':'none';
           wire('lpGateCommit',function(){if(!gateMethod.complete()){gateMethod.focusMissing();return;}notes[i]=gateMethod.text();gateMethod.freeze(true);el('lpGateCommit').hidden=true;el('lpOptions').style.display='block';});
         }

@@ -18,6 +18,10 @@ responseProfile: {
 }
 ```
 
+**Independent checks carry no scaffold.** An exit, silent, delayed or "notes closed · no hints" check tests whether the student retrieves the method unaided, so it shows one own-words box (`StrategyResponse.own(label)`) with no method checklist: the evidence route's `exit` blocks and items whose `role` says silent/independent/exit/delayed, the class path's fresh checks, and the structured and cycle routes' independent blocks. A tutor-written `reasonPrompt` on a class item is kept as written, as a single box, rather than replaced by the generic profile. An explicit `responseProfile` still wins in both cases.
+
+Main-purpose questions ("the main purpose of the text") use `textPurpose`; Central Ideas questions that are not asking for the main idea use `detail`. A typed field needs at least one letter or number.
+
 Untimed work collects the written fields. Timed homework keeps a brief method cue and the existing one-click commitment; use short notes on paper and retain them for tutor review. Do not label that click as recorded written reasoning. Saved first answers and their original method notes remain fixed. New drafts retain their separate fields across navigation/reload. Labelled responses travel in the existing `prediction` string so the current SAT Prediction column and PSAT Raw payload keep them without a new backend schema.
 
 Every class/homework planner must inspect the expected response as well as the item and key, use only methods confirmed taught, and specify any item override and option-visibility phase before publication. The shared planning rule lives above these apps in `C:/Antigravity/AGENTS.md` and `C:/Antigravity/Method_Response_Standard.md`; this document covers app mechanics only.

@@ -217,13 +217,13 @@
     }
   ],
   "test_command": [
-    "C:/Users/DELL/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "python",
     "tools/bank-import-kit/kit/run_tests.py",
     "."
   ],
   "today": "2026-10-08",
   "release_tag": "20261008&rev=sat-import-1",
-  "node": "C:/Users/DELL/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+  "node": "node",
   "node_modules": "C:/Antigravity/SAT GUIDES/node_modules",
   "source_checkout": "C:/Antigravity/SAT GUIDES/MasteryApp",
   "strategies": {

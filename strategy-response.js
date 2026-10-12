@@ -23,14 +23,17 @@
     crossText:{title:'Compare the claims',instructions:'Compare the two claims, including their qualifications, before choosing a response.',fields:[t('claims','Each text’s relevant claim'),t('relationship','Relationship between those claims')]},
     evidence:{title:'Evidence requirement',instructions:'Identify the exact claim, including its direction and limits, then state what evidence would support or challenge it as the question asks.',fields:[t('claim','Exact claim and its direction / limits'),t('test','What the required evidence must establish')]},
     data:{title:'Data-to-claim check',instructions:'Connect the claim to the relevant comparison in the figure. Reading a true number alone is not enough.',fields:[t('claim','What the claim requires'),t('comparison','Relevant groups / values / change, with units'),t('connection','How that comparison supports or challenges the claim')]},
+    textPurpose:{title:'Purpose of the whole text',instructions:'Say what the text as a whole sets out to do, with a verb (shows, argues, explains, challenges, describes).',fields:[t('purpose','What the whole text does')]},
+    own:{title:'Your own reasoning',instructions:'',fields:[t('reason','Your prediction, in your own words')]},
     deciding:{title:'Deciding step',instructions:'State the first deciding step from the method you have been taught and the question evidence it uses.',fields:[t('step','Deciding step and question evidence')]}
   };
   function key(q){
     q=q||{};var skill=q.skill||'',stem=q.question||'';
     if(skill==='Form, Structure, and Sense')return ({SVA:'sva',VForm:'verbForm',VTense:'tense',Pron:'pronoun',Poss:'possessive',Mod:'modifier'})[q.ruleType]||'grammar';
     return ({Boundaries:'boundaries',Transitions:'transitions','Rhetorical Synthesis':'synthesis','Words in Context':'words',Inferences:'inference','Cross-Text Connections':'crossText','Command of Evidence — Textual':'evidence','Command of Evidence — Quantitative':'data'})[skill]
-      ||(skill==='Central Ideas and Details'?(/according to|which.*detail|states that/i.test(stem)?'detail':'mainIdea'):
-      skill==='Text Structure and Purpose'?(/overall structure|organization|organisation|structure of the text/i.test(stem)?'structure':'purpose'):'deciding');
+      ||(skill==='Central Ideas and Details'?(/main idea|central idea|main point|best (?:states|describes|summari[sz]es) the (?:text|passage)|summar/i.test(stem)?'mainIdea':'detail'):
+      skill==='Text Structure and Purpose'?(/overall structure|organization|organisation|structure of the text/i.test(stem)?'structure':
+        /(?:main|primary|overall) purpose/i.test(stem)?'textPurpose':'purpose'):'deciding');
   }
   function profile(q,override){
     var raw=override || (q&&q.responseProfile),k=typeof raw==='string'?raw:(raw&&raw.key)||key(q),base=profiles[k];
@@ -52,15 +55,18 @@
     }
     return out;
   }
-  function meaningful(value){var v=String(value||'').trim();return !!v && !/^(?:_+|-{2,}|\.{2,})$/.test(v);}
+  function meaningful(value){var v=String(value||'').trim();return !!v && !/^(?:_+|-{2,}|\.{2,})$/.test(v) && /[\p{L}\p{N}]/u.test(v);}
+  // An own-words response for a check that must carry no method scaffold (exits, silent and
+  // "notes closed" checks), or for a question whose tutor-written prompt should stay as written.
+  function own(label){return {key:'own',fields:[{id:'reason',label:String(label||'Your prediction, in your own words')}]};}
   function complete(p,values){return p.fields.every(function(f){var v=String((values||{})[f.id]||'').trim();return meaningful(v) && (f.kind!=='select'||f.options.includes(v));});}
-  function text(p,values){return (p.phase==='with-options'?'[Method notes with choices visible]\n':'')+p.fields.map(function(f){return f.label+': '+String((values||{})[f.id]||'').trim();}).join('\n');}
+  function text(p,values){if(p.key==='own'&&p.fields.length===1)return (p.phase==='with-options'?'[Notes with choices visible] ':'')+String((values||{})[p.fields[0].id]||'').trim();return (p.phase==='with-options'?'[Method notes with choices visible]\n':'')+p.fields.map(function(f){return f.label+': '+String((values||{})[f.id]||'').trim();}).join('\n');}
   function mount(first,q,options){
     options=options||{};var p=profile(q,options.profile),doc=first.ownerDocument,box=doc.createElement('div'),nodes={},original=first.value;
     box.className='method-response';box.dataset.profile=p.key;box.dataset.phase=p.phase;
     first.parentNode.insertBefore(box,first);
-    if(options.intro!==false){var intro=doc.createElement('p');intro.textContent=p.instructions;intro.style.cssText='font-size:.9rem;margin:.35rem 0 .7rem';box.appendChild(intro);}
-    var oldLabel=doc.querySelector('label[for="'+first.id+'"]');if(oldLabel){oldLabel.textContent='Your method notes';oldLabel.removeAttribute('for');}
+    if(options.intro!==false&&p.instructions){var intro=doc.createElement('p');intro.textContent=p.instructions;intro.style.cssText='font-size:.9rem;margin:.35rem 0 .7rem';box.appendChild(intro);}
+    var oldLabel=doc.querySelector('label[for="'+first.id+'"]');if(oldLabel){oldLabel.textContent='Your method notes';oldLabel.removeAttribute('for');if(p.key==='own')oldLabel.hidden=true;}
     p.fields.forEach(function(f,i){
       var id=i?first.id+'_'+f.id:first.id,label=doc.createElement('label');label.htmlFor=id;label.textContent=f.label;label.style.cssText='display:block;font-weight:650;font-size:.9rem;margin:.65rem 0 .25rem';box.appendChild(label);
       var input=i||f.kind==='select'?doc.createElement(f.kind==='select'?'select':'textarea'):first;
@@ -81,7 +87,7 @@
     p.fields.forEach(function(f){['input','change'].forEach(function(event){nodes[f.id].addEventListener(event,function(){if(options.onChange)options.onChange(handle);});});});
     return handle;
   }
-  var api={profile:profile,complete:complete,text:text,mount:mount};
+  var api={profile:profile,complete:complete,text:text,mount:mount,own:own};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   if(root)root.StrategyResponse=api;
 })(typeof window!=='undefined'?window:null);

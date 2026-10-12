@@ -125,11 +125,11 @@
 <script src="data-conventions-ext.js?v=20261008&rev=sat-import-1"></script>
 <script src="progress.js?v=20261005"></script>
 <script src="baseline-spec.js?v=20261008&rev=sat-import-1"></script>
-<script src="strategy-response.js?v=20261012"></script>
+<script src="strategy-response.js?v=20261012&rev=2"></script>
 <script src="homework/selection.js?v=20261012"></script>
 <script src="homework/sitting.js?v=20261011"></script>
 <script src="sheet-sync.js?v=20260825"></script>
-<script src="homework/assignments.js?v=20261011"></script>
+<script src="homework/assignments.js?v=20261012&rev=2"></script>
 <script src="eliminator.js?v=20261008&rev=sat-import-1"></script>
 </head>
 <body>
@@ -178,7 +178,10 @@
   var reviewOnly = p.get('mode')==='review';
   var run=document.getElementById('run');
   hwLoadPlan(student, function(plan){
-  if(!plan||!dayN||!plan.days[dayN-1]){ run.innerHTML='<div class="done-card">This homework day was not found. <a href="homework-hub.html">Back to homework</a></div>'; document.getElementById('tip').style.display='none'; return; }
+  // Find the set by its number, not its position: a plan that keeps its start date
+  // continues the calendar numbering, so its only set can be n:15.
+  var spec=(plan&&plan.days&&dayN)?(plan.days.filter(function(d){return d&&Number(d.n)===dayN;})[0]||((plan.days[dayN-1]&&plan.days[dayN-1].n==null)?plan.days[dayN-1]:null)):null;
+  if(!plan||!dayN||!spec){ run.innerHTML='<div class="done-card">This homework day was not found. <a href="homework-hub.html">Back to homework</a></div>'; document.getElementById('tip').style.display='none'; return; }
   // A sequential plan is gated here too, not just on the hub — otherwise the
   // order is a suggestion that any old bookmark walks straight past. Review of
   // an already-finished set is always allowed; only a fresh run is gated.
@@ -186,10 +189,9 @@
   // strand someone whose storage is broken.
   if(!reviewOnly && typeof hwDayOpen==='function' && !hwDayOpen(student, plan, dayN)){
     run.innerHTML='<div class="done-card"><div class="big">Not yet</div>'
-      +'<p style="margin-top:.6rem;color:var(--muted)">Finish set '+(dayN-1)+' first — this one opens as soon as you submit it.</p>'
+      +'<p style="margin-top:.6rem;color:var(--muted)">Finish set '+(plan.days.map(function(d,k){return (d&&Number(d.n))||k+1;}).filter(function(m){return m<dayN;}).pop()||(dayN-1))+' first — this one opens as soon as you submit it.</p>'
       +'<div class="nav" style="justify-content:center;margin-top:1rem"><a class="btn" href="homework-hub.html">Back to homework</a></div></div>';
     document.getElementById('tip').style.display='none'; return; }
-  var spec=plan.days[dayN-1];
   // A submitted TIMED set is not run again (see the note on the hub card). Review stays
   // open. Checked here as well as on the hub, because a bookmark or the browser's Back
   // button walks straight past the hub.

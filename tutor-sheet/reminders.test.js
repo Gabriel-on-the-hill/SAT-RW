@@ -181,6 +181,31 @@ const PLAN = {
   ok(ne && /No email on file/.test(ne.body), 'digest: flags a student with no email');
 }
 
+// ── 4b. A plan that keeps an old start date ───────────────────────
+// Its only set is n:15, opening 10 Oct; the student's last homework was a week before.
+{
+  const { ctx } = makeEnv();
+  const LATE = { title: 'After class', start: '2026-09-26', through: '2026-10-14', unlock: 'cumulative',
+    days: [{ n: 15, focus: 'Set 1 after class', sections: [{ count: 2 }, { count: 2 }, { count: 2 }] }] };
+  const before = [{ student: 'A', date: '2026-10-03', day: 9, focus: 'Old', partial: false, sid: '' }];
+  const st = today => ctx.rmStudentState_({ student: 'A', email: 'a@x' }, LATE, before, today);
+  const opened = [{ student: 'A', kind: 'open', planStart: '2026-09-26', set: 15, date: '2026-10-10', status: 'sent' }];
+  eq(ctx.rmStudentAction_(st('2026-10-10'), [], '2026-10-10'), { kind: 'open', n: 15 }, 'late plan: set-open on its day');
+  eq(ctx.rmStudentAction_(st('2026-10-11'), opened, '2026-10-11'), null, 'late plan: no nudge the day after it opens');
+  eq(ctx.rmStudentAction_(st('2026-10-12'), opened, '2026-10-12'), { kind: 'nudge', n: 15 }, 'late plan: nudge two days after it opened');
+  eq(ctx.rmDigest_([st('2026-10-10')], {}, ''), null, 'late plan: the digest does not call it overdue on its first day');
+  const d = ctx.rmDigest_([st('2026-10-13')], {}, '');
+  ok(d && /A: 3 days with no homework/.test(d.body), 'late plan: digest counts from the day the set opened');
+
+  const GAP = { title: 'Spread', start: '2026-10-05', through: '2026-10-10', unlock: 'cumulative',
+    days: [{ n: 1, focus: 'First', count: 5 }, { n: 5, focus: 'Last', count: 5 }] };
+  const g = today => ctx.rmStudentState_({ student: 'A', email: 'a@x' }, GAP, [], today);
+  eq(ctx.rmStudentAction_(g('2026-10-08'), [], '2026-10-08'), null, 'no nudge before the last set has opened');
+  eq(ctx.rmStudentAction_(g('2026-10-09'), [], '2026-10-09'), { kind: 'open', n: 5 }, 'the last set opens with its own note');
+  eq(ctx.rmStudentAction_(g('2026-10-10'), [{ student: 'A', kind: 'open', planStart: '2026-10-05', set: 5, date: '2026-10-09', status: 'sent' }], '2026-10-10'),
+     { kind: 'nudge', n: 1 }, 'then the oldest waiting set is nudged');
+}
+
 // ── 5. Reading both apps' sheets ─────────────────────────────────
 {
   const { ctx } = makeEnv();

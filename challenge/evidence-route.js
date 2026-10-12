@@ -57,6 +57,9 @@
       document.querySelectorAll('.erHelp').forEach(function(select){select.onchange=function(){rows.find(function(r){return r.id===select.dataset.id;}).help=select.value;save();};});
       wire('erContinue',function(){post(block);s.block++;s.draft=null;save();home();});
     }
+    // Exit, silent and delayed checks test whether the student retrieves the method
+    // unaided, so they get one own-words box and no method checklist.
+    function independent(block,item){return !!block.exit || /silent|independent|exit|delayed/i.test(item.role||'');}
     function run(block) {
       var list=items(block), i=firstRows(block).length;
       if(i>=list.length) { review(block);return; }
@@ -70,7 +73,7 @@
         '<label for="erReason">'+esc(item.reasonPrompt||'Explain your decision in your own words.')+'</label><textarea id="erReason" rows="3" style="width:100%;box-sizing:border-box;font:inherit">'+esc(draft.reason)+'</textarea>'+btn('erCommit','Commit first answer',!(draft.chosen&&draft.reason.trim()))+'</div>'+
         '<p><label><input id="erRecognised" type="checkbox"'+(draft.recognised?' checked':'')+'> I recognise this question</label></p>'+btn('erSkip','Leave unanswered'));
       var method=typeof StrategyResponse!=='undefined'?StrategyResponse.mount(el('erPrediction'),q,{
-        profile:draft.methodProfile||item.responseProfile||q.responseProfile,values:draft.methodValues,onChange:function(){update();}
+        profile:draft.methodProfile||item.responseProfile||q.responseProfile||(independent(block,item)?StrategyResponse.own('Your prediction, in your own words'):undefined),values:draft.methodValues,onChange:function(){update();}
       }):null;
       if(method){draft.methodProfile=method.profile;method.freeze(draft.revealed);if(method.profile.phase==='with-options')el('erChoices').hidden=false;}
       function methodReady(){return method?method.complete():!!el('erPrediction').value.trim();}

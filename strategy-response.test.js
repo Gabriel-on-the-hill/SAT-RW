@@ -27,6 +27,8 @@ test('reading methods distinguish detail, main claim, organisation and purpose',
  assert.equal(S.profile({skill:'Central Ideas and Details',question:'Which choice states the main idea?'}).key,'mainIdea');
  assert.equal(S.profile({skill:'Text Structure and Purpose',question:'Which choice describes the overall structure?'}).key,'structure');
  assert.equal(S.profile({skill:'Text Structure and Purpose',question:'What is the function of the underlined sentence?'}).key,'purpose');
+ assert.equal(S.profile({skill:'Text Structure and Purpose',question:'Which choice best states the main purpose of the text?'}).key,'textPurpose');
+ assert.equal(S.profile({skill:'Central Ideas and Details',question:'What does the text indicate about the sandal?'}).key,'detail');
 });
 test('prompts do not read the answer, explanations or options to supply method evidence',()=>{
  const guarded={skill:q.skill,ruleType:'SVA'};
@@ -103,7 +105,7 @@ test('class route locks and logs method fields while preserving the correct answ
  const qq=[q,{...q,id:'m2'},{...q,id:'m3'},{...q,id:'m4'}];
  const ctx={student:'__TEST__',bank:qq,header:()=>'',paint:html=>w.document.body.innerHTML=html,back:()=>{},set:{setId:'method-test',title:'Methods'}};
  if(sat){
-  ctx.set.learningPath={route:'target-evidence',intro:'',order:'',blocks:[{key:'check',title:'Check',items:[{id:q.id,role:'silent independent check'}]}]};
+  ctx.set.learningPath={route:'target-evidence',intro:'',order:'',blocks:[{key:'check',title:'Check',items:[{id:q.id,role:'supported application'}]}]};
   inject(read('challenge/evidence-route.js'));w.ChallengeLearning.render(ctx);w.document.getElementById('erStart').click();
   w.document.getElementById('erPrediction').value='verbs';w.document.getElementById('erPrediction').dispatchEvent(new w.Event('input'));assert(w.document.getElementById('erReveal').disabled);
   fill(w);w.document.getElementById('erReveal').click();assert(w.document.querySelector('select').disabled);
@@ -125,7 +127,7 @@ test('older class learning/check routes retain and log the requested method note
  w.ChallengeLearning.render(ctx);w.document.getElementById('lpLearn').click();fill(w);w.document.getElementById('lpCommit').click();w.document.querySelector('[data-i="0"]').click();w.document.getElementById('lpNext').click();
  assert(posts[0].questions[0].prediction.includes('Controlling subject'));w.document.getElementById('lpGate').click();
  for(let i=0;i<4;i++){fill(w);w.document.getElementById('lpGateCommit').click();w.document.querySelector('[data-i="0"]').click();w.document.getElementById('lpNext').click();}
- assert.equal(posts.at(-1).score,4);assert(posts.at(-1).questions.every(r=>r.prediction.includes('Singular → singular')));dom.window.close();
+ assert.equal(posts.at(-1).score,4);assert(posts.at(-1).questions.every(r=>r.prediction==='The exact deciding relationship.'));dom.window.close();
 });
 if(fs.existsSync(path.join(__dirname,'challenge/cycle-class.js')))test('cycle class saves unfinished drafts and locks the original method response',()=>{
  const dom=new JSDOM('<body></body>',{url:'https://test.local',runScripts:'dangerously'}),w=dom.window,posts=[];
@@ -135,6 +137,33 @@ if(fs.existsSync(path.join(__dirname,'challenge/cycle-class.js')))test('cycle cl
  w.CycleClass.render(ctx);w.document.getElementById('ccCycle0').click();fill(w);const draft=JSON.parse(w.localStorage.getItem('psat89_cycleroute___TEST___cycle-method-test'));assert.equal(draft.cycles.agreement.model.methodDrafts[0].subject,'cycle');
  w.document.getElementById('ccCommit').click();assert(w.document.querySelector('select').disabled);w.document.querySelector('[data-i="0"]').click();w.document.getElementById('ccLock').click();w.document.getElementById('ccNext').click();
  assert.equal(posts[0].score,1);assert(posts[0].questions[0].prediction.includes('Controlling subject'));dom.window.close();
+});
+test('independent checks carry no method checklist; tutor-written prompts are kept as written',()=>{
+ const own=S.profile(q,S.own('Your prediction, in your own words'));assert.deepEqual(own.fields.map(f=>f.id),['reason']);assert.equal(own.instructions,'');
+ assert.equal(S.text(own,{reason:'singular subject'}),'singular subject');assert.equal(S.complete(own,{reason:'?'}),false);
+ const dom=new JSDOM('<body></body>',{url:'https://test.local',runScripts:'dangerously'}),w=dom.window,posts=[];
+ function inject(t){const e=w.document.createElement('script');e.textContent=t;w.document.body.appendChild(e);}
+ w.syncSessionToSheet=p=>posts.push(p);w.recordExposure=()=>{};inject(read('strategy-response.js'));
+ const plain=()=>{const box=w.document.querySelector('.method-response');return box&&box.querySelectorAll('[data-response-field]').length===1&&!w.document.querySelector('select')&&!box.querySelector('p');};
+ if(fs.existsSync(path.join(__dirname,'challenge/evidence-route.js'))){
+  const ctx={student:'__TEST__',bank:[q],header:()=>'',paint:h=>w.document.body.innerHTML=h,back:()=>{},set:{setId:'indep-test',title:'Methods',learningPath:{route:'target-evidence',intro:'',order:'',blocks:[{key:'x',title:'Exit',exit:true,items:[{id:q.id,role:'silent exit'}]}]}}};
+  inject(read('challenge/evidence-route.js'));w.ChallengeLearning.render(ctx);w.document.getElementById('erStart').click();
+  assert(plain(),'an exit check shows one own-words box and no checklist');
+ }else{
+  const step={...q,id:'s1',reasonPrompt:'Name the subject head and the verb it requires.'};
+  const ctx={student:'__TEST__',bank:[],header:()=>'',paint:h=>w.document.body.innerHTML=h,back:()=>{},set:{setId:'indep-test',title:'Methods',learningPath:{intro:'',order:'',steps:[step],checks:[q,{...q,id:'m2'},{...q,id:'m3'}],exitChoices:[],transfer:[]}}};
+  inject(read('challenge/structured-class.js'));w.StructuredClass.render(ctx);w.document.getElementById('scLearn').click();
+  assert(plain(),'a teaching step with a written prompt keeps one box');assert(w.document.body.textContent.includes('Name the subject head and the verb it requires.'));
+ }
+ dom.window.close();
+ const d2=new JSDOM('<body></body>',{url:'https://test.local',runScripts:'dangerously'}),w2=d2.window;
+ function inj2(t){const e=w2.document.createElement('script');e.textContent=t;w2.document.body.appendChild(e);}
+ w2.syncSessionToSheet=()=>{};w2.recordExposure=()=>{};inj2(read('strategy-response.js'));inj2(read('challenge/class-path.js'));
+ const qs=[0,1,2,3].map(i=>({...q,id:'g'+i,answer:0}));
+ const ctx2={student:'__TEST__',bank:[],header:()=>'',paint:h=>w2.document.body.innerHTML=h,back:()=>{},set:{setId:'gate-test',title:'M',learningPath:{intro:'',order:'',steps:[qs[0]],gates:[qs],exits:[],transfer:[]}}};
+ w2.ChallengeLearning.render(ctx2);w2.document.getElementById('lpLearn').click();fill(w2);w2.document.getElementById('lpCommit').click();w2.document.querySelector('[data-i="0"]').click();w2.document.getElementById('lpNext').click();
+ w2.document.getElementById('lpGate').click();
+ assert.equal(w2.document.querySelectorAll('.method-response [data-response-field]').length,1,'a notes-closed fresh check has one own-words box');assert.equal(w2.document.querySelector('select'),null);d2.window.close();
 });
 test('with-options homework cannot grade an answer before the method response is saved',()=>{
  const b=homework(0,{}, {phase:'with-options'});b.w.document.querySelector('.opt').click();b.w.document.getElementById('submit').click();assert.equal(Object.keys(b.w.getProgress()).length,0);assert.equal(b.state().records.filter(Boolean).length,0);b.close();
@@ -148,6 +177,7 @@ test('assisted practice requires the method notes before grading and preserves t
  for(const f of ['config.js','progress.js','sheet-sync.js','session-responses.js','storage.js','timer.js','history.js','strategy-response.js','app.js'])inject(read(f));
  w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
  inject('window.__methodStart=()=>launchSession([window.__methodQ],"assisted",{mode:"off"});window.__methodTimed=()=>launchSession([window.__methodQ],"assisted",{mode:"countdown",total:71});window.__methodState=()=>responses;');w.__methodStart();
+ {const h=w.document.getElementById('predictionHint'),l=h.querySelector('.method-hint-line');assert(l,'method line added');assert(h.textContent.length>l.textContent.length+10,'the skill strategy hint is kept');}
  assert.equal(w.document.getElementById('optionsContainer').classList.contains('hidden'),false);w.document.querySelector('#optionsContainer .option-btn').click();w.submitAnswer();assert.equal(w.__methodState()[0].committed,false);
  fill(w);w.document.getElementById('revealChoicesBtn').click();w.submitAnswer();assert(w.__methodState()[0].committed);
  const restored=w.unpackResponses(w.packResponses(w.__methodState()),1);assert.equal(restored[0].methodValues.subject,'cycle');assert(restored[0].prediction.includes('with choices visible'));

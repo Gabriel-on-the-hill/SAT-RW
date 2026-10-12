@@ -1173,6 +1173,15 @@ function formatPassage(text, skill) {
     return escapePassage(html);
 }
 
+// Assisted mode keeps the skill's strategy hint; the method instruction goes on a line beneath it.
+function addHintLine(hint, text) {
+    const line = document.createElement('div');
+    line.className = 'method-hint-line';
+    line.style.marginTop = '.5rem';
+    line.textContent = text;
+    hint.appendChild(line);
+}
+
 function buildStrategyHint(skill) {
     switch (skill) {
         case 'Words in Context':
@@ -1307,7 +1316,7 @@ function loadQuestion(index) {
             let area=document.getElementById('practiceMethod');
             if(!area){area=document.createElement('div');area.id='practiceMethod';hint.parentNode.insertBefore(area,document.getElementById('revealChoicesBtn'));}
             area.innerHTML='<textarea id="practiceMethodText"></textarea><p id="practiceMethodError" role="status"></p>';
-            hint.textContent='Make the method checks before choosing.';
+            addHintLine(hint,'Make the method checks before choosing.');
             const current=responses[currentQuestionIndex];
             methodResponse=StrategyResponse.mount(document.getElementById('practiceMethodText'),q,{values:current.methodValues,onChange:function(h){current.methodValues=h.values();saveSessionState();}});
             if(current.methodRevealed){methodResponse.freeze(true);}
@@ -1315,7 +1324,7 @@ function loadQuestion(index) {
             document.getElementById('revealChoicesBtn').textContent='Save method notes — show choices';
         }else if(typeof StrategyResponse!=='undefined'){
             const cue=StrategyResponse.profile(q),area=document.getElementById('practiceMethod');if(area)area.innerHTML='';
-            hint.textContent=cue.instructions+' Make the checks briefly in your head or on paper.';
+            addHintLine(hint,cue.instructions+' Make the checks briefly in your head or on paper.');
             document.getElementById('revealChoicesBtn').textContent='I have made the checks — show choices';
         }
         predictionStep.classList.remove('hidden');

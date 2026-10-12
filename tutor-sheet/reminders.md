@@ -14,8 +14,8 @@ sends email. At most one message per student per day.
 | Message | To | When | Stops when |
 |---|---|---|---|
 | Set open: which set, how many questions, how long | Student | The day a set opens, at the student's own hour | That set is done |
-| Nudge: the set still waiting | Student | 2 days with no homework while a set is waiting, once the last set has opened | Any homework arrives; at most 2 per plan, 2 days apart |
-| Digest: who needs a follow-up | Tutor | 3 days with no homework, or class tomorrow with sets undone; daily, only when there is something to say | The plan ended more than 3 days ago |
+| Nudge: the set still waiting | Student | Once the last set has opened: 2 days with no homework since the oldest waiting set opened | Any homework arrives; at most 2 per plan, 2 days apart |
+| Digest: who needs a follow-up | Tutor | 3 days with no homework since a waiting set opened, or class tomorrow with sets undone; daily, only when there is something to say | The plan ended more than 3 days ago |
 
 It never messages a parent, never sends after a plan's last day, and never messages about a
 class-only plan, an in-class set (focus says "in class"), or a day marked `remind: false`.
@@ -360,8 +360,12 @@ function rmStudentAction_(s, log, today) {
 
   var waiting = rmWaiting_(s);
   if (!waiting.length) return null;
-  var ref = s.lastActivity && s.lastActivity > s.start ? s.lastActivity : s.start;
-  if (rmDaysBetween_(ref, today) < RM_NUDGE_AFTER_DAYS) return null;
+  // Nudges start only once the plan's last set has opened (until then the set-open
+  // notes are the reminder), and quiet days count from when the work became due.
+  var lastOpens = s.sets.filter(function (x) { return !x.inClass; })
+    .reduce(function (m, x) { return x.date > m ? x.date : m; }, '');
+  if (lastOpens && today < lastOpens) return null;
+  if (rmDaysBetween_(rmQuietSince_(s), today) < RM_NUDGE_AFTER_DAYS) return null;
   var nudges = mine.filter(function (r) { return r.kind === 'nudge'; });
   if (nudges.length >= RM_MAX_NUDGES) return null;
   var lastNudge = nudges.reduce(function (m, r) { return r.date > m ? r.date : m; }, '');
@@ -401,6 +405,17 @@ function rmStudentMessage_(action, s, c, settings) {
   return { subject: 'Homework: Set ' + set.n + ' is still waiting', body: rmJoin_(lines) };
 }
 
+/**
+ * The day quiet time starts counting: the later of the last homework and the day the
+ * oldest waiting set opened. A plan that keeps an old start date (its sets continue
+ * the calendar numbering) must not look weeks overdue on the day its set opens.
+ */
+function rmQuietSince_(s) {
+  var waiting = rmWaiting_(s);
+  var due = waiting.reduce(function (m, x) { return !m || x.date < m ? x.date : m; }, '') || s.start;
+  return s.lastActivity && s.lastActivity > due ? s.lastActivity : due;
+}
+
 /** One email for the tutor, or null when nobody needs attention. */
 function rmDigest_(states, settings, planErr) {
   var lines = [];
@@ -408,8 +423,7 @@ function rmDigest_(states, settings, planErr) {
     if (!s.watch) return;
     var waiting = rmWaiting_(s);
     var undone = s.sets.filter(function (x) { return !s.done[x.n] && !x.inClass; });
-    var ref = s.lastActivity && s.lastActivity > s.start ? s.lastActivity : s.start;
-    var gap = rmDaysBetween_(ref, s.today);
+    var gap = rmDaysBetween_(rmQuietSince_(s), s.today);
     var reasons = [];
     if (waiting.length && gap >= RM_ALERT_AFTER_DAYS) reasons.push(gap + ' days with no homework');
     if (undone.length && s.classDay && rmWeekday_(rmAddDays_(s.today, 1)) === s.classDay) {

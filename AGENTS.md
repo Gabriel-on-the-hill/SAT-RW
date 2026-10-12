@@ -35,13 +35,20 @@ NODE_PATH=/tmp/j/node_modules node homework/assignments.test.js    # the plans a
 node exposure.test.js                                               # met elsewhere is not unseen
 NODE_PATH=/tmp/j/node_modules node homework/selection.test.js      # exact slots, imports, reserves and sitting integrity
 NODE_PATH=/tmp/j/node_modules node homework/bank.test.js           # the bank is classified right
-NODE_PATH=/tmp/j/node_modules node challenge/*.test.js             # the challenge feature
+NODE_PATH=/tmp/j/node_modules node challenge/challenge-core.test.js   # challenge tally + set building
+NODE_PATH=/tmp/j/node_modules node challenge/challenge-ui.test.js     # the challenge, driven for real
+NODE_PATH=/tmp/j/node_modules node challenge/class-path.test.js       # ordered class path and fresh checks
+NODE_PATH=/tmp/j/node_modules node challenge/evidence-route.test.js   # the evidence class route
+NODE_PATH=/tmp/j/node_modules node challenge/homework-hub.test.js     # the challenge card on the hub
+NODE_PATH=/tmp/j/node_modules node challenge/pattern-route.test.js    # grouped lessons and independent checks
 NODE_PATH=/tmp/j/node_modules node ns-migrate.test.js              # nobody loses their work
 NODE_PATH=/tmp/j/node_modules node ratio-mix.test.js               # custom practice in a ratio
 NODE_PATH=/tmp/j/node_modules node session-responses.test.js       # the answer model
 NODE_PATH=/tmp/j/node_modules node session-nav.e2e.test.js         # ... wired to the real page
 node session-flush.test.js                                          # an unfinished sitting still reports
 NODE_PATH=/tmp/j/node_modules node homework/homework-nav.test.js   # moving around a homework set
+NODE_PATH=/tmp/j/node_modules node homework/set-number.test.js    # a set is found by its number (n:15), not its place
+NODE_PATH=/tmp/j/node_modules node eliminator.test.js              # the cross-out tool
 NODE_PATH=/tmp/j/node_modules node gate.test.js                    # no student opens a tutor page
 NODE_PATH=/tmp/j/node_modules node baseline.test.js                # forms, bands, routing, weights
 NODE_PATH=/tmp/j/node_modules node baseline-store.test.js          # the record survives the page
@@ -49,10 +56,14 @@ NODE_PATH=/tmp/j/node_modules node baseline.e2e.test.js            # the screene
 NODE_PATH=/tmp/j/node_modules node baseline-sync.test.js           # the tutor actually receives it
 NODE_PATH=/tmp/j/node_modules node baseline-recover.test.js        # a stranded baseline can be sent
 node tutor-sheet/apps-script.test.js                               # the sheet + dashboard join
+node tutor-sheet/reminders.test.js                                 # reminder emails: open notes, nudges, digest
 node tools/bank-import-kit/import.test.js                           # import gates and install barrier
 NODE_PATH=/tmp/j/node_modules node strategy-response.test.js           # method fields, drafts, timing and logging
 node cache-tags.test.js                                            # students get the CURRENT files
 ```
+
+Each suite is its own `node` command. Do not use a glob: `node challenge/*.test.js` runs only the
+first file (the rest become its arguments), and Windows shells do not expand it at all.
 
 `homework-run.test.js` takes several minutes — it stands up a fresh jsdom per case and each one
 parses the whole question bank. Node buffers to a pipe, so it prints nothing until it finishes.
