@@ -935,85 +935,56 @@ const HOMEWORK = {
   }
   */
 
-  // ── 5–8 OCT 2026 · three short sets, one opens each day ─────────────────
-  //
-  // SHAPE — 15 new, up to 21 served. All untimed (minutes:0 keeps the typed
-  // prediction), review:2 on every set, one-question sections throughout so the
-  // skills interleave.
-  //   1  CoE-T M · Central Ideas H · CoE-Q E · Cross-Text H · Transitions M   E1 M2 H2
-  //   2  CoE-T H · Inferences H · CoE-Q E · TS&P H · RS H                     E1 H4
-  //   3  FS&S M×3 (SVA · Pron · VForm) · CoE-Q H · CoE-T H                    M3 H2
-  //
-  // NO `challenge:` KEY. homework-hub.html renders a plan carrying one as the
-  // challenge card ALONE and never draws its days. The newest challenge set still
-  // shows under the sets as the hub's tail card.
-  //
-  // UNLOCK IS CUMULATIVE HERE, ON PURPOSE. One set opens per calendar day from
-  // `start`; missed days stay open. Sequential lets all three run in one sitting,
-  // which leaves review with nothing due in sets 2 and 3. The calendar floor
-  // means the worst case is a single sitting on the last day — the same as
-  // sequential — and the best case is spacing that is guaranteed rather than
-  // asked for.
-  //
-  // PRIOR EXPOSURE. Baseline and class-route items carry no ledger row; the
-  // exposure record (progress.js) now keeps them behind the truly unseen items
-  // in every draw, filled in from what the browser holds. It cannot see another
-  // device, so Cross-Text and RS still run at Hard here, where no such item sits.
-  // Read any repeat by id, not as a first meeting.
-  //
-  // CoE-QUANTITATIVE ENTERS AT EASY. Both baseline forms draw Medium only, and
-  // Medium holds one confirmed unseen item outside the forms; Easy holds 16.
-  // One Hard in set 3.
-  //
-  // FS&S IS A FIRST LOOK BEFORE THE LESSON IT BELONGS TO. ruleType pins three
-  // different rule families so the draw cannot serve three of one kind. Mod is
-  // left out: one of its two confirmed Medium items is a Form B item.
-  //
-  // POOL CHECK, 5 Oct (confirmed labels, unseen, both forms' items removed):
-  //   CoE-T M10 H19 · CoE-Q E16 M1 H7 · Central Ideas H14 · Cross-Text H15
-  //   Inferences H22 · TS&P H16 · RS H15 · Transitions M8
-  //   FS&S Medium confirmed: SVA 6 · Pron 4 · VForm 2
-  // Re-count before re-authoring.
-  //
-  // Rationale, and anything about the student, lives in homework/PLAN-NOTES.md.
-  // This file is downloaded by his browser and this repo is public. Keep it
-  // reviewClassMisses: ON. Class-route misses with no ledger row join the
-  // review dose once the miss cooldown clears (dueForReview, progress.js).
-  //
-  // free of assessment of him — shapes, pools and guardrails only.
+  // ── 12–15 OCT 2026 · eighteen questions, one set released each day ───────
+  // Six precise official slots per set, no appended review or pool fallback.
+  // Interleave agreement and evidence across the untimed sets. Function and
+  // synthesis return in the final paced set after an untimed item of each.
+  // Set 3 follows domain order; its clock is 6 × 71 seconds, across the set.
+  // Private imports and baseline reservations are checked by the selector.
+  // Function overrides apply to the preferred item and both ordered backups.
   "Ayodeji": {
-    title: "Prove the claim — three short sets, one opens each day",
-    start: "2026-10-05",
-    through: "2026-10-08",
+    title: "Three short sets — 12–15 October",
+    start: "2026-10-12",
+    through: "2026-10-15",
+    version: "2026-10-12-18q-v1",
     unlock: "cumulative",
-    reviewClassMisses: true,
+    review: 0,
+    heldIds:["3f05e40f","50894857","5d6ab069","dd1757fd","040583a5","87023f34","d9a6817c","1d08c7ee",
+      "7edfb2c5","9debe79a","e441da80","1db1a9a6","e44db0a0","d47bb0a4","a03008de","29c9be28",
+      "4a90a978","de3dd17d","b8e13a74","145da981","4320b4ad","30c3aa98","0147b080","4c9a2aee",
+      "f4fd123c","983d33fa","003f22c8","ec08463d"],
     days: [
-      { n:1, focus:"Prove it — quotations, and one graph", minutes:0, review:2,
-        tip:"About ten minutes. No clock. Typed prediction on every question.\n\nLAST FRIDAY'S ROUTINE, ON YOUR OWN:\n1 TARGET — before the choices, type what the answer must PROVE: who, doing what, and any limit. Write it so that an answer on the same topic could still fail.\n2 EVIDENCE — point to the words (or the bars) that would prove it.\n3 FIT — two choices left? Name the one word or idea where they differ, then go back to the line that decides it.\n\nOn topic is not proof. A choice can be true, use the passage's own words, and still not prove the claim.\n\nONE GRAPH QUESTION. Before you look at the graph, write what the claim needs: a number above a line? a comparison between two groups? a change? Then read the title, the axis, the units and the key. A choice must pass TWO checks: it is TRUE on the graph, and it PROVES the claim. One out of two is out.\n\nThe other questions are mixed. First move every time: what kind of question is this?\n\nAfter you click: if two choices were close, write one line on paper — \"I chose __. __ was closest; it fails because __.\" Bring the paper on Friday.",
-        sections:[
-          { skills:["Command of Evidence — Textual"],      diffs:["Medium"], count:1 },
-          { skills:["Central Ideas and Details"],          diffs:["Hard"],   count:1 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Easy"],   count:1 },
-          { skills:["Cross-Text Connections"],             diffs:["Hard"],   count:1 },
-          { skills:["Transitions"],                        diffs:["Medium"], count:1 }
+      { n:1, focus:"12 Oct · Set 1 — read, check, choose", minutes:0, review:0,
+        tip:"Best on Monday 12 October. Six questions, no clock; allow about 10–15 minutes.\nWrite the requested method notes before opening the choices. Work on your own and report any question you recognise.\nAfter submitting, review your misses and keep the original notes.",
+        slots:[
+          { skills:["Rhetorical Synthesis"], diffs:["Hard"], intent:"fresh", preferredId:"b0620764", reserveIds:["622a351d","5645f119"], allowPool:false },
+          { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"SVA", intent:"fresh", preferredId:"6e193b19", reserveIds:["56315bd0","43b88827"], allowPool:false },
+          { skills:["Command of Evidence — Textual"], diffs:["Medium"], intent:"fresh", preferredId:"85439572", reserveIds:["08b28c1a","08ff903e"], allowPool:false },
+          { skills:["Form, Structure, and Sense"], diffs:["Hard"], ruleType:"SVA", intent:"fresh", preferredId:"0fe5ce68", reserveIds:["ea0aa676","f10b7ce4"], allowPool:false },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], intent:"fresh", preferredId:"5ff1ba73", reserveIds:["d83c3d54","15873d14"], allowPool:false },
+          { skills:["Central Ideas and Details"], diffs:["Medium"], intent:"fresh", preferredId:"66c47028", reserveIds:["dc3ea63e","602b47c7"], allowPool:false }
         ] },
-      { n:2, focus:"\"If true\" questions, and the hard end", minutes:0, review:2,
-        tip:"Do this on a different day from set 1. The gap is what lets set 1 come back to you.\n\nIF A QUESTION ASKS WHICH FINDING, IF TRUE, WOULD SUPPORT A CLAIM: the right answer usually brings in a fact the passage never mentions — that is allowed. Treat each finding as true, then ask one thing: does the claim become MORE believable?\n\nFor every evidence question, read the claim's exact words, especially words that set two things against each other: \"rather than\", \"not A but B\", \"only\", \"despite\". The support has to back the side the claim chose. A finding that makes the two things look ALIKE, when the claim says they DIFFER, points the wrong way — however many of the passage's words it borrows.\n\nThe set is mixed and mostly hard. First move every time: what kind of question is this? Then the same three steps — target, evidence, fit.\n\nSame paper line as set 1 for any close call.",
-        sections:[
-          { skills:["Command of Evidence — Textual"],      diffs:["Hard"],   count:1 },
-          { skills:["Inferences"],                         diffs:["Hard"],   count:1 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Easy"],   count:1 },
-          { skills:["Text Structure and Purpose"],         diffs:["Hard"],   count:1 },
-          { skills:["Rhetorical Synthesis"],               diffs:["Hard"],   count:1 }
+      { n:2, focus:"12 Oct · Set 2 — connect and check", minutes:0, review:0,
+        tip:"Opens Tuesday 13 October; best on Wednesday 14 October, on a different day from Set 1.\nSix questions, no clock; allow about 15–20 minutes. Write the requested method notes before opening the choices.\nReview your misses after submitting.",
+        responses:{"4259636f":"purpose","b4159cd8":"purpose","cef79fb9":"purpose"},
+        slots:[
+          { skills:["Text Structure and Purpose"], diffs:["Medium"], intent:"fresh", preferredId:"4259636f", reserveIds:["b4159cd8","cef79fb9"], allowPool:false },
+          { skills:["Form, Structure, and Sense"], diffs:["Hard"], ruleType:"SVA", intent:"fresh", preferredId:"863065c7", reserveIds:["ecba68b5","ae439895"], allowPool:false },
+          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], intent:"fresh", preferredId:"f8244f7c", reserveIds:["8a584241","8a668840"], allowPool:false },
+          { skills:["Command of Evidence — Textual"], diffs:["Hard"], intent:"fresh", preferredId:"0c622cfb", reserveIds:["2584bcfb","22e4d633"], allowPool:false },
+          { skills:["Cross-Text Connections"], diffs:["Medium"], intent:"fresh", preferredId:"a9e8c48c", reserveIds:["74e7cada","912389e9"], allowPool:false },
+          { skills:["Form, Structure, and Sense"], diffs:["Hard"], ruleType:"SVA", intent:"fresh", preferredId:"dc645172", reserveIds:["16740ab4","b32eab9f"], allowPool:false }
         ] },
-      { n:3, focus:"First look at grammar · a harder graph", minutes:0, review:2,
-        tip:"Best done the night before class. THREE OF THESE ARE GRAMMAR — Friday's lesson. Nothing to revise first; just work them the way you would now.\n\nFor grammar, the prediction is short. Type the word the blank depends on, and what it needs:\n• \"subject = the list of names → singular → is\"\n• \"replaces 'the committee' → it\"\n• \"needs a main verb, not an -ing word → was found\"\nRead past commas and extra phrases to find the real subject. Grammar has no 'best' answer: one choice follows the rule and three break it.\n\nTHE GRAPH QUESTION IS HARD. Same two checks: TRUE on the graph, and PROVES the claim. If the claim compares two groups, compare the GAPS between them, not just one bar.\n\nThe other evidence question: target, evidence, fit — as before.",
-        sections:[
-          { skills:["Form, Structure, and Sense"],         diffs:["Medium"], ruleType:"SVA",  count:1 },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Hard"],   count:1 },
-          { skills:["Form, Structure, and Sense"],         diffs:["Medium"], ruleType:"Pron", count:1 },
-          { skills:["Command of Evidence — Textual"],      diffs:["Hard"],   count:1 },
-          { skills:["Form, Structure, and Sense"],         diffs:["Medium"], ruleType:"VForm", count:1 }
+      { n:3, focus:"12 Oct · Set 3 — six questions at pace", minutes:7.1, review:0,
+        tip:"Opens Wednesday 14 October; best on Thursday 15 October, after the two untimed sets.\nSix questions in 7 minutes 6 seconds. Use brief numbered method notes on paper, then commit and choose. Keep moving; flag a close call and return if time allows.\nAfter question 3, aim to have about 3:33 left. Feedback opens after submission. Bring your paper notes to class.",
+        responses:{"ca50de52":"purpose","e818241b":"purpose","153aaae2":"purpose"},
+        slots:[
+          { skills:["Text Structure and Purpose"], diffs:["Hard"], intent:"fresh", preferredId:"ca50de52", reserveIds:["e818241b","153aaae2"], allowPool:false },
+          { skills:["Inferences"], diffs:["Medium"], intent:"fresh", preferredId:"01989d77", reserveIds:["c4d43991","9077be25"], allowPool:false },
+          { skills:["Inferences"], diffs:["Medium"], intent:"fresh", preferredId:"4603d1f7", reserveIds:["7ae8065c","f942646f"], allowPool:false },
+          { skills:["Transitions"], diffs:["Medium"], intent:"fresh", preferredId:"d3898d32", reserveIds:["39d1a519","221ecf0f"], allowPool:false },
+          { skills:["Transitions"], diffs:["Medium"], intent:"fresh", preferredId:"2df7b582", reserveIds:["388b45aa","01c8c433"], allowPool:false },
+          { skills:["Rhetorical Synthesis"], diffs:["Hard"], intent:"fresh", preferredId:"964c6055", reserveIds:["87d34a39","5b8b69a2"], allowPool:false }
         ] }
     ]
   },
