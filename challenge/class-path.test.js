@@ -13,7 +13,7 @@ function inject(s){const e=w.document.createElement('script');e.textContent=s;w.
 for(const f of ['config.js','progress.js','sheet-sync.js','session-responses.js','storage.js','timer.js','history.js','data-craft-structure.js','data-expression-of-ideas.js','data-info-ideas.js','data-conventions.js','app.js','challenge/sets.js'])inject(read(f));
 inject('window.__peek=function(){return {questions:activeQuestions,mode:userMode,timer:countdownRemaining,bank:questionBank,answers:responses};};');
 const roster=w.CHALLENGE_SETS;
-const account=Object.keys(roster).find(n=>roster[n].some(s=>s.learningPath&&!s.learningPath.route));
+const account=Object.keys(roster).find(n=>roster[n].at(-1)?.learningPath?.steps);
 let set;
 if(account){set=roster[account].at(-1);w.sessionStorage.setItem(USER_KEY,account);
  const plans={};new Function('window',read('homework/assignments.js'))(plans);

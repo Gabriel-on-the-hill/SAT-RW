@@ -689,6 +689,86 @@ window.CHALLENGE_SETS = {
   });
 })();
 
+// Immediate-feedback cycles with a protected mixed check; examples and grouped checks are unscored.
+function appendCycleRoute20261017() {
+  var sets = window.CHALLENGE_SETS.Ayodeji || (window.CHALLENGE_SETS.Ayodeji = []);
+  function prompt(label) {
+    return {key:'own',fields:[{id:'method',label:label}]};
+  }
+  var verbPrompt = prompt('Does this clause already have its main verb? Yes/No — which verb?');
+  var agreementPrompt = prompt('Head subject? Singular or plural?');
+  var tensePrompt = prompt('Time anchor? Same time, or earlier than it?');
+  var dataPrompt = prompt('What comparison does the claim need? Which values?');
+  var crossTextPrompt = prompt("Text 1's claim? Text 2's stance on it?");
+
+  sets.push({
+    setId:'verb-tense-cycles-20261017',
+    title:'Find the verb slot. Set the time.',
+    source:'Ordered class cycles',
+    date:'2026-10-17',
+    tileIntro:'Opening retrieval, two short teaching cycles, then an unlabelled mixed check.',
+    ids:['f4fd123c','b74f676f','67614549','145da981'],
+    learningPath:{
+      cycles:[
+        {
+          id:'verb-form',title:'Does this clause need a finite verb?',
+          model:{bankId:'ec08463d',stage:'Worked example',responseProfile:verbPrompt},
+          checks:[
+            {bankId:'4a90a978',stage:'Check 1',responseProfile:verbPrompt},
+            {bankId:'de3dd17d',stage:'Check 2',responseProfile:verbPrompt},
+            {bankId:'61160f0a',stage:'Check 3',responseProfile:verbPrompt}
+          ]
+        },
+        {
+          id:'tense',title:'What time relationship does the sentence require?',
+          model:{bankId:'588887b9',stage:'Worked example',responseProfile:tensePrompt},
+          checks:[
+            {bankId:'1ee7b429',stage:'Check 1',responseProfile:tensePrompt},
+            {bankId:'1f8cd95f',stage:'Check 2',responseProfile:tensePrompt},
+            {bankId:'035fd57e',stage:'Check 3',responseProfile:tensePrompt}
+          ]
+        }
+      ],
+      opening:{bankId:'b8e13a74',stage:'Opening retrieval',responseProfile:agreementPrompt},
+      spares:[
+        {bankId:'983d33fa',stage:'Spare 1',responseProfile:verbPrompt},
+        {bankId:'69f031ab',stage:'Spare 2',responseProfile:verbPrompt},
+        {bankId:'7c766ceb',stage:'Spare 3',responseProfile:verbPrompt},
+        {bankId:'d9a6817c',stage:'Spare 4',responseProfile:crossTextPrompt}
+      ],
+      protectedTransfer:true,
+      singleCredit:true,
+      mixedInRoute:true,
+      mixedSeconds:0,
+      transfer:['f4fd123c','b74f676f','67614549','145da981'],
+      transferAfterSkip:['f4fd123c','b74f676f','145da981'],
+      itemOverrides:{
+        f4fd123c:{stage:'Mixed question',responseProfile:agreementPrompt},
+        b74f676f:{stage:'Mixed question',responseProfile:verbPrompt},
+        '67614549':{stage:'Mixed question',responseProfile:tensePrompt},
+        '145da981':{
+          stage:'Mixed question',responseProfile:dataPrompt,image:'',
+          passage:'Digital paywalls restrict access to online content to those with a paid subscription. In an investigation of the effect of paywalls on newspaper company revenues for print and digital subscriptions and advertising, Doug J. Chung and colleagues compared actual outcomes (with a paywall) to control estimates (without a paywall). The researchers concluded that introducing a paywall is generally more beneficial for larger newspapers, which have high circulation and tend to offer a substantial amount of unique online content.',
+          table:{
+            caption:'Effect of Paywall Introduction on Newspaper Companies’ Revenues',
+            headers:['Newspaper','Total revenue change ($ in thousands)','Percentage change (%)','Newspaper size'],
+            rows:[
+              ['Los Angeles Times','93,966','12.5','large'],
+              ['The New York Times','235,788','20','large'],
+              ['The Denver Post','−3,765','−1','small'],
+              ['Sun Sentinel','−24,899','−11.9','small'],
+              ['Chicago Tribune','94,492','19','large']
+            ]
+          }
+        }
+      },
+      intro:'Use the route with your tutor. State the method response before the choices appear. Record recognition and any help actually used.',
+      order:'Opening retrieval → Cycle 1 example and three checks → Cycle 2 example and three checks if continued → mixed check.',
+      close:'Review no more than two mixed items. Decide any practice only after the class evidence is discussed.'
+    }
+  });
+}
+
 // Short lessons alternate with silent checks; class work grants no mastery credits.
 (function () {
   var sets = window.CHALLENGE_SETS.Ayodeji || (window.CHALLENGE_SETS.Ayodeji = []);
@@ -1004,3 +1084,5 @@ window.CHALLENGE_SETS = {
   }
 });
 })();
+
+appendCycleRoute20261017();

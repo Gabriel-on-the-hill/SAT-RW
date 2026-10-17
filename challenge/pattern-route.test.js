@@ -12,6 +12,8 @@ for(const file of ['config.js','progress.js','sheet-sync.js','session-responses.
 inject('window.__bank=function(){return questionBank;};window.__setExamMode=function(){userMode="exam";};');
 w.syncSessionToSheet=record=>posts.push(record);
 w.sessionStorage.setItem('mastery_user','Ayodeji');
+const patternSet=w.CHALLENGE_SETS.Ayodeji.find(s=>s.setId==='patterns-checks-20261009');
+w.CHALLENGE_SETS.Ayodeji=w.CHALLENGE_SETS.Ayodeji.filter(s=>s!==patternSet).concat(patternSet);
 inject(read('challenge/challenge.js'));
 const set=w.CHALLENGE_SETS.Ayodeji.at(-1),key='satrw_sat_class_route:Ayodeji:'+set.setId;
 function saved(){return JSON.parse(w.localStorage.getItem(key));}

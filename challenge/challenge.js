@@ -130,6 +130,7 @@
             '.copt:hover{border-color:#7c3aed}',
             '.copt.right{border-color:#15803d;background:#eef8f0}.copt.wrong{border-color:#b91c1c;background:#fdeced}',
             '.cexpl{background:#f8fafc;border-radius:.6rem;padding:.85rem 1rem;font-size:.88rem;line-height:1.55;white-space:pre-line;margin-top:.6rem}',
+            '.ctable-wrap{overflow-x:auto;margin:.8rem 0}.ctable{width:100%;border-collapse:collapse;background:var(--surface,#fff);font-size:.88rem}.ctable caption{text-align:left;font-weight:700;padding:0 0 .45rem}.ctable th,.ctable td{border:1px solid var(--border,#e2e8f0);padding:.45rem .55rem;text-align:left;vertical-align:top}.ctable th{background:#f8fafc}',
             '.cunscored{font-size:.75rem;color:var(--text-muted,#64748b);font-style:italic;margin-top:.6rem}',
             '#challengeCompletion{background:#f5f3ff;border:1.5px solid #ddd6fe;border-radius:.8rem;padding:.9rem 1.1rem;margin:0 0 1rem}',
         ].join('');
@@ -211,13 +212,26 @@
     }
     function learningContext() {
         return { student: studentName(), set: state.set, bank: theBank(), paint: paint,
+            difficulty: function (q) { return q.difficulty; },
             header: header, back: function () { goToHub(); },
+            resume: function () {
+                var saved = loadSessionState(), ids = state.set.learningPath.transfer;
+                if (!saved || saved.questionIds.join('|') !== ids.join('|') || saved.mode !== 'exam') return false;
+                screenEl().style.display = 'none';
+                if (!restoreSession(saved)) return false;
+                document.getElementById('modeSelect').value = userMode;
+                hideSetup();
+                loadQuestion(currentQuestionIndex);
+                applyTimerState();
+                if (typeof _pushScreen === 'function') _pushScreen('session');
+                return true;
+            },
             practice: function (n) { begin(n, false, false); },
             transfer: function (questions, seconds) {
                 unlockMode();
                 screenEl().style.display = 'none';
                 state.transferActive = true;
-                if (!launchSession(questions, 'exam', { mode: 'countdown', total: seconds })) {
+                if (!launchSession(questions, 'exam', { mode: seconds > 0 ? 'countdown' : 'off', total: seconds })) {
                     state.transferActive = false;
                     screenEl().style.display = 'block';
                     return false;
@@ -483,6 +497,25 @@
             }
         });
 
+        wrap('restoreSession', null, function () {
+            if (isTransferSession()) {
+                state.transferActive = true;
+                lockTransferMode();
+            }
+        });
+
+        // Protected class checks use the silent runner with one credit per answer.
+        var originalRecord = window.recordAnswer;
+        if (typeof originalRecord === 'function') window.recordAnswer = function (id, correct, source, meta) {
+            if (state.set.learningPath && state.set.learningPath.singleCredit && isTransferSession()) source = 'class-transfer';
+            return originalRecord(id, correct, source, meta);
+        };
+        wrap('applyTimerState', null, function () {
+            if (state.set.learningPath && state.set.learningPath.protectedTransfer && isTransferSession() && timerMode === 'off') {
+                var timer = $('timerDisplay'); if (timer) timer.classList.add('hidden');
+            }
+        });
+
         injectCss();
         injectTile();
         stampSheetUploads();
@@ -498,7 +531,7 @@
                 if (actions && !$('cReturnToRoute')) {
                     var b = document.createElement('button');
                     b.id = 'cReturnToRoute'; b.className = 'btn btn-primary completion-action-btn';
-                    b.textContent = 'Review with tutor, then exit checks'; b.onclick = openChallenge;
+                    b.textContent = state.set.learningPath.cycles ? 'Return to the class route' : 'Review with tutor, then exit checks'; b.onclick = openChallenge;
                     actions.insertBefore(b, actions.firstChild);
                 }
             }

@@ -134,8 +134,8 @@ if(fs.existsSync(path.join(__dirname,'challenge/cycle-class.js')))test('cycle cl
  function inject(s){const e=w.document.createElement('script');e.textContent=s;w.document.body.appendChild(e);}
  w.syncSessionToSheet=p=>posts.push(p);w.recordExposure=()=>{};inject(read('strategy-response.js'));inject(read('challenge/cycle-class.js'));
  const qs=[0,1,2,3].map(i=>({...q,id:'cycle'+i})),ctx={student:'__TEST__',bank:qs,header:()=>'',paint:html=>w.document.body.innerHTML=html,back:()=>{},set:{setId:'cycle-method-test',title:'Methods',learningPath:{intro:'',order:'',cycles:[{id:'agreement',title:'Agreement',model:qs[0],checks:qs.slice(1),reserves:[]}],transfer:[qs[1].id],mixedSeconds:420}}};
- w.CycleClass.render(ctx);w.document.getElementById('ccCycle0').click();fill(w);const draft=JSON.parse(w.localStorage.getItem('psat89_cycleroute___TEST___cycle-method-test'));assert.equal(draft.cycles.agreement.model.methodDrafts[0].subject,'cycle');
- w.document.getElementById('ccCommit').click();assert(w.document.querySelector('select').disabled);w.document.querySelector('[data-i="0"]').click();w.document.getElementById('ccLock').click();w.document.getElementById('ccNext').click();
+ w.CycleClass.render(ctx);w.document.getElementById('ccCycle0').click();fill(w);const draft=JSON.parse(w.localStorage.getItem('satrw_cycleroute___TEST___cycle-method-test'));assert.equal(draft.cycles.agreement.model.methodDrafts[0].subject,'cycle');
+ w.document.getElementById('ccCommit').click();assert(w.document.querySelector('select').disabled);w.document.querySelector('[data-i="0"]').click();w.document.getElementById('ccLock').click();w.document.getElementById('ccHelp').value='none';w.document.getElementById('ccHelp').dispatchEvent(new w.Event('change'));w.document.getElementById('ccNext').click();
  assert.equal(posts[0].score,1);assert(posts[0].questions[0].prediction.includes('Controlling subject'));dom.window.close();
 });
 test('independent checks carry no method checklist; tutor-written prompts are kept as written',()=>{

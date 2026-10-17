@@ -13,6 +13,11 @@
   }
   function save(ctx,s){try{localStorage.setItem('satrw_legacyclass_'+ctx.student+':'+ctx.set.setId,JSON.stringify(s));}catch(e){}}
   function render(ctx) {
+    if (ctx.set.learningPath.cycles) {
+      if (window.CycleClass) CycleClass.render(ctx);
+      else ctx.paint(ctx.header() + '<div class="cbanner">The class route did not load. Reload before starting.</div>');
+      return;
+    }
     var path = ctx.set.learningPath, s = state(ctx);
     function paint(body) {
       ctx.paint(ctx.header() + body + '<div class="crow">'+button('lpHub','Back to hub',true)+'</div>');
@@ -121,5 +126,5 @@
     }
     home();
   }
-  window.ChallengeLearning = {render:render, completeTransfer:function(ctx){state(ctx).transferDone=true;}};
+  window.ChallengeLearning = {render:render, completeTransfer:function(ctx){if(ctx.set.learningPath.cycles){if(window.CycleClass)CycleClass.completeTransfer(ctx);}else state(ctx).transferDone=true;}};
 })();
