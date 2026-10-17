@@ -10,6 +10,8 @@
 //             every cycle ran and each scored at least 2/3 today (house rule AS-5:
 //             untimed competence before timed). Clock-off is always available once the
 //             first worked example is done, so a slow cycle can never cut the mixed check.
+//   clockGate:false (with variant:'final-week' only) offers the clock regardless of cycle scores, for the
+//             last class before an exam, where the timed rehearsal is the point of the hour.
 //   cycle.alternate = a tutor-chosen replacement cycle (e.g. punctuation instead of
 //             reading) picked before the cycle starts; its items stay unseen otherwise.
 //
@@ -80,7 +82,9 @@
     function cycleDone(c) { return !!cs(c).checks.done; }
     function openingDone() { return !opening||!!s.opening.done; }
     function modelStarted() { var c=cycles[0]; return openingDone()&&!!cs(c).model.done; }
-    function clockReady() { return cycles.every(function(c){return cycleDone(c)&&score(c)>=2;}); }
+    // clockGate:false is for the Final-week variant only (exam ≤4 days away): the timed rehearsal must run
+    // with its clock whatever the repair cycle scored, because the exam itself will be timed regardless.
+    function clockReady() { if(path.clockGate===false&&path.variant==='final-week') return true; return cycles.every(function(c){return cycleDone(c)&&score(c)>=2;}); }
     function mixedQuestions() {
       var ids=(path.transferAfterSkip&&cycles.some(function(c){return !!cs(c).skipped;}))?path.transferAfterSkip:path.transfer;
       return ids.map(function(id){return resolve(transferRef(id));});

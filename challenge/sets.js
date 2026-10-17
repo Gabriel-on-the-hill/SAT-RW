@@ -712,6 +712,10 @@ function appendCycleRoute20261017() {
       cycles:[
         {
           id:'verb-form',title:'Does this clause need a finite verb?',
+          outcomes:[
+            {label:'Main verb already there, so the blank only describes',ids:['4a90a978','61160f0a']},
+            {label:'No main verb yet, so the blank is the finite verb',ids:['ec08463d','de3dd17d']}
+          ],
           model:{bankId:'ec08463d',stage:'Worked example',responseProfile:verbPrompt},
           checks:[
             {bankId:'4a90a978',stage:'Check 1',responseProfile:verbPrompt},
@@ -721,6 +725,10 @@ function appendCycleRoute20261017() {
         },
         {
           id:'tense',title:'What time relationship does the sentence require?',
+          outcomes:[
+            {label:'Earlier than the time anchor, so past perfect',ids:['588887b9']},
+            {label:'Same time as the anchor, so no past perfect',ids:['1ee7b429','1f8cd95f','035fd57e']}
+          ],
           model:{bankId:'588887b9',stage:'Worked example',responseProfile:tensePrompt},
           checks:[
             {bankId:'1ee7b429',stage:'Check 1',responseProfile:tensePrompt},

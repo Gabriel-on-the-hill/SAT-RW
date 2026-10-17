@@ -39,6 +39,7 @@ NODE_PATH=/tmp/j/node_modules node challenge/challenge-core.test.js   # challeng
 NODE_PATH=/tmp/j/node_modules node challenge/challenge-ui.test.js     # the challenge, driven for real
 NODE_PATH=/tmp/j/node_modules node challenge/class-path.test.js       # ordered class path and fresh checks
 NODE_PATH=/tmp/j/node_modules node challenge/cycle-class.test.js      # cycle class route and protected mixed transfer
+node challenge/route-outcomes.test.js                                # every taught rule is checked in both directions
 NODE_PATH=/tmp/j/node_modules node challenge/evidence-route.test.js   # the evidence class route
 NODE_PATH=/tmp/j/node_modules node challenge/homework-hub.test.js     # the challenge card on the hub
 NODE_PATH=/tmp/j/node_modules node challenge/pattern-route.test.js    # grouped lessons and independent checks
