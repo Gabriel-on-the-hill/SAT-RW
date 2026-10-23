@@ -13,6 +13,11 @@
   }
   function save(ctx,s){try{localStorage.setItem('satrw_legacyclass_'+ctx.student+':'+ctx.set.setId,JSON.stringify(s));}catch(e){}}
   function render(ctx) {
+    if (ctx.set.learningPath.grammarReview) {
+      if (window.GrammarClass) GrammarClass.render(ctx);
+      else ctx.paint(ctx.header() + '<div class="cbanner">The grammar route did not load. Reload before starting.</div>');
+      return;
+    }
     if (ctx.set.learningPath.cycles) {
       if (window.CycleClass) CycleClass.render(ctx);
       else ctx.paint(ctx.header() + '<div class="cbanner">The class route did not load. Reload before starting.</div>');

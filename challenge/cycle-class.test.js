@@ -21,7 +21,7 @@ async function setup(saved,generic){
  const w=dom.window,$=id=>w.document.getElementById(id);
  if(saved)Object.entries(saved).forEach(([k,v])=>w.localStorage.setItem(k,v));
  function inject(s){const e=w.document.createElement('script');e.textContent=s;w.document.body.appendChild(e);}
- inject(read('challenge/sets.js'));w.sessionStorage.setItem('mastery_user','Ayodeji');
+ inject(read('challenge/sets.js'));w.CHALLENGE_SETS.Ayodeji=w.CHALLENGE_SETS.Ayodeji.filter(s=>s.setId==='verb-tense-cycles-20261017');w.sessionStorage.setItem('mastery_user','Ayodeji');
  if(generic){const route=w.CHALLENGE_SETS.Ayodeji.at(-1);route.setId='cycle-runner-test';Object.assign(route.learningPath,{opening:null,spares:[],mixedInRoute:false,mixedSeconds:300,transferAfterSkip:null});}
  for(const f of SCRIPTS)inject(read(f));
  inject('window.__cycleBank=questionBank;window.__cyclePeek=function(){return {questions:activeQuestions,mode:userMode,timer:countdownRemaining,timerMode:timerMode,answers:responses};};window.__cycleExpire=function(){countdownRemaining=0;handleTimeUp();};');
@@ -40,7 +40,7 @@ function screen(t){return t.$('challengeScreen').textContent;}
 
 async function main(){
  let t=await setup(),{w,$,set,p}=t;
- ok(set.setId==='verb-tense-cycles-20261017','the 17 October cycle route is the current route');
+ ok(set.setId==='verb-tense-cycles-20261017','the historical 17 October route is explicitly selected');
  const refs=[p.opening].concat(p.cycles.flatMap(c=>[c.model].concat(c.checks)),p.spares,p.transfer.map(id=>({bankId:id})));
  ok(refs.every(r=>t.bank(r.bankId)),'every opening, cycle, spare and mixed id resolves in the SAT bank');
  ok(p.cycles.length===2&&p.cycles.every(c=>c.checks.length===3),'two cycles carry exactly three checks each');
@@ -51,12 +51,12 @@ async function main(){
 
  ok($('ccOpening')&&!$('ccCycle0')&&!$('ccOff'),'opening retrieval gates both teaching and mixed work');
  $('ccOpening').click();
- ok($('ccOptions').style.display==='none'&&screen(t).includes('Head subject? Singular or plural?'),'the exact agreement method prompt precedes the choices');
+ ok($('ccOptions').style.display==='none'&&screen(t).includes('Head subject? Singular or plural?'),'the exact agreement method prompt precedes the choices in the historical route');
  t.answer(p.opening,false,true);ok(/right/i.test($('ccFeedback').textContent),'opening feedback is immediate');t.next('process');
  ok($('ccCycle0')&&!$('ccCycle1'),'Cycle 1 opens after retrieval and Cycle 2 still waits');
 
  $('ccCycle0').click();
- ok(screen(t).includes('Does this clause already have its main verb? Yes/No — which verb?')&&$('ccOptions').style.display==='none','the exact verb-form prompt appears before choices');
+ ok(screen(t).includes('Does this clause already have its main verb? Yes/No — which verb?')&&$('ccOptions').style.display==='none','the exact verb-form prompt precedes choices in the historical route');
  t.answer(p.cycles[0].model);ok($('ccFeedback').textContent.includes('Your method notes'),'the model explains immediately without mastery credit');t.next();
  const c1=p.cycles[0].checks;
  t.answer(c1[0]);ok(/Right\./.test($('ccFeedback').textContent)&&!$('ccFeedback').textContent.includes('Your choice'),'a correct cycle check says Right immediately but holds explanation');t.next();

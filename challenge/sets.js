@@ -1094,3 +1094,311 @@ function appendCycleRoute20261017() {
 })();
 
 appendCycleRoute20261017();
+
+// Grammar review: explicit first-attempt checks and tutor-reviewed readiness.
+(function(){var list=window.CHALLENGE_SETS.Ayodeji||(window.CHALLENGE_SETS.Ayodeji=[]);if(!list.some(function(s){return s.setId==="grammar-review-20261023";}))list.push({
+  "setId": "grammar-review-20261023",
+  "title": "Grammar: choose the rule, prove the structure",
+  "source": "Class practice",
+  "date": "2026-10-23",
+  "tileIntro": "Verb form, tense, agreement, pronouns, possession and modifiers; sentence boundaries when ready.",
+  "ids": [
+    "50445680",
+    "6205f7e4",
+    "ee4aa2aa",
+    "9eb43963",
+    "d2cf0e11",
+    "6f08641e"
+  ],
+  "learningPath": {
+    "grammarReview": true,
+    "opening": {
+      "bankId": "de3dd17d"
+    },
+    "seconds": 426,
+    "launch": {
+      "bankId": "f40b447c"
+    },
+    "families": [
+      {
+        "id": "verb",
+        "title": "Verb form",
+        "models": [
+          {
+            "bankId": "35ae047d"
+          },
+          {
+            "bankId": "898f182c"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "36e89f74"
+          },
+          {
+            "bankId": "94de423a"
+          }
+        ],
+        "reserve": {
+          "bankId": "e3b72630"
+        },
+        "prompt": "Relevant clause; subject; whole finite predicate; job required at the blank.",
+        "lesson": "Locate the clause containing the blank, then its subject and whole finite predicate, including any helping verb. Read to the end: the main verb may follow the blank. A clause missing its predicate needs a finite verb; an addition to a complete clause may need a nonfinite modifier or purpose phrase. A different clause or a coordinated predicate can need another finite form. “Is working” is a finite phrase; “working” alone is not.",
+        "outcomes": [
+          {
+            "label": "Clause still needs a finite predicate",
+            "ids": [
+              "35ae047d",
+              "36e89f74"
+            ]
+          },
+          {
+            "label": "Complete predicate with a nonfinite addition",
+            "ids": [
+              "898f182c",
+              "94de423a"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tense",
+        "title": "Verb tense",
+        "models": [
+          {
+            "bankId": "e2759b92"
+          },
+          {
+            "bankId": "4f2ff5f2"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "83617355"
+          },
+          {
+            "bankId": "7b419faf"
+          }
+        ],
+        "reserve": {
+          "bankId": "52b61716"
+        },
+        "prompt": "Actions and time clues; the time relationship required.",
+        "lesson": "Use the actual time frame. “From 1440 to 1473” places an action in the completed past; a description of what a play contains conventionally uses the present. Match linked actions to their time frame. Past perfect can locate an action before another past reference point: do not choose “had” merely because something happened long ago.",
+        "outcomes": [
+          {
+            "label": "Completed action in the past",
+            "ids": [
+              "e2759b92",
+              "7b419faf"
+            ]
+          },
+          {
+            "label": "Current or habitual present frame",
+            "ids": [
+              "4f2ff5f2",
+              "83617355"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pronoun",
+        "title": "Pronouns",
+        "models": [
+          {
+            "bankId": "166efaa2"
+          },
+          {
+            "bankId": "b85c19ed"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "c52652c9"
+          },
+          {
+            "bankId": "8df848c1"
+          }
+        ],
+        "reserve": {
+          "bankId": "fff4c7f4"
+        },
+        "prompt": "Antecedent; singular or plural; required pronoun function.",
+        "lesson": "Trace what the pronoun actually refers to, rather than the nearest noun. The violin is made lighter; the utensils are considered dangerous. Match number and grammatical function. Distinguish possessive “its/their” from “it is/they are”; expand a contraction to check it.",
+        "outcomes": [
+          {
+            "label": "Reference to a singular antecedent",
+            "ids": [
+              "b85c19ed",
+              "c52652c9"
+            ]
+          },
+          {
+            "label": "Reference to a plural antecedent",
+            "ids": [
+              "166efaa2",
+              "8df848c1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "possessive",
+        "title": "Possessives and plurals",
+        "models": [
+          {
+            "bankId": "15d6d837"
+          },
+          {
+            "bankId": "8d53e7a0"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "dd428136"
+          },
+          {
+            "bankId": "b7363ba2"
+          }
+        ],
+        "reserve": {
+          "bankId": "eeb14722"
+        },
+        "prompt": "Owner and owned item; singular/plural; possessive or ordinary plural.",
+        "lesson": "First decide whether a word is showing possession or is simply plural. Singular nouns normally add ’s. Plural nouns already ending in s add an apostrophe: students’ books. Irregular plurals not ending in s add ’s: people’s stories. Possessive pronouns such as its and their have no apostrophe; it’s means it is or it has.",
+        "outcomes": [
+          {
+            "label": "Plural owners including irregular forms",
+            "ids": [
+              "15d6d837",
+              "dd428136"
+            ]
+          },
+          {
+            "label": "Singular owners with noun or pronoun possession",
+            "ids": [
+              "8d53e7a0",
+              "b7363ba2"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "modifier",
+        "title": "Modifiers",
+        "models": [
+          {
+            "bankId": "1684b237"
+          },
+          {
+            "bankId": "a14eef71"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "684b8bd2"
+          },
+          {
+            "bankId": "cd2443c0"
+          }
+        ],
+        "reserve": {
+          "bankId": "c437dd53"
+        },
+        "prompt": "What the introductory modifier describes; the required following subject.",
+        "lesson": "Identify what the opening modifier describes. The subject immediately following it must be that person or thing. The answer may use an active or passive construction: straws, rather than Sumerians, are not modern inventions. Check the complete resulting sentence.",
+        "outcomes": [
+          {
+            "label": "Modifier describes a person",
+            "ids": [
+              "1684b237",
+              "cd2443c0"
+            ]
+          },
+          {
+            "label": "Modifier describes a thing",
+            "ids": [
+              "a14eef71",
+              "684b8bd2"
+            ]
+          }
+        ]
+      }
+    ],
+    "probe": {
+      "bankId": "a2816c7f",
+      "family": "verb"
+    },
+    "mixed": [
+      {
+        "bankId": "50445680",
+        "family": "verb",
+        "hard": {
+          "bankId": "f768090a"
+        }
+      },
+      {
+        "bankId": "6205f7e4",
+        "family": "tense"
+      },
+      {
+        "bankId": "ee4aa2aa",
+        "family": "agreement"
+      },
+      {
+        "bankId": "9eb43963",
+        "family": "pronoun"
+      },
+      {
+        "bankId": "d2cf0e11",
+        "family": "possessive"
+      },
+      {
+        "bankId": "6f08641e",
+        "family": "modifier"
+      }
+    ],
+    "boundaries": {
+      "id": "boundaries",
+      "title": "Sentence boundaries",
+      "models": [
+        {
+          "bankId": "7b950fc2"
+        },
+        {
+          "bankId": "333b2b65"
+        }
+      ],
+      "checks": [
+        {
+          "bankId": "870ae7ec"
+        },
+        {
+          "bankId": "26c8c88c"
+        }
+      ],
+      "reserve": {
+        "bankId": "667a0587"
+      },
+      "prompt": "Structure on each side; can each stand as a sentence? Identify any dependent-clause marker, then choose a valid connection.",
+      "lesson": "A subject and finite verb are necessary but do not by themselves make an independent clause. “Although the meteorites are fragments” cannot stand as a sentence. Test both sides for independence and look for markers such as although, while, and which. Two independent clauses can use a period, semicolon, or comma plus a coordinating conjunction. An introductory dependent clause can take a comma before the main clause. Other phrases and supplementary clauses need their own structure check.",
+      "outcomes": [
+        {
+          "label": "Two independent clauses need a valid connection",
+          "ids": [
+            "7b950fc2",
+            "870ae7ec"
+          ]
+        },
+        {
+          "label": "Dependent clause cannot stand alone",
+          "ids": [
+            "333b2b65",
+            "26c8c88c"
+          ]
+        }
+      ]
+    }
+  }
+});})();
