@@ -100,7 +100,7 @@ for (const [student, plan] of Object.entries(HOMEWORK)) {
                 for (const id of [slot.preferredId, ...(slot.reserveIds || [])]) {
                     ok(`${tag} slot ${i + 1}: ${id} matches its exact target`, S.matches(map[id], slot) && S.valid(map[id]));
                 }
-                ok(`${tag} slot ${i + 1}: has backups or explicit same-pool fallback`, (slot.reserveIds || []).length > 0 || slot.allowPool === true);
+                ok(`${tag} slot ${i + 1}: has backups, explicit fallback, or a fixed review`, (slot.reserveIds || []).length > 0 || slot.allowPool === true || (slot.intent === 'review' && !!slot.preferredId && slot.allowPool === false));
             }
             continue;
         }

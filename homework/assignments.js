@@ -935,57 +935,924 @@ const HOMEWORK = {
   }
   */
 
-  // ── 12–15 OCT 2026 · eighteen questions, one set released each day ───────
-  // Six precise official slots per set, no appended review or pool fallback.
-  // Interleave agreement and evidence across the untimed sets. Function and
-  // synthesis return in the final paced set after an untimed item of each.
-  // Set 3 follows domain order; its clock is 6 × 71 seconds, across the set.
-  // Private imports and baseline reservations are checked by the selector.
-  // Function overrides apply to the preferred item and both ordered backups.
+  // Three calendar-day sets: two untimed grammar sets, then established mixed work at pace.
+  // Exact review slots retain their item; no random appended reviews.
   "Ayodeji": {
-    title: "Three short sets — 12–15 October",
-    start: "2026-10-12",
-    through: "2026-10-15",
-    version: "2026-10-12-18q-v1",
-    unlock: "cumulative",
-    review: 0,
-    heldIds:["3f05e40f","50894857","5d6ab069","dd1757fd","040583a5","87023f34","d9a6817c","1d08c7ee",
-      "7edfb2c5","9debe79a","e441da80","1db1a9a6","e44db0a0","d47bb0a4","a03008de","29c9be28",
-      "4a90a978","de3dd17d","b8e13a74","145da981","4320b4ad","30c3aa98","0147b080","4c9a2aee",
-      "f4fd123c","983d33fa","003f22c8","ec08463d"],
-    days: [
-      { n:1, focus:"12 Oct · Set 1 — read, check, choose", minutes:0, review:0,
-        tip:"Best on Monday 12 October. Six questions, no clock; allow about 10–15 minutes.\nWrite the requested method notes before opening the choices. Work on your own and report any question you recognise.\nAfter submitting, review your misses and keep the original notes.",
-        slots:[
-          { skills:["Rhetorical Synthesis"], diffs:["Hard"], intent:"fresh", preferredId:"b0620764", reserveIds:["622a351d","5645f119"], allowPool:false },
-          { skills:["Form, Structure, and Sense"], diffs:["Medium"], ruleType:"SVA", intent:"fresh", preferredId:"6e193b19", reserveIds:["56315bd0","43b88827"], allowPool:false },
-          { skills:["Command of Evidence — Textual"], diffs:["Medium"], intent:"fresh", preferredId:"85439572", reserveIds:["08b28c1a","08ff903e"], allowPool:false },
-          { skills:["Form, Structure, and Sense"], diffs:["Hard"], ruleType:"SVA", intent:"fresh", preferredId:"0fe5ce68", reserveIds:["ea0aa676","f10b7ce4"], allowPool:false },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], intent:"fresh", preferredId:"5ff1ba73", reserveIds:["d83c3d54","15873d14"], allowPool:false },
-          { skills:["Central Ideas and Details"], diffs:["Medium"], intent:"fresh", preferredId:"66c47028", reserveIds:["dc3ea63e","602b47c7"], allowPool:false }
-        ] },
-      { n:2, focus:"12 Oct · Set 2 — connect and check", minutes:0, review:0,
-        tip:"Opens Tuesday 13 October; best on Wednesday 14 October, on a different day from Set 1.\nSix questions, no clock; allow about 15–20 minutes. Write the requested method notes before opening the choices.\nReview your misses after submitting.",
-        responses:{"4259636f":"purpose","b4159cd8":"purpose","cef79fb9":"purpose"},
-        slots:[
-          { skills:["Text Structure and Purpose"], diffs:["Medium"], intent:"fresh", preferredId:"4259636f", reserveIds:["b4159cd8","cef79fb9"], allowPool:false },
-          { skills:["Form, Structure, and Sense"], diffs:["Hard"], ruleType:"SVA", intent:"fresh", preferredId:"863065c7", reserveIds:["ecba68b5","ae439895"], allowPool:false },
-          { skills:["Command of Evidence — Quantitative"], diffs:["Medium"], intent:"fresh", preferredId:"f8244f7c", reserveIds:["8a584241","8a668840"], allowPool:false },
-          { skills:["Command of Evidence — Textual"], diffs:["Hard"], intent:"fresh", preferredId:"0c622cfb", reserveIds:["2584bcfb","22e4d633"], allowPool:false },
-          { skills:["Cross-Text Connections"], diffs:["Medium"], intent:"fresh", preferredId:"a9e8c48c", reserveIds:["74e7cada","912389e9"], allowPool:false },
-          { skills:["Form, Structure, and Sense"], diffs:["Hard"], ruleType:"SVA", intent:"fresh", preferredId:"dc645172", reserveIds:["16740ab4","b32eab9f"], allowPool:false }
-        ] },
-      { n:3, focus:"12 Oct · Set 3 — six questions at pace", minutes:7.1, review:0,
-        tip:"Opens Wednesday 14 October; best on Thursday 15 October, after the two untimed sets.\nSix questions in 7 minutes 6 seconds. Use brief numbered method notes on paper, then commit and choose. Keep moving; flag a close call and return if time allows.\nAfter question 3, aim to have about 3:33 left. Feedback opens after submission. Bring your paper notes to class.",
-        responses:{"ca50de52":"purpose","e818241b":"purpose","153aaae2":"purpose"},
-        slots:[
-          { skills:["Text Structure and Purpose"], diffs:["Hard"], intent:"fresh", preferredId:"ca50de52", reserveIds:["e818241b","153aaae2"], allowPool:false },
-          { skills:["Inferences"], diffs:["Medium"], intent:"fresh", preferredId:"01989d77", reserveIds:["c4d43991","9077be25"], allowPool:false },
-          { skills:["Inferences"], diffs:["Medium"], intent:"fresh", preferredId:"4603d1f7", reserveIds:["7ae8065c","f942646f"], allowPool:false },
-          { skills:["Transitions"], diffs:["Medium"], intent:"fresh", preferredId:"d3898d32", reserveIds:["39d1a519","221ecf0f"], allowPool:false },
-          { skills:["Transitions"], diffs:["Medium"], intent:"fresh", preferredId:"2df7b582", reserveIds:["388b45aa","01c8c433"], allowPool:false },
-          { skills:["Rhetorical Synthesis"], diffs:["Hard"], intent:"fresh", preferredId:"964c6055", reserveIds:["87d34a39","5b8b69a2"], allowPool:false }
-        ] }
+    "title": "Three short sets - 27-29 October",
+    "start": "2026-10-27",
+    "through": "2026-10-29",
+    "version": "2026-10-27-20q-v1",
+    "unlock": "cumulative",
+    "review": 0,
+    "heldIds": [
+      "68f5dab1",
+      "c19b2f77",
+      "54c6128b",
+      "617a8a10",
+      "9107ad5c",
+      "b44066dc",
+      "adbcbce0",
+      "73caa3ab",
+      "a9040290",
+      "cebfb2c6",
+      "194dd448",
+      "7cbb9764",
+      "787729be",
+      "575e67df",
+      "cfe23776",
+      "aecdb820",
+      "f570cece",
+      "2c49940e",
+      "146233fc",
+      "8432a140",
+      "c61fb134",
+      "2b5f4bdc",
+      "17ecac52",
+      "f878693b",
+      "af43b0bd",
+      "4c4db685",
+      "490b205f",
+      "f1be2bd1",
+      "7ffae38a",
+      "923ebfe3",
+      "95388117",
+      "a2b0fc3b",
+      "c6b470bb",
+      "e7dc27dc",
+      "5bcee487",
+      "350e2336",
+      "b1e8b87f",
+      "4ba99a6f",
+      "ac7b8d04",
+      "7f1df833",
+      "259d16ac",
+      "e2eb70b9",
+      "60917233",
+      "08be6347",
+      "de3dd17d",
+      "35ae047d",
+      "898f182c",
+      "36e89f74",
+      "94de423a",
+      "e3b72630",
+      "e2759b92",
+      "83617355",
+      "7b419faf",
+      "52b61716",
+      "166efaa2",
+      "b85c19ed",
+      "c52652c9",
+      "8df848c1",
+      "fff4c7f4",
+      "15d6d837",
+      "8d53e7a0",
+      "b7363ba2",
+      "eeb14722",
+      "1684b237",
+      "a14eef71",
+      "684b8bd2",
+      "cd2443c0",
+      "c437dd53",
+      "a2816c7f",
+      "50445680",
+      "f768090a",
+      "ee4aa2aa",
+      "9eb43963",
+      "d2cf0e11",
+      "6f08641e",
+      "7b950fc2",
+      "333b2b65",
+      "870ae7ec",
+      "26c8c88c",
+      "667a0587",
+      "f40b447c",
+      "20261017",
+      "b8e13a74",
+      "ec08463d",
+      "4a90a978",
+      "61160f0a",
+      "588887b9",
+      "035fd57e",
+      "f4fd123c",
+      "b74f676f",
+      "145da981",
+      "983d33fa",
+      "69f031ab",
+      "7c766ceb",
+      "d9a6817c",
+      "3f05e40f",
+      "50894857",
+      "5d6ab069",
+      "040583a5",
+      "87023f34",
+      "1d08c7ee",
+      "7edfb2c5",
+      "9debe79a",
+      "e441da80",
+      "1db1a9a6",
+      "e44db0a0",
+      "d47bb0a4",
+      "a03008de",
+      "29c9be28",
+      "4320b4ad",
+      "30c3aa98",
+      "0147b080",
+      "4c9a2aee",
+      "003f22c8"
+    ],
+    "days": [
+      {
+        "n": 1,
+        "focus": "27 Oct week - Set 1 - Read, check, choose",
+        "minutes": 0,
+        "review": 0,
+        "tip": "Tuesday 27 October: seven questions, no timer. Work on your own. With grammar choices visible, write the deciding structure and sentence evidence before choosing. Q7 is a review. Record help or recognition on paper. Submit the set before reviewing explanations.",
+        "responses": {
+          "67614549": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "819c443d": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "20ea68b7": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "9f737b2a": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "a75d5984": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "3daf126e": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "872a002e": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "3bceeb93": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "99dedf36": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "1f8cd95f": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "1ee7b429": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "dfbf5d33": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "d2b81427": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "9df6da04": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "0fe5ce68": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "863065c7": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "ea0aa676": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "dd428136": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          }
+        },
+        "slots": [
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Poss",
+            "intent": "fresh",
+            "preferredId": "819c443d",
+            "reserveIds": [
+              "20ea68b7",
+              "9f737b2a"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "VForm",
+            "intent": "fresh",
+            "preferredId": "a75d5984",
+            "reserveIds": [
+              "3daf126e"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Pron",
+            "intent": "fresh",
+            "preferredId": "872a002e",
+            "reserveIds": [
+              "3bceeb93",
+              "99dedf36"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "VTense",
+            "intent": "follow-up",
+            "preferredId": "1f8cd95f",
+            "reserveIds": [
+              "67614549",
+              "1ee7b429"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Mod",
+            "intent": "fresh",
+            "preferredId": "dfbf5d33",
+            "reserveIds": [
+              "d2b81427",
+              "9df6da04"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "SVA",
+            "intent": "fresh",
+            "preferredId": "0fe5ce68",
+            "reserveIds": [
+              "863065c7",
+              "ea0aa676"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Poss",
+            "intent": "review",
+            "preferredId": "dd428136",
+            "reserveIds": [],
+            "allowPool": false
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "focus": "27 Oct week - Set 2 - Connect and check",
+        "minutes": 0,
+        "review": 0,
+        "tip": "Wednesday 28 October: seven questions, no timer. Work on a different day from Set 1. With grammar choices visible, record your deciding structure before choosing. For the reading question, cover the choices and state the evidence needed first. Q7 is a review. Keep your first answers.",
+        "responses": {
+          "dc645172": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "f10b7ce4": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "b32eab9f": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "b369d54c": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "dab8b8ee": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "37e5c794": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "2784cbaf": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "4c335aea": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "0bcb4417": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "18382e67": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "a30567fd": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "3a1239d2": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "aa443c4b": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "6205f7e4": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "4f2ff5f2": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          }
+        },
+        "slots": [
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "SVA",
+            "intent": "fresh",
+            "preferredId": "dc645172",
+            "reserveIds": [
+              "f10b7ce4",
+              "b32eab9f"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Mod",
+            "intent": "fresh",
+            "preferredId": "b369d54c",
+            "reserveIds": [
+              "dab8b8ee",
+              "37e5c794"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Poss",
+            "intent": "fresh",
+            "preferredId": "2784cbaf",
+            "reserveIds": [
+              "4c335aea"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Pron",
+            "intent": "fresh",
+            "preferredId": "0bcb4417",
+            "reserveIds": [
+              "18382e67"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "VForm",
+            "intent": "fresh",
+            "preferredId": "a30567fd",
+            "reserveIds": [
+              "3a1239d2",
+              "aa443c4b"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "VTense",
+            "intent": "follow-up",
+            "preferredId": "6205f7e4",
+            "reserveIds": [
+              "4f2ff5f2"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Command of Evidence — Textual"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "intent": "review",
+            "preferredId": "dd1757fd",
+            "reserveIds": [],
+            "allowPool": false
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "focus": "27 Oct week - Set 3 - Six questions at pace",
+        "minutes": 7.1,
+        "review": 0,
+        "tip": "Thursday 29 October: six questions in 7 minutes 6 seconds. Use brief numbered method notes on paper; no typing is required. After Q3, aim for about 3:33 left. Flag a close call and move on. Submit when the timer ends, then review. Return your paper notes.",
+        "responses": {
+          "e818241b": "purpose",
+          "153aaae2": "purpose",
+          "56315bd0": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          },
+          "43b88827": {
+            "key": "own",
+            "title": "Your deciding step",
+            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Deciding structure + sentence evidence",
+                "kind": "text"
+              }
+            ]
+          }
+        },
+        "slots": [
+          {
+            "skills": [
+              "Text Structure and Purpose"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "intent": "fresh",
+            "preferredId": "e818241b",
+            "reserveIds": [
+              "153aaae2"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Cross-Text Connections"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "intent": "fresh",
+            "preferredId": "a9e8c48c",
+            "reserveIds": [
+              "74e7cada",
+              "912389e9"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Inferences"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "intent": "fresh",
+            "preferredId": "c4d43991",
+            "reserveIds": [
+              "9077be25",
+              "7ae8065c"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "SVA",
+            "intent": "fresh",
+            "preferredId": "56315bd0",
+            "reserveIds": [
+              "43b88827"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Transitions"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "intent": "fresh",
+            "preferredId": "39d1a519",
+            "reserveIds": [
+              "221ecf0f",
+              "388b45aa"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Rhetorical Synthesis"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "intent": "fresh",
+            "preferredId": "5b8b69a2",
+            "reserveIds": [
+              "622a351d",
+              "5645f119"
+            ],
+            "allowPool": false
+          }
+        ]
+      }
     ]
   },
 
