@@ -1402,3 +1402,230 @@ appendCycleRoute20261017();
     }
   }
 });})();
+
+(function(){var list=window.CHALLENGE_SETS.Ayodeji||(window.CHALLENGE_SETS.Ayodeji=[]);if(!list.some(function(s){return s.setId==="boundaries-complete-20261030";}))list.push({
+  "setId": "boundaries-complete-20261030",
+  "title": "Boundaries: what is on each side of the blank?",
+  "source": "Class practice",
+  "date": "2026-10-30",
+  "tileIntro": "Warm-up, then five punctuation sections in order, then a 4:44 mixed check. One question for every item: what is on each side of the blank?",
+  "ids": [
+    "c101fc44",
+    "a421f749",
+    "c8540a5b",
+    "145d5ca7"
+  ],
+  "learningPath": {
+    "grammarReview": true,
+    "boundarySurvey": true,
+    "checkSeconds": 90,
+    "seconds": 284,
+    "opening": {
+      "bankId": "1d971f75"
+    },
+    "openingItems": [
+      {
+        "bankId": "1d971f75"
+      },
+      {
+        "bankId": "69f031ab"
+      },
+      {
+        "bankId": "c437dd53"
+      }
+    ],
+    "openingPrompt": "Warm-up from last week: say the deciding structure, then choose.",
+    "families": [
+      {
+        "id": "joins",
+        "title": "1. Sentence joins and end marks",
+        "models": [
+          {
+            "bankId": "89fbc3eb"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "548f4956"
+          }
+        ],
+        "reserve": {
+          "bankId": "ad046778"
+        },
+        "lesson": "First decide whether both sides are independent clauses. Two independent clauses can use a period, a semicolon, or a comma plus a coordinating conjunction such as and or but. A transition such as however or even so is not a conjunction: place the sentence boundary before it, then punctuate the transition. A direct question uses question order and a question mark; an indirect question within a statement uses statement order and the statement's end mark.",
+        "prompt": "What is on each side of the blank?",
+        "outcomes": [
+          {
+            "label": "Two independent clauses require a valid join"
+          },
+          {
+            "label": "A dependent unit cannot follow a period as a sentence"
+          },
+          {
+            "label": "Direct question versus indirect question within a statement"
+          }
+        ],
+        "cue": "Full sentence on both sides? Use . or ; or , and/but. A transition takes ; before it."
+      },
+      {
+        "id": "commas",
+        "title": "2. Commas with introductory material",
+        "models": [
+          {
+            "bankId": "333b2b65"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "26c8c88c"
+          }
+        ],
+        "reserve": {
+          "bankId": "d75d57a0"
+        },
+        "lesson": "An introductory dependent clause or modifying phrase is followed by the main clause. Identify words such as although, while or because: the dependent clause can contain a subject and finite verb and still not stand alone. Use the required comma; do not add a second joining conjunction when the opening already supplies the connection. Contrast this with the two-independent-clause structure in Section 1.",
+        "prompt": "What is on each side of the blank?",
+        "outcomes": [
+          {
+            "label": "Dependent introduction followed by the main clause"
+          },
+          {
+            "label": "Introductory phrase followed by the main clause"
+          },
+          {
+            "label": "Two independent clauses require a stronger connection"
+          }
+        ],
+        "cue": "Opener cannot stand alone + full sentence? Use a comma, with no extra and/but."
+      },
+      {
+        "id": "supplements",
+        "title": "3. Extra information: commas, dashes and parentheses",
+        "models": [
+          {
+            "bankId": "40c3589d"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "7f226b4b"
+          }
+        ],
+        "reserve": {
+          "bankId": "f2eaaf5d"
+        },
+        "lesson": "Locate the core sentence and the extra information interrupting it. An internal supplement needs a matching opening and closing pair: commas, dashes or parentheses. Check the mark already provided, and read the core with the supplement removed. Essential information that completes the syntax does not receive a decorative pair; Section 5 tests that contrast.",
+        "prompt": "What is on each side of the blank?",
+        "outcomes": [
+          {
+            "label": "Supply a closing mark to match an opener"
+          },
+          {
+            "label": "Supply an opening mark to match a closer"
+          },
+          {
+            "label": "Essential material remains connected rather than bracketed"
+          }
+        ],
+        "cue": "Extra information in the middle? Match the mark already there."
+      },
+      {
+        "id": "colons-lists",
+        "title": "4. Colons and lists",
+        "models": [
+          {
+            "bankId": "c3397d25"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "da53d726"
+          }
+        ],
+        "reserve": {
+          "bankId": "e76e74e8"
+        },
+        "lesson": "A colon follows a complete independent clause and introduces an explanation, example or list. A list alone does not justify a colon: never split a preposition from its object or an incomplete verb phrase. Use commas between simple list items. Use semicolons to separate complex list items that already contain commas; those semicolons separate list items, so each item does not have to be an independent clause.",
+        "prompt": "What is on each side of the blank?",
+        "outcomes": [
+          {
+            "label": "Complete lead-in can introduce a list or explanation"
+          },
+          {
+            "label": "Incomplete lead-in cannot take a colon"
+          },
+          {
+            "label": "Complex list separators differ from simple-list commas"
+          }
+        ],
+        "cue": "Full sentence before a list or explanation? Then a colon works."
+      },
+      {
+        "id": "no-punctuation",
+        "title": "5. When no punctuation belongs",
+        "models": [
+          {
+            "bankId": "be34a3df"
+          }
+        ],
+        "checks": [
+          {
+            "bankId": "a1e0c981"
+          }
+        ],
+        "reserve": {
+          "bankId": "403d7bb5"
+        },
+        "lesson": "Keep essential sentence parts connected: subject to predicate, preposition to object, verb to complement, and information needed to identify or complete the noun phrase. A pause or a long phrase is not a reason for a comma, colon or dash. Contrast an essential unit with removable supplementary information, and a preposition-led list with a complete clause that legitimately takes a colon.",
+        "prompt": "What is on each side of the blank?",
+        "outcomes": [
+          {
+            "label": "Essential syntax stays unpunctuated"
+          },
+          {
+            "label": "A genuine supplement or independent-clause boundary requires punctuation"
+          }
+        ],
+        "cue": "Would the mark split parts that belong together? Then use nothing."
+      }
+    ],
+    "mixed": [
+      {
+        "bankId": "c101fc44"
+      },
+      {
+        "bankId": "a421f749"
+      },
+      {
+        "bankId": "c8540a5b"
+      },
+      {
+        "bankId": "145d5ca7"
+      }
+    ],
+    "cue": "Before you choose, say or jot what is on each side of the blank.",
+    "card": [
+      [
+        "Full sentence | full sentence",
+        ". or ; or , and / , but. Never a comma alone. A transition: ; however,"
+      ],
+      [
+        "Opener that cannot stand alone | full sentence",
+        ", (no extra and / but)"
+      ],
+      [
+        "Extra information in the middle",
+        "Matching pair: , , or — — or ( ). Copy the mark already there."
+      ],
+      [
+        "Full sentence | list or explanation",
+        ": (only when the left side is a full sentence)"
+      ],
+      [
+        "Parts that belong together",
+        "Nothing: subject|verb, verb|object, of|list"
+      ]
+    ],
+    "mixedTimed": true
+  }
+});})();

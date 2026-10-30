@@ -53,7 +53,7 @@
     }
     function review(block) {
       var rows=firstRows(block);
-      paint('<h2>'+esc(block.title)+' · review</h2><p>'+esc(block.review)+'</p>'+rows.map(function(r){var q=question(r);return '<div class="cbox"><b>'+esc(r.id)+' · '+(r.chosen===null?'Not attempted':esc(r.chosen)+' · '+(r.isCorrect?'correct':'repair'))+'</b><p><b>Your method notes:</b> '+esc(r.prediction)+'</p><p><b>Your explanation:</b> '+esc(r.reason)+'</p><p>'+esc(q.explanation)+'</p>'+assess(r)+'</div>';}).join('')+btn('erContinue','Continue the route'));
+      paint('<h2>'+esc(block.title)+' · review</h2><p>'+esc(block.review)+'</p>'+rows.map(function(r,i){var q=question(r);if(window.ClassReview)return ClassReview.render(q,{number:i+1,chosen:r.chosen,note:r.prediction,reason:r.reason,conditions:'Help: '+r.help})+assess(r);return '<div class="cbox"><b>'+esc(r.id)+' · '+(r.chosen===null?'Not attempted':esc(r.chosen)+' · '+(r.isCorrect?'correct':'repair'))+'</b><p><b>Your method notes:</b> '+esc(r.prediction)+'</p><p><b>Your explanation:</b> '+esc(r.reason)+'</p><p>'+esc(q.explanation)+'</p>'+assess(r)+'</div>';}).join('')+btn('erContinue','Continue the route'));
       document.querySelectorAll('.erHelp').forEach(function(select){select.onchange=function(){rows.find(function(r){return r.id===select.dataset.id;}).help=select.value;save();};});
       wire('erContinue',function(){post(block);s.block++;s.draft=null;save();home();});
     }
@@ -99,7 +99,7 @@
       wire('erCommit',function(){commit(false);});wire('erSkip',function(){commit(true);});
     }
     function finish() {
-      paint('<h2>Class record</h2><p>'+esc(path.schedule)+'</p><p>Use the quality of the reasoning and the help recorded to agree the next practice. A correct letter alone is not a readiness test. Recognised items and modelled work are separate from fresh independent work.</p>'+s.rows.map(function(r){return '<div class="cbox"><b>'+esc(r.id)+' · '+esc(r.role)+'</b><p>'+ (r.chosen===null?'Not attempted':esc(r.chosen)+' · '+(r.isCorrect?'correct':'repair'))+' · help: '+esc(r.help)+(r.recognised?' · recognised':'')+'</p><p>'+esc(r.prediction)+'</p><p>'+esc(r.reason)+'</p></div>';}).join(''));
+      paint('<h2>Class record</h2><p>'+esc(path.schedule)+'</p><p>Use the quality of the reasoning and the help recorded to agree the next practice. A correct letter alone is not a readiness test. Recognised items and modelled work are separate from fresh independent work.</p>'+s.rows.map(function(r,i){if(window.ClassReview)return ClassReview.render(question(r),{number:i+1,chosen:r.chosen,note:r.prediction,reason:r.reason,conditions:'Help: '+r.help});return '<div class="cbox"><b>'+esc(r.id)+' · '+esc(r.role)+'</b><p>'+ (r.chosen===null?'Not attempted':esc(r.chosen)+' · '+(r.isCorrect?'correct':'repair'))+' · help: '+esc(r.help)+(r.recognised?' · recognised':'')+'</p><p>'+esc(r.prediction)+'</p><p>'+esc(r.reason)+'</p></div>';}).join(''));
     }
     function home() {
       if(s.finishedAt){finish();return;}

@@ -125,7 +125,16 @@
       cycles.forEach(function(c,i){wire('ccCycle'+i,function(){openCycle(c,i);});});
       spares.forEach(function(q,i){wire('ccSpare'+i,function(){openSpare(q,i);});});
       wire('ccOff',function(){start(false);});wire('ccTimed',function(){start(true);});
-      wire('ccResume',function(){if(path.mixedInRoute){openMixed();return;}if(!ctx.resume())paint('<div class="cmsg">The saved mixed check is unavailable. Ask your tutor before reopening these questions; they are now familiar.</div>'+button('ccHome','Return to route'));wire('ccHome',home);});
+      // A mixed check that was opened and closed leaves no saved sitting, so Resume fails. The tutor can
+      // restart it from question 1 (same items, same clock choice) when the student has not seen them.
+      wire('ccResume',function(){if(path.mixedInRoute){openMixed();return;}if(!ctx.resume()){paint('<div class="cmsg">The saved mixed check can\'t be resumed. If you have not worked through these questions yet, your tutor can restart it from question 1.</div>'+button('ccRestart','Tutor: restart the mixed check')+button('ccHome','Return to route'));wire('ccHome',home);wire('ccRestart',restartMixed);}});
+    }
+    function restartMixed() {
+      if(s.transferDone) return home();
+      var timed=s.clock==='countdown';s.transferStarted=false;save(ctx,s);
+      if(timed&&!clockReady()) timed=false;
+      start(timed);
+      if(!s.transferStarted) home();
     }
     function start(timed) {
       if(s.transferStarted || !modelStarted() || (timed&&!clockReady())) return;
@@ -178,6 +187,7 @@
       results(c,i);
     }
     function feedback(q,block,i) {
+      if(window.ClassReview)return ClassReview.render(q,{number:i+1,chosen:block.answers[i],note:(block.reasons||[])[i],conditions:'Help: '+((block.help||[])[i]||'unrecorded')});
       var help=(block.help&&block.help[i])||'unrecorded',recognised=!!(block.recognised&&block.recognised[i]);
       return '<div class="cexpl"><b>'+esc(q.stage||q.skill)+' — '+(block.answers[i]===q.answerIndex?'right':'not yet')+'</b><p>Your method notes: '+esc(block.reasons[i])+'</p><p>Your choice: '+esc(q.options[block.answers[i]])+'</p><p>Conditions: help '+esc(help)+(recognised?' · recognised':' · not recognised')+'</p><p>'+esc(q.explanation)+'</p></div>';
     }

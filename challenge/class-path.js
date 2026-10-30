@@ -85,7 +85,7 @@
           s.methodRows=s.methodRows||[];var row=methodRow(q,Number(b.dataset.i),method?method.text():el('lpReason').value);s.methodRows.push(row);if(typeof recordExposure==='function'&&row.id)recordExposure(row.id,'class',row.isCorrect);save(ctx,s);postMethods('learning-step', [row]);
           el('lpReason').disabled=true;
           Array.prototype.forEach.call(document.querySelectorAll('#lpOptions button'),function(x){x.disabled=true;if(Number(x.dataset.i)===q.answer)x.classList.add('right');else if(x===b)x.classList.add('wrong');});
-          el('lpFeedback').innerHTML='<div class="cexpl"><b>'+(missed?'Repair: ':'Correct: ')+'</b>'+esc(q.explanation)+'</div>';
+          el('lpFeedback').innerHTML=window.ClassReview?ClassReview.render(q,{number:i+1,chosen:Number(b.dataset.i),note:row.prediction}):'<div class="cexpl"><b>'+(missed?'Repair: ':'Correct: ')+'</b>'+esc(q.explanation)+'</div>';
           el('lpNext').disabled=false;
           if(missed&&!follow&&base.followUp)el('lpNext').textContent='Try a different example';
         };});
@@ -123,7 +123,7 @@
           if (!s.passed) { s.taught=false; s.repair=qs.filter(function(q,j){return answers[j]!==q.answer;}).map(function(q){return q.step;}); }
           else s.repair=null;
           save(ctx,s);
-          paint('<div class="cmsg '+(s.passed?'ok':'')+'"><b>'+score+' / '+qs.length+'</b> — '+(s.passed?'All four first answers are correct. Explain the deciding structures to your tutor before the timed set.':'Keep the clock off. Repair the missed structures, then use a different set of checks.')+'</div>'+qs.map(function(q,j){return '<div class="cexpl"><b>Check '+(j+1)+': '+(answers[j]===q.answer?'correct':'repair')+'</b><br>'+esc(q.explanation)+'</div>';}).join('')+'<div class="crow">'+button('lpHome','Return to class route')+'</div>');
+          paint('<div class="cmsg '+(s.passed?'ok':'')+'"><b>'+score+' / '+qs.length+'</b> — '+(s.passed?'All four first answers are correct. Explain the deciding structures to your tutor before the timed set.':'Keep the clock off. Repair the missed structures, then use a different set of checks.')+'</div>'+qs.map(function(q,j){if(window.ClassReview)return ClassReview.render(q,{number:j+1,chosen:answers[j],note:notes[j]});return '<div class="cexpl"><b>Check '+(j+1)+': '+(answers[j]===q.answer?'correct':'repair')+'</b><br>'+esc(q.explanation)+'</div>';}).join('')+'<div class="crow">'+button('lpHome','Return to class route')+'</div>');
           wire('lpHome',home);
         });
       }
