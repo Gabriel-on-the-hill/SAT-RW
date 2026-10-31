@@ -935,13 +935,13 @@ const HOMEWORK = {
   }
   */
 
-  // Three calendar-day sets: two untimed grammar sets, then established mixed work at pace.
-  // Exact review slots retain their item; no random appended reviews.
+  // Four calendar-day sets, 1-4 November. Every question is an exact slot; no pool draws.
+  // Sets 1-3 untimed, Set 4 at about 71 seconds a question.
   "Ayodeji": {
-    "title": "Three short sets - 27-29 October",
-    "start": "2026-10-27",
-    "through": "2026-10-29",
-    "version": "2026-10-27-20q-v1",
+    "title": "Four short sets - 1-4 November",
+    "start": "2026-11-01",
+    "through": "2026-11-04",
+    "version": "2026-11-01-34q-v1",
     "unlock": "cumulative",
     "review": 0,
     "heldIds": [
@@ -1063,260 +1063,779 @@ const HOMEWORK = {
     "days": [
       {
         "n": 1,
-        "focus": "27 Oct week - Set 1 - Read, check, choose",
+        "focus": "1 Nov week - Set 1 - Label both sides",
         "minutes": 0,
         "review": 0,
-        "tip": "Tuesday 27 October: seven questions, no timer. Work on your own. With grammar choices visible, write the deciding structure and sentence evidence before choosing. Q7 is a review. Record help or recognition on paper. Submit the set before reviewing explanations.",
+        "tip": "Sunday 1 November: eight punctuation questions, no timer. Work on your own.\nBefore you choose, write what is on each side of the blank (FS / FS, Opener / FS, Extra info, FS : list or explanation, Belong together). If a side is not a full sentence, write \"not FS\".\nSubmit, then read the explanations.",
         "responses": {
-          "67614549": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "9091458d": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "819c443d": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "4565a53c": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "20ea68b7": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "b0115ef6": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "9f737b2a": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "83c9c503": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "a75d5984": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "fcaff694": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "3daf126e": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "d073983d": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "872a002e": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "267a13e2": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "3bceeb93": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "c21df211": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "99dedf36": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "ac5536c1": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "1f8cd95f": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "083a35dc": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "1ee7b429": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "8f6d6ae6": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "dfbf5d33": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "b6560e5a": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "d2b81427": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "82a76537": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "9df6da04": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "7f48b098": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "0fe5ce68": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "77e06a09": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "863065c7": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "2b512e65": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "ea0aa676": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "74ce2f05": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "dd428136": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "432b1ede": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
+          },
+          "d198997b": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "9d4a701b": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "3a2d77d7": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "435809d8": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
           }
         },
         "slots": [
           {
             "skills": [
-              "Form, Structure, and Sense"
+              "Boundaries"
+            ],
+            "diffs": [
+              "Easy"
+            ],
+            "ruleType": "Commas",
+            "intent": "fresh",
+            "preferredId": "9091458d",
+            "reserveIds": [
+              "4565a53c",
+              "b0115ef6"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
             ],
             "diffs": [
               "Medium"
             ],
-            "ruleType": "Poss",
+            "ruleType": "NoPunct",
             "intent": "fresh",
-            "preferredId": "819c443d",
+            "preferredId": "83c9c503",
             "reserveIds": [
-              "20ea68b7",
-              "9f737b2a"
+              "fcaff694",
+              "d073983d"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Commas",
+            "intent": "fresh",
+            "preferredId": "267a13e2",
+            "reserveIds": [
+              "c21df211",
+              "ac5536c1"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Commas",
+            "intent": "fresh",
+            "preferredId": "083a35dc",
+            "reserveIds": [
+              "8f6d6ae6",
+              "b6560e5a"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Commas",
+            "intent": "fresh",
+            "preferredId": "82a76537",
+            "reserveIds": [
+              "7f48b098",
+              "77e06a09"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Dash",
+            "intent": "fresh",
+            "preferredId": "2b512e65",
+            "reserveIds": [
+              "74ce2f05",
+              "432b1ede"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "NoPunct",
+            "intent": "fresh",
+            "preferredId": "d198997b",
+            "reserveIds": [
+              "fcaff694",
+              "d073983d"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Colon",
+            "intent": "fresh",
+            "preferredId": "9d4a701b",
+            "reserveIds": [
+              "3a2d77d7",
+              "435809d8"
+            ],
+            "allowPool": false
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "focus": "1 Nov week - Set 2 - Colons and grammar",
+        "minutes": 0,
+        "review": 0,
+        "tip": "Monday 2 November: nine questions, no timer.\nPunctuation: label both sides first. A semicolon needs a full sentence on BOTH sides.\nGrammar: write the word the blank depends on, then choose.\nQ9 is a question you have met before. Work it out again; do not rely on memory.",
+        "responses": {
+          "8772475b": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "9579581e": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "84658166": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "12013e06": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "0f39b19c": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "ace95f84": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "a75d5984": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "3daf126e": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "e9aee0d8": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "e7afd0a1": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "c15069eb": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "872a002e": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "3bceeb93": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "99dedf36": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "f30a478e": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "bb4557cf": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "2c4cd76d": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "dfbf5d33": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "d2b81427": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "9df6da04": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "0fe5ce68": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "863065c7": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "ea0aa676": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "dd428136": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          }
+        },
+        "slots": [
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Colon",
+            "intent": "fresh",
+            "preferredId": "8772475b",
+            "reserveIds": [
+              "9579581e",
+              "84658166"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Dash",
+            "intent": "fresh",
+            "preferredId": "12013e06",
+            "reserveIds": [
+              "0f39b19c",
+              "ace95f84"
             ],
             "allowPool": false
           },
@@ -1332,6 +1851,22 @@ const HOMEWORK = {
             "preferredId": "a75d5984",
             "reserveIds": [
               "3daf126e"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Colon",
+            "intent": "fresh",
+            "preferredId": "e9aee0d8",
+            "reserveIds": [
+              "e7afd0a1",
+              "c15069eb"
             ],
             "allowPool": false
           },
@@ -1353,17 +1888,17 @@ const HOMEWORK = {
           },
           {
             "skills": [
-              "Form, Structure, and Sense"
+              "Boundaries"
             ],
             "diffs": [
-              "Medium"
+              "Hard"
             ],
-            "ruleType": "VTense",
-            "intent": "follow-up",
-            "preferredId": "1f8cd95f",
+            "ruleType": "Colon",
+            "intent": "fresh",
+            "preferredId": "f30a478e",
             "reserveIds": [
-              "67614549",
-              "1ee7b429"
+              "bb4557cf",
+              "2c4cd76d"
             ],
             "allowPool": false
           },
@@ -1415,209 +1950,450 @@ const HOMEWORK = {
         ]
       },
       {
-        "n": 2,
-        "focus": "27 Oct week - Set 2 - Connect and check",
+        "n": 3,
+        "focus": "1 Nov week - Set 3 - Hard transfer",
         "minutes": 0,
         "review": 0,
-        "tip": "Wednesday 28 October: seven questions, no timer. Work on a different day from Set 1. With grammar choices visible, record your deciding structure before choosing. For the reading question, cover the choices and state the evidence needed first. Q7 is a review. Keep your first answers.",
+        "tip": "Tuesday 3 November: nine harder questions, no timer.\nLabel both sides for punctuation; for grammar, write what the blank depends on.\nTake your time. Keep your first answers.",
         "responses": {
-          "dc645172": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "2c9c6ca9": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "f10b7ce4": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "eb95235b": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "b32eab9f": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "aaa1907f": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
-          },
-          "b369d54c": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
-          },
-          "dab8b8ee": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
-          },
-          "37e5c794": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
-          },
-          "2784cbaf": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
-          },
-          "4c335aea": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
-          },
-          "0bcb4417": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
-          },
-          "18382e67": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
-            "phase": "with-options",
-            "fields": [
-              {
-                "id": "reason",
-                "label": "Deciding structure + sentence evidence",
-                "kind": "text"
-              }
-            ]
+            ],
+            "key": "own"
           },
           "a30567fd": {
-            "key": "own",
             "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "What the blank depends on",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
           "3a1239d2": {
-            "key": "own",
             "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "What the blank depends on",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
           "aa443c4b": {
-            "key": "own",
             "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "What the blank depends on",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "6205f7e4": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "db24ecc9": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "4f2ff5f2": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "9c3630b9": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left side / right side",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
+          },
+          "e41018de": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "0bcb4417": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "18382e67": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "960dec02": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "4dcedc31": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "59a246dc": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "b369d54c": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "dab8b8ee": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "37e5c794": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "13fcf575": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "5ef9fc48": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "6181924a": {
+            "title": "Label both sides",
+            "instructions": "Choices are visible. Before choosing, write what is on each side of the blank: FS / FS, Opener / FS, Extra info, FS : list or explanation, or Belong together. If a side is not a full sentence, write \"not FS\".",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left side / right side",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "dc645172": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "f10b7ce4": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "b32eab9f": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "2784cbaf": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "4c335aea": {
+            "title": "Your deciding step",
+            "instructions": "Choices are visible. Write the word or words the blank depends on (for example: presence - singular). Then choose.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "What the blank depends on",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
           }
         },
         "slots": [
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Semi",
+            "intent": "fresh",
+            "preferredId": "2c9c6ca9",
+            "reserveIds": [
+              "eb95235b",
+              "aaa1907f"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "VForm",
+            "intent": "fresh",
+            "preferredId": "a30567fd",
+            "reserveIds": [
+              "3a1239d2",
+              "aa443c4b"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Semi",
+            "intent": "fresh",
+            "preferredId": "db24ecc9",
+            "reserveIds": [
+              "9c3630b9",
+              "e41018de"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Pron",
+            "intent": "fresh",
+            "preferredId": "0bcb4417",
+            "reserveIds": [
+              "18382e67"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "NoPunct",
+            "intent": "fresh",
+            "preferredId": "960dec02",
+            "reserveIds": [
+              "4dcedc31",
+              "59a246dc"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Form, Structure, and Sense"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Mod",
+            "intent": "fresh",
+            "preferredId": "b369d54c",
+            "reserveIds": [
+              "dab8b8ee",
+              "37e5c794"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "NoPunct",
+            "intent": "fresh",
+            "preferredId": "13fcf575",
+            "reserveIds": [
+              "5ef9fc48",
+              "6181924a"
+            ],
+            "allowPool": false
+          },
           {
             "skills": [
               "Form, Structure, and Sense"
@@ -1641,22 +2417,6 @@ const HOMEWORK = {
             "diffs": [
               "Hard"
             ],
-            "ruleType": "Mod",
-            "intent": "fresh",
-            "preferredId": "b369d54c",
-            "reserveIds": [
-              "dab8b8ee",
-              "37e5c794"
-            ],
-            "allowPool": false
-          },
-          {
-            "skills": [
-              "Form, Structure, and Sense"
-            ],
-            "diffs": [
-              "Hard"
-            ],
             "ruleType": "Poss",
             "intent": "fresh",
             "preferredId": "2784cbaf",
@@ -1664,130 +2424,265 @@ const HOMEWORK = {
               "4c335aea"
             ],
             "allowPool": false
-          },
-          {
-            "skills": [
-              "Form, Structure, and Sense"
-            ],
-            "diffs": [
-              "Hard"
-            ],
-            "ruleType": "Pron",
-            "intent": "fresh",
-            "preferredId": "0bcb4417",
-            "reserveIds": [
-              "18382e67"
-            ],
-            "allowPool": false
-          },
-          {
-            "skills": [
-              "Form, Structure, and Sense"
-            ],
-            "diffs": [
-              "Hard"
-            ],
-            "ruleType": "VForm",
-            "intent": "fresh",
-            "preferredId": "a30567fd",
-            "reserveIds": [
-              "3a1239d2",
-              "aa443c4b"
-            ],
-            "allowPool": false
-          },
-          {
-            "skills": [
-              "Form, Structure, and Sense"
-            ],
-            "diffs": [
-              "Medium"
-            ],
-            "ruleType": "VTense",
-            "intent": "follow-up",
-            "preferredId": "6205f7e4",
-            "reserveIds": [
-              "4f2ff5f2"
-            ],
-            "allowPool": false
-          },
-          {
-            "skills": [
-              "Command of Evidence — Textual"
-            ],
-            "diffs": [
-              "Hard"
-            ],
-            "intent": "review",
-            "preferredId": "dd1757fd",
-            "reserveIds": [],
-            "allowPool": false
           }
         ]
       },
       {
-        "n": 3,
-        "focus": "27 Oct week - Set 3 - Six questions at pace",
-        "minutes": 7.1,
+        "n": 4,
+        "focus": "1 Nov week - Set 4 - Eight at pace",
+        "minutes": 9.47,
         "review": 0,
-        "tip": "Thursday 29 October: six questions in 7 minutes 6 seconds. Use brief numbered method notes on paper; no typing is required. After Q3, aim for about 3:33 left. Flag a close call and move on. Submit when the timer ends, then review. Return your paper notes.",
+        "tip": "Wednesday 4 November: eight questions in 9 minutes 28 seconds.\nPunctuation: one or two words for each side, then choose. Reading: a quick note, then choose.\nAfter Q4, aim for about 4:44 left. Flag a close call and move on.",
         "responses": {
-          "e818241b": "purpose",
-          "153aaae2": "purpose",
-          "56315bd0": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "6df020e6": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left / right",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
           },
-          "43b88827": {
-            "key": "own",
-            "title": "Your deciding step",
-            "instructions": "With the choices visible, write the deciding structure and the words in the sentence that support it. Then choose. If unsure, say so.",
+          "a3e87535": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
             "phase": "with-options",
             "fields": [
               {
                 "id": "reason",
-                "label": "Deciding structure + sentence evidence",
+                "label": "Left / right",
                 "kind": "text"
               }
-            ]
+            ],
+            "key": "own"
+          },
+          "36868920": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "603755a5": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "fa36d803": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "5aae2475": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "6fac7f45": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "9579581e": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "84658166": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "cdbbbf94": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "d073983d": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "fcaff694": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "aacddbd8": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "626a1642": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "83898524": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "a153ad6a": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "432b1ede": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
+          },
+          "74ce2f05": {
+            "title": "Both sides",
+            "instructions": "One or two words for each side of the blank, then choose. Keep moving.",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "reason",
+                "label": "Left / right",
+                "kind": "text"
+              }
+            ],
+            "key": "own"
           }
         },
         "slots": [
           {
             "skills": [
-              "Text Structure and Purpose"
-            ],
-            "diffs": [
-              "Hard"
-            ],
-            "intent": "fresh",
-            "preferredId": "e818241b",
-            "reserveIds": [
-              "153aaae2"
-            ],
-            "allowPool": false
-          },
-          {
-            "skills": [
-              "Cross-Text Connections"
+              "Boundaries"
             ],
             "diffs": [
               "Medium"
             ],
+            "ruleType": "Commas",
             "intent": "fresh",
-            "preferredId": "a9e8c48c",
+            "preferredId": "6df020e6",
             "reserveIds": [
-              "74e7cada",
-              "912389e9"
+              "a3e87535",
+              "36868920"
             ],
             "allowPool": false
           },
@@ -1801,38 +2696,72 @@ const HOMEWORK = {
             "intent": "fresh",
             "preferredId": "c4d43991",
             "reserveIds": [
-              "9077be25",
-              "7ae8065c"
+              "22b3da87",
+              "61228830"
             ],
             "allowPool": false
           },
           {
             "skills": [
-              "Form, Structure, and Sense"
+              "Boundaries"
             ],
             "diffs": [
-              "Medium"
+              "Hard"
             ],
-            "ruleType": "SVA",
+            "ruleType": "NoPunct",
             "intent": "fresh",
-            "preferredId": "56315bd0",
+            "preferredId": "603755a5",
             "reserveIds": [
-              "43b88827"
+              "fa36d803",
+              "5aae2475"
             ],
             "allowPool": false
           },
           {
             "skills": [
-              "Transitions"
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Colon",
+            "intent": "fresh",
+            "preferredId": "6fac7f45",
+            "reserveIds": [
+              "9579581e",
+              "84658166"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
             ],
             "diffs": [
               "Medium"
             ],
+            "ruleType": "NoPunct",
             "intent": "fresh",
-            "preferredId": "39d1a519",
+            "preferredId": "cdbbbf94",
             "reserveIds": [
-              "221ecf0f",
-              "388b45aa"
+              "d073983d",
+              "fcaff694"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Hard"
+            ],
+            "ruleType": "Dash",
+            "intent": "fresh",
+            "preferredId": "aacddbd8",
+            "reserveIds": [
+              "626a1642",
+              "83898524"
             ],
             "allowPool": false
           },
@@ -1846,8 +2775,24 @@ const HOMEWORK = {
             "intent": "fresh",
             "preferredId": "5b8b69a2",
             "reserveIds": [
-              "622a351d",
-              "5645f119"
+              "af88c47a",
+              "3fa48bf3"
+            ],
+            "allowPool": false
+          },
+          {
+            "skills": [
+              "Boundaries"
+            ],
+            "diffs": [
+              "Medium"
+            ],
+            "ruleType": "Dash",
+            "intent": "fresh",
+            "preferredId": "a153ad6a",
+            "reserveIds": [
+              "432b1ede",
+              "74ce2f05"
             ],
             "allowPool": false
           }
