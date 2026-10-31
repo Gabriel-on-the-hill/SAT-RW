@@ -31,8 +31,11 @@ function harness(f=fixture(),saved,now=1000000){const dom=new JSDOM('<div id="ro
   ok(!h.el('gcNote')&&!h.el('gcHelp')&&!h.el('gcSeen')&&!h.el('gcLock'),'no notes box, tutor fields or per-question check button');
   ok(h.el('gcQ0')&&h.el('gcQ1'),'numbered question buttons');ok(h.text().includes('Which structure decides it?'),'short cue shown');
   ok(!h.el('gcPrev'),'no Previous on the first question');
-  h.pick('B');h.click('gcNext');ok(h.text().includes('Question 2 of 2'),'Next moves forward');
-  h.click('gcPrev');ok(h.w.document.querySelector('#gcOptions .copt.sel').dataset.letter==='B','going back shows the chosen answer');
+  h.pick('B');const sel=()=>[...h.w.document.querySelectorAll('#gcOptions .copt')].filter(e=>e.classList.contains('sel')&&e.getAttribute('aria-pressed')==='true').map(e=>e.dataset.letter).join();
+  ok(sel()==='B','the chosen option is highlighted at once');h.pick('D');ok(sel()==='D','choosing another moves the highlight; only one is highlighted');h.pick('B');
+  ok(/\.copt\.sel[^{]*\{[^}]*border/.test(read('challenge/challenge.js')),'the class routes style the chosen option');
+  h.click('gcNext');ok(h.text().includes('Question 2 of 2'),'Next moves forward');
+  h.click('gcPrev');ok(sel()==='B','going back shows the chosen answer highlighted');
   h.pick('C');h.click('gcQ1');h.pick('A');
   ok(!h.text().includes('Not yet')&&!h.text().includes('Explanation for'),'nothing is marked before submitting');
   ok(h.state().blocks['f0-checks'].answers.length===0,'no answer is final before submitting');

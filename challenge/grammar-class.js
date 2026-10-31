@@ -99,7 +99,7 @@ function run(id,refs,opt,done){
     return done();}
   return opt.immediate?runImmediate(id,refs,opt,done,b):runSet(id,refs,opt,done,b);}
 function navRow(refs,i,marked){if(refs.length<2)return '';return '<div class="crow" id="gcNav" aria-label="Questions">'+refs.map(function(r,j){return '<button type="button" class="cbtn'+(j===i?'':' ghost')+'" id="gcQ'+j+'" aria-current="'+(j===i?'step':'false')+'">'+(j+1)+(marked(j)?' ✓':'')+'</button>';}).join('')+'</div>';}
-function questionHtml(q,locked,selected){return '<div class="cq">'+esc(q.passage).replace(/\n/g,'<br>')+'</div><p><b>'+esc(q.question)+'</b></p><div id="gcOptions">'+q.options.map(function(o,j){var l='ABCD'[j];return '<button type="button" class="copt'+(l===selected?' sel':'')+'" data-letter="'+l+'"'+(locked?' disabled':'')+'>'+esc(o)+'</button>';}).join('')+'</div>';}
+function questionHtml(q,locked,selected){return '<div class="cq">'+esc(q.passage).replace(/\n/g,'<br>')+'</div><p><b>'+esc(q.question)+'</b></p><div id="gcOptions">'+q.options.map(function(o,j){var l='ABCD'[j];return '<button type="button" class="copt'+(l===selected?' sel':'')+'" aria-pressed="'+(l===selected)+'" data-letter="'+l+'"'+(locked?' disabled':'')+'>'+esc(o)+'</button>';}).join('')+'</div>';}
 function decorate(id,q){if(typeof Eliminator!=='undefined')Eliminator.decorate(node('gcOptions'),{ns:'grammar:'+ctx.student+':'+ctx.set.setId+':'+id,id:q.id,selector:'.copt'});}
 
 // Checks, warm-up and mixed: move freely, change answers, submit once.
@@ -124,7 +124,7 @@ function runSet(id,refs,opt,done,b){
     (limit?'<p id="gcTime" role="timer" aria-live="off"></p>':'')+'<p class="cnote">'+esc(opt.prompt||cue)+'</p>'+questionHtml(q,false,selected)+
     '<div class="crow">'+(i>0?btn('gcPrev','Previous',true):'')+(i<n-1?btn('gcNext','Next'):'')+btn('gcSubmit',opt.mixed?'Submit mixed check':'Submit',i<n-1)+'</div><p id="gcStatus" role="status"></p>');
   document.querySelectorAll('#gcOptions .copt').forEach(function(el){el.onclick=function(){selected=el.dataset.letter;b.pendingAnswers[i]=selected;if(!b.firstPick[i])b.firstPick[i]=selected;b.changedAt[i]=Date.now();save();
-    document.querySelectorAll('#gcOptions .copt').forEach(function(e){e.classList.toggle('sel',e===el);});if(node('gcQ'+i))node('gcQ'+i).textContent=(i+1)+' ✓';};});
+    document.querySelectorAll('#gcOptions .copt').forEach(function(e){e.classList.toggle('sel',e===el);e.setAttribute('aria-pressed',String(e===el));});if(node('gcQ'+i))node('gcQ'+i).textContent=(i+1)+' ✓';};});
   decorate(id,q);
   wire('gcPrev',function(){go(i-1);});wire('gcNext',function(){go(i+1);});
   refs.forEach(function(r,j){wire('gcQ'+j,function(){if(j!==i)go(j);});});
@@ -148,7 +148,7 @@ function runImmediate(id,refs,opt,done,b){
   paint('<p class="cnote"><b>'+esc(opt.label||'Practice')+'</b> · '+(i+1)+' of '+n+'</p>'+navRow(refs,i,function(j){return b.answers[j]!=null;})+
     '<p class="cnote">'+esc(opt.prompt||cue)+'</p>'+(locked?feedback(q,b,i):questionHtml(q,false,selected))+
     '<div class="crow">'+(i>0?btn('gcPrev','Previous',true):'')+(locked?'':btn('gcLock','Check answer'))+(last?btn('gcNext','Finish',!locked):btn('gcNext','Next',!locked))+'</div><p id="gcStatus" role="status"></p>');
-  if(!locked){document.querySelectorAll('#gcOptions .copt').forEach(function(el){el.onclick=function(){selected=el.dataset.letter;b.pendingAnswers[i]=selected;if(!b.firstPick[i])b.firstPick[i]=selected;save();document.querySelectorAll('#gcOptions .copt').forEach(function(e){e.classList.toggle('sel',e===el);});};});decorate(id,q);}
+  if(!locked){document.querySelectorAll('#gcOptions .copt').forEach(function(el){el.onclick=function(){selected=el.dataset.letter;b.pendingAnswers[i]=selected;if(!b.firstPick[i])b.firstPick[i]=selected;save();document.querySelectorAll('#gcOptions .copt').forEach(function(e){e.classList.toggle('sel',e===el);e.setAttribute('aria-pressed',String(e===el));});};});decorate(id,q);}
   wire('gcLock',function(){if(!selected){node('gcStatus').textContent='Select an answer.';return;}
     b.answers[i]=selected;b.notes[i]=b.notes[i]||'';b.help[i]=b.help[i]||'unrecorded';b.seen[i]=b.seen[i]===undefined?null:b.seen[i];b.seconds=b.seconds||[];b.seconds[i]=Math.round((Date.now()-b.itemStarted)/1000);
     if(typeof recordExposure==='function')recordExposure(q.id,'class',selected===q.answer);save();go(i);});
