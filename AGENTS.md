@@ -1,5 +1,18 @@
 # Working on this app
 
+## Coordination with the EduTrack Hub (5 November 2026)
+
+This app is in maintenance while its work moves into the EduTrack Hub. The cross-repository plan is
+`FINAL_MERGE_PLAN.md` in the private `edutrack-hub` repository, and progress is recorded in that
+repository's status file. Until the owner says otherwise:
+
+- Change this app only for homework plans that use questions already in the bank, fixes to faults a
+  student sees, access protection, and documentation. New features go into the Hub.
+- Record every change in the Hub status file's port list on the same day.
+- Add no new College Board questions to the bank, from any source.
+- Write no student names (beyond the existing gate names) and no notes about a student in any
+  tracked file or commit message. This repository is public.
+
 A no-build static site. Open the HTML, edit it, reload. No bundler, no package.json.
 
 Known gaps and the backend question — auth, the sheet secret, per-student plan isolation, and why
