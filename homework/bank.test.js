@@ -250,6 +250,17 @@ section('Extension questions are safe to merge');
         JSON.stringify(letters));
 }
 
+section('Transition feedback stays specific to the question');
+{
+    // A keyword scan of the whole rationale was reading the wrong-answer discussions
+    // and prepending contradictory relationship/category labels. Keep the original
+    // specific rationale instead of regenerating those unreviewed summaries.
+    const leaked = QB.filter(q => q.skill === 'Transitions' &&
+        /^Strategy:\s*Direction Check\s*\nLogical relationship:/i.test(q.explanation || ''));
+    ok('no generated transition relationship header can reach a learner',
+        leaked.length === 0, leaked.map(q => q.id).join(', '));
+}
+
 section('Data questions are filed as Quantitative');
 {
     const misfiled = QB.filter(q => asksAboutData(q) && q.skill !== QUANT);
