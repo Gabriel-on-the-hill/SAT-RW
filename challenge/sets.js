@@ -1629,3 +1629,286 @@ appendCycleRoute20261017();
     "mixedTimed": true
   }
 });})();
+
+(function(){window.CHALLENGE_SETS.Ayodeji.push({
+  "setId": "structure-agreement-20261106",
+  "title": "Keep the sentence together. Find the controlling subject.",
+  "source": "Class practice",
+  "date": "2026-11-06",
+  "tileIntro": "One retrieval, two short practice cycles, then a mixed check. Work with your tutor.",
+  "ids": [
+    "83c9c503",
+    "9d4a701b",
+    "7a0d9031",
+    "39d1a519"
+  ],
+  "learningPath": {
+    "opening": {
+      "bankId": "d073983d",
+      "responseProfile": {
+        "key": "own",
+        "phase": "with-options",
+        "fields": [
+          {
+            "id": "method",
+            "label": "Name the actual units on the two sides of the blank. What would punctuation separate? Give the connection those units require."
+          }
+        ]
+      }
+    },
+    "cycles": [
+      {
+        "id": "structure",
+        "title": "Does the sentence need a boundary here?",
+        "model": {
+          "bankId": "603755a5",
+          "responseProfile": {
+            "key": "own",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "method",
+                "label": "Name the actual units on the two sides of the blank. What would punctuation separate? Give the connection those units require."
+              }
+            ]
+          },
+          "note": "Try this familiar example first. For punctuation, identify what the mark separates; the odd-one-out verb shortcut does not decide the boundary. Keep the noun connected to the clause that identifies it. Then compare this earlier question with your tutor: On November 2, 1772, amid rising tensions with Great Britain, Boston colonists formed the Boston Committee of Correspondence. By 1774, what had started as a local means of mobilizing support for the Patriot cause had grown into something far more ______ network of such committees that, facilitating communication among the colonies, helped lay the groundwork for the Continental Congress. Choices: A. extensive: a | B. extensive; a | C. extensive, it was a | D. extensive. A Compare the complete lead-in with the following noun phrase. A subject and a verb inside a that-clause do not automatically make it an independent sentence."
+        },
+        "checks": [
+          {
+            "bankId": "89ab0d46",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Name the actual units on the two sides of the blank. What would punctuation separate? Give the connection those units require."
+                }
+              ]
+            }
+          },
+          {
+            "bankId": "c21df211",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Name the actual units on the two sides of the blank. What would punctuation separate? Give the connection those units require."
+                }
+              ]
+            }
+          },
+          {
+            "bankId": "d198997b",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Name the actual units on the two sides of the blank. What would punctuation separate? Give the connection those units require."
+                }
+              ]
+            }
+          }
+        ],
+        "reserves": [
+          {
+            "bankId": "6fdddabf",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Name the actual units on the two sides of the blank. What would punctuation separate? Give the connection those units require."
+                }
+              ]
+            }
+          }
+        ],
+        "outcomes": [
+          {
+            "label": "Essential sentence parts stay connected",
+            "ids": [
+              "603755a5",
+              "89ab0d46",
+              "d198997b",
+              "6fdddabf"
+            ]
+          },
+          {
+            "label": "A genuine supplementary example needs punctuation",
+            "ids": [
+              "c21df211"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agreement",
+        "title": "Which noun controls this verb?",
+        "model": {
+          "bankId": "dc645172",
+          "responseProfile": {
+            "key": "own",
+            "phase": "with-options",
+            "fields": [
+              {
+                "id": "method",
+                "label": "Write the controlling subject or head noun and its number. Which verb number is required?"
+              }
+            ]
+          },
+          "note": "Try this familiar example first. Cross out intervening descriptions mentally and read the core subject plus verb. Contrast the plural core in this question with this short contrast: the football is a smaller version. Singular and plural heads require different verb forms. The nearest noun does not decide agreement."
+        },
+        "checks": [
+          {
+            "bankId": "56315bd0",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Write the controlling subject or head noun and its number. Which verb number is required?"
+                }
+              ]
+            }
+          },
+          {
+            "bankId": "43b88827",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Write the controlling subject or head noun and its number. Which verb number is required?"
+                }
+              ]
+            }
+          },
+          {
+            "bankId": "28166dc6",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Write the controlling subject or head noun and its number. Which verb number is required?"
+                }
+              ]
+            }
+          }
+        ],
+        "reserves": [
+          {
+            "bankId": "6e193b19",
+            "responseProfile": {
+              "key": "own",
+              "phase": "with-options",
+              "fields": [
+                {
+                  "id": "method",
+                  "label": "Write the controlling subject or head noun and its number. Which verb number is required?"
+                }
+              ]
+            }
+          }
+        ],
+        "outcomes": [
+          {
+            "label": "Singular controlling head requires singular verb",
+            "ids": [
+              "56315bd0",
+              "6e193b19"
+            ]
+          },
+          {
+            "label": "Plural or coordinated head requires plural verb",
+            "ids": [
+              "dc645172",
+              "43b88827",
+              "28166dc6"
+            ]
+          }
+        ]
+      }
+    ],
+    "spares": [],
+    "protectedTransfer": true,
+    "singleCredit": false,
+    "mixedInRoute": true,
+    "mixedSeconds": 0,
+    "transfer": [
+      "83c9c503",
+      "9d4a701b",
+      "7a0d9031",
+      "39d1a519"
+    ],
+    "itemOverrides": {
+      "83c9c503": {
+        "stage": "Mixed question",
+        "responseProfile": {
+          "key": "own",
+          "phase": "with-options",
+          "fields": [
+            {
+              "id": "method",
+              "label": "What information decides your answer?"
+            }
+          ]
+        }
+      },
+      "9d4a701b": {
+        "stage": "Mixed question",
+        "responseProfile": {
+          "key": "own",
+          "phase": "with-options",
+          "fields": [
+            {
+              "id": "method",
+              "label": "What information decides your answer?"
+            }
+          ]
+        }
+      },
+      "7a0d9031": {
+        "stage": "Mixed question",
+        "responseProfile": {
+          "key": "own",
+          "phase": "with-options",
+          "fields": [
+            {
+              "id": "method",
+              "label": "What information decides your answer?"
+            }
+          ]
+        }
+      },
+      "39d1a519": {
+        "stage": "Mixed question",
+        "responseProfile": {
+          "key": "own",
+          "phase": "before-options",
+          "fields": [
+            {
+              "id": "method",
+              "label": "What information decides your answer?"
+            }
+          ]
+        }
+      }
+    },
+    "intro": "Work without a student countdown. Keep method notes brief and specific; say not sure yet if needed. Conventions choices stay visible. Recognised questions are review, and help is recorded separately.",
+    "methodIntro": "Conventions choices are visible while you record the structure. On the transition question, record the relationship before the choices appear.",
+    "creditNote": "Today records answers and reasoning without awarding mastery credit. Retention is checked on a later day.",
+    "order": "0–5 min: retrieval. 5–20: first cycle. 20–35: second cycle only if ready. At minute 35 start the four-question mixed check, even if a cycle was skipped. Review at most two questions; finish by opening the agreed homework.",
+    "close": "Say back the two checks. Open the agreed homework on your device. Revisit the methods tomorrow and again three days later."
+  }
+});})();

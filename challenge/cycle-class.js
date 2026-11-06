@@ -117,9 +117,9 @@
       if(s.transferStarted&&!s.transferDone) mixed=button('ccResume','Resume the mixed check');
       paint('<div class="cbox"><p>'+esc(path.intro)+'</p><p>'+esc(path.order)+'</p></div>'+
         '<div class="crow">'+openingButton+rows+spareButtons+mixed+'</div>'+
-        '<p class="cnote">Predict before the choices appear. In each part you try the worked example first, then three questions on your own: you see Right or Not yet straight away, and the explanations come after the third. '+
+        '<p class="cnote">'+esc(path.methodIntro||'Predict before the choices appear.')+' In each part you try the worked example first, then three questions on your own: you see Right or Not yet straight away, and the explanations come after the third. '+
         (clockReady()||s.transferStarted?'':'The mixed check runs without a clock unless every part ended with at least two of three right. ')+
-        'Class answers earn no mastery; only the mixed check counts.</p>'+
+        esc(path.creditNote||'Class answers earn no mastery; only the mixed check counts.')+'</p>'+
         (s.transferDone?'<div class="cmsg"><b>Class route complete.</b> '+esc(path.close)+'</div>':''));
       wire('ccOpening',openOpening);
       cycles.forEach(function(c,i){wire('ccCycle'+i,function(){openCycle(c,i);});});
