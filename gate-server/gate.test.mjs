@@ -106,6 +106,10 @@ test('no student opens a tutor page; a tutor does', async () => {
   const student = await signIn(STUDENT_PW);
   const r = await go(req('/tutor-dashboard.html', { headers: { Cookie: student.cookie } }));
   assert.equal(r.status, 403);
+  // Cloudflare Pages also serves /x.html as /x; every spelling must be refused.
+  for (const p of ['/tutor-dashboard', '/tutor-dashboard/', '/Tutor-Dashboard.HTML', '/TUTOR-DASHBOARD']) {
+    assert.equal((await go(req(p, { headers: { Cookie: student.cookie } }))).status, 403, p);
+  }
   const tutor = await signIn(TUTOR_PW);
   assert.equal((await go(req('/tutor-dashboard.html', { headers: { Cookie: tutor.cookie } }))).status, 200);
 });

@@ -136,6 +136,10 @@ function safeNext(next) {
   return typeof next === 'string' && /^\/(?![/\\])[^\s]*$/.test(next) && !next.startsWith('/__gate') ? next : '/';
 }
 
+function canon(path) {
+  return path.toLowerCase().replace(/\/+$/, '').replace(/\.html$/, '').replace(/\/index$/, '') || '/';
+}
+
 function wantsPage(request, path) {
   return request.method === 'GET' && (path.endsWith('/') || path.endsWith('.html') || (request.headers.get('Accept') || '').includes('text/html'));
 }
@@ -188,7 +192,9 @@ export async function handle(request, env, next, config, now = Date.now()) {
     }
     return new Response('Sign in first', { status: 401, headers: { 'Cache-Control': 'no-store' } });
   }
-  const tutorPage = config.tutorPaths?.includes(path) || (path.endsWith('/') && config.tutorPaths?.includes(path + 'index.html'));
+  // Pages serves /x.html also as /x (and redirects one to the other), so compare
+  // a canonical form: no case, no .html, no trailing slash, no /index.
+  const tutorPage = (config.tutorPaths || []).some((t) => canon(t) === canon(path));
   if (tutorPage && who.role !== 'tutor') {
     return page(403, 'Tutors only', '<h1>Tutors only</h1><a class="b" href="/__gate/logout">Sign in as a tutor</a>');
   }
