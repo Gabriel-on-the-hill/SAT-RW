@@ -9,9 +9,20 @@ repository's status file. Until the owner says otherwise:
 - Change this app only for homework plans that use questions already in the bank, fixes to faults a
   student sees, access protection, and documentation. New features go into the Hub.
 - Record every change in the Hub status file's port list on the same day.
-- Add no new College Board questions to the bank, from any source.
 - Write no student names (beyond the existing gate names) and no notes about a student in any
   tracked file or commit message. This repository is public.
+- **No new College Board questions from any source, and the import tools are retired from use (Hub decision D1,
+  "Content rights for College Board questions").** Copying official items into a paid service is the
+  copyright and terms exposure D1 sets out. `tools/bank-import-kit/` and `tools/EXTRACTION-GUIDE.md`
+  stay in the repository as a record and are not to be used; their tests still run.
+
+**Access (from the move to a private site, Hub card S0.6).** The private copy is served by Cloudflare
+Pages, which runs `functions/_middleware.js` (code in `gate-server/`) before any file: a person
+signs in with their own password, checked on the server against hashes in the host's secret
+settings. `gate.js` then takes that sign-in instead of asking again. Pages a student may not open
+are listed in `gate-server/config.mjs` as well as setting `GATE_REQUIRE = 'tutor'`; the test checks
+the two agree. New passwords: `node gate-server/password.mjs "<label>" student`. Never commit a
+password or the `GATE_USERS` value.
 
 A no-build static site. Open the HTML, edit it, reload. No bundler, no package.json.
 
@@ -23,7 +34,8 @@ Read it before proposing an architecture.
 files**. There is no shared module — a fix to `homework-run.html` here is *not* a fix there.
 **Change one, change both, and run both test suites.**
 
-**Adding questions to the bank from the source textbooks?** Read
+**Retired (D1, above): no questions are added from the source textbooks.** The record below is kept
+for reference only. ~~Adding questions to the bank from the source textbooks?~~ Read
 [tools/EXTRACTION-GUIDE.md](tools/EXTRACTION-GUIDE.md) first, all of it. The three PDFs in this
 folder are *scans* whose OCR silently drops characters and whose A/B/C/D letters are unrecoverable
 from the text layer — an extraction built on the obvious assumptions produces questions with no
@@ -77,6 +89,7 @@ node tutor-sheet/reminders.test.js                                 # reminder em
 node tools/bank-import-kit/import.test.js                           # import gates and install barrier
 NODE_PATH=/tmp/j/node_modules node strategy-response.test.js           # method fields, drafts, timing and logging
 node cache-tags.test.js                                            # students get the CURRENT files
+node --test gate-server/gate.test.mjs                               # nothing is served without a server sign-in
 ```
 
 Each suite is its own `node` command. Do not use a glob: `node challenge/*.test.js` runs only the
