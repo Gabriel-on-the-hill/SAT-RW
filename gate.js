@@ -234,6 +234,23 @@
     // Test hook. Read-only view plus a way to force a beat without waiting a minute.
     window.__gateLease = { beat: beat, state: () => ({ student: lease.student, token: lease.token, dead: lease.dead }) };
 
+    // ── Behind the server gate ───────────────────────────────────────
+    // On the private site (Cloudflare Pages, gate-server/gate.mjs) the server
+    // checks the password before any file is sent, and the readable et_who
+    // cookie says who signed in. The page takes that identity instead of asking
+    // again; the one-login lease still applies. On the old public site there is
+    // no such cookie and nothing here changes.
+    function serverWho() {
+        try {
+            const m = document.cookie.match(/(?:^|;\s*)et_who=([^;]+)/);
+            if (!m) return null;
+            const bin = atob(m[1].replace(/-/g, '+').replace(/_/g, '/'));
+            const v = JSON.parse(new TextDecoder().decode(Uint8Array.from(bin, c => c.charCodeAt(0))));
+            return v && typeof v.n === 'string' && v.n && (v.r === 'student' || v.r === 'tutor') ? v : null;
+        } catch (e) { return null; }
+    }
+    const SERVER = serverWho();
+
     // Expose a global lock function so the hub can offer a "Lock" button.
     // Defined unconditionally so it works whether or not the gate fired.
     window.lockMastery = function () {
@@ -242,8 +259,54 @@
         sessionStorage.removeItem(STORAGE_KEY);
         sessionStorage.removeItem(USER_KEY);
         sessionStorage.removeItem(ROLE_KEY);
+        // Behind the server gate, locking also signs out there; otherwise the
+        // server's sign-in would unlock the page again straight away.
+        if (SERVER) { location.href = '/__gate/logout'; return; }
         location.reload();
     };
+
+    if (SERVER) {
+        // Someone else signed in on the server since this tab unlocked: start again as them.
+        if (ss(USER_KEY) && ss(USER_KEY) !== SERVER.n) {
+            try { [STORAGE_KEY, USER_KEY, ROLE_KEY, LEASE_TOKEN_KEY].forEach(k => sessionStorage.removeItem(k)); } catch (e) {}
+        }
+        if (ss(STORAGE_KEY) !== SESSION_FLAG && (REQUIRE !== 'tutor' || SERVER.r === 'tutor')) {
+            // Set before the page's own scripts run, so they read who this is.
+            try {
+                sessionStorage.setItem(STORAGE_KEY, SESSION_FLAG);
+                sessionStorage.setItem(USER_KEY, SERVER.n);
+                sessionStorage.setItem(ROLE_KEY, SERVER.r);
+            } catch (e) {}
+            if (SERVER.r === 'tutor') return;
+            const hide = document.createElement('style');
+            hide.textContent = 'html{visibility:hidden!important}';
+            (document.head || document.documentElement).appendChild(hide);
+            const token = newToken();
+            leaseCall('acquire', SERVER.n, token).then(r => {
+                if (r && r.ok === false && r.reason === 'held') {
+                    try { [STORAGE_KEY, USER_KEY, ROLE_KEY].forEach(k => sessionStorage.removeItem(k)); } catch (e) {}
+                    onReady(() => {
+                        const box = document.createElement('div');
+                        box.id = '__gateOverlay';
+                        box.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:#0f172a;display:flex;'
+                            + 'align-items:center;justify-content:center;padding:1rem;font-family:system-ui,sans-serif';
+                        box.innerHTML = '<div style="background:#fff;border-radius:1rem;padding:1.75rem;max-width:380px;width:100%">'
+                            + '<p id="__gateError" style="margin:0 0 1rem;color:#dc2626;font-weight:600"></p>'
+                            + '<button id="__gateRetry" style="width:100%;padding:.75rem;background:#2563eb;color:#fff;border:0;'
+                            + 'border-radius:.55rem;font-size:1rem;font-weight:600">Try again</button></div>';
+                        document.body.appendChild(box);
+                        document.getElementById('__gateError').textContent = MSG_REFUSED;
+                        document.getElementById('__gateRetry').addEventListener('click', () => location.reload());
+                        hide.remove();
+                    });
+                    return;
+                }
+                holdLease(SERVER.n, token, 5000, false);
+                hide.remove();
+            });
+            return;
+        }
+    }
 
     // Already unlocked? Render normally — but an unlock is not a blank cheque.
     // The session flag alone said "somebody typed a valid password", which let a

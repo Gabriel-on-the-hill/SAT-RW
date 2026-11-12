@@ -159,6 +159,7 @@ function boot(file, opts) {
             w.__gateReload = () => { w.__reloads++; };
             if (opts.channel) w.BroadcastChannel = opts.channel;
             for (const [k, v] of Object.entries(opts.seed || {})) w.sessionStorage.setItem(k, v);
+            if (opts.cookie) w.document.cookie = opts.cookie;
         },
     });
     const w = dom.window;
@@ -409,6 +410,72 @@ t('the lease endpoint is the tutor sheet the app already posts to', () => {
         eq(w2.__calls.length, 0, 'tutor sent: ' + w2.__calls.map(c => c.op).join(','));
     });
     w2.close();
+}
+
+console.log('\nBEHIND THE SERVER GATE (gate-server/gate.mjs)\n---------------------------------------------');
+// On the private site the server has checked the password before gate.js is
+// sent, and the et_who cookie names who signed in. No second prompt.
+{
+    const who = (n, r) => 'et_who=' + Buffer.from(JSON.stringify({ n, r })).toString('base64url');
+    const w = await boot('index.html', { cookie: who('Student A', 'student') });
+    await wait(200);
+    t('a student signed in on the server is not asked again', () => {
+        ok(!locked(w), 'the password prompt appeared behind the server gate');
+        eq(w.sessionStorage.getItem('mastery_user'), 'Student A');
+        eq(w.sessionStorage.getItem('mastery_role'), 'student');
+        eq(w.__errs.length, 0, 'script errors: ' + w.__errs.join(' | '));
+    });
+    t('...and still takes the one-login lease on that name', () => {
+        const acq = w.__calls.find(c => c.op === 'acquire');
+        ok(acq, 'no lease was asked for');
+        eq(acq.params.student, 'Student A');
+    });
+    t('Lock also signs out on the server', () => {
+        let went = null;
+        try { w.lockMastery(); } catch (e) { went = 'threw: ' + e.message; }
+        ok(went === null, went);
+        eq(w.sessionStorage.getItem('mastery_unlocked'), null);
+    });
+    w.close();
+
+    const held = await boot('index.html', { cookie: who('Student A', 'student'),
+        transport: op => op === 'acquire' ? { ok: false, reason: 'held' } : { ok: true } });
+    await wait(200);
+    t('a second screen on a live name is refused, with a way to try again', () => {
+        eq(held.sessionStorage.getItem('mastery_unlocked'), null);
+        eq(held.document.getElementById('__gateError').textContent, MSG('MSG_REFUSED'));
+        ok(held.document.getElementById('__gateRetry'), 'no Try again button');
+    });
+    held.close();
+
+    const tut = await boot('tutor-dashboard.html', { cookie: who('Student A', 'student') });
+    t('a student signed in on the server still cannot open a tutor page', () => {
+        ok(locked(tut), 'the tutor page opened for a student');
+        eq(tut.sessionStorage.getItem('mastery_role'), null);
+    });
+    tut.close();
+
+    const tutor = await boot('tutor-dashboard.html', { cookie: who('Tutor', 'tutor') });
+    await wait(200);
+    t('a tutor signed in on the server opens the tutor page, with no lease', () => {
+        ok(!locked(tutor), 'the tutor was asked again');
+        eq(tutor.sessionStorage.getItem('mastery_role'), 'tutor');
+        eq(tutor.__calls.length, 0);
+    });
+    tutor.close();
+
+    const swap = await boot('index.html', { cookie: who('Student B', 'student'),
+        seed: { mastery_unlocked: '1', mastery_user: 'Student A', mastery_role: 'student', mastery_lease: 'old123' } });
+    await wait(200);
+    t('a tab unlocked for someone else switches to the person signed in', () => {
+        eq(swap.sessionStorage.getItem('mastery_user'), 'Student B');
+        eq(swap.__calls.find(c => c.op === 'acquire').params.student, 'Student B');
+    });
+    swap.close();
+
+    const bad = await boot('index.html', { cookie: 'et_who=not-base64-json' });
+    t('an unreadable et_who cookie falls back to the password prompt', () => ok(locked(bad)));
+    bad.close();
 }
 
 console.log('\n' + '='.repeat(48));
